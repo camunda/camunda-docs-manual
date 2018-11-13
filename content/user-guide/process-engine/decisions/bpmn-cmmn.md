@@ -192,8 +192,7 @@ to pass the decision result into variables.
 {{< note title="Limitations of Serialization" class="warning" >}}
 
 If you pass a collection or a complex object to a variable then you should
-consider the [limitations of serialization]({{< relref
-"#limitations-of-the-serialization-of-the-mapping-result" >}}).
+consider the [limitations of serialization]({{< relref "#limitations-of-the-serialization-of-the-mapping-result" >}}).
 
 
 {{< /note >}}
@@ -373,8 +372,7 @@ section in the [Spring] and [CDI] guides.
 
 {{< note title="Use of Internal API" class="warning" >}}
 
-These APIs are **not** part of the [public API]({{< relref
-"introduction/public-api.md" >}}) and may change in later releases.
+These APIs are **not** part of the [public API]({{< ref "/introduction/public-api.md" >}}) and may change in later releases.
 
 {{< /note >}}
 
@@ -399,17 +397,17 @@ This can be done, for example, by creating a [process engine plugin].
 Please **note** that these functions are available in all JUEL expressions
 in the platform, not only in DMN decision tables.
 
-[deployed]: {{< relref "user-guide/process-engine/decisions/repository.md" >}}
-[business rule task]: {{< relref "reference/bpmn20/tasks/business-rule-task.md" >}}
-[decision task]: {{< relref "reference/cmmn11/tasks/decision-task.md" >}}
-[Typed Value API]: {{< relref "user-guide/process-engine/variables.md#typed-value-api" >}}
-[object value serialization]: {{< relref "user-guide/process-engine/variables.md#object-value-serialization" >}}
-[output variable mapping]: {{< relref "user-guide/process-engine/variables.md#input-output-variable-mapping" >}}
-[execution listener]: {{< relref "user-guide/process-engine/delegation-code.md#execution-listener" >}}
-[decision table]: {{< relref "reference/dmn11/decision-table/index.md" >}}
-[expression languages]: {{< relref "user-guide/dmn-engine/expressions-and-scripts.md" >}}
+[deployed]: {{< ref "/user-guide/process-engine/decisions/repository.md" >}}
+[business rule task]: {{< ref "/reference/bpmn20/tasks/business-rule-task.md" >}}
+[decision task]: {{< ref "/reference/cmmn11/tasks/decision-task.md" >}}
+[Typed Value API]: {{< ref "/user-guide/process-engine/variables.md#typed-value-api" >}}
+[object value serialization]: {{< ref "/user-guide/process-engine/variables.md#object-value-serialization" >}}
+[output variable mapping]: {{< ref "/user-guide/process-engine/variables.md#input-output-variable-mapping" >}}
+[execution listener]: {{< ref "/user-guide/process-engine/delegation-code.md#execution-listener" >}}
+[decision table]: {{< ref "/reference/dmn11/decision-table/_index.md" >}}
+[expression languages]: {{< ref "/user-guide/dmn-engine/expressions-and-scripts.md" >}}
 [JUEL]: http://juel.sourceforge.net/
-[FEEL]: {{< relref "reference/dmn11/feel/index.md" >}}
-[Spring]: {{< relref "user-guide/spring-framework-integration/index.md#expression-resolving" >}}
-[CDI]: {{< relref "user-guide/cdi-java-ee-integration/expression-resolving.md" >}}
-[process engine plugin]: {{< relref "user-guide/process-engine/process-engine-plugins.md" >}}
+[FEEL]: {{< ref "/reference/dmn11/feel/_index.md" >}}
+[Spring]: {{< ref "/user-guide/spring-framework-integration/_index.md#expression-resolving" >}}
+[CDI]: {{< ref "/user-guide/cdi-java-ee-integration/expression-resolving.md" >}}
+[process engine plugin]: {{< ref "/user-guide/process-engine/process-engine-plugins.md" >}}

@@ -79,7 +79,7 @@ As runtime relevant resource it defines
 8. a main file that bootstraps the client-side plugin in a [AngularJS](http://angularjs.org/) / [RequireJS](http://requirejs.org) environment
 
 {{< note title="Related Example" class="info">}}
-  [How to develop a cockpit plugin]({{< relref "examples/tutorials/develop-cockpit-plugin.md" >}})
+  [How to develop a cockpit plugin]({{< ref "/examples/tutorials/develop-cockpit-plugin.md" >}})
 {{< /note >}}
 
 
@@ -127,7 +127,7 @@ var ViewConfig = [ 'ViewsProvider', function(ViewsProvider) {
 }];
 ```
 
-For more information on creating and configuring your own plugin, please see [How to develop a Cockpit plugin]({{< relref "examples/tutorials/develop-cockpit-plugin.md" >}}).
+For more information on creating and configuring your own plugin, please see [How to develop a Cockpit plugin]({{< ref "/examples/tutorials/develop-cockpit-plugin.md" >}}).
 
 
 ## Dashboard
@@ -276,7 +276,7 @@ You can see a [working example](https://github.com/camunda/camunda-bpm-webapp/bl
 
 This plugin should contain an initialize function recieving a data object with the following fields:
 
-* `decisionDefinition`: The data about the decision definition corresponding to the [REST response]({{< relref "reference/rest/decision-definition/get.md#result" >}})
+* `decisionDefinition`: The data about the decision definition corresponding to the [REST response]({{< ref "/reference/rest/decision-definition/get.md#result" >}})
 * `decisionData`: The data-depend object for the decision definition
 * `tableControl`: Control object for the rendered dmn-table corresponding to the [dmn-table widget](http://camunda.github.io/camunda-commons-ui/cam-widget-dmn-viewer.html)
 
@@ -330,4 +330,4 @@ ViewsProvider.registerDefaultView('cockpit.decisionDefinition.table', {
 
 **Name:** `cockpit.report`
 
-See the [Reports]({{< relref "webapps/cockpit/reporting.md" >}}) section for an example report plugin.
+See the [Reports]({{< ref "/webapps/cockpit/reporting.md" >}}) section for an example report plugin.

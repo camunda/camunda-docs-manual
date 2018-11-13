@@ -12,7 +12,7 @@ menu:
 
 ---
 
-You can use the reports section of cockpit to display custom statistics and reports. Please note that this section is not visible if no report is available. Refer to the [Cockpit Plugins]({{< relref "webapps/cockpit/extend/plugins.md" >}}) section for adding a custom reporting plugin.
+You can use the reports section of cockpit to display custom statistics and reports. Please note that this section is not visible if no report is available. Refer to the [Cockpit Plugins]({{< ref "/webapps/cockpit/extend/plugins.md" >}}) section for adding a custom reporting plugin.
 
 
 # Instance Duration Report

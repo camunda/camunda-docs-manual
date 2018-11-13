@@ -112,7 +112,7 @@ In order to solve the requirements stated in the introduction, we can think of a
 
  *   The **naive implementation**, as already explained: **not recommended**.
  *   Write custom **SQL** code to do your own queries: possible, but you have to mess around with SQL yourself: **not recommended**.
- *   Leverage **MyBatis** for your custom queries: That is actually a really powerful approach and **our recommendation**: see the [example below]({{< relref "examples/tutorials/custom-queries.md#custom-mybatis-queries" >}}).
+ *   Leverage **MyBatis** for your custom queries: That is actually a really powerful approach and **our recommendation**: see the [example below]({{< ref "/examples/tutorials/custom-queries.md#custom-mybatis-queries" >}}).
  *   Use **JPA**: We experimented with JPA mappings for the core engine entities to allow JPA queries. If these mappings exist and you can use them in your own application combined with your own JPA stuff, then it is a possible approach. However, you have to maintain the JPA mappings yourself which involves a lot of work and we have already experienced problems with it in the past, so, basically: **not recommended**.
  *   Add **redundant information**, an easy, but often sufficient, approach to improve queries, which doesn't need a lot of understanding of the persistence implementation:
      *   Add process variables for all query parameters. In our example that would mean to add the region as its own process variable. This approach is **recommended**.

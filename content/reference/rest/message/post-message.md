@@ -15,7 +15,7 @@ menu:
 
 Deliver a message to the process engine to either trigger a message start event or an intermediate message catching event.
 Internally this maps to the engine's message correlation builder methods `MessageCorrelationBuilder#correlate()` and `MessageCorrelationBuilder#correlateAll()`.
-For more information about the correlation behavior, see the [Message Events]({{< relref "reference/bpmn20/events/message-events.md" >}}) section of the [BPMN 2.0 Implementation Reference]({{< relref "reference/bpmn20/index.md" >}}).
+For more information about the correlation behavior, see the [Message Events]({{< ref "/reference/bpmn20/events/message-events.md" >}}) section of the [BPMN 2.0 Implementation Reference]({{< ref "/reference/bpmn20/_index.md" >}}).
 
 
 # Method
@@ -100,7 +100,7 @@ This method returns no content.
     <td>400</td>
     <td>application/json</td>
     <td>If no <code>messageName</code> was supplied. If both <code>tenantId</code> and <code>withoutTenantId</code> are supplied.</br>
-    If the message has not been correlated to exactly one entity (execution or process definition), or the variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    If the message has not been correlated to exactly one entity (execution or process definition), or the variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

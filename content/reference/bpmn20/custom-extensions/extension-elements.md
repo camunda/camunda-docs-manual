@@ -31,7 +31,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Constraints</th>
     <td colspan="2">
-      The <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#connectorid" >}}">
+      The <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#connectorid" >}}">
       camunda:connectorId</a> child element is required and must identify a connector implementation
       known to the process engine
     </td>
@@ -39,21 +39,21 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Parent elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
       Message Event Definition of
-      <a href="{{< relref "reference/bpmn20/events/message-events.md#message-intermediate-throwing-event" >}}">
+      <a href="{{< ref "/reference/bpmn20/events/message-events.md#message-intermediate-throwing-event" >}}">
       Message Intermediate Throwing Event</a> or
-      <a href="{{< relref "reference/bpmn20/events/message-events.md#message-end-event" >}}">Message End Event</a>,
+      <a href="{{< ref "/reference/bpmn20/events/message-events.md#message-end-event" >}}">Message End Event</a>,
     </td>
   </tr>
   <tr>
     <th>Child elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}">
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}">
       camunda:inputOutput</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#connectorid" >}}">
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#connectorid" >}}">
       camunda:connectorId</a>
     </td>
   </tr>
@@ -82,7 +82,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Parent elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#connector" >}}">
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#connector" >}}">
       camunda:connector</a>
     </td>
   </tr>
@@ -99,7 +99,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td colspan="2">
-      Metadata of an individual validation constraint for a form field (see <a href="{{< relref "user-guide/task-forms/index.md#form-field-validation" >}}">Form Field Validation</a>).
+      Metadata of an individual validation constraint for a form field (see <a href="{{< ref "/user-guide/task-forms/_index.md#form-field-validation" >}}">Form Field Validation</a>).
     </td>
   </tr>
   <tr>
@@ -126,7 +126,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Parent elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#validation" >}}">camunda:validation</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#validation" >}}">camunda:validation</a>
     </td>
   </tr>
   <tr>
@@ -164,15 +164,15 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Parent elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#map" >}}">camunda:map</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#map" >}}">camunda:map</a>
     </td>
   </tr>
   <tr>
     <th>Child elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#list" >}}">camunda:list</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#map" >}}">camunda:map</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#script" >}}">camunda:script</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#list" >}}">camunda:list</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#map" >}}">camunda:map</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#script" >}}">camunda:script</a>
     </td>
   </tr>
 </table>
@@ -198,21 +198,21 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <td></td>
     <td><code>class</code></td>
     <td>
-      see <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#class" >}}">camunda:class</a>
+      see <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#class" >}}">camunda:class</a>
     </td>
   </tr>
   <tr>
     <td></td>
     <td><code>expression</code></td>
     <td>
-      see <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#expression" >}}">camunda:expression</a>
+      see <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#expression" >}}">camunda:expression</a>
     </td>
   </tr>
   <tr>
     <td></td>
     <td><code>delegateExpression</code></td>
     <td>
-      see <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#delegateexpression" >}}">camunda:delegateExpression</a>
+      see <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#delegateexpression" >}}">camunda:delegateExpression</a>
     </td>
   </tr>
   <tr>
@@ -232,34 +232,34 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <td colspan="2">
       Process,
       Task,
-      <a href="{{< relref "reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/user-task.md" >}}">User Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/script-task.md" >}}">Script Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/receive-task.md" >}}">Receive Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/manual-task.md" >}}">Manual Task</a>,
-      <a href="{{< relref "reference/bpmn20/gateways/exclusive-gateway.md" >}}">Exclusive Gateway</a>,
-      <a href="{{< relref "reference/bpmn20/gateways/sequence-flow.md" >}}">Sequence Flow</a>,
-      <a href="{{< relref "reference/bpmn20/gateways/parallel-gateway.md" >}}">Parallel Gateway</a>,
-      <a href="{{< relref "reference/bpmn20/gateways/inclusive-gateway.md" >}}">Inclusive Gateway</a>,
-      <a href="{{< relref "reference/bpmn20/gateways/event-based-gateway.md" >}}">Event Based Gateway</a>,
-      <a href="{{< relref "reference/bpmn20/events/start-events.md" >}}">Start Event</a>,
-      <a href="{{< relref "reference/bpmn20/events/index.md" >}}">Intermediate Catch Event</a>,
-      <a href="{{< relref "reference/bpmn20/events/index.md" >}}">Intermediate Throw Event</a>,
-      <a href="{{< relref "reference/bpmn20/events/index.md" >}}">End Events</a>,
-      <a href="{{< relref "reference/bpmn20/events/index.md" >}}">Boundary Events</a>,
-      <a href="{{< relref "reference/bpmn20/subprocesses/embedded-subprocess.md" >}}">Embedded Subprocess</a>,
-      <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>,
-      <a href="{{< relref "reference/bpmn20/subprocesses/event-subprocess.md" >}}">Event Subprocess</a>,
-      <a href="{{< relref "reference/bpmn20/subprocesses/transaction-subprocess.md" >}}">Transaction Subprocess</a>
+      <a href="{{< ref "/reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/user-task.md" >}}">User Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/script-task.md" >}}">Script Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/receive-task.md" >}}">Receive Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/manual-task.md" >}}">Manual Task</a>,
+      <a href="{{< ref "/reference/bpmn20/gateways/exclusive-gateway.md" >}}">Exclusive Gateway</a>,
+      <a href="{{< ref "/reference/bpmn20/gateways/sequence-flow.md" >}}">Sequence Flow</a>,
+      <a href="{{< ref "/reference/bpmn20/gateways/parallel-gateway.md" >}}">Parallel Gateway</a>,
+      <a href="{{< ref "/reference/bpmn20/gateways/inclusive-gateway.md" >}}">Inclusive Gateway</a>,
+      <a href="{{< ref "/reference/bpmn20/gateways/event-based-gateway.md" >}}">Event Based Gateway</a>,
+      <a href="{{< ref "/reference/bpmn20/events/start-events.md" >}}">Start Event</a>,
+      <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">Intermediate Catch Event</a>,
+      <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">Intermediate Throw Event</a>,
+      <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">End Events</a>,
+      <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">Boundary Events</a>,
+      <a href="{{< ref "/reference/bpmn20/subprocesses/embedded-subprocess.md" >}}">Embedded Subprocess</a>,
+      <a href="{{< ref "/reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>,
+      <a href="{{< ref "/reference/bpmn20/subprocesses/event-subprocess.md" >}}">Event Subprocess</a>,
+      <a href="{{< ref "/reference/bpmn20/subprocesses/transaction-subprocess.md" >}}">Transaction Subprocess</a>
     </td>
   </tr>
   <tr>
     <th>Child elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#field" >}}">camunda:field</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#script" >}}">camunda:script</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#field" >}}">camunda:field</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#script" >}}">camunda:script</a>
     </td>
   </tr>
 </table>
@@ -270,7 +270,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
 <tr>
   <th>Description</th>
   <td colspan="2">
-    Defines an expression to inject in delegated classes (see <a href="{{< relref "user-guide/process-engine/delegation-code.md#field-injection" >}}">Field Injection</a>).
+    Defines an expression to inject in delegated classes (see <a href="{{< ref "/user-guide/process-engine/delegation-code.md#field-injection" >}}">Field Injection</a>).
   </td>
 </tr>
 <tr>
@@ -294,7 +294,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
 <tr>
   <th>Parent elements</th>
   <td colspan="2">
-    <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#field" >}}">camunda:field</a>
+    <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#field" >}}">camunda:field</a>
   </td>
 </tr>
 <tr>
@@ -311,7 +311,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td colspan="2">
-      Defines the custom retry schedule for a failed job (see <a href="{{< relref "user-guide/process-engine/the-job-executor.md#failed-jobs" >}}">Failed Jobs</a>).
+      Defines the custom retry schedule for a failed job (see <a href="{{< ref "/user-guide/process-engine/the-job-executor.md#failed-jobs" >}}">Failed Jobs</a>).
     </td>
   </tr>
   <tr>
@@ -336,20 +336,20 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>Parent elements</th>
     <td colspan="2">
       Task,
-      <a href="{{< relref "reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/user-task.md" >}}">User Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/script-task.md" >}}">Script Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/receive-task.md" >}}">Receive Task</a>,
-      <a href="{{< relref "reference/bpmn20/events/timer-events.md#timer-start-event" >}}">Timer Start Event</a>,
-      <a href="{{< relref "reference/bpmn20/events/timer-events.md#timer-intermediate-catching-event" >}}">Timer Intermediate Catching Event</a>,
-      <a href="{{< relref "reference/bpmn20/events/timer-events.md#timer-boundary-event" >}}">Timer Boundary Event</a>,
-      <a href="{{< relref "reference/bpmn20/events/signal-events.md" >}}">Intermediate Signal Throw Event</a>,
-      <a href="{{< relref "reference/bpmn20/subprocesses/embedded-subprocess.md" >}}">Embedded Subprocess</a>,
-      <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>,
-      <a href="{{< relref "reference/bpmn20/subprocesses/transaction-subprocess.md" >}}">Transaction Subprocess</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Multi Instance Loop Characteristics</a>
+      <a href="{{< ref "/reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/user-task.md" >}}">User Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/script-task.md" >}}">Script Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/receive-task.md" >}}">Receive Task</a>,
+      <a href="{{< ref "/reference/bpmn20/events/timer-events.md#timer-start-event" >}}">Timer Start Event</a>,
+      <a href="{{< ref "/reference/bpmn20/events/timer-events.md#timer-intermediate-catching-event" >}}">Timer Intermediate Catching Event</a>,
+      <a href="{{< ref "/reference/bpmn20/events/timer-events.md#timer-boundary-event" >}}">Timer Boundary Event</a>,
+      <a href="{{< ref "/reference/bpmn20/events/signal-events.md" >}}">Intermediate Signal Throw Event</a>,
+      <a href="{{< ref "/reference/bpmn20/subprocesses/embedded-subprocess.md" >}}">Embedded Subprocess</a>,
+      <a href="{{< ref "/reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>,
+      <a href="{{< ref "/reference/bpmn20/subprocesses/transaction-subprocess.md" >}}">Transaction Subprocess</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Multi Instance Loop Characteristics</a>
     </td>
   </tr>
   <tr>
@@ -366,7 +366,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td colspan="2">
-      Defines the value to inject in delegated classes (see <a href="{{< relref "user-guide/process-engine/delegation-code.md#field-injection" >}}">Field Injection</a>).
+      Defines the value to inject in delegated classes (see <a href="{{< ref "/user-guide/process-engine/delegation-code.md#field-injection" >}}">Field Injection</a>).
     </td>
   </tr>
   <tr>
@@ -395,19 +395,19 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Parent elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
-      Message Event Definition of <a href="{{< relref "reference/bpmn20/events/message-events.md#message-intermediate-throwing-event" >}}">Message Intermediate Throwing Event</a> or <a href="{{< relref "reference/bpmn20/events/message-events.md#message-end-event" >}}">Message End Event</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#tasklistener" >}}">camunda:taskListener</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#executionlistener" >}}">camunda:executionListner</a>
+      <a href="{{< ref "/reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
+      Message Event Definition of <a href="{{< ref "/reference/bpmn20/events/message-events.md#message-intermediate-throwing-event" >}}">Message Intermediate Throwing Event</a> or <a href="{{< ref "/reference/bpmn20/events/message-events.md#message-end-event" >}}">Message End Event</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#tasklistener" >}}">camunda:taskListener</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#executionlistener" >}}">camunda:executionListner</a>
     </td>
   </tr>
   <tr>
     <th>Child elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#expression" >}}">camunda:expression</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#string" >}}">camunda:string</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#expression" >}}">camunda:expression</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#string" >}}">camunda:string</a>
     </td>
   </tr>
 </table>
@@ -418,7 +418,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td colspan="2">
-      Metadata to define fields of a form, which are used to generate task forms (see <a href="{{< relref "user-guide/task-forms/index.md#generated-task-forms" >}}">Generated Task Forms</a>).
+      Metadata to define fields of a form, which are used to generate task forms (see <a href="{{< ref "/user-guide/task-forms/_index.md#generated-task-forms" >}}">Generated Task Forms</a>).
     </td>
   </tr>
   <tr>
@@ -436,14 +436,14 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Parent elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/events/start-events.md" >}}">Start Event</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/user-task.md" >}}">User Task</a>
+      <a href="{{< ref "/reference/bpmn20/events/start-events.md" >}}">Start Event</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/user-task.md" >}}">User Task</a>
     </td>
   </tr>
   <tr>
     <th>Child elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#formfield" >}}">camunda:formField</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#formfield" >}}">camunda:formField</a>
     </td>
   </tr>
 </table>
@@ -454,7 +454,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td colspan="2">
-      Metadata to define a single form field (see <a href="{{< relref "user-guide/task-forms/index.md#generated-task-forms" >}}">Generated Task Forms</a>).
+      Metadata to define a single form field (see <a href="{{< ref "/user-guide/task-forms/_index.md#generated-task-forms" >}}">Generated Task Forms</a>).
     </td>
   </tr>
   <tr>
@@ -531,15 +531,15 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Parent elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#formdata" >}}">camunda:formData</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#formdata" >}}">camunda:formData</a>
     </td>
   </tr>
   <tr>
     <th>Child elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#properties" >}}">camunda:properties</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#validation" >}}">camunda:validation</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#value" >}}">camunda:value</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#properties" >}}">camunda:properties</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#validation" >}}">camunda:validation</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#value" >}}">camunda:value</a>
     </td>
   </tr>
 </table>
@@ -550,7 +550,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td colspan="2">
-      Metadata to define a form field (<strong>Deprecated</strong> use <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#formdata" >}}">camunda:formData</a>).
+      Metadata to define a form field (<strong>Deprecated</strong> use <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#formdata" >}}">camunda:formData</a>).
     </td>
   </tr>
   <tr>
@@ -650,14 +650,14 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Parent elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/events/start-events.md" >}}">Start Event</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/user-task.md" >}}">User Task</a>
+      <a href="{{< ref "/reference/bpmn20/events/start-events.md" >}}">Start Event</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/user-task.md" >}}">User Task</a>
     </td>
   </tr>
   <tr>
     <th>Child elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#value" >}}">camunda:value</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#value" >}}">camunda:value</a>
     </td>
   </tr>
 </table>
@@ -668,7 +668,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td colspan="2">
-      The element specifies variables which should be passed to the subprocess, see <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md#passing-variables" >}}">passing variables</a> for more information.
+      The element specifies variables which should be passed to the subprocess, see <a href="{{< ref "/reference/bpmn20/subprocesses/call-activity.md#passing-variables" >}}">passing variables</a> for more information.
     </td>
   </tr>
   <tr>
@@ -728,7 +728,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Parent elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>
+      <a href="{{< ref "/reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>
     </td>
   </tr>
   <tr>
@@ -774,18 +774,18 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Parent elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}">
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}">
         camunda:inputOutput</a>
     </td>
   </tr>
   <tr>
     <th>Child elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#list" >}}">
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#list" >}}">
         camunda:list</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#map" >}}">
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#map" >}}">
         camunda:map</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#script" >}}">
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#script" >}}">
         camunda:script</a>
     </td>
   </tr>
@@ -816,21 +816,21 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Parent elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/tasks/index.md" >}}">All Tasks</a>,
-      <a href="{{< relref "reference/bpmn20/events/index.md" >}}">All Events</a> (except Start and Boundary Events),
-      <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>,
-      <a href="{{< relref "reference/bpmn20/subprocesses/embedded-subprocess.md" >}}">Embedded Subprocess</a>,
-      <a href="{{< relref "reference/bpmn20/subprocesses/transaction-subprocess.md" >}}">Transaction Subprocess</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#connector" >}}">
+      <a href="{{< ref "/reference/bpmn20/tasks/_index.md" >}}">All Tasks</a>,
+      <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">All Events</a> (except Start and Boundary Events),
+      <a href="{{< ref "/reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>,
+      <a href="{{< ref "/reference/bpmn20/subprocesses/embedded-subprocess.md" >}}">Embedded Subprocess</a>,
+      <a href="{{< ref "/reference/bpmn20/subprocesses/transaction-subprocess.md" >}}">Transaction Subprocess</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#connector" >}}">
         camunda:connector</a>
     </td>
   </tr>
   <tr>
     <th>Child elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#inputparameter" >}}">
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#inputparameter" >}}">
         camunda:inputParameter</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#outputparameter" >}}">
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#outputparameter" >}}">
         camunda:outputParameter</a>
     </td>
   </tr>
@@ -852,7 +852,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
         &nbsp;&nbsp;&lt;camunda:value&gt;three&lt;/camunda:value&gt;<br/>
         &lt;/camunda:list&gt;
       </code><br/>
-      Also a <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#script" >}}">
+      Also a <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#script" >}}">
       camunda:script</a> element can be used as a list element. The return value of the
       script is added to the list. Furthermore, lists can contain nested lists and maps.
     </td>
@@ -872,21 +872,21 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Parent elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#inputparameter" >}}">
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#inputparameter" >}}">
         camunda:inputParameter</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#outputparameter" >}}">
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#outputparameter" >}}">
         camunda:outputParameter</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#list" >}}">camunda:list</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#entry" >}}">camunda:entry</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#list" >}}">camunda:list</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#entry" >}}">camunda:entry</a>
     </td>
   </tr>
   <tr>
     <th>Child elements</th>
     <td colspan="2">
       Any child element,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#list" >}}">
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#list" >}}">
         camunda:list</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#map" >}}">
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#map" >}}">
         camunda:map</a>
     </td>
   </tr>
@@ -917,18 +917,18 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Parent elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#inputparameter" >}}">
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#inputparameter" >}}">
         camunda:inputParameter</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#outputparameter" >}}">
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#outputparameter" >}}">
         camunda:outputParameter</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#list" >}}">camunda:list</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#entry" >}}">camunda:entry</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#list" >}}">camunda:list</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#entry" >}}">camunda:entry</a>
     </td>
   </tr>
   <tr>
     <th>Child elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#entry" >}}">camunda:entry</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#entry" >}}">camunda:entry</a>
     </td>
   </tr>
 </table>
@@ -941,7 +941,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td colspan="2">
-      The element specifies variables which should be passed back from the subprocess, see <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md#passing-variables" >}}">passing variables</a> for more information.
+      The element specifies variables which should be passed back from the subprocess, see <a href="{{< ref "/reference/bpmn20/subprocesses/call-activity.md#passing-variables" >}}">passing variables</a> for more information.
     </td>
   </tr>
   <tr>
@@ -994,7 +994,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Parent elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>
+      <a href="{{< ref "/reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>
     </td>
   </tr>
   <tr>
@@ -1040,18 +1040,18 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Parent elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}">
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}">
         camunda:inputOutput</a>
     </td>
   </tr>
   <tr>
     <th>Child elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#list" >}}">
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#list" >}}">
         camunda:list</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#map" >}}">
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#map" >}}">
         camunda:map</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#script" >}}">
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#script" >}}">
         camunda:script</a>
     </td>
   </tr>
@@ -1118,13 +1118,13 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>Parent elements</th>
     <td colspan="2">
       Base Element,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#formfield" >}}">camunda:formField</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#formfield" >}}">camunda:formField</a>
     </td>
   </tr>
   <tr>
     <th>Child elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#property" >}}">camunda:property</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#property" >}}">camunda:property</a>
     </td>
   </tr>
 </table>
@@ -1177,7 +1177,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Parent elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#properties" >}}">camunda:properties</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#properties" >}}">camunda:properties</a>
     </td>
   </tr>
   <tr>
@@ -1209,7 +1209,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <td></td>
     <td><code>resource</code></td>
     <td>
-      equivalent to <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#resource" >}}">
+      equivalent to <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#resource" >}}">
       camunda:resource</a>
     </td>
   </tr>
@@ -1228,15 +1228,15 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Parent elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#inputparameter" >}}">
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#inputparameter" >}}">
         camunda:inputParameter</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#outputparameter" >}}">
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#outputparameter" >}}">
         camunda:outputParameter</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#entry" >}}">camunda:entry</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#list" >}}">camunda:list</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#executionlistener" >}}">
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#entry" >}}">camunda:entry</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#list" >}}">camunda:list</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#executionlistener" >}}">
         camunda:executionListener</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#tasklistener" >}}">
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#tasklistener" >}}">
         camunda:taskListener</a>
     </td>
   </tr>
@@ -1255,7 +1255,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td colspan="2">
-      Defines a String value to inject in delegated classes (see <a href="{{< relref "user-guide/process-engine/delegation-code.md#field-injection" >}}">Field Injection</a>).
+      Defines a String value to inject in delegated classes (see <a href="{{< ref "/user-guide/process-engine/delegation-code.md#field-injection" >}}">Field Injection</a>).
     </td>
   </tr>
   <tr>
@@ -1279,7 +1279,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Parent elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#field" >}}">camunda:field</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#field" >}}">camunda:field</a>
     </td>
   </tr>
   <tr>
@@ -1310,21 +1310,21 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <td></td>
     <td><code>class</code></td>
     <td>
-      see <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#class" >}}">camunda:class</a>
+      see <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#class" >}}">camunda:class</a>
     </td>
   </tr>
   <tr>
     <td></td>
     <td><code>expression</code></td>
     <td>
-      see <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#expression" >}}">camunda:expression</a>
+      see <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#expression" >}}">camunda:expression</a>
     </td>
   </tr>
   <tr>
     <td></td>
     <td><code>delegateExpression</code></td>
     <td>
-      see <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#delegateexpression" >}}">camunda:delegateExpression</a>
+      see <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#delegateexpression" >}}">camunda:delegateExpression</a>
     </td>
   </tr>
   <tr>
@@ -1342,14 +1342,14 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Parent elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/tasks/user-task.md" >}}">User Task</a>
+      <a href="{{< ref "/reference/bpmn20/tasks/user-task.md" >}}">User Task</a>
     </td>
   </tr>
   <tr>
     <th>Child elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#field" >}}">camunda:field</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#script" >}}">camunda:script</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#field" >}}">camunda:field</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#script" >}}">camunda:script</a>
     </td>
   </tr>
 </table>
@@ -1360,7 +1360,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td colspan="2">
-      Metadata to define a list of validation constraints for form fields (see <a href="{{< relref "user-guide/task-forms/index.md#form-field-validation" >}}">Form Field Validation</a>).
+      Metadata to define a list of validation constraints for form fields (see <a href="{{< ref "/user-guide/task-forms/_index.md#form-field-validation" >}}">Form Field Validation</a>).
     </td>
   </tr>
   <tr>
@@ -1378,13 +1378,13 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Parent elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#formfield" >}}">camunda:formField</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#formfield" >}}">camunda:formField</a>
     </td>
   </tr>
   <tr>
     <th>Child elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#constraint" >}}">camunda:constraint</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#constraint" >}}">camunda:constraint</a>
     </td>
   </tr>
 </table>
@@ -1421,8 +1421,8 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Parent elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#formfield" >}}">camunda:formField</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#formproperty" >}}">camunda:formProperty</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#formfield" >}}">camunda:formField</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#formproperty" >}}">camunda:formProperty</a>
     </td>
   </tr>
   <tr>

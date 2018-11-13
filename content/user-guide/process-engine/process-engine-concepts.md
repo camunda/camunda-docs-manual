@@ -22,7 +22,7 @@ A process definition defines the structure of a process. You could say that the 
   Camunda BPM comes with two BPMN 2.0 References:
 
 * The [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html#!/reference) introduces the fundamentals of BPMN 2.0 and helps you to get started modeling processes. (Make sure to read the [Tutorial](http://camunda.org/bpmn/tutorial.html) as well.)
-* The [BPMN 2.0 Implementation Reference]({{< relref "reference/bpmn20/index.md" >}}) covers the implementation of the individual BPMN 2.0 constructs in Camunda BPM. You should consult this reference if you want to implement and execute BPMN processes.
+* The [BPMN 2.0 Implementation Reference]({{< ref "/reference/bpmn20/_index.md" >}}) covers the implementation of the individual BPMN 2.0 constructs in Camunda BPM. You should consult this reference if you want to implement and execute BPMN processes.
 {{< /note >}}
 
 
@@ -43,7 +43,7 @@ List<ProcessDefinition> processDefinitions = repositoryService.createProcessDefi
 
 The above query returns all deployed process definitions for the key `invoice` ordered by their `version` property.
 
-You can also [query for process definitions using the REST API]({{< relref "reference/rest/process-definition/get-query.md" >}}).
+You can also [query for process definitions using the REST API]({{< ref "/reference/rest/process-definition/get-query.md" >}}).
 
 
 ## Keys and Versions
@@ -56,7 +56,7 @@ The *key* of a process definition (`invoice` in the example above) is the logica
 </process>
 ```
 
-If you deploy multiple processes with the same key, they are treated as individual versions of the same process definition by the process engine. Please refer to [Process Versioning]({{< relref "user-guide/process-engine/process-versioning.md" >}}) for details.
+If you deploy multiple processes with the same key, they are treated as individual versions of the same process definition by the process engine. Please refer to [Process Versioning]({{< ref "/user-guide/process-engine/process-versioning.md" >}}) for details.
 
 
 ## Suspend Process Definitions
@@ -68,7 +68,7 @@ Suspending a process definition disables it temporarily, i.e., it cannot be inst
 
 A process instance is an individual execution of a process definition. The relation of the process instance to the process definition is the same as the relation between *Object* and *Class* in Object Oriented Programming (the process instance playing the role of the object and the process definition playing the role of the class in this analogy).
 
-The process engine is responsible for creating process instances and managing their state. If you start a process instance which contains a wait state, for example a [user task]({{< relref "reference/bpmn20/tasks/user-task.md" >}}), the process engine must make sure that the state of the process instance is captured and stored inside a database until the wait state is left (the user task is completed).
+The process engine is responsible for creating process instances and managing their state. If you start a process instance which contains a wait state, for example a [user task]({{< ref "/reference/bpmn20/tasks/user-task.md" >}}), the process engine must make sure that the state of the process instance is captured and stored inside a database until the wait state is left (the user task is completed).
 
 
 ## Start a Process Instance
@@ -85,7 +85,7 @@ You may optionally pass in a couple of variables:
 
 Process variables are available to all tasks in a process instance and are automatically persisted to the database in case the process instance reaches a wait state.
 
-It is also possible to [start a process instance using the REST API]({{< relref "reference/rest/process-definition/post-start-process-instance.md" >}}).
+It is also possible to [start a process instance using the REST API]({{< ref "/reference/rest/process-definition/post-start-process-instance.md" >}}).
 
 
 ## Start a Process Instance at Any Set of Activities
@@ -117,7 +117,7 @@ You can query for all currently running process instances using the `ProcessInst
 
 The above query would select all process instances for the `invoice` process where the `creditor` is `Nice Pizza Inc.`.
 
-You can also [query for process instances using the REST API]({{< relref "reference/rest/process-instance/get-query.md" >}}).
+You can also [query for process instances using the REST API]({{< ref "/reference/rest/process-instance/get-query.md" >}}).
 
 
 ## Interact With a Process Instance
@@ -125,12 +125,12 @@ You can also [query for process instances using the REST API]({{< relref "refere
 Once you have performed a query for a particular process instance (or a list of process instances), you may want to interact with it. There are multiple possibilities to interact with a process instance, most prominently:
 
   * Triggering it (make it continue execution):
-      * Through a [Message Event]({{< relref "reference/bpmn20/events/message-events.md" >}})
-      * Through a [Signal Event]({{< relref "reference/bpmn20/events/signal-events.md" >}})
+      * Through a [Message Event]({{< ref "/reference/bpmn20/events/message-events.md" >}})
+      * Through a [Signal Event]({{< ref "/reference/bpmn20/events/signal-events.md" >}})
   * Canceling it:
       * Using the `RuntimeService.deleteProcessInstance(...)` method.
   * Starting/Canceling any activity:
-      * Using the [process instance modification feature]({{< relref "user-guide/process-engine/process-instance-modification.md" >}})
+      * Using the [process instance modification feature]({{< ref "/user-guide/process-engine/process-instance-modification.md" >}})
 
 If your process uses at least one User Task, you can also interact with the process instance using the TaskService API.
 
@@ -150,13 +150,13 @@ If you would like to suspend all process instances of a given process definition
 
 # Executions
 
-If your process instance contains multiple execution paths (like for instance after a [parallel gateway]({{< relref "reference/bpmn20/gateways/parallel-gateway.md" >}}), you must be able to differentiate the currently active paths inside the process instance. In the following example, two user tasks *receive payment* and *ship order* can be active at the same time.
+If your process instance contains multiple execution paths (like for instance after a [parallel gateway]({{< ref "/reference/bpmn20/gateways/parallel-gateway.md" >}}), you must be able to differentiate the currently active paths inside the process instance. In the following example, two user tasks *receive payment* and *ship order* can be active at the same time.
 
 {{< img src="../img/parallel-gw.png" title="Parallel Gateway" >}}
 
-Internally, the process engine creates two concurrent executions inside the process instance, one for each concurrent path of execution. Executions are also created for scopes, for example if the process engine reaches a [Embedded Sub Process]({{< relref "reference/bpmn20/subprocesses/embedded-subprocess.md" >}}) or in case of [Multi Instance]({{< relref "reference/bpmn20/tasks/task-markers.md" >}}).
+Internally, the process engine creates two concurrent executions inside the process instance, one for each concurrent path of execution. Executions are also created for scopes, for example if the process engine reaches a [Embedded Sub Process]({{< ref "/reference/bpmn20/subprocesses/embedded-subprocess.md" >}}) or in case of [Multi Instance]({{< ref "/reference/bpmn20/tasks/task-markers.md" >}}).
 
-Executions are hierarchical and all executions inside a process instance span a tree, the process instance being the root-node in the tree. Note: the process instance itself is an execution. Executions are [variable scopes]({{< relref "user-guide/process-engine/variables.md" >}}), meaning that dynamic data can be associated with them.
+Executions are hierarchical and all executions inside a process instance span a tree, the process instance being the root-node in the tree. Note: the process instance itself is an execution. Executions are [variable scopes]({{< ref "/user-guide/process-engine/variables.md" >}}), meaning that dynamic data can be associated with them.
 
 
 ## Query for Executions
@@ -171,7 +171,7 @@ runtimeService.createExecutionQuery()
 
 The above query returns all executions for a given process instance.
 
-You can also [query for executions using the REST API]({{< relref "reference/rest/execution/get.md" >}}).
+You can also [query for executions using the REST API]({{< ref "/reference/rest/execution/get.md" >}}).
 
 
 # Activity Instances
@@ -180,7 +180,7 @@ The activity instance concept is similar to the execution concept but takes a di
 
 Activity instances also span a tree, following the scope structure provided by BPMN 2.0. Activities that are "on the same level of subprocess" (i.e., part of the same scope, contained in the same subprocess) will have their activity instances at the same level in the tree.
 
-For example, Activity Instances are used for [Process Instance Modification]({{< relref "user-guide/process-engine/process-instance-modification.md" >}}) and the [Activity Instance Tree in Cockpit]({{< relref "webapps/cockpit/bpmn/process-instance-view.md#activity-instance-tree" >}}).
+For example, Activity Instances are used for [Process Instance Modification]({{< ref "/user-guide/process-engine/process-instance-modification.md" >}}) and the [Activity Instance Tree in Cockpit]({{< ref "/webapps/cockpit/bpmn/process-instance-view.md#activity-instance-tree" >}}).
 
 Examples:
 
@@ -237,7 +237,7 @@ Currently, activity instances can only be retrieved for a process instance:
 ActivityInstance rootActivityInstance = runtimeService.getActivityInstance(processInstance.getProcessInstanceId());
 ```
 
-You can [retrieve the activity instance tree using the REST API]({{< relref "reference/rest/process-instance/get-activity-instances.md" >}}) as well.
+You can [retrieve the activity instance tree using the REST API]({{< ref "/reference/rest/process-instance/get-activity-instances.md" >}}) as well.
 
 
 ## Identity & Uniqueness

@@ -15,8 +15,7 @@ menu:
 
 Query for batch statistics that fulfill given parameters. Parameters may be the
 properties of batches, such as the id or type.  The size of the result set can
-be retrieved by using the [GET statistics query count]({{< relref
-"reference/rest/batch/get-statistics-query-count.md" >}}).
+be retrieved by using the [GET statistics query count]({{< ref "/reference/rest/batch/get-statistics-query-count.md" >}}).
 
 
 # Method
@@ -208,7 +207,7 @@ Each batch statistics object has the following properties:
     <td>application/json</td>
     <td>
       Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>.
-      See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+      See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
 </table>

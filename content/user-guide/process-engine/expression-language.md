@@ -60,7 +60,7 @@ usage of EL.
   </tr>
   <tr>
     <td>
-      <a href="{{< relref "user-guide/process-engine/the-job-executor.md#specifying-priorities-in-bpmn-xml" >}}">
+      <a href="{{< ref "/user-guide/process-engine/the-job-executor.md#specifying-priorities-in-bpmn-xml" >}}">
         All Flow Nodes, Process Definition
       </a>
     </td>
@@ -75,7 +75,7 @@ usage of EL.
 
 Besides Java code, Camunda BPM also supports the evaluation of expressions as delegation code. For
 general information about delegation code, see the corresponding
-[section]({{< relref "user-guide/process-engine/delegation-code.md" >}}).
+[section]({{< ref "/user-guide/process-engine/delegation-code.md" >}}).
 
 Two types of expressions are currently supported: `camunda:expression` and
 `camunda:delegateExpression`.
@@ -332,8 +332,8 @@ If the Camunda Spin process engine plugin is activated, the Spin functions `S`,
 [official documentation]: http://docs.oracle.com/javaee/5/tutorial/doc/bnahq.html
 [examples]: http://docs.oracle.com/javaee/5/tutorial/doc/bnahq.html#bnain
 [variables]: {{< relref "#availability-of-variables-and-functions-inside-expression-language" >}}
-[Spring]: {{< relref "user-guide/spring-framework-integration/index.md#expression-resolving" >}}
-[CDI]: {{< relref "user-guide/cdi-java-ee-integration/expression-resolving.md" >}}
-[BPMN]: {{< relref "reference/bpmn20/index.md" >}}
-[CMMN]: {{< relref "reference/cmmn11/index.md" >}}
-[spin-section]: {{< relref "user-guide/data-formats/index.md" >}}
+[Spring]: {{< ref "/user-guide/spring-framework-integration/_index.md#expression-resolving" >}}
+[CDI]: {{< ref "/user-guide/cdi-java-ee-integration/expression-resolving.md" >}}
+[BPMN]: {{< ref "/reference/bpmn20/_index.md" >}}
+[CMMN]: {{< ref "/reference/cmmn11/_index.md" >}}
+[spin-section]: {{< ref "/user-guide/data-formats/_index.md" >}}

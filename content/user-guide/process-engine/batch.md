@@ -287,14 +287,14 @@ processEngine.getManagementService()
   .suspendJobByJobDefinitionId(monitorJobDefinition.getId());
 ```
 
-[migration]: {{< relref "user-guide/process-engine/process-instance-migration.md" >}}
-[batch-migration]: {{< relref "user-guide/process-engine/process-instance-migration.md#asynchronous-batch-migration-execution" >}}
-[job executor]: {{< relref "user-guide/process-engine/the-job-executor.md" >}}
-[process engine configuration]: {{< relref "user-guide/process-engine/process-engine-bootstrapping.md" >}}
+[migration]: {{< ref "/user-guide/process-engine/process-instance-migration.md" >}}
+[batch-migration]: {{< ref "/user-guide/process-engine/process-instance-migration.md#asynchronous-batch-migration-execution" >}}
+[job executor]: {{< ref "/user-guide/process-engine/the-job-executor.md" >}}
+[process engine configuration]: {{< ref "/user-guide/process-engine/process-engine-bootstrapping.md" >}}
 [seed job]: #seed-job
-[retry]: {{< relref "user-guide/process-engine/the-job-executor.md#failed-jobs" >}}
-[incidents]: {{< relref "user-guide/process-engine/incidents.md" >}}
-[history level]: {{< relref "user-guide/process-engine/history.md#choose-a-history-level" >}}
-[job prioritization]: {{< relref "user-guide/process-engine/the-job-executor.md#job-prioritization" >}}
-[job-definition-priority]: {{< relref "user-guide/process-engine/the-job-executor.md#override-priority-by-job-definition" >}}
-[job-priority]: {{< relref "user-guide/process-engine/the-job-executor.md#set-job-priorities-via-managementservice-api" >}}
+[retry]: {{< ref "/user-guide/process-engine/the-job-executor.md#failed-jobs" >}}
+[incidents]: {{< ref "/user-guide/process-engine/incidents.md" >}}
+[history level]: {{< ref "/user-guide/process-engine/history.md#choose-a-history-level" >}}
+[job prioritization]: {{< ref "/user-guide/process-engine/the-job-executor.md#job-prioritization" >}}
+[job-definition-priority]: {{< ref "/user-guide/process-engine/the-job-executor.md#override-priority-by-job-definition" >}}
+[job-priority]: {{< ref "/user-guide/process-engine/the-job-executor.md#set-job-priorities-via-managementservice-api" >}}

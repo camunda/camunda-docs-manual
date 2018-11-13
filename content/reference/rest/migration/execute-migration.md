@@ -51,7 +51,7 @@ A JSON object with the following properties:
     <td>processInstanceQuery</td>
     <td>
       A process instance query like the request body described by
-      <a href="{{< relref "reference/rest/process-instance/post-query.md#request-body" >}}">
+      <a href="{{< ref "/reference/rest/process-instance/post-query.md#request-body" >}}">
         <code>POST /process-instance</code>
       </a>.
     </td>
@@ -137,21 +137,21 @@ This method returns no content.
     <td>400</td>
     <td>application/json</td>
     <td>
-      The provided migration plan is not valid, so an exception of type <code>MigrationPlanValidationException</code> is returned. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+      The provided migration plan is not valid, so an exception of type <code>MigrationPlanValidationException</code> is returned. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
   <tr>
     <td>400</td>
     <td>application/json</td>
     <td>
-      The provided migration plan is not valid for a specific process instance it is applied to, so an exception of type <code>MigrationInstructionInstanceValidationException</code> is returned. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+      The provided migration plan is not valid for a specific process instance it is applied to, so an exception of type <code>MigrationInstructionInstanceValidationException</code> is returned. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
   <tr>
     <td>400</td>
     <td>application/json</td>
     <td>
-      In case additional parameters of the request are unexpected, an exception of type <code>InvalidRequestException</code> is returned. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+      In case additional parameters of the request are unexpected, an exception of type <code>InvalidRequestException</code> is returned. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
 </table>
@@ -197,5 +197,5 @@ Request Body:
 
 Status 204. No content.
 
-[user guide]: {{< relref "user-guide/process-engine/process-instance-migration.md#executing-a-migration-plan" >}}
-[POST /migration/executeAsync]: {{< relref "reference/rest/migration/execute-migration-async.md" >}}
+[user guide]: {{< ref "/user-guide/process-engine/process-instance-migration.md#executing-a-migration-plan" >}}
+[POST /migration/executeAsync]: {{< ref "/reference/rest/migration/execute-migration-async.md" >}}

@@ -31,7 +31,7 @@ If you want to customize the incident handling behavior, it is possible to repla
 There are different types of incidents. Currently the process engine supports the following incidents:
 
 * **failedJob**: is raised when automatic retries for a Job (Timer or Asynchronous continuation) have elapsed. The incident indicates that the corresponding execution is stuck and will not continue automatically. Administrative action is necessary. The incident is resolved when the job is manually executed or when the retries for the corresponding job are reset to a value > 0.
-* **failedExternalTask**: is raised when a worker of an [External Task]({{< relref "user-guide/process-engine/external-tasks.md" >}}) report a failure and the given retries are set to a value <= 0. The incident indicates that the corresponding external task is stuck and will not be fetched from a worker. Administrative action is necessary to reset the retries.
+* **failedExternalTask**: is raised when a worker of an [External Task]({{< ref "/user-guide/process-engine/external-tasks.md" >}}) report a failure and the given retries are set to a value <= 0. The incident indicates that the corresponding external task is stuck and will not be fetched from a worker. Administrative action is necessary to reset the retries.
 
 
 # (De-)Activate Incidents
@@ -73,7 +73,6 @@ An example of a custom incident handler could be a handler which extends the def
 
 {{< note title="Use of Internal API" class="warning" >}}
 
-Please be aware that this API is **not** part of the [public API]({{< relref
-"introduction/public-api.md" >}}) and may change in later releases.
+Please be aware that this API is **not** part of the [public API]({{< ref "/introduction/public-api.md" >}}) and may change in later releases.
 
 {{< /note >}}

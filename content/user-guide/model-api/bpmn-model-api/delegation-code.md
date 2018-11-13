@@ -11,7 +11,7 @@ menu:
 ---
 
 
-If you use [Delegation Code]({{< relref "user-guide/process-engine/delegation-code.md" >}}) you can access the BPMN model instance and current element of the executed process. If a BPMN model is accessed it will be cached to avoid redundant database queries.
+If you use [Delegation Code]({{< ref "/user-guide/process-engine/delegation-code.md" >}}) you can access the BPMN model instance and current element of the executed process. If a BPMN model is accessed it will be cached to avoid redundant database queries.
 
 
 # Java Delegate

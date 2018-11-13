@@ -14,7 +14,7 @@ menu:
 
 
 Query for the number of historic activity instances that fulfill the given parameters.
-Takes the same parameters as the [get historic activity instances]({{< relref "reference/rest/history/activity-instance/get-activity-instance-query.md" >}}) method.
+Takes the same parameters as the [get historic activity instances]({{< ref "/reference/rest/history/activity-instance/get-activity-instance-query.md" >}}) method.
 
 
 # Method
@@ -136,7 +136,7 @@ A JSON object that contains the count as the only property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

@@ -34,7 +34,7 @@ To specify a class that is called during process execution, the fully qualified 
              camunda:class="org.camunda.bpm.MyJavaDelegate" />
 ```
 
-Please refer to the [Java Delegate]({{< relref "user-guide/process-engine/delegation-code.md#java-delegate" >}}) section of the [User Guide]({{< relref "user-guide/index.md" >}}) for details on how to implement a Java Delegate.
+Please refer to the [Java Delegate]({{< ref "/user-guide/process-engine/delegation-code.md#java-delegate" >}}) section of the [User Guide]({{< ref "/user-guide/_index.md" >}}) for details on how to implement a Java Delegate.
 
 It is also possible to use an expression that resolves to an object. This object must follow the
 same rules as objects that are created when the `camunda:class` attribute is used.
@@ -54,13 +54,13 @@ Or an expression which calls a method or resolves to a value.
 ```
 
 For more information about expression language as delegation code please see the corresponding
-[section]({{< relref "user-guide/process-engine/expression-language.md#use-expression-language-as-delegation-code" >}})
-of the [User Guide]({{< relref "user-guide/index.md" >}}).
+[section]({{< ref "/user-guide/process-engine/expression-language.md#use-expression-language-as-delegation-code" >}})
+of the [User Guide]({{< ref "/user-guide/_index.md" >}}).
 
 
 ## Generic Java Delegates & Field Injection
 
-You can easily write generic Java Delegate classes which can be configured later on via the BPMN 2.0 XML in the Service Task. Please refer to the [Field Injection]({{< relref "user-guide/process-engine/delegation-code.md#field-injection" >}}) section of the [User Guide]({{< relref "user-guide/index.md" >}}) for details.
+You can easily write generic Java Delegate classes which can be configured later on via the BPMN 2.0 XML in the Service Task. Please refer to the [Field Injection]({{< ref "/user-guide/process-engine/delegation-code.md#field-injection" >}}) section of the [User Guide]({{< ref "/user-guide/_index.md" >}}) for details.
 
 
 ## Service Task Results
@@ -76,12 +76,12 @@ The return value of a service execution (for a service task exclusively using ex
 In the example above, the result of the service execution (the return value of the `doSomething()` method invocation on object `myService`) is set to the process variable named `myVar` after the service execution completes.
 
 {{< note title="Result variables and multi-instance" class="warning" >}}
-Note that when you use <code>camunda:resultVariable</code> in a multi-instance construct, for example in a multi-instance subprocess, the result variable is overwritten every time the task completes, which may appear as random behavior. See <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#resultvariable" >}}">camunda:resultVariable</a> for details.
+Note that when you use <code>camunda:resultVariable</code> in a multi-instance construct, for example in a multi-instance subprocess, the result variable is overwritten every time the task completes, which may appear as random behavior. See <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#resultvariable" >}}">camunda:resultVariable</a> for details.
 {{< /note >}}
 
 # External Tasks
 
-In contrast to calling Java code, where the process engine synchronously invokes Java logic, it is possible to implement a service task outside of the process engine's boundaries in the form of an external task. When a service task is declared external, the process engine offers a work item to workers that independently poll the engine for work to do. This decouples the implementation of tasks from the process engine and allows to cross system and technology boundaries. See the [user guide on external tasks]({{< relref "user-guide/process-engine/external-tasks.md" >}}) for details on the concept and the relevant API.
+In contrast to calling Java code, where the process engine synchronously invokes Java logic, it is possible to implement a service task outside of the process engine's boundaries in the form of an external task. When a service task is declared external, the process engine offers a work item to workers that independently poll the engine for work to do. This decouples the implementation of tasks from the process engine and allows to cross system and technology boundaries. See the [user guide on external tasks]({{< ref "/user-guide/process-engine/external-tasks.md" >}}) for details on the concept and the relevant API.
 
 To declare a service task to be handled externally, the attribute `camunda:type` can be set to `external` and the attribute `camunda:topic` specifies the external task's topic. For example, the following XML snippet defines an external service task with topic `ShipmentProcessing`:
 
@@ -97,26 +97,26 @@ To declare a service task to be handled externally, the attribute `camunda:type`
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncbefore" >}}">camunda:asyncBefore</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}">camunda:asyncAfter</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#class" >}}">camunda:class</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#delegateexpression" >}}">camunda:delegateExpression</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#exclusive" >}}">camunda:exclusive</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#expression" >}}">camunda:expression</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#jobpriority" >}}">camunda:jobPriority</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#resultvariable" >}}">camunda:resultVariable</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#topic" >}}">camunda:topic</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#type" >}}">camunda:type</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#taskpriority" >}}">camunda:taskPriority</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#asyncbefore" >}}">camunda:asyncBefore</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}">camunda:asyncAfter</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#class" >}}">camunda:class</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#delegateexpression" >}}">camunda:delegateExpression</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#exclusive" >}}">camunda:exclusive</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#expression" >}}">camunda:expression</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#jobpriority" >}}">camunda:jobPriority</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#resultvariable" >}}">camunda:resultVariable</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#topic" >}}">camunda:topic</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#type" >}}">camunda:type</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#taskpriority" >}}">camunda:taskPriority</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#failedjobretrytimecycle" >}}">camunda:failedJobRetryTimeCycle</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#field" >}}">camunda:field</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#connector" >}}">camunda:connector</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}">camunda:inputOutput</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#failedjobretrytimecycle" >}}">camunda:failedJobRetryTimeCycle</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#field" >}}">camunda:field</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#connector" >}}">camunda:connector</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}">camunda:inputOutput</a>
     </td>
   </tr>
   <tr>

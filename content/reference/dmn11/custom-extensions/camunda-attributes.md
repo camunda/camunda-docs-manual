@@ -40,7 +40,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>DMN 1.1 Elements</th>
     <td>
-      <a href="{{< relref "reference/dmn11/decision-table/input.md" >}}">Input</a>
+      <a href="{{< ref "/reference/dmn11/decision-table/input.md" >}}">Input</a>
     </td>
   </tr>
 </table>

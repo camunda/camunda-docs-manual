@@ -191,7 +191,7 @@ The following example shows how to assign a user task to the person who started 
 
 First, the `camunda:initiator` extension is used to bind the user id of the person who started (_"initiated"_) the process to the variable `starter`. Then the expression `${ starter }` retrieves that value and uses it as assignee for the task.
 
-It is possible to use all process variables [visible]({{< relref "user-guide/process-engine/variables.md#variable-scopes-and-variable-visibility" >}}) from the user task in the expression.
+It is possible to use all process variables [visible]({{< ref "/user-guide/process-engine/variables.md#variable-scopes-and-variable-visibility" >}}) from the user task in the expression.
 
 #### Invoking a Service / Bean
 
@@ -226,7 +226,7 @@ public class FakeLdapService {
 
 ### Assignments in Listeners
 
-It is also possible to use [task listeners]({{< relref "user-guide/process-engine/delegation-code.md#task-listener" >}}) for handling assignments. The following example demonstrates a a listeners on the `create` event:
+It is also possible to use [task listeners]({{< ref "/user-guide/process-engine/delegation-code.md#task-listener" >}}) for handling assignments. The following example demonstrates a a listeners on the `create` event:
 
 ```xml
 <userTask id="task1" name="My task" >
@@ -272,7 +272,7 @@ The form key is a symbolic value which can be set in the BPMN XML file by using 
 `formKey` and retrieved at runtime using the process engine API.
 
 If the user task form is displayed inside the Camunda Tasklist, the format of the formKey must follow
-special rules. [See the corresponding section in the user guide for details]({{< relref "user-guide/task-forms/index.md" >}}).
+special rules. [See the corresponding section in the user guide for details]({{< ref "/user-guide/task-forms/_index.md" >}}).
 
 In custom applications, the value of the form key can be chosen freely. In a custom application the
 value of the form key attribute can be interpreted freely. Based on the specific UI technology used,
@@ -309,27 +309,27 @@ make sure the form keys are initialized.
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#assignee" >}}">camunda:assignee</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncbefore" >}}">camunda:asyncBefore</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}">camunda:asyncAfter</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#candidategroups" >}}">camunda:candidateGroups</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#candidateusers" >}}">camunda:candidateUsers</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#duedate" >}}">camunda:dueDate</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#exclusive" >}}">camunda:exclusive</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#formhandlerclass" >}}">camunda:formHandlerClass</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#formkey" >}}">camunda:formKey</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#jobpriority" >}}">camunda:jobPriority</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#priority" >}}">camunda:priority</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#assignee" >}}">camunda:assignee</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#asyncbefore" >}}">camunda:asyncBefore</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}">camunda:asyncAfter</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#candidategroups" >}}">camunda:candidateGroups</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#candidateusers" >}}">camunda:candidateUsers</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#duedate" >}}">camunda:dueDate</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#exclusive" >}}">camunda:exclusive</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#formhandlerclass" >}}">camunda:formHandlerClass</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#formkey" >}}">camunda:formKey</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#jobpriority" >}}">camunda:jobPriority</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#priority" >}}">camunda:priority</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#formdata" >}}">camunda:formData</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#formproperty" >}}">camunda:formProperty</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#tasklistener" >}}">camunda:taskListener</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#failedjobretrytimecycle" >}}">camunda:failedJobRetryTimeCycle</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}">camunda:inputOutput</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#formdata" >}}">camunda:formData</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#formproperty" >}}">camunda:formProperty</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#tasklistener" >}}">camunda:taskListener</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#failedjobretrytimecycle" >}}">camunda:failedJobRetryTimeCycle</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}">camunda:inputOutput</a>
     </td>
   </tr>
   <tr>

@@ -34,7 +34,7 @@ A single deployment (process-archive) is declared. The process archive has the n
   * `isDeleteUponUndeploy`: this property controls whether the undeployment of the process application should entail that the process engine deployment is deleted from the database. The default setting is false. If this property is set to true, undeployment of the process application leads to the removal of the deplyoment (including process instances) from the database.
   * `isScanForProcessDefinitions`: if this property is set to true, the classpath of the process application is automatically scanned for deployable resources. Deployable resources must end in `.bpmn20.xml`, `.bpmn`, `.cmmn11.xml`, `.cmmn`, `.dmn11.xml` or `.dmn`.
 
-See [Deployment Descriptor Reference]({{< relref "reference/deployment-descriptors/descriptors/processes-xml.md" >}}) for complete documentation of the syntax of the `processes.xml` file.
+See [Deployment Descriptor Reference]({{< ref "/reference/deployment-descriptors/descriptors/processes-xml.md" >}}) for complete documentation of the syntax of the `processes.xml` file.
 
 
 # Empty processes.xml
@@ -113,7 +113,7 @@ The `<configuration>...</configuration>` property allows specifying the name of 
 
 # Specify Tenant-Ids for Process Archives in the processes.xml File
 
-For [Multi-Tenancy with Tenant-Identifiers]({{< relref "user-guide/process-engine/multi-tenancy.md#single-process-engine-with-tenant-identifiers" >}}), you can specify a tenant-id of a process archive by setting the attribute `tenantId`. If a tenant-id is set then all containing resources will be deployed for the given tenant-id. The following is an example of a processes.xml file which contains one process archive with a tenant-id:
+For [Multi-Tenancy with Tenant-Identifiers]({{< ref "/user-guide/process-engine/multi-tenancy.md#single-process-engine-with-tenant-identifiers" >}}), you can specify a tenant-id of a process archive by setting the attribute `tenantId`. If a tenant-id is set then all containing resources will be deployed for the given tenant-id. The following is an example of a processes.xml file which contains one process archive with a tenant-id:
 
 ```xml
 <process-application

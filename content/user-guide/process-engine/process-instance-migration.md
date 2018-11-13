@@ -35,7 +35,7 @@ is mostly transparent, so that a task that was started before migration can be c
 The same principle is applied to the other BPMN element types.
 
 For cases in which activities are not semantically equivalent,
-we recommend combining migration with the [process instance modification API]({{< relref "user-guide/process-engine/process-instance-modification.md" >}}), e.g., 
+we recommend combining migration with the [process instance modification API]({{< ref "/user-guide/process-engine/process-instance-modification.md" >}}), e.g., 
 canceling an activity instance before migration and starting a new instance after migration.
 
 In the remainder of this section, the following process models are used to illustrate the API and effects of migration unless otherwise noted:
@@ -115,7 +115,7 @@ From the accountant's perspective, migration is completely transparent while wor
 # API
 
 The following gives a structured overview of the Java API for process instance migration. Note that these operations are also available
-via [REST]({{< relref "reference/rest/migration/index.md" >}}).
+via [REST]({{< ref "/reference/rest/migration/_index.md" >}}).
 
 ## Creating a Migration Plan
 
@@ -715,7 +715,7 @@ An activity must stay a descendant of its closest ancestor scope that migrates (
 
 Consider the following migration plan for the example processes shown at the
 [beginning of this chapter]({{<
-relref "user-guide/process-engine/process-instance-migration.md" >}}):
+ref "/user-guide/process-engine/process-instance-migration.md" >}}):
 
 ```java
 MigrationPlan migrationPlan = processEngine.getRuntimeService()
@@ -813,9 +813,9 @@ migrated if they are instances of the following element types:
 
 Transition instances can be migrated for any activity type.
 
-[batch]: {{< relref "user-guide/process-engine/batch.md" >}}
-[job executor]: {{< relref "user-guide/process-engine/the-job-executor.md#job-execution-in-heterogeneous-clusters" >}}
-[execution jobs]: {{< relref "user-guide/process-engine/batch.md#execution-jobs" >}}
+[batch]: {{< ref "/user-guide/process-engine/batch.md" >}}
+[job executor]: {{< ref "/user-guide/process-engine/the-job-executor.md#job-execution-in-heterogeneous-clusters" >}}
+[execution jobs]: {{< ref "/user-guide/process-engine/batch.md#execution-jobs" >}}
 
 
 ### Aspects Not Covered by Validation
@@ -827,7 +827,7 @@ Validation cannot ensure that such data is useful in the context of the target p
 
 #### Deserialization of Object Variables
 
-[Object type variables]({{< relref "user-guide/process-engine/variables.md#supported-variable-values" >}}) represent Java objects. That means they have a serialized value along with a Java type name that is used to deserialize the value into a Java object. When migrating between processes of different process
+[Object type variables]({{< ref "/user-guide/process-engine/variables.md#supported-variable-values" >}}) represent Java objects. That means they have a serialized value along with a Java type name that is used to deserialize the value into a Java object. When migrating between processes of different process
 applications, it may occur that an Object variable refers to a Java class that does not exist in the process
 application of the target process.
 

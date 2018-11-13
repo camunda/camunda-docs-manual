@@ -14,7 +14,7 @@ menu:
 {{< note title="Installation Guide" class="info" >}}
   If you [download a full distribution](http://camunda.org/download/), the Camunda JBoss/Wildfly subsystem is readily installed into the application server.
 
-  [Read the installation guide]({{< relref "installation/full/jboss/index.md" >}}) to learn how to install the Camunda JBoss/Wildfly subsystem into your JBoss AS 7 or Wildfly 8 / 10 Server.
+  [Read the installation guide]({{< ref "/installation/full/jboss/_index.md" >}}) to learn how to install the Camunda JBoss/Wildfly subsystem into your JBoss AS 7 or Wildfly 8 / 10 Server.
 {{< /note >}}
 
 Camunda BPM provides advanced integration for JBoss AS 7 and Wildfly 8 / 10 in the form of a custom [JBoss/Wildfly Subsystem](https://docs.jboss.org/author/display/AS71/Extending+JBoss+AS+7).
@@ -31,7 +31,7 @@ The most prominent features are:
 # Configure the Job Executor in standalone.xml/domain.xml
 
 {{< note title="This section only applies for Wildfly 8 / 10!" class="info" >}}
-On JBoss AS 7, the thread pool is configured through the JBoss Threads subsystem. See [Manual Installation]({{<relref "installation/full/jboss/manual.md" >}}).
+On JBoss AS 7, the thread pool is configured through the JBoss Threads subsystem. See [Manual Installation]({{<ref "/installation/full/jboss/manual.md" >}}).
 {{< /note >}}
 
 Since Camunda BPM 7.5, the configuration of the thread pool used by the Job Executor is done in the Camunda subsystem, not in the JBoss Threads subsystem, as it was done before 7.5.  
@@ -174,7 +174,7 @@ The restrictions, which apply for [providing a custom process engine configurati
 
 # Look Up a Process Engine in JNDI
 
-The Camunda JBoss/Wildfly subsystem provides the same [JNDI bindings for the ProcessApplicationService and the ProcessEngineService]({{< relref "user-guide/runtime-container-integration/jndi-bindings-for-bpmn-platform-services.md" >}}) as provided on other containers. In addition, the Camunda JBoss/Wildfly subsystem creates JNDI Bindings for all managed process engines, allowing us to look them up directly.
+The Camunda JBoss/Wildfly subsystem provides the same [JNDI bindings for the ProcessApplicationService and the ProcessEngineService]({{< ref "/user-guide/runtime-container-integration/jndi-bindings-for-bpmn-platform-services.md" >}}) as provided on other containers. In addition, the Camunda JBoss/Wildfly subsystem creates JNDI Bindings for all managed process engines, allowing us to look them up directly.
 
 The global JNDI bindings for process engines follow the pattern
 
@@ -283,7 +283,7 @@ The JConsole plugin allows you to inspect the management model graphically and b
 # Manage Classpath Dependencies
 
 {{< note title="Implicit Module Dependencies" class="info" >}}
-   Classpath dependencies are automatically managed for you if you use the [Process Application API]({{< relref "user-guide/process-applications/index.md" >}}).
+   Classpath dependencies are automatically managed for you if you use the [Process Application API]({{< ref "/user-guide/process-applications/_index.md" >}}).
 {{< /note >}}
 
 When using the Camunda JBoss/Wildfly subsystem, the process engine classes are deployed as jboss module. The module is named
@@ -325,7 +325,7 @@ As a result, the Application Service will add the process engine module to the c
 # Manage Service Dependencies
 
 {{< note title="Implicit Service Dependencies" class="info" >}}
-   Service dependencies are automatically managed for you if you use the [Process Application API]({{< relref "user-guide/process-applications/index.md" >}}).
+   Service dependencies are automatically managed for you if you use the [Process Application API]({{< ref "/user-guide/process-applications/_index.md" >}}).
 {{< /note >}}
 
 The Camunda JBoss/Wildfly subsystem manages process engines as JBoss Services in the JBoss Module Service Container. In order for the Module Service Container to provide the process engine service(s) to the deployed applications, it is important that the dependencies are known. Consider the following example:

@@ -16,7 +16,7 @@ menu:
 
 Query for process instances that fulfill given parameters.
 Parameters may be static as well as dynamic runtime properties of process instances.
-The size of the result set can be retrieved by using the [get instances count]({{< relref "reference/rest/process-instance/get-query-count.md" >}}) method.
+The size of the result set can be retrieved by using the [get instances count]({{< ref "/reference/rest/process-instance/get-query-count.md" >}}) method.
 
 
 # Method
@@ -213,7 +213,7 @@ Each process instance object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

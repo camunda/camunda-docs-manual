@@ -20,7 +20,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies a human performer of a <a href="{{< relref "reference/bpmn20/tasks/user-task.md" >}}">User Task</a>.
+      The attribute specifies a human performer of a <a href="{{< ref "/reference/bpmn20/tasks/user-task.md" >}}">User Task</a>.
     </td>
   </tr>
   <tr>
@@ -40,7 +40,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/tasks/user-task.md" >}}">User Task</a>
+      <a href="{{< ref "/reference/bpmn20/tasks/user-task.md" >}}">User Task</a>
     </td>
   </tr>
 </table>
@@ -51,7 +51,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      Specifies an asynchronous continuation after an activity, see <a href="{{< relref "user-guide/process-engine/transactions-in-processes.md#asynchronous-continuations" >}}">Asynchronous Continuations</a> for more information.
+      Specifies an asynchronous continuation after an activity, see <a href="{{< ref "/user-guide/process-engine/transactions-in-processes.md#asynchronous-continuations" >}}">Asynchronous Continuations</a> for more information.
     </td>
   </tr>
   <tr>
@@ -71,29 +71,29 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/events/start-events.md" >}}">Start Events</a>,
-      <a href="{{< relref "reference/bpmn20/events/index.md" >}}">End Events</a>,
-      <a href="{{< relref "reference/bpmn20/events/index.md" >}}">Intermediate Throw Events</a>,
-      <a href="{{< relref "reference/bpmn20/events/index.md" >}}">Intermediate Catch Events</a>,
+      <a href="{{< ref "/reference/bpmn20/events/start-events.md" >}}">Start Events</a>,
+      <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">End Events</a>,
+      <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">Intermediate Throw Events</a>,
+      <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">Intermediate Catch Events</a>,
 
       Task,
-      <a href="{{< relref "reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/user-task.md" >}}">User Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/script-task.md" >}}">Script Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/receive-task.md" >}}">Receive Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/manual-task.md" >}}">Manual Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/user-task.md" >}}">User Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/script-task.md" >}}">Script Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/receive-task.md" >}}">Receive Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/manual-task.md" >}}">Manual Task</a>,
 
-      <a href="{{< relref "reference/bpmn20/subprocesses/embedded-subprocess.md" >}}">Embedded Subprocess</a>,
-      <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>,
-      <a href="{{< relref "reference/bpmn20/subprocesses/transaction-subprocess.md" >}}">Transaction Subprocess</a>,
+      <a href="{{< ref "/reference/bpmn20/subprocesses/embedded-subprocess.md" >}}">Embedded Subprocess</a>,
+      <a href="{{< ref "/reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>,
+      <a href="{{< ref "/reference/bpmn20/subprocesses/transaction-subprocess.md" >}}">Transaction Subprocess</a>,
 
-      <a href="{{< relref "reference/bpmn20/gateways/parallel-gateway.md" >}}">Parallel Gateway</a>,
-      <a href="{{< relref "reference/bpmn20/gateways/inclusive-gateway.md" >}}">Inclusive Gateway</a>,
-      <a href="{{< relref "reference/bpmn20/gateways/exclusive-gateway.md" >}}">Exclusive Gateway</a>,
+      <a href="{{< ref "/reference/bpmn20/gateways/parallel-gateway.md" >}}">Parallel Gateway</a>,
+      <a href="{{< ref "/reference/bpmn20/gateways/inclusive-gateway.md" >}}">Inclusive Gateway</a>,
+      <a href="{{< ref "/reference/bpmn20/gateways/exclusive-gateway.md" >}}">Exclusive Gateway</a>,
 
-      <a href="{{< relref "reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Multi Instance Loop Characteristics</a>
+      <a href="{{< ref "/reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Multi Instance Loop Characteristics</a>
     </td>
   </tr>
 </table>
@@ -104,7 +104,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      Specifies an asynchronous continuation before an activity, see <a href="{{< relref "user-guide/process-engine/transactions-in-processes.md#asynchronous-continuations" >}}">Asynchronous Continuations</a> for more information.
+      Specifies an asynchronous continuation before an activity, see <a href="{{< ref "/user-guide/process-engine/transactions-in-processes.md#asynchronous-continuations" >}}">Asynchronous Continuations</a> for more information.
     </td>
   </tr>
   <tr>
@@ -124,30 +124,30 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/events/start-events.md" >}}">Start Events</a>,
-      <a href="{{< relref "reference/bpmn20/events/index.md" >}}">End Events</a>,
-      <a href="{{< relref "reference/bpmn20/events/index.md" >}}">Intermediate Throw Events</a>,
-      <a href="{{< relref "reference/bpmn20/events/index.md" >}}">Intermediate Catch Events</a>,
+      <a href="{{< ref "/reference/bpmn20/events/start-events.md" >}}">Start Events</a>,
+      <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">End Events</a>,
+      <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">Intermediate Throw Events</a>,
+      <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">Intermediate Catch Events</a>,
 
       Task,
-      <a href="{{< relref "reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/user-task.md" >}}">User Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/script-task.md" >}}">Script Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/receive-task.md" >}}">Receive Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/manual-task.md" >}}">Manual Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/user-task.md" >}}">User Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/script-task.md" >}}">Script Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/receive-task.md" >}}">Receive Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/manual-task.md" >}}">Manual Task</a>,
 
-      <a href="{{< relref "reference/bpmn20/subprocesses/embedded-subprocess.md" >}}">Embedded Subprocess</a>,
-      <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>,
-      <a href="{{< relref "reference/bpmn20/subprocesses/transaction-subprocess.md" >}}">Transaction Subprocess</a>,
+      <a href="{{< ref "/reference/bpmn20/subprocesses/embedded-subprocess.md" >}}">Embedded Subprocess</a>,
+      <a href="{{< ref "/reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>,
+      <a href="{{< ref "/reference/bpmn20/subprocesses/transaction-subprocess.md" >}}">Transaction Subprocess</a>,
 
-      <a href="{{< relref "reference/bpmn20/gateways/parallel-gateway.md" >}}">Parallel Gateway</a>,
-      <a href="{{< relref "reference/bpmn20/gateways/event-based-gateway.md" >}}">Event Based Gateway</a>,
-      <a href="{{< relref "reference/bpmn20/gateways/inclusive-gateway.md" >}}">Inclusive Gateway</a>,
-      <a href="{{< relref "reference/bpmn20/gateways/exclusive-gateway.md" >}}">Exclusive Gateway</a>,
+      <a href="{{< ref "/reference/bpmn20/gateways/parallel-gateway.md" >}}">Parallel Gateway</a>,
+      <a href="{{< ref "/reference/bpmn20/gateways/event-based-gateway.md" >}}">Event Based Gateway</a>,
+      <a href="{{< ref "/reference/bpmn20/gateways/inclusive-gateway.md" >}}">Inclusive Gateway</a>,
+      <a href="{{< ref "/reference/bpmn20/gateways/exclusive-gateway.md" >}}">Exclusive Gateway</a>,
 
-      <a href="{{< relref "reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Multi Instance Loop Characteristics</a>
+      <a href="{{< ref "/reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Multi Instance Loop Characteristics</a>
     </td>
   </tr>
 </table>
@@ -159,8 +159,8 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>Description</th>
     <td>
       The attribute specifies which process definition version of the subprocess the call activity calls.
-      If the value is <code>version</code> the attribute <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#calledelementversion" >}}">camunda:calledElementVersion</a>
-      is required, see <a href="{{< relref "reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Called Element Binding</a> for more information.
+      If the value is <code>version</code> the attribute <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#calledelementversion" >}}">camunda:calledElementVersion</a>
+      is required, see <a href="{{< ref "/reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Called Element Binding</a> for more information.
     </td>
   </tr>
   <tr>
@@ -180,7 +180,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>
+      <a href="{{< ref "/reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>
     </td>
   </tr>
 </table>
@@ -191,8 +191,8 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies which process definition version of the subprocess the call activity calls if the <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#calledelementbinding" >}}">camunda:calledElementBinding</a>
-      is set to <code>version</code>, see <a href="{{< relref "reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Called Element Binding</a> for more information.
+      The attribute specifies which process definition version of the subprocess the call activity calls if the <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#calledelementbinding" >}}">camunda:calledElementBinding</a>
+      is set to <code>version</code>, see <a href="{{< ref "/reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Called Element Binding</a> for more information.
     </td>
   </tr>
   <tr>
@@ -212,7 +212,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>
+      <a href="{{< ref "/reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>
     </td>
   </tr>
 </table>
@@ -223,7 +223,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies the tenant id of the process definition which is to be resolved by a call activity, see <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md#calledelement-tenant-id" >}}">Called Element Tenant Id</a> for more information.
+      The attribute specifies the tenant id of the process definition which is to be resolved by a call activity, see <a href="{{< ref "/reference/bpmn20/subprocesses/call-activity.md#calledelement-tenant-id" >}}">Called Element Tenant Id</a> for more information.
     </td>
   </tr>
   <tr>
@@ -243,7 +243,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>
+      <a href="{{< ref "/reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>
     </td>
   </tr>
 </table>
@@ -254,7 +254,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies which group(s) will be candidate for performing the <a href="{{< relref "reference/bpmn20/tasks/user-task.md" >}}">User Task</a>.
+      The attribute specifies which group(s) will be candidate for performing the <a href="{{< ref "/reference/bpmn20/tasks/user-task.md" >}}">User Task</a>.
     </td>
   </tr>
   <tr>
@@ -274,7 +274,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/tasks/user-task.md" >}}">User Task</a>
+      <a href="{{< ref "/reference/bpmn20/tasks/user-task.md" >}}">User Task</a>
     </td>
   </tr>
 </table>
@@ -347,7 +347,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies which user(s) will be candidate for performing the <a href="{{< relref "reference/bpmn20/tasks/user-task.md" >}}">User Task</a>.
+      The attribute specifies which user(s) will be candidate for performing the <a href="{{< ref "/reference/bpmn20/tasks/user-task.md" >}}">User Task</a>.
     </td>
   </tr>
   <tr>
@@ -367,7 +367,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/tasks/user-task.md" >}}">User Task</a>
+      <a href="{{< ref "/reference/bpmn20/tasks/user-task.md" >}}">User Task</a>
     </td>
   </tr>
 </table>
@@ -379,8 +379,8 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>Description</th>
     <td>
       The attribute specifies which case definition version of the subcase the call activity calls.
-      If the value is <code>version</code> the attribute <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#caseversion" >}}">camunda:caseVersion</a>
-      is required, see <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md#create-a-case-instance" >}}">Case Binding</a> for more information.
+      If the value is <code>version</code> the attribute <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#caseversion" >}}">camunda:caseVersion</a>
+      is required, see <a href="{{< ref "/reference/bpmn20/subprocesses/call-activity.md#create-a-case-instance" >}}">Case Binding</a> for more information.
     </td>
   </tr>
   <tr>
@@ -400,7 +400,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md#create-a-case-instance" >}}">Call Activity</a>
+      <a href="{{< ref "/reference/bpmn20/subprocesses/call-activity.md#create-a-case-instance" >}}">Call Activity</a>
     </td>
   </tr>
 </table>
@@ -429,7 +429,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md#create-a-case-instance" >}}">Call Activity</a>
+      <a href="{{< ref "/reference/bpmn20/subprocesses/call-activity.md#create-a-case-instance" >}}">Call Activity</a>
     </td>
   </tr>
 </table>
@@ -440,7 +440,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies which case definition version of the subcase the call activity calls if the <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#casebinding" >}}">camunda:caseBinding</a> is set to <code>version</code>, see <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md#create-a-case-instance" >}}">Case Binding</a> for more information.
+      The attribute specifies which case definition version of the subcase the call activity calls if the <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#casebinding" >}}">camunda:caseBinding</a> is set to <code>version</code>, see <a href="{{< ref "/reference/bpmn20/subprocesses/call-activity.md#create-a-case-instance" >}}">Case Binding</a> for more information.
     </td>
   </tr>
   <tr>
@@ -460,7 +460,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md#create-a-case-instance" >}}">Call Activity</a>
+      <a href="{{< ref "/reference/bpmn20/subprocesses/call-activity.md#create-a-case-instance" >}}">Call Activity</a>
     </td>
   </tr>
 </table>
@@ -471,7 +471,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies the tenant id of the case definition which is to be resolved by a call activity, see <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md#case-tenant-id" >}}">Case  Tenant Id</a> for more information.
+      The attribute specifies the tenant id of the case definition which is to be resolved by a call activity, see <a href="{{< ref "/reference/bpmn20/subprocesses/call-activity.md#case-tenant-id" >}}">Case  Tenant Id</a> for more information.
     </td>
   </tr>
   <tr>
@@ -491,7 +491,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>
+      <a href="{{< ref "/reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>
     </td>
   </tr>
 </table>
@@ -502,7 +502,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies which Java class will be executed at runtime. The stated class must implement a <a href="{{< relref "user-guide/process-engine/delegation-code.md#java-delegate" >}}">Java delegate</a> interface.
+      The attribute specifies which Java class will be executed at runtime. The stated class must implement a <a href="{{< ref "/user-guide/process-engine/delegation-code.md#java-delegate" >}}">Java delegate</a> interface.
     </td>
   </tr>
   <tr>
@@ -512,7 +512,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      Fully qualified Java class name of a class which implements a <a href="{{< relref "user-guide/process-engine/delegation-code.md#java-delegate" >}}">Java Delegate</a> interface, e.g <code>org.camunda.bpm.MyJavaDelegate</code>
+      Fully qualified Java class name of a class which implements a <a href="{{< ref "/user-guide/process-engine/delegation-code.md#java-delegate" >}}">Java Delegate</a> interface, e.g <code>org.camunda.bpm.MyJavaDelegate</code>
     </td>
   </tr>
   <tr>
@@ -522,12 +522,12 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
-      Message Event Definition of <a href="{{< relref "reference/bpmn20/events/message-events.md#message-intermediate-throwing-event" >}}">Message Intermediate Throwing Event</a> or <a href="{{< relref "reference/bpmn20/events/message-events.md#message-end-event" >}}">Message End Event</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#tasklistener" >}}">camunda:taskListener</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#executionlistener" >}}">camunda:executionListner</a>
+      <a href="{{< ref "/reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
+      Message Event Definition of <a href="{{< ref "/reference/bpmn20/events/message-events.md#message-intermediate-throwing-event" >}}">Message Intermediate Throwing Event</a> or <a href="{{< ref "/reference/bpmn20/events/message-events.md#message-end-event" >}}">Message End Event</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#tasklistener" >}}">camunda:taskListener</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#executionlistener" >}}">camunda:executionListner</a>
     </td>
   </tr>
 </table>
@@ -538,7 +538,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies a collection, where for each element, an instance will be created. See <a href="{{< relref "reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Multiple Instance</a> for more information.
+      The attribute specifies a collection, where for each element, an instance will be created. See <a href="{{< ref "/reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Multiple Instance</a> for more information.
     </td>
   </tr>
   <tr>
@@ -558,10 +558,10 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Multi Instance Loop Characteristics</a> of Task,
-      <a href="{{< relref "reference/bpmn20/subprocesses/embedded-subprocess.md" >}}">Embedded Subprocess</a>,
-      <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>,
-      <a href="{{< relref "reference/bpmn20/subprocesses/transaction-subprocess.md" >}}">Transaction Subprocess</a>
+      <a href="{{< ref "/reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Multi Instance Loop Characteristics</a> of Task,
+      <a href="{{< ref "/reference/bpmn20/subprocesses/embedded-subprocess.md" >}}">Embedded Subprocess</a>,
+      <a href="{{< ref "/reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>,
+      <a href="{{< ref "/reference/bpmn20/subprocesses/transaction-subprocess.md" >}}">Transaction Subprocess</a>
     </td>
   </tr>
 </table>
@@ -592,7 +592,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>
+      <a href="{{< ref "/reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>
     </td>
   </tr>
 </table>
@@ -604,7 +604,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>Description</th>
     <td>
       The attribute specifies which decision definition version the task evaluates.
-      If the value is <code>version</code> the attribute <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#decisionrefversion" >}}">camunda:decisionRefVersion</a>
+      If the value is <code>version</code> the attribute <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#decisionrefversion" >}}">camunda:decisionRefVersion</a>
       is required.
     </td>
   </tr>
@@ -625,7 +625,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>
+      <a href="{{< ref "/reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>
     </td>
   </tr>
 </table>
@@ -636,7 +636,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies which decision definition version the task evaluates if the <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#decisionrefbinding" >}}">camunda:decisionRefBinding</a>
+      The attribute specifies which decision definition version the task evaluates if the <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#decisionrefbinding" >}}">camunda:decisionRefBinding</a>
       is set to <code>version</code>.
     </td>
   </tr>
@@ -657,7 +657,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>
+      <a href="{{< ref "/reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>
     </td>
   </tr>
 </table>
@@ -668,7 +668,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies the tenant id of the decision definition which is to be resolved by a business rule task, see <a href="{{< relref "reference/bpmn20/tasks/business-rule-task.md#decisionref-tenant-id" >}}">DecisionRef Tenant Id</a> for more information.
+      The attribute specifies the tenant id of the decision definition which is to be resolved by a business rule task, see <a href="{{< ref "/reference/bpmn20/tasks/business-rule-task.md#decisionref-tenant-id" >}}">DecisionRef Tenant Id</a> for more information.
     </td>
   </tr>
   <tr>
@@ -688,7 +688,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>
+      <a href="{{< ref "/reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>
     </td>
   </tr>
 </table>
@@ -699,7 +699,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute allows specification of an expression which must resolve to an object that implements the corresponding interface (see <a href="{{< relref "user-guide/process-engine/delegation-code.md" >}}">delegation code</a>).
+      The attribute allows specification of an expression which must resolve to an object that implements the corresponding interface (see <a href="{{< ref "/user-guide/process-engine/delegation-code.md" >}}">delegation code</a>).
     </td>
   </tr>
   <tr>
@@ -709,7 +709,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      Expression which evaluates to a Java class implementing a <a href="{{< relref "user-guide/process-engine/delegation-code.md" >}}">delegation</a> interface, e.g. <code>${myJavaDelegate}</code> or <code>#{myTaskListener}</code>
+      Expression which evaluates to a Java class implementing a <a href="{{< ref "/user-guide/process-engine/delegation-code.md" >}}">delegation</a> interface, e.g. <code>${myJavaDelegate}</code> or <code>#{myTaskListener}</code>
     </td>
   </tr>
   <tr>
@@ -719,12 +719,12 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
-      Message Event Definition of <a href="{{< relref "reference/bpmn20/events/message-events.md#message-intermediate-throwing-event" >}}">Message Intermediate Throwing Event</a> or <a href="{{< relref "reference/bpmn20/events/message-events.md#message-end-event" >}}">Message End Event</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#tasklistener" >}}">camunda:taskListener</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#executionlistener" >}}">camunda:executionListner</a>
+      <a href="{{< ref "/reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
+      Message Event Definition of <a href="{{< ref "/reference/bpmn20/events/message-events.md#message-intermediate-throwing-event" >}}">Message Intermediate Throwing Event</a> or <a href="{{< ref "/reference/bpmn20/events/message-events.md#message-end-event" >}}">Message End Event</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#tasklistener" >}}">camunda:taskListener</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#executionlistener" >}}">camunda:executionListner</a>
     </td>
   </tr>
 </table>
@@ -735,7 +735,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies the initial due date of a <a href="{{< relref "reference/bpmn20/tasks/user-task.md" >}}">User Task</a> when it is created.
+      The attribute specifies the initial due date of a <a href="{{< ref "/reference/bpmn20/tasks/user-task.md" >}}">User Task</a> when it is created.
     </td>
   </tr>
   <tr>
@@ -755,7 +755,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/tasks/user-task.md" >}}">User Task</a>
+      <a href="{{< ref "/reference/bpmn20/tasks/user-task.md" >}}">User Task</a>
     </td>
   </tr>
 </table>
@@ -767,7 +767,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>Description</th>
     <td>
       The attribute specifies the process variable which will be set on each created instance, containing an element of the specified collection see
-      <a href="{{< relref "reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Multiple Instance</a> for more information.
+      <a href="{{< ref "/reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Multiple Instance</a> for more information.
     </td>
   </tr>
   <tr>
@@ -787,10 +787,10 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Multi Instance Loop Characteristics</a> of Task,
-      <a href="{{< relref "reference/bpmn20/subprocesses/embedded-subprocess.md" >}}">Embedded Subprocess</a>,
-      <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>,
-      <a href="{{< relref "reference/bpmn20/subprocesses/transaction-subprocess.md" >}}">Transaction Subprocess</a>
+      <a href="{{< ref "/reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Multi Instance Loop Characteristics</a> of Task,
+      <a href="{{< ref "/reference/bpmn20/subprocesses/embedded-subprocess.md" >}}">Embedded Subprocess</a>,
+      <a href="{{< ref "/reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>,
+      <a href="{{< ref "/reference/bpmn20/subprocesses/transaction-subprocess.md" >}}">Transaction Subprocess</a>
     </td>
   </tr>
 </table>
@@ -802,7 +802,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies a process variable which will be set if an error has been received by the error start or boundary event, see <a href="{{< relref "reference/bpmn20/events/error-events.md" >}}">Error Events</a> for more information.
+      The attribute specifies a process variable which will be set if an error has been received by the error start or boundary event, see <a href="{{< ref "/reference/bpmn20/events/error-events.md" >}}">Error Events</a> for more information.
     </td>
   </tr>
   <tr>
@@ -822,7 +822,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/events/error-events.md" >}}">Error Events</a>
+      <a href="{{< ref "/reference/bpmn20/events/error-events.md" >}}">Error Events</a>
     </td>
   </tr>
 </table>
@@ -833,7 +833,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies a process variable which will be set if an escalation has been received by an escalation start or boundary event, see <a href="{{< relref "reference/bpmn20/events/escalation-events.md" >}}">Escalation Events</a> for more information.
+      The attribute specifies a process variable which will be set if an escalation has been received by an escalation start or boundary event, see <a href="{{< ref "/reference/bpmn20/events/escalation-events.md" >}}">Escalation Events</a> for more information.
     </td>
   </tr>
   <tr>
@@ -853,7 +853,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/events/escalation-events.md" >}}">Escalation Events</a>
+      <a href="{{< ref "/reference/bpmn20/events/escalation-events.md" >}}">Escalation Events</a>
     </td>
   </tr>
 </table>
@@ -864,7 +864,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies that jobs should be executed exclusively. See <a href="{{< relref "user-guide/process-engine/the-job-executor.md#exclusive-jobs" >}}">Exclusive Jobs</a> for more information.
+      The attribute specifies that jobs should be executed exclusively. See <a href="{{< ref "/user-guide/process-engine/the-job-executor.md#exclusive-jobs" >}}">Exclusive Jobs</a> for more information.
     </td>
   </tr>
   <tr>
@@ -884,30 +884,30 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/events/start-events.md" >}}">Start Events</a>,
-      <a href="{{< relref "reference/bpmn20/events/index.md" >}}">End Events</a>,
-      <a href="{{< relref "reference/bpmn20/events/index.md" >}}">Intermediate Throw Events</a>,
-      <a href="{{< relref "reference/bpmn20/events/index.md" >}}">Intermediate Catch Events</a>,
+      <a href="{{< ref "/reference/bpmn20/events/start-events.md" >}}">Start Events</a>,
+      <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">End Events</a>,
+      <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">Intermediate Throw Events</a>,
+      <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">Intermediate Catch Events</a>,
 
       Task,
-      <a href="{{< relref "reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/user-task.md" >}}">User Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/script-task.md" >}}">Script Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/receive-task.md" >}}">Receive Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/manual-task.md" >}}">Manual Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/user-task.md" >}}">User Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/script-task.md" >}}">Script Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/receive-task.md" >}}">Receive Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/manual-task.md" >}}">Manual Task</a>,
 
-      <a href="{{< relref "reference/bpmn20/subprocesses/embedded-subprocess.md" >}}">Embedded Subprocess</a>,
-      <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>,
-      <a href="{{< relref "reference/bpmn20/subprocesses/transaction-subprocess.md" >}}">Transaction Subprocess</a>,
+      <a href="{{< ref "/reference/bpmn20/subprocesses/embedded-subprocess.md" >}}">Embedded Subprocess</a>,
+      <a href="{{< ref "/reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>,
+      <a href="{{< ref "/reference/bpmn20/subprocesses/transaction-subprocess.md" >}}">Transaction Subprocess</a>,
 
-      <a href="{{< relref "reference/bpmn20/gateways/parallel-gateway.md" >}}">Parallel Gateway</a>,
-      <a href="{{< relref "reference/bpmn20/gateways/event-based-gateway.md" >}}">Event Based Gateway</a>,
-      <a href="{{< relref "reference/bpmn20/gateways/inclusive-gateway.md" >}}">Inclusive Gateway</a>,
-      <a href="{{< relref "reference/bpmn20/gateways/exclusive-gateway.md" >}}">Exclusive Gateway</a>,
+      <a href="{{< ref "/reference/bpmn20/gateways/parallel-gateway.md" >}}">Parallel Gateway</a>,
+      <a href="{{< ref "/reference/bpmn20/gateways/event-based-gateway.md" >}}">Event Based Gateway</a>,
+      <a href="{{< ref "/reference/bpmn20/gateways/inclusive-gateway.md" >}}">Inclusive Gateway</a>,
+      <a href="{{< ref "/reference/bpmn20/gateways/exclusive-gateway.md" >}}">Exclusive Gateway</a>,
 
-      <a href="{{< relref "reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Multi Instance Loop Characteristics</a>
+      <a href="{{< ref "/reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Multi Instance Loop Characteristics</a>
     </td>
   </tr>
 </table>
@@ -938,12 +938,12 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
-      Message Event Definition of <a href="{{< relref "reference/bpmn20/events/message-events.md#message-intermediate-throwing-event" >}}">Message Intermediate Throwing Event</a> or <a href="{{< relref "reference/bpmn20/events/message-events.md#message-end-event" >}}">Message End Event</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#tasklistener" >}}">camunda:taskListener</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#executionlistener" >}}">camunda:executionListner</a>
+      <a href="{{< ref "/reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
+      Message Event Definition of <a href="{{< ref "/reference/bpmn20/events/message-events.md#message-intermediate-throwing-event" >}}">Message Intermediate Throwing Event</a> or <a href="{{< ref "/reference/bpmn20/events/message-events.md#message-end-event" >}}">Message End Event</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#tasklistener" >}}">camunda:taskListener</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#executionlistener" >}}">camunda:executionListner</a>
     </td>
   </tr>
 </table>
@@ -954,7 +954,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies the class that will be called during the parsing of the form information of a <a href="{{< relref "reference/bpmn20/events/start-events.md" >}}">Start Event</a> or <a href="{{< relref "reference/bpmn20/tasks/user-task.md" >}}">User Task</a>.
+      The attribute specifies the class that will be called during the parsing of the form information of a <a href="{{< ref "/reference/bpmn20/events/start-events.md" >}}">Start Event</a> or <a href="{{< ref "/reference/bpmn20/tasks/user-task.md" >}}">User Task</a>.
     </td>
   </tr>
   <tr>
@@ -975,8 +975,8 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      Initial <a href="{{< relref "reference/bpmn20/events/start-events.md" >}}">Start Event</a> of a Process,
-      <a href="{{< relref "reference/bpmn20/tasks/user-task.md" >}}">User Task</a>
+      Initial <a href="{{< ref "/reference/bpmn20/events/start-events.md" >}}">Start Event</a> of a Process,
+      <a href="{{< ref "/reference/bpmn20/tasks/user-task.md" >}}">User Task</a>
     </td>
   </tr>
 </table>
@@ -987,7 +987,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies a form resource. See <a href="{{< relref "user-guide/task-forms/index.md" >}}">task forms</a> for more information.
+      The attribute specifies a form resource. See <a href="{{< ref "/user-guide/task-forms/_index.md" >}}">task forms</a> for more information.
     </td>
   </tr>
   <tr>
@@ -997,7 +997,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      A <code>java.lang.String</code> of a form resource which can be evaluated by the <a href="{{< relref "webapps/tasklist/index.md" >}}">Tasklist</a>
+      A <code>java.lang.String</code> of a form resource which can be evaluated by the <a href="{{< ref "/webapps/tasklist/_index.md" >}}">Tasklist</a>
     </td>
   </tr>
   <tr>
@@ -1007,8 +1007,8 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      Initial <a href="{{< relref "reference/bpmn20/events/start-events.md" >}}">Start Event</a> of a Process,
-      <a href="{{< relref "reference/bpmn20/tasks/user-task.md" >}}">User Task</a>
+      Initial <a href="{{< ref "/reference/bpmn20/events/start-events.md" >}}">Start Event</a> of a Process,
+      <a href="{{< ref "/reference/bpmn20/tasks/user-task.md" >}}">User Task</a>
     </td>
   </tr>
 </table>
@@ -1039,7 +1039,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/events/start-events.md" >}}">Start Event</a> of a Process
+      <a href="{{< ref "/reference/bpmn20/events/start-events.md" >}}">Start Event</a> of a Process
     </td>
   </tr>
 </table>
@@ -1050,7 +1050,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      Specifies the priority a job receives that is created in the context of executing the given process element (e.g., a timer event, or in the case of <a href="({{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncbefore" >}})">asyncBefore</a> and <a href="({{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}))">asyncAfter</a>. See the user guide on <a href="({{< relref "user-guide/process-engine/the-job-executor.md#job-prioritization" >}})">Job Prioritization</a> for details.
+      Specifies the priority a job receives that is created in the context of executing the given process element (e.g., a timer event, or in the case of <a href="({{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#asyncbefore" >}})">asyncBefore</a> and <a href="({{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}))">asyncAfter</a>. See the user guide on <a href="({{< ref "/user-guide/process-engine/the-job-executor.md#job-prioritization" >}})">Job Prioritization</a> for details.
     </td>
   </tr>
   <tr>
@@ -1070,29 +1070,29 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/events/start-events.md" >}}">Start Events</a>,
-      <a href="{{< relref "reference/bpmn20/events/index.md" >}}">End Events</a>,
-      <a href="{{< relref "reference/bpmn20/events/index.md" >}}">Intermediate Throw Events</a>,
-      <a href="{{< relref "reference/bpmn20/events/index.md" >}}">Intermediate Catch Events</a>,
+      <a href="{{< ref "/reference/bpmn20/events/start-events.md" >}}">Start Events</a>,
+      <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">End Events</a>,
+      <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">Intermediate Throw Events</a>,
+      <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">Intermediate Catch Events</a>,
 
       Task,
-      <a href="{{< relref "reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/user-task.md" >}}">User Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/script-task.md" >}}">Script Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/receive-task.md" >}}">Receive Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/manual-task.md" >}}">Manual Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/user-task.md" >}}">User Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/script-task.md" >}}">Script Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/receive-task.md" >}}">Receive Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/manual-task.md" >}}">Manual Task</a>,
 
-      <a href="{{< relref "reference/bpmn20/subprocesses/embedded-subprocess.md" >}}">Embedded Subprocess</a>,
-      <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>,
-      <a href="{{< relref "reference/bpmn20/subprocesses/transaction-subprocess.md" >}}">Transaction Subprocess</a>,
+      <a href="{{< ref "/reference/bpmn20/subprocesses/embedded-subprocess.md" >}}">Embedded Subprocess</a>,
+      <a href="{{< ref "/reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>,
+      <a href="{{< ref "/reference/bpmn20/subprocesses/transaction-subprocess.md" >}}">Transaction Subprocess</a>,
 
-      <a href="{{< relref "reference/bpmn20/gateways/parallel-gateway.md" >}}">Parallel Gateway</a>,
-      <a href="{{< relref "reference/bpmn20/gateways/inclusive-gateway.md" >}}">Inclusive Gateway</a>,
-      <a href="{{< relref "reference/bpmn20/gateways/exclusive-gateway.md" >}}">Exclusive Gateway</a>,
+      <a href="{{< ref "/reference/bpmn20/gateways/parallel-gateway.md" >}}">Parallel Gateway</a>,
+      <a href="{{< ref "/reference/bpmn20/gateways/inclusive-gateway.md" >}}">Inclusive Gateway</a>,
+      <a href="{{< ref "/reference/bpmn20/gateways/exclusive-gateway.md" >}}">Exclusive Gateway</a>,
 
-      <a href="{{< relref "reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Multi Instance Loop Characteristics</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Multi Instance Loop Characteristics</a>,
 
       Process
     </td>
@@ -1105,7 +1105,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute references which <a href="{{< relref "user-guide/process-engine/decisions/bpmn-cmmn.md#predefined-mapping-of-the-decision-result" >}}">built-in Decision Result Mapper</a> is used to pass the result of an evaluated decision to a process variable. It should be used in combination with <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#resultvariable" >}}">camunda:resultVariable</a>.
+      The attribute references which <a href="{{< ref "/user-guide/process-engine/decisions/bpmn-cmmn.md#predefined-mapping-of-the-decision-result" >}}">built-in Decision Result Mapper</a> is used to pass the result of an evaluated decision to a process variable. It should be used in combination with <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#resultvariable" >}}">camunda:resultVariable</a>.
     </td>
   </tr>
   <tr>
@@ -1125,7 +1125,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>
+      <a href="{{< ref "/reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>
     </td>
   </tr>
 </table>
@@ -1136,7 +1136,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies the initial priority of a <a href="{{< relref "reference/bpmn20/tasks/user-task.md" >}}">User Task</a> when it is created.
+      The attribute specifies the initial priority of a <a href="{{< ref "/reference/bpmn20/tasks/user-task.md" >}}">User Task</a> when it is created.
     </td>
   </tr>
   <tr>
@@ -1156,7 +1156,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/tasks/user-task.md" >}}">User Task</a>
+      <a href="{{< ref "/reference/bpmn20/tasks/user-task.md" >}}">User Task</a>
     </td>
   </tr>
 </table>
@@ -1167,7 +1167,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies the initial priority of an <a href="{{< relref "reference/bpmn20/tasks/service-task.md#external-tasks" >}}">External Task</a> when it is created.
+      The attribute specifies the initial priority of an <a href="{{< ref "/reference/bpmn20/tasks/service-task.md#external-tasks" >}}">External Task</a> when it is created.
     </td>
   </tr>
   <tr>
@@ -1187,11 +1187,11 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
-	  <a href="{{< relref "reference/bpmn20/events/message-events.md#message-end-event" >}}">Message End Event</a>,
-      <a href="{{< relref "reference/bpmn20/events/message-events.md#message-intermediate-throwing-event" >}}">Message Intermediate Throwing Event</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/business-rule-task.md#implementing-as-an-external-task" >}}">Business Rule Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
+	  <a href="{{< ref "/reference/bpmn20/events/message-events.md#message-end-event" >}}">Message End Event</a>,
+      <a href="{{< ref "/reference/bpmn20/events/message-events.md#message-intermediate-throwing-event" >}}">Message Intermediate Throwing Event</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/business-rule-task.md#implementing-as-an-external-task" >}}">Business Rule Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
       Process
     </td>
   </tr>
@@ -1229,7 +1229,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/tasks/script-task.md" >}}">Script Task</a>
+      <a href="{{< ref "/reference/bpmn20/tasks/script-task.md" >}}">Script Task</a>
     </td>
   </tr>
 </table>
@@ -1242,12 +1242,12 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>Description</th>
     <td>
       <p>
-      The attribute specifies the process variable to save the return value of a <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#expression" >}}">camunda:expression</a>.
+      The attribute specifies the process variable to save the return value of a <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#expression" >}}">camunda:expression</a>.
       </p>
       <p>
-        Note that when you use <code>camunda:resultVariable</code> in a multi-instance construct, for example in a multi-instance subprocess, the result variable is overwritten every time the task completes unless the variable is a <a href="{{< relref "user-guide/process-engine/variables.md#variable-scopes-and-variable-visibility" >}}">local variable</a> in the scope of the multi-instance construct. This can lead to seemingly random behavior.</p>
+        Note that when you use <code>camunda:resultVariable</code> in a multi-instance construct, for example in a multi-instance subprocess, the result variable is overwritten every time the task completes unless the variable is a <a href="{{< ref "/user-guide/process-engine/variables.md#variable-scopes-and-variable-visibility" >}}">local variable</a> in the scope of the multi-instance construct. This can lead to seemingly random behavior.</p>
       <p>
-        This is a known issue. As a workaround, a local variable can be declared by adding an <a href="{{< relref "user-guide/process-engine/delegation-code.md#execution-listener" >}}">execution listener</a> to the subprocess' start event that initializes the variable as <code>null</code>.
+        This is a known issue. As a workaround, a local variable can be declared by adding an <a href="{{< ref "/user-guide/process-engine/delegation-code.md#execution-listener" >}}">execution listener</a> to the subprocess' start event that initializes the variable as <code>null</code>.
       </p>
     </td>
   </tr>
@@ -1268,11 +1268,11 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/script-task.md" >}}">Script Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
-      Message Event Definition of <a href="{{< relref "reference/bpmn20/events/message-events.md#message-intermediate-throwing-event" >}}">Message Intermediate Throwing Event</a> or <a href="{{< relref "reference/bpmn20/events/message-events.md#message-end-event" >}}">Message End Event</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/script-task.md" >}}">Script Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
+      Message Event Definition of <a href="{{< ref "/reference/bpmn20/events/message-events.md#message-intermediate-throwing-event" >}}">Message Intermediate Throwing Event</a> or <a href="{{< ref "/reference/bpmn20/events/message-events.md#message-end-event" >}}">Message End Event</a>,
     </td>
   </tr>
 </table>
@@ -1317,7 +1317,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies the topic of an external task instance. The task is going to be offered to workers polling for that topic. It is only relevant when <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#type" >}}">camunda:type</a> is set to <code>external</code>.
+      The attribute specifies the topic of an external task instance. The task is going to be offered to workers polling for that topic. It is only relevant when <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#type" >}}">camunda:type</a> is set to <code>external</code>.
     </td>
   </tr>
   <tr>
@@ -1337,11 +1337,11 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
-	  <a href="{{< relref "reference/bpmn20/events/message-events.md#message-end-event" >}}">Message End Event</a>,
-      <a href="{{< relref "reference/bpmn20/events/message-events.md#message-intermediate-throwing-event" >}}">Message Intermediate Throwing Event</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/business-rule-task.md#implementing-as-an-external-task" >}}">Business Rule Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>
+      <a href="{{< ref "/reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
+	  <a href="{{< ref "/reference/bpmn20/events/message-events.md#message-end-event" >}}">Message End Event</a>,
+      <a href="{{< ref "/reference/bpmn20/events/message-events.md#message-intermediate-throwing-event" >}}">Message Intermediate Throwing Event</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/business-rule-task.md#implementing-as-an-external-task" >}}">Business Rule Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>
     </td>
   </tr>
 </table>
@@ -1373,11 +1373,11 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
-	  <a href="{{< relref "reference/bpmn20/events/message-events.md#message-end-event" >}}">Message End Event</a>,
-      <a href="{{< relref "reference/bpmn20/events/message-events.md#message-intermediate-throwing-event" >}}">Message Intermediate Throwing Event</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/business-rule-task.md#implementing-as-an-external-task" >}}">Business Rule Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>
+      <a href="{{< ref "/reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
+	  <a href="{{< ref "/reference/bpmn20/events/message-events.md#message-end-event" >}}">Message End Event</a>,
+      <a href="{{< ref "/reference/bpmn20/events/message-events.md#message-intermediate-throwing-event" >}}">Message Intermediate Throwing Event</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/business-rule-task.md#implementing-as-an-external-task" >}}">Business Rule Task</a>,
+      <a href="{{< ref "/reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>
     </td>
   </tr>
 </table>

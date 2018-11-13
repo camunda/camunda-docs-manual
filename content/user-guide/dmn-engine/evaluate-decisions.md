@@ -225,5 +225,5 @@ ruleResult.getFirstEntry();
 ruleResult.getSingleEntry();
 ```
 
-[decision tables]: {{< relref "reference/dmn11/decision-table/index.md" >}}
-[expressions]: {{< relref "user-guide/dmn-engine/expressions-and-scripts.md" >}}
+[decision tables]: {{< ref "/reference/dmn11/decision-table/_index.md" >}}
+[expressions]: {{< ref "/user-guide/dmn-engine/expressions-and-scripts.md" >}}

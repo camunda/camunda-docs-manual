@@ -161,7 +161,7 @@ The properties of a instruction report are as follows:
     <td>
       In case additional parameters of the request are unexpected, an exception
       of type <code>InvalidRequestException</code> is returned. See the <a
-      href="{{< relref "reference/rest/overview/index.md#error-handling">}}">
+      href="{{< ref "/reference/rest/overview/_index.md#error-handling">}}">
       Introduction</a> for the error response format.
     </td>
   </tr>
@@ -235,7 +235,7 @@ Status 200.
 }
 ```
 
-[user guide]: {{< relref "user-guide/process-engine/process-instance-migration.md#executing-a-migration-plan" >}}
-[POST /migration/executeAsync]: {{< relref "reference/rest/migration/execute-migration-async.md" >}}
-[creation time validation]: {{< relref "user-guide/process-engine/process-instance-migration.md#creation-time-validation" >}}
+[user guide]: {{< ref "/user-guide/process-engine/process-instance-migration.md#executing-a-migration-plan" >}}
+[POST /migration/executeAsync]: {{< ref "/reference/rest/migration/execute-migration-async.md" >}}
+[creation time validation]: {{< ref "/user-guide/process-engine/process-instance-migration.md#creation-time-validation" >}}
 

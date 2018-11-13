@@ -64,12 +64,12 @@ If you have declared other resource link names than we proposed, you have to use
 
 ## Tomcat Default Job Executor
 
-The BPM platform on Apache Tomcat 7.x uses the DefaultJobExecutor. The default [job executor]({{< relref "user-guide/process-engine/the-job-executor.md" >}}) uses a ThreadPoolExecutor which manages a thread
+The BPM platform on Apache Tomcat 7.x uses the DefaultJobExecutor. The default [job executor]({{< ref "/user-guide/process-engine/the-job-executor.md" >}}) uses a ThreadPoolExecutor which manages a thread
 pool and a job queue.
 
 The core pool size, queue size, maximum pool size and keep-alive-time can be configured in the `bpm-platform.xml`.
 After configuring the job-acquisitions it is possible to set the values with the help of a `<properties>`
-tag. The correct syntax can be found in the [references]({{< relref "reference/deployment-descriptors/tags/job-executor.md" >}}).
+tag. The correct syntax can be found in the [references]({{< ref "/reference/deployment-descriptors/tags/job-executor.md" >}}).
 
 All the previously mentioned properties except the queue size can be modified at runtime via the use of a JMX client.
 
@@ -116,7 +116,7 @@ around core thread count.
 
 In a clustered deployment, multiple job executors will work with each other (Note: see [Job
 Execution in Heterogeneous
-Clusters]({{< relref "user-guide/process-engine/the-job-executor.md#job-execution-in-heterogeneous-clusters" >}}).
+Clusters]({{< ref "/user-guide/process-engine/the-job-executor.md#job-execution-in-heterogeneous-clusters" >}}).
 On startup, each job executor allocates a UUID which is used for identifying locked job ownership in the job
 table.  Hence in a two node cluster, the job executors may total up to 20 concurrent threads of
 execution.

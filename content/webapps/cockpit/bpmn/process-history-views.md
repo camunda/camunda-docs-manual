@@ -67,4 +67,4 @@ In the User Tasks tab you can find an overview of all the user tasks related to 
 In the Job Log tab you can find an overview of all job related events of this process instance and the details of the specific jobs, such as state, time, the corresponding activity and job ID, the type, configuration and message. You can also access the stacktrace of a failed job.
 
 
-[process-definition-view-filter]: {{< relref "webapps/cockpit/bpmn/process-definition-view.md#filter" >}}
+[process-definition-view-filter]: {{< ref "/webapps/cockpit/bpmn/process-definition-view.md#filter" >}}

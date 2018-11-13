@@ -14,7 +14,7 @@ menu:
 
 
 Query for historic process instances that fulfill the given parameters.
-This method is slightly more powerful than the [GET query]({{< relref "reference/rest/history/process-instance/get-process-instance-query.md" >}}) because it allows filtering by multiple process variables of types `String`, `Number` or `Boolean`.
+This method is slightly more powerful than the [GET query]({{< ref "/reference/rest/history/process-instance/get-process-instance-query.md" >}}) because it allows filtering by multiple process variables of types `String`, `Number` or `Boolean`.
 
 
 # Method
@@ -278,7 +278,7 @@ Each historic process instance object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

@@ -14,7 +14,7 @@ menu:
 
 
 Query for the number of historic variable instances that fulfill the given parameters.
-Takes the same parameters as the [get historic variable instances]({{< relref "reference/rest/history/variable-instance/get-variable-instance-query.md" >}}).
+Takes the same parameters as the [get historic variable instances]({{< ref "/reference/rest/history/variable-instance/get-variable-instance-query.md" >}}).
 
 
 # Method

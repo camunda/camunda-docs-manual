@@ -14,7 +14,7 @@ menu:
 
 
 Query for the number of external tasks that fulfill given parameters.
-Takes the same parameters as the [get external tasks]({{< relref "reference/rest/external-task/get-query.md" >}}) method.
+Takes the same parameters as the [get external tasks]({{< ref "/reference/rest/external-task/get-query.md" >}}) method.
 
 
 # Method
@@ -140,7 +140,7 @@ A JSON object that contains the count as the only property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

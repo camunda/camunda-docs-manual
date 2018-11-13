@@ -192,14 +192,14 @@ definitions, decision models and decision diagrams from the repository. The
 resource id of the authorization is the decision definition key.
 
 For more information about authorizations, please refer to the [Authorization
-Service]({{< relref "user-guide/process-engine/authorization-service.md" >}}) section.
+Service]({{< ref "/user-guide/process-engine/authorization-service.md" >}}) section.
 
 # Cockpit
 
 Deployed decision definitions can be viewed in the [Cockpit] webapp.
 
-[Deployment]: {{< relref "user-guide/process-engine/deployments.md" >}}
-[DMN 1.1]: {{< relref "reference/dmn11/index.md" >}}
-[Process Application]: {{< relref "user-guide/process-applications/index.md" >}}
-[Process Archive]: {{< relref "reference/deployment-descriptors/tags/process-archive.md" >}}
-[Cockpit]: {{< relref "webapps/cockpit/dmn/index.md" >}}
+[Deployment]: {{< ref "/user-guide/process-engine/deployments.md" >}}
+[DMN 1.1]: {{< ref "/reference/dmn11/_index.md" >}}
+[Process Application]: {{< ref "/user-guide/process-applications/_index.md" >}}
+[Process Archive]: {{< ref "/reference/deployment-descriptors/tags/process-archive.md" >}}
+[Cockpit]: {{< ref "/webapps/cockpit/dmn/_index.md" >}}

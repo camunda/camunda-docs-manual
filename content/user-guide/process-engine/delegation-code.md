@@ -16,7 +16,7 @@ certain events occur during process execution.
 
 There are different types of Delegation Code:
 
-* **Java Delegates** can be attached to a [BPMN Service Task]({{< relref "reference/bpmn20/tasks/service-task.md" >}}).
+* **Java Delegates** can be attached to a [BPMN Service Task]({{< ref "/reference/bpmn20/tasks/service-task.md" >}}).
 * **Execution Listeners** can be attached to any event within the normal token flow, e.g., starting a process instance or entering an activity.
 * **Task Listeners** can be attached to events within the user task lifecycle, e.g., creation or completion of a user task.
 
@@ -443,5 +443,5 @@ public class BookOutGoodsDelegate implements JavaDelegate {
 ```
 
 
-[script-sources]: {{< relref "user-guide/process-engine/scripting.md#script-source" >}}
-[camunda-script]: {{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-script" >}}
+[script-sources]: {{< ref "/user-guide/process-engine/scripting.md#script-source" >}}
+[camunda-script]: {{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#camunda-script" >}}

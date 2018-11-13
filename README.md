@@ -3,13 +3,13 @@
 This repository contains the sources of the Camunda BPM Documentation.
 
 **Important:** _do NOT change the content of `themes/camunda` directory directly!_
-Instead, Change the [theme](//github.com/camunda/camunda-docs-theme).
+Instead, change the [theme](//github.com/camunda/camunda-docs-theme).
 
 ## Installing Hugo
 
-In order to build this documentation, you first need to install [hugo][hugo].
+In order to build this documentation, you first need to install [hugo][hugo] v0.50 (newer versions _may_ work).
 
-> **Note:** Camunda docs currently requires a patched version of hugo which can be downloaded from the [Camunda Nexus][].
+See the [hugo installation guide][hugo-installation] for more details on howto install Hugo.
 
 ## Building the Documentation
 
@@ -21,10 +21,10 @@ hugo
 
 A static build of the documentation will be placed in the `public/` folder.
 
-While editing the docs, you probably want to start the hugo server in "watch mode":
+While editing the docs, you probably want to start the hugo server (defaults to "watch mode"):
 
 ```bash
-hugo server -w
+hugo server --baseUrl="http://localhost"
 ```
 
 You can then browse the docs under [http://localhost:1313/](http://localhost:1313/).
@@ -147,7 +147,7 @@ By using the `code` which can highlight 1 line or a range of lines (and you can 
 
 ### Take the screenshots
 
-* Hover over the drawing with your browser and adjust the browser screen size to fit the drawing
+* Hover over the drawing with your browser and adjust the browser screen size to fit the drawing (do not include the footer)
 * Take screenshot
 * Paste screenshot into the drawing
 * Right click on the image and select 'Original Size'
@@ -177,7 +177,7 @@ By using the `code` which can highlight 1 line or a range of lines (and you can 
 * Use short sentences. Full stop is better than comma.
 * Don't constantly repeat context: One a Page named *Updating Camunda* not every headline needs to start with *"Upating this"*, *"Updating that"*. Instead just write *"This"* or *"That"*. It is clear to the reader that things are being updated. Other example: if the page is named *"Installing the Full Distribution for JBoss Application Server"* not every section needs to mention the application server: Instead of *"The following steps are necessary in order to install the REST Api on JBoss"* write: *"The following steps are necessary in order to install the REST Api:"*
 * Don't overruse notes and warning. Not everything that comes into mind while writing a paragraph is a note or a warning. Maybe it is just content. There should not be more notes and warinings than content.
-* Yes you programmed the stuff but you don't need to write the docs in a super self-concious way: insted of *"We use slf4j for logging"* write: *"Slf4j is used for logging"*.
+* Yes you programmed the stuff but you don't need to write the docs in a super self-concious way: instead of *"We use slf4j for logging"* write: *"Slf4j is used for logging"*.
 * Don't use the future form: instead of *"This document will guide you through he steps of..."* write *"This document guides you through the steps"*
 * Nice combination of the previous two points: *"Throughout this guide, we will use a number of variables to denote common path names and constants:"* => *"This guide uses the following variables to denote common path names and constants:"*
 * Use this tool to convert titles into title case: [title converter][title converter]

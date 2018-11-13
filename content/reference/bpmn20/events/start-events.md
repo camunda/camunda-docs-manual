@@ -15,10 +15,10 @@ Start events define where a Process or Sub Process starts.
 
 The process engine supports differnet types of start events:
 
-* [Blank]({{< relref "reference/bpmn20/events/none-events.md" >}})
-* [Timer]({{< relref "reference/bpmn20/events/timer-events.md" >}})
-* [Message]({{< relref "reference/bpmn20/events/message-events.md" >}})
-* [Signal]({{< relref "reference/bpmn20/events/signal-events.md" >}})
+* [Blank]({{< ref "/reference/bpmn20/events/none-events.md" >}})
+* [Timer]({{< ref "/reference/bpmn20/events/timer-events.md" >}})
+* [Message]({{< ref "/reference/bpmn20/events/message-events.md" >}})
+* [Signal]({{< ref "/reference/bpmn20/events/signal-events.md" >}})
 
 The engine requires at least one start event to instantiate a process. There can a maximum of one blank or timer start event per process definition. There can be multiple message or signal start events.
 
@@ -31,7 +31,7 @@ A start event may be declared as asynchronous with `camunda:asyncBefore="true"`
 <startEvent id="startEvent" camunda:asyncBefore="true" />
 ```
 
-This will ensure that the process engine creates a process instance when the process is instantiated, but the execution of the initial activities is not done synchronously. Instead, a job is created and asynchronously processed by the [job executor]({{< relref "user-guide/process-engine/the-job-executor.md" >}}). See the [Asynchronous Continuations]({{< relref "user-guide/process-engine/transactions-in-processes.md#asynchronous-continuations" >}}) section of the [User Guide]({{< relref "user-guide/index.md" >}}) for some background information.
+This will ensure that the process engine creates a process instance when the process is instantiated, but the execution of the initial activities is not done synchronously. Instead, a job is created and asynchronously processed by the [job executor]({{< ref "/user-guide/process-engine/the-job-executor.md" >}}). See the [Asynchronous Continuations]({{< ref "/user-guide/process-engine/transactions-in-processes.md#asynchronous-continuations" >}}) section of the [User Guide]({{< ref "/user-guide/_index.md" >}}) for some background information.
 
 
 # Camunda Extensions
@@ -40,21 +40,21 @@ This will ensure that the process engine creates a process instance when the pro
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncbefore" >}}">camunda:asyncBefore</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}">camunda:asyncAfter</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#exclusive" >}}">camunda:exclusive</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#formhandlerclass" >}}">camunda:formHandlerClass</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#formkey" >}}">camunda:formKey</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#initiator" >}}">camunda:initiator</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#jobpriority" >}}">camunda:jobPriority</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#asyncbefore" >}}">camunda:asyncBefore</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}">camunda:asyncAfter</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#exclusive" >}}">camunda:exclusive</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#formhandlerclass" >}}">camunda:formHandlerClass</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#formkey" >}}">camunda:formKey</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#initiator" >}}">camunda:initiator</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#jobpriority" >}}">camunda:jobPriority</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#failedjobretrytimecycle" >}}">camunda:failedJobRetryTimeCycle</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#formdata" >}}">camunda:formData</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#formproperty" >}}">camunda:formProperty</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#failedjobretrytimecycle" >}}">camunda:failedJobRetryTimeCycle</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#formdata" >}}">camunda:formData</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#formproperty" >}}">camunda:formProperty</a>,
     </td>
   </tr>
   <tr>
