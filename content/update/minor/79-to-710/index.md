@@ -203,3 +203,19 @@ Starting with 7.10, the engine supports database partitioning for historical dat
 
 Due to this reason, [`OptimisticLockingException`s]({{< relref "user-guide/process-engine/transactions-in-processes.md#optimistic-locking-in-camunda" >}}) on UPDATE/DELETE operations for historical data are prevented by default.
 There exist a [process engine configuration flag]({{< relref "reference/deployment-descriptors/tags/process-engine.md#skipHistoryOptimisticLockingExceptions" >}}) to preserve the previous behavior.
+
+# Webjar structure changed
+
+Structure of `webjar` and `webjar-ee` artifacts has changed related to adjustment of index.html path. The new structure is as follows:
+```
+/META-INF/resources
+    |--/plugin
+    |   |--/admin
+    |   |--/cockpit
+    |   |--/tasklist
+    |--/webjars/camunda
+        |--/app
+        |--/lib
+        |--index.html
+        |--securityFilterRules.json
+```
