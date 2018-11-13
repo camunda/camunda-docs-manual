@@ -32,17 +32,17 @@ See the [Filters][tasklist-filters] section for more information.
 
 First we need to claim this task to be able to work on it. To do so, click on *Claim* in the [task view section][tasklist-dashboard-task-view]. You can also reassign the task to another user by clicking on *Demo Demo*. A text field will appear into which you can insert the user that you want to assign this task to.
 
-See the [Claiming, unclaiming and reassigning tasks]({{< relref "webapps/tasklist/dashboard.md#claim-unclaim-and-reassign-tasks" >}}) section for more information.
+See the [Claiming, unclaiming and reassigning tasks]({{< ref "/webapps/tasklist/dashboard.md#claim-unclaim-and-reassign-tasks" >}}) section for more information.
 
 # Working on Tasks
 
-After creating the filter, we now want to start working on a task. We can do so by selecting the task in the [filter results]({{< relref "webapps/tasklist/dashboard.md#filter-results" >}}). On the right side, you will see the task form to work on as an embedded form.
+After creating the filter, we now want to start working on a task. We can do so by selecting the task in the [filter results]({{< ref "/webapps/tasklist/dashboard.md#filter-results" >}}). On the right side, you will see the task form to work on as an embedded form.
 
-In our example task form you are asked to approve an invoice (or not). To complete the task, either tick the checkbox at *Do you approve?* or not and click on `Complete`. For our example, tick the checkbox and complete the task. Then have a look at the [filter results]({{< relref "webapps/tasklist/dashboard.md#filter-results" >}}). Now you will see that the *Prepare Bank Transfer* task has been created.
+In our example task form you are asked to approve an invoice (or not). To complete the task, either tick the checkbox at *Do you approve?* or not and click on `Complete`. For our example, tick the checkbox and complete the task. Then have a look at the [filter results]({{< ref "/webapps/tasklist/dashboard.md#filter-results" >}}). Now you will see that the *Prepare Bank Transfer* task has been created.
 
 When you submit the task form, the task is completed and the process continues in the engine. Furthermore, you can visualize the process model by clicking on the *Diagram* tab in the [task view][tasklist-dashboard-task-view] section of the dashboard.
 
-See the [Task Forms]({{< relref "user-guide/task-forms/index.md" >}}) section for more information.
+See the [Task Forms]({{< ref "/user-guide/task-forms/_index.md" >}}) section for more information.
 
 
 # Set Follow-Up Date
@@ -56,7 +56,7 @@ See the [Follow-Up][tasklist-dashboard-follow-up] section for more information.
 
 Now we want to add a comment for other Tasklist users to see. To do so, click on *Add Comment* at the top of the [task view section][tasklist-dashboard-task-view] and insert the comment, e.g., "Hi Mary, please review this task". The comment can now be seen in the task history.
 
-See the [Comments]({{< relref "webapps/tasklist/dashboard.md#comments" >}}) section for more information.
+See the [Comments]({{< ref "/webapps/tasklist/dashboard.md#comments" >}}) section for more information.
 
 
 # Set Due Date
@@ -68,7 +68,7 @@ See the [Due Dates][tasklist-dashboard-follow-up] section for more information.
 This concludes our example task. Now we will elaborate on the functions that Tasklist offers.
 
 
-[tasklist-dashboard]: {{< relref "webapps/tasklist/dashboard.md" >}}
-[tasklist-dashboard-task-view]: {{< relref "webapps/tasklist/dashboard.md#task-view" >}}
-[tasklist-dashboard-follow-up]: {{< relref "webapps/tasklist/dashboard.md#set-due-dates-and-follow-up-dates" >}}
-[tasklist-filters]: {{< relref "webapps/tasklist/filters.md" >}}
+[tasklist-dashboard]: {{< ref "/webapps/tasklist/dashboard.md" >}}
+[tasklist-dashboard-task-view]: {{< ref "/webapps/tasklist/dashboard.md#task-view" >}}
+[tasklist-dashboard-follow-up]: {{< ref "/webapps/tasklist/dashboard.md#set-due-dates-and-follow-up-dates" >}}
+[tasklist-filters]: {{< ref "/webapps/tasklist/filters.md" >}}

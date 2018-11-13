@@ -15,7 +15,7 @@ In this how-to we will walk through the steps needed to develop a Cockpit plug-i
 {{< img src="../img/cockpit-plugin.png" title="Cockpit Plugin" >}}
 
 {{< note title="Heads-Up" class="warning" >}}
-Please take a look at the <a href="{{< relref "webapps/cockpit/extend/plugins.md" >}}">Cockpit Plug-ins</a> section of the <a href="{{< relref "user-guide/index.md" >}}">User Guide</a> for the basics first.
+Please take a look at the <a href="{{< ref "/webapps/cockpit/extend/plugins.md" >}}">Cockpit Plug-ins</a> section of the <a href="{{< ref "/user-guide/_index.md" >}}">User Guide</a> for the basics first.
 {{< /note >}}
 
 
@@ -430,7 +430,7 @@ Now we are done with the server-side parts of the plug-in. Next, we will go ahea
 
 {{< note title="" class="info" >}}
 This section only provides a short overview of the client-side plug-in mechanism in Cockpit.
-Consider reading <a href="{{< relref "examples/tutorials/develop-cockpit-plugin.md#how-client-side-plugins-work" >}}">How client-side plug-ins work</a> if you are interested in more details.
+Consider reading <a href="{{< ref "/examples/tutorials/develop-cockpit-plugin.md#how-client-side-plugins-work" >}}">How client-side plug-ins work</a> if you are interested in more details.
 {{< /note >}}
 
 The client-side part of a Cockpit plug-in consists of an extension to the Cockpit webapp client application. It is served through the plug-in serverside extension as a static plug-in asset.

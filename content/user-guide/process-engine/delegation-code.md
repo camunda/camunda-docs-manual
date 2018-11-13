@@ -16,8 +16,8 @@ certain events occur during process execution.
 
 There are different types of Delegation Code:
 
-* **Java Delegates** can be attached to a [BPMN Service Task]({{< relref "reference/bpmn20/tasks/service-task.md" >}}).
-* **Delegate Variable Mapping** can be attached to a [Call Activity]({{< relref "reference/bpmn20/subprocesses/call-activity.md" >}}).
+* **Java Delegates** can be attached to a [BPMN Service Task]({{< ref "/reference/bpmn20/tasks/service-task.md" >}}).
+* **Delegate Variable Mapping** can be attached to a [Call Activity]({{< ref "/reference/bpmn20/subprocesses/call-activity.md" >}}).
 * **Execution Listeners** can be attached to any event within the normal token flow, e.g., starting a process instance or entering an activity.
 * **Task Listeners** can be attached to events within the user task lifecycle, e.g., creation or completion of a user task.
 
@@ -210,7 +210,7 @@ The `mapInputVariables` method is called before the call activity is executed, t
 The input variables should be put into the given variables map.
 The `mapOutputVariables` method is called after the call activity was executed, to map the output variables.
 The output variables can be directly set into the caller execution.
-The behavior of the class loading is similar to the class loading on [Java Delegates]({{< relref "user-guide/process-engine/delegation-code.md#java-delegate" >}}).
+The behavior of the class loading is similar to the class loading on [Java Delegates]({{< ref "/user-guide/process-engine/delegation-code.md#java-delegate" >}}).
 
 
 # Execution Listener
@@ -472,9 +472,9 @@ public class BookOutGoodsDelegate implements JavaDelegate {
 
 {{< note title="Note!" class="info" >}}
 
-Throwing a `BpmnError` in the delegation code behaves like modeling an error end event. See the [reference guide]({{< relref "reference/bpmn20/events/error-events.md#error-boundary-event" >}}) about the details on the behavior, especially the error boundary event. If no error boundary event is found on the scope, the execution is ended.
+Throwing a `BpmnError` in the delegation code behaves like modeling an error end event. See the [reference guide]({{< ref "/reference/bpmn20/events/error-events.md#error-boundary-event" >}}) about the details on the behavior, especially the error boundary event. If no error boundary event is found on the scope, the execution is ended.
 
 {{< /note >}}
 
-[script-sources]: {{< relref "user-guide/process-engine/scripting.md#script-source" >}}
-[camunda-script]: {{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-script" >}}
+[script-sources]: {{< ref "/user-guide/process-engine/scripting.md#script-source" >}}
+[camunda-script]: {{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#camunda-script" >}}

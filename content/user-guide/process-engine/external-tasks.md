@@ -15,7 +15,7 @@ The process engine supports two ways of executing service tasks:
 1. Internal Service tasks: Synchronous invocation of code deployed along with a process application
 2. External tasks: Providing a unit of work in a list that can be polled by workers
 
-The first option is used when code is implemented as [Delegation Code]({{< relref "user-guide/process-engine/delegation-code.md" >}}) or as a [Script]({{< relref  "user-guide/process-engine/scripting.md" >}}). By contrast, external (service) tasks work in a way that the process engine publishes a unit of work to a worker to fetch and complete. We refer to this as the *external task pattern*.
+The first option is used when code is implemented as [Delegation Code]({{< ref "/user-guide/process-engine/delegation-code.md" >}}) or as a [Script]({{< ref "/user-guide/process-engine/scripting.md" >}}). By contrast, external (service) tasks work in a way that the process engine publishes a unit of work to a worker to fetch and complete. We refer to this as the *external task pattern*.
 
 Note that the above distinction does not say whether the actual "business logic" is implemented locally or as a remote service. The Java Delegate invoked by an internal service task may either implement the business logic itself or it may call out to a web/rest service, send a message to another system and so forth. The same is true for an external worker. The worker can implement the business logic directly or again delegate to a remote system.
 
@@ -59,11 +59,11 @@ In the BPMN XML of a process definition, a service task can be declared to be pe
   camunda:topic="AddressValidation" />
 ```
 
-In addition, other *service-task-like* elements such as send tasks, business rule tasks, and throwing message events can be implemented with the external task pattern. See the [BPMN 2.0 implementation reference]({{< relref "reference/bpmn20/index.md" >}}) for details.
+In addition, other *service-task-like* elements such as send tasks, business rule tasks, and throwing message events can be implemented with the external task pattern. See the [BPMN 2.0 implementation reference]({{< ref "/reference/bpmn20/_index.md" >}}) for details.
 
 ## Rest API
 
-See the [REST API documentation]({{< relref "reference/rest/external-task/index.md" >}}) for how the API operations can be accessed via HTTP.
+See the [REST API documentation]({{< ref "/reference/rest/external-task/_index.md" >}}) for how the API operations can be accessed via HTTP.
 
 ## Java API
 
@@ -141,7 +141,7 @@ for (LockedExternalTask task : tasks) {
 }
 ```
 
-The resulting tasks then contain the current values of the requested variable. Note that the variable values are the values that are visible in the scope hierarchy from the external task's execution. See the chapter on [Variable Scopes and Variable Visibility]({{< relref "user-guide/process-engine/variables.md#variable-scopes-and-variable-visibility" >}}) for details.
+The resulting tasks then contain the current values of the requested variable. Note that the variable values are the values that are visible in the scope hierarchy from the external task's execution. See the chapter on [Variable Scopes and Variable Visibility]({{< ref "/user-guide/process-engine/variables.md#variable-scopes-and-variable-visibility" >}}) for details.
 
 In order to fetch all variables, call to `variables()` method should be omitted 
 
@@ -180,7 +180,7 @@ for (LockedExternalTask task : tasks) {
 
 ### External Task Prioritization
 External task prioritization is similar to job prioritization. The same problem exists with starvation which should be considered. 
-For further details, see the section on [Job Prioritization]({{< relref "user-guide/process-engine/the-job-executor.md#the-job-priority" >}}).
+For further details, see the section on [Job Prioritization]({{< ref "/user-guide/process-engine/the-job-executor.md#the-job-priority" >}}).
 
 ### Configure the Process Engine for External Task Priorities
 
@@ -198,7 +198,7 @@ External task priorities can be specified in the BPMN model as well as overridde
 
 External task priorities can be assigned at the process or the activity level. To achieve this, the Camunda extension attribute `camunda:taskPriority` can be used.
 
-For specifying the priority, both constant values and [expressions]({{< relref "user-guide/process-engine/expression-language.md" >}}) are supported. 
+For specifying the priority, both constant values and [expressions]({{< ref "/user-guide/process-engine/expression-language.md" >}}) are supported. 
 When using a constant value, the same priority is assigned to all instances of the process or activity. 
 Expressions, on the other hand, allow assigning a different priority to each instance of the process or activity. Expression must evaluate to a number in the Java `long` range.
 The concrete value can be the result of a complex calculation and be based on user-provided data (resulting from a task form or other sources).
@@ -317,7 +317,7 @@ At the moment when error details are required, they are queried from the service
 
 ### Reporting BPMN Error
 
-See the documentation for [Error Boundary Events]({{< relref "reference/bpmn20/events/error-events.md#error-boundary-event" >}}).
+See the documentation for [Error Boundary Events]({{< ref "/reference/bpmn20/events/error-events.md#error-boundary-event" >}}).
 
 For some reason a business error can appear during execution. In this case, the worker can report a BPMN error to the process engine by using `ExternalTaskService#handleBpmnError`. 
 Like `#complete` or `#handleFailure`, it can only be invoked by the worker possessing the most recent lock for a task. 

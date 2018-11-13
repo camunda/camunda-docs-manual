@@ -1,5 +1,5 @@
 ---
-baseurl: "/manual/7.7/"
+baseURL: "/manual/7.7/"
 languageCode: "en-us"
 title: "Camunda BPM documentation"
 theme: "camunda"
@@ -40,4 +40,15 @@ params:
   github:
     repositoryName: "camunda/camunda-docs-manual"
     branch: "7.7"
+
+outputs:
+  home:
+    - "HTML"
+    - "RSS"
+  section:
+    - "HTML"
+
+disableKinds:
+- taxonomy
+- taxonomyTerm
 ...

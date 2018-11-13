@@ -13,12 +13,12 @@ menu:
 ---
 
 
-The process engine configuration can be placed in both [processes.xml]({{< relref "reference/deployment-descriptors/descriptors/processes-xml.md" >}}) and the [bpm-platform.xml]({{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}) files. If the process engine is configured in either or both of those files, it will be bootstrapped by the Camunda BPM platform infrastructure and be made available through `BpmPlatform.getProcessEngineService().getProcessEngine("name of process engine")`.
+The process engine configuration can be placed in both [processes.xml]({{< ref "/reference/deployment-descriptors/descriptors/processes-xml.md" >}}) and the [bpm-platform.xml]({{< ref "/reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}) files. If the process engine is configured in either or both of those files, it will be bootstrapped by the Camunda BPM platform infrastructure and be made available through `BpmPlatform.getProcessEngineService().getProcessEngine("name of process engine")`.
 
 
 # Example
 
-The following example shows an XML snippet which can be placed in both [processes.xml]({{< relref "reference/deployment-descriptors/descriptors/processes-xml.md" >}}) and/or [bpm-platform.xml]({{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}).
+The following example shows an XML snippet which can be placed in both [processes.xml]({{< ref "/reference/deployment-descriptors/descriptors/processes-xml.md" >}}) and/or [bpm-platform.xml]({{< ref "/reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}).
 
 ```xml
 <process-engine name="default">
@@ -75,7 +75,7 @@ The following example shows an XML snippet which can be placed in both [processe
       </p>
       <p>
         <strong>Text Content:</strong>
-        The name of the job acquisition to be used for this process engine. Job acquisitions are configured in the <a href="{{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}">bpm-platform.xml</a> file.
+        The name of the job acquisition to be used for this process engine. Job acquisitions are configured in the <a href="{{< ref "/reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}">bpm-platform.xml</a> file.
       </p>
       <p>
         <strong>Example:</strong>
@@ -176,7 +176,7 @@ The following example shows an XML snippet which can be placed in both [processe
     <td><code>&lt;process-engine&gt;</code></td>
     <td>false</td>
     <td>
-        Container element for providing a set of <a href="{{< relref "user-guide/process-engine/process-engine-plugins.md" >}}">process engine plugin</a> configurations.
+        Container element for providing a set of <a href="{{< ref "/user-guide/process-engine/process-engine-plugins.md" >}}">process engine plugin</a> configurations.
       <p>
         <strong>Attributes:</strong>
         None.
@@ -192,7 +192,7 @@ The following example shows an XML snippet which can be placed in both [processe
     <td><code>&lt;plugins&gt;</code></td>
     <td>false</td>
     <td>
-        Container element for providing an individual <a href="{{< relref "user-guide/process-engine/process-engine-plugins.md" >}}">process engine plugin</a> configuration.
+        Container element for providing an individual <a href="{{< ref "/user-guide/process-engine/process-engine-plugins.md" >}}">process engine plugin</a> configuration.
       <p>
         <strong>Attributes:</strong>
         None.
@@ -208,7 +208,7 @@ The following example shows an XML snippet which can be placed in both [processe
     <td><code>&lt;plugin&gt;</code></td>
     <td>false</td>
     <td>
-        Sets the classname of a <a href="{{< relref "user-guide/process-engine/process-engine-plugins.md" >}}">process engine plugin</a>.
+        Sets the classname of a <a href="{{< ref "/user-guide/process-engine/process-engine-plugins.md" >}}">process engine plugin</a>.
       <p>
         <strong>Attributes:</strong>
         None.
@@ -281,7 +281,7 @@ The following is a list with the most commonly used process engine configuration
     <td><code>enableExpressionsInAdhocQueries</code></td>
     <td>Boolean</td>
     <td>
-      If set to <code>true</code>, expressions can be used when creating and executing adhoc queries. For details, see the section on <a href="{{< relref "user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide.
+      If set to <code>true</code>, expressions can be used when creating and executing adhoc queries. For details, see the section on <a href="{{< ref "/user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide.
       Default value is <code>false</code>.
       <p>
         <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
@@ -293,7 +293,7 @@ The following is a list with the most commonly used process engine configuration
     <td><code>enableExpressionsInStoredQueries</code></td>
     <td>Boolean</td>
     <td>
-      If set to <code>true</code>, expressions can be used when creating and executing stored queries. For details, see the section on <a href="{{< relref "user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide.
+      If set to <code>true</code>, expressions can be used when creating and executing stored queries. For details, see the section on <a href="{{< ref "/user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide.
       Default value is <code>true</code>.
       <p>
         <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
@@ -392,7 +392,7 @@ The following is a list with the most commonly used process engine configuration
     <td>Boolean</td>
     <td>
         Controls whether the job executor acquires the next jobs to execute ordered by due date. Default value is <code>false</code>. See the
-        <a href="{{< relref "user-guide/process-engine/the-job-executor.md#the-job-order-of-job-acquisition" >}}">user guide</a>
+        <a href="{{< ref "/user-guide/process-engine/the-job-executor.md#the-job-order-of-job-acquisition" >}}">user guide</a>
         for more details on this setting.
       <p>
         <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
@@ -405,7 +405,7 @@ The following is a list with the most commonly used process engine configuration
     <td>Boolean</td>
     <td>
         Controls whether the process engine starts with an active job executor or not. For a shared process engine configuration, the default value is <code>true</code>. For an embedded process engine configuration, the default value is <code>false</code>. See the
-        <a href="{{< relref "user-guide/process-engine/the-job-executor.md#job-executor-activation" >}}">user guide</a>
+        <a href="{{< ref "/user-guide/process-engine/the-job-executor.md#job-executor-activation" >}}">user guide</a>
         for more details on this setting.
       <p>
         <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
@@ -429,7 +429,7 @@ The following is a list with the most commonly used process engine configuration
     <td>Boolean</td>
     <td>
         Controls whether the job executor prefers due timer jobs over other job types. Default value is <code>false</code>. See the
-        <a href="{{< relref "user-guide/process-engine/the-job-executor.md#the-job-order-of-job-acquisition" >}}">user guide</a>
+        <a href="{{< ref "/user-guide/process-engine/the-job-executor.md#the-job-order-of-job-acquisition" >}}">user guide</a>
         for more details on this setting.
       <p>
         <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
@@ -441,7 +441,7 @@ The following is a list with the most commonly used process engine configuration
     <td>Boolean</td>
     <td>
         Controls whether the process engine performs tenant checks to ensure that an authenticated user can only access data that belongs to one of his tenants. Default value is <code>true</code>.
-        See the <a href="{{< relref "user-guide/process-engine/multi-tenancy.md#single-process-engine-with-tenant-identifiers" >}}">user guide</a> for more details.
+        See the <a href="{{< ref "/user-guide/process-engine/multi-tenancy.md#single-process-engine-with-tenant-identifiers" >}}">user guide</a> for more details.
       <p>
         <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
       </p>
@@ -454,7 +454,7 @@ The following is a list with the most commonly used process engine configuration
     <td>
         Sets the number of batch execution jobs created per batch seed job
         invocation.
-        See the <a href="{{< relref "user-guide/process-engine/batch.md#job-definitions" >}}">
+        See the <a href="{{< ref "/user-guide/process-engine/batch.md#job-definitions" >}}">
         user guide</a> for more information on batch execution.
         Default value: <code>100</code>
     </td>
@@ -465,7 +465,7 @@ The following is a list with the most commonly used process engine configuration
     <td>Integer</td>
     <td>
         Sets the number of invocations a single batch execution job executes.
-        See the <a href="{{< relref "user-guide/process-engine/batch.md#job-definitions" >}}">
+        See the <a href="{{< ref "/user-guide/process-engine/batch.md#job-definitions" >}}">
         user guide</a> for more information on batch execution.
         Default value: <code>1</code>
     </td>
@@ -477,7 +477,7 @@ The following is a list with the most commonly used process engine configuration
     <td>
         Sets the poll interval of the batch monitor job to check for batch
         completion in seconds.
-        See the <a href="{{< relref "user-guide/process-engine/batch.md#job-definitions" >}}">
+        See the <a href="{{< ref "/user-guide/process-engine/batch.md#job-definitions" >}}">
         user guide</a> for more information on batch execution.
         Default value: <code>30</code>
     </td>
@@ -488,7 +488,7 @@ The following is a list with the most commonly used process engine configuration
     <td>Integer</td>
     <td>
         Sets the default batch job priority.
-        See the <a href="{{< relref "user-guide/process-engine/the-job-executor.md#job-prioritization" >}}">
+        See the <a href="{{< ref "/user-guide/process-engine/the-job-executor.md#job-prioritization" >}}">
         user guide</a> for more information on job prioritization.
         Default value: <code>0</code>
     </td>
@@ -518,7 +518,7 @@ The following is a list with the most commonly used process engine configuration
     <td><a name="javaSerializationFormatEnabled"></a><code>javaSerializationFormatEnabled</code></td>
     <td>Boolean</td>
     <td>
-        Sets if Java serialization format can be used, when <a href="{{< relref "user-guide/process-engine/variables.md#object-values">}}">setting variables by their serialized representation</a>. Default value: <code>true</code>
+        Sets if Java serialization format can be used, when <a href="{{< ref "/user-guide/process-engine/variables.md#object-values">}}">setting variables by their serialized representation</a>. Default value: <code>true</code>
     </td>
   </tr>
 
@@ -530,13 +530,13 @@ The following is a list with the most commonly used process engine configuration
   <tr>
     <td><code>historyCleanupBatchWindowStartTime</code></td>
     <td>String</td>
-    <td><a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window start time in the format <code>HH:mmZ</code> (Z is for RFC 822 time zone) or <code>HH:mm</code>. E.g., <code>20:00+0100</code> or <code>20:00</code>. In case of <code>null</code>, no batch window is considered to be configured 
+    <td><a href="{{< ref "/user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window start time in the format <code>HH:mmZ</code> (Z is for RFC 822 time zone) or <code>HH:mm</code>. E.g., <code>20:00+0100</code> or <code>20:00</code>. In case of <code>null</code>, no batch window is considered to be configured 
     and history cleanup can only be called manually.</td>
   </tr>
   <tr>
     <td><code>historyCleanupBatchWindowEndTime</code></td>
     <td>String</td>
-    <td><a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window end time in the format <code>HH:mmZ</code> (Z is for RFC 822 time zone) or <code>HH:mm</code>. E.g., <code>23:00-0300</code> or <code>23:00</code>. In case <code>batchWindowEndTime</code> exceeds <code>batchWindowStartTime</code> it is considered 
+    <td><a href="{{< ref "/user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window end time in the format <code>HH:mmZ</code> (Z is for RFC 822 time zone) or <code>HH:mm</code>. E.g., <code>23:00-0300</code> or <code>23:00</code>. In case <code>batchWindowEndTime</code> exceeds <code>batchWindowStartTime</code> it is considered 
     to be on the same date (e.g., cleanup runs each day between 20:00 and 23:00). Otherwise it is considered to be on the next calendar day (e.g., cleanup starts each 
     day at 20:00 and finishes the next day at 01:00). Default value is <code>00:00</code>.</td>
   </tr>

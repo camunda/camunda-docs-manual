@@ -18,7 +18,7 @@ File input elements are HTML controls in the form of
 <input type="file"></input>
 ```
 
-They allow users to upload files, which will be stored as a process instance variable of the type Bytes. Larger files will take longer to process and may crash the browser, so there is a soft file size limit of 5MB. You can overwrite this limit using the `cam-max-filesize` directive. To upload larger files without freezing the browser, see the [custom javascript section]({{< relref "reference/embedded-forms/javascript/examples.md#upload-large-files" >}}).
+They allow users to upload files, which will be stored as a process instance variable of the type Bytes. Larger files will take longer to process and may crash the browser, so there is a soft file size limit of 5MB. You can overwrite this limit using the `cam-max-filesize` directive. To upload larger files without freezing the browser, see the [custom javascript section]({{< ref "/reference/embedded-forms/javascript/examples.md#upload-large-files" >}}).
 
 {{< note class="warning" >}}
 File Upload is not supported for Internet Explorer 9.

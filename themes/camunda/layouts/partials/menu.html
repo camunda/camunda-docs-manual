@@ -23,8 +23,8 @@
 
     {{with $.Site.Params.section }}
       <span class="number"><a>{{.version}}</a>
-        {{ if .versionAlias}}
-          ({{.versionAlias}})
+        {{ if $.Site.Params.section.versionAlias}}
+          ({{$.Site.Params.section.versionAlias}})
         {{ end }}
       </span>
     {{ end }}

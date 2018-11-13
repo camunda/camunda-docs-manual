@@ -121,7 +121,7 @@ By contrast, authentication is generally not done by Camunda when embedded as a 
 
 #### Enabling Authentication for the REST API
 
-For ease of use by developers, the REST API's authentication is disabled by default. When deploying the REST API in production, it is therefore required to enable authentication. Check the corresponding section in the [REST API documentation]({{< relref "reference/rest/overview/authentication.md" >}}).
+For ease of use by developers, the REST API's authentication is disabled by default. When deploying the REST API in production, it is therefore required to enable authentication. Check the corresponding section in the [REST API documentation]({{< ref "/reference/rest/overview/authentication.md" >}}).
 
 #### Authentication in the Web Applications
 
@@ -131,10 +131,10 @@ For the web applications, authentication is enabled by default and it is not pos
 
 To perform authentication, Camunda can use two sources: a database or LDAP.
 
-When using the the database, usernames and passwords are stored inside the `ACT_ID_USER` table (see [documentation on database schema]({{< relref "user-guide/process-engine/database.md#identity" >}})). To protect the passwords stored in the database, Camunda uses two concepts:
+When using the the database, usernames and passwords are stored inside the `ACT_ID_USER` table (see [documentation on database schema]({{< ref "/user-guide/process-engine/database.md#identity" >}})). To protect the passwords stored in the database, Camunda uses two concepts:
 
-* **hashing**: instead of storing the password in plain text, a hash is stored. When authenticating, the same hash is generated from the user's input and compared against the hash in the database. If both hashes are equal the authentication attempt is successful. Camunda allows users to configure and customize the hash function used. Please refer the [documentation section on password hashing]({{< relref "user-guide/process-engine/password-hashing.md" >}}) for details.
-* **salted hashes** to protect the database against rainbow table attacks, Camunda uses salted hashes. Similar to hashing itself, this function can be configured and extended to a user's needs. Please refer the [documentation section on password hashing]({{< relref "user-guide/process-engine/password-hashing.md" >}}) for details.
+* **hashing**: instead of storing the password in plain text, a hash is stored. When authenticating, the same hash is generated from the user's input and compared against the hash in the database. If both hashes are equal the authentication attempt is successful. Camunda allows users to configure and customize the hash function used. Please refer the [documentation section on password hashing]({{< ref "/user-guide/process-engine/password-hashing.md" >}}) for details.
+* **salted hashes** to protect the database against rainbow table attacks, Camunda uses salted hashes. Similar to hashing itself, this function can be configured and extended to a user's needs. Please refer the [documentation section on password hashing]({{< ref "/user-guide/process-engine/password-hashing.md" >}}) for details.
 
 #### LDAP
 
@@ -146,25 +146,25 @@ Authorization controls what data a user can access and change in Camunda once au
 
 #### Do I need to enable Authorizations?
 
-Similar considerations as for authentication apply. For an in-depth discussion, see the documentation section on [authorizations]({{< relref "user-guide/process-engine/authorization-service.md#when-is-authorization-required" >}})
+Similar considerations as for authentication apply. For an in-depth discussion, see the documentation section on [authorizations]({{< ref "/user-guide/process-engine/authorization-service.md#when-is-authorization-required" >}})
 
 #### Restricting Data Access with Authorizations
 
-Authorizations can be used to restrict a user from accessing a data object (such as a process or a task) and can be used to restrict how the user can interact with such data objects (read-only vs. modifications). Authorizations in Camunda are very powerful and it is recommended to read the corresponding [documentation entry on authorizations]({{< relref "user-guide/process-engine/authorization-service.md" >}}).
+Authorizations can be used to restrict a user from accessing a data object (such as a process or a task) and can be used to restrict how the user can interact with such data objects (read-only vs. modifications). Authorizations in Camunda are very powerful and it is recommended to read the corresponding [documentation entry on authorizations]({{< ref "/user-guide/process-engine/authorization-service.md" >}}).
 
 ### Script Execution
 
 Camunda allows users to deploy scrips to be used by BPMN processes or DMN decision tables. This is a very flexible and powerful feature and facilitates changing business logic fast since generally scripts can be deployed at runtime without restarting the server.
 However, script languages such as Groovy or Javascript are executed directly inside the same JVM which also hosts Camunda itself. It is not easily feasible to sandbox the execution of such scripts effectively which is why deployment of such scripts should only be allowed to trusted users. To achieve this:
 
-* Control who can deploy scripts through the appropriate CREATE [authorizations]({{< relref "user-guide/process-engine/authorization-service.md#resources" >}}) on the DEPLOYMENT resource.
+* Control who can deploy scripts through the appropriate CREATE [authorizations]({{< ref "/user-guide/process-engine/authorization-service.md#resources" >}}) on the DEPLOYMENT resource.
 * Consider disabling execution of scripts all together if the feature is not needed. See also: [Custom Code & Security
-]({{< relref "user-guide/process-engine/securing-custom-code.md" >}})
+]({{< ref "/user-guide/process-engine/securing-custom-code.md" >}})
 
 ### Expressions in Queries
 
 Consider disabling execution of expressions in queries. See also: [Custom Code & Security
-]({{< relref "user-guide/process-engine/securing-custom-code.md" >}})
+]({{< ref "/user-guide/process-engine/securing-custom-code.md" >}})
 
 ## Security Configuration in the external Environment
 
@@ -173,7 +173,7 @@ Camunda integrates into an environment, most prominently the database and, when 
 ### Database
 
 Camunda stores its data into a relational database. In order to protect access to this data, it must be configured correctly.
-The documentation section on [supported environments]({{< relref "introduction/supported-environments.md" >}}) provides a list of supported databases.
+The documentation section on [supported environments]({{< ref "/introduction/supported-environments.md" >}}) provides a list of supported databases.
 
 #### Data encryption
 
@@ -189,7 +189,7 @@ To establish the connection to the database, the database credentials need to be
 
 ### Web Server (applicable when using REST API or Web Applications)
 
-When deploying the REST API or the Camunda web applications, Camunda is integrated with a third party web server. The documentation section on [supported environments]({{< relref "introduction/supported-environments.md" >}}) provides a list of supported web servers / application servers.
+When deploying the REST API or the Camunda web applications, Camunda is integrated with a third party web server. The documentation section on [supported environments]({{< ref "/introduction/supported-environments.md" >}}) provides a list of supported web servers / application servers.
 
 #### Enabling SSL / HTTPS
 

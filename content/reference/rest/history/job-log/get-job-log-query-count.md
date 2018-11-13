@@ -14,7 +14,7 @@ menu:
 
 
 Queries for the number of historic job logs that fulfill the given parameters.
-Takes the same parameters as the [Get Job Logs]({{< relref "reference/rest/history/job-log/get-job-log-query.md" >}}) method.
+Takes the same parameters as the [Get Job Logs]({{< ref "/reference/rest/history/job-log/get-job-log-query.md" >}}) method.
 
 
 # Method
@@ -49,7 +49,7 @@ GET `/history/job-log/count`
   </tr>
   <tr>
     <td>jobDefinitionType</td>
-    <td>Filter by job definition type. See the <a href="{{< relref "user-guide/process-engine/the-job-executor.md#job-creation" >}}">User Guide</a> for more information about job definition types.</td>
+    <td>Filter by job definition type. See the <a href="{{< ref "/user-guide/process-engine/the-job-executor.md#job-creation" >}}">User Guide</a> for more information about job definition types.</td>
   </tr>
   <tr>
     <td>jobDefinitionConfiguration</td>

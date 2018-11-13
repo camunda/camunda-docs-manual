@@ -219,7 +219,7 @@ Reason: Passing EL expressions in a task query enables execution of arbitrary co
 
 The process engine no longer evaluates these expressions by default and throws an exception instead. The pevious behavior can be re-enabled by setting the process configuration `enableExpressionsInAdhocQueries` to true.
 
-See the user guide on [security considerations for custom code]({{< relref "user-guide/process-engine/securing-custom-code.md" >}}) for details.
+See the user guide on [security considerations for custom code]({{< ref "/user-guide/process-engine/securing-custom-code.md" >}}) for details.
 
 ## 7.6.10 to 7.6.11 / 7.7.5 to 7.7.6
 
@@ -227,7 +227,7 @@ See the user guide on [security considerations for custom code]({{< relref "user
 
 You can now configure, if you forbid the usage of Java serialization format, when passing object variables in their Java serialized representation.
 
-The new [configuration parameter `javaSerializationFormatEnabled`]({{< relref "reference/deployment-descriptors/tags/process-engine.md#javaSerializationFormatEnabled" >}}) 
+The new [configuration parameter `javaSerializationFormatEnabled`]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#javaSerializationFormatEnabled" >}}) 
 defaults to `true`, but can be configured to `false` in Camunda engine configuration.
 
 Following use cases are affected:
@@ -258,7 +258,7 @@ runtimeService.setVariable(processInstanceId, "varName",
           .create());
 ```
 
-You can disable Java serialization usage with the help of [this configuration parameter]({{< relref "reference/deployment-descriptors/tags/process-engine.md#javaSerializationFormatEnabled" >}}):
+You can disable Java serialization usage with the help of [this configuration parameter]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#javaSerializationFormatEnabled" >}}):
 
 ```xml
 <property name="javaSerializationFormatEnabled">false</property>
@@ -271,12 +271,12 @@ Please updade the library `groovy-all-$GROOVY_VERSION.jar` in the `lib` folder o
 
 # Full Distribution
 
-This section is applicable if you installed the [Full Distribution]({{< relref "introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.
+This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.
 
 Please note that the following procedure may differ for cluster scenarios. Contact our [support team](https://app.camunda.com/jira/browse/SUPPORT) if you need further assistance.
 
 * Shut down the server
-* Exchange Camunda BPM libraries, tools and webapps (EAR, RAR, Subsystem (JBoss), Shared Libs) - essentially, follow the [installation guide]({{< relref "installation/full/index.md" >}}) for your server.
+* Exchange Camunda BPM libraries, tools and webapps (EAR, RAR, Subsystem (JBoss), Shared Libs) - essentially, follow the [installation guide]({{< ref "/installation/full/_index.md" >}}) for your server.
 * Restart the server
 
 # Application With Embedded Process Engine
@@ -289,7 +289,7 @@ In case you use an embedded process engine inside your Java Application, you nee
 
 # Standalone Webapplication Distribution
 
-In case you installed the [Standalone Webapplication Distribution]({{< relref "introduction/downloading-camunda.md#download-the-runtime" >}}) you need to
+In case you installed the [Standalone Webapplication Distribution]({{< ref "/introduction/downloading-camunda.md#download-the-runtime" >}}) you need to
 
 1. undeploy the previous version of the webapplication,
 2. deploy the new version of the webapplication.

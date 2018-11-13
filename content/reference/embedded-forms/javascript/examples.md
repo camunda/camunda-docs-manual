@@ -74,7 +74,7 @@ When a variable is loaded, it is also sent back to the server when the form is s
 
 # Upload Large Files
 
-This example contains a file input element and the script to send it to the server. In contrast to the [file input element of the Forms SDK]({{< relref "reference/embedded-forms/controls/files.md" >}}), this example can handle large files, but it also has some drawbacks:
+This example contains a file input element and the script to send it to the server. In contrast to the [file input element of the Forms SDK]({{< ref "/reference/embedded-forms/controls/files.md" >}}), this example can handle large files, but it also has some drawbacks:
 
 * Can not be used in the start form of a process (no process instance id exists at this time)
 * Does not take part in the form lifecycle (files could be saved even if the form is not submitted)

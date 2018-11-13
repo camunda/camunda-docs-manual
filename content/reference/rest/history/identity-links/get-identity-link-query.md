@@ -14,7 +14,7 @@ menu:
 
 
 Queries for historic identity link logs that fulfill given parameters.
-The size of the result set can be retrieved by using the [Get Identity-Link-Log Count]({{< relref "reference/rest/history/identity-links/get-identity-link-query-count.md" >}}) method.
+The size of the result set can be retrieved by using the [Get Identity-Link-Log Count]({{< ref "/reference/rest/history/identity-links/get-identity-link-query-count.md" >}}) method.
 
 
 # Method
@@ -174,7 +174,7 @@ Each historic identity link log object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
