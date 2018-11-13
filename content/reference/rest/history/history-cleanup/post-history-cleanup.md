@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Schedules asynchronous history cleanup (See [History cleanup]({{< relref "user-guide/process-engine/history.md#history-cleanup">}})).
+Schedules asynchronous history cleanup (See [History cleanup]({{< ref "/user-guide/process-engine/history.md#history-cleanup">}})).
 
 
 # Method
@@ -47,7 +47,7 @@ Not used
 {{</note>}}
 
 A JSON object representing scheduled job.
-See [Get Job]({{<relref "reference/rest/job/get.md#result" >}}) for the structure and example.
+See [Get Job]({{<ref "/reference/rest/job/get.md#result" >}}) for the structure and example.
 
 # Response Codes
 

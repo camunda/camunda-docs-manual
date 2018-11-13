@@ -129,7 +129,7 @@ An object having the following properties:
   <tr>
     <td>userOperationId</td>
     <td>String</td>
-    <td>The id of user operation which links historic detail with <a href="{{< relref "reference/rest/history/user-operation-log/index.md" >}}">user operation log</a> entries.</td>
+    <td>The id of user operation which links historic detail with <a href="{{< ref "/reference/rest/history/user-operation-log/_index.md" >}}">user operation log</a> entries.</td>
   </tr>
   <tr>
     <td>time</td>
@@ -138,7 +138,7 @@ An object having the following properties:
   </tr>
 </table>
 
-\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 Depending on the type of the historic detail it contains further properties. In case of a <code>HistoricVariableUpdate</code> the following properties are also provided:
 
@@ -221,7 +221,7 @@ In case of an <code>HistoricFormField</code> the following properties are also p
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Variable with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Variable with given id does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

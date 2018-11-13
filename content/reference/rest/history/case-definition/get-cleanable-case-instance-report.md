@@ -12,9 +12,9 @@ menu:
 ---
 
 Retrieves a report about a case definition and finished case instances relevant to history cleanup (see 
-<a href="{{< relref "user-guide/process-engine/history.md#history-cleanup" >}}">History cleanup</a>), so that you can tune the history time to live.
+<a href="{{< ref "/user-guide/process-engine/history.md#history-cleanup" >}}">History cleanup</a>), so that you can tune the history time to live.
 These reports include the count of the finished historic case instances, cleanable case instances and basic case definition data - id, key, name and version.
-The size of the result set can be retrieved by using the [Get Cleanable Case Instance Report Count]({{< relref "reference/rest/history/case-definition/get-cleanable-case-instance-report-count.md" >}}) method.
+The size of the result set can be retrieved by using the [Get Cleanable Case Instance Report Count]({{< ref "/reference/rest/history/case-definition/get-cleanable-case-instance-report-count.md" >}}) method.
 
 # Method
 
@@ -139,7 +139,7 @@ A JSON array containing finished case instance information relevant to history c
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

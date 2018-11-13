@@ -86,7 +86,7 @@ In case you need to stick to older Jackson version (2.6.3):
 1. do not replace Jackson modules listed above.
 2. Fix the Jackson version in module `org/camunda/spin/camunda-spin-dataformat-json-jackson/main/module.xml` to be 2.6.3. 
 
-Scenarios, where you could consider using the earlier Jackson version are listed [here]({{< relref "update/minor/78-to-79/index.md#jackson-version-update" >}}).
+Scenarios, where you could consider using the earlier Jackson version are listed [here]({{< ref "/update/minor/78-to-79/_index.md#jackson-version-update" >}}).
 {{< /note >}}
 
 ## Groovy Scripting
@@ -143,7 +143,7 @@ The following steps are required to update the Camunda web applications Cockpit,
 3. Deploy the web application archive to your JBoss/Wildfly instance.
 
 
-[update-guide]: {{< relref "update/minor/78-to-79/index.md" >}}
+[update-guide]: {{< ref "/update/minor/78-to-79/_index.md" >}}
 [engine-rest]: https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/camunda-engine-rest/
 [webapp-jboss]: https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/webapp/camunda-webapp-jboss/
-[jackson-update]: {{< relref "update/minor/78-to-79/index.md#jackson-version-update" >}}
+[jackson-update]: {{< ref "/update/minor/78-to-79/_index.md#jackson-version-update" >}}

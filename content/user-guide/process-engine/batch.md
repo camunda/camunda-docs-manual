@@ -290,22 +290,22 @@ monitor job definition can be suspended with the management service:
 processEngine.getManagementService()
   .suspendJobByJobDefinitionId(monitorJobDefinition.getId());
 ```
-[process-instance-cancellation]: {{< relref "user-guide/process-engine/batch-operations.md#cancellation-of-running-process-instances">}}
-[process-instance-deletion]: {{< relref "user-guide/process-engine/batch-operations.md#deletion-of-historic-process-instances">}}
-[set-job-retries]: {{< relref "user-guide/process-engine/batch-operations.md#setting-retries-of-jobs-associated-with-process-instances">}}
-[migration]: {{< relref "user-guide/process-engine/process-instance-migration.md" >}}
-[batch-migration]: {{< relref "user-guide/process-engine/process-instance-migration.md#asynchronous-batch-migration-execution" >}}
-[job executor]: {{< relref "user-guide/process-engine/the-job-executor.md" >}}
-[process engine configuration]: {{< relref "user-guide/process-engine/process-engine-bootstrapping.md" >}}
+[process-instance-cancellation]: {{< ref "/user-guide/process-engine/batch-operations.md#cancellation-of-running-process-instances">}}
+[process-instance-deletion]: {{< ref "/user-guide/process-engine/batch-operations.md#deletion-of-historic-process-instances">}}
+[set-job-retries]: {{< ref "/user-guide/process-engine/batch-operations.md#setting-retries-of-jobs-associated-with-process-instances">}}
+[migration]: {{< ref "/user-guide/process-engine/process-instance-migration.md" >}}
+[batch-migration]: {{< ref "/user-guide/process-engine/process-instance-migration.md#asynchronous-batch-migration-execution" >}}
+[job executor]: {{< ref "/user-guide/process-engine/the-job-executor.md" >}}
+[process engine configuration]: {{< ref "/user-guide/process-engine/process-engine-bootstrapping.md" >}}
 [seed job]: #seed-job
-[retry]: {{< relref "user-guide/process-engine/the-job-executor.md#failed-jobs" >}}
-[incidents]: {{< relref "user-guide/process-engine/incidents.md" >}}
-[history level]: {{< relref "user-guide/process-engine/history.md#choose-a-history-level" >}}
-[history cleanup]: {{< relref "user-guide/process-engine/history.md#history-time-to-live-for-batch-operations" >}}
-[job prioritization]: {{< relref "user-guide/process-engine/the-job-executor.md#job-prioritization" >}}
-[job-definition-priority]: {{< relref "user-guide/process-engine/the-job-executor.md#override-priority-by-job-definition" >}}
-[job-priority]: {{< relref "user-guide/process-engine/the-job-executor.md#set-job-priorities-via-managementservice-api" >}}
-[set-external-tasks-retries]: {{< relref "user-guide/process-engine/batch-operations.md#setting-retries-of-external-tasks" >}}
-[process-instance-restart]: {{< relref "user-guide/process-engine/process-instance-restart.md#asynchronous-batch-execution" >}}
-[process-instance-modification]: {{< relref "user-guide/process-engine/process-instance-modification.md#modification-of-multiple-process-instances" >}}
-[process-instance-suspend]: {{< relref "user-guide/process-engine/batch-operations.md#update-suspend-state-of-process-instances">}}
+[retry]: {{< ref "/user-guide/process-engine/the-job-executor.md#failed-jobs" >}}
+[incidents]: {{< ref "/user-guide/process-engine/incidents.md" >}}
+[history level]: {{< ref "/user-guide/process-engine/history.md#choose-a-history-level" >}}
+[history cleanup]: {{< ref "/user-guide/process-engine/history.md#history-time-to-live-for-batch-operations" >}}
+[job prioritization]: {{< ref "/user-guide/process-engine/the-job-executor.md#job-prioritization" >}}
+[job-definition-priority]: {{< ref "/user-guide/process-engine/the-job-executor.md#override-priority-by-job-definition" >}}
+[job-priority]: {{< ref "/user-guide/process-engine/the-job-executor.md#set-job-priorities-via-managementservice-api" >}}
+[set-external-tasks-retries]: {{< ref "/user-guide/process-engine/batch-operations.md#setting-retries-of-external-tasks" >}}
+[process-instance-restart]: {{< ref "/user-guide/process-engine/process-instance-restart.md#asynchronous-batch-execution" >}}
+[process-instance-modification]: {{< ref "/user-guide/process-engine/process-instance-modification.md#modification-of-multiple-process-instances" >}}
+[process-instance-suspend]: {{< ref "/user-guide/process-engine/batch-operations.md#update-suspend-state-of-process-instances">}}

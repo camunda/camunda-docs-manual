@@ -14,7 +14,7 @@ menu:
 
 
 Queries for the number of historic job logs that fulfill the given parameters.
-This method takes the same message body as the [Get Job Logs (POST)]({{< relref "reference/rest/history/job-log/post-job-log-query.md" >}}) method and therefore it is slightly more powerful than the [Get Job Log Count]({{< relref "reference/rest/history/job-log/get-job-log-query-count.md" >}}) method.
+This method takes the same message body as the [Get Job Logs (POST)]({{< ref "/reference/rest/history/job-log/post-job-log-query.md" >}}) method and therefore it is slightly more powerful than the [Get Job Log Count]({{< ref "/reference/rest/history/job-log/get-job-log-query-count.md" >}}) method.
 
 
 # Method
@@ -51,7 +51,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>jobDefinitionType</td>
-    <td>Filter by job definition type. See the <a href="{{< relref "user-guide/process-engine/the-job-executor.md#job-creation" >}}">User Guide</a> for more information about job definition types.</td>
+    <td>Filter by job definition type. See the <a href="{{< ref "/user-guide/process-engine/the-job-executor.md#job-creation" >}}">User Guide</a> for more information about job definition types.</td>
   </tr>
   <tr>
     <td>jobDefinitionConfiguration</td>
@@ -146,7 +146,7 @@ A JSON object that contains the count as the only property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

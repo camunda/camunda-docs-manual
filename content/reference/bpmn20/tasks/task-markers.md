@@ -119,12 +119,12 @@ In this example, parallel instances will be created for each element of the assi
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#collection" >}}">camunda:collection</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#elementvariable" >}}">camunda:elementVariable</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncbefore" >}}">camunda:asyncBefore</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}">camunda:asyncAfter</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#exclusive" >}}">camunda:exclusive</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#jobpriority" >}}">camunda:jobPriority</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#collection" >}}">camunda:collection</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#elementvariable" >}}">camunda:elementVariable</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#asyncbefore" >}}">camunda:asyncBefore</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}">camunda:asyncAfter</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#exclusive" >}}">camunda:exclusive</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#jobpriority" >}}">camunda:jobPriority</a>
     </td>
   </tr>
   <tr>
@@ -162,7 +162,7 @@ Be assured that we have the loop marker in our backlog to be added to the engine
 
 ## JSON Collections with Multi-Instance Collections
 
-JSON Arrays created with [Camunda SPIN]({{< relref "reference/spin/index.md">}}) can be used as a collection for multi-instance activities. 
+JSON Arrays created with [Camunda SPIN]({{< ref "/reference/spin/_index.md">}}) can be used as a collection for multi-instance activities. 
 Consider the following JavaScript example that initializes execution variable `collection`:
 
 ```javascript
@@ -170,7 +170,7 @@ var collection = S('{ "collection" : ["System 1", "System 3"] }');
 execution.setVariable("collection", collection);
 ```
 
-This script can be injected in the model in several ways, e.g. using [Script task] ({{< relref "reference/bpmn20/tasks/script-task.md">}}). 
+This script can be injected in the model in several ways, e.g. using [Script task] ({{< ref "/reference/bpmn20/tasks/script-task.md">}}). 
 
 We can now use `collection` variable in multi-instance activity's `camunda:collection` extension element.
 
@@ -205,4 +205,4 @@ To declare an activity to be a compensation handler, we need to set the attribut
 # Additional Resources
 
 * [Tasks](http://camunda.org/bpmn/reference.html#activities-task) in the [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html)
-* [Transaction Subprocess]({{< relref "reference/bpmn20/subprocesses/transaction-subprocess.md" >}})
+* [Transaction Subprocess]({{< ref "/reference/bpmn20/subprocesses/transaction-subprocess.md" >}})

@@ -436,7 +436,7 @@ If it is desired that operations are logged regardless whether they are performe
 
 ## Access the User Operation Log
 
-The user operation log can be accessed via the Java API. The history service can be used to execute a `UserOperationLogQuery` by calling `historyService.createUserOperationLogQuery().execute()`. The query can be restricted with various filtering options. The query is also [exposed in the REST API]({{< relref "reference/rest/history/user-operation-log/get-user-operation-log-query.md" >}}).
+The user operation log can be accessed via the Java API. The history service can be used to execute a `UserOperationLogQuery` by calling `historyService.createUserOperationLogQuery().execute()`. The query can be restricted with various filtering options. The query is also [exposed in the REST API]({{< ref "/reference/rest/history/user-operation-log/get-user-operation-log-query.md" >}}).
 
 
 ## User Operation Log Entries
@@ -958,7 +958,7 @@ data from history tables. It deletes:
 
 History cleanup can be used on a regular basis (automatically) or for a single cleanup (manual call).
 
-Only [camunda-admins]({{< relref "user-guide/process-engine/authorization-service.md#the-camunda-admin-group">}}) have permissions to execute history cleanup.
+Only [camunda-admins]({{< ref "/user-guide/process-engine/authorization-service.md#the-camunda-admin-group">}}) have permissions to execute history cleanup.
 
 ## History Time to Live
 
@@ -966,7 +966,7 @@ You must specify "history time to live" for each process definition, decision de
 For process and case definitions "history time to live" means the amount of days that pass, after the process/case instance has finished, before its history 
 is removed from the database. For decision definitions, evaluation time is taken into account.
 
-Use the ["historyTimeToLive" extension attribute]({{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#historytimetolive">}}) of the process definition:
+Use the ["historyTimeToLive" extension attribute]({{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#historytimetolive">}}) of the process definition:
 ```xml
 <process id="oneTaskProcess" name="The One Task Process" isExecutable="true" camunda:historyTimeToLive="5">
 ...
@@ -976,7 +976,7 @@ You can also update "historyTimeToLive" for already deployed process definitions
 ```java
   processEngine.getRepositoryService().updateProcessDefinitionHistoryTimeToLive(processDefinitionId, 5);
 ```
-or via the [REST API]({{< relref "reference/rest/process-definition/put-history-time-to-live.md">}}).
+or via the [REST API]({{< ref "/reference/rest/process-definition/put-history-time-to-live.md">}}).
 
 
 The "historyTimeToLive" field can also define the number of days using a time specified by the ISO-8601 date format. 
@@ -1058,7 +1058,7 @@ When you only want to run the cleanup a single time, then use:
 ```java
   processEngine.getHistoryService().cleanUpHistoryAsync(true);
 ```
-Also available via [REST API]({{< relref "reference/rest/history/history-cleanup/post-history-cleanup.md">}}).
+Also available via [REST API]({{< ref "/reference/rest/history/history-cleanup/post-history-cleanup.md">}}).
 
 ## Internal Implementation
 
@@ -1072,12 +1072,12 @@ the end time of the batch window. The delay between such runs increases twofold,
 only happens in case of regular scheduled runs. In case of a manual run, cleanup stops when there is no more data to be deleted.
 
 If the job execution fails for some reason, execution is retried several times, similar to any other job (see the `defaultNumberOfRetries` configuration 
-parameter [here]({{< relref "reference/deployment-descriptors/tags/process-engine.md#configuration-properties">}}) ). When still failing after 
+parameter [here]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#configuration-properties">}}) ). When still failing after 
 several retries, an incident is created. After this, the job isn't triggered unless one of the following actions is performed:
 
 * History cleanup is called manually
 * Engine is restarted (this resets the number of job retries to the default value)
-* Manually set the number of retries to >0 for the history cleanup job(s) (e.g., via the [REST API]({{< relref "reference/rest/job/put-set-job-retries.md">}})) 
+* Manually set the number of retries to >0 for the history cleanup job(s) (e.g., via the [REST API]({{< ref "/reference/rest/job/put-set-job-retries.md">}})) 
 
 ## Job Progress
 
@@ -1091,9 +1091,9 @@ for (Job job: historyCleanupJobs) {
 }
 ```
 
-The `jobId` can be used to request [job logs]({{< relref "reference/rest/history/job-log/get-job-log-query.md">}}) 
-and [information about incidents]({{< relref "user-guide/process-engine/the-job-executor.md#failed-jobs">}}).
+The `jobId` can be used to request [job logs]({{< ref "/reference/rest/history/job-log/get-job-log-query.md">}}) 
+and [information about incidents]({{< ref "/user-guide/process-engine/the-job-executor.md#failed-jobs">}}).
 
-[configuration-options]: {{< relref "reference/deployment-descriptors/tags/process-engine.md#history-cleanup-configuration-parameters">}}
+[configuration-options]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#history-cleanup-configuration-parameters">}}
 [1]: http://docs.camunda.org/latest/api-references/javadoc/org/camunda/bpm/engine/impl/history/event/HistoryEventTypes.html
 [2]: https://github.com/camunda/camunda-bpm-examples/tree/master/process-engine-plugin/custom-history-level

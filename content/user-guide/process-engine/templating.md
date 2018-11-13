@@ -197,6 +197,6 @@ examples repository..
 [freemarker]: http://freemarker.org/
 [velocity]: http://velocity.apache.org/
 [camunda-template-engines]: https://github.com/camunda/camunda-template-engines-jsr223
-[use-scripts]: {{< relref "user-guide/process-engine/scripting.md" >}}
-[script-source]: {{< relref "user-guide/process-engine/scripting.md#script-source" >}}
+[use-scripts]: {{< ref "/user-guide/process-engine/scripting.md" >}}
+[script-source]: {{< ref "/user-guide/process-engine/scripting.md#script-source" >}}
 [xslt-example]: https://github.com/camunda/camunda-bpm-examples/tree/master/scripttask/xslt-scripttask

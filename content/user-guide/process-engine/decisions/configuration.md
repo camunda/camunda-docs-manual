@@ -23,7 +23,7 @@ In the examples the default expression language of the input expressions is set 
 
 # Configure the DMN Engine using Java API
 
-First, you need to create a [ProcessEngineConfiguration]({{< relref "user-guide/process-engine/process-engine-bootstrapping.md#bootstrap-a-process-engine-using-the-java-api" >}}) object for the process engine and a `DmnEngineConfiguration` object for the DMN engine. Now you can configure the DMN engine using the `DmnEngineConfiguration` object. When you are done, set the object on the `ProcessEngineConfiguration` and call `buildProcessEngine()` to create the process engine.
+First, you need to create a [ProcessEngineConfiguration]({{< ref "/user-guide/process-engine/process-engine-bootstrapping.md#bootstrap-a-process-engine-using-the-java-api" >}}) object for the process engine and a `DmnEngineConfiguration` object for the DMN engine. Now you can configure the DMN engine using the `DmnEngineConfiguration` object. When you are done, set the object on the `ProcessEngineConfiguration` and call `buildProcessEngine()` to create the process engine.
 
 ```java
 // create the process engine configuration
@@ -46,7 +46,7 @@ processEngineConfiguration.buildProcessEngine();
 
 # Configure the DMN Engine using Spring XML
 
-Follow the [instructions]({{< relref "user-guide/process-engine/process-engine-bootstrapping.md#configure-process-engine-using-spring-xml" >}}) to create a base `camunda.cfg.xml` XML configuration for the process engine. 
+Follow the [instructions]({{< ref "/user-guide/process-engine/process-engine-bootstrapping.md#configure-process-engine-using-spring-xml" >}}) to create a base `camunda.cfg.xml` XML configuration for the process engine. 
 
 Add a new configuration bean of class `org.camunda.bpm.dmn.engine.impl.DefaultDmnEngineConfiguration`. Configure the DMN engine using the bean and set it as `dmnEngineConfiguration` property on the `processEngineConfiguration` bean. 
 
@@ -72,6 +72,6 @@ Add a new configuration bean of class `org.camunda.bpm.dmn.engine.impl.DefaultDm
 </beans>
 ```
 
-[Process Engine Bootstrapping]: {{< relref "user-guide/process-engine/process-engine-bootstrapping.md" >}}
-[DMN Engine Configuration]: {{< relref "user-guide/dmn-engine/embed.md#configuration-of-the-dmn-engine" >}}
+[Process Engine Bootstrapping]: {{< ref "/user-guide/process-engine/process-engine-bootstrapping.md" >}}
+[DMN Engine Configuration]: {{< ref "/user-guide/dmn-engine/embed.md#configuration-of-the-dmn-engine" >}}
 

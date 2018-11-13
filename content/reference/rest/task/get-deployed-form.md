@@ -13,7 +13,7 @@ menu:
 ---
 
 Retrieves the deployed form that is referenced from a given task. For further information please refer to 
-<a href="{{< relref "user-guide/task-forms/index.md#embedded-task-forms" >}}">User Guide</a>.
+<a href="{{< ref "/user-guide/task-forms/_index.md#embedded-task-forms" >}}">User Guide</a>.
 
 
 # Method
@@ -56,21 +56,21 @@ An object with the deployed form content.
     <td>400</td>
     <td>application/json</td>
     <td>The form key has wrong format.
-    See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a>
+    See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a>
     for the error response format.</td>
   </tr>
   <tr>
     <td>403</td>
     <td>application/json</td>
     <td>The deployed form cannot be retrieved due to missing permissions on task resource. 
-    See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> 
+    See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> 
     for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
     <td>No deployed form for a given task exists. 
-    See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> 
+    See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> 
     for the error response format.</td>
   </tr>
 </table>

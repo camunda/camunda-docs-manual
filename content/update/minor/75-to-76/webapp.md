@@ -24,7 +24,7 @@ The `cockpit.dashboard` plugin point will allow to add your custom views at the 
 
 Read more about [cockpit dashboard plugins][cockpit-dashboard-plugins].
 
-[cockpit-dashboard-plugins]: {{< relref "webapps/cockpit/extend/plugins.md" >}}#dashboard
+[cockpit-dashboard-plugins]: {{< ref "/webapps/cockpit/extend/plugins.md" >}}#dashboard
 
 # Version changes
 

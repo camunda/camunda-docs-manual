@@ -32,8 +32,8 @@ You can read up on how to implement the inital user assignment for BPMN User Tas
 In Tasklist, a user can ony work on a task (i.e., filling in the task form) if the task is assigned to that user. This means that a user must `claim` a task if it is not yet assigned to him.
 Claiming a task sets the assignee of the task to the user who claimed the task.
 
-See the [Claiming, unclaiming and reassigning tasks]({{< relref "webapps/tasklist/dashboard.md#claim-unclaim-and-reassign-tasks" >}}) section for more information.
+See the [Claiming, unclaiming and reassigning tasks]({{< ref "/webapps/tasklist/dashboard.md#claim-unclaim-and-reassign-tasks" >}}) section for more information.
 
-[bpmn-user-assignment]: {{< relref "reference/bpmn20/tasks/user-task.md#user-assignment" >}}
-[cmmn-user-assignment]: {{< relref "reference/cmmn11/tasks/human-task.md#user-assignment" >}}
-[filter]: {{< relref "webapps/tasklist/filters.md" >}}
+[bpmn-user-assignment]: {{< ref "/reference/bpmn20/tasks/user-task.md#user-assignment" >}}
+[cmmn-user-assignment]: {{< ref "/reference/cmmn11/tasks/human-task.md#user-assignment" >}}
+[filter]: {{< ref "/webapps/tasklist/filters.md" >}}

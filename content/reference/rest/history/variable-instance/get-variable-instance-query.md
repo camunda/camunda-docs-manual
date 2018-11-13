@@ -14,7 +14,7 @@ menu:
 
 
 Queries for historic variable instances that fulfill the given parameters.
-The size of the result set can be retrieved by using the [Get Variable Instance Count]({{< relref "reference/rest/history/variable-instance/get-variable-instance-query-count.md" >}}) method.
+The size of the result set can be retrieved by using the [Get Variable Instance Count]({{< ref "/reference/rest/history/variable-instance/get-variable-instance-query-count.md" >}}) method.
 
 
 # Method
@@ -57,7 +57,7 @@ GET `/history/variable-instance`
   </tr>
   <tr>
     <td>processInstanceIdIn</td>
-    <td>Only include historic variable instances which belong to one of the passed and comma-separated variable types. A list of all supported variable types can be found <a href="{{< relref "user-guide/process-engine/variables.md#supported-variable-values" >}}">here</a>. <b>Note:</b> All non-primitive variables are assoziated with the type "serializable".
+    <td>Only include historic variable instances which belong to one of the passed and comma-separated variable types. A list of all supported variable types can be found <a href="{{< ref "/user-guide/process-engine/variables.md#supported-variable-values" >}}">here</a>. <b>Note:</b> All non-primitive variables are assoziated with the type "serializable".
     </td>
   </tr>
   <tr>
@@ -243,7 +243,7 @@ Each historic activity instance object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

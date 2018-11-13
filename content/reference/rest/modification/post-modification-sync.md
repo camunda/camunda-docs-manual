@@ -13,12 +13,12 @@ menu:
 ---
 
 Executes a modification synchronously for multiple process instances. 
-To modify a single process instance, use the [Modify Process Instance Execution State]({{< relref "reference/rest/process-instance/post-modification.md" >}}) method.
-To execute a modification asynchronously, use the [Execute Modification Async (Batch)]({{< relref "reference/rest/modification/post-modification-async.md" >}}) method.
+To modify a single process instance, use the [Modify Process Instance Execution State]({{< ref "/reference/rest/process-instance/post-modification.md" >}}) method.
+To execute a modification asynchronously, use the [Execute Modification Async (Batch)]({{< ref "/reference/rest/modification/post-modification-async.md" >}}) method.
 
 For more information about the difference between synchronous and
 asynchronous execution of a modification, please refer to the related
-section of the [user guide]({{< relref "user-guide/process-engine/process-instance-migration.md#executing-a-migration-plan" >}}).
+section of the [user guide]({{< ref "/user-guide/process-engine/process-instance-migration.md#executing-a-migration-plan" >}}).
 
 
 # Method
@@ -47,7 +47,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>skipIoMappings</td>
-    <td>Skip execution of <a href="{{< relref "user-guide/process-engine/variables.md#input-output-variable-mapping" >}}">input/output variable mappings</a> for activities that are started or ended as part of this request.</td>
+    <td>Skip execution of <a href="{{< ref "/user-guide/process-engine/variables.md#input-output-variable-mapping" >}}">input/output variable mappings</a> for activities that are started or ended as part of this request.</td>
   </tr>
   <tr>
     <td>processInstanceIds</td>
@@ -57,7 +57,7 @@ A JSON object with the following properties:
     <td>processInstanceQuery</td>
     <td>
       A process instance query like the request body described by
-      <a href="{{< relref "reference/rest/process-instance/post-query.md#request-body" >}}">
+      <a href="{{< ref "/reference/rest/process-instance/post-query.md#request-body" >}}">
         <code>POST /process-instance</code>
       </a>.
     </td>
@@ -111,7 +111,7 @@ This method returns no content.
     <td>400</td>
     <td>application/json</td>
     <td>
-      In case following parameters are missing: instructions, processDefinitionId, activityId or transitionId, processInstanceIds or processInstanceQuery, an exception of type <code>InvalidRequestException</code> is returned. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+      In case following parameters are missing: instructions, processDefinitionId, activityId or transitionId, processInstanceIds or processInstanceQuery, an exception of type <code>InvalidRequestException</code> is returned. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
 </table>
