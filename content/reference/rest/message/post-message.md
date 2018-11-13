@@ -15,7 +15,7 @@ menu:
 
 Correlates a message to the process engine to either trigger a message start event or an intermediate message catching event.
 Internally this maps to the engine's message correlation builder methods `MessageCorrelationBuilder#correlateWithResult()` and `MessageCorrelationBuilder#correlateAllWithResult()`.
-For more information about the correlation behavior, see the [Message Events]({{< relref "reference/bpmn20/events/message-events.md" >}}) section of the [BPMN 2.0 Implementation Reference]({{< relref "reference/bpmn20/index.md" >}}).
+For more information about the correlation behavior, see the [Message Events]({{< ref "/reference/bpmn20/events/message-events.md" >}}) section of the [BPMN 2.0 Implementation Reference]({{< ref "/reference/bpmn20/_index.md" >}}).
 
 
 # Method
@@ -107,7 +107,7 @@ Otherwise, a JSON array of the message correlation results will be returned. Eac
    <td>Object</td>
    <td>
     This property only has a value if the resultType is set to <code>ProcessDefinition</code>.
-    The processInstance with the properties as described in the <a href="{{< relref "reference/rest/process-instance/get.md" >}}">get single instance</a> method.
+    The processInstance with the properties as described in the <a href="{{< ref "/reference/rest/process-instance/get.md" >}}">get single instance</a> method.
    </td>
   </tr>
   <tr>
@@ -115,7 +115,7 @@ Otherwise, a JSON array of the message correlation results will be returned. Eac
    <td>Object</td>
    <td>
     This property only has a value if the resultType is set to <code>Execution</code>.
-    The execution with the properties as described in the <a href="{{< relref "reference/rest/execution/get.md" >}}">get single execution</a> method.
+    The execution with the properties as described in the <a href="{{< ref "/reference/rest/execution/get.md" >}}">get single execution</a> method.
    </td>
   </tr>
 </table>
@@ -142,7 +142,7 @@ Otherwise, a JSON array of the message correlation results will be returned. Eac
     <td>400</td>
     <td>application/json</td>
     <td>If no <code>messageName</code> was supplied. If both <code>tenantId</code> and <code>withoutTenantId</code> are supplied.</br>
-    If the message has not been correlated to exactly one entity (execution or process definition), or the variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    If the message has not been correlated to exactly one entity (execution or process definition), or the variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

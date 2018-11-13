@@ -12,7 +12,7 @@ menu:
 
 ---
 
-The decisions dashboard of Cockpit is the entry point for decision monitoring. It comes with a pre-installed plugin, which lets you see deployed decision definitions. Additional [plugins]({{< relref "webapps/cockpit/extend/plugins.md" >}}) can be added to the decisions dashboard.
+The decisions dashboard of Cockpit is the entry point for decision monitoring. It comes with a pre-installed plugin, which lets you see deployed decision definitions. Additional [plugins]({{< ref "/webapps/cockpit/extend/plugins.md" >}}) can be added to the decisions dashboard.
 
 
 # Deployed Decisions
@@ -29,7 +29,7 @@ You can also click on the name of a decision requirements definition to go to th
 
 This plugin provides you with a list of deployed decision requirements definitions. You can click on the name of a decision requirements definition to go to the [decision requirements definition view][decision-requirements-definition-view] and access more details, like the decision requirements definition diagram or executed [decision requirements definition instances view][decision-requirements-definition-instance-view]. 
 
-[decision-definition-view]: {{< relref "webapps/cockpit/dmn/decision-definition-view.md" >}}
-[decision-instance-view]: {{< relref "webapps/cockpit/dmn/decision-instance-view.md" >}}
-[decision-requirements-definition-view]: {{< relref "webapps/cockpit/dmn/decision-requirements-definition-view.md" >}}
-[decision-requirements-definition-instance-view]: {{< relref "webapps/cockpit/dmn/decision-requirements-instance-view.md" >}}
+[decision-definition-view]: {{< ref "/webapps/cockpit/dmn/decision-definition-view.md" >}}
+[decision-instance-view]: {{< ref "/webapps/cockpit/dmn/decision-instance-view.md" >}}
+[decision-requirements-definition-view]: {{< ref "/webapps/cockpit/dmn/decision-requirements-definition-view.md" >}}
+[decision-requirements-definition-instance-view]: {{< ref "/webapps/cockpit/dmn/decision-requirements-instance-view.md" >}}

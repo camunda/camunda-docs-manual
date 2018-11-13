@@ -27,7 +27,7 @@ You can see different versions in the process definition table and the process i
 {{< img src="../img/versioning.png" title="Versioning" >}}
 
 {{< note title="Multi-Tenancy" class="info" >}}
-If you are using [multi-tenancy with tenant identifiers]({{< relref "user-guide/process-engine/multi-tenancy.md#single-process-engine-with-tenant-identifiers" >}}) then each tenant has its own process definitions which have versions independent from other tenants. See the [multi-tenancy section]({{< relref "user-guide/process-engine/multi-tenancy.md#versioning-of-tenant-specific-definitions" >}}) for details.
+If you are using [multi-tenancy with tenant identifiers]({{< ref "/user-guide/process-engine/multi-tenancy.md#single-process-engine-with-tenant-identifiers" >}}) then each tenant has its own process definitions which have versions independent from other tenants. See the [multi-tenancy section]({{< ref "/user-guide/process-engine/multi-tenancy.md#versioning-of-tenant-specific-definitions" >}}) for details.
 {{< /note >}}
 
 
@@ -54,7 +54,7 @@ ProcessDefinition pd = processEngine.getRepositoryService().createProcessDefinit
 processEngine.getRuntimeService().startProcessInstanceById(pd.getId());
 ```
 
-When you use [BPMN CallActivities]({{< relref "reference/bpmn20/subprocesses/call-activity.md" >}}) you can configure which version is used:
+When you use [BPMN CallActivities]({{< ref "/reference/bpmn20/subprocesses/call-activity.md" >}}) you can configure which version is used:
 
 ```xml
 <callActivity id="callSubProcess" calledElement="checkCreditProcess"
@@ -66,7 +66,7 @@ When you use [BPMN CallActivities]({{< relref "reference/bpmn20/subprocesses/cal
 The options are
 
 * latest: Use the latest version of the process definition (as with `startProcessInstanceByKey`).
-* deployment: Use the process definition in the version matching the version of the calling process. This works if they are deployed within one deployment - as they are then always versioned together (see [Process Application Deployment]({{< relref "user-guide/process-applications/the-processes-xml-deployment-descriptor.md#deployment-descriptor-process-application-deployment" >}}) for more details).
+* deployment: Use the process definition in the version matching the version of the calling process. This works if they are deployed within one deployment - as they are then always versioned together (see [Process Application Deployment]({{< ref "/user-guide/process-applications/the-processes-xml-deployment-descriptor.md#deployment-descriptor-process-application-deployment" >}}) for more details).
 * version: Specify the version hard coded in the XML.
 
 
@@ -85,7 +85,7 @@ You might have spotted that two different columns exist in the process definitio
 # Version Tag
 
 It is possible to tag a process definition with a version tag attribute. This can be done by adding the
-[camunda:versionTag]({{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#versionTag" >}})
+[camunda:versionTag]({{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#versionTag" >}})
 extension attribute to the process:
 
 ```xml
@@ -140,5 +140,5 @@ nor the `startProcessInstanceById` behavior.
 # Process Instance Migration
 
 By default, when a new process version is deployed, process instances running on previous versions are not affected.
-[Process instance migration]({{< relref "user-guide/process-engine/process-instance-migration.md" >}}) can be used
+[Process instance migration]({{< ref "/user-guide/process-engine/process-instance-migration.md" >}}) can be used
 to migrate process instances to a new version.

@@ -60,5 +60,5 @@ Edit variables in the list of variables by using the {{< glyphicon name="pencil"
 In the case instance view you can terminate a single case instance. Hit the {{< glyphicon name="remove" >}} button on the right side.
 
 
-[case-definition-view]: {{< relref "webapps/cockpit/cmmn/case-definition-view.md" >}}
-[case-instance-view]: {{< relref "webapps/cockpit/cmmn/case-instance-view.md" >}}
+[case-definition-view]: {{< ref "/webapps/cockpit/cmmn/case-definition-view.md" >}}
+[case-instance-view]: {{< ref "/webapps/cockpit/cmmn/case-instance-view.md" >}}

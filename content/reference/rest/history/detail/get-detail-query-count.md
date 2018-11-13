@@ -13,7 +13,7 @@ menu:
 ---
 
 Queries for the number of historic details that fulfill the given parameters.
-Takes the same parameters as the [Get Historic Details]({{< relref "reference/rest/history/detail/get-detail-query.md" >}}) method.
+Takes the same parameters as the [Get Historic Details]({{< ref "/reference/rest/history/detail/get-detail-query.md" >}}) method.
 
 
 # Method

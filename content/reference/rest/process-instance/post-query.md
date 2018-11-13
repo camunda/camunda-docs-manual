@@ -14,7 +14,7 @@ menu:
 
 
 Queries for process instances that fulfill given parameters through a JSON object.
-This method is slightly more powerful than the [Get Instances]({{< relref "reference/rest/process-instance/get-query.md" >}}) method because it allows
+This method is slightly more powerful than the [Get Instances]({{< ref "/reference/rest/process-instance/get-query.md" >}}) method because it allows
 filtering by multiple process variables of types `String`, `Number` or `Boolean`.
 
 
@@ -105,7 +105,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>incidentType</td>
-    <td>Filter by the incident type. See the <a href="{{< relref "user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
+    <td>Filter by the incident type. See the <a href="{{< ref "/user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
   </tr>
   <tr>
     <td>incidentMessage</td>
@@ -226,7 +226,7 @@ Each process instance object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

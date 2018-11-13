@@ -40,7 +40,7 @@ A JSON object with the following properties:
     <td>historicProcessInstanceQuery</td>
     <td>
       A historic process instance query like the request body described by
-      <a href="{{< relref "reference/rest/history/process-instance/post-process-instance-query.md#request-body" >}}">
+      <a href="{{< ref "/reference/rest/history/process-instance/post-process-instance-query.md#request-body" >}}">
         <code>POST /history/process-instance</code>
       </a>.
     </td>
@@ -144,7 +144,7 @@ A JSON object corresponding to the Batch interface in the engine. Its properties
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, i.e. neither historicProcessInstanceIds, nor historicProcessInstanceQuery is present. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, i.e. neither historicProcessInstanceIds, nor historicProcessInstanceQuery is present. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

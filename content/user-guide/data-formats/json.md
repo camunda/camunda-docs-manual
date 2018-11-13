@@ -24,7 +24,7 @@ The following provides examples on how Camunda Spin can be used in the process e
 }
 ```
 
-If you want to learn how to use JSON objects in an embedded form, please take a look at the [Embedded Forms Reference]({{< relref "reference/embedded-forms/json-data.md" >}}).
+If you want to learn how to use JSON objects in an embedded form, please take a look at the [Embedded Forms Reference]({{< ref "/reference/embedded-forms/json-data.md" >}}).
 
 
 # Expression Language Integration

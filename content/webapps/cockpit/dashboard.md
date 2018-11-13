@@ -15,7 +15,7 @@ menu:
 
 The dashboard of Cockpit provides an overview of the different cockpit sections: Processes, decisions, deployments, reports and batches. It displays key metrics for each section.
 
-Additional [plugins]({{< relref "webapps/cockpit/extend/plugins.md" >}}) can be added to the dashboard.
+Additional [plugins]({{< ref "/webapps/cockpit/extend/plugins.md" >}}) can be added to the dashboard.
 
 # Multi Engine
 

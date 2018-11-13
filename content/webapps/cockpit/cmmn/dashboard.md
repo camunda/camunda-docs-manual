@@ -12,7 +12,7 @@ menu:
 
 ---
 
-The CMMN Cases dashboard of Cockpit is the entry point for case monitoring. It comes with a pre-installed plugin, which lets you see deployed case definitions. Additional [plugins]({{< relref "webapps/cockpit/extend/plugins.md" >}}) can be added to the cases dashboard.
+The CMMN Cases dashboard of Cockpit is the entry point for case monitoring. It comes with a pre-installed plugin, which lets you see deployed case definitions. Additional [plugins]({{< ref "/webapps/cockpit/extend/plugins.md" >}}) can be added to the cases dashboard.
 
 {{< img src="../../img/cmmn/case-dashboard.png" title="Cases Dashboard" >}}
 
@@ -31,5 +31,5 @@ To search for a variable of type string, which has a numeric, boolean or null va
 
 This plugin provides you with a list of deployed case definitions. You can click on the name of a case to go to the [case definition view][case-definition-view] and access more details, like the CMMN Case or the executed [case instance view][case-instance-view].
 
-[case-definition-view]: {{< relref "webapps/cockpit/cmmn/case-definition-view.md" >}}
-[case-instance-view]: {{< relref "webapps/cockpit/cmmn/case-instance-view.md" >}}
+[case-definition-view]: {{< ref "/webapps/cockpit/cmmn/case-definition-view.md" >}}
+[case-instance-view]: {{< ref "/webapps/cockpit/cmmn/case-instance-view.md" >}}

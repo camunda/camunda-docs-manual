@@ -19,6 +19,6 @@ Furthermore, the case definition view provides you with information about the de
 
 Below the case diagram you find a listing of all instances for this definition. Besides information about creation time, close time, business key and state, you can select an instance by ID and go down to the [case instance view][case-instance-view]. You can also search for case instances which fulfill certain search criteria. To do so, click in the search box and select the parameters to search for. You can also begin typing to find the required parameter faster. Depending on the selected property, you have to specify the value of the property. Some properties also allow operators other than equal, e.g., `like`, which allows searching for case instances where the entered value is a substring of the property value. To search for case variables, you also have to enter the variable name you want to search for. To search for a variable of type string, which has a numeric, boolean or null value, you have to wrap the value in single quotes (e.g., `'93288'` or `'NULL'`).
 
-[case-definition-view]: {{< relref "webapps/cockpit/cmmn/case-definition-view.md" >}}
-[case-instance-view]: {{< relref "webapps/cockpit/cmmn/case-instance-view.md" >}}
-[deployment-view]: {{< relref "webapps/cockpit/deployment-view.md" >}}
+[case-definition-view]: {{< ref "/webapps/cockpit/cmmn/case-definition-view.md" >}}
+[case-instance-view]: {{< ref "/webapps/cockpit/cmmn/case-instance-view.md" >}}
+[deployment-view]: {{< ref "/webapps/cockpit/deployment-view.md" >}}

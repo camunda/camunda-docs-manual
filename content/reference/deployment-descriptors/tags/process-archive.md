@@ -13,9 +13,9 @@ menu:
 ---
 
 
-The process archive tag allows configuration of a process engine deployment and can be used in the [processes.xml]({{< relref "reference/deployment-descriptors/descriptors/processes-xml.md" >}}) file.
+The process archive tag allows configuration of a process engine deployment and can be used in the [processes.xml]({{< ref "/reference/deployment-descriptors/descriptors/processes-xml.md" >}}) file.
 
-See the [processes.xml]({{< relref "user-guide/process-applications/the-processes-xml-deployment-descriptor.md" >}}) section of the [User Guide]({{< relref "user-guide/index.md" >}}) for more details.
+See the [processes.xml]({{< ref "/user-guide/process-applications/the-processes-xml-deployment-descriptor.md" >}}) section of the [User Guide]({{< ref "/user-guide/_index.md" >}}) for more details.
 
 
 # Example
@@ -56,7 +56,7 @@ The following example shows a process-archive XML snippet:
         <ul>
           <li><code>name</code>: Allows you to define the name of the process archive. The name will be used for the
             process engine deployment.</li>
-          <li><code>tenantId</code>: Allows you to define the tenant-id of the process archive. If a tenant-id is set then all containing resources will be deployed for the given tenant-id. See the User Guide for details about <a href="{{< relref "user-guide/process-engine/multi-tenancy.md#single-process-engine-with-tenant-identifiers" >}}">Multi-Tenancy</a>.</li>
+          <li><code>tenantId</code>: Allows you to define the tenant-id of the process archive. If a tenant-id is set then all containing resources will be deployed for the given tenant-id. See the User Guide for details about <a href="{{< ref "/user-guide/process-engine/multi-tenancy.md#single-process-engine-with-tenant-identifiers" >}}">Multi-Tenancy</a>.</li>
         </ul>
       </p>
       <p>
@@ -176,7 +176,7 @@ The following is a list of all supported configuration properties.
     <td><code>isResumePreviousVersions</code></td>
     <td>boolean</td>
     <td>
-        If true, previous versions of the deployment are automatically resumed. See the <a href="{{< relref "user-guide/process-applications/the-processes-xml-deployment-descriptor.md#process-application-deployment" >}}">Process Application Deployment</a> section of the <a href="{{< relref "user-guide/index.md" >}}">User Guide</a> for more details.
+        If true, previous versions of the deployment are automatically resumed. See the <a href="{{< ref "/user-guide/process-applications/the-processes-xml-deployment-descriptor.md#process-application-deployment" >}}">Process Application Deployment</a> section of the <a href="{{< ref "/user-guide/_index.md" >}}">User Guide</a> for more details.
       <p>
         <strong>Default value:</strong>
         true.
@@ -196,7 +196,7 @@ The following is a list of all supported configuration properties.
         <p>
           <strong>Note:</strong>
         </p>
-        <p>It is not advised to use this setting when process elements are bound against resources of the same deployment. A binding is required when resources like a process definition from a call activity or an external script are referenced (see the <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md#calledelement-binding" >}}">BPMN implementation reference</a>). For example, if a call activity uses the binding <code>deployment</code> and a certain process definition key, whether the process can be resolved depends on whether it was deployed. Thus it is recommended to use the binding <code>latest</code> or <code>version</code> when activating this setting.</p>
+        <p>It is not advised to use this setting when process elements are bound against resources of the same deployment. A binding is required when resources like a process definition from a call activity or an external script are referenced (see the <a href="{{< ref "/reference/bpmn20/subprocesses/call-activity.md#calledelement-binding" >}}">BPMN implementation reference</a>). For example, if a call activity uses the binding <code>deployment</code> and a certain process definition key, whether the process can be resolved depends on whether it was deployed. Thus it is recommended to use the binding <code>latest</code> or <code>version</code> when activating this setting.</p>
       </div>
     </td>
   </tr>
@@ -251,7 +251,7 @@ The following is a list of all supported configuration properties.
       <code>isScanForProcessDefinitions</code> property is set to <code>true</code>. It can be used
       to deploy additional resources beside process and case definitions, for example to add a
       script to the deployment and reference it as an external source (see the documentation about
-      <a href="{{< relref "user-guide/process-engine/scripting.md#script-source" >}}">script source</a> for more information). To specify multiple suffixes, a comma is
+      <a href="{{< ref "/user-guide/process-engine/scripting.md#script-source" >}}">script source</a> for more information). To specify multiple suffixes, a comma is
       used as seperator, ie. <code>py,groovy,rb</code>.
     </td>
   </tr>

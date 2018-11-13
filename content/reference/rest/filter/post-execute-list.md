@@ -13,11 +13,11 @@ menu:
 ---
 
 Executes the saved query of the filter by id and returns the result list. This method is slightly more
-powerful then the [Get Execute Filter List]({{< relref "reference/rest/filter/get-execute-list.md" >}}) method because it allows to extend the saved
+powerful then the [Get Execute Filter List]({{< ref "/reference/rest/filter/get-execute-list.md" >}}) method because it allows to extend the saved
 query of the filter.
 
 {{< note title="Security Consideration" class="warning" >}}
-  The request body of this method takes a JSON-serialized query. Some query types (e.g., task queries) allow to specify EL expressions in their parameters and may therefore be abused for remote code execution. See the section on <a href="{{< relref "user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide for details.
+  The request body of this method takes a JSON-serialized query. Some query types (e.g., task queries) allow to specify EL expressions in their parameters and may therefore be abused for remote code execution. See the section on <a href="{{< ref "/user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide for details.
 {{</note>}}
 
 # Method
@@ -64,7 +64,7 @@ POST `/filter/{id}/list`
 
 A JSON object which corresponds to the type of the saved query of the filter, i.e., if the
 resource type of the filter is `Task` the body should form a valid task query corresponding to
-the [Task]({{< relref "reference/rest/task/get-query.md" >}}) resource.
+the [Task]({{< ref "/reference/rest/task/get-query.md" >}}) resource.
 
 
 # Result
@@ -90,13 +90,13 @@ result format, i.e., if the resource type of the filter is `Task` the result wil
   <tr>
     <td>200</td>
     <td>application/hal+json</td>
-    <td>Request successful. In case of an expected <a href="{{< relref "reference/rest/overview/hal.md" >}}">HAL</code> response.</td>
+    <td>Request successful. In case of an expected <a href="{{< ref "/reference/rest/overview/hal.md" >}}">HAL</code> response.</td>
   </tr>
   <tr>
     <td>400</td>
     <td>application/json</td>
     <td>
-      The extending query was invalid. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a>
+      The extending query was invalid. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a>
       for the error response format.
     </td>
   </tr>
@@ -105,7 +105,7 @@ result format, i.e., if the resource type of the filter is `Task` the result wil
     <td>application/json</td>
     <td>
        The authenticated user is unauthorized to read this filter.
-      See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+      See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
   <tr>
@@ -113,7 +113,7 @@ result format, i.e., if the resource type of the filter is `Task` the result wil
     <td>application/json</td>
     <td>
       Filter with given id does not exist. See the
-      <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+      <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
 </table>

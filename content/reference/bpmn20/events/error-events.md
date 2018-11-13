@@ -19,7 +19,7 @@ Error events are events which are triggered by a defined error.
 
 A BPMN error is meant for business errors - which are different than technical exceptions. So, this is different than Java exceptions - which are, by default, handled in their own way.
 
-You might also want to check out the basics of [Threading and Transactions]({{< relref "user-guide/process-engine/transactions-in-processes.md#transaction-boundaries" >}}) in the [User Guide]({{< relref "user-guide/index.md" >}}) first.
+You might also want to check out the basics of [Threading and Transactions]({{< ref "/user-guide/process-engine/transactions-in-processes.md#transaction-boundaries" >}}) in the [User Guide]({{< ref "/user-guide/_index.md" >}}) first.
 
 
 # Defining an Error
@@ -40,7 +40,7 @@ An error event definition references an error element. The following is an examp
 ```
 
 You can trigger this error event either with a throwing error event within your process definition or from Delegation Code, see the
-[Throwing BPMN Errors from Delegation Code]({{< relref "user-guide/process-engine/delegation-code.md#throw-bpmn-errors-from-delegation-code" >}}) section of the [User Guide]({{< relref "user-guide/index.md" >}}) for more information.
+[Throwing BPMN Errors from Delegation Code]({{< ref "/user-guide/process-engine/delegation-code.md#throw-bpmn-errors-from-delegation-code" >}}) section of the [User Guide]({{< ref "/user-guide/_index.md" >}}) for more information.
 
 Another possibility to define an error is setting of the type (class name) of any Java Exception as error code. Example:
 
@@ -103,18 +103,18 @@ When process execution arrives at an error end event, the current path of execut
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncbefore" >}}">camunda:asyncBefore</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}">camunda:asyncAfter</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#errorcodevariable" >}}">camunda:errorCodeVariable</a>,
-	  <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#errormessagevariable" >}}">camunda:errorMessageVariable</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#exclusive" >}}">camunda:exclusive</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#jobpriority" >}}">camunda:jobPriority</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#asyncbefore" >}}">camunda:asyncBefore</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}">camunda:asyncAfter</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#errorcodevariable" >}}">camunda:errorCodeVariable</a>,
+	  <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#errormessagevariable" >}}">camunda:errorMessageVariable</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#exclusive" >}}">camunda:exclusive</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#jobpriority" >}}">camunda:jobPriority</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}">camunda:inputOutput</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}">camunda:inputOutput</a>
     </td>
   </tr>
   <tr>
@@ -169,4 +169,4 @@ An error can be handled by the error start event in the event sub process and th
 ## Additional Resources
 
 *   [Error Events](http://camunda.org/bpmn/reference.html#events-error) in the [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html)
-*   [Incidents]({{< relref "user-guide/process-engine/incidents.md" >}}) in the [User Guide]({{< relref "user-guide/index.md" >}})
+*   [Incidents]({{< ref "/user-guide/process-engine/incidents.md" >}}) in the [User Guide]({{< ref "/user-guide/_index.md" >}})

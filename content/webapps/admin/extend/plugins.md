@@ -17,7 +17,7 @@ menu:
 
 Admin uses the concept of plugins to add own functionality without having to extend or hack the Admin web application.
 
-For further details about the concepts behind plugins, please read the [Cockpit plugins section]({{< relref "webapps/cockpit/extend/plugins.md" >}}).
+For further details about the concepts behind plugins, please read the [Cockpit plugins section]({{< ref "/webapps/cockpit/extend/plugins.md" >}}).
 
 {{< note title="Difference between Cockpit and Admin plugins:" class="warning">}}
   * To publish the plugin with Admin, its class name must be put into a file called ```org.camunda.bpm.admin.plugin.spi.AdminPlugin``` that resides in the directory ```META-INF/services```.
@@ -35,6 +35,6 @@ Here you can see the various points at which you are able to add your own plugin
 
 {{< img src="../../img/admin-start-page-view.png" title="Dashboard" >}}
 
-With Camunda BPM 7.5, the Admin webapp gets a dashboard based on plugins similar to the [Cockpit dashboard ones]({{< relref "webapps/cockpit/extend/plugins.md" >}}#dashboard).
+With Camunda BPM 7.5, the Admin webapp gets a dashboard based on plugins similar to the [Cockpit dashboard ones]({{< ref "/webapps/cockpit/extend/plugins.md" >}}#dashboard).
 
 You can find examples of [Admin dashboard plugins here](https://github.com/camunda/camunda-bpm-webapp/tree/master/ui/admin/plugins/base/app/views/dashboard).

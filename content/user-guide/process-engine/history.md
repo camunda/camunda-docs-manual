@@ -403,7 +403,7 @@ If it is desired that operations are logged regardless whether they are performe
 
 ## Access the User Operation Log
 
-The user operation log can be accessed via the Java API. The history service can be used to execute a `UserOperationLogQuery` by calling `historyService.createUserOperationLogQuery().execute()`. The query can be restricted with various filtering options. The query is also [exposed in the REST API]({{< relref "reference/rest/history/user-operation-log/get-user-operation-log-query.md" >}}).
+The user operation log can be accessed via the Java API. The history service can be used to execute a `UserOperationLogQuery` by calling `historyService.createUserOperationLogQuery().execute()`. The query can be restricted with various filtering options. The query is also [exposed in the REST API]({{< ref "/reference/rest/history/user-operation-log/get-user-operation-log-query.md" >}}).
 
 
 ## User Operation Log Entries

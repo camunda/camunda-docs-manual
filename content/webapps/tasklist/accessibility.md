@@ -23,4 +23,4 @@ To make working with the Tasklist easier, you can use keyboard shortcuts to jump
 * Set the keyboard focus to the first input field in an embedded task form: *CTRL + ALT + F*
 * Open the start process modal dialog: *CTRL + ALT + P*
 
-All these shortcuts can be modified or removed using the [Tasklist configuration file]({{< relref "webapps/tasklist/configuration.md" >}}). You can access a list of all available shortcuts via the _Keyboard Shortcuts_ link at the top of the Tasklist page.
+All these shortcuts can be modified or removed using the [Tasklist configuration file]({{< ref "/webapps/tasklist/configuration.md" >}}). You can access a list of all available shortcuts via the _Keyboard Shortcuts_ link at the top of the Tasklist page.

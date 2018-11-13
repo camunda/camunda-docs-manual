@@ -14,7 +14,7 @@ menu:
 
 
 Queries for process definitions that fulfill given parameters. Parameters may be the properties of process definitions, such as the name, key or version.
-The size of the result set can be retrieved by using the [Get Definition Count]({{< relref "reference/rest/process-definition/get-query-count.md" >}}) method.
+The size of the result set can be retrieved by using the [Get Definition Count]({{< ref "/reference/rest/process-definition/get-query-count.md" >}}) method.
 
 
 # Method
@@ -101,7 +101,7 @@ GET `/process-definition`
   </tr>
   <tr>
     <td>incidentType</td>
-    <td>Filter by the incident type. See the <a href="{{< relref "user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
+    <td>Filter by the incident type. See the <a href="{{< ref "/user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
   </tr>
   <tr>
     <td>incidentMessage</td>
@@ -243,7 +243,7 @@ Each process definition object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

@@ -56,5 +56,5 @@ historyService.deleteHistoricProcessInstancesAsync(
         historicProcessInstanceIds, TEST_REASON);
 ```
 
-[batch-migration]: {{< relref "user-guide/process-engine/process-instance-migration.md#asynchronous-batch-migration-execution" >}}
-[batch]: {{< relref "user-guide/process-engine/batch.md" >}}
+[batch-migration]: {{< ref "/user-guide/process-engine/process-instance-migration.md#asynchronous-batch-migration-execution" >}}
+[batch]: {{< ref "/user-guide/process-engine/batch.md" >}}

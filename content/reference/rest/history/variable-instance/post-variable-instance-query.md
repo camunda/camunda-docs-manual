@@ -14,7 +14,7 @@ menu:
 
 
 Queries for historic variable instances that fulfill the given parameters.
-This method is slightly more powerful than the [Get Variable Instances]({{< relref "reference/rest/history/variable-instance/get-variable-instance-query.md" >}}) method because it allows filtering by variable values of the different types `String`, `Number` or `Boolean`.
+This method is slightly more powerful than the [Get Variable Instances]({{< ref "/reference/rest/history/variable-instance/get-variable-instance-query.md" >}}) method because it allows filtering by variable values of the different types `String`, `Number` or `Boolean`.
 
 
 # Method
@@ -235,7 +235,7 @@ Each historic activity instance object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
