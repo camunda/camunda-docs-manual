@@ -25,6 +25,7 @@ This document guides you through the update from Camunda BPM `7.8.x` to `7.9.0`.
 9. For administrators: [Throttle login attempts](#throttle-login-attempts)
 9. For administrators and developers: [Jackson version update](#jackson-version-update)
 9. For administrators and developers: [History cleanup can be parallelized](#history-cleanup-can-be-parallelized)
+9. For developers: [Webjar structure changed](#webjar-structure-changed)
 
 
 This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda BPM 7.8.
@@ -213,7 +214,7 @@ libraries by `jackson-*-2.6.3.jar` in your application server folder (also check
       <artifactId>jackson-databind</artifactId>
       <version>2.6.3</version>
     </dependency>
-``` 
+```
 
 In case you were using `camunda-spin-dataformat-all` dependency, you would need to downgrade the whole Spin and use `camunda-spin-dataformat-all-1.4.2.jar`.
 
