@@ -50,6 +50,13 @@ DELETE `/process-definition/{id}`
     <td>skipCustomListeners</td>
     <td><code>true</code>, if only the built-in ExecutionListeners should be notified with the end event.</td>
   </tr>
+  <tr>
+    <td>skipIoMappings</td>
+    <td>
+      A boolean value to control whether input/output mappings should be executed during deletion. 
+      <code>true</code>, if input/output mappings should not be invoked.
+    </td>
+  </tr>
 </table>
 
 # Result
@@ -85,7 +92,7 @@ This method returns no content.
 Delete a process definition with id `aProcessDefinitionId` and cascade deletion to process instances,
 history process instances and jobs:
 
-DELETE `/process-definition/aProcessDefinitionId?cascade=true`
+DELETE `/process-definition/aProcessDefinitionId?cascade=true&skipCustomListeners=true&skipIoMappings=true`
 
 ## Response
 

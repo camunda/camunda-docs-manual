@@ -59,6 +59,13 @@ Deletes process definitions by a given key.
     <td>skipCustomListeners</td>
     <td><code>true</code>, if only the built-in ExecutionListeners should be notified with the end event.</td>
   </tr>
+  <tr>
+    <td>skipIoMappings</td>
+    <td>
+      A boolean value to control whether input/output mappings should be executed during deletion. 
+      <code>true</code>, if input/output mappings should not be invoked.
+    </td>
+  </tr>
 </table>
 
 # Result
@@ -99,9 +106,9 @@ This method returns no content.
 
 ## Request
 
-DELETE `/process-definition/key/invoice/delete?cascade=true&skipCustomListeners=true`
+DELETE `/process-definition/key/invoice/delete?cascade=true&skipCustomListeners=true&skipIoMappings=true`
 
-DELETE `/process-definition/key/invoice/tenant-id/tenant1/delete?cascade=true&skipCustomListeners=true`
+DELETE `/process-definition/key/invoice/tenant-id/tenant1/delete?cascade=true&skipCustomListeners=true&skipIoMappings=true`
 
 ## Response
 
