@@ -16,5 +16,5 @@ For Glassfish, a pre-packaged distribution is provided. In the pre-packaged dist
 
 1.   Download the pre-packaged distribution from http://camunda.org/release/camunda-bpm/glassfish/.
 2.   Unpack the distro to a directory.
-3.   Adjust the datasource according to your needs (see [Manual Installation]({{<relref "installation/full/glassfish/manual.md" >}})).
+3.   Adjust the datasource according to your needs (see [Manual Installation]({{<ref "/installation/full/glassfish/manual.md" >}})).
 4.   Startup the server by running `camunda-welcome.bat` or using the `$GLASSFISH_HOME/glassfish/config/startserv.{bat/sh}` script.

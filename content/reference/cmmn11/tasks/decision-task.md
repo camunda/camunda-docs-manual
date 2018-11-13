@@ -73,7 +73,7 @@ Note: It is also possible to use an expression for the attribute `decisionVersio
 
 # Decision Result
 
-The output of the decision, also called decision result, is not saved as case variable automatically. It has to pass into a case variable by using a [predefined]({{< relref "user-guide/process-engine/decisions/bpmn-cmmn.md#predefined-mapping-of-the-decision-result" >}}) or a [custom]({{< relref "user-guide/process-engine/decisions/bpmn-cmmn.md#custom-mapping-to-case-variables" >}}) mapping of the decision result.
+The output of the decision, also called decision result, is not saved as case variable automatically. It has to pass into a case variable by using a [predefined]({{< ref "/user-guide/process-engine/decisions/bpmn-cmmn.md#predefined-mapping-of-the-decision-result" >}}) or a [custom]({{< ref "/user-guide/process-engine/decisions/bpmn-cmmn.md#custom-mapping-to-case-variables" >}}) mapping of the decision result.
 
 In case of a predefined mapping, the `camunda:mapDecisionResult` attribute references the mapper to use. The result of the mapping is saved in the variable which is specified by the `camunda:resultVariable` attribute. If no predefined mapper is set then the `resultList` mapper is used by default.
 
@@ -88,7 +88,7 @@ entry or none at all.
     camunda:resultVariable="result" />
 ```
 
-See the [User Guide]({{< relref "user-guide/process-engine/decisions/bpmn-cmmn.md#the-decision-result" >}}) for details about the mapping.
+See the [User Guide]({{< ref "/user-guide/process-engine/decisions/bpmn-cmmn.md#the-decision-result" >}}) for details about the mapping.
 
 {{< note title="Name of the Result Variable" class="warning" >}}
 The result variable should not have the name `decisionResult` since the decision result itself is saved in a variable with this name. Otherwise an exception is thrown while saving the result variable.
@@ -106,17 +106,17 @@ To evaluate a referenced decision, the integration of the Camunda DMN engine is 
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-attributes.md#decisionbinding" >}}">camunda:decisionBinding</a>,
-      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-attributes.md#decisionversion" >}}">camunda:decisionVersion</a>,
-      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-attributes.md#mapdecisionresult" >}}">camunda:mapDecisionResult</a>,
-      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-attributes.md#resultvariable" >}}">camunda:resultVariable</a>
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-attributes.md#decisionbinding" >}}">camunda:decisionBinding</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-attributes.md#decisionversion" >}}">camunda:decisionVersion</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-attributes.md#mapdecisionresult" >}}">camunda:mapDecisionResult</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-attributes.md#resultvariable" >}}">camunda:resultVariable</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-elements.md#caseexecutionlistener" >}}">camunda:caseExecutionListener</a>,
-      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-elements.md#variablelistener" >}}">camunda:variableListener</a>
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-elements.md#caseexecutionlistener" >}}">camunda:caseExecutionListener</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-elements.md#variablelistener" >}}">camunda:variableListener</a>
     </td>
   </tr>
   <tr>
@@ -128,4 +128,4 @@ To evaluate a referenced decision, the integration of the Camunda DMN engine is 
   </tr>
 </table>
 
-[DMN 1.1]: {{< relref "reference/dmn11/index.md" >}}
+[DMN 1.1]: {{< ref "/reference/dmn11/_index.md" >}}

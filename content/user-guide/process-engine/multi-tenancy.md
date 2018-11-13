@@ -35,7 +35,7 @@ Database, schema or table level
 * Strict data separation
 * Hardly any performance overhead for application servers due to resource sharing
 * In case one tenant's database state is inconsistent, no other tenant is affected
-* Camunda Cockpit, Tasklist, and Admin offer tenant-specific views out of the box by [switching between different process engines]({{< relref "webapps/cockpit/dashboard.md#multi-tenancy" >}})
+* Camunda Cockpit, Tasklist, and Admin offer tenant-specific views out of the box by [switching between different process engines]({{< ref "/webapps/cockpit/dashboard.md#multi-tenancy" >}})
 
 
 ## Disadvantages
@@ -53,19 +53,19 @@ Working with different process engines for multiple tenants comprises the follow
 * **Access** to a process engine based on a tenant identifier via the Camunda API
 
 {{< note title="Tutorial" class="info" >}}
-  You can find a tutorial [here]({{< relref "examples/tutorials/multi-tenancy.md" >}}) that shows how to implement multi-tenancy with data isolation by schemas.
+  You can find a tutorial [here]({{< ref "/examples/tutorials/multi-tenancy.md" >}}) that shows how to implement multi-tenancy with data isolation by schemas.
 {{< /note >}}
 
 
 ### Configuration
 
-Multiple process engines can be configured in a configuration file or via Java API. Each engine should be given a name that is related to a tenant such that it can be identified based on the tenant. For example, each engine can be named after the tenant it serves. See the [Process Engine Bootstrapping]({{< relref "user-guide/process-engine/process-engine-bootstrapping.md" >}}) section for details.
+Multiple process engines can be configured in a configuration file or via Java API. Each engine should be given a name that is related to a tenant such that it can be identified based on the tenant. For example, each engine can be named after the tenant it serves. See the [Process Engine Bootstrapping]({{< ref "/user-guide/process-engine/process-engine-bootstrapping.md" >}}) section for details.
 
-The process engine configuration can be adapted to achieve either database-, schema- or table-based isolation of data. If different tenants should work on entirely different databases, they have to use different jdbc settings or different data sources. For schema- or table-based isolation, a single data source can be used which means that resources like a connection pool can be shared among multiple engines. The configuration option [databaseTablePrefix]({{< relref "reference/deployment-descriptors/tags/process-engine.md#configuration-protperties" >}}) can be used to configure database access in this case.
+The process engine configuration can be adapted to achieve either database-, schema- or table-based isolation of data. If different tenants should work on entirely different databases, they have to use different jdbc settings or different data sources. For schema- or table-based isolation, a single data source can be used which means that resources like a connection pool can be shared among multiple engines. The configuration option [databaseTablePrefix]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#configuration-protperties" >}}) can be used to configure database access in this case.
 
-For background execution of processes and tasks, the process engine has a component called [job executor]({{< relref "user-guide/process-engine/the-job-executor.md" >}}). The job executor periodically acquires jobs from the database and submits them to a thread pool for execution. For all process applications on one server, one thread pool is used for job execution. Furthermore, it is possible to share the acquisition thread between multiple engines. This way, resources are still manageable even when a large number of process engines is used. See the section [The Job Executor and Multiple Process Engines]({{< relref "user-guide/process-engine/the-job-executor.md#the-job-executor-and-multiple-process-engines" >}}) for details.
+For background execution of processes and tasks, the process engine has a component called [job executor]({{< ref "/user-guide/process-engine/the-job-executor.md" >}}). The job executor periodically acquires jobs from the database and submits them to a thread pool for execution. For all process applications on one server, one thread pool is used for job execution. Furthermore, it is possible to share the acquisition thread between multiple engines. This way, resources are still manageable even when a large number of process engines is used. See the section [The Job Executor and Multiple Process Engines]({{< ref "/user-guide/process-engine/the-job-executor.md#the-job-executor-and-multiple-process-engines" >}}) for details.
 
-Multi-tenancy settings can be applied in the various ways of configuring a process engine. The following is an example of a [bpm-platform.xml]({{< relref "user-guide/process-engine/process-engine-bootstrapping.md#configure-process-engine-in-bpm-platformxml" >}}) file that specifies engines for two tenants that share the same database but work on different schemas:
+Multi-tenancy settings can be applied in the various ways of configuring a process engine. The following is an example of a [bpm-platform.xml]({{< ref "/user-guide/process-engine/process-engine-bootstrapping.md#configure-process-engine-in-bpm-platformxml" >}}) file that specifies engines for two tenants that share the same database but work on different schemas:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -110,7 +110,7 @@ Multi-tenancy settings can be applied in the various ways of configuring a proce
 
 ### Deployment
 
-When developing process applications, i.e., process definitions and supplementary code, some processes may be deployed to every tenant's engine while others are tenant-specific. The processes.xml deployment descriptor that is part of every process application offers this kind of flexibility by the concept of *process archives*. One application can contain any number of process archive deployments, each of which can be deployed to a different process engine with different resources. See the section on the [processes.xml deployment descriptor]({{< relref "user-guide/process-applications/the-processes-xml-deployment-descriptor.md" >}}) for details.
+When developing process applications, i.e., process definitions and supplementary code, some processes may be deployed to every tenant's engine while others are tenant-specific. The processes.xml deployment descriptor that is part of every process application offers this kind of flexibility by the concept of *process archives*. One application can contain any number of process archive deployments, each of which can be deployed to a different process engine with different resources. See the section on the [processes.xml deployment descriptor]({{< ref "/user-guide/process-applications/the-processes-xml-deployment-descriptor.md" >}}) for details.
 
 The following is an example that deploys different process definitions for two tenants. It uses the configuration property `resourceRootPath` that specifies a path in the deployment that contains process definitions to deploy. Accordingly, all the processes under `processes/tenant1` on the application's classpath are deployed to engine `tenant1`, while all the processes under `processes/tenant2` are deployed to engine `tenant2`.
 
@@ -147,9 +147,9 @@ The following is an example that deploys different process definitions for two t
 
 In order to access a specific tenant's process engine at runtime, it has to be identified by its name. The Camunda engine offers access to named engines in various programming models:
 
-* **Plain Java API**: Via the [ProcessEngineService]({{< relref "user-guide/runtime-container-integration/bpm-platform-services.md#processengineservice" >}}) any named engine can be accessed.
-* **CDI Integration**: Named engine beans can be injected out of the box. The [built-in CDI bean producer]({{< relref "user-guide/cdi-java-ee-integration/built-in-beans.md" >}}) can be specialized to access the engine of the current tenant dynamically.
-* **Via JNDI on JBoss/Wildfly**: On JBoss and Wildfly, every container-managed process engine can be [looked up via JNDI]({{< relref "user-guide/runtime-container-integration/jboss.md#looking-up-a-process-engine-in-jndi" >}}).
+* **Plain Java API**: Via the [ProcessEngineService]({{< ref "/user-guide/runtime-container-integration/bpm-platform-services.md#processengineservice" >}}) any named engine can be accessed.
+* **CDI Integration**: Named engine beans can be injected out of the box. The [built-in CDI bean producer]({{< ref "/user-guide/cdi-java-ee-integration/built-in-beans.md" >}}) can be specialized to access the engine of the current tenant dynamically.
+* **Via JNDI on JBoss/Wildfly**: On JBoss and Wildfly, every container-managed process engine can be [looked up via JNDI]({{< ref "/user-guide/runtime-container-integration/jboss.md#looking-up-a-process-engine-in-jndi" >}}).
 
 
 # A Tenant Marker Per Process Instance
@@ -193,7 +193,7 @@ variables.put("TENANT_ID", "tenant1");
 runtimeService.startProcessInstanceByKey("some process", variables);
 ```
 
-For process definitions that are specific to a single tenant, it is also possible to use an [execution listener]({{< relref "user-guide/process-engine/delegation-code.md#execution-listener" >}}) on the start event that immediately sets the variable after instantiation.
+For process definitions that are specific to a single tenant, it is also possible to use an [execution listener]({{< ref "/user-guide/process-engine/delegation-code.md#execution-listener" >}}) on the start event that immediately sets the variable after instantiation.
 
 
 ### Querying

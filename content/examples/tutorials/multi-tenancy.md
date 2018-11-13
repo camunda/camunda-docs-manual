@@ -10,7 +10,7 @@ menu:
 
 ---
 
-Sometimes it is desired to share one Camunda installation between multiple independent parties, also referred to as *tenants*. While sharing an installation means sharing computational resources, the tenants' data should be separated from each other. This tutorial shows how to work with the [one process engine per tenant approach]({{< relref "user-guide/process-engine/multi-tenancy.md#one-process-engine-per-tenant" >}}).
+Sometimes it is desired to share one Camunda installation between multiple independent parties, also referred to as *tenants*. While sharing an installation means sharing computational resources, the tenants' data should be separated from each other. This tutorial shows how to work with the [one process engine per tenant approach]({{< ref "/user-guide/process-engine/multi-tenancy.md#one-process-engine-per-tenant" >}}).
 
 In detail it explains how to:
 
@@ -18,7 +18,7 @@ In detail it explains how to:
 * develop a process application with tenant-specific deployments
 * access the correct process engine from a REST resource based on a tenant identifier
 
-See the [user guide]({{< relref "user-guide/process-engine/multi-tenancy.md" >}}) for a general introduction on multi-tenancy and the different options Camunda offers.
+See the [user guide]({{< ref "/user-guide/process-engine/multi-tenancy.md" >}}) for a general introduction on multi-tenancy and the different options Camunda offers.
 
 
 # Before Starting

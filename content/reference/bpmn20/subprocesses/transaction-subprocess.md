@@ -37,7 +37,7 @@ A transaction subprocess is represented in xml using the transaction element:
 ```
 
 {{< note title="Relation to ACID Transactions" class="warning" >}}
-It is important not to confuse the BPMN transaction subprocess with technical (ACID) transactions. The BPMN transaction subprocess is not a way to scope technical transactions. In order to understand transaction management in Camunda BPM, read the <a href="{{< relref "user-guide/process-engine/transactions-in-processes.md" >}}">Transactions in Processes</a> section of the <a href="{{< relref "user-guide/index.md" >}}">User Guide</a>.
+It is important not to confuse the BPMN transaction subprocess with technical (ACID) transactions. The BPMN transaction subprocess is not a way to scope technical transactions. In order to understand transaction management in Camunda BPM, read the <a href="{{< ref "/user-guide/process-engine/transactions-in-processes.md" >}}">Transactions in Processes</a> section of the <a href="{{< ref "/user-guide/_index.md" >}}">User Guide</a>.
 {{< /note >}}
 
 A BPMN transaction differs from a technical transaction in the following ways:
@@ -63,7 +63,7 @@ To sum it up: while ACID transactions offer a generic solution to such problems 
 The BPMN specification requires that the process engine reacts to events issued by the underlying transaction protocol and, in case a transaction is canceled, if a cancel event occurs, in the underlying protocol. As an embeddable engine, the Camunda engine currently does not support this. (For some ramifications of this, see the paragraph on consistency below.)
 {{< /note >}}
 
-Consistency on top of ACID transactions and optimistic concurrency: A BPMN transaction guarantees consistency in the sense that either all activities compete successfully, or, if some activity cannot be performed, the effects of all other successful activities are compensated. So either way, we end up in a consistent state. However, it is important to recognize that in Camunda BPM, the consistency model for BPMN transactions is superposed on top of the consistency model for process execution. The Camunda engine executes processes in a transactional way. Concurrency is addressed using optimistic locking. In the engine BPMN error, cancel and compensation events are built on top of the same ACID transactions and optimistic locking. For example, a cancel end event can only trigger compensation if it is actually reached. It is not reached if some undeclared exception is thrown by a service task before. The effects of a compensation handler can not be committed if some other participant in the underlying ACID transaction sets the transaction to the state rollback-only. Also, when two concurrent executions reach a cancel end event, compensation might be triggered twice and fail with an optimistic locking exception. All of this is to say that when implementing BPMN transactions in the core engine, the same set of rules apply as when implementing "ordinary" processes and subprocesses. So, to effectively guarantee consistency, it is important to implement processes in a way that takes the optimistic, transactional execution model into consideration. For further information, see the documentation on [optimistic locking]({{< relref "user-guide/process-engine/transactions-in-processes.md#optimistic-locking" >}}).
+Consistency on top of ACID transactions and optimistic concurrency: A BPMN transaction guarantees consistency in the sense that either all activities compete successfully, or, if some activity cannot be performed, the effects of all other successful activities are compensated. So either way, we end up in a consistent state. However, it is important to recognize that in Camunda BPM, the consistency model for BPMN transactions is superposed on top of the consistency model for process execution. The Camunda engine executes processes in a transactional way. Concurrency is addressed using optimistic locking. In the engine BPMN error, cancel and compensation events are built on top of the same ACID transactions and optimistic locking. For example, a cancel end event can only trigger compensation if it is actually reached. It is not reached if some undeclared exception is thrown by a service task before. The effects of a compensation handler can not be committed if some other participant in the underlying ACID transaction sets the transaction to the state rollback-only. Also, when two concurrent executions reach a cancel end event, compensation might be triggered twice and fail with an optimistic locking exception. All of this is to say that when implementing BPMN transactions in the core engine, the same set of rules apply as when implementing "ordinary" processes and subprocesses. So, to effectively guarantee consistency, it is important to implement processes in a way that takes the optimistic, transactional execution model into consideration. For further information, see the documentation on [optimistic locking]({{< ref "/user-guide/process-engine/transactions-in-processes.md#optimistic-locking" >}}).
 
 # Camunda Extensions
 
@@ -71,17 +71,17 @@ Consistency on top of ACID transactions and optimistic concurrency: A BPMN trans
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncbefore" >}}">camunda:asyncBefore</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}">camunda:asyncAfter</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#exclusive" >}}">camunda:exclusive</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#jobpriority" >}}">camunda:jobPriority</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#asyncbefore" >}}">camunda:asyncBefore</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}">camunda:asyncAfter</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#exclusive" >}}">camunda:exclusive</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#jobpriority" >}}">camunda:jobPriority</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#failedjobretrytimecycle" >}}">camunda:failedJobRetryTimeCycle</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}">camunda:inputOutput</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#failedjobretrytimecycle" >}}">camunda:failedJobRetryTimeCycle</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}">camunda:inputOutput</a>
     </td>
   </tr>
   <tr>
@@ -96,4 +96,4 @@ Consistency on top of ACID transactions and optimistic concurrency: A BPMN trans
 
 # Additional Resources
 
-*   [Transactions in Processes]({{< relref "user-guide/process-engine/transactions-in-processes.md" >}})
+*   [Transactions in Processes]({{< ref "/user-guide/process-engine/transactions-in-processes.md" >}})

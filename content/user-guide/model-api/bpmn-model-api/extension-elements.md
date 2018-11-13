@@ -11,8 +11,8 @@ menu:
 ---
 
 
-[Custom extension elements]({{< relref "reference/bpmn20/custom-extensions/index.md" >}}) are a standardized way to extend the BPMN model.
-The [Camunda extension elements]({{< relref "reference/bpmn20/custom-extensions/extension-elements.md" >}}) are fully implemented in the BPMN model API but unknown extension elements can also easily be accessed and added.
+[Custom extension elements]({{< ref "/reference/bpmn20/custom-extensions/_index.md" >}}) are a standardized way to extend the BPMN model.
+The [Camunda extension elements]({{< ref "/reference/bpmn20/custom-extensions/extension-elements.md" >}}) are fully implemented in the BPMN model API but unknown extension elements can also easily be accessed and added.
 
 Every BPMN `BaseElement` can have a child element of the type `extensionElements`.
 This element can contain all sorts of extension elements. To access the

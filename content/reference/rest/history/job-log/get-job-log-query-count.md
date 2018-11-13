@@ -14,7 +14,7 @@ menu:
 
 
 Query for the number of historic job logs that fulfill the given parameters.
-Takes the same parameters as the [get historic job logs]({{< relref "reference/rest/history/job-log/get-job-log-query.md" >}}) method.
+Takes the same parameters as the [get historic job logs]({{< ref "/reference/rest/history/job-log/get-job-log-query.md" >}}) method.
 
 
 # Method

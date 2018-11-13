@@ -120,9 +120,9 @@ for modifying variables.
 
 # The CDI Event Bridge in a Process Application
 
-In order to use the CDI Event Bridge in combination with a multi-application deployment and the shared process engine, the {{< javadocref page="?org/camunda/bpm/engine/cdi/impl/event/CdiEventListener" text="CdiEventListener" >}} needs to be added as a [Process Application Execution Event Listener]({{< relref "user-guide/process-applications/process-application-event-listeners.md" >}}).
+In order to use the CDI Event Bridge in combination with a multi-application deployment and the shared process engine, the {{< javadocref page="?org/camunda/bpm/engine/cdi/impl/event/CdiEventListener" text="CdiEventListener" >}} needs to be added as a [Process Application Execution Event Listener]({{< ref "/user-guide/process-applications/process-application-event-listeners.md" >}}).
 
-Example configuration for [Servlet Process Application]({{< relref "user-guide/process-applications/the-process-application-class.md#the-servletprocessapplication" >}}):
+Example configuration for [Servlet Process Application]({{< ref "/user-guide/process-applications/the-process-application-class.md#the-servletprocessapplication" >}}):
 
 ```java
 @ProcessApplication
@@ -140,7 +140,7 @@ public class InvoiceProcessApplication extends ServletProcessApplication {
 }
 ```
 
-Example configuration for [Ejb Process Application]({{< relref "user-guide/process-applications/the-process-application-class.md#the-ejbprocessapplication" >}}):
+Example configuration for [Ejb Process Application]({{< ref "/user-guide/process-applications/the-process-application-class.md#the-ejbprocessapplication" >}}):
 
 ```java
 @Singleton

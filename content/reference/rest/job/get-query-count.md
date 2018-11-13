@@ -13,7 +13,7 @@ menu:
 ---
 
 Query for the number of jobs that fulfill given parameters.
-Takes the same parameters as the [get jobs]({{< relref "reference/rest/job/get-query.md" >}}) method.
+Takes the same parameters as the [get jobs]({{< ref "/reference/rest/job/get-query.md" >}}) method.
 
 
 # Method
@@ -148,7 +148,7 @@ A JSON object that contains the count as the only property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for due date comparison is used. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for due date comparison is used. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

@@ -170,7 +170,7 @@ The following properties can be set, regardless of whether you are using the JDB
   * `create-drop`: Creates the schema when the process engine is being created and drops the schema when the process engine is being closed.
 
 {{< note title="Suported Databases" class="warning" >}}
-  For information on supported databases please refer to [Supported Environments]({{< relref "introduction/supported-environments.md#databases" >}})
+  For information on supported databases please refer to [Supported Environments]({{< ref "/introduction/supported-environments.md#databases" >}})
 {{< /note >}}
 
 Here are some sample JDBC urls:
@@ -273,7 +273,7 @@ The required isolation level to run Camunda with is **READ COMMITTED**, which ma
 
 Microsoft SQL Server implements the isolation level `READ_COMMITTED` different
 than most databases and does not interact well with the process engine's
-[optimistic locking]({{< relref "user-guide/process-engine/transactions-in-processes.md#optimistic-locking" >}}) scheme. 
+[optimistic locking]({{< ref "/user-guide/process-engine/transactions-in-processes.md#optimistic-locking" >}}) scheme. 
 As a result you may suffer deadlocks when putting the process engine under high load.
 
 If you experience deadlocks in your MSSQL installation, you must execute the

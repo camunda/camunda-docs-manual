@@ -40,7 +40,7 @@ CalledElementBinding has three different values:
 *   latest: always call the latest process definition version (which is also the default behaviour if the attribute isn't defined)
 * 	deployment: if called process definition is part of the same deployment as the calling process definition, use the version from deployment
 *   version: call a fixed version of the process definition, in this case `calledElementVersion` is required. The version number can either be
-    specified in the BPMN XML or returned by an expression (see [custom extensions]({{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#calledelementversion" >}}))
+    specified in the BPMN XML or returned by an expression (see [custom extensions]({{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#calledelementversion" >}}))
 
 ```xml
 <callActivity id="callSubProcess" calledElement="checkCreditProcess"
@@ -93,7 +93,7 @@ Source expressions are evaluated in the context of the called process instance. 
 
 ## Combination with Input/Output parameters
 
-Call activities can be combined with [Input/Output parameters]({{< relref "user-guide/process-engine/variables.md#input-output-variable-mapping" >}}) as well. This allows for an even more flexible mapping of variables into the called process. In order to only map variables that are declared in the `inputOutput` mapping, the attribute `local` can be used. Consider the following XML:
+Call activities can be combined with [Input/Output parameters]({{< ref "/user-guide/process-engine/variables.md#input-output-variable-mapping" >}}) as well. This allows for an even more flexible mapping of variables into the called process. In order to only map variables that are declared in the `inputOutput` mapping, the attribute `local` can be used. Consider the following XML:
 
 ```xml
 <callActivity id="callSubProcess" calledElement="checkCreditProcess" >
@@ -204,23 +204,23 @@ CaseBinding has three different values:
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncbefore" >}}">camunda:asyncBefore</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}">camunda:asyncAfter</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#calledelementbinding" >}}">camunda:calledElementBinding</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#calledelementversion" >}}">camunda:calledElementVersion</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#casebinding" >}}">camunda:caseBinding</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#caseref" >}}">camunda:caseRef</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#caseversion" >}}">camunda:caseVersion</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#exclusive" >}}">camunda:exclusive</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#jobpriority" >}}">camunda:jobPriority</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#asyncbefore" >}}">camunda:asyncBefore</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}">camunda:asyncAfter</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#calledelementbinding" >}}">camunda:calledElementBinding</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#calledelementversion" >}}">camunda:calledElementVersion</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#casebinding" >}}">camunda:caseBinding</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#caseref" >}}">camunda:caseRef</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#caseversion" >}}">camunda:caseVersion</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#exclusive" >}}">camunda:exclusive</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#jobpriority" >}}">camunda:jobPriority</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#in" >}}">camunda:in</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#out" >}}">camunda:out</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#failedjobretrytimecycle" >}}">camunda:failedJobRetryTimeCycle</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#in" >}}">camunda:in</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#out" >}}">camunda:out</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#failedjobretrytimecycle" >}}">camunda:failedJobRetryTimeCycle</a>
     </td>
   </tr>
   <tr>

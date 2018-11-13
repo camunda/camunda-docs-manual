@@ -15,7 +15,7 @@ The process engine supports two ways of executing service tasks:
 1. Internal Service tasks: Synchronous invocation of code deployed along with a process application
 2. External tasks: Providing a unit of work in a list that can be polled by workers
 
-The first option is used when code is implemented as [Delegation Code]({{< relref "user-guide/process-engine/delegation-code.md" >}}) or as a [Script]({{< relref  "user-guide/process-engine/scripting.md" >}}). By contrast, external (service) tasks work in a way that the process engine publishes a unit of work to a worker to fetch and complete. We refer to this as the *external task pattern*.
+The first option is used when code is implemented as [Delegation Code]({{< ref "/user-guide/process-engine/delegation-code.md" >}}) or as a [Script]({{< ref "/user-guide/process-engine/scripting.md" >}}). By contrast, external (service) tasks work in a way that the process engine publishes a unit of work to a worker to fetch and complete. We refer to this as the *external task pattern*.
 
 Note that the above distinction does not say whether the actual "business logic" is implemented locally or as a remote service. The Java Delegate invoked by an internal service task may either implement the business logic itself or it may call out to a web/rest service, send a message to another system and so forth. The same is true for an external worker. The worker can implement the business logic directly or again delegate to a remote system.
 
@@ -61,7 +61,7 @@ In the BPMN XML of a process definition, a service task can be declared to be pe
 
 ## Rest API
 
-See the [REST API documentation]({{< relref "reference/rest/external-task/index.md" >}}) for how the API operations can be accessed via HTTP.
+See the [REST API documentation]({{< ref "/reference/rest/external-task/_index.md" >}}) for how the API operations can be accessed via HTTP.
 
 ## Java API
 
@@ -139,7 +139,7 @@ for (LockedExternalTask task : tasks) {
 }
 ```
 
-The resulting tasks then contain the current values of the requested variable. Note that the variable values are the values that are visible in the scope hierarchy from the external task's execution. See the chapter on [Variable Scopes and Variable Visibility]({{< relref "user-guide/process-engine/variables.md#variable-scopes-and-variable-visibility" >}}) for details.
+The resulting tasks then contain the current values of the requested variable. Note that the variable values are the values that are visible in the scope hierarchy from the external task's execution. See the chapter on [Variable Scopes and Variable Visibility]({{< ref "/user-guide/process-engine/variables.md#variable-scopes-and-variable-visibility" >}}) for details.
 
 ### Completing Tasks
 

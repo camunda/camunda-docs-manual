@@ -169,7 +169,7 @@ The Camunda Modeler Eclipse Plugin depends on the following third-party librarie
 [mpl]: https://www.mozilla.org/MPL/1.0/
 [mpl2]: https://www.mozilla.org/MPL/2.0/
 [spring]: http://projects.spring.io/spring-framework/
-[spring-xml]: {{< relref "user-guide/process-engine/process-engine-bootstrapping.md#configure-process-engine-using-spring-xml" >}}
+[spring-xml]: {{< ref "/user-guide/process-engine/process-engine-bootstrapping.md#configure-process-engine-using-spring-xml" >}}
 [python]: http://www.jython.org/license.html
 [tmate]: http://svnkit.com/license.html
-[id-generator]: {{< relref "user-guide/process-engine/id-generator.md" >}}
+[id-generator]: {{< ref "/user-guide/process-engine/id-generator.md" >}}

@@ -13,12 +13,12 @@ menu:
 ---
 
 
-The process engine configuration can be placed in both [processes.xml]({{< relref "reference/deployment-descriptors/descriptors/processes-xml.md" >}}) and the [bpm-platform.xml]({{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}) files. If the process engine is configured in either or both of those files, it will be bootstrapped by the Camunda BPM platform infrastructure and be made available through `BpmPlatform.getProcessEngineService().getProcessEngine("name of process engine")`.
+The process engine configuration can be placed in both [processes.xml]({{< ref "/reference/deployment-descriptors/descriptors/processes-xml.md" >}}) and the [bpm-platform.xml]({{< ref "/reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}) files. If the process engine is configured in either or both of those files, it will be bootstrapped by the Camunda BPM platform infrastructure and be made available through `BpmPlatform.getProcessEngineService().getProcessEngine("name of process engine")`.
 
 
 # Example
 
-The following example shows an XML snippet which can be placed in both [processes.xml]({{< relref "reference/deployment-descriptors/descriptors/processes-xml.md" >}}) and/or [bpm-platform.xml]({{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}).
+The following example shows an XML snippet which can be placed in both [processes.xml]({{< ref "/reference/deployment-descriptors/descriptors/processes-xml.md" >}}) and/or [bpm-platform.xml]({{< ref "/reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}).
 
 ```xml
 <process-engine name="default">
@@ -75,7 +75,7 @@ The following example shows an XML snippet which can be placed in both [processe
       </p>
       <p>
         <strong>Text Content:</strong>
-        The name of the job acquisition to be used for this process engine. Job acquisitions are configured in the <a href="{{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}">bpm-platform.xml</a> file.
+        The name of the job acquisition to be used for this process engine. Job acquisitions are configured in the <a href="{{< ref "/reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}">bpm-platform.xml</a> file.
       </p>
       <p>
         <strong>Example:</strong>
@@ -176,7 +176,7 @@ The following example shows an XML snippet which can be placed in both [processe
     <td><code>&lt;process-engine&gt;</code></td>
     <td>false</td>
     <td>
-        Container element for providing a set of <a href="{{< relref "user-guide/process-engine/process-engine-plugins.md" >}}">process engine plugin</a> configurations.
+        Container element for providing a set of <a href="{{< ref "/user-guide/process-engine/process-engine-plugins.md" >}}">process engine plugin</a> configurations.
       <p>
         <strong>Attributes:</strong>
         None.
@@ -192,7 +192,7 @@ The following example shows an XML snippet which can be placed in both [processe
     <td><code>&lt;plugins&gt;</code></td>
     <td>false</td>
     <td>
-        Container element for providing an individual <a href="{{< relref "user-guide/process-engine/process-engine-plugins.md" >}}">process engine plugin</a> configuration.
+        Container element for providing an individual <a href="{{< ref "/user-guide/process-engine/process-engine-plugins.md" >}}">process engine plugin</a> configuration.
       <p>
         <strong>Attributes:</strong>
         None.
@@ -208,7 +208,7 @@ The following example shows an XML snippet which can be placed in both [processe
     <td><code>&lt;plugin&gt;</code></td>
     <td>false</td>
     <td>
-        Sets the classname of a <a href="{{< relref "user-guide/process-engine/process-engine-plugins.md" >}}">process engine plugin</a>.
+        Sets the classname of a <a href="{{< ref "/user-guide/process-engine/process-engine-plugins.md" >}}">process engine plugin</a>.
       <p>
         <strong>Attributes:</strong>
         None.
@@ -281,7 +281,7 @@ The following is a list with the most commonly used process engine configuration
     <td><code>enableExpressionsInAdhocQueries</code></td>
     <td>Boolean</td>
     <td>
-      If set to <code>true</code>, expressions can be used when creating and executing adhoc queries. For details, see the section on <a href="{{< relref "user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide.
+      If set to <code>true</code>, expressions can be used when creating and executing adhoc queries. For details, see the section on <a href="{{< ref "/user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide.
       Default value is <code>false</code>.
       <p>
         <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
@@ -293,7 +293,7 @@ The following is a list with the most commonly used process engine configuration
     <td><code>enableExpressionsInStoredQueries</code></td>
     <td>Boolean</td>
     <td>
-      If set to <code>true</code>, expressions can be used when creating and executing stored queries. For details, see the section on <a href="{{< relref "user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide.
+      If set to <code>true</code>, expressions can be used when creating and executing stored queries. For details, see the section on <a href="{{< ref "/user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide.
       Default value is <code>true</code>.
       <p>
         <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
@@ -380,7 +380,7 @@ The following is a list with the most commonly used process engine configuration
     <td>Boolean</td>
     <td>
         Controls whether the job executor acquires the next jobs to execute ordered by due date. Default value is <code>false</code>. See the
-        <a href="{{< relref "user-guide/process-engine/the-job-executor.md#the-job-order-of-job-acquisition" >}}">user guide</a>
+        <a href="{{< ref "/user-guide/process-engine/the-job-executor.md#the-job-order-of-job-acquisition" >}}">user guide</a>
         for more details on this setting.
       <p>
         <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
@@ -393,7 +393,7 @@ The following is a list with the most commonly used process engine configuration
     <td>Boolean</td>
     <td>
         Controls whether the process engine starts with an active job executor or not. For a shared process engine configuration, the default value is <code>true</code>. For an embedded process engine configuration, the default value is <code>false</code>. See the
-        <a href="{{< relref "user-guide/process-engine/the-job-executor.md#job-executor-activation" >}}">user guide</a>
+        <a href="{{< ref "/user-guide/process-engine/the-job-executor.md#job-executor-activation" >}}">user guide</a>
         for more details on this setting.
       <p>
         <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
@@ -417,7 +417,7 @@ The following is a list with the most commonly used process engine configuration
     <td>Boolean</td>
     <td>
         Controls whether the job executor prefers due timer jobs over other job types. Default value is <code>false</code>. See the
-        <a href="{{< relref "user-guide/process-engine/the-job-executor.md#the-job-order-of-job-acquisition" >}}">user guide</a>
+        <a href="{{< ref "/user-guide/process-engine/the-job-executor.md#the-job-order-of-job-acquisition" >}}">user guide</a>
         for more details on this setting.
       <p>
         <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).

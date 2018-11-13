@@ -13,22 +13,22 @@ menu:
 
 Camunda BPM is a Java-based framework. The main components are written in Java and we have a general focus on providing Java developers with the tools they need for designing, implementing and running business processes and workflows on the JVM. Nevertheless, we also want to make the process engine technology available to non-Java developers. This is why Camunda BPM also provides a REST API which allows you to build applications connecting to a remote process engine.
 
-Camunda BPM can be used both as a standalone process engine server or embedded inside custom Java applications. The embeddability requirement is at the heart of many architectural decisions within Camunda BPM. For instance, we work hard to make the process engine component a lightweight component with as little dependencies on [third-party libraries]({{< relref "introduction/third-party-libraries.md" >}}) as possible. Furthermore, the embeddability motivates programming model choices such as the capabilities of the process engine to participate in Spring Managed or JTA [transactions and the threading model]({{< relref "user-guide/process-engine/transactions-in-processes.md" >}}).
+Camunda BPM can be used both as a standalone process engine server or embedded inside custom Java applications. The embeddability requirement is at the heart of many architectural decisions within Camunda BPM. For instance, we work hard to make the process engine component a lightweight component with as little dependencies on [third-party libraries]({{< ref "/introduction/third-party-libraries.md" >}}) as possible. Furthermore, the embeddability motivates programming model choices such as the capabilities of the process engine to participate in Spring Managed or JTA [transactions and the threading model]({{< ref "/user-guide/process-engine/transactions-in-processes.md" >}}).
 
 
 # Process Engine Architecture
 
 {{< img src="../img/process-engine-architecture.png" title="Process Engine Architecture" >}}
 
-* [Process Engine Public API]({{< relref "user-guide/process-engine/process-engine-api.md" >}}): Service-oriented API allowing Java applications to interact with the process engine. The different responsibilities of the process engine (i.e., Process Repository, Runtime Process Interaction, Task Management, ...) are separated into individual services. The public API features a [command-style access pattern](http://en.wikipedia.org/wiki/Command_pattern): Threads entering the process engine are routed through a Command Interceptor which is used for setting up Thread Context such as Transactions.
+* [Process Engine Public API]({{< ref "/user-guide/process-engine/process-engine-api.md" >}}): Service-oriented API allowing Java applications to interact with the process engine. The different responsibilities of the process engine (i.e., Process Repository, Runtime Process Interaction, Task Management, ...) are separated into individual services. The public API features a [command-style access pattern](http://en.wikipedia.org/wiki/Command_pattern): Threads entering the process engine are routed through a Command Interceptor which is used for setting up Thread Context such as Transactions.
 * **BPMN 2.0 Core Engine**: This is the core of the process engine. It features a lightweight execution engine for graph structures (PVM - Process Virtual Machine), a BPMN 2.0 parser which transforms BPMN 2.0 XML files into Java Objects and a set of BPMN Behavior implementations (providing the implementation for BPMN 2.0 constructs such as Gateways or Service Tasks).
-* [Job Executor]({{< relref "user-guide/process-engine/the-job-executor.md" >}}): The Job Executor is responsible for processing asynchronous background work such as Timers or asynchronous continuations in a process.
+* [Job Executor]({{< ref "/user-guide/process-engine/the-job-executor.md" >}}): The Job Executor is responsible for processing asynchronous background work such as Timers or asynchronous continuations in a process.
 * **The Persistence Layer**: The process engine features a persistence layer responsible for persisting process instance state to a relational database. We use the MyBatis mapping engine for object relational mapping.
 
 
 ## Required Third-Party Libraries
 
-See the section on [third-party libraries]({{< relref "introduction/third-party-libraries.md" >}}).
+See the section on [third-party libraries]({{< ref "/introduction/third-party-libraries.md" >}}).
 
 
 # Camunda BPM Platform Architecture
@@ -65,7 +65,7 @@ In order to provide scale-up or fail-over capabilities, the process engine can b
 
 The individual process engine instances do not maintain session state across transactions. Whenever the process engine runs a transaction, the complete state is flushed out to the shared database. This makes it possible to route subsequent requests which do work in the same process instance to different cluster nodes. This model is very simple and easy to understand and imposes limited restrictions when it comes to deploying a cluster installation. As far as the process engine is concerned, there is no difference between setups for scale-up and setups for fail-over (as the process engine keeps no session state between transactions).
 
-The process engine [job executor]({{< relref "user-guide/process-engine/the-job-executor.md" >}}) is also clustered and runs on each node. This way, there is no single point of failure as far as the process engine is concerned. The job executor can run in both [homogeneous and heterogeneous clusters]({{< relref "user-guide/process-engine/the-job-executor.md#cluster-setups" >}}).
+The process engine [job executor]({{< ref "/user-guide/process-engine/the-job-executor.md" >}}) is also clustered and runs on each node. This way, there is no single point of failure as far as the process engine is concerned. The job executor can run in both [homogeneous and heterogeneous clusters]({{< ref "/user-guide/process-engine/the-job-executor.md#cluster-setups" >}}).
 
 
 # Multi-Tenancy Model
@@ -80,7 +80,7 @@ multi-tenancy. The following multi tenancy models are supported:
 
 Users should choose the model which fits their data separation needs. Camunda's APIs provide access
 to processes and related data specific to each tenant.
-More details can be found in the [multi-tenancy section]({{< relref "user-guide/process-engine/multi-tenancy.md" >}}).
+More details can be found in the [multi-tenancy section]({{< ref "/user-guide/process-engine/multi-tenancy.md" >}}).
 
 
 # Web Application Architecture

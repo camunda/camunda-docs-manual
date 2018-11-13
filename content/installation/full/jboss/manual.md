@@ -113,7 +113,7 @@ When you create the tables manually, then you have to configure the engine to **
 {{< note title="Heads Up!" class="info" >}}
 If you have defined a specific prefix for the entities of your database, then you will have to manually adjust the `create` scripts accordingly so that the tables are created with the prefix.
 
-Please note further that READ COMMITED is the required isolation level for database systems to run Camunda with. You may have to change the default setting on your database when installing Camunda. For more information see the documentation on [isolation levels]({{< relref "user-guide/process-engine/database.md#isolation-level-configuration" >}}).
+Please note further that READ COMMITED is the required isolation level for database systems to run Camunda with. You may have to change the default setting on your database when installing Camunda. For more information see the documentation on [isolation levels]({{< ref "/user-guide/process-engine/database.md#isolation-level-configuration" >}}).
 {{< /note >}}
 
 ## Create a Datasource
@@ -330,7 +330,7 @@ In order to activate Camunda Connect functionality for a process engine, a proce
 
 ## Camunda Spin
 
-The Camunda Spin plugin can be use to extend the engine functionality in order to de-/serialize object variables from and to JSON and XML. For more information see the [Spin Reference]({{< relref "reference/spin/index.md" >}}).
+The Camunda Spin plugin can be use to extend the engine functionality in order to de-/serialize object variables from and to JSON and XML. For more information see the [Spin Reference]({{< ref "/reference/spin/_index.md" >}}).
 
 ### Setup Spin
 

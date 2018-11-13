@@ -76,7 +76,7 @@ Each object has the following properties:
   <tr>
     <td>definition</td>
     <td>Object</td>
-    <td>The process definition with the properties as described in the <a href="{{< relref "reference/rest/process-definition/get.md" >}}">get single definition</a> method.</td>
+    <td>The process definition with the properties as described in the <a href="{{< ref "/reference/rest/process-definition/get.md" >}}">get single definition</a> method.</td>
   </tr>
   <tr>
     <td>incidents</td>
@@ -108,7 +108,7 @@ Each object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>If both query parameters <code>incidents</code> and <code>incidentsForType</code> were set. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>If both query parameters <code>incidents</code> and <code>incidentsForType</code> were set. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>  
 </table>
 

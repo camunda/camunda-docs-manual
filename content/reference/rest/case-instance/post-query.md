@@ -14,7 +14,7 @@ menu:
 
 
 Query for case instances that fulfill given parameters through a JSON object.
-This method is slightly more powerful than the [GET query]({{< relref "reference/rest/case-instance/get-query.md" >}}) because it allows
+This method is slightly more powerful than the [GET query]({{< ref "/reference/rest/case-instance/get-query.md" >}}) because it allows
 to filter by multiple case variables of types `String`, `Number` or `Boolean`.
 
 
@@ -187,7 +187,7 @@ Each case instance object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

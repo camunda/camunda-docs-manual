@@ -14,10 +14,10 @@ menu:
 
 
 Get the number of tasks that fulfill the given filter.
-Corresponds to the size of the result set of the [get tasks (POST)]({{< relref "reference/rest/task/post-query.md" >}}) method and takes the same parameters.
+Corresponds to the size of the result set of the [get tasks (POST)]({{< ref "/reference/rest/task/post-query.md" >}}) method and takes the same parameters.
 
 {{< note title="Security Consideration" class="warning" >}}
-  There are several query parameters (such as `assigneeExpression`) for specifying an EL expression. These are disabled by default to prevent remote code execution. See the section on <a href="{{< relref "user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide for details.
+  There are several query parameters (such as `assigneeExpression`) for specifying an EL expression. These are disabled by default to prevent remote code execution. See the section on <a href="{{< ref "/user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide for details.
 {{</note>}}
 
 # Method
@@ -124,7 +124,7 @@ A JSON object with the following properties:
   <tr>
     <td>assigneeExpression</td>
     <td>Restrict to tasks that the user described by the given expression is assigned to.
-        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
+        See the <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
     </td>
   </tr>
@@ -136,7 +136,7 @@ A JSON object with the following properties:
     <td>assigneeLikeExpression</td>
     <td>Restrict to tasks that have an assignee that has the parameter value described by the given
 expression as a substring.
-        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
+        See the <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
     </td>
   </tr>
@@ -147,7 +147,7 @@ expression as a substring.
   <tr>
     <td>ownerExpression</td>
     <td>Restrict to tasks that the user described by the given expression owns.
-        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
+        See the <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
     </td>
   </tr>
@@ -158,7 +158,7 @@ expression as a substring.
   <tr>
     <td>candidateGroupExpression</td>
     <td>Only include tasks that are offered to the group described by the given expression.
-        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
+        See the <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
     </td>
   </tr>
@@ -169,7 +169,7 @@ expression as a substring.
   <tr>
     <td>candidateUserExpression</td>
     <td>Only include tasks that are offered to the user described by the given expression.
-        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
+        See the <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
     </td>
   </tr>
@@ -189,7 +189,7 @@ expression as a substring.
     <td>involvedUserExpression</td>
     <td>Only include tasks that the user described by the given expression is involved in.
         A user is involved in a task if an identity link exists between task and user (e.g., the user is the assignee).
-        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">user
+        See the <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">user
         guide</a> for more information on available functions.
     </td>
   </tr>
@@ -249,7 +249,7 @@ expression as a substring.
   <tr>
     <td>dueDateExpression</td>
     <td>Restrict to tasks that are due on the date described by the given expression.
-        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
+        See the <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
@@ -261,7 +261,7 @@ expression as a substring.
   <tr>
     <td>dueAfterExpression</td>
     <td>Restrict to tasks that are due after the date described by the given expression.
-        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
+        See the <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
@@ -273,7 +273,7 @@ expression as a substring.
   <tr>
     <td>dueBeforeExpression</td>
     <td>Restrict to tasks that are due before the date described by the given expression.
-        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
+        See the <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
@@ -285,7 +285,7 @@ expression as a substring.
   <tr>
     <td>followUpDateExpression</td>
     <td>Restrict to tasks that have a followUp date on the date described by the given expression.
-        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
+        See the <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
@@ -297,7 +297,7 @@ expression as a substring.
   <tr>
     <td>followUpAfterExpression</td>
     <td>Restrict to tasks that have a followUp date after the date described by the given expression.
-        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
+        See the <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
@@ -309,7 +309,7 @@ expression as a substring.
   <tr>
     <td>followUpBeforeExpression</td>
     <td>Restrict to tasks that have a followUp date before the date described by the given expression.
-        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
+        See the <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
@@ -322,7 +322,7 @@ expression as a substring.
     <td>followUpBeforeOrNotExistentExpression</td>
     <td>Restrict to tasks that have no followUp date or a followUp date before the date described by the given
         expression.
-        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
+        See the <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
@@ -338,7 +338,7 @@ expression as a substring.
   <tr>
     <td>createdOnExpression</td>
     <td>Restrict to tasks that were created on the date described by the given expression.
-        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
+        See the <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
@@ -350,7 +350,7 @@ expression as a substring.
   <tr>
     <td>createdAfterExpression</td>
     <td>Restrict to tasks that were created after the date described by the given expression.
-        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
+        See the <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
@@ -362,7 +362,7 @@ expression as a substring.
   <tr>
     <td>createdBeforeExpression</td>
     <td>Restrict to tasks that were created before the date described by the given expression.
-        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
+        See the <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
@@ -378,7 +378,7 @@ expression as a substring.
   <tr>
     <td>candidateGroupsExpression</td>
     <td>Restrict to tasks that are offered to any of the candidate groups described by the given expression.
-        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">user
+        See the <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">user
         guide</a> for more information on available functions.
         The expression must evaluate to <code>java.util.List</code> of Strings.
     </td>
@@ -471,7 +471,7 @@ A JSON object with a single count property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

@@ -133,7 +133,7 @@ With `local="true"` for the `in` mapping, only `var2` is mapped into the called 
 
 # Pass Business Key
 
-In addition to [exchanging variables]({{< relref "reference/cmmn11/tasks/case-task.md#exchange-variables" >}}), it is possible to pass a business key to the called case instance as well. Since a business key is immutable, this is one way mapping. It is not possible to have output mapping for a business key.
+In addition to [exchanging variables]({{< ref "/reference/cmmn11/tasks/case-task.md#exchange-variables" >}}), it is possible to pass a business key to the called case instance as well. Since a business key is immutable, this is one way mapping. It is not possible to have output mapping for a business key.
 
 The following example shows how the business key of the calling case instance can be passed to the called case instance. In this case, the calling case instance and the called case instance end up with the same business key.
 
@@ -161,17 +161,17 @@ If the business key of the called case instance should be different from the bus
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-attributes.md#casebinding" >}}">camunda:caseBinding</a>,
-      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-attributes.md#caseversion" >}}">camunda:caseVersion</a>
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-attributes.md#casebinding" >}}">camunda:caseBinding</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-attributes.md#caseversion" >}}">camunda:caseVersion</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-elements.md#in" >}}">camunda:in</a>,
-      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-elements.md#out" >}}">camunda:out</a>,
-      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-elements.md#caseexecutionlistener" >}}">camunda:caseExecutionListener</a>,
-      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-elements.md#variablelistener" >}}">camunda:variableListener</a>
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-elements.md#in" >}}">camunda:in</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-elements.md#out" >}}">camunda:out</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-elements.md#caseexecutionlistener" >}}">camunda:caseExecutionListener</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-elements.md#variablelistener" >}}">camunda:variableListener</a>
     </td>
   </tr>
   <tr>

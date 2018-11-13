@@ -79,7 +79,7 @@ As runtime relevant resource it defines
 8. a main file that bootstraps the client-side plugin in a [AngularJS](http://angularjs.org/) / [RequireJS](http://requirejs.org) environment
 
 {{< note title="Related Example" class="info">}}
-  [How to develop a cockpit plugin]({{< relref "examples/tutorials/develop-cockpit-plugin.md" >}})
+  [How to develop a cockpit plugin]({{< ref "/examples/tutorials/develop-cockpit-plugin.md" >}})
 {{< /note >}}
 
 
@@ -127,7 +127,7 @@ var ViewConfig = [ 'ViewsProvider', function(ViewsProvider) {
 }];
 ```
 
-For more information on creating and configuring your own plugin, please see [How to develop a Cockpit plugin]({{< relref "examples/tutorials/develop-cockpit-plugin.md" >}}).
+For more information on creating and configuring your own plugin, please see [How to develop a Cockpit plugin]({{< ref "/examples/tutorials/develop-cockpit-plugin.md" >}}).
 
 
 ## Dashboard

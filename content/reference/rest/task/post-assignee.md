@@ -14,7 +14,7 @@ menu:
 
 Change the assignee of a task to a specific user.
 
-**Note:** The difference with [claim a task]({{< relref "reference/rest/task/post-claim.md" >}}) is that this method does not check if the task already has a user assigned to it.
+**Note:** The difference with [claim a task]({{< ref "/reference/rest/task/post-claim.md" >}}) is that this method does not check if the task already has a user assigned to it.
 
 
 # Method
@@ -74,7 +74,7 @@ This method returns no content.
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>Task with given id does not exist or setting the assignee was not successful. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Task with given id does not exist or setting the assignee was not successful. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

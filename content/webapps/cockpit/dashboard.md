@@ -12,7 +12,7 @@ menu:
 ---
 
 
-The dashboard of Cockpit is the entry point for process monitoring. It comes with pre-installed plugins, which let you see deployed process and decision defintions. Additional [plugins]({{< relref "webapps/cockpit/extend/plugins.md" >}}) can be added to the dashboard.
+The dashboard of Cockpit is the entry point for process monitoring. It comes with pre-installed plugins, which let you see deployed process and decision defintions. Additional [plugins]({{< ref "/webapps/cockpit/extend/plugins.md" >}}) can be added to the dashboard.
 
 
 # Deployed Processes
@@ -27,8 +27,8 @@ With this plugin you can easily observe the state of a process definition. Green
 You can also switch to the preview tab which displays the rendered process model of each deployed process. Additionally, you get information about how many instances of the process are currently running and about the process state. Green and red dots signalize running and [failed jobs][failed-jobs]. Click on the model to go to the [process definition view][process-definition-view].
 
 
-[process-definition-view]: {{< relref "webapps/cockpit/bpmn/process-definition-view.md" >}}
-[failed-jobs]: {{< relref "webapps/cockpit/bpmn/failed-jobs.md" >}}
+[process-definition-view]: {{< ref "/webapps/cockpit/bpmn/process-definition-view.md" >}}
+[failed-jobs]: {{< ref "/webapps/cockpit/bpmn/failed-jobs.md" >}}
 
 
 # Deployed Decisions
@@ -37,8 +37,8 @@ You can also switch to the preview tab which displays the rendered process model
 
 This plugin provides you with a list of deployed decision definitions. You can click on the name of a decision to go to the [decision definition view][decision-definition-view] and access more details, like the DMN table or executed [decision instances view][decision-instance-view].
 
-[decision-definition-view]: {{< relref "webapps/cockpit/dmn/decision-definition-view.md" >}}
-[decision-instance-view]: {{< relref "webapps/cockpit/dmn/decision-instance-view.md" >}}
+[decision-definition-view]: {{< ref "/webapps/cockpit/dmn/decision-definition-view.md" >}}
+[decision-instance-view]: {{< ref "/webapps/cockpit/dmn/decision-instance-view.md" >}}
 
 # Multi Tenancy
 

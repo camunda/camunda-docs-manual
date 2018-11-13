@@ -50,7 +50,7 @@ ProcessDefinition pd = processEngine.getRepositoryService().createProcessDefinit
 processEngine.getRuntimeService().startProcessInstanceById(pd.getId());
 ```
 
-When you use [BPMN CallActivities]({{< relref "reference/bpmn20/subprocesses/call-activity.md" >}}) you can configure which version is used:
+When you use [BPMN CallActivities]({{< ref "/reference/bpmn20/subprocesses/call-activity.md" >}}) you can configure which version is used:
 
 ```xml
 <callActivity id="callSubProcess" calledElement="checkCreditProcess"
@@ -62,7 +62,7 @@ When you use [BPMN CallActivities]({{< relref "reference/bpmn20/subprocesses/cal
 The options are
 
 * latest: use the latest version of the process definition (as with `startProcessInstanceByKey`).
-* deployment: use the process definition in the version matching the version of the calling process. This works if they are deployed within one deployment - as then they are always versioned together (see [Process Application Deployment]({{< relref "user-guide/process-applications/the-processes-xml-deployment-descriptor.md#deployment-descriptor-process-application-deployment" >}}) for more details).
+* deployment: use the process definition in the version matching the version of the calling process. This works if they are deployed within one deployment - as then they are always versioned together (see [Process Application Deployment]({{< ref "/user-guide/process-applications/the-processes-xml-deployment-descriptor.md#deployment-descriptor-process-application-deployment" >}}) for more details).
 * version: specify the version hard coded in the XML.
 
 

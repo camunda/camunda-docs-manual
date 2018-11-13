@@ -11,7 +11,7 @@ menu:
 ---
 
 
-It is also possible to access the CMMN model instance by the case definition id using the [Repository Service]({{< relref "user-guide/process-engine/process-engine-api.md#services-api" >}}). As the following incomplete test sample code shows.
+It is also possible to access the CMMN model instance by the case definition id using the [Repository Service]({{< ref "/user-guide/process-engine/process-engine-api.md#services-api" >}}). As the following incomplete test sample code shows.
 
 ```java
 public void testRepositoryService() {

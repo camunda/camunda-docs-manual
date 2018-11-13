@@ -15,12 +15,12 @@ menu:
 
 Manage authorizations for a variety of resources (e.g., *Applications*, *Groups*, *Filters*). In the following sections you will learn how to use an administrator account with the help of some simple use cases.
 
-See [Authorization Service]({{< relref "user-guide/process-engine/authorization-service.md" >}}) for more information about Authorizations.
+See [Authorization Service]({{< ref "/user-guide/process-engine/authorization-service.md" >}}) for more information about Authorizations.
 
 
 # Grant Basic Permissions
 
-In this use case we'll grant some basic permissions. To start out we'll need some users and a group. Create two users in the  [users menu]({{< relref "webapps/admin/user-management.md#user-menu" >}}), create a group called *support* in the [groups menu]({{< relref "webapps/admin/group-management.md#groups-menu" >}}) and add the new users to the group in the [users menu]({{< relref "webapps/admin/user-management.md#user-menu" >}}).
+In this use case we'll grant some basic permissions. To start out we'll need some users and a group. Create two users in the  [users menu]({{< ref "/webapps/admin/user-management.md#user-menu" >}}), create a group called *support* in the [groups menu]({{< ref "/webapps/admin/group-management.md#groups-menu" >}}) and add the new users to the group in the [users menu]({{< ref "/webapps/admin/user-management.md#user-menu" >}}).
 
 
 ## Application Access
@@ -48,12 +48,12 @@ Currently the users in the *support* group can only see the predefined filters i
 
 {{< img src="../img/admin-authorization-filter.png" title="Authorization Application New User" >}}
 
-The authorizations set here correspond to the authorizations that can be set in the filter settings in Tasklist. The resource ID can be found in the database table `ACT_RU_FILTER`. See [this section]({{< relref "webapps/tasklist/filters.md" >}}) for more information about filters.
+The authorizations set here correspond to the authorizations that can be set in the filter settings in Tasklist. The resource ID can be found in the database table `ACT_RU_FILTER`. See [this section]({{< ref "/webapps/tasklist/filters.md" >}}) for more information about filters.
 
 
 ## Member Visibility
 
-Depending on the users authorization, [Tasklist]({{< relref "webapps/tasklist/index.md" >}}) will show you information about your colleagues and groups. Currently you can only see the group folder *support* but not your colleague. To change that, log in to the admin application as administrator, enter the Users Authorization menu and create the following rules:
+Depending on the users authorization, [Tasklist]({{< ref "/webapps/tasklist/_index.md" >}}) will show you information about your colleagues and groups. Currently you can only see the group folder *support* but not your colleague. To change that, log in to the admin application as administrator, enter the Users Authorization menu and create the following rules:
 
 {{< img src="../img/admin-authorization-users.png" title="Users Authorization" >}}
 
@@ -62,7 +62,7 @@ Now every member of the group *support* is able to see the new users *lemmy* and
 
 # Application-Specific Permissions
 
-This use case demonstrates how to give a group access to Cockpit, but restrict them to `READ` access. We will use the *support* group that we created in the previous [example]({{< relref "webapps/admin/authorization-management.md#grant-basic-permissions" >}}).
+This use case demonstrates how to give a group access to Cockpit, but restrict them to `READ` access. We will use the *support* group that we created in the previous [example]({{< ref "/webapps/admin/authorization-management.md#grant-basic-permissions" >}}).
 
 To limit the access we have to know which resources are accessible in Cockpit so that we can set the proper permissions for them.
 Of the predefined resources at the moment this would be:
@@ -88,7 +88,7 @@ Now that we have one group that can see everything in Cockpit, we want to have a
 
 Not every process has to be managed by every user/group and with regards to different organizational levels, not every group should be aware of every process present in the process engine. Therefore it might be necessary to restrict the access of users/groups to certain processes.
 
-In this use case we want to give the group *accounting*, which we will assume is already present and has access to Cockpit (see [Application-Specific Permission]({{< relref "webapps/admin/authorization-management.md#application-specific-permissions" >}}) and [Application Access]({{< relref "#application-acces" >}})), full access to the "invoice" process and only to this process.
+In this use case we want to give the group *accounting*, which we will assume is already present and has access to Cockpit (see [Application-Specific Permission]({{< ref "/webapps/admin/authorization-management.md#application-specific-permissions" >}}) and [Application Access]({{< relref "#application-acces" >}})), full access to the "invoice" process and only to this process.
 
 For groups and users to be able to see process definitions they need at least `READ` permission for the "Process Definition" resource. To see running process instances the same permission is required for the "Process Instance" resource.
 
@@ -101,15 +101,15 @@ Now that we know how to grant certain permissions, we might need a second user w
 
 # Create a User with All Permissions
 
-During the [setup]({{< relref "webapps/admin/user-management.md#initial-user-setup" >}}) you had to create one administrator account. In a real-world scenario it could be beneficial to have a second administrator account to manage the users. Basically, an administrator is a user with the `ALL` permission for every possible resource and resource id. For example, to grant the *accounting* group all permissions for authorizations the following entry has to be made:
+During the [setup]({{< ref "/webapps/admin/user-management.md#initial-user-setup" >}}) you had to create one administrator account. In a real-world scenario it could be beneficial to have a second administrator account to manage the users. Basically, an administrator is a user with the `ALL` permission for every possible resource and resource id. For example, to grant the *accounting* group all permissions for authorizations the following entry has to be made:
 
 {{< img src="../img/admin_auth_edit_full_access.png" title="Edit Access" >}}
 
 To create an administrator account, there are several options:
 
 1. If you kept the group *camunda-admin* in your application, you can add the user to this group.
-2. If you use the [Administrator Authorization Plugin]({{< relref "user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}), you can configure the plugin to grant the user or a certain group all permissions.
-3. You can create your own *administrator* group (also see [Groups]({{< relref "webapps/admin/group-management.md#groups-menu" >}})), grant it all permissions and assign a user to it.
+2. If you use the [Administrator Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}), you can configure the plugin to grant the user or a certain group all permissions.
+3. You can create your own *administrator* group (also see [Groups]({{< ref "/webapps/admin/group-management.md#groups-menu" >}})), grant it all permissions and assign a user to it.
 4. Grant one specific user all permissions.
 
 Now, after creating a new administrator account, we may want to start working and start processes.
@@ -145,7 +145,7 @@ To enable the group to see the process in Cockpit, we have to grant the `READ` p
 
 {{< img src="../img/admin_cockpit_proc_inst_id.png" title="Running Instances" >}}
 
-Now we have to get the process instance id from Cockpit. You can find the ids of all running processes after clicking on a process definition name or diagram preview on the [Cockpit dashboard]({{< relref "webapps/cockpit/dashboard.md" >}}).
+Now we have to get the process instance id from Cockpit. You can find the ids of all running processes after clicking on a process definition name or diagram preview on the [Cockpit dashboard]({{< ref "/webapps/cockpit/dashboard.md" >}}).
 
 {{< img src="../img/admin_proc_inst_id_acc.png" title="Instance Access" >}}
 
@@ -164,7 +164,7 @@ First of all, we have to grant the *accounting* group `READ` permission for filt
 
 {{< img src="../img/admin_task_acc_edit.png" title="Edit Access" >}}
 
-Next we go into Cockpit and [assign the desired task]({{< relref "webapps/cockpit/bpmn/process-instance-view.md#detailed-information-panel" >}}) to the *accounting* group.
+Next we go into Cockpit and [assign the desired task]({{< ref "/webapps/cockpit/bpmn/process-instance-view.md#detailed-information-panel" >}}) to the *accounting* group.
 This will automatically create an entry for the task with the task id as resource id in Admin and grant the `READ` and `UPDATE` permissions.
 
 

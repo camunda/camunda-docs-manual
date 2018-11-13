@@ -10,7 +10,7 @@ menu:
 
 ---
 
-Process applications provide and logically group resources specific to the processes they contain. There are resources that are part of the application itself, like a classloader and its classes and resources, as well as resources managed by the process engine at runtime, like a set of [scripting engines]({{< relref "user-guide/process-engine/scripting.md" >}}) or [Spin data format]({{< relref "user-guide/data-formats/index.md" >}}). This section describes under which conditions the process engine looks up resources on process-application level and how that lookup can be enforced.
+Process applications provide and logically group resources specific to the processes they contain. There are resources that are part of the application itself, like a classloader and its classes and resources, as well as resources managed by the process engine at runtime, like a set of [scripting engines]({{< ref "/user-guide/process-engine/scripting.md" >}}) or [Spin data format]({{< ref "/user-guide/data-formats/_index.md" >}}). This section describes under which conditions the process engine looks up resources on process-application level and how that lookup can be enforced.
 
 {{< img src="../img/process-application-context.png" title="Process Application Context" >}}
 
@@ -35,7 +35,7 @@ Process application context must be declared whenevever custom code uses the eng
 
 ## Example
 
-To clarify the use case, we assume that a process application employs the [feature to serialize object-type variables in the JSON format]({{< relref "user-guide/data-formats/json.md#serializing-process-variables" >}}). However, for that application JSON serialization shall be customized (think about the numerous ways to serialize a date as a JSON string). The process application therefore contains a Camunda Spin data format configurator implementation that configures the Spin JSON data format in the desired way. In turn, the process engine manages a Spin data format for that specific process application to serialize object values with. Now, we assume that a Java servlet calls the process engine API to submit a Java object and serialize it with the JSON format. The code might look as follows:
+To clarify the use case, we assume that a process application employs the [feature to serialize object-type variables in the JSON format]({{< ref "/user-guide/data-formats/json.md#serializing-process-variables" >}}). However, for that application JSON serialization shall be customized (think about the numerous ways to serialize a date as a JSON string). The process application therefore contains a Camunda Spin data format configurator implementation that configures the Spin JSON data format in the desired way. In turn, the process engine manages a Spin data format for that specific process application to serialize object values with. Now, we assume that a Java servlet calls the process engine API to submit a Java object and serialize it with the JSON format. The code might look as follows:
 
 ```java
 public class ObjectValueServlet extends HttpServlet {

@@ -14,7 +14,7 @@ menu:
 {{< note title="Installation Guide" class="info" >}}
   If you [download a full distribution](http://camunda.org/download/), the Camunda JBoss/WildFly subsystem is readily installed into the application server.
 
-  [Read the installation guide]({{< relref "installation/full/jboss/index.md" >}}) in order to learn how to install the Camunda JBoss/WildFly subsystem into your JBoss AS 7/Wildfly 8 Server.
+  [Read the installation guide]({{< ref "/installation/full/jboss/_index.md" >}}) in order to learn how to install the Camunda JBoss/WildFly subsystem into your JBoss AS 7/Wildfly 8 Server.
 {{< /note >}}
 
 Camunda BPM provides advanced integration for JBoss AS 7/Wildfly 8 in the form of a custom [JBoss Subsystem](https://docs.jboss.org/author/display/AS71/Extending+JBoss+AS+7).
@@ -148,7 +148,7 @@ The restrictions, which apply for [providing a custom process engine configurati
 
 # Look Up a Process Engine in JNDI
 
-The Camunda JBoss/WildFly subsystem provides the same [JNDI bindings for the ProcessApplicationService and the ProcessEngineService]({{< relref "user-guide/runtime-container-integration/jndi-bindings-for-bpmn-platform-services.md" >}}) as provided on other containers. In addition, the Camunda JBoss/WildFly subsystem creates JNDI Bindings for all managed process engines, allowing us to look them up directly.
+The Camunda JBoss/WildFly subsystem provides the same [JNDI bindings for the ProcessApplicationService and the ProcessEngineService]({{< ref "/user-guide/runtime-container-integration/jndi-bindings-for-bpmn-platform-services.md" >}}) as provided on other containers. In addition, the Camunda JBoss/WildFly subsystem creates JNDI Bindings for all managed process engines, allowing us to look them up directly.
 
 The global JNDI bindings for process engines follow the pattern
 
@@ -257,7 +257,7 @@ The JConsole plugin allows you to inspect the management model graphically and b
 # Manage Classpath Dependencies
 
 {{< note title="Implicit Module Dependencies" class="info" >}}
-   Classpath dependencies are automatically managed for you if you use the [Process Application API]({{< relref "user-guide/process-applications/index.md" >}}).
+   Classpath dependencies are automatically managed for you if you use the [Process Application API]({{< ref "/user-guide/process-applications/_index.md" >}}).
 {{< /note >}}
 
 When using the Camunda JBoss/WildFly subsystem, the process engine classes are deployed as jboss module. The module is named
@@ -299,7 +299,7 @@ As a result, the Application Service will add the process engine module to the c
 # Manage Service Dependencies
 
 {{< note title="Implicit Service Dependencies" class="info" >}}
-   Service dependencies are automatically managed for you if you use the [Process Application API]({{< relref "user-guide/process-applications/index.md" >}}).
+   Service dependencies are automatically managed for you if you use the [Process Application API]({{< ref "/user-guide/process-applications/_index.md" >}}).
 {{< /note >}}
 
 The Camunda JBoss/WildFly subsystem manages process engines as JBoss Services in the JBoss Module Service Container. In order for the Module Service Container to provide the process engine service(s) to the deployed applications, it is important that the dependencies are known. Consider the following example:
