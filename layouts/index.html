@@ -4,7 +4,9 @@
 <div class="page-content home">
   <div class="container-fluid">
     <div class="col-xs-12 content-header">
-      {{ partial "edit-on-github.html" . }}
+      <div class="edit-on-github">
+        <a target="_blank" href="https://github.com/{{.Site.Params.github.repositoryName}}/tree/{{.Site.Params.github.branch}}/layouts/index.html"><i>Edit on Github</i> <span class="cam-docs-github"></span></a>
+      </div>
       <h1 class="page-title">The Camunda BPM Manual</h1>
     </div>
 
@@ -178,7 +180,7 @@
           </div>
           <div class="col-xs-6 col-md-4">
             <a href="https://github.com/camunda/camunda-bpm-platform-osgi">OSGi Integration</a>
-          </div>          
+          </div>
           <div class="col-xs-6 col-md-4">
             <a href="http://camunda.github.io/camunda-bpm-php-sdk/">PHP SDK</a>
           </div>
@@ -197,6 +199,7 @@
           <div class="col-xs-6 col-md-4">
             <a href="https://github.com/camunda/camunda-tasklist-translations">Tasklist Translations</a>
           </div>
+
         </div>
       </section>
     </div>
