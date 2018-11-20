@@ -244,12 +244,20 @@ The following list is an overview of all currently available patch scripts:
     </tr>
     <tr>
       <td>7.8</td>
-      <td>engine_7.8_patch_7.8.12_to_7.8.13.sql</td>
+      <td>engine_7.8_patch_7.8.12_to_7.8.13_1.sql</td>
+      <td>Add support for Optimize 2.3.</td>
+      <td>All databases</td>
+      <td>
+        <a href="https://app.camunda.com/jira/browse/CAM-9523">CAM-9523</a>
+      </td>
+    </tr>
+    <tr>
+      <td>7.8</td>
+      <td>engine_7.8_patch_7.8.12_to_7.8.13_2.sql</td>
       <td>Add support for Optimize 2.3.</td>
       <td>All databases</td>
       <td>
         <a href="https://app.camunda.com/jira/browse/CAM-9525">CAM-9525</a>
-        <a href="https://app.camunda.com/jira/browse/CAM-9523">CAM-9523</a>
       </td>
     </tr>
     <tr>
@@ -288,14 +296,24 @@ The following list is an overview of all currently available patch scripts:
     </tr>
     <tr>
       <td>7.9</td>
-      <td>engine_7.9_patch_7.9.6_to_7.9.7.sql</td>
+      <td>engine_7.9_patch_7.9.6_to_7.9.7_1.sql</td>
       <td>Add support for Optimize 2.3.
-      <strong>This is the same patch as engine_7.8_patch_7.8.12_to_7.8.13.sql.</strong>
+      <strong>This is the same patch as engine_7.8_patch_7.8.12_to_7.8.13_1.sql.</strong>
+      </td>
+      <td>All databases</td>
+      <td>
+        <a href="https://app.camunda.com/jira/browse/CAM-9523">CAM-9523</a>
+      </td>
+    </tr>
+    <tr>
+      <td>7.9</td>
+      <td>engine_7.9_patch_7.9.6_to_7.9.7_2.sql</td>
+      <td>Add support for Optimize 2.3.
+      <strong>This is the same patch as engine_7.8_patch_7.8.12_to_7.8.13_2.sql.</strong>
       </td>
       <td>All databases</td>
       <td>
         <a href="https://app.camunda.com/jira/browse/CAM-9525">CAM-9525</a>
-        <a href="https://app.camunda.com/jira/browse/CAM-9523">CAM-9523</a>
       </td>
     </tr>
   </tbody>
