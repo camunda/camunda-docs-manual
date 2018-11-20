@@ -1070,14 +1070,6 @@ The jobs remove all historic data for process (or decision or case) instances th
 configurable size (see [Configuration options][configuration-options]). Only top-level objects (e.g., historic process instances) are counted when finding 
 a batch of data to be deleted.
 
-There are two available mechanisms for History cleanup. The first removes the historic instances according to the historic time to live of the definition of each instance. The second (and default) mechanism is aware of the possible hierarchical structure of process and decision instances and removes the historic instances according to the historic time to live of the root process/decision instance. This way, a more consistent view of the historical data is obtained. The mechanisms can be switched by setting the `hierarchicalHistoryCleanup` property (see the [Configuration options][configuration-options]).
-
-{{< note title="Heads Up!" class="warning" >}}
-
-When using the Hierarchical History cleanup mechanism, be aware that removal times are explicitly calculated and permanent for each historic instance. If a "history time to live" property hasn't been defined for the root definition, all the historic instances in the hierarchy will never be removed.
-
-{{< /note >}}
-
 In cases when a history cleanup job can't find anything to delete (or not enough data to surpass the threshold), it is rescheduled for a later time, until it reaches 
 the end time of the batch window. The delay between such runs increases twofold, until it reaches the maximum value (1 hour). This backoff behaviour 
 only happens in case of regular scheduled runs. In case of a manual run, cleanup stops when there is no more data to be deleted.

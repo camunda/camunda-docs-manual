@@ -175,12 +175,6 @@ The definition of different patterns for User, Group and Tenant IDs is possible 
 
 Note that if a certain pattern isn't defined (ex. the tenant whitelist pattern), the general pattern will be used, either the default one (`"[a-zA-Z0-9]+|camunda-admin"`) or one defined in the configuration file.
 
-# Hierarchical History Cleanup
-
-Version 7.10 of the Camunda BPM platform introduces a hierarchical structure to the historic data. This allows for a clear way of determining which was the top-level (root) process instance that started a given process instance and provides a consistent view of the historic instances.
-
-Furthermore, a new History Cleanup mechanism was added, which is aware of this hierarchical structure, and performs cleanup only when the top level instance has finished and its "history time to live" expired (more [here]({{< ref "/user-guide/process-engine/history.md#internal-implementation" >}})). The new mechanism is enabled by default, but can be disabled through the `hierarchicalHistoryCleanup` property (see the [Configuration options]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#history-cleanup-configuration-parameters">}})).
-
 # Support for JDK 9 / 10 / 11
 This release introduces support for JDK 9 / 10 / 11.
 
