@@ -192,12 +192,36 @@ Please bear in mind, that the default language level of JRuby 9 is Ruby 2, where
 previous version (JRuby 1.7) is Ruby 1.9. Updating the JRuby version might break your scripts.
 {{< /note >}}
 
-# History Partitioning
+# History
 
-Starting with 7.10, the engine supports database partitioning for historical data.
+## Skipped Optimistic Locking Exceptions
 
-Due to this reason, [`OptimisticLockingException`s]({{< ref "/user-guide/process-engine/transactions-in-processes.md#optimistic-locking-in-camunda" >}}) on UPDATE/DELETE operations for historical data are prevented by default.
-There exist a [process engine configuration flag]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#skipHistoryOptimisticLockingExceptions" >}}) to preserve the previous behavior.
+Starting with 7.10, by default the occurrence of [`OptimisticLockingException`s]({{< ref "/user-guide/process-engine/transactions-in-processes.md#optimistic-locking-in-camunda" >}}) 
+on UPDATE/DELETE operations for historic data is prevented. This allows to successfully complete process instances even 
+if the associated historic instances have been removed during execution.
+
+There exist a [process engine configuration flag]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#skipHistoryOptimisticLockingExceptions" >}}) 
+to preserve the previous behavior.
+
+## Changed Default Cleanup Strategy
+
+The default strategy of the [History Cleanup]({{< ref "/user-guide/process-engine/history.md#history-cleanup">}}) feature 
+has been changed. From now on, each historic instance related to processes, decisions or batches needs a 
+[removal time]({{< ref "/user-guide/process-engine/history.md#removal-time">}}) for being cleaned-up.
+
+Historic instances which (1) have been produced by a Camunda BPM version prior to 7.10 and (2) belong to a top-level instance 
+which has been completed already cannot be cleaned-up after the migration took place. This is due to the reason, that a 
+removal time is missing for these historic instances. If you want to get rid of them anyway, please add a removal time 
+or switch the `historyCleanupStrategy` to the `endTimeBased` cleanup strategy via a 
+[process engine configuration property]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#historyCleanupStrategy" >}}).
+
+To gain a better understanding of the new cleanup strategy, please see the updated documentation about the 
+[History Cleanup]({{< ref "/user-guide/process-engine/history.md#history-cleanup">}}) feature. 
+
+### Custom History Level
+If you have implemented a [Custom History Level]({{< ref "/user-guide/process-engine/history.md#implement-a-custom-history-level">}}) 
+and you want to use it in conjunction with the removal time based cleanup strategy, please also see the documentation about 
+[Removal Time Inheritance]({{< ref "/user-guide/process-engine/history.md#removal-time-inheritance">}}).
 
 # Webjar structure changed
 
@@ -214,3 +238,4 @@ Structure of `webjar` and `webjar-ee` artifacts has changed related to adjustmen
         |--index.html
         |--securityFilterRules.json
 ```
+

@@ -936,6 +936,17 @@ event for some instances of an event it must still return `true` if `entity` is 
 
 Please have a look at this [complete example][2] to get a better overview.
 
+## Removal Time Inheritance
+Historic instances inherit the [removal time]({{< relref "#removal-time" >}}) from the respective historic top-level 
+instance. If the custom history level is configured in a way, so that the historic top-level instance is not written, 
+the removal time is not available. 
+
+The following historic instances are considered as top-level instances:
+
+* Batch instance
+* Root process instance
+* Root decision instance
+
 ## User Operation Logs and Custom History Level
 
 The following implementation is required in order to enable User Operation Logs:
@@ -956,12 +967,72 @@ data from history tables. It deletes:
 
 * Historic process instances plus all related historic data (e.g., historic variable instances, historic task instances, all comments and attachments related to them, etc.)
 * Historic decision instances plus all related historic data (i.e., historic decision input and output instances)
-* Historic case instances plus all related historic data (e.g., historic variable instances, historic task instances, etc.)
 * Historic batches plus all related historic data (historic incidents and job logs)
 
 History cleanup can be used on a regular basis (automatically) or for a single cleanup (manual call).
 
 Only [camunda-admins]({{< ref "/user-guide/process-engine/authorization-service.md#the-camunda-admin-group">}}) have permissions to execute history cleanup.
+
+## Strategies
+There exist two strategies to cleanup historic instances. By default, the cleanup procedure based on removal time is configured.
+The strategy can be changed via a [process engine configuration]({{< ref "/reference/deployment-descriptors/tags/process-engine.md">}}) option.
+
+```xml
+...
+<property name="historyCleanupStrategy">...</property>
+...
+
+```
+
+To select the desired History Cleanup strategy, the configuration option <code>historyCleanupStrategy</code> can be either 
+set to: <code>removalTimeBased</code> or <code>endTimeBased</code>.
+
+```xml
+...
+<property name="removalTimeStrategy">...</property>
+...
+```
+
+With the help of the configuration option <code>removalTimeStrategy</code> it is possible to define if and when the
+removal time should be written. The following set of values can be configured: <code>none</code>, <code>start</code> or 
+<code>end</code>.
+
+{{< note title="Heads-up!" class="info" >}}
+The calculation of the removal time can be enabled independently of the selected cleanup strategy of the Workflow Engine. 
+This allows to perform a custom cleanup procedure outside the Workflow Engine by leveraging database capabilities.
+{{< /note >}}
+
+### Removal Time
+
+The removal time provides the information, at which point in time the respective historic instance is going to be deleted.
+Each historic instance (e. g. variable instance, task, job, etc.) has a removal time. Historic instances are cleaned-up
+if the removal time is due during the cleanup procedure. 
+
+The removal time can contain an offset which delays the cleanup. This offset is referred as [History Time to Live]({{< ref "#history-time-to-live" >}}). 
+The removal time consists of the start or end time of the historic top-level instance plus [History Time to Live]({{< ref "#history-time-to-live" >}}). 
+
+A historic top-level instance is represented by a historic process, decision or batch instance. In context of processes, the historic 
+top-level instance is represented by the historic root process instance. In a hierarchy of nested process instances (see [Call Activity]({{< ref "/reference/bpmn20/subprocesses/call-activity.md">}})) 
+the start or end time as well as the [History Time to Live]({{< ref "#history-time-to-live" >}}) of the historic root 
+process instance is always pivotal.
+
+### End Time
+
+When choosing the History Cleanup strategy by end time, for each historic top-level instance (i.e., historic process, 
+decision, case or batch instances), a check is performed if the end time plus 
+[History Time to Live]({{< ref "#history-time-to-live" >}}) is due. If this is the case, all associated historic instances 
+of the historic top-level instance are queried and finally deleted.
+
+In contrast to the cleanup strategy by removal time, ...
+
+* only historic instances associated to historic top-level instances which have already been ended can be cleaned-up
+* the top-level instance of a process is **not** the historic root process 
+instance. Rather, each historic process instance is a top-level instance. This means, that in a hierarchy of nested 
+process instances, the end time as well as the [History Time to Live]({{< ref "#history-time-to-live" >}}) of each 
+historic process instance is respected separately.
+* Historic case instances plus all related historic data (e.g., historic variable instances, historic task instances, etc.)
+can be cleaned up
+
 
 ## History Time to Live
 
@@ -992,7 +1063,7 @@ The function only accepts the notation to define a number of days.
 
 You can define and update "historyTimeToLive" for decision definitions and case definitions in a similar way.
 
-### History Time to Live for Batch Operations
+### Batch Operations
 
 You must specify "history time to live" for specific batch operations or all of them depends which one should be affected by the cleanup.
 "History time to live" for batch operations means the amount of days that pass, after the batch operation has finished,
@@ -1066,11 +1137,10 @@ Also available via [REST API]({{< ref "/reference/rest/history/history-cleanup/p
 ## Internal Implementation
 
 History cleanup is implemented via jobs. The cleanup jobs run in the background every day at the batch window time or immediately when called manually. 
-The jobs remove all historic data for process (or decision or case) instances that finished "history time to live" days ago. The data is removed in batches of 
-configurable size (see [Configuration options][configuration-options]). Only top-level objects (e.g., historic process instances) are counted when finding 
-a batch of data to be deleted.
+The jobs remove all historic data for process (or decision) instances that finished "history time to live" days ago. The data is removed in batches of 
+configurable size (see [Configuration options][configuration-options]).
 
-In cases when a history cleanup job can't find anything to delete (or not enough data to surpass the threshold), it is rescheduled for a later time, until it reaches 
+In cases when a history cleanup job can't find anything to delete, it is rescheduled for a later time, until it reaches 
 the end time of the batch window. The delay between such runs increases twofold, until it reaches the maximum value (1 hour). This backoff behaviour 
 only happens in case of regular scheduled runs. In case of a manual run, cleanup stops when there is no more data to be deleted.
 

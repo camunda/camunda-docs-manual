@@ -472,14 +472,24 @@ The following is a list with the most commonly used process engine configuration
         <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
       </p>
   </td>
+  <tr id="removalTimeStrategy">
+    <td><code>removalTimeStrategy</code></td>
+    <td>String</td>
+    <td>
+      Controls if and when the <a href="{{< ref "/user-guide/process-engine/history.md#removal-time">}}">removal time</a> of an historic instance is set. 
+      The default value is <code>end</code>.
+      Please also see the <a href="{{< ref "reference/deployment-descriptors/tags/process-engine.md#historyCleanupStrategy">}}"><code>historyCleanupStrategy</code></a> 
+      configuration parameter.<br><br>
+      <strong>Values:</strong> <code>start</code>, <code>end</code>, <code>none</code> (String).
+    </td>
+  </tr>
   <tr id="skipHistoryOptimisticLockingExceptions">
     <td><code>skipHistoryOptimisticLockingExceptions</code></td>
     <td>Boolean</td>
     <td>
         Controls if the engine will throw <a href="{{< ref "/user-guide/process-engine/transactions-in-processes.md#optimistic-locking-in-camunda" >}}">OptimisticLockingException</a>s on UPDATE or DELETE operations for historical data or not.
-      <p>
-        The default is <code><strong>true</strong></code>. To preserve the previous behavior (≤ 7.9), the flag must be set to <code><strong>false</strong></code>.
-      </p>
+        The default is <code><strong>true</strong></code>. To preserve the previous behavior (≤ 7.9), the flag must be set to <code><strong>false</strong></code>.<br><br>
+        <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
     </td>
   </tr>
   <tr>
@@ -573,6 +583,16 @@ The following is a list with the most commonly used process engine configuration
 ## History cleanup configuration parameters
 
 <table class="table table-striped">
+  <tr id="historyCleanupStrategy">
+    <td><code>historyCleanupStrategy</code></td>
+    <td>String</td>
+    <td>
+      Controls which <a href="{{< ref "/user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> strategy is used.
+      The default value is <code>removalTimeBased</code>.
+      Please also see the <a href="{{< ref "reference/deployment-descriptors/tags/process-engine.md#removalTimeStrategy">}}"><code>removalTimeStrategy</code></a> configuration parameter.<br><br>
+      <strong>Values:</strong> <code>removalTimeBased</code>, <code>endTimeBased</code>.
+    </td>
+  </tr>
   <tr>
     <td><code>historyCleanupBatchWindowStartTime</code></td>
     <td>String</td>
@@ -679,7 +699,8 @@ The following is a list with the most commonly used process engine configuration
     <td><code>historyCleanupBatchThreshold</code></td>
     <td>Integer</td>
     <td>Defines the minimum amount of top-level objects required for data to be removed. Default value is 10. Hint: if the value is too small and the process 
-    engine continues to be used during history cleanup, it can happen that real SQL delete statements are called very frequently for small amounts of data.</td>
+    engine continues to be used during history cleanup, it can happen that real SQL delete statements are called very frequently for small amounts of data.<br><br>
+    <strong>Note:</strong> This property cannot be used in conjunction with <code>historyCleanupStrategy</code> set to <code>endTimeBased</code>.</td>
   </tr>
   <tr>
     <td><code>historyCleanupDegreeOfParallelism</code></td>
