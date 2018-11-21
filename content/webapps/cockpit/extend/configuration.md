@@ -114,6 +114,8 @@ bpmnJs: {
 ...
 ```
 
+You can find an example on how to add an additional bpmn.js module to Cockpit in the [Camunda BPM examples repository](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/cockpit-bpmn-js-module).
+
 ## Moddle Extensions
 The BPMN moddle can be extended by adding a `moddleExtensions` property. Each moddle extension has a unique name (key) 
 and a path (value) to the JSON file of the moddle extension. The path is relative to the `app/cockpit` folder in the 
