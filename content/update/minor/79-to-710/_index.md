@@ -207,7 +207,7 @@ to preserve the previous behavior.
 
 The default strategy of the [History Cleanup]({{< ref "/user-guide/process-engine/history.md#history-cleanup">}}) feature 
 has been changed. From now on, each historic instance related to processes, decisions or batches needs a 
-[removal time]({{< ref "/user-guide/process-engine/history.md#removal-time">}}) for being cleaned-up.
+[removal time]({{< ref "/user-guide/process-engine/history.md#removal-time">}}) to be cleaned-up.
 
 Historic instances which (1) have been produced by a Camunda BPM version prior to 7.10 and (2) belong to a top-level instance 
 which has been completed already cannot be cleaned-up after the migration took place. This is due to the reason, that a 

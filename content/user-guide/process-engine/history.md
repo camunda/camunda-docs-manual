@@ -974,28 +974,26 @@ History cleanup can be used on a regular basis (automatically) or for a single c
 Only [camunda-admins]({{< ref "/user-guide/process-engine/authorization-service.md#the-camunda-admin-group">}}) have permissions to execute history cleanup.
 
 ## Strategies
-There exist two strategies to cleanup historic instances. By default, the cleanup procedure based on removal time is configured.
+There exist two strategies to cleanup historic instances. To select the desired History Cleanup strategy, the configuration option <code>historyCleanupStrategy</code> can be either set to <code>removalTimeBased</code> or <code>endTimeBased</code>.
+
+By default, the cleanup procedure based on removal time is configured.
 The strategy can be changed via a [process engine configuration]({{< ref "/reference/deployment-descriptors/tags/process-engine.md">}}) option.
 
 ```xml
 ...
 <property name="historyCleanupStrategy">...</property>
 ...
-
 ```
 
-To select the desired History Cleanup strategy, the configuration option <code>historyCleanupStrategy</code> can be either 
-set to: <code>removalTimeBased</code> or <code>endTimeBased</code>.
+With the help of the configuration option <code>removalTimeStrategy</code>, it is possible to define if and when the
+removal time should be written. The following set of values can be configured: <code>none</code>, <code>start</code> or 
+<code>end</code>.
 
 ```xml
 ...
 <property name="removalTimeStrategy">...</property>
 ...
 ```
-
-With the help of the configuration option <code>removalTimeStrategy</code> it is possible to define if and when the
-removal time should be written. The following set of values can be configured: <code>none</code>, <code>start</code> or 
-<code>end</code>.
 
 {{< note title="Heads-up!" class="info" >}}
 The calculation of the removal time can be enabled independently of the selected cleanup strategy of the Workflow Engine. 
@@ -1014,7 +1012,7 @@ The removal time consists of the start or end time of the historic top-level ins
 A historic top-level instance is represented by a historic process, decision or batch instance. In context of processes, the historic 
 top-level instance is represented by the historic root process instance. In a hierarchy of nested process instances (see [Call Activity]({{< ref "/reference/bpmn20/subprocesses/call-activity.md">}})) 
 the start or end time as well as the [History Time to Live]({{< ref "#history-time-to-live" >}}) of the historic root 
-process instance is always pivotal.
+process instance is always taken into account.
 
 ### End Time
 
@@ -1023,15 +1021,15 @@ decision, case or batch instances), a check is performed if the end time plus
 [History Time to Live]({{< ref "#history-time-to-live" >}}) is due. If this is the case, all associated historic instances 
 of the historic top-level instance are queried and finally deleted.
 
-In contrast to the cleanup strategy by removal time, ...
+In contrast to the cleanup strategy by removal time:
 
-* only historic instances associated to historic top-level instances which have already been ended can be cleaned-up
-* the top-level instance of a process is **not** the historic root process 
-instance. Rather, each historic process instance is a top-level instance. This means, that in a hierarchy of nested 
+* Only historic instances associated to historic top-level instances which have already been ended can be cleaned-up.
+* The top-level instance of a process is **not** the historic root process instance.
+Rather, each historic process instance is a top-level instance. This means, that in a hierarchy of nested 
 process instances, the end time as well as the [History Time to Live]({{< ref "#history-time-to-live" >}}) of each 
 historic process instance is respected separately.
 * Historic case instances plus all related historic data (e.g., historic variable instances, historic task instances, etc.)
-can be cleaned up
+can be cleaned up.
 
 
 ## History Time to Live

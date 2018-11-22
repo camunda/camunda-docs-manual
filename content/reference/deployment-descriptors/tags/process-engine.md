@@ -477,7 +477,7 @@ The following is a list with the most commonly used process engine configuration
     <td>String</td>
     <td>
       Controls if and when the <a href="{{< ref "/user-guide/process-engine/history.md#removal-time">}}">removal time</a> of an historic instance is set. 
-      The default value is <code>end</code>.
+      The default value is <code>end</code>.<br>
       Please also see the <a href="{{< ref "/reference/deployment-descriptors/tags/process-engine.md#historyCleanupStrategy">}}"><code>historyCleanupStrategy</code></a> 
       configuration parameter.<br><br>
       <strong>Values:</strong> <code>start</code>, <code>end</code>, <code>none</code> (String).
@@ -588,7 +588,7 @@ The following is a list with the most commonly used process engine configuration
     <td>String</td>
     <td>
       Controls which <a href="{{< ref "/user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> strategy is used.
-      The default value is <code>removalTimeBased</code>.
+      The default value is <code>removalTimeBased</code>.<br>
       Please also see the <a href="{{< ref "/reference/deployment-descriptors/tags/process-engine.md#removalTimeStrategy">}}"><code>removalTimeStrategy</code></a> configuration parameter.<br><br>
       <strong>Values:</strong> <code>removalTimeBased</code>, <code>endTimeBased</code>.
     </td>
