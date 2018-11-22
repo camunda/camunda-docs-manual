@@ -382,7 +382,7 @@ takes place but the previous deployment is resumed.</td>
 <tr><td colspan="4"><b>Datasource</b></td></tr>
 
 <tr>
-<td rowspan="4"><code>camunda.bpm.database</code></td>
+<td rowspan="5"><code>camunda.bpm.database</code></td>
 <td><code>.schema-update</code></td>
 <td>If automatic schema update should be applied, use one of [true, false, create, create-drop, drop-create]</td>
 <td><code>true</code></td>
@@ -404,6 +404,14 @@ takes place but the previous deployment is resumed.</td>
 <td><code>.schema-name</code></td>
 <td>The dataBase schema name</td>
 <td><i>Camunda default value</i></td>
+</tr>
+
+<tr>
+<td><code>.jdbcBatchProcessing</code></td>
+<td>Controls if the engine executes the jdbc statements as Batch or not.
+It has to be disabled for some databases.
+See the <a href="{{<ref "/user-guide/process-engine/database.md#jdbc-batch-processing" >}}">the user guide</a> for further details.</td>
+<td><i>Camunda default value: true</i></td>
 </tr>
 
 <tr><td colspan="4"><b>JPA</b></td></tr>
