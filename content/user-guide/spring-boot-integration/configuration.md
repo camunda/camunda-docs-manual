@@ -410,7 +410,7 @@ takes place but the previous deployment is resumed.</td>
 <td><code>.jdbcBatchProcessing</code></td>
 <td>Controls if the engine executes the jdbc statements as Batch or not.
 It has to be disabled for some databases.
-See the <a href="{{<ref "/user-guide/process-engine/database.md#jdbc-batch-processing" >}}">the user guide</a> for further details.</td>
+See the <a href="{{<ref "/user-guide/process-engine/database.md#jdbc-batch-processing" >}}">user guide</a> for further details.</td>
 <td><i>Camunda default value: true</i></td>
 </tr>
 
