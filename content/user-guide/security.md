@@ -159,6 +159,10 @@ Authorizations can be used to restrict a user from accessing a data object (such
 
 The engine gives option to throttle login attempts. The mechanism behind this is enabled by default. You can read more about it under [Identity Service]({{< ref "/user-guide/process-engine/identity-service.md#throttle-login-attempts" >}}) in User Guide.
 
+### Custom Whitelist for User, Group and Tenant IDs
+To determine if the provided ID is acceptable or not, IDs can be matched against a Whitelist Pattern.
+You can read more about it under [Identity Service]({{< ref "/user-guide/process-engine/identity-service.md#custom-whitelist-for-user-group-and-tenant-ids" >}}) in User Guide.
+
 ### Script Execution
 
 Camunda allows users to deploy scrips to be used by BPMN processes or DMN decision tables. This is a very flexible and powerful feature and facilitates changing business logic fast since generally scripts can be deployed at runtime without restarting the server.
@@ -182,6 +186,9 @@ Consider disabling execution of expressions in queries. See also: [Custom Code &
 One of the options to query data from the engine is using native queries. Which means to provide own SQL queries to retrieve engine entities if the Query API lacks the possibilities you need.
 However, use the native queries with care. Please bear in mind of the SQL Injection while using this approach.
 
+### CSRF Prevention in the Webapps
+A CSRF filter is enabled by default, validating each modifying request performed through the webapps.
+Please also see the detailed overview on how to configure [CSRF Prevention]({{< ref "/user-guide/process-engine/csrf-prevention.md" >}}).
 
 ## Security Configuration in the external Environment
 

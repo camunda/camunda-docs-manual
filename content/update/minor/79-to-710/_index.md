@@ -23,8 +23,8 @@ This guide covers mandatory migration steps as well as optional considerations f
 
 Noteworthy new Features and Changes in 7.10:
 
-* [Support for CSRF Prevention in the Webapps]({{< relref "#support-for-csrf-prevention-in-the-webapps" >}})
-* [Custom Whitelist for User, Group and Tenant IDs]({{< relref "#custom-whitelist-for-user-group-and-tenant-ids" >}})
+* [Support for CSRF Prevention in the Webapps]({{< ref "/user-guide/process-engine/csrf-prevention.md" >}})
+* [Custom Whitelist for User, Group and Tenant IDs]({{< ref "/user-guide/process-engine/identity-service.md#custom-whitelist-for-user-group-and-tenant-ids" >}})
 
 # Database Updates
 
@@ -98,82 +98,17 @@ If a database other than the default H2 database is used, the following steps mu
    section
 4. Deploy the new and configured standalone web application to the server
 
-# Support for CSRF Prevention in the Webapps
+# CSRF Prevention in the Webapps
 
-The Webapps are more secure now. As of version 7.10, a CSRF filter is enabled by default, validating each modifying request performed through the webapps. The filter implements a (per-session) _Synchronization Token_ method for CSRF validation with an optional _Same Origin with Standard Headers_ verification.
+This release secures the Webapps with CSRF Prevention. If you want to make use of the newly introduced security enhancement, 
+please make sure to enable the `CsrfPreventionFilter` when migrating to 7.10 by adjusting the `web.xml` file of Camunda BPM Webapps.
+Please see the documentation about [CSRF Prevention]({{< ref "/user-guide/process-engine/csrf-prevention.md" >}}).
 
-If you would like to enable the additional _Same Origin with Standard Headers_ verification, the `targetOrigin` init-parameter should be set in the `web.xml` file of your application. That, and some additional optional initialization parameters are:
+# Whitelist Pattern for User, Group and Tenant IDs
 
-```xml
-  <!-- CSRF Prevention filter -->
-  <filter>
-    <filter-name>CsrfPreventionFilter</filter-name>
-    <filter-class>org.camunda.bpm.webapp.impl.security.filter.CsrfPreventionFilter</filter-class>
-    <init-param>
-      <param-name>targetOrigin</param-name>
-      <param-value>http://example.com</param-value>
-    </init-param>
-    <init-param>
-      <param-name>denyStatus</param-name>
-      <param-value>404</param-value>
-    </init-param>
-    <init-param>
-      <param-name>randomClass</param-name>
-      <param-value>java.security.SecureRandom</param-value>
-    </init-param>
-    <init-param>
-      <param-name>entryPoints</param-name>
-      <param-value>/api/engine/engine/default/history/task/count, /api/engine/engine/default/history/variable/count</param-value>
-    </init-param>
-  </filter>
-  <filter-mapping>
-    <filter-name>CsrfPreventionFilter</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
-```
-
-<table class="table table-striped">
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>targetOrigin</td>
-    <td>Application expected deployment domain: the domain name through which the webapps are accessed. If nothing is set, the _Same Origin with Standard Headers_ verification is not performed.</td>
-  </tr>
-  <tr>
-    <td>denyStatus</td>
-    <td>HTTP response status code that is used when rejecting denied request. The default value is 403.</td>
-  </tr>
-  <tr>
-    <td>randomClass</td>
-    <td>The name of the class to use to generate tokens. The class must be an instance of `java.util.Random`. If not set, the default value of `java.security.SecureRandom` will be used.</td>
-  </tr>
-  <tr>
-    <td>entryPoints</td>
-    <td>Entry points are URLs that will not be tested for the presence of a valid token. They are used to provide a way to navigate back to the protected apps after navigating away from them.</td>
-  </tr>
-</table>
-
-# Custom Whitelist for User, Group and Tenant IDs
-
-From version 7.10, User, Group and Tenant IDs can be matched against a Whitelist Pattern to determine if the provided ID is acceptable or not. The default (global) Regular Expression pattern to match against is **"[a-zA-Z0-9]+|camunda-admin"** i.e. any combination of alphanumeric values or _'camunda-admin'_.
-
-If your organisation allows the usage of additional characters (ex.: special characters), the ProcessEngineConfiguartion propery `generalResourceWhitelistPattern` should be set with the appropriate pattern in the engine's configuration file. Standard [Java Regular Expression](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html) syntax can be used. For example, to accept any character, the following property value can be used:
-
-```xml
-<property name="generalResourceWhitelistPattern" value=".+"/>
-```
-
-The definition of different patterns for User, Group and Tenant IDs is possible by using the appropriate configuration propery:
-
-```xml
-<property name="userResourceWhitelistPattern" value="[a-zA-Z0-9-]+" />
-<property name="groupResourceWhitelistPattern" value="[a-zA-Z]+" />
-<property name="tenantResourceWhitelistPattern" value=".+" />
-```
-
-Note that if a certain pattern isn't defined (ex. the tenant whitelist pattern), the general pattern will be used, either the default one (`"[a-zA-Z0-9]+|camunda-admin"`) or one defined in the configuration file.
+With Camunda BPM 7.10 a whitelist pattern of User, Group and Tenant IDs has been introduced. By default, on creating or 
+updating users, groups or tenants the ID is matched against the pattern **"[a-zA-Z0-9]+|camunda-admin"**. To disable or 
+adjust the default pattern, please see the documentation under [Identity Service]({{< ref "/user-guide/process-engine/identity-service.md#custom-whitelist-for-user-group-and-tenant-ids" >}}) in User Guide.
 
 # Support for JDK 9 / 10 / 11
 This release introduces support for JDK 9 / 10 / 11.
