@@ -24,7 +24,7 @@ This document guides you through the update from Camunda BPM `7.9.x` to `7.10.0`
 7. For administrators: [Whitelist Pattern for User, Group and Tenant IDs](#whitelist-pattern-for-user-group-and-tenant-ids)
 8. For administrators and developers: [Support for JDK 9 / 10 / 11](#support-for-jdk-9-10-11)
 9. For administrators: [History Related Changes](#history-related-changes)
-10. For developers: [Changed Webjar Structure](#webjar-structure-changed)
+10. For developers: [Changed Webjar Structure](#changed-webjar-structure)
 
 This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda BPM 7.10.
 
