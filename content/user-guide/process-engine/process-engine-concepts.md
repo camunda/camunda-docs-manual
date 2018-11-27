@@ -87,6 +87,17 @@ Process variables are available to all tasks in a process instance and are autom
 
 It is also possible to [start a process instance using the REST API]({{< ref "/reference/rest/process-definition/post-start-process-instance.md" >}}).
 
+### Start a Process Instances via Tasklist
+
+In case you use [Tasklist]({{< ref "/webapps/tasklist/working-with-tasklist.md#start-a-process" >}}) to start process instances, [`startableInTasklist`]({{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#isstartableintasklist" >}}) option exists to specify which processes are visible to be started by the user. An use case are sub processes, if they don't need to started separately, adjust the process xml as follows:
+```xml
+<process id="subProcess"
+         name="Process called from Super Process"
+         isExecutable="true"
+         camunda:isStartableInTasklist="false">
+...
+</process>
+```
 
 ## Start a Process Instance at Any Set of Activities
 
