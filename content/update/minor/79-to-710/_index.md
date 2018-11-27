@@ -18,13 +18,21 @@ This document guides you through the update from Camunda BPM `7.9.x` to `7.10.0`
 1. For administrators and developers: [Database Updates](#database-updates)
 2. For administrators and developers: [Full Distribution Update](#full-distribution)
 3. For administrators: [Standalone Web Application](#standalone-web-application)
+4. For developers: [Spring Boot Starter Update](#spring-boot-starter-update)
+5. For developers: [External Task Client Update](#external-task-client-update)
+6. For administrators: [CSRF Prevention in the Webapps](#csrf-prevention-in-the-webapps)
+7. For administrators: [Whitelist Pattern for User, Group and Tenant IDs](#whitelist-pattern-for-user-group-and-tenant-ids)
+8. For administrators and developers: [Support for JDK 9 / 10 / 11](#support-for-jdk-9-10-11)
+9. For administrators: [History Related Changes](#history-related-changes)
+10. For developers: [Changed Webjar Structure](#webjar-structure-changed)
 
 This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda BPM 7.10.
 
 Noteworthy new Features and Changes in 7.10:
 
-* [Support for CSRF Prevention in the Webapps]({{< ref "/user-guide/process-engine/csrf-prevention.md" >}})
-* [Custom Whitelist for User, Group and Tenant IDs]({{< ref "/user-guide/process-engine/identity-service.md#custom-whitelist-for-user-group-and-tenant-ids" >}})
+* [Startable in Tasklist]({{< ref "/user-guide/process-engine/process-engine-concepts.md#start-process-instances-via-tasklist" >}})
+* [Set Business Key from Delegation Code]({{< ref "/user-guide/process-engine/delegation-code.md#set-business-key-from-delegation-code" >}})
+* [Extending the BPMN Viewer in Cockpit]({{< ref "/webapps/cockpit/extend/configuration.md#bpmn-diagram-viewer-bpmn-js" >}})
 
 # Database Updates
 
@@ -47,7 +55,9 @@ Every Camunda installation requires a database schema update.
 
 ## DB2 Specifics
 
-Within this release the `ACT_IDX_JOB_HANDLER` index is removed because causes problems on db2 databases. It could happen during applying the upgrade scripts an error message to occur which states that the index does not exist. This is not a real problem and you can continue with the upgrade procedure.
+Due to problems with DB2 databases the `ACT_IDX_JOB_HANDLER` index has been removed. When applying the upgrade scripts 
+it might happen, that an error message occurs which points out, that the removed index is missing. If you should face this 
+error message, please ignore it and continue with the upgrade procedure.
 
 # Full Distribution
 
@@ -70,10 +80,10 @@ For **WildFly 8** users, separate **`camunda-wildfly8-modules`** and **`camunda-
 
 Please choose the application server you are working with from the following list:
 
-<!--* [Apache Tomcat]-->
-* [Wildfly]({{< ref "/update/minor/79-to-710/jboss.md" >}})
-<!--* [IBM WebSphere]-->
-<!--* [Oracle WebLogic]-->
+* [Apache Tomcat]({{< ref "/update/minor/79-to-710/tomcat.md" >}})
+* [JBoss AS/Wildfly]({{< ref "/update/minor/79-to-710/jboss.md" >}})
+* [IBM WebSphere]({{< ref "/update/minor/79-to-710/was.md" >}})
+* [Oracle WebLogic]({{< ref "/update/minor/79-to-710/wls.md" >}})
 
 ## Custom Process Applications
 
@@ -98,17 +108,33 @@ If a database other than the default H2 database is used, the following steps mu
    section
 4. Deploy the new and configured standalone web application to the server
 
+# Spring Boot Starter Update
+
+If you are using Camunda Spring Boot Starter within you Spring Boot application, then you would need to:
+
+1. Check [Version Compatibility Matrix]({{< ref "/user-guide/spring-boot-integration/version-compatibility.md" >}})
+2. Update **Spring Boot Starter** and, when required, Spring Boot versions in your `pom.xml`.
+3. Update the Camunda BPM version in your `pom.xml` in case you override it before (e.g. when using the enterprise version or a patch releases)
+
+# External Task Client Update
+
+If you are using the **Camunda External Task Client**, please make sure to:
+
+1. Check out the [Version Compatibility Matrix]({{< ref "/user-guide/ext-client/compatibility-matrix.md" >}})
+2. Update the version in your `pom.xml` (Java) or `package.json` (NodeJs)
+
 # CSRF Prevention in the Webapps
 
 This release secures the Webapps with CSRF Prevention. If you want to make use of the newly introduced security enhancement, 
 please make sure to enable the `CsrfPreventionFilter` when migrating to 7.10 by adjusting the `web.xml` file of Camunda BPM Webapps.
-Please see the documentation about [CSRF Prevention]({{< ref "/user-guide/process-engine/csrf-prevention.md" >}}).
+
+Please also see the documentation about [CSRF Prevention]({{< ref "/user-guide/process-engine/csrf-prevention.md" >}}).
 
 # Whitelist Pattern for User, Group and Tenant IDs
 
 With Camunda BPM 7.10 a whitelist pattern of User, Group and Tenant IDs has been introduced. By default, on creating or 
 updating users, groups or tenants the ID is matched against the pattern **"[a-zA-Z0-9]+|camunda-admin"**. To disable or 
-adjust the default pattern, please see the documentation under [Identity Service]({{< ref "/user-guide/process-engine/identity-service.md#custom-whitelist-for-user-group-and-tenant-ids" >}}) in User Guide.
+adjust the default pattern, please see the documentation under [Identity Service]({{< ref "/user-guide/process-engine/identity-service.md#custom-whitelist-for-user-group-and-tenant-ids" >}}) in the User Guide.
 
 # Support for JDK 9 / 10 / 11
 This release introduces support for JDK 9 / 10 / 11.
@@ -127,7 +153,7 @@ Please bear in mind, that the default language level of JRuby 9 is Ruby 2, where
 previous version (JRuby 1.7) is Ruby 1.9. Updating the JRuby version might break your scripts.
 {{< /note >}}
 
-# History
+# History Related Changes
 
 ## Skipped Optimistic Locking Exceptions
 
@@ -158,7 +184,7 @@ If you have implemented a [Custom History Level]({{< ref "/user-guide/process-en
 and you want to use it in conjunction with the removal time based cleanup strategy, please also see the documentation about 
 [Removal Time Inheritance]({{< ref "/user-guide/process-engine/history.md#removal-time-inheritance">}}).
 
-# Webjar structure changed
+# Changed Webjar Structure
 
 Structure of `webjar` and `webjar-ee` artifacts has changed related to adjustment of index.html path. The new structure is as follows:
 ```

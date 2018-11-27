@@ -94,17 +94,6 @@ Additionally, also replace the following dependent modules:
 * `com/fasterxml/jackson/core/jackson-core`
 * `com/fasterxml/jackson/core/jackson-databind`
 
-{{< note title="Stick to older Jackson version" class="info" >}}
-Starting from v. 7.9, Camunda BPM is delivered with Spin 1.5.1 version, which in its turn relies on Jackson of v. 2.9.5 (compared to v.2.6.3 used before).
-
-In case you need to stick to older Jackson version (2.6.3):
-
-1. do not replace Jackson modules listed above.
-2. Fix the Jackson version in module `org/camunda/spin/camunda-spin-dataformat-json-jackson/main/module.xml` to be 2.6.3.
-
-Scenarios, where you could consider using the earlier Jackson version are listed [here]({{< ref "/update/minor/78-to-79/_index.md#jackson-version-update" >}}).
-{{< /note >}}
-
 ## Groovy Scripting
 
 Replace the following module from the folder `$APP_SERVER_HOME/modules/` with its new version from the folder `$APP_SERVER_DISTRIBUTION/modules/` if present:
