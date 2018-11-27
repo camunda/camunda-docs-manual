@@ -70,7 +70,7 @@ Clustered or replicated databases are supported given the following conditions. 
 
 * Sun/Oracle Hot Spot 7 / 8 / 9 / 10 / 11
 * IBM® J9 virtual machine (JVM) 7 / 8
-* OpenJDK 7 / 8
+* OpenJDK 7 / 8 / 9 / 10 / 11
 
 # Camunda Modeler
 
