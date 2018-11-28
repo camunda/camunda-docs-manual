@@ -198,7 +198,7 @@ GET `/task/anId`
     "assignee":"anAssignee",
     "created":"2013-01-23T13:42:42.000+0200",
     "due":"2013-01-23T13:49:42.576+0200",
-    "followUp:":"2013-01-23T13:44:42.437+0200",
+    "followUp":"2013-01-23T13:44:42.437+0200",
     "delegationState":"RESOLVED",
     "description":"aDescription",
     "executionId":"anExecution",
