@@ -1,13 +1,13 @@
 ---
 
 title: 'CSRF Prevention'
-weight: 260
+weight: 20
 layout: "single"
 
 menu:
   main:
-    identifier: "user-guide-csrf-prevention"
-    parent: "user-guide-process-engine"
+    identifier: "webapps-csrf-prevention"
+    parent: "webapps-general-options"
 ---
 
 A CSRF filter is enabled by default, validating each modifying request performed through the webapps. The filter implements a (per-session) _Synchronization Token_ method for CSRF validation with an optional _Same Origin with Standard Headers_ verification.
