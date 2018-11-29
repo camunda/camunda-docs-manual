@@ -188,7 +188,7 @@ However, use the native queries with care. Please bear in mind of the SQL Inject
 
 ### CSRF Prevention in the Webapps
 A CSRF filter is enabled by default, validating each modifying request performed through the webapps.
-Please also see the detailed overview on how to configure [CSRF Prevention]({{< ref "/user-guide/process-engine/csrf-prevention.md" >}}).
+Please also see the detailed overview on how to configure [CSRF Prevention]({{< ref "/webapps/shared-options/csrf-prevention.md" >}}).
 
 ## Security Configuration in the external Environment
 

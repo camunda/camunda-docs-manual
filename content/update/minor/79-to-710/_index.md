@@ -128,7 +128,7 @@ If you are using the **Camunda External Task Client**, please make sure to:
 This release secures the Webapps with CSRF Prevention. If you want to make use of the newly introduced security enhancement, 
 please make sure to enable the `CsrfPreventionFilter` when migrating to 7.10 by adjusting the `web.xml` file of Camunda BPM Webapps.
 
-Please also see the documentation about [CSRF Prevention]({{< ref "/user-guide/process-engine/csrf-prevention.md" >}}).
+Please also see the documentation about [CSRF Prevention]({{< ref "/webapps/shared-options/csrf-prevention.md" >}}).
 
 # Whitelist Pattern for User, Group and Tenant IDs
 
