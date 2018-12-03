@@ -521,6 +521,7 @@ The Access permission controls whether a user has access to a Camunda webapplica
 * `admin`
 * `cockpit`
 * `tasklist`
+* `optimize`
 * `*` (Any / All)
 
 # Administrators
