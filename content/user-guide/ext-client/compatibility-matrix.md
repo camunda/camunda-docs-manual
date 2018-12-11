@@ -20,14 +20,14 @@ Each version of the Camunda BPM Platform is bound to a specific version of the *
     <th>Java</th>
   </tr>
   <tr>
-    <td>7.9.0</td>
+    <td>7.9.x</td>
     <td>1.0.0</td>
     <td>1.0.0</td>
   </tr>
   <tr>
-    <td>7.10.0</td>
+    <td>7.10.x</td>
     <td>1.1.1</td>
-    <td>1.1.0</td>
+    <td>1.1.1</td>
   </tr>
 </table>
 
