@@ -10,11 +10,11 @@ menu:
 
 ---
 
-The Camunda BPM platform is a dual-license Java-based framework.
+The Camunda BPM platform is a Java-based framework.
 
 # Community Edition
 
-If you are using the community edition, the software is provided under the [Apache License v2.0][apache].
+If you are using the community edition, the software is provided under various open source licenses (mainly Apache 2.0 and MIT). Which components are published under an open source license is clearly stated in the licensing header of a source file or a LICENSE file present in the root directory of the software source code repository.
 
 # Enterprise Edition
 
@@ -22,8 +22,7 @@ If you are using the Enterprise Platform, the software is provided under a licen
 
 # Third-Party Libraries
 
-The Camunda BPM platform includes libraries developed by third parties (please refer to the documentation section [Third-Party Libraries][third-party-libraries]). For a complete list of license notices for libraries contained in the Camunda BPM platform, please refer to the [license book][license-book].
+The Camunda BPM platform (Community and Enterprise Edition) includes third-party libraries developed by third parties (please see the documentation section [Third-Party Libraries][third-party-libraries])). For a complete list of license notices for libraries contained in the Camunda BPM platform, please refer to the [license book][license-book].
 
-[apache]: http://www.apache.org/licenses/LICENSE-2.0.html
 [third-party-libraries]: {{< ref "/introduction/third-party-libraries.md" >}}
 [license-book]: https://app.camunda.com/nexus/content/repositories/camunda-bpm/org/camunda/bpm/license-book/7.9.0/license-book-7.9.0.txt
