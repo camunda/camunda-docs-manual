@@ -66,6 +66,11 @@ A JSON object containing the form key.
     <td>String</td>
     <td>The form key for the process definition.</td>
   </tr>
+  <tr>
+    <td>contextPath</td>
+    <td>String</td>
+    <td>The context path of the process application.</td>
+  </tr>
 </table>
 
 
@@ -105,4 +110,6 @@ GET `/process-definition/key/aKey/startForm`
 
 ## Response
 
-    {"key":"aFormKey"}
+```json
+{"key":"aFormKey","contextPath":"/aContextPath"}
+```
