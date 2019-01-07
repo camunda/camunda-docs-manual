@@ -513,6 +513,22 @@ In Addition to Update, Read and Delete, the following permissions are available 
 
 The "Create Instance" permission is required to evaluate decisions with the decision service.
 
+## Additional Batch Permissions
+
+In Addition to Update, Read and Delete, the following permissions are available on the Batch Resource:
+
+* Create Batch Migrate Process Instances
+* Create Batch Modify Process Instances
+* Create Batch Restart Process Instances
+* Create Batch Delete Running Process Instances
+* Create Batch Delete Finished Process Instances
+* Create Batch Delete Decision Instances
+* Create Batch Set Job Retries
+* Create Batch Set External Task Retries
+* Create Batch Update Process Instances Suspend State
+
+The specific "Create ..." permission has higher priority than the general "Create" permission.
+
 ## Application Permissions
 
 The resource "Application" uniquely supports the "Access" permission.
