@@ -88,6 +88,35 @@ Please also see the [REST API documentation]({{< ref "/reference/rest/external-t
 This feature is based on JAX-RS 2.0 and is therefore not available on **IBM WebSphere Application Server 8.5**.
 {{< /note >}}
 
+#### Unique Worker Request
+By default, a Task Worker (identified by a `workerId`) can send multiple 'Fetch and Lock' requests in parallel.
+
+In some use cases this behavior is undesired: e.g. when a Task Worker is not interested in the response of a previously 
+performed request and therefore performs a new request. 
+
+In this case, the default behavior of the REST API leads to the situation, that the first request is still handled (i. e. 
+External Tasks are locked once available) and a response is performed. The second request is pending until the lock duration 
+of the previously locked External Tasks by the first request or the specified timeout is due.
+
+The default behavior of long-polling requests can be changed by enabling the "Unique Worker Request" strategy. This means, 
+that in case a Task Worker performs another long-polling request, the previously performed long-polling request is canceled. 
+To put it in other words, only the most recent long-polling request received by the REST API is handled.
+
+In order to enable the "Unique Worker Request" strategy, the `engine-rest/WEB-INF/web.xml` file included in the *engine-rest* 
+artifact needs to be adjusted by setting the context parameter `fetch-and-lock-unique-worker-request` to `true`. Please 
+consider the following configuration snippet:
+
+```xml
+<!-- ... -->
+
+<context-param>
+  <param-name>fetch-and-lock-unique-worker-request</param-name>
+  <param-value>true</param-value>
+</context-param>
+
+<!-- ... -->
+```
+
 ## Java API
 
 The entry point to the Java API for external tasks is the `ExternalTaskService`. It can be accessed via `processEngine.getExternalTaskService()`.
