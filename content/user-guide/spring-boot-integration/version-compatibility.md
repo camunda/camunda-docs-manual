@@ -13,7 +13,7 @@ menu:
 
 Each version of the Camunda Spring Boot Starter is bound to a specific version of Camunda BPM. Only these default combinations are recommended (and supported) by Camunda.
 Nevertheless, each version of the Spring Boot Starter can be combined with newer patch versions of the Camunda BPM engine (see [Overriding Camunda version](../#overriding-camunda-version)),
-though such combinations must be thoroughly tested before being used in production. 
+though such combinations must be thoroughly tested before being used in production.
 
 <table class="table table-striped">
   <tr>
@@ -22,42 +22,42 @@ though such combinations must be thoroughly tested before being used in producti
     <th>Spring Boot version</th>
   </tr>
   <tr>
-    <td>1.0.0\*</td>
+    <td>1.0.0&#42;</td>
     <td>7.3.0</td>
     <td>1.2.5.RELEASE</td>
   </tr>
   <tr>
-    <td>1.1.0\*</td>
+    <td>1.1.0&#42;</td>
     <td>7.4.0</td>
     <td>1.3.1.RELEASE</td>
   </tr>
   <tr>
-    <td>1.2.0\*</td>
+    <td>1.2.0&#42;</td>
     <td>7.5.0</td>
     <td>1.3.5.RELEASE</td>
   </tr>
   <tr>
-    <td>1.2.1\*</td>
+    <td>1.2.1&#42;</td>
     <td>7.5.0</td>
     <td>1.3.6.RELEASE</td>
   </tr>
   <tr>
-    <td>1.3.0\*</td>
+    <td>1.3.0&#42;</td>
     <td>7.5.0</td>
     <td>1.3.7.RELEASE</td>
   </tr>
   <tr>
-    <td>2.0.0\*</td>
+    <td>2.0.0&#42;&#42;</td>
     <td>7.6.0</td>
     <td>1.4.2.RELEASE</td>
   </tr>
   <tr>
-    <td>2.1.x\*</td>
+    <td>2.1.x&#42;&#42;</td>
     <td>7.6.0</td>
     <td>1.5.3.RELEASE</td>
   </tr>
   <tr>
-    <td>2.2.x\*</td>
+    <td>2.2.x&#42;&#42;</td>
     <td>7.7.0</td>
     <td>1.5.6.RELEASE</td>
   </tr>
@@ -72,5 +72,21 @@ though such combinations must be thoroughly tested before being used in producti
     <td>2.0.2.RELEASE</td>
   </tr>
 </table>
-* These are the versions of the Spring Boot Starter Community Extension, which can be used the same way as the offically supported Spring Boot Starter, 
-but using another Maven dependencies. Check the docs [here](https://camunda.github.io/camunda-bpm-spring-boot-starter/).
+
+\* For these versions, use the following Maven coordinates:
+```
+<dependency>
+  <groupId>org.camunda.bpm.extension</groupId>
+  <artifactId>camunda-bpm-spring-boot-starter</artifactId>
+  <version>1.x</version> <!-- set correct version here -->
+</dependency>
+```
+
+\*\* For these versions, use the following Maven coordinates:
+```
+<dependency>
+  <groupId>org.camunda.bpm.extension.springboot</groupId>
+  <artifactId>camunda-bpm-spring-boot-starter</artifactId>
+  <version>2.x</version> <!-- set correct version here -->
+</dependency>
+```
