@@ -186,7 +186,7 @@ Alternatively, you can also set the expressions as an attribute instead of a chi
 {{< /note >}}
 
 {{< note title="" class="warning" >}}
-  For the same reasons as mentioned above, field injection should not be (usually) used with Spring beans, which are singletons by default. Otherwise, you may run into incostistencies due to concurrent modification of the bean fields.
+  For the same reasons as mentioned above, field injection should not be (usually) used with Spring beans, which are singletons by default. Otherwise, you may run into inconsistencies due to concurrent modification of the bean fields.
 {{< /note >}}
 
 # Delegate Variable Mapping
