@@ -58,7 +58,6 @@ Additionally, when using Apache Tomcat:
 The Spring support can be integrated with the following third-party libraries:
 
 * [Apache Commons DBCP](http://commons.apache.org/proper/commons-dbcp/) {{< OD >}}
-* [Apache Commons Lang](http://commons.apache.org/proper/commons-lang/) {{< OD >}}
 * [Spring Framework Spring-Beans][spring] {{< OD >}}
 * [Spring Framework Spring-Core][spring] {{< OD >}}
 * [Spring Framework Spring-ASM][spring] {{< OD >}}
