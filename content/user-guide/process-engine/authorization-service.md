@@ -495,6 +495,7 @@ In Addition to Update, Read and Delete, the following permissions are available 
 * Delete Instance
 * Read History
 * Delete History
+* Retry Job
 
 The "Create Instance" permission is required to start new process instances.
 
@@ -502,6 +503,16 @@ The "Create Instance" permission is required to start new process instances.
   To perfom that action, the user also needs to have "Create" permission on the Process Instance resource.
 
 {{< /note >}}
+
+GRANT and REVOKE authorizations with Retry Job permission precede over Update.
+
+## Additional Process Instance Permissions
+
+In Addition to Create, Read, Update, and Delete, the following permissions are available on the Process Instance Resource:
+
+* Retry Job
+
+GRANT and REVOKE authorizations with Retry Job permission precede over Update.
 
 ## Additional Decision Definition Permissions
 
