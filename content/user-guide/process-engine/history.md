@@ -84,7 +84,7 @@ There are the following History entities, which - in contrast to the runtime dat
 * `HistoricVariableInstances` containing information about the latest state a variable held in a process instance.
 * `HistoricCaseInstances` containing information about current and past case instances.
 * `HistoricActivityInstances` containing information about a single execution of an activity.
-* `HistoriCasecActivityInstances` containing information about a single execution of a case activity.
+* `HistoricCaseActivityInstances` containing information about a single execution of a case activity.
 * `HistoricTaskInstances` containing information about current and past (completed and deleted) task instances.
 * `HistoricDetails` containing various kinds of information related to either a historic process instances, an activity instance or a task instance.
 * `HistoricIncidents` containing information about current and past (i.e., deleted or resolved) incidents.
