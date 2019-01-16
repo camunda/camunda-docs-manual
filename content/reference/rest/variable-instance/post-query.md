@@ -231,20 +231,21 @@ POST `/variable-instance`
 
 Request Body:
 
-    {"variableValuess":
+    {"variableValues":
         [{"name": "amount",
          "operator": "gteq",
-         "value": "5"
+         "value": 5
         },
         {"name": "amount",
          "operator": "lteq",
          "value": 200}],
-    "processInstanceIdIn": [ "aProcessInstanceId", "anotherProcessInstanceId" ]},
+    "processInstanceIdIn": [ "aProcessInstanceId", "anotherProcessInstanceId" ],
     "sorting":
         [{"sortBy": "variableType",
         "sortOrder": "asc"
         }]
-    }
+    }   
+
 
 ## Response
 
