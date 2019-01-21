@@ -72,7 +72,7 @@ This method returns no content.
 
 ## Request
 
-PUT `/job/aJobId/execute`
+POST `/job/aJobId/execute`
 
 ## Response
 
