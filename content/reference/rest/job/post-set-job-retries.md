@@ -8,7 +8,7 @@ menu:
     name: "Set Job Retries Async (POST)"
     identifier: "rest-api-job-post-set-job-retries-async"
     parent: "rest-api-job"
-    pre: "POST `/process-instance/retries`"
+    pre: "POST `/job/retries`"
 
 ---
 
