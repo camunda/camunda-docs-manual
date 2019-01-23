@@ -18,13 +18,20 @@ This page explains how to install the Camunda Modeler for modeling BPMN 2.0 diag
 
 ## Operation Systems
 
-* Windows 7 and later
-* Mac OS X 10.8 and later
+Officially supported on the following operating systems:
+
+* Windows 7/10
+* Mac OS X 10.11 and later
+* Ubuntu LTS (latest)
+
+Reported to work on these operating systems, too:
+
 * Ubuntu 12.04 and later
 * Fedora 21
 * Debian 8
 
-{{< meta-comment "this is based on our testing environment and the Electron documentation" >}}
+{{< meta-comment "this is based on our testing environment and the Electron documentation (https://electronjs.org/docs/tutorial/support)" >}}
+
 
 ## Matching Camunda Process Engine Version
 
