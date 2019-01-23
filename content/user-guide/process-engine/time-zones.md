@@ -18,7 +18,12 @@ The Camunda engine uses the default time zone of the JVM when operating with dat
 * In REST responses
 * When reading/writing DateTime values from/to the database
 
+## Database
+
 Database time zone and database sessions time zone are out of scope of the Camunda engine and must be configured explicitly.
+
+However, Timestamp columns in the Camunda engine are using the `TIMESTAMP [WITHOUT TIME ZONE]` data type (the name differs in different database servers).
+For this reason, it is not recommended to change the time zone on the database side once set, since it may lead to an incorrect operation of the Camunda engine.
 
 ## Camunda Web Applications
 
