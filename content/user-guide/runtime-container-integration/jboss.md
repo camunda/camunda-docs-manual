@@ -172,6 +172,26 @@ The restrictions which apply for [providing a custom process engine configuratio
  * Properties map can be used for invoking primitive valued setters (Integer, String, Boolean) that follow the Java Bean conventions.
 
 
+# Using System Properties
+
+To externalize environment specific parts of the configuration, it is possible to reference system properties using Ant-style expressions (i.e., `${PROPERTY_KEY}`). 
+Expression resolution is supported for all elements and attributes except for the `name` attribute on the elements `process-engine` and `job-acquisition`. 
+System properties may be set via command line (`-D`option). Read more on expressions in the documentation for [JBoss](https://docs.jboss.org/author/display/AS71/Expressions) and [WildFly](http://docs.wildfly.org/15/Extending_WildFly.html#expressions).
+
+## Example
+
+```xml
+<!-- ... -->
+<plugin>
+  <class>org.camunda.bpm.engine.impl.plugin.AdministratorAuthorizationPlugin</class>
+  <properties>
+    <property name="administratorUserName">${camunda.administratorUserName}</property>
+  </properties>
+</plugin>
+<!-- ... -->
+```
+
+
 # Look Up a Process Engine in JNDI
 
 The Camunda JBoss/Wildfly subsystem provides the same [JNDI bindings for the ProcessApplicationService and the ProcessEngineService]({{< ref "/user-guide/runtime-container-integration/jndi-bindings-for-bpmn-platform-services.md" >}}) as provided on other containers. In addition, the Camunda JBoss/Wildfly subsystem creates JNDI Bindings for all managed process engines, allowing us to look them up directly.
