@@ -33,7 +33,7 @@ Note that the process definition of the subprocess is resolved at runtime. This 
 # CalledElement Binding
 
 In a call activity the `calledElement` attribute contains the process definition key as reference to the subprocess. This means that the latest process definition version of the subprocess is always called.
-To call another version of the subprocess it is possible to define the attributes `calledElementBinding`, `calledElementVersion`, and `calledElementVersion` in the call activity. These attributes are optional.
+To call another version of the subprocess it is possible to define the attributes `calledElementBinding`, `calledElementVersion`, and `calledElementVersionTag` in the call activity. These attributes are optional.
 
 CalledElementBinding has four different values:
 
