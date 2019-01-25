@@ -179,7 +179,24 @@ In any case does the toggle button allow to display/remove the statistics on dem
  the `unit` property of `period` allows to specify the default timer period for which the activity instance badges are supposed to be shown. 
  Here it is possible to select form the range of values: `today`, `week`,`month`,`complete`;  
  
+# Default Filter for the Historic Process Instances Search
 
+```json
+historicProcessInstancesSearch: {
+   defaultFilter: {
+     lastDays: 5,
+     event: 'started'
+   }
+ }
+```
+
+A default filter can be applied for the historic process instances search on the historic process definition view.
+Like this, it is possible to reduce the amount of instances which are being retrieved at the same time.
+
+It is configurable, for how many days in the past instances are queried based on the start or the end time of historic process instances.
+
+* The property `lastDays` specifies the numeric amount of days in the past based on the current time
+* The property `event` can be either set to 'started' or 'finished'
 
 # Advanced Styles Customization
 
