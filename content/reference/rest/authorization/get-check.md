@@ -36,11 +36,6 @@ GET `/authorization/check`
     <td>Yes</td>
   </tr>
   <tr>
-    <td>permissionValue</td>
-    <td>String representation of an integer value representing the permission value to check for.</td>
-    <td>Yes</td>
-  </tr>
-  <tr>
     <td>resourceName</td>
     <td>String value for the name of the resource to check permissions for.</td>
     <td>Yes</td>
@@ -115,13 +110,18 @@ A JSON array with the following properties:
 
 ## Request
 
-GET `/authorization/check?permissionName=READ,permissionValue=2,resourceName=USER,resourceType=1,resourceId=jonny`
+GET `/authorization/check?permissionName=READ,resourceName=USER,resourceType=1,resourceId=jonny`
 
 ## Response
 
 Status 200.
 
-    {"permissionName": "READ",
-     "resourceName": "USER",
-     "resourceId": "jonny",
-     "isAuthorized": true}
+```json
+{
+  "permissionName": "READ",
+  "resourceName": "USER",
+  "resourceId": "jonny",
+  "isAuthorized": true
+ }
+```
+
