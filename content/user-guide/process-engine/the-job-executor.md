@@ -258,8 +258,9 @@ In addition, the process engine has a concept of job suspension. For example, a 
 
 To optimize the acquisition of jobs that need to be executed immediately, the `DUEDATE_` column is not set (`null`) and a (positive) null check is added as a condition for acquisition.
 
-However, in a high job-count scenario, this causes a high CPU cost by always performing a full table scan on the `ACT_RU_JOB` table.
-If this is the case, the optimisation can be disabled by setting the `ensureJobDueDateNotNull` [process engine configuration flag]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#ensureJobDueDateNotNull" >}}) to `true`.
+In case each job must have a `DUEDATE_` set, the optimisation can be disabled. This can be done by setting the `ensureJobDueDateNotNull` [process engine configuration flag]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#ensureJobDueDateNotNull" >}}) to `true`.
+
+However, any jobs created with a `null` value for `DUEDATE_` before disabling the optimisation will not be picked up by the Job Acquisition phase, unless the jobs are explicitly updated with a due date through the {{< javadocref page="?org/camunda/bpm/engine/ManagementService.html#setJobDuedate-java.lang.String-java.util.Date-" text="Java" >}}/[Rest]({{< ref "/reference/rest/job/put-set-job-duedate.md" >}}) API.
 
 ## The Two Phases of Job Acquisition
 
