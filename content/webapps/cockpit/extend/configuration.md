@@ -131,13 +131,15 @@ will be hidden everywhere in Cockpit.
  
 # Default Filter for the Historic Process Instances Search
 
-```json
-defaultFilter: {
-  historicProcessDefinitionInstancesSearch: {
-    lastDays: 5,
-    event: 'started'
-  }
-}
+```javascript
+    window.camCockpitConf = {
+      defaultFilter: {
+        historicProcessDefinitionInstancesSearch: {
+          lastDays: 5,
+          event: 'started'
+        }
+      }
+    };
 ```
 
 A default filter can be applied for the historic process instances search on the historic process definition view.
