@@ -467,5 +467,5 @@ script task.
 ```
 
 For more information, see the
-[camunda:resource]({{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#camunda-resource" >}})
+[camunda:resource]({{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#resource" >}})
 section of the [Custom Extensions]({{< ref "/reference/bpmn20/custom-extensions/_index.md" >}}) chapter.
