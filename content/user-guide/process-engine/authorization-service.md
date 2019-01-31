@@ -536,7 +536,7 @@ In Addition to Update, Read and Delete, the following permissions are available 
 * Create Batch Delete Decision Instances
 * Create Batch Set Job Retries
 * Create Batch Set External Task Retries
-* Create Batch Update Process Instances Suspend State
+* Create Batch Update Process Instances Suspend
 
 The specific "Create ..." permission has higher priority than the general "Create" permission.
 
