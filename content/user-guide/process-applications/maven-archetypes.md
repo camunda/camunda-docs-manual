@@ -87,8 +87,18 @@ Sometimes the creation of the very first Maven project fails in Eclipse. If that
 
 ## Summary
 
-1. Add an archetype plugin (**Settings -> Plugins -> install the archetype plugin**)
-2. Add the catalog file with the full path to the xml file **https://app.camunda.com/nexus/content/repositories/camunda-bpm/archetype-catalog.xml**
+1.  While in any project, navigate to "**File > Settings... > Plugins**".  
+
+Search for plugin in the Marketplace labeled "**Maven Archetype Catalogs**" and install, then restart IDEA to complete install.
+
+2.  In an open project, navigate to: "**File > Settings... > Build,Execution,Deployment > Build Tools > Maven Archetype Catalogs**"
+
+Click the plus sign (**+**) on the right side of the settings dialog to add an Archetype Catalog to the list.  NOTE:  you must add "archetype-catalog.xml", as the URL must be a direct file location.  Like so:
+
+**https://app.camunda.com/nexus/content/repositories/camunda-bpm/archetype-catalog.xml**
+
+Select OK. 
+
 3. Create Maven project from archetype (**New Project -> Maven -> Check "From Archetype"** The com.camunda archetypes should be in the list)
 
 # Usage on Command Line
