@@ -105,7 +105,7 @@ GET `/history/activity-instance`
   <tr>
     <td>sortBy</td>
     <td>Sort the results by a given criterion. Valid values are
-    <code>activityInstanceID</code>, <code>instanceId</code>, <code>executionId</code>, <code>activityId</code>, <code>activityName</code>, <code>activityType</code>, <code>startTime</code>, <code>endTime</code>, <code>duration</code>, <code>definitionId</code>, <code>occurrence</code> and <code>tenantId</code>.
+    <code>activityInstanceId</code>, <code>instanceId</code>, <code>executionId</code>, <code>activityId</code>, <code>activityName</code>, <code>activityType</code>, <code>startTime</code>, <code>endTime</code>, <code>duration</code>, <code>definitionId</code>, <code>occurrence</code> and <code>tenantId</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
