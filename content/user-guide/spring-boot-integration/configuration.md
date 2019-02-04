@@ -407,7 +407,7 @@ takes place but the previous deployment is resumed.</td>
 </tr>
 
 <tr>
-<td><code>.jdbcBatchProcessing</code></td>
+<td><code>.jdbc-batch-processing</code></td>
 <td>Controls if the engine executes the jdbc statements as Batch or not.
 It has to be disabled for some databases.
 See the <a href="{{<ref "/user-guide/process-engine/database.md#jdbc-batch-processing" >}}">user guide</a> for further details.</td>
