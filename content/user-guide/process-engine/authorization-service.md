@@ -493,6 +493,7 @@ In Addition to Update, Read and Delete, the following permissions are available 
 * Update Instance
 * Retry Job
 * Suspend Instance
+* Update Instance Variable
 * Migrate Instance
 * Delete Instance
 * Read History
@@ -505,7 +506,8 @@ The "Create Instance" permission is required to start new process instances.
 
 {{< /note >}}
 
-GRANT and REVOKE authorizations with Retry Job and Suspend Instance permission precede over Update.
+GRANT and REVOKE authorizations with Retry Job, Suspend Instance, and Update Instance Variable permissions precede over Update.
+Keep in mind that user who is allowed to perform variable updates could trigger other changes in the process by updating a variable. For example, successful evaluation of conditional event related to this variable.
 
 ## Additional Process Instance Permissions
 
@@ -513,8 +515,10 @@ In Addition to Create, Read, Update, and Delete, the following permissions are a
 
 * Retry Job
 * Suspend
+* Update Variable
 
-GRANT and REVOKE authorizations with Retry Job and Suspend permission precede over Update.
+GRANT and REVOKE authorizations with Retry Job, Suspend, and Update Variable permissions precede over Update.
+Keep in mind that user who is allowed to perform variable updates could trigger other changes in the process by updating a variable. For example, successful evaluation of conditional event related to this variable.
 
 ## Additional Decision Definition Permissions
 
