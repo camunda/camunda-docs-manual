@@ -111,7 +111,7 @@ mvn archetype:generate \
   -DarchetypeRepository=https://app.camunda.com/nexus/content/repositories/camunda-bpm \
   -DarchetypeGroupId=org.camunda.bpm.archetype \
   -DarchetypeArtifactId=camunda-archetype-ejb-war \
-  -DarchetypeVersion=7.0.0 \
+  -DarchetypeVersion=7.10.0 \
   -DgroupId=org.example.camunda.bpm \
   -DartifactId=camunda-bpm-ejb-project \
   -Dversion=0.0.1-SNAPSHOT \
