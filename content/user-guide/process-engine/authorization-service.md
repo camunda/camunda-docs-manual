@@ -81,6 +81,7 @@ The following permissions are available:
 
 Please note that the permission "None" does not mean that no permissions are granted, it stands for "no action".
 Also, the "All" permission will vanish from a user if a single permission is revoked.
+Some of the resources have fine-grained permissions, a detailed lists can be found [below]({{< relref "#additional-task-permissions" >}}).
 
 A single authorization object may assign multiple permissions to a single user and resource:
 
@@ -287,7 +288,7 @@ The following table gives an overview for which resources they are available:
     <tr>
       <th>Decision Definition</th>
       <td>X</td>
-      <td></td>
+      <td>X</td>
       <td></td>
       <td></td>
     </tr>
@@ -309,7 +310,7 @@ The following table gives an overview for which resources they are available:
       <th>Filter</th>
       <td>X</td>
       <td>X</td>
-      <td></td>
+      <td>X</td>
       <td>X</td>
     </tr>
     <tr>
@@ -329,9 +330,9 @@ The following table gives an overview for which resources they are available:
     <tr>
       <th>Process Definition</th>
       <td>X</td>
+      <td>X</td>
       <td></td>
-      <td></td>
-      <td></td>
+      <td>X</td>
     </tr>
     <tr>
       <th>Process Instance</th>
