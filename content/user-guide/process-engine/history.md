@@ -799,6 +799,18 @@ The following describes the operations logged in the user operation log and the 
     <td><i>No additional property is logged</i></td>
   </tr>
   <tr>
+    <td></td>
+    <td>DeleteVariableHistory</td>
+    <td>
+      In case of single operation:
+      <ul>
+        <li><strong>name</strong>: the name of the variable whose history was deleted</li>
+      </ul>
+      In case of list operation by process instance:
+      <ul><i>No additional property is logged</i></ul>
+    </td>
+  </tr>
+  <tr>
     <td>Deployment</td>
     <td>Create</td>
     <td>
