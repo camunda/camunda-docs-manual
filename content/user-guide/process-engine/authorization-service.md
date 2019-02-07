@@ -385,6 +385,8 @@ If a user has "Update" permission on a task (or "Update Task" permission on the 
 If finer grained authorizations are required, the permissions "Task Work" and "Task Assign" can be used.
 The intuition behind "Task Work" is that it only authorizes the user to _work_ on a task (i.e., claim and complete it) but not assign it to another user or in another way "distribute work" to colleagues.
 
+If a user has "Update Variable" permission on a task (or "Update Task Variable" permission on the corresponding process definition) the the user is authorize to perform set/remove task variable actions.
+
 The table below shows a detailed overview on which permissions authorize a user to perform which task actions:
 
 <table class="table matrix-table table-condensed table-hover table-bordered">
@@ -393,6 +395,7 @@ The table below shows a detailed overview on which permissions authorize a user 
     <th></th>
     <th>Task Work</th>
     <th>Task Assign</th>
+    <th>Update Variable</th>
     <th>Update</th>
     </tr>
   </thead>
@@ -401,11 +404,13 @@ The table below shows a detailed overview on which permissions authorize a user 
       <th>Claim</th>
       <td>X</td>
       <td></td>
+      <td></td>
       <td>X</td>
     </tr>
     <tr>
       <th>Complete</th>
       <td>X</td>
+      <td></td>
       <td></td>
       <td>X</td>
     </tr>
@@ -413,48 +418,56 @@ The table below shows a detailed overview on which permissions authorize a user 
       <th>Add Candidate User</th>
       <td></td>
       <td>X</td>
+      <td></td>
       <td>X</td>
     </tr>
     <tr>
       <th>Delete Candidate User</th>
       <td></td>
       <td>X</td>
+      <td></td>
       <td>X</td>
     </tr>
     <tr>
       <th>Set Assignee</th>
       <td></td>
       <td>X</td>
+      <td></td>
       <td>X</td>
     </tr>
     <tr>
       <th>Set Owner</th>
       <td></td>
       <td>X</td>
+      <td></td>
       <td>X</td>
     </tr>
     <tr>
       <th>Add Candidate Group</th>
       <td></td>
       <td>X</td>
+      <td></td>
       <td>X</td>
     </tr>
     <tr>
       <th>Delete Candidate Group</th>
       <td></td>
       <td>X</td>
+      <td></td>
       <td>X</td>
     </tr>
     <tr>
       <th>Save Task</th>
       <td></td>
       <td>X</td>
+      <td></td>
       <td>X</td>
     </tr>
     <tr>
       <th>Set Task Priority</th>
       <td></td>
       <td>X</td>
+      <td></td>
       <td>X</td>
     </tr>
 	<tr>
@@ -462,17 +475,19 @@ The table below shows a detailed overview on which permissions authorize a user 
       <td></td>
       <td></td>
       <td>X</td>
+      <td>X</td>
     </tr>
 	<tr>
       <th>Remove Task Variable</th>
       <td></td>
       <td></td>
       <td>X</td>
+      <td>X</td>
     </tr>
   </tbody>
 </table>
 
-GRANT and REVOKE authorizations with Task Work and Task Assign permissions precede over Update and Update Task.
+GRANT and REVOKE authorizations with Task Work, Task Assign, and Update Variable permissions precede over Update and Update Task.
 
 ### Default Task Permissions
 
@@ -495,6 +510,7 @@ In Addition to Update, Read and Delete, the following permissions are available 
 * Retry Job
 * Suspend Instance
 * Update Instance Variable
+* Update Task Variable
 * Migrate Instance
 * Delete Instance
 * Read History
@@ -507,7 +523,7 @@ The "Create Instance" permission is required to start new process instances.
 
 {{< /note >}}
 
-GRANT and REVOKE authorizations with Retry Job, Suspend Instance, and Update Instance Variable permissions precede over Update.
+GRANT and REVOKE authorizations with Retry Job, Suspend Instance, Update Instance Variable, and Update Task Variable permissions precede over Update.
 Keep in mind that user who is allowed to perform variable updates could trigger other changes in the process by updating a variable. For example, successful evaluation of conditional event related to this variable.
 
 ## Additional Process Instance Permissions
