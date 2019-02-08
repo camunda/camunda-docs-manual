@@ -238,7 +238,7 @@ public class MyCustomConfiguration extends AbstractCamundaConfiguration {
 <td>Provides an URL to your Camunda license file and is automatically inserted into the DB when the application starts (but only if no license key is found in the DB).</td>
 <td>By default, the license key will be loaded:
  <ol>
-  <li>from the file with the name <code>camunda-license.txt</code> from classpath (if present)</li> 
+  <li>from the file with the name <code>camunda-license.txt</code> from classpath (if present)</li>
   <li>from path <i>${user.home}/.camunda/license.txt</i> (if present)</li>
  </ol>
  The license must be exactly in the format as we sent it to you including the header and footer line.
@@ -414,6 +414,31 @@ See the <a href="{{<ref "/user-guide/process-engine/database.md#jdbc-batch-proce
 <td><i>Camunda default value: true</i></td>
 </tr>
 
+<tr><td colspan="4"><b>Eventing</b></td></tr>
+<tr>
+<td rowspan="3"><code>camunda.bpm.eventing</code></td>
+<td><code>.execution</code></td>
+<td>Enables eventing of delegate execution events.
+See the <a href="{{<ref "/user-guide/spring-boot-integration/the-spring-event-bridge.md" >}}">user guide</a> for further details.</td>
+<td><code>true</code></td>
+</tr>
+
+<tr>
+<td><code>.history</code></td>
+<td>Enables eventing of history events.
+See the <a href="{{<ref "/user-guide/spring-boot-integration/the-spring-event-bridge.md" >}}">user guide</a> for further details.</td>
+<td><code>true</code></td>
+</tr>
+
+<tr>
+<td><code>.task</code></td>
+<td>Enables eventing of task events.
+See the <a href="{{<ref "/user-guide/spring-boot-integration/the-spring-event-bridge.md" >}}">user guide</a> for further details.</td>
+<td><code>true</code></td>
+</tr>
+
+
+
 <tr><td colspan="4"><b>JPA</b></td></tr>
 <tr>
 <td rowspan="4"><code>camunda.bpm.jpa</code></td>
@@ -526,6 +551,6 @@ Spring Boot behaviour is taken into account.</td>
 <td><code>.create</code></td>
 <td>Name of a "show all" filter. If set, a new filter is created on start that displays all tasks. Useful for testing on h2 db.</td>
 <td>-</td>
-</tr> 
+</tr>
 
 </table>
