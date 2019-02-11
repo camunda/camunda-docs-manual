@@ -385,7 +385,7 @@ If a user has "Update" permission on a task (or "Update Task" permission on the 
 If finer grained authorizations are required, the permissions "Task Work" and "Task Assign" can be used.
 The intuition behind "Task Work" is that it only authorizes the user to _work_ on a task (i.e., claim and complete it) but not assign it to another user or in another way "distribute work" to colleagues.
 
-If a user has "Update Variable" permission on a task (or "Update Task Variable" permission on the corresponding process definition) the the user is authorize to perform set/remove task variable actions.
+If a user has "Update Variable" permission on a task (or "Update Task Variable" permission on the corresponding process definition) the user is authorized to perform set/remove task variable actions.
 
 The table below shows a detailed overview on which permissions authorize a user to perform which task actions:
 
