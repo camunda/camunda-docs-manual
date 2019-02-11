@@ -84,7 +84,35 @@ For a release to be accepted, several automated regression tests must be passed.
 ### Manual Regression Testing
 For a release to be accepted, a manual regression test must be passed. Testing the security relevant aspects of the software is part of this manual regression test.
 
+### Penetration Testing
+
+Camunda has contracted an independent, external security advisor to regularly conduct penetration tests of the software. The advisor operates according industry best practices recommended by the OWASP organization.
+
+Any vulnerabilities detected are handled according to our [process for security issue management](#security-issue-management).
+
+Test history:
+
+<table class="table table-striped">
+  <tr>
+    <th>Date</th>
+    <th>Test Focus</th>
+    <th>Result Summary</th>
+  </tr>
+  <tr>
+    <td><p>January 2019</p></td>
+    <td>
+      <p>Camunda version: 7.10.1</p>
+      <p>Whitebox test with focus on (but not limited to) Camunda BPM web applications and REST API.</p>
+    </td>
+    <td>
+      <p>No critical vulnerabilities were detected.</p>
+      <p>Five lesser vulnerabilities were detected and submitted for treatment to our security issue process.</p>
+    </td>
+  </tr>
+</table>
+
 ### Automatic Virus Scans
+
 An automatic virus scan is part of our release process. Its catalogues are up to date and it is used to scan the released distributions our users can download.
 In addition automatic virus scans are being performed on our core infrastructure components.
 
@@ -155,7 +183,7 @@ Similar considerations as for authentication apply. For an in-depth discussion, 
 
 Authorizations can be used to restrict a user from accessing a data object (such as a process or a task) and can be used to restrict how the user can interact with such data objects (read-only vs. modifications). Authorizations in Camunda are very powerful and it is recommended to read the corresponding [documentation entry on authorizations]({{< ref "/user-guide/process-engine/authorization-service.md" >}}).
 
-### Throttle login attempts 
+### Throttle login attempts
 
 The engine gives option to throttle login attempts. The mechanism behind this is enabled by default. You can read more about it under [Identity Service]({{< ref "/user-guide/process-engine/identity-service.md#throttle-login-attempts" >}}) in User Guide.
 
