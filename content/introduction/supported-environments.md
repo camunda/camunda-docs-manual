@@ -25,8 +25,8 @@ Run the Camunda BPM platform in every Java-runnable environment. Camunda BPM is 
 * Wildfly Application Server 8.2 / 10.1 / 11.0 / 12.0 / 13.0 / 14.0 / 15.0
 * IBM WebSphere Application Server 8.5 / 9.0 ([Enterprise Edition only](http://camunda.com/bpm/enterprise/))
 *	Oracle WebLogic Server 12c (12R1,12R2) ([Enterprise Edition only](http://camunda.com/bpm/enterprise/))
-* Spring Boot application with embedded Tomcat (see [Supported versions]({{< ref "/user-guide/spring-boot-integration/version-compatibility.md" >}}) 
-and [Deployment scenarios]({{< ref "/user-guide/spring-boot-integration/_index.md#supported-deployment-scenarios" >}})). 
+* Spring Boot application with embedded Tomcat (see [Supported versions]({{< ref "/user-guide/spring-boot-integration/version-compatibility.md" >}})
+and [Deployment scenarios]({{< ref "/user-guide/spring-boot-integration/_index.md#supported-deployment-scenarios" >}})).
 
 
 # Container for Camunda Cycle
@@ -43,7 +43,7 @@ and [Deployment scenarios]({{< ref "/user-guide/spring-boot-integration/_index.m
 * Oracle 10g / 11g / 12c
 * IBM DB2 9.7 /10.1 / 10.5 / 11.1 (excluding IBM z/OS for all versions)
 * PostgreSQL 9.1 / 9.3 / 9.4 / 9.6 / 10.4
-* Microsoft SQL Server 2008 R2/2012/2014/2016 (see [Configuration Note]({{< ref "/user-guide/process-engine/database.md#configuration-for-microsoft-sql-server" >}}))
+* Microsoft SQL Server 2008 R2/2012/2014/2016/2017 (see [Configuration Note]({{< ref "/user-guide/process-engine/database.md#configuration-for-microsoft-sql-server" >}}))
 * H2 1.4 (not recommended for [Cluster Mode]({{< ref "/introduction/architecture.md#clustering-model" >}}) - see [Deployment Note]({{< ref "/user-guide/process-engine/deployments.md" >}}))
 
 ## Database Clustering & Replication
@@ -74,7 +74,7 @@ Clustered or replicated databases are supported given the following conditions. 
 
 # Camunda Modeler
 
-Supported on the following platforms: 
+Supported on the following platforms:
 
 * Windows 7 / 10
 * Mac OS X 10.11
