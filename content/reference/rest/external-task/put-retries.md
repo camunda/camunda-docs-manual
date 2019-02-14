@@ -46,7 +46,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>retries</td>
-    <td>The number of retries to set for the external task.  Must be >= 0. If this is 0, an incident is created and the task cannot be fetched anymore unless the retries are increased again.</td>
+    <td>The number of retries to set for the external task.  Must be >= 0. If this is 0, an incident is created and the task cannot be fetched anymore unless the retries are increased again. Can not be null.</td>
   </tr>
 </table>
 
@@ -77,7 +77,7 @@ This method returns no content.
    <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>In case the number of retries is negative, an exception of type <code>InvalidRequestException</code> is returned. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>In case the number of retries is negative or null, an exception of type <code>InvalidRequestException</code> is returned. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
