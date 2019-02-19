@@ -86,7 +86,7 @@ For a release to be accepted, a manual regression test must be passed. Testing t
 
 ### Penetration Testing
 
-Camunda has contracted an independent, external security advisor to regularly conduct penetration tests of the software. The advisor operates according to industry best practices recommended by the OWASP organization such as the [OWASP Testing Guide](https://www.owasp.org/images/1/19/OTGv4.pdf). The tools used testing include [Burp Suite](https://portswigger.net/burp) and [DefenseCode Thunderscan](https://www.defensecode.com/thunderscan.php)
+Camunda has contracted an independent, external security advisor to regularly conduct penetration tests of the software. The advisor operates according to industry best practices recommended by the OWASP organization such as the [OWASP Testing Guide](https://www.owasp.org/images/1/19/OTGv4.pdf). The tools used for testing include [Burp Suite](https://portswigger.net/burp) and [DefenseCode Thunderscan](https://www.defensecode.com/thunderscan.php)
 
 Any vulnerabilities detected are handled according to our [process for security issue management](#security-issue-management).
 
