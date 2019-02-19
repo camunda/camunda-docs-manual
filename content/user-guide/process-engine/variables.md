@@ -318,7 +318,7 @@ com.example.Order retrievedOrder = (com.example.Order) retrievedTypedObjectValue
 
 ## JSON and XML Values
 
-The Camunda Spin plugin provides an abstraction for JSON and XML documents that facilitate their processing and manipulation. This is often more convenient than storing such documents as plain `string` variables. See the documentation on Camunda SPIN for [storing JSON documents]({{< ref "/user-guide/data-formats/_index.md#json-native-json-variable-value" >}}) and [storing XML documents]({{< ref "/user-guide/data-formats/_index.md#native-xml-variable-value" >}}) for details.
+The Camunda Spin plugin provides an abstraction for JSON and XML documents that facilitate their processing and manipulation. This is often more convenient than storing such documents as plain `string` variables. See the documentation on Camunda SPIN for [storing JSON documents]({{< ref "/user-guide/data-formats/json.md#native-json-variable-value" >}}) and [storing XML documents]({{< ref "/user-guide/data-formats/xml.md#native-xml-variable-value" >}}) for details.
 
 ## Transient variables
 
