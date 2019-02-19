@@ -297,7 +297,7 @@ A JSON object with the following properties:
       <table>
         <tr>
           <td>sortBy</td>
-          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>taskId</code>, <code>activityInstanceID</code>, <code>processDefinitionId</code>, <code>processInstanceId</code>, <code>executionId</code>, <code>duration</code>, <code>endTime</code>, <code>startTime</code>, <code>taskName</code>, <code>taskDescription</code>, <code>assignee</code>, <code>owner</code>, <code>dueDate</code>, <code>followUpDate</code>, <code>deleteReason</code>, <code>taskDefinitionKey</code>, <code>priority</code>, <code>caseDefinitionId</code>, <code>caseInstanceId</code>, and <code>caseExecutionId</code> and <code>tenantId</code>.</td>
+          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>taskId</code>, <code>activityInstanceId</code>, <code>processDefinitionId</code>, <code>processInstanceId</code>, <code>executionId</code>, <code>duration</code>, <code>endTime</code>, <code>startTime</code>, <code>taskName</code>, <code>taskDescription</code>, <code>assignee</code>, <code>owner</code>, <code>dueDate</code>, <code>followUpDate</code>, <code>deleteReason</code>, <code>taskDefinitionKey</code>, <code>priority</code>, <code>caseDefinitionId</code>, <code>caseInstanceId</code>, and <code>caseExecutionId</code> and <code>tenantId</code>.</td>
         </tr>
         <tr>
           <td>sortOrder</td>
