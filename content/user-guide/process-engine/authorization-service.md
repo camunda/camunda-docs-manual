@@ -525,9 +525,9 @@ Keep in mind that user who is allowed to perform variable updates could trigger 
 ### Default Read Variable Permissions
 When the `ensureSpecificVariablePermission` process engine configuration is enabled, in order to read variables, the user needs to be granted with the following permissions:
 
-* READ_INSTANCE_VARIABLE (for runtime process instance variables)
-* READ_HISTORY_VARIABLE (for historic variables)
-* READ_TASK_VARIABLE (for runtime task variables)
+* Read Instance Variable (for runtime process instance variables)
+* Read History Variable (for historic variables)
+* Read Task Variable (for runtime task variables)
 
 ## Additional Process Instance Permissions
 
