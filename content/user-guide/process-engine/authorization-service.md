@@ -58,7 +58,7 @@ Camunda BPM distinguishes between two types of identities: users and groups. Aut
 
 A Permission defines the way an identity is allowed to interact with a certain resource.
 
-The following permissions are available:
+The basic permissions available in the engine are:
 
 * None
 * All
@@ -67,21 +67,11 @@ The following permissions are available:
 * Create
 * Delete
 * Access
-* Read Task
-* Update Task
-* Task Work
-* Task Assign
-* Create Instance
-* Read Instance
-* Update Instance
-* Migrate Instance
-* Delete Instance
-* Read History
-* Delete History
 
 Please note that the permission "None" does not mean that no permissions are granted, it stands for "no action".
 Also, the "All" permission will vanish from a user if a single permission is revoked.
-Some of the resources have fine-grained permissions, a detailed lists can be found [below]({{< relref "#additional-task-permissions" >}}).
+
+For detailed list of available permissions please check [Permission by resource]({{< relref "#permissions-by-resource" >}}) section.
 
 A single authorization object may assign multiple permissions to a single user and resource:
 
@@ -374,11 +364,16 @@ The following table gives an overview for which resources they are available:
 
 To execute an operation [asynchronously]({{< ref "/user-guide/process-engine/batch.md">}}), only a "Create" permission on the Batch Resource is required. However, when executing the same operation synchronously, the specific permissions (e.g. "Delete" on Process Instance Resource) are checked. 
 
-For example, an user without the "Update" permission on the Process Instance Resource and granted "Create" permission on the Batch Resource can modify multiple Process Instances asynchronously by creating a batch, although he could not execute this operation synchronously.
+For example, a user without the "Update" permission on the Process Instance Resource and granted "Create" permission on the Batch Resource can modify multiple Process Instances asynchronously by creating a batch, although he could not execute this operation synchronously.
 
 ## Additional Task Permissions
 
-This section explains the additional permissions that are available on the Task resource (in addition to Create, Update, Read and Delete).
+In Addition to Update, Read and Delete, the following permissions are available on the Task Resource:
+
+* Read History
+* Task Assign
+* Task Work
+* Update Variable
 
 A user can perform different actions on a task, like assigning the task, claiming the task or completing the task.
 If a user has "Update" permission on a task (or "Update Task" permission on the corresponding process definition) then the user is authorized to perform _all_ these task actions.
@@ -557,8 +552,10 @@ The "Create Instance" permission is required to evaluate decisions with the deci
 
 ## Additional Batch Permissions
 
-In Addition to Update, Read and Delete, the following permissions are available on the Batch Resource:
+In Addition to Create, Update, Read and Delete, the following permissions are available on the Batch Resource:
 
+* Read History
+* Delete History
 * Create Batch Migrate Process Instances
 * Create Batch Modify Process Instances
 * Create Batch Restart Process Instances
@@ -643,7 +640,7 @@ Complete list of configuration properties:
 
 # Configuration Options
 
-This section expains available process engine configuration options related to authorization.
+This section explains available process engine configuration options related to authorization.
 
 ## Enable Authorization Checks
 
