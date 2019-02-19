@@ -60,7 +60,7 @@ To make an activity multi-instance, the activity xml element must have a `multiI
 The isSequential attribute indicates if the instances of that activity are executed sequentially or in parallel.
 
 
-The number of instances are calculated once, when entering the activity. There are a few ways of configuring this. On way is directly specifying a number by using the `loopCardinality` child element.
+The number of instances are calculated once, when entering the activity. There are a few ways of configuring this. One way is directly specifying a number by using the `loopCardinality` child element.
 
 ```xml
 <multiInstanceLoopCharacteristics isSequential="false|true">
