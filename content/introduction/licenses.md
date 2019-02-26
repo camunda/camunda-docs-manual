@@ -11,7 +11,7 @@ menu:
 ---
 
 
-# BPM Platform
+# Camunda BPM Platform
 
 The Camunda BPM platform is a Java-based framework.
 
