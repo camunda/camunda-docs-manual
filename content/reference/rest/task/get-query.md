@@ -452,10 +452,10 @@ GET `/task`
     <code>key</code> is the variable name, <code>operator</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
     <strong>Note:</strong> Values are always treated as <code>String</code> objects on server side.<br/>
     <br/>
-    Valid operator values are: <code>eq</code> - equal to; <code>eqci</code> - equal to (case-insensitive); <code>neq</code> - not equal to; 
-    <code>neqci</code> - not equal to (case-insensitive); <code>gt</code> - greater than; <code>gteq</code> - greater than or equal to;
+    Valid operator values are: <code>eq</code> - equal to; <code>eqic</code> - equal to (ignore case); <code>neq</code> - not equal to; 
+    <code>neqic</code> - not equal to (ignore case); <code>gt</code> - greater than; <code>gteq</code> - greater than or equal to;
     <code>lt</code> - lower than; <code>lteq</code> - lower than or equal to;
-    <code>like</code>; <code>likeci</code> - like (case-insensitive);.<br/>
+    <code>like</code>; <code>likeic</code> - like (ignore case);.<br/>
     <code>key</code> and <code>value</code> may not contain underscore or comma characters.
     </td>
   </tr>
@@ -467,10 +467,10 @@ GET `/task`
     <code>key</code> is the variable name, <code>operator</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
     <strong>Note:</strong> Values are always treated as <code>String</code> objects on server side.<br/>
     <br/>
-   Valid operator values are: <code>eq</code> - equal to; <code>eqci</code> - equal to (case-insensitive); <code>neq</code> - not equal to; 
-    <code>neqci</code> - not equal to (case-insensitive); <code>gt</code> - greater than; <code>gteq</code> - greater than or equal to;
+   Valid operator values are: <code>eq</code> - equal to; <code>eqic</code> - equal to (ignore case); <code>neq</code> - not equal to; 
+    <code>neqic</code> - not equal to (ignore case); <code>gt</code> - greater than; <code>gteq</code> - greater than or equal to;
     <code>lt</code> - lower than; <code>lteq</code> - lower than or equal to;
-    <code>like</code>; <code>likeci</code> - like (case-insensitive);.<br/>
+    <code>like</code>; <code>likeic</code> - like (ignore case);.<br/>
     <code>key</code> and <code>value</code> may not contain underscore or comma characters.
     </td>
   </tr>
@@ -482,10 +482,10 @@ GET `/task`
     <code>key</code> is the variable name, <code>operator</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
     <strong>Note:</strong> Values are always treated as <code>String</code> objects on server side.<br/>
     <br/>
-    Valid operator values are: <code>eq</code> - equal to; <code>eqci</code> - equal to (case-insensitive); <code>neq</code> - not equal to; 
-    <code>neqci</code> - not equal to (case-insensitive); <code>gt</code> - greater than; <code>gteq</code> - greater than or equal to;
+    Valid operator values are: <code>eq</code> - equal to; <code>eqic</code> - equal to (ignore case); <code>neq</code> - not equal to; 
+    <code>neqic</code> - not equal to (ignore case); <code>gt</code> - greater than; <code>gteq</code> - greater than or equal to;
     <code>lt</code> - lower than; <code>lteq</code> - lower than or equal to;
-    <code>like</code>; <code>likeci</code> - like (case-insensitive);.<br/>
+    <code>like</code>; <code>likeic</code> - like (ignore case);.<br/>
     <code>key</code> and <code>value</code> may not contain underscore or comma characters.
     </td>
   </tr>
