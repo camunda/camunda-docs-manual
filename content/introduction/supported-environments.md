@@ -25,8 +25,8 @@ Run the Camunda BPM platform in every Java-runnable environment. Camunda BPM is 
 * Wildfly Application Server 8.2 / 10.1
 * IBM WebSphere Application Server 8.0 / 8.5 / 9.0 ([Enterprise Edition only](http://camunda.com/bpm/enterprise/))
 *	Oracle WebLogic Server 12c (12R1,12R2) ([Enterprise Edition only](http://camunda.com/bpm/enterprise/))
-* Spring Boot application with embedded Tomcat (see [Supported versions]({{< ref "/user-guide/spring-boot-integration/version-compatibility.md" >}}) 
-and [Deployment scenarios]({{< ref "/user-guide/spring-boot-integration/_index.md#supported-deployment-scenarios" >}})). 
+* Spring Boot application with embedded Tomcat (see [Supported versions]({{< ref "/user-guide/spring-boot-integration/version-compatibility.md" >}})
+and [Deployment scenarios]({{< ref "/user-guide/spring-boot-integration/_index.md#supported-deployment-scenarios" >}})).
 
 
 # Container for Camunda Cycle
@@ -70,7 +70,7 @@ Clustered or replicated databases are supported given the following conditions. 
 
 * Sun/Oracle Hot Spot 6 / 7 / 8
 * IBM® J9 virtual machine (JVM) 6 / 7 / 8
-* OpenJDK 7 / 8
+* OpenJDK 7 / 8 (including Adopt OpenJDK with Hotspot JVM)
 * Oracle JRockit 6 - R28.2.7
 
 
