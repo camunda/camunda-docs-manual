@@ -522,13 +522,6 @@ The "Create Instance" permission is required to start new process instances.
 GRANT and REVOKE authorizations with Retry Job, Suspend, Suspend Instance, Update Instance Variable, and Update Task Variable permissions precede over Update.
 Keep in mind that user who is allowed to perform variable updates could trigger other changes in the process by updating a variable. For example, successful evaluation of conditional event related to this variable.
 
-### Default Read Variable Permissions
-When the `ensureSpecificVariablePermission` process engine configuration is enabled, in order to read variables, the user needs to be granted with the following permissions:
-
-* Read Instance Variable (for runtime process instance variables)
-* Read History Variable (for historic variables)
-* Read Task Variable (for runtime task variables)
-
 ## Additional Process Instance Permissions
 
 In Addition to Create, Read, Update, and Delete, the following permissions are available on the Process Instance Resource:
@@ -567,6 +560,20 @@ In Addition to Create, Update, Read and Delete, the following permissions are av
 * Create Batch Update Process Instances Suspend
 
 The specific "Create ..." permission has higher priority than the general "Create" permission.
+
+
+## Default Read Variable Permissions
+When the `enforceSpecificVariablePermission` process engine configuration is enabled, in order to read variables, the user needs to be granted with the following permissions:
+
+In case of Tasks
+
+* Read Variable (for standalone tasks)
+
+In case of Process Definitions
+
+* Read Instance Variable (for runtime process instance variables)
+* Read History Variable (for historic variables)
+* Read Task Variable (for runtime task variables)
 
 ## Application Permissions
 

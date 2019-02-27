@@ -374,12 +374,12 @@ The following is a list with the most commonly used process engine configuration
     </td>
   </tr>
 
-  <tr id="ensureSpecificVariablePermission">
-    <td><code>ensureSpecificVariablePermission</code></td>
+  <tr id="enforceSpecificVariablePermission">
+    <td><code>enforceSpecificVariablePermission</code></td>
     <td>Boolean</td>
     <td>
         If the value of this flag is set to <code>true</code>, the <a href="{{< ref "/user-guide/process-engine/authorization-service.md#default-read-variable-permissions" >}}">default permissions</a> to see/read variables are: 
-        READ_INSTANCE_VARIABLE, READ_HISTORY_VARIABLE, and READ_TASK_VARIABLE. Default value is <code>false</code>.
+        READ_INSTANCE_VARIABLE, READ_HISTORY_VARIABLE, and READ_TASK_VARIABLE on Process Definition resource, and READ_VARIABLE on Task resource. Default value is <code>false</code>.
         <p>
             <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
         </p>
