@@ -50,7 +50,7 @@ In the incidents tab you can click on the incident message name, which will open
 
 The user tasks tab allows managing users and groups for selected user tasks. Hit the {{< glyphicon name="user" >}} or {{< glyphicon name="th" >}} button to open the corresponding menu.
 
-The jobs tab allows recalculation of timer events. You can decide whether the recalculation should be done using the current time by clicking the <button class="btn btn-xs"><i class="glyphicon glyphicon-refresh"></i></button> button, or using the creation date of the job by clicking the <button class="btn btn-xs"><i class="glyphicon glyphicon-repeat"></i></button> button.
+The jobs tab gives you an overview of all currently active jobs. If the job has a duedate, you can edit the duedate by clicking on the {{< glyphicon name="time" >}} button. A dialogue will open where you can choose to recalculate the duedate based on the current time or its creation time. It is also possible to set a specific duedate. Furthermore, you can suspend or activate a job by pressing the {{< glyphicon name="pause" >}} or {{< glyphicon name="play" >}} button respectively.
 
 The external tasks tab displays various information about external tasks, such as the External Task Id, the activity, amount of retries, the Worker Id of the external task, lock expiration time, topic name and the set priority. See the [external tasks]({{< ref "/user-guide/process-engine/external-tasks.md" >}}) section of the user guide for more information about external tasks.
 
