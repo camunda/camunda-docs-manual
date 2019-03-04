@@ -370,7 +370,6 @@ For example, a user without the "Update" permission on the Process Instance Reso
 
 In Addition to Update, Read and Delete, the following permissions are available on the Task Resource:
 
-* Read History
 * Task Assign
 * Task Work
 * Update Variable
