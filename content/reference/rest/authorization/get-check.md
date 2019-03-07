@@ -100,6 +100,16 @@ A JSON array with the following properties:
     <td>Request successful.</td>
   </tr>
   <tr>
+    <td>400</td>
+    <td>application/json</td>
+    <td>Returned if some of the query parameters are invalid, for example if a permission parameterName is not valid for the provided resourceType. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+  </tr>
+  <tr>
+    <td>401</td>
+    <td>application/json</td>
+    <td>The user is not authenticated. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+  </tr>
+  <tr>
     <td>404</td>
     <td>application/json</td>
     <td>Authorization with given id does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>

@@ -132,6 +132,11 @@ A JSON array with the following properties:
     <td>Request successful.</td>
   </tr>
   <tr>
+    <td>400</td>
+    <td>application/json</td>
+    <td>Returned if some of the properties in the request body are invalid, for example if a permission parameter is not valid for the provided resourceType. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+  </tr>
+  <tr>
     <td>403</td>
     <td>application/json</td>
     <td>The authenticated user is unauthorized to create an instance of this resource. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
