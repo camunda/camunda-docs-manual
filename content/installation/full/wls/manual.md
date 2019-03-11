@@ -13,11 +13,13 @@ menu:
 ---
 
 
-This section will describe how you can install the Camunda BPM platform and its components on Oracle WebLogic. 
+This section will describe how you can install the Camunda BPM platform and its components on Oracle WebLogic.
 
-The main focus of this guide is the installation of Camunda BPM platform in a single Admin Server setup. However, you can 
-also apply it to the use case of running two or more versions of Camunda BPM platform in parallel. To achieve the latter, 
-for each version of Camunda BPM platform, a dedicated (admin / managed) server is mandatory.
+The main focus of this guide is the installation of Camunda BPM platform in a single Admin Server setup.
+You can also run Camunda in a setup with an Admin and multiple Managed Servers, for which the installation
+steps need to be adjusted accordingly. This enables the use case of running two or more versions
+of Camunda BPM platform in parallel. For each version of Camunda BPM platform,
+a dedicated (admin / managed) server is mandatory.
 
 {{< note title="Reading this Guide" class="info" >}}
 This guide uses a number of variables to denote common path names and constants.
@@ -46,7 +48,7 @@ The Camunda BPM platform requires a set of resources that need to be configured 
 
 ## Create the Database Schema and Tables
 
-In the default configuration of the distribution, the database schema and all required tables are automatically created in an H2 database when the engine starts up for the first time. If you do not want to use the H2 database, you have to 
+In the default configuration of the distribution, the database schema and all required tables are automatically created in an H2 database when the engine starts up for the first time. If you do not want to use the H2 database, you have to
 
 * Create a database schema for the Camunda BPM platform yourself.
 * Execute the SQL DDL scripts which create all required tables and default indices.
@@ -124,8 +126,8 @@ Restart the Oracle WebLogic Server after this operation.
 
 ### Use a Custom Location for the Domain Libraries
 
-You can change the location of the domain libraries with the `-Dweblogic.ext.dirs` 
-[startup option](https://docs.oracle.com/middleware/12213/wls/START/overview.htm#START-GUID-69C7DB81-B1C5-4BCB-ADCF-2F44B66DD9F8) 
+You can change the location of the domain libraries with the `-Dweblogic.ext.dirs`
+[startup option](https://docs.oracle.com/middleware/12213/wls/START/overview.htm#START-GUID-69C7DB81-B1C5-4BCB-ADCF-2F44B66DD9F8)
 which is useful when you want to run a different version of Camunda BPM platform per (admin / managed) server.
 
 ## Install the Camunda BPM Platform Modules
