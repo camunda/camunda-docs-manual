@@ -13,13 +13,17 @@ menu:
 ---
 
 
-This section will describe how you can install the Camunda BPM platform and its components on an Oracle WebLogic.
+This section will describe how you can install the Camunda BPM platform and its components on Oracle WebLogic. 
+
+The main focus of this guide is the installation of Camunda BPM platform in a single Admin Server setup. However, you can 
+also apply it to the use case of running two or more versions of Camunda BPM platform in parallel. To achieve the latter, 
+for each version of Camunda BPM platform, a dedicated (admin / managed) server is mandatory.
 
 {{< note title="Reading this Guide" class="info" >}}
 This guide uses a number of variables to denote common path names and constants.
 
 * `$WLS_DOMAIN_HOME` points to the Oracle WebLogic application server domain directory (typically something like `/opt/oracle/WebLogic/domains/mydomain`).
-* `$PLATFORM_VERSION` denotes the version of the Camunda BPM platform you want to or have installed, e.g. `7.0.0`.
+* `$PLATFORM_VERSION` denotes the version of the Camunda BPM platform you want to or have installed, e.g. `7.X.Y`.
 * `$WLS_DISTRIBUTION` represents the downloaded Camunda BPM distribution for the Oracle WebLogic Application Server, e.g., `camunda-ee-oracle-wls-$PLATFORM_VERSION.zip`.
 
 The distribution is available at the [Camunda enterprise release page](http://camunda.org/enterprise-release/camunda-bpm/oracle-wls/).
@@ -98,16 +102,16 @@ Note that you can configure multiple datasources used by different process engin
 The following steps are required to deploy the Camunda BPM platform onto an Oracle WebLogic server.
 
 
-## Install the Camunda BPM Platform Shared Libraries
+## Install the Camunda BPM Platform Domain Libraries
 
-The shared libraries include the Camunda engine and some utility JARs. The shared libraries must be visible to both the Camunda BPM platform as well as all process applications.
+The domain libraries include the Camunda engine and some utility JARs. The domain libraries must be visible to both the Camunda BPM platform as well as all process applications.
 
-The shared libraries can be found in the lib folder of the distribution:
+The domain libraries can be found in the lib folder of the distribution:
 
 ```
 camunda-ee-oracle-wls-$PLATFORM_VERSION.zip
 |-- modules/
-      |-- lib/  <-- The shared libs
+      |-- lib/  <-- The domain libs
            |-- camunda-engine-$PLATFORM_VERSION.jar
            |-- java-uuid-generator-XX.jar
            |-- mybatis-XX.jar
@@ -115,15 +119,14 @@ camunda-ee-oracle-wls-$PLATFORM_VERSION.zip
       |-- camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear
 ```
 
-The shared libraries must be copied to the `$WLS_DOMAIN_HOME/lib` folder of your Oracle WebLogic Server installation. Do **"NOT"** copy it to your `$WL_HOME/lib` folder.
+The domain libraries must be copied to the `$WLS_DOMAIN_HOME/lib` folder of your Oracle WebLogic Server installation. Do **"NOT"** copy it to your `$WL_HOME/lib` folder.
 Restart the Oracle WebLogic Server after this operation.
 
-{{< note title="Shared Libraries" class="info" >}}
-  You can optionally create a shared library out of the Camunda BPM platform shared libraries. Then associate it with the `camunda-oracle-weblogic-ear` during installation. Associate the shared library with each deployed process application.
+### Use a Custom Location for the Domain Libraries
 
-  Have a look at the [Oracle WebLogic documentation](https://docs.oracle.com/cd/E24329_01/web.1211/e24368/libraries.htm#WLPRG325) on how to create the shared library.
-{{< /note >}}
-
+You can change the location of the domain libraries with the `-Dweblogic.ext.dirs` 
+[startup option](https://docs.oracle.com/middleware/12213/wls/START/overview.htm#START-GUID-69C7DB81-B1C5-4BCB-ADCF-2F44B66DD9F8) 
+which is useful when you want to run a different version of Camunda BPM platform per (admin / managed) server.
 
 ## Install the Camunda BPM Platform Modules
 
@@ -157,10 +160,13 @@ First the `camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear` RAR file must be i
 3. Select the **"Install"** button.
 4. Using the File Browser, select the `camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear` from the modules folder of the Camunda BPM platform for Oracle WebLogic Application Server distribution and continue to the **"Next"** page.
 5. Select **"Install this deployment as an application"** and continue to the **"Next"** page.
-6. Fill in `camunda-bpm-platform` as name for the enterprise application deployment. This setting is **mandatory** and **MUST NOT** be changed.
+6. Fill in `camunda-bpm-platform` as name for the enterprise application deployment.
+{{< note title="Heads Up!" class="info" >}}
+The names of the [JNDI Bindings for BPM Platform Services]({{< ref "/user-guide/runtime-container-integration/jndi-bindings-for-bpmn-platform-services.md" >}}) consist of the name of the enterprise application deployment.
 
+**Please note:** If you change the name of the enterprise application deployment, the JNDI names change as well.
+{{< /note >}}
 {{< img src="../img/ear-name.png" title="EAR Name" >}}
-
 7. Continue to the **"Next"** page.
 8. Select **"Yes, take me to the deployment's configuration screen"** and click the **"Finish"** button to complete the installation.
 9. (optional) [Configure location of the bpm-platform.xml file]({{< ref "/reference/deployment-descriptors/descriptors/bpm-platform-xml.md#configure-location-of-the-bpm-platform-xml-file" >}}).
