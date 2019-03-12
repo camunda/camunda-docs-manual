@@ -50,6 +50,11 @@ A JSON object with the following properties:
     <td><p>A JSON object containing variable key-value pairs. Each key is a variable name and each value a JSON variable value object with the following properties:</p>
     {{< rest-var-request transient="true">}}
   </tr>
+  <tr>
+    <td>withVariablesInReturn</td>
+    <td>Indicates whether the response should contain the process variables or not. The default is false with a response code of 204. If set to true the response contains the process variables and has a response code of 200.
+    If the task is not associated with a process instance (e.g. if it's part of a case instance) no variables will be returned.</td>
+  </tr>
 </table>
 
 
@@ -67,9 +72,14 @@ This method returns no content.
     <th>Description</th>
   </tr>
   <tr>
+    <td>200</td>
+    <td>application/json</td>
+    <td>Request successful. The response contains the process variables.</td>
+  </tr>
+  <tr>
     <td>204</td>
     <td></td>
-    <td>Request successful.</td>
+    <td>Request successful. The response contains no variables.</td>
   </tr>
   <tr>
     <td>400</td>
@@ -100,3 +110,26 @@ Request Body:
 ## Response
 
 Status 204. No content.
+
+## Request with variables in return
+
+POST `/task/anId/complete`
+
+Request Body:
+
+    {"variables":
+        {"aVariable": {"value": "aStringValue"},
+        "anotherVariable": {"value": 42},
+        "aThirdVariable": {"value": true}},
+     "withVariablesInReturn": true
+    }
+
+## Response
+Status 200.
+
+    {
+        "aVariable": "aStringValue",
+        "anotherVariable": 42,
+        "aThirdVariable": true
+        "additionalProcessVariable": "value"
+    }
