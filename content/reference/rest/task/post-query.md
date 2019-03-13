@@ -467,50 +467,48 @@ A JSON object with the following properties:
   <tr>
     <td>taskVariables</td>
     <td>A JSON array to only include tasks that have variables with certain values. <br/>
-	
     The array consists of JSON objects with three properties <code>name</code>, <code>operator</code> and <code>value</code>.
     <code>name</code> is the variable name, <code>operator</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
-    <code>value</code> may be of type <code>String</code>, <code>Number</code> or <code>Boolean</code>. 
-    However, if a case-insensitive operator (<code>eqic</code>, <code>neqic</code> or <code>likeic</code>) 
-    is used <code>value</code> must be of type <code>String</code>.<br/>
+    <code>value</code> may be of type <code>String</code>, <code>Number</code> or <code>Boolean</code>.<br/>
     <br/>
-    Valid operator values are: <code>eq</code> - equal to; <code>eqic</code> - equal to (ignore case); <code>neq</code> - not equal to; 
-    <code>neqic</code> - not equal to (ignore case); <code>gt</code> - greater than; <code>gteq</code> - greater than or equal to;
-    <code>lt</code> - lower than; <code>lteq</code> - lower than or equal to;
-    <code>like</code>; <code>likeic</code> - like (ignore case);.<br/>
+    Valid operator values are: <code>eq</code> - equal to; <code>neq</code> - not equal to; <code>gt</code> - greater than;
+    <code>gteq</code> - greater than or equal to; <code>lt</code> - lower than; <code>lteq</code> - lower than or equal to;
+    <code>like</code>.<br/>
     </td>
   </tr>
   <tr>
     <td>processVariables</td>
     <td>A JSON array to only include tasks that belong to a process instance with variables with certain values.<br/>
-	
     The array consists of JSON objects with three properties <code>name</code>, <code>operator</code> and <code>value</code>.
     <code>name</code> is the variable name, <code>operator</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
-    <code>value</code> may be of type <code>String</code>, <code>Number</code> or <code>Boolean</code>. 
-    However, if a case-insensitive operator (<code>eqic</code>, <code>neqic</code> or <code>likeic</code>) 
-    is used <code>value</code> must be of type <code>String</code>.<br/>
+    <code>value</code> may be of type <code>String</code>, <code>Number</code> or <code>Boolean</code>.<br/>
     <br/>
-    Valid operator values are: <code>eq</code> - equal to; <code>eqic</code> - equal to (ignore case); <code>neq</code> - not equal to; 
-    <code>neqic</code> - not equal to (ignore case); <code>gt</code> - greater than; <code>gteq</code> - greater than or equal to;
-    <code>lt</code> - lower than; <code>lteq</code> - lower than or equal to;
-    <code>like</code>; <code>likeic</code> - like (ignore case);.<br/>
+    Valid operator values are: <code>eq</code> - equal to; <code>neq</code> - not equal to; <code>gt</code> - greater than;
+    <code>gteq</code> - greater than or equal to; <code>lt</code> - lower than; <code>lteq</code> - lower than or equal to;
+    <code>like</code>.<br/>
     </td>
   </tr>
   <tr>
     <td>caseInstanceVariables</td>
-    <td>A JSON array to only include tasks that belong to a case instance with variables with certain values.<br/>
-	
-    The array consists of JSON objects with three properties <code>name</code>, <code>operator</code> and <code>value</code>.
-    <code>name</code> is the variable name, <code>operator</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
-    <code>value</code> may be of type <code>String</code>, <code>Number</code> or <code>Boolean</code>. 
-    However, if a case-insensitive operator (<code>eqic</code>, <code>neqic</code> or <code>likeic</code>) 
-    is used <code>value</code> must be of type <code>String</code>.<br/>
+    <td>Only include tasks that belong to case instances that have variables with certain values.
+    Variable filtering expressions are comma-separated and are structured as follows:<br/>
+    A valid parameter value has the form <code>key_operator_value</code>.
+    <code>key</code> is the variable name, <code>operator</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
+    <strong>Note:</strong> Values are always treated as <code>String</code> objects on server side.<br/>
     <br/>
-    Valid operator values are: <code>eq</code> - equal to; <code>eqic</code> - equal to (ignore case); <code>neq</code> - not equal to; 
-    <code>neqic</code> - not equal to (ignore case); <code>gt</code> - greater than; <code>gteq</code> - greater than or equal to;
-    <code>lt</code> - lower than; <code>lteq</code> - lower than or equal to;
-    <code>like</code>; <code>likeic</code> - like (ignore case);.<br/>
+    Valid operator values are: <code>eq</code> - equal to; <code>neq</code> - not equal to; <code>gt</code> - greater than;
+    <code>gteq</code> - greater than or equal to; <code>lt</code> - lower than; <code>lteq</code> - lower than or equal to;
+    <code>like</code>.<br/>
+    <code>key</code> and <code>value</code> may not contain underscore or comma characters.
     </td>
+  </tr>
+  <tr>
+    <td>variableNamesIgnoreCase</td>
+    <td>Match all variable names in this query case-insensitively. If set to <code>true</code> <code>variableName</code> and <code>variablename</code> are treated as equal.</td>
+  </tr>
+  <tr>
+    <td>variableValuesIgnoreCase</td>
+    <td>Match all variable values in this query case-insensitively. If set to <code>true</code> <code>variableValue</code> and <code>variablevalue</code> are treated as equal.</td>
   </tr>
   <tr>
     <td>parentTaskId</td>
