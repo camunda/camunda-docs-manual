@@ -147,18 +147,111 @@ You can now see the engine database and use it to understand how and why your un
 
 {{< img src="img/api-test-debug-h2-tables.png" title="API Test Debugging" >}}
 
-# Community extensions to support testing
 
-There are a couple of well documented and heavily used community extensions that can make testing much more productive and fun.
+# Camunda Assertions
 
-## Camunda Assertions
-
-Additional to normal JUnit assertions, [camunda-bpm-assert](https://github.com/camunda/camunda-bpm-assert) adds a fluent API for asserting typical scenarios in a process integrating with [AssertJ](https://joel-costigliola.github.io/assertj/).
+Additional to normal JUnit assertions, [Camunda BPM Assert](https://github.com/camunda/camunda-bpm-assert) adds a fluent API for asserting typical scenarios in a process integrating with [AssertJ](https://joel-costigliola.github.io/assertj/).
 
 ```java
 assertThat(processInstance).isWaitingAt("UserTask_InformCustomer");
 assertThat(task).hasCandidateGroup("Sales").isNotAssigned();
 ```
+
+A more extensive guide with examples can also be found [in the repository](https://github.com/camunda/camunda-bpm-assert/blob/master/camunda-bpm-assert/README.md).
+
+To use Camunda BPM Assert, add the following dependency to your ```pom.xml```:
+
+```xml
+<dependency>
+  <groupId>org.camunda.bpm.assert</groupId>
+  <artifactId>camunda-bpm-assert</artifactId>
+  <!-- or, for compatibility with AssertJ v2: -->
+  <artifactId>camunda-bpm-assert-assertj2</artifactId>
+  <!-- or, for compatibility with AssertJ v3.9.1 that comes with spring-boot v2.0.x: -->
+  <artifactId>camunda-bpm-assert-assertj3-9-1</artifactId>
+  <version>3.0.0-alpha1</version>
+</dependency>
+```
+
+Also, you will have to add the AssertJ library v3.11.1 (or any other chosen compatibility version) to your dependencies.
+
+If Camunda BPM Assert is used in combination with [Spring Boot](https://spring.io/projects/spring-boot) or the [Camunda Spring Boot Starter](https://docs.camunda.org/manual/latest/user-guide/spring-boot-integration/), the AssertJ dependency will be present in your project already. Please choose a compatible Camunda BPM Assert artifact in this case.
+
+The Camunda BPM Assert artifact that matches the AssertJ version introduced by your project can be chosen by the `artifactId`.
+
+## Assertions Version Compatibility
+
+Each version of Camunda BPM Assert is bound to a specific version of Camunda BPM and AssertJ. Only these default combinations are recommended (and supported) by Camunda.
+Nevertheless, each version of Camunda BPM Assert can be combined with newer patch versions of the Camunda BPM engine, though such combinations must be thoroughly tested before being used in production.
+
+<table class="table table-striped">
+  <tr>
+    <th>Camunda BPM Assert artifact</th>
+    <th>Camunda BPM Assert version</th>
+    <th>Camunda BPM version</th>
+    <th>AssertJ version</th>
+  </tr>
+  <tr>
+    <td>camunda-bpm-assert</td>
+    <td>1.0&#42;</td>
+    <td>7.0.0</td>
+    <td>1.5.0</td>
+  </tr>
+  <tr>
+    <td>camunda-bpm-assert</td>
+	<td>1.1&#42;</td>
+    <td>7.0.0</td>
+    <td>1.6.1</td>
+  </tr>
+  <tr>
+    <td>camunda-bpm-assert</td>
+	<td>1.2&#42;</td>
+    <td>7.0.0</td>
+    <td>1.7.0</td>
+  </tr>
+  <tr>
+    <td>camunda-bpm-assert</td>
+	<td>2.0-alpha1&#42;&#42;</td>
+    <td>7.0.0</td>
+    <td>1.7.1</td>
+  </tr>
+  <tr>
+    <td>camunda-bpm-assert</td>
+	<td>2.0-alpha2&#42;&#42;</td>
+    <td>7.0.0</td>
+    <td>1.7.1</td>
+  </tr>
+  <tr>
+	<td>camunda-bpm-assert</br>camunda-bpm-assert-assertj2</br>camunda-bpm-assert-assertj3-9-1</td>
+    <td>3.0.0-alpha1</td>
+    <td>7.10.0</td>
+    <td>3.11.1</br>2.9.0</br>3.9.1</td>
+  </tr>
+</table>
+
+\* For these versions, use the following Maven coordinates:
+```
+<dependency>
+  <groupId>org.camunda.bpm.extension</groupId>
+  <artifactId>camunda-bpm-assert</artifactId>
+  <version>1.x</version> <!-- set correct version here -->
+</dependency>
+```
+
+\*\* For these versions, only alphas were released, there will be no final release for this branch.
+For these versions, use the following Maven coordinates:
+```
+<dependency>
+  <groupId>org.camunda.bpm.extension</groupId>
+  <artifactId>camunda-bpm-assert</artifactId>
+  <version>2.x</version> <!-- set correct version here -->
+</dependency>
+```
+
+
+# Community extensions to support testing
+
+There are a couple of well documented and heavily used community extensions that can make testing much more productive and fun.
 
 ## Camunda Scenario Tests
 
