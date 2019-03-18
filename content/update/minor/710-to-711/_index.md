@@ -20,6 +20,7 @@ This document guides you through the update from Camunda BPM `7.10.x` to `7.11.0
 3. For administrators: [Standalone Web Application](#standalone-web-application)
 4. For developers: [Spring Boot Starter Update](#spring-boot-starter-update)
 5. For developers: [External Task Client Update](#external-task-client-update)
+6. For developers: [Changes Affecting Custom Permissions/Resources](#changes-affecting-custom-permissions-resources)
 
 This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda BPM 7.11.
 
@@ -43,7 +44,7 @@ Every Camunda installation requires a database schema update.
 
     The scripts update the database from one minor version to the next, and change the underlying database structure. So make sure to backup your database in case there are any failures during the update process.
 
-3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda BPM platform, e.g., `7.10.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
+3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda BPM platform, e.g., `7.11.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
 
 ### MySQL/MariaDB Specifics
 
@@ -62,7 +63,7 @@ The following steps are required:
 1. Update the Camunda libraries and applications inside the application server
 2. Migrate custom process applications
 
-Before starting, make sure that you have downloaded the Camunda BPM 7.10 distribution for the application server you use. It contains the SQL scripts and libraries required for update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
+Before starting, make sure that you have downloaded the Camunda BPM 7.11 distribution for the application server you use. It contains the SQL scripts and libraries required for update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
 
 ## Camunda Libraries and Applications
 
@@ -103,3 +104,63 @@ If you are using Camunda Spring Boot Starter within you Spring Boot application,
 1. Check [Version Compatibility Matrix]({{< ref "/user-guide/spring-boot-integration/version-compatibility.md" >}})
 2. Update **Spring Boot Starter** and, when required, Spring Boot versions in your `pom.xml`.
 3. Update the Camunda BPM version in your `pom.xml` in case you override it before (e.g. when using the enterprise version or a patch releases)
+
+# External Task Client Update
+
+If you are using the **Camunda External Task Client**, please make sure to:
+
+1. Check out the [Version Compatibility Matrix]({{< ref "/user-guide/ext-client/compatibility-matrix.md" >}})
+2. Update the version in your `pom.xml` (Java) or `package.json` (NodeJs)
+
+# Changes Affecting Custom Permissions/Resources
+
+Some changes for [Permissions](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.11/org/camunda/bpm/engine/authorization/Permissions.html) have been introduced which might affect you in case having custom Permissions and/or custom [Resources](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.11/org/camunda/bpm/engine/authorization/Resources.html). Please have a look at the described scenarios below:
+
+<table class="table desc-table">
+  <thead>
+    <tr>
+      <th>Scenario</th>
+      <th>Impact</th>
+    <tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Build-in Permissions <br>
+          Build-in Resources</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>Custom Permissions <br>
+          Build-in Resources</td>
+      <td>
+        <li>
+          Implement the new <code>Permission#getResources()</code>
+       </li>
+       <li>
+          Possible clash with newly introduced Permissions, please consider disabling those permissions via process engine configuration [property]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#disabledPermissions" >}})
+       </li>
+      </td>
+    </tr>
+    <tr>
+      <td>Build-in Permissions <br>
+          Custom Resources</td>
+      <td>Create own Permission Enum where it must be specified the custom resource.</td>
+    </tr>
+    <tr>
+      <td>Custom Permissions <br>
+          Custom Resources</td>
+      <td>Implement the new <code>Permission#getResources()</code></td>
+    </tr>
+    <tr>
+      <td>Build-in Permissions are used for Build-in Resource different that defined by Camunda</td>
+      <td>
+        <li>
+          Create own Permission Enum where it must be specified the custom resource.
+        </li>
+        <li>
+          Possible clash with newly introduced Permissions, please consider disabling those permissions via process engine configuration [property]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#disabledPermissions" >}})
+        </li>
+      </td>
+    </tr>
+  </tbody>
+</table>

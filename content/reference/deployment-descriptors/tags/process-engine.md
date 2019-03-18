@@ -286,6 +286,13 @@ The following is a list with the most commonly used process engine configuration
   </tr>
 
   <tr>
+    <td><a name="disabledPermissions"></a><code>disabledPermissions</code></td>
+    <td>Set</td>
+    <td>Provide a set of Permissions which will be not taken into account whenever authorization check is performed.
+    </td>
+  </tr>
+
+  <tr>
     <td><code>enableExceptionsAfterUnhandledBpmnError</code></td>
     <td>Boolean</td>
     <td>
