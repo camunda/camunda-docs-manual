@@ -136,6 +136,10 @@ A JSON object with the following properties:
     <td>Restrict the query to all process instances that are top level process instances.</td>
   </tr>
   <tr>
+    <td>processDefinitionWithoutTenantId</td>
+    <td>Only include process instances which process definition has no tenant id.</td>
+  </tr>
+  <tr>
     <td>variables</td>
     <td>A JSON array to only include process instances that have variables with certain values. <br/>
     The array consists of objects with the three properties <code>name</code>, <code>operator</code> and <code>value</code>.

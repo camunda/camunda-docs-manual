@@ -117,6 +117,10 @@ GET `/process-instance/count`
     <td>Restrict the query to all process instances that are top level process instances.</td>
   </tr>
   <tr>
+    <td>processDefinitionWithoutTenantId</td>
+    <td>Only include process instances which process definition has no tenant id.</td>
+  </tr>
+  <tr>
     <td>variables</td>
     <td>Only include process instances that have variables with certain values.
     Variable filtering expressions are comma-separated and are structured as follows:<br/>
