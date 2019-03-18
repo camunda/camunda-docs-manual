@@ -137,7 +137,8 @@ Some changes for [Permissions](https://docs.camunda.org/javadoc/camunda-bpm-plat
           Implement the new <code>Permission#getResources()</code>
        </li>
        <li>
-          Possible clash with newly introduced Permissions, please consider disabling those permissions via process engine configuration [property]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#disabledPermissions" >}})
+          Possible clash with newly introduced Permissions, please consider disabling those permissions via process engine configuration 
+          <a href="{{< ref "/reference/deployment-descriptors/tags/process-engine.md#disabledPermissions">}}">property</a>
        </li>
       </td>
     </tr>
@@ -158,7 +159,8 @@ Some changes for [Permissions](https://docs.camunda.org/javadoc/camunda-bpm-plat
           Create own Permission Enum where it must be specified the custom resource.
         </li>
         <li>
-          Possible clash with newly introduced Permissions, please consider disabling those permissions via process engine configuration [property]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#disabledPermissions" >}})
+          Possible clash with newly introduced Permissions, please consider disabling those permissions via process engine configuration 
+          <a href="{{< ref "/reference/deployment-descriptors/tags/process-engine.md#disabledPermissions">}}">property</a>
         </li>
       </td>
     </tr>
