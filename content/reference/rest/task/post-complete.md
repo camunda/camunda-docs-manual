@@ -95,7 +95,9 @@ This method returns no content.
 
 # Example
 
-## Request
+## Complete task
+
+### Request
 
 POST `/task/anId/complete`
 
@@ -107,11 +109,13 @@ Request Body:
         "aThirdVariable": {"value": true}}
     }
 
-## Response
+### Response
 
 Status 204. No content.
 
-## Request with variables in return
+## Complete Task with variables in return
+
+### Request
 
 POST `/task/anId/complete`
 
@@ -124,7 +128,7 @@ Request Body:
      "withVariablesInReturn": true
     }
 
-## Response
+### Response
 Status 200.
 
     {

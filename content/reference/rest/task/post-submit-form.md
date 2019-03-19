@@ -98,7 +98,9 @@ This method returns no content.
 
 # Example
 
-## Request
+## Submit a task form
+
+### Request
 
 POST `/task/anId/submit-form`
 
@@ -125,11 +127,13 @@ Request Body:
         }
     }
 
-## Response
+### Response
 
 Status 204. No content.
 
-## Request with variables in return
+## Submit a task form with variables in return
+
+### Request
 
 POST `/task/anId/submit-form`
 
@@ -150,7 +154,7 @@ Request Body:
         "withVariablesInReturn": true
     }
 
-## Response
+### Response
 Status 200.
 
     {
