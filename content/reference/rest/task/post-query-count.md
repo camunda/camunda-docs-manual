@@ -470,16 +470,14 @@ expression as a substring.
   </tr>
   <tr>
     <td>caseInstanceVariables</td>
-<td>A JSON array to only include tasks that belong to a case instance with variables with certain values.<br/>
+    <td>A JSON array to only include tasks that belong to a case instance with variables with certain values.<br/>
     The array consists of JSON objects with three properties <code>name</code>, <code>operator</code> and <code>value</code>.
     <code>name</code> is the variable name, <code>operator</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
     <code>value</code> may be of type <code>String</code>, <code>Number</code> or <code>Boolean</code>.<br/>
-    <strong>Note:</strong> Values are always treated as <code>String</code> objects on server side.<br/>
     <br/>
     Valid operator values are: <code>eq</code> - equal to; <code>neq</code> - not equal to; <code>gt</code> - greater than;
     <code>gteq</code> - greater than or equal to; <code>lt</code> - lower than; <code>lteq</code> - lower than or equal to;
     <code>like</code>.<br/>
-    <code>key</code> and <code>value</code> may not contain underscore or comma characters.
     </td>
   </tr>
     <tr>
