@@ -352,7 +352,7 @@ Similar to the Java-Object-based API, it is also possible to set multiple typed 
 com.example.Order order = new com.example.Order();
 
 VariableMap variables =
-  Variables.create()
+  Variables.createVariables()
     .putValueTyped("order", Variables.objectValue(order))
     .putValueTyped("string", Variables.stringValue("a string value"))
     .putValueTyped("stringTransient", Variables.stringValue"foobar", true));
