@@ -307,7 +307,7 @@ The following steps are required to deploy the REST API:
 
 1. Download the REST API web application archive from our [Maven Nexus Server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/camunda-engine-rest/).
    Alternatively, switch to the private repository for the enterprise version (credentials from license required).
-   Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION.war`.
+   Choose the correct version named `$PLATFORM_VERSION-ee/camunda-engine-rest-$PLATFORM_VERSION-ee-jbossas7.war`. Please note: If you are using a newer version than JBoss EAP 6.4, the correct artifact is `$PLATFORM_VERSION-ee/camunda-engine-rest-$PLATFORM_VERSION-ee-wildfly.war`
 2. Optionally, you may change the context path to which the REST API will be deployed (default is `/engine-rest`).
    Edit the file `WEB-INF/jboss-web.xml` in the war file and update the `context-root` element accordingly.
 3. Copy the war file to `$JBOSS_HOME/standalone/deployments`.
