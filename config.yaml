@@ -21,6 +21,9 @@ params:
     - id: "enterprise"
       name: "Enterprise"
       url: "/enterprise"
+    - id: "security"
+      name: "Security"
+      url: "/security"
   section:
     id: "manual"
     version: "7.10"
