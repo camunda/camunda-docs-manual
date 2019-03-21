@@ -76,3 +76,9 @@ To do this, you must create a Service Provider that implements the interface `Pr
 and declare it in a file `META-INF/services/org.camunda.bpm.engine.rest.spi.ProcessEngineProvider`.
 You may also declare the class `org.camunda.bpm.engine.rest.impl.application.ContainerManagedProcessEngineProvider`
 which comes with the REST API and uses the methods that the class `org.camunda.bpm.BpmPlatform` provides.
+
+Also, you must create a Service Provider that implements the interface `PermissionProvider`
+and declare it in a file `META-INF/services/org.camunda.bpm.engine.rest.spi.PermissionProvider`.
+Here you may declare the class `org.camunda.bpm.engine.rest.spi.impl.DefaultPermissionProvider`
+which comes with the REST API. However, in case you have custom [Permissions](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.11/org/camunda/bpm/engine/authorization/Permission.html),
+you need to provide your own implementation which resolve them as well.
