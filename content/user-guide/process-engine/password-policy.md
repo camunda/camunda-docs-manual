@@ -1,0 +1,68 @@
+---
+
+title: 'Password Policy'
+weight: 155
+
+menu:
+  main:
+    identifier: "user-guide-process-engine-password-policy"
+    parent: "user-guide-process-engine"
+
+---
+This chapter is about configuring and using a password policy for engine-managed user accounts. A password policy makes sure that only passwords that meet certain criteria are allowed. Violation of one of the policy's rules results in an error
+and the user not being saved.
+
+Camunda 7.11 comes with a standard password policy that is enabled by default. 
+
+**Note:** This only applies to users that are managed within the Camunda engine. If you use LDAP for your user management a password policy has no effect on these users.
+
+# Default Password Policy
+
+The default password policy that comes with Camunda 7.11 requires all passwords to meet the following criteria:
+
+* minimum length of 10 characters
+* at least 1 upper case character
+* at least 1 lower case character
+* at least 1 digit
+* at least 1 special character
+
+# Customize the Password Policy
+
+You can use the process engine configuration to enable / disable the password policy or plug in a custom policy. See [Process Engine Bootstrapping](../process-engine-bootstrapping) on how to set properties for your Camunda environment.
+
+To enable or disable the password policy checks you need to set the `disablePasswordPolicy` property.
+
+If you want to use a custom password policy you can do this by implementing the `PasswordPolicy` and `PasswordPolicyRule` interfaces from the `org.camunda.bpm.engine.pwpolicy` package and provide your implementation to the process engine configuration by setting the `passwordPolicy` property.
+
+```java
+public class MyPasswordPolicy implements PasswordPolicy {
+
+  @Override
+  public List<PasswordPolicyRule> getRules() {
+    // create rules
+  }
+}
+```
+```java
+public class MyPasswordPolicyRule implements PasswordPolicyRule {
+
+  @Override
+  public String getPlaceholder() {
+    // This placeholder can be used by a front end to display error messages.
+    return "RULE_PLACEHOLDER";
+  }
+
+  @Override
+  public Map<String, String> getParameter() {
+    // These parameters can be injected into error messages by a front end.
+  }
+
+  @Override
+  public boolean execute(String password) {
+    // do something
+  }
+}
+```
+By providing a rule placeholder and parameters via `getPlaceholder` and `getParameter` a custom front end can display error messages based on the rules and their configuration. (e.g. "The password must at least have a length of X characters" with X being configurable and passed within the parameter map)
+
+A rules `execute` method checks if the entered password meets this rule or not. It is executed when trying to save a user.
