@@ -8,7 +8,7 @@ menu:
     name: "Unlock User"
     identifier: "rest-api-user-unlock"
     parent: "rest-api-user"
-    pre: "GET `/user/{id}/unlock`"
+    pre: "POST `/user/{id}/unlock`"
 
 ---
 
@@ -17,7 +17,7 @@ Unlocks a user by id.
 
 # Method
 
-GET `/user/{id}/unlock`
+POST `/user/{id}/unlock`
 
 
 # Parameters
@@ -71,7 +71,7 @@ This method returns no content.
 
 ## Request
 
-GET `/user/jonny1/unlock`
+POST `/user/jonny1/unlock`
 
 ## Response
 
