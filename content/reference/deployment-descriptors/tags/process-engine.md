@@ -287,8 +287,8 @@ The following is a list with the most commonly used process engine configuration
 
   <tr>
     <td><a name="disabledPermissions"></a><code>disabledPermissions</code></td>
-    <td>Set</td>
-    <td>Provide a set of Permissions which will be not taken into account whenever authorization check is performed.
+    <td>List</td>
+    <td>Define a list of Permissions' names. These permissions will be not taken into account whenever authorization check is performed.
     </td>
   </tr>
 

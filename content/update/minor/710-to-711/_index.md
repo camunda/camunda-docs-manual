@@ -114,8 +114,15 @@ If you are using the **Camunda External Task Client**, please make sure to:
 
 # Changes Affecting Custom Permissions/Resources
 
-Some changes for [Permissions](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.11/org/camunda/bpm/engine/authorization/Permissions.html) have been introduced which might affect you in case having custom Permissions and/or custom [Resources](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.11/org/camunda/bpm/engine/authorization/Resources.html). Please have a look at the described scenarios below:
+This section concerns you in case the [authorization checks]({{< ref "/user-guide/process-engine/authorization-service.md#enable-authorization-checks" >}}) are enabled and you have custom Permissions or Resources.
 
+An Authorization assigns a set of Permissions to an identity to interact with a given Resource.
+The build-in [Permissions] (https://docs.camunda.org/javadoc/camunda-bpm-platform/7.11/org/camunda/bpm/engine/authorization/Permissions.html) define the way an identity is allowed to interact with a certain resource.
+The build-in [Resources](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.11/org/camunda/bpm/engine/authorization/Resources.html) are the entities the user interacts with.
+
+A custom Permission is a custom implementation of the [Permission] (https://docs.camunda.org/javadoc/camunda-bpm-platform/7.11/org/camunda/bpm/engine/authorization/Permission.html) interface.
+Also a custom Resource is a custom implementation of the [Resource](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.11/org/camunda/bpm/engine/authorization/Resource.html) interface.
+In case you have at least one of these custom implementations please have a look at the table below what will be the impact for you:
 <table class="table desc-table">
   <thead>
     <tr>
@@ -153,7 +160,7 @@ Some changes for [Permissions](https://docs.camunda.org/javadoc/camunda-bpm-plat
       <td>Implement the new <code>Permission#getResources()</code></td>
     </tr>
     <tr>
-      <td>Build-in Permissions are used for Build-in Resource different that defined by Camunda</td>
+      <td>Build-in Permissions are used for Build-in Resource different than defined by Camunda</td>
       <td>
         <li>
           Create own Permission Enum where it must be specified the custom resource.
