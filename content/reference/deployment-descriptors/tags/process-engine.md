@@ -743,6 +743,13 @@ The following is a list with the most commonly used process engine configuration
     <td>Activates metrics for history cleanup. Default value is <code>true</code>;.</td>
   </tr>
   <tr>
+    <td><code>historyTimeToLive</code></td>
+    <td>String</td>
+    <td>Defines history time to live for process definitions if no other value is defined.
+The history time to live defines the number of days using a time specified by the ISO-8601 date format. The function only accepts the notation to define a number of days.
+    </td>
+  </tr>
+  <tr>
     <td><code>batchOperationHistoryTimeToLive</code></td>
     <td>String</td>
     <td>Defines history time to live for historic batch operations.
