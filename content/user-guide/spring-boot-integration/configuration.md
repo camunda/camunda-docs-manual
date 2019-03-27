@@ -197,6 +197,19 @@ public class MyCustomConfiguration extends AbstractCamundaConfiguration {
 <td>Name of the process engine</td>
 <td>Camunda default value</td>
 </tr>
+
+<tr>
+<td><code>.generate-unique-process-engine-name</code></td>
+<td>Generate a unique name for the process engine (format: 'processEngine' + 10 random alphanumeric characters)</td>
+<td>false</td>
+</tr>
+
+<tr>
+<td><code>.generate-unique-process-application-name</code></td>
+<td>Generate a unique Process Application name for every Process Application deployment (format: 'processApplication' + 10 random alphanumeric characters)</td>
+<td>false</td>
+</tr>
+
 <tr>
 <td><code>.default-serialization-format</code></td>
 <td>Default serialization format</td>
