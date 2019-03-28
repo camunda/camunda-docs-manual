@@ -218,45 +218,45 @@ All versions prior to 3.0.0 belong to the community extension are not part of th
 <table class="table table-striped">
   <tr>
     <th>Camunda BPM Assert artifact</th>
+    <th>AssertJ version</th>
     <th>Camunda BPM Assert version</th>
     <th>Camunda BPM version</th>
-    <th>AssertJ version</th>
   </tr>
   <tr>
     <td>camunda-bpm-assert</td>
+    <td>1.5.0</td>
     <td>1.0&#42;</td>
     <td>7.0.0 - 7.6.0</td>
-    <td>1.5.0</td>
   </tr>
   <tr>
     <td>camunda-bpm-assert</td>
+    <td>1.6.1</td>
 	<td>1.1&#42;</td>
     <td>7.0.0 - 7.6.0</td>
-    <td>1.6.1</td>
   </tr>
   <tr>
     <td>camunda-bpm-assert</td>
+    <td>1.7.0</td>
 	<td>1.2&#42;</td>
     <td>7.0.0 - 7.6.0</td>
-    <td>1.7.0</td>
   </tr>
   <tr>
     <td>camunda-bpm-assert</td>
+    <td>1.7.1</td>
 	<td>2.0-alpha1&#42;&#42;</td>
     <td>7.0.0 - 7.9.0</td>
-    <td>1.7.1</td>
   </tr>
   <tr>
     <td>camunda-bpm-assert</td>
+    <td>1.7.1</td>
 	<td>2.0-alpha2&#42;&#42;</td>
     <td>7.0.0 - 7.9.0</td>
-    <td>1.7.1</td>
   </tr>
   <tr>
 	<td>camunda-bpm-assert</br>camunda-bpm-assert-assertj2</br>camunda-bpm-assert-assertj3-9-1</td>
+    <td>3.11.1</br>2.9.0</br>3.9.1</td>
     <td>3.0.0-alpha1</td>
     <td>7.10.0</td>
-    <td>3.11.1</br>2.9.0</br>3.9.1</td>
   </tr>
 </table>
 
