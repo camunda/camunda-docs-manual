@@ -1073,6 +1073,21 @@ The function only accepts the notation to define a number of days.
 
 You can define and update "historyTimeToLive" for decision definitions and case definitions in a similar way.
 
+In case you want to provide an engine-wide default "historyTimeToLive" for all process, decision and case definitions, 
+use the ["historyTimeToLive" attribute]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#historytimetolive">}}) 
+of the process engine configuration. 
+
+Setting this option reverses the default behavior of removal time calculation, 
+i.e. it is calculated for all instances of the definitions unless you programmatically update it to `null` via 
+`updateProcessDefinitionHistoryTimeToLive` or [REST API]({{< ref "/reference/rest/process-definition/put-history-time-to-live.md">}}). 
+
+The engine-wide default can also be overriden for single definitions with the 
+[extension attribute]({{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#historytimetolive">}}) but can not be nulled by it.
+
+{{< note title="Heads-up!" class="info" >}}
+The engine-wide default configuration only affects those definitions that are deployed *after* the value has been set in the engine.
+{{< /note >}}
+
 ### Batch Operations
 
 You must specify "history time to live" for specific batch operations or all of them depends which one should be affected by the cleanup.

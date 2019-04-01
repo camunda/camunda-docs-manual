@@ -742,7 +742,7 @@ The following is a list with the most commonly used process engine configuration
     <td>Boolean</td>
     <td>Activates metrics for history cleanup. Default value is <code>true</code>;.</td>
   </tr>
-  <tr>
+  <tr id="historytimetolive">
     <td><code>historyTimeToLive</code></td>
     <td>String</td>
     <td>Defines history time to live for process definitions if no other value is defined.
