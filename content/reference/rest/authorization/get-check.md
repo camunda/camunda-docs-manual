@@ -50,6 +50,11 @@ GET `/authorization/check`
     <td>The id of the resource to check permissions for. If left blank, a check for global permissions on the resource is performed.</td>
     <td>No</td>
   </tr>
+  <tr>
+    <td>userId</td>
+    <td>The id of the user to check permissions for. The currently authenticated user must have Read Permission for Authorization resource. If <code>userId</code> is blank, a check for currently authenticated user is performed.</td>
+    <td>No</td>
+  </tr>
 </table>
 
 
@@ -108,6 +113,11 @@ A JSON array with the following properties:
     <td>401</td>
     <td>application/json</td>
     <td>The user is not authenticated. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+  </tr>
+  <tr>
+    <td>403</td>
+    <td>application/json</td>
+    <td>When <code>userId</code> is passed and the user is not granted with READ permission for Authorization resource. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
