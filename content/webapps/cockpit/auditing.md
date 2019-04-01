@@ -23,13 +23,17 @@ Since Cockpit is a very powerful tool, it is often desired to inspect which user
 
 To get a more detailed explanation about the Java and REST API methods to get user operations, check out [this url]({{< ref "/user-guide/process-engine/history.md#accessing-the-user-operation-log" >}}).
 
+# Operation Log in Cockpit
+{{< img src="../img/cockpit-operation-log.png" title="Operation Log" >}}
 
-# User Operation Log in Cockpit
+Cockpit provides the possibility to view the activity of different users in the Operation. The table can be found in the top menu bar under the 'more' option.
+The table is a representation of the history of various user operations and all information about the changes involved.
+Rows are grouped by operation to provide clear insights on the changes produced by each operation. Results can be filtered using the search bar at the top. Columns can be dynamically added or removed to show only the relevant information.
+
+# User Operation Log per Process
 {{< img src="../img/cockpit-user-operation-log.png" title="Batch View Page" >}}
 
-Cockpit provides the possiblity to view the activity of different users in the User Operations table. The table can be found in both the process definition and instance history views. 
-The table is a representation of the history of various user operations and information about the property changes involved.
-Rows are grouped by operation to provide clear insights on the changes produced by each operation.
+Every Process Instance offers a User Operations table. It displays all User Operation affecting the particular process. The table can be found in both the process definition and instance history views.
 
 # Cockpit Operation Log Entries
 
