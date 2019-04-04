@@ -188,11 +188,11 @@ GET `/history/process-instance`
   </tr>
   <tr>
     <td>executedActivityBefore</td>
-    <td>Restrict to instances that executed an activity before the given date (inclusive). By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000CET</code>.</td>
+    <td>Restrict to instances that executed an activity before the given date (inclusive). By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>executedActivityAfter</td>
-    <td>Restrict to instances that executed an activity after the given date (inclusive). By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000CET</code>.</td>
+    <td>Restrict to instances that executed an activity after the given date (inclusive). By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>executedActivityIdIn</td>
@@ -204,11 +204,11 @@ GET `/history/process-instance`
   </tr>
   <tr>
     <td>executedJobBefore</td>
-    <td>Restrict to instances that executed an job before the given date (inclusive). By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000CET</code>.</td>
+    <td>Restrict to instances that executed an job before the given date (inclusive). By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>executedJobAfter</td>
-    <td>Restrict to instances that executed an job after the given date (inclusive). By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000CET</code>.</td>
+    <td>Restrict to instances that executed an job after the given date (inclusive). By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>active</td>
@@ -378,7 +378,7 @@ Each historic process instance object has the following properties:
 
 ## Request
 
-GET `/history/process-instance?finishedAfter=2013-01-01T00:00:00.000CET&finishedBefore=2013-04-01T23:59:59.000CET&executedActivityAfter=2013-03-23T13:42:44.000CET`
+GET `/history/process-instance?finishedAfter=2013-01-01T00:00:00.000+0200&finishedBefore=2013-04-01T23:59:59.000+0200&executedActivityAfter=2013-03-23T13:42:44.000+0200`
 
 ## Response
 
