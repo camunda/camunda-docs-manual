@@ -60,6 +60,10 @@ DELETE `/process-instance/{id}`
     <td>
       If set to <code>true</code>, subprocesses related to deleted processes will be skipped.</td>
   </tr>
+  <tr>
+    <td>failIfNotExists</td>
+    <td>If set to <code>false</code>, the request will still be successful if the process id is not found.</td>
+  </tr>
 </table>
 
 

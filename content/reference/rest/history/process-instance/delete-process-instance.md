@@ -36,6 +36,18 @@ DELETE `/history/process-instance/{id}`
   </tr>
 </table>
 
+## Query Parameters
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>failIfNotExists</td>
+    <td>If set to <code>false</code>, the request will still be successful if the process id is not found.</td>
+  </tr>
+</table>
 
 # Result
 

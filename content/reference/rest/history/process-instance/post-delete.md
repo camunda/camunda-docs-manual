@@ -49,6 +49,10 @@ A JSON object with the following properties:
     <td>deleteReason</td>
     <td>A string with delete reason.</td>
   </tr>
+  <tr>
+    <td>failIfNotExists</td>
+    <td>If set to <code>false</code>, the request will still be successful if one ore more of the process ids are not found.</td>
+  </tr>
 </table>
 
 ## Response Body
