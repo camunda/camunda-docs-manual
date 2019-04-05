@@ -26,9 +26,7 @@ To get a more detailed explanation about the Java and REST API methods to get us
 # Operation Log in Cockpit
 {{< img src="../img/cockpit-operation-log.png" title="Operation Log" >}}
 
-Cockpit provides the possibility to view the activity of different users in the Operation. The table can be found in the top menu bar under the 'more' option.
-The table is a representation of the history of various user operations and all information about the changes involved.
-Rows are grouped by operation to provide clear insights on the changes produced by each operation. Results can be filtered using the search bar at the top. Columns can be dynamically added or removed to show only the relevant information.
+Camunda Cockpit provides the possibility to audit the activities which each user performs. You can find the Operation Log in the top menu bar under the ‘more’ option. The table is a representation of the history of various user operations, and it provides information about changes performed in the past. The rows are grouped by an operation to provide clear insights on the changes produced by each operation. Results can be filtered using the search bar at the top. You can add and remove columns to show only the relevant information you are interested in.
 
 # User Operation Log per Process
 {{< img src="../img/cockpit-user-operation-log.png" title="Batch View Page" >}}
