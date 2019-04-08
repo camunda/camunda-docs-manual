@@ -276,7 +276,7 @@ The following is a list with the most commonly used process engine configuration
         Specifies how many times a job will be executed before an incident is raised. Default value: <code>3</code>
     </td>
   </tr>
-  
+
   <tr>
     <td><code>defaultUserPermissionNameForTask</code></td>
     <td>String</td>
@@ -385,7 +385,7 @@ The following is a list with the most commonly used process engine configuration
     <td><code>enforceSpecificVariablePermission</code></td>
     <td>Boolean</td>
     <td>
-        If the value of this flag is set to <code>true</code>, the <a href="{{< ref "/user-guide/process-engine/authorization-service.md#default-read-variable-permissions" >}}">default permissions</a> to see/read variables are: 
+        If the value of this flag is set to <code>true</code>, the <a href="{{< ref "/user-guide/process-engine/authorization-service.md#default-read-variable-permissions" >}}">default permissions</a> to see/read variables are:
         READ_INSTANCE_VARIABLE, READ_HISTORY_VARIABLE, and READ_TASK_VARIABLE on Process Definition resource, and READ_VARIABLE on Task resource. Default value is <code>false</code>.
         <p>
             <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
@@ -401,6 +401,18 @@ The following is a list with the most commonly used process engine configuration
       <p>
         <strong>Values:</strong> <code>none</code>, <code>activity</code>, <code>audit</code>, <code>full</code>.
       </p>
+    </td>
+  </tr>
+
+  <tr id="historyRemovalTimeStrategy">
+    <td><code>historyRemovalTimeStrategy</code></td>
+    <td>String</td>
+    <td>
+      Controls if and when the <a href="{{< ref "/user-guide/process-engine/history.md#removal-time">}}">removal time</a> of an historic instance is set.
+      The default value is <code>end</code>.<br>
+      Please also see the <a href="{{< ref "/reference/deployment-descriptors/tags/process-engine.md#historyCleanupStrategy">}}"><code>historyCleanupStrategy</code></a>
+      configuration parameter.<br><br>
+      <strong>Values:</strong> <code>start</code>, <code>end</code>, <code>none</code> (String).
     </td>
   </tr>
 
@@ -502,17 +514,6 @@ The following is a list with the most commonly used process engine configuration
         <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
       </p>
   </td>
-  <tr id="removalTimeStrategy">
-    <td><code>removalTimeStrategy</code></td>
-    <td>String</td>
-    <td>
-      Controls if and when the <a href="{{< ref "/user-guide/process-engine/history.md#removal-time">}}">removal time</a> of an historic instance is set. 
-      The default value is <code>end</code>.<br>
-      Please also see the <a href="{{< ref "/reference/deployment-descriptors/tags/process-engine.md#historyCleanupStrategy">}}"><code>historyCleanupStrategy</code></a> 
-      configuration parameter.<br><br>
-      <strong>Values:</strong> <code>start</code>, <code>end</code>, <code>none</code> (String).
-    </td>
-  </tr>
   <tr id="skipHistoryOptimisticLockingExceptions">
     <td><code>skipHistoryOptimisticLockingExceptions</code></td>
     <td>Boolean</td>
@@ -599,7 +600,7 @@ The following is a list with the most commonly used process engine configuration
         Default value: <code>true</code>
     </td>
   </tr>
-  
+
   <tr>
     <td><a name="javaSerializationFormatEnabled"></a><code>javaSerializationFormatEnabled</code></td>
     <td>Boolean</td>
@@ -619,21 +620,21 @@ The following is a list with the most commonly used process engine configuration
     <td>
       Controls which <a href="{{< ref "/user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> strategy is used.
       The default value is <code>removalTimeBased</code>.<br>
-      Please also see the <a href="{{< ref "/reference/deployment-descriptors/tags/process-engine.md#removalTimeStrategy">}}"><code>removalTimeStrategy</code></a> configuration parameter.<br><br>
+      Please also see the <a href="{{< ref "/reference/deployment-descriptors/tags/process-engine.md#historyRemovalTimeStrategy">}}"><code>historyRemovalTimeStrategy</code></a> configuration parameter.<br><br>
       <strong>Values:</strong> <code>removalTimeBased</code>, <code>endTimeBased</code>.
     </td>
   </tr>
   <tr>
     <td><code>historyCleanupBatchWindowStartTime</code></td>
     <td>String</td>
-    <td><a href="{{< ref "/user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window start time in the format <code>HH:mmZ</code> (Z is for RFC 822 time zone) or <code>HH:mm</code>. E.g., <code>20:00+0100</code> or <code>20:00</code>. In case of <code>null</code>, no batch window is considered to be configured 
+    <td><a href="{{< ref "/user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window start time in the format <code>HH:mmZ</code> (Z is for RFC 822 time zone) or <code>HH:mm</code>. E.g., <code>20:00+0100</code> or <code>20:00</code>. In case of <code>null</code>, no batch window is considered to be configured
     and history cleanup can only be called manually.</td>
   </tr>
   <tr>
     <td><code>historyCleanupBatchWindowEndTime</code></td>
     <td>String</td>
-    <td><a href="{{< ref "/user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window end time in the format <code>HH:mmZ</code> (Z is for RFC 822 time zone) or <code>HH:mm</code>. E.g., <code>23:00-0300</code> or <code>23:00</code>. In case <code>batchWindowEndTime</code> exceeds <code>batchWindowStartTime</code> it is considered 
-    to be on the same date (e.g., cleanup runs each day between 20:00 and 23:00). Otherwise it is considered to be on the next calendar day (e.g., cleanup starts each 
+    <td><a href="{{< ref "/user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window end time in the format <code>HH:mmZ</code> (Z is for RFC 822 time zone) or <code>HH:mm</code>. E.g., <code>23:00-0300</code> or <code>23:00</code>. In case <code>batchWindowEndTime</code> exceeds <code>batchWindowStartTime</code> it is considered
+    to be on the same date (e.g., cleanup runs each day between 20:00 and 23:00). Otherwise it is considered to be on the next calendar day (e.g., cleanup starts each
     day at 20:00 and finishes the next day at 01:00). Default value is `00:00`.</td>
   </tr>
   <tr>
@@ -646,7 +647,7 @@ The following is a list with the most commonly used process engine configuration
   <tr>
     <td><code>mondayHistoryCleanupBatchWindowEndTime</code></td>
     <td>String</td>
-    <td><a href="{{< ref "/user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window end time for Mondays. Requires the same format and follows the same logic 
+    <td><a href="{{< ref "/user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window end time for Mondays. Requires the same format and follows the same logic
     as <code>historyCleanupBatchWindowEndTime</code>.
     </td>
   </tr>
@@ -728,7 +729,7 @@ The following is a list with the most commonly used process engine configuration
   <tr>
     <td><code>historyCleanupBatchThreshold</code></td>
     <td>Integer</td>
-    <td>Defines the minimum amount of top-level objects required for data to be removed. Default value is 10. Hint: if the value is too small and the process 
+    <td>Defines the minimum amount of top-level objects required for data to be removed. Default value is 10. Hint: if the value is too small and the process
     engine continues to be used during history cleanup, it can happen that real SQL delete statements are called very frequently for small amounts of data.<br><br>
     <strong>Note:</strong> This property cannot be used in conjunction with <code>historyCleanupStrategy</code> set to <code>endTimeBased</code>.</td>
   </tr>
