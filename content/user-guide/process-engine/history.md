@@ -1008,7 +1008,7 @@ Note that cleaning one such instance always removes all dependent history data a
 
 ### History Time To Live (TTL)
 
-*History Time To Live* (TTL) defines the time for how long historic data shall remain in the database before it is cleaned up.
+*History Time To Live* (TTL) defines how long historic data shall remain in the database before it is cleaned up.
 
 * Process, Case and Decision Instances: TTL can be defined in the XML file of the corresponding definition. This value can furthermore be changed after deployment via Java and REST API.
 * Batches: TTL can be defined in the process engine configuration.
@@ -1028,7 +1028,7 @@ The end time is persisted in the corresponding instance tables `ACT_HI_PROCINST`
 
 ### Instance Removal Time
 
-*Removal Time* is the time after which an instance shall be removed. It is computed as `removal time = base time + TTL`. *Base time* is configurable and can be either the the start or the end time of an instance. In particular, this means:
+*Removal Time* is the time after which an instance shall be removed. It is computed as `removal time = base time + TTL`. *Base time* is configurable and can be either the start or the end time of an instance. In particular, this means:
 
 * Process Instances: Base time is either the time when the process instance starts or the time at which it finishes. This is configurable.
 * Decision Instances: Base time is the time when the decision is evaluated.
@@ -1064,7 +1064,7 @@ Limitations:
 
 ### End-Time-based Strategy
 
-The *end-time-based cleanup strategy* deletes data based for which the end time plus TTL has expired. In contrast to the removal-time strategy, this is computed whenever history cleanup is performed.
+The *end-time-based cleanup strategy* deletes data whose end time plus TTL has expired. In contrast to the removal-time strategy, this is computed whenever history cleanup is performed.
 
 Strengths:
 
@@ -1082,7 +1082,7 @@ History cleanup is implemented via jobs and performed by the [job executor]({{< 
 
 Cleanup execution can be controlled in two ways:
 
-* Cleanup Window: Determines a time frame in which history cleanup runs. This allows to use the job executor's resources only when there is little load on your system (e.g. at night time or weekends). Default value: No cleanup windows is defined. That means that history cleanup is not performed automatically.
+* Cleanup Window: Determines a time frame in which history cleanup runs. This allows to use the job executor's resources only when there is little load on your system (e.g. at night time or weekends). Default value: No cleanup window is defined. That means that history cleanup is not performed automatically.
 * Batch Size: Determines how many instances are cleaned up in one cleanup transaction. Default: 500.
 * Degree of Parallelism: Determines how many cleanup jobs can run in parallel. Default: 1 (no parallel execution).
 
