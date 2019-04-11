@@ -98,6 +98,14 @@ GET `/history/user-operation`
     <td>Filter by types of the entities that was affected by this operation, possible values are <code>Task</code>, <code>Attachment</code> or <code>IdentityLink</code>.</td>
   </tr>
   <tr>
+    <td>category</td>
+    <td>Filter by the category that this operation is associated with, possible values are <code>TaskWorker</code>, <code>Admin</code> or <code>Operator</code>.</td>
+  </tr>
+  <tr>
+    <td>categoryIn</td>
+    <td>Filter by the categories that this operation is associated with, possible values are <code>TaskWorker</code>, <code>Admin</code> or <code>Operator</code>.</td>
+  </tr>
+  <tr>
     <td>property</td>
     <td>Only include operations that changed this property, e.g., <code>owner</code> or <code>assignee</code>.</td>
   </tr>
@@ -170,6 +178,11 @@ Each log entry has the following properties:
     <td>entityType</td>
     <td>String</td>
     <td>The type of the entity on which this operation was executed, e.g., <code>Task</code> or <code>Attachment</code>.</td>
+  </tr>
+  <tr>
+    <td>category</td>
+    <td>String</td>
+    <td>The name of the category this operation was associated with, e.g., <code>TaskWorker</code> or <code>Admin</code>.</td>
   </tr>
   <tr>
     <td>property</td>
@@ -304,7 +317,8 @@ GET `/history/user-operation?operationType=Claim&userId=demo&sortBy=timestamp&so
     "orgValue": null,
     "newValue": "demo",
     "removalTime": "2018-02-10T14:33:19.000+0200",
-    "rootProcessInstanceId": "aRootProcessInstanceId"}]
+    "rootProcessInstanceId": "aRootProcessInstanceId",
+	"category": "TaskWorker"}]
 
 ## (2) Request
 
@@ -332,4 +346,5 @@ GET `/history/user-operation?operationType=Suspend&userId=demo`
     "orgValue": null,
     "newValue": "suspended",
     "removalTime": "2018-02-10T14:33:19.000+0200",
-    "rootProcessInstanceId": "aRootProcessInstanceId"}]
+    "rootProcessInstanceId": "aRootProcessInstanceId",
+	"category": "Operator"}]

@@ -96,6 +96,14 @@ GET `/history/user-operation/count`
     <td>Filter by types of the entities that was affected by this operation, possible values are <code>Task</code>, <code>Attachment</code> or <code>IdentityLink</code>.</td>
   </tr>
   <tr>
+    <td>category</td>
+    <td>Filter by the category that this operation is associated with, possible values are <code>TaskWorker</code>, <code>Admin</code> or <code>Operator</code>.</td>
+  </tr>
+  <tr>
+    <td>categoryIn</td>
+    <td>Filter by the categories that this operation is associated with, possible values are <code>TaskWorker</code>, <code>Admin</code> or <code>Operator</code>.</td>
+  </tr>
+  <tr>
     <td>property</td>
     <td>Only include operations that changed this property, e.g., <code>owner</code> or <code>assignee</code>.</td>
   </tr>
