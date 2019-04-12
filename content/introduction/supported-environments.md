@@ -42,7 +42,7 @@ and [Deployment scenarios]({{< ref "/user-guide/spring-boot-integration/_index.m
 * MariaDB 10.0 / 10.2 / 10.3
 * Oracle 10g / 11g / 12c
 * IBM DB2 9.7 /10.1 / 10.5 / 11.1 (excluding IBM z/OS for all versions)
-* PostgreSQL 9.1 / 9.3 / 9.4 / 9.6 / 10.4
+* PostgreSQL 9.1 / 9.3 / 9.4 / 9.6 / 10.4 / 11.1 / 11.2
 * Microsoft SQL Server 2008 R2/2012/2014/2016/2017 (see [Configuration Note]({{< ref "/user-guide/process-engine/database.md#configuration-for-microsoft-sql-server" >}}))
 * H2 1.4 (not recommended for [Cluster Mode]({{< ref "/introduction/architecture.md#clustering-model" >}}) - see [Deployment Note]({{< ref "/user-guide/process-engine/deployments.md" >}}))
 
@@ -63,7 +63,7 @@ Clustered or replicated databases are supported given the following conditions. 
 # Java
 
 * Java 7
-* Java 8 / 9 / 10 / 11 (if supported by your application server/container)
+* Java 8 / 9 / 10 / 11 / 12 (if supported by your application server/container)
 
 
 # Java Runtime

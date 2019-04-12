@@ -451,6 +451,7 @@ A user operation log entry has the following properties:
 * **Operation ID**: A generated id that uniquely identifies a performed operation. Multiple log entries that are part of one operation reference the same operation ID.
 * **Operation Type**: The name of the performed operation. Available operation types are listed in the interface {{< javadocref page="?org/camunda/bpm/engine/history/UserOperationLogEntry.html" text="org.camunda.bpm.engine.history.UserOperationLogEntry" >}}. Note that one operation can consist of multiple types, for example a cascading API operation is one user operation, but is split into multiple types of operations.
 * **Entity Type**: An identifier of the type of the entity that was addressed by the operation. Available entity types are listed in the class {{< javadocref page="?org/camunda/bpm/engine/EntityTypes.html" text="org.camunda.bpm.engine.EntityTypes" >}}. Like the operation type, one operation may address more than one type of entity.
+* **Category**: The name of the category the operation is associated with. Available categories are listed in the interface {{< javadocref page="?org/camunda/bpm/engine/history/UserOperationLogEntry.html" text="org.camunda.bpm.engine.history.UserOperationLogEntry" >}}. For example, all task related runtime operations like claiming and completing tasks fall into the category {{< javadocref page="org/camunda/bpm/engine/history/UserOperationLogEntry.html#CATEGORY_TASK_WORKER" text="TaskWorker" >}}.
 * **Entity IDs**: A job log entry contains the entity IDs that serve to identify the entities addressed by the operation. For example, an operation log entry on a task contains the id of the task as well as the id of the process instance the task belongs to. As a second example, a log entry for suspending all process instances of a process definition does not contain individual process instance IDs but only the process definition ID.
 * **User ID**: The ID of the user who performed the operation.
 * **Timestamp**: The time at which the operation was performed.
@@ -467,11 +468,13 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <th>Entity Type</th>
     <th>Operation Type</th>
+	<th>Category</th>
     <th>Properties</th>
   </tr>
   <tr>
   <td>Task</td>
     <td>Assign</td>
+	<td>TaskWorker</td>
     <td>
       <ul>
         <li><strong>assignee</strong>: The id of the user who was assigned to the task</li>
@@ -481,6 +484,7 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td></td>
     <td>Claim</td>
+	<td>TaskWorker</td>
     <td>
       <ul>
         <li><strong>assignee</strong>: The id of the user who claimed the task</li>
@@ -490,6 +494,7 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td></td>
     <td>Complete</td>
+	<td>TaskWorker</td>
     <td>
       <ul>
         <li><strong>delete</strong>: The new delete state, <code>true</code></li>
@@ -499,11 +504,13 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td></td>
     <td>Create</td>
+	<td>TaskWorker</td>
     <td><i>No additional property is logged</i></td>
   </tr>
   <tr>
     <td></td>
     <td>Delegate</td>
+	<td>TaskWorker</td>
     <td>
       When delegating a task, three log entries are created, containing one of the following properties:
       <ul>
@@ -516,6 +523,7 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td></td>
     <td>Delete</td>
+	<td>TaskWorker</td>
     <td>
       <ul>
       <li><strong>delete</strong>: The new delete state, <code>true</code></li>
@@ -525,6 +533,7 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td></td>
     <td>Resolve</td>
+	<td>TaskWorker</td>
     <td>
       <ul>
         <li><strong>delegation</strong>: The resulting delegation state, <code>RESOLVED</code></li>
@@ -534,6 +543,7 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td></td>
     <td>SetOwner</td>
+	<td>TaskWorker</td>
     <td>
       <ul>
         <li><strong>owner</strong>: The new owner of the task</li>
@@ -543,6 +553,7 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td></td>
     <td>SetPriority</td>
+	<td>TaskWorker</td>
     <td>
       <ul>
         <li><strong>priority</strong>: The new priority of the task</li>
@@ -552,6 +563,7 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td></td>
     <td>Update</td>
+	<td>TaskWorker</td>
     <td>
       The manually changed property of a task, where manually means that a property got directly changed. Claiming a task via the TaskService wouldn't be logged with an update entry, but setting the assignee directly would be. One of the following is possible:
       <ul>
@@ -564,7 +576,14 @@ The following describes the operations logged in the user operation log and the 
   </tr>
   <tr>
     <td>ProcessInstance</td>
+    <td>Create</td>
+	<td>Operator</td>
+    <td><i>No additional property is logged</i></td>
+  </tr>
+  <tr>
+    <td></td>
     <td>Activate</td>
+	<td>Operator</td>
     <td>
       <ul>
         <li><strong>suspensionState</strong>: The new suspension state, <code>active</code></li>
@@ -574,6 +593,7 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td></td>
     <td>Delete</td>
+	<td>Operator</td>
     <td>
       In case of regular operation:
       <ul><i>No additional property is logged</i></ul>
@@ -589,6 +609,7 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td></td>
     <td>ModifyProcessInstance</td>
+	<td>Operator</td>
     <td>
       <ul>
         <li><strong>nrOfInstances</strong>: The amount of process instances modified</li>
@@ -600,6 +621,7 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td></td>
     <td>Suspend</td>
+	<td>Operator</td>
     <td>
       <ul>
         <li><strong>suspensionState</strong>: The new suspension state, <code>suspended</code></li>
@@ -609,6 +631,7 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td></td>
     <td>Migrate</td>
+	<td>Operator</td>
     <td>
       <ul>
         <li><strong>processDefinitionId</strong>: The id of the process definition that instances are migrated to</li>
@@ -620,6 +643,7 @@ The following describes the operations logged in the user operation log and the 
    <tr>
     <td></td>
     <td>RestartProcessInstance</td>
+	<td>Operator</td>
     <td>
       <ul>
         <li><strong>nrOfInstances</strong>: The amount of process instances restarted</li>
@@ -630,6 +654,7 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td>IdentityLink</td>
     <td>AddUserLink</td>
+	<td>TaskWorker</td>
     <td>
       <ul>
         <li><strong>candidate</strong>: The new candidate user associated</li>
@@ -639,6 +664,7 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td></td>
     <td>DeleteUserLink</td>
+	<td>TaskWorker</td>
     <td>
       <ul>
         <li><strong>candidate</strong>: The previously associated user</li>
@@ -648,6 +674,7 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td></td>
     <td>AddGroupLink</td>
+	<td>TaskWorker</td>
     <td>
       <ul>
         <li><strong>candidate</strong>: The new group associated</li>
@@ -657,6 +684,7 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td></td>
     <td>DeleteGroupLink</td>
+	<td>TaskWorker</td>
     <td>
       <ul>
       <li><strong>candidate</strong>: The previously associated group</li>
@@ -666,6 +694,7 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td>Attachment</td>
     <td>AddAttachment</td>
+	<td>TaskWorker</td>
     <td>
       <ul>
         <li><strong>name</strong>: The name of the added attachment</li>
@@ -675,6 +704,7 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td></td>
     <td>DeleteAttachment</td>
+	<td>TaskWorker</td>
     <td>
       <ul>
         <li><strong>name</strong>: The name of the deleted attachment</li>
@@ -684,6 +714,7 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td>JobDefinition</td>
     <td>ActivateJobDefinition</td>
+	<td>Operator</td>
     <td>
       <ul>
         <li><strong>suspensionState</strong>: the new suspension state <code>active</code></li>
@@ -693,6 +724,7 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td></td>
     <td>SetPriority</td>
+	<td>Operator</td>
     <td>
       <ul>
         <li><strong>overridingPriority</strong>: the new overriding job priority. Is <code>null</code>, if the priority was cleared.</li>
@@ -702,6 +734,7 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td></td>
     <td>SuspendJobDefinition</td>
+	<td>Operator</td>
     <td>
       <ul>
         <li><strong>suspensionState</strong>: the new suspension state <code>suspended</code></li>
@@ -711,6 +744,7 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td>ProcessDefinition</td>
     <td>ActivateProcessDefinition</td>
+	<td>Operator</td>
     <td>
       <ul>
         <li><strong>suspensionState</strong>: the new suspension state <code>active</code></li>
@@ -720,6 +754,7 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td></td>
     <td>SuspendProcessDefinition</td>
+	<td>Operator</td>
     <td>
       <ul>
         <li><strong>suspensionState</strong>: the new suspension state <code>suspended</code></li>
@@ -729,6 +764,7 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td></td>
     <td>Delete</td>
+	<td>Operator</td>
     <td>
       <ul>
         <li><strong>cascade</strong>: if the value is set to <code>true</code>, then all instances including history are also deleted.</li>
@@ -738,6 +774,7 @@ The following describes the operations logged in the user operation log and the 
    <tr>
     <td></td>
     <td>UpdateHistoryTimeToLive</td>
+	<td>Operator</td>
     <td>
       <ul>
         <li><strong>historyTimeToLive</strong>: the new history time to live.</li>
@@ -747,6 +784,7 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td>Job</td>
     <td>ActivateJob</td>
+	<td>Operator</td>
     <td>
       <ul>
         <li><strong>suspensionState</strong>: the new suspension state <code>active</code></li>
@@ -756,6 +794,7 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td></td>
     <td>SetPriority</td>
+	<td>Operator</td>
     <td>
       <ul>
         <li><strong>priority</strong>: the new priority of the job</li>
@@ -765,6 +804,7 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td></td>
     <td>SetJobRetries</td>
+	<td>Operator</td>
     <td>
       <ul>
         <li><strong>retries</strong>: the new number of retries</li>
@@ -776,6 +816,7 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td></td>
     <td>SuspendJob</td>
+	<td>Operator</td>
     <td>
       <ul>
         <li><strong>suspensionState</strong>: the new suspension state <code>suspended</code></li>
@@ -786,21 +827,25 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td>Variable</td>
     <td>ModifyVariable</td>
+	<td>Operator/<br>TaskWorker</td>
     <td><i>No additional property is logged</i></td>
   </tr>
   <tr>
     <td></td>
     <td>RemoveVariable</td>
+	<td>Operator/<br>TaskWorker</td>
     <td><i>No additional property is logged</i></td>
   </tr>
   <tr>
     <td></td>
     <td>SetVariable</td>
+	<td>Operator/<br>TaskWorker</td>
     <td><i>No additional property is logged</i></td>
   </tr>
   <tr>
     <td></td>
     <td>DeleteVariableHistory</td>
+	<td>Operator</td>
     <td>
       In case of single operation:
       <ul>
@@ -813,6 +858,7 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td>Deployment</td>
     <td>Create</td>
+	<td>Operator</td>
     <td>
       <ul>
         <li><strong>duplicateFilterEnabled</strong>: if the value is set to <code>true</code>, then during the creation of the deployment the given resources have been checked for duplicates in the set of previous deployments. Otherwise, the duplicate filtering has been not executed.</li>
@@ -823,6 +869,7 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td></td>
     <td>Delete</td>
+	<td>Operator</td>
     <td>
       <ul>
         <li><strong>cascade</strong>: if the value is set to <code>true</code>, then all instances including history are also deleted.</li>
@@ -832,6 +879,7 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td>Batch</td>
     <td>ActivateBatch</td>
+	<td>Operator</td>
     <td>
       <ul>
         <li><strong>suspensionState</strong>: the new suspension state <code>active</code></li>
@@ -841,6 +889,7 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td></td>
     <td>SuspendBatch</td>
+	<td>Operator</td>
     <td>
       <ul>
         <li><strong>suspensionState</strong>: the new suspension state <code>suspended</code></li>
@@ -850,6 +899,7 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td>ExternalTask</td>
     <td>SetExternalTaskRetries</td>
+	<td>Operator</td>
     <td>
       <ul>
         <li><strong>retries</strong>: the new number of retries</li>
@@ -861,11 +911,12 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td>DecisionInstance</td>
     <td>Delete</td>
+	<td>Operator</td>
     <td>
       <ul>
         <li><strong>nrOfInstances</strong>: the amount of decision instances that were deleted</li>
         <li><strong>async</strong>: <code>true</code> if operation was performed asynchronously as a batch, <code>false</code> if operation was performed synchronously</li>
-        <li><strong>type</strong>: by default <code>history</code> because, this operations only concerns historic decision instances</li>
+        <li><strong>type</strong>: <code>history</code> by default because this operation only concerns historic decision instances</li>
         <li><strong>deleteReason</strong>: the reason for deletion</li>
       </ul>
     </td>
@@ -1008,7 +1059,7 @@ Note that cleaning one such instance always removes all dependent history data a
 
 ### History Time To Live (TTL)
 
-*History Time To Live* (TTL) defines the time for how long historic data shall remain in the database before it is cleaned up.
+*History Time To Live* (TTL) defines how long historic data shall remain in the database before it is cleaned up.
 
 * Process, Case and Decision Instances: TTL can be defined in the XML file of the corresponding definition. This value can furthermore be changed after deployment via Java and REST API.
 * Batches: TTL can be defined in the process engine configuration.
@@ -1028,7 +1079,7 @@ The end time is persisted in the corresponding instance tables `ACT_HI_PROCINST`
 
 ### Instance Removal Time
 
-*Removal Time* is the time after which an instance shall be removed. It is computed as `removal time = base time + TTL`. *Base time* is configurable and can be either the the start or the end time of an instance. In particular, this means:
+*Removal Time* is the time after which an instance shall be removed. It is computed as `removal time = base time + TTL`. *Base time* is configurable and can be either the start or the end time of an instance. In particular, this means:
 
 * Process Instances: Base time is either the time when the process instance starts or the time at which it finishes. This is configurable.
 * Decision Instances: Base time is the time when the decision is evaluated.
@@ -1064,7 +1115,7 @@ Limitations:
 
 ### End-Time-based Strategy
 
-The *end-time-based cleanup strategy* deletes data based for which the end time plus TTL has expired. In contrast to the removal-time strategy, this is computed whenever history cleanup is performed.
+The *end-time-based cleanup strategy* deletes data whose end time plus TTL has expired. In contrast to the removal-time strategy, this is computed whenever history cleanup is performed.
 
 Strengths:
 
@@ -1082,7 +1133,7 @@ History cleanup is implemented via jobs and performed by the [job executor]({{< 
 
 Cleanup execution can be controlled in two ways:
 
-* Cleanup Window: Determines a time frame in which history cleanup runs. This allows to use the job executor's resources only when there is little load on your system (e.g. at night time or weekends). Default value: No cleanup windows is defined. That means that history cleanup is not performed automatically.
+* Cleanup Window: Determines a time frame in which history cleanup runs. This allows to use the job executor's resources only when there is little load on your system (e.g. at night time or weekends). Default value: No cleanup window is defined. That means that history cleanup is not performed automatically.
 * Batch Size: Determines how many instances are cleaned up in one cleanup transaction. Default: 500.
 * Degree of Parallelism: Determines how many cleanup jobs can run in parallel. Default: 1 (no parallel execution).
 
