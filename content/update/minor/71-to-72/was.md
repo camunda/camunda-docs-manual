@@ -10,7 +10,7 @@ menu:
 
 ---
 
-The following steps describe how to update the Camunda artifacts on an IBM was application server in a shared process engine setting. For the entire migration procedure, refer to the [migration guide][migration-guide]. If not already done, make sure to download the [Camunda BPM 7.2 IBM was distribution](https://app.camunda.com/nexus/content/groups/internal/org/camunda/bpm/was/camunda-bpm-was/).
+The following steps describe how to update the Camunda artifacts on an IBM was application server in a shared process engine setting. For the entire migration procedure, refer to the [migration guide][migration-guide]. If not already done, make sure to download the [Camunda BPM 7.2 IBM was distribution](https://app.camunda.com/nexus/service/rest/repository/browse/internal/org/camunda/bpm/was/camunda-bpm-was/).
 
 The update procedure takes the following steps:
 
