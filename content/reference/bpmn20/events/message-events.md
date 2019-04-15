@@ -267,7 +267,7 @@ The following example shows different message events in a process model:
 
 ```xml
 <intermediateCatchEvent id="message">
-  <messageEventDefinition signalRef="newCustomerMessage" />
+  <messageEventDefinition messageRef="newCustomerMessage" />
 </intermediateCatchEvent>
 ```
 
