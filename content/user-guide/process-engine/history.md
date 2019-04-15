@@ -825,6 +825,27 @@ The following describes the operations logged in the user operation log and the 
     </td>
   </tr>
   <tr>
+    <td></td>
+    <td>SetDueDate</td>
+	<td>Operator</td>
+    <td>
+      <ul>
+        <li><strong>duedate</strong>: the new due date of the job</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>RecalculateDueDate</td>
+	<td>Operator</td>
+    <td>
+      <ul>
+        <li><strong>creationDateBased</strong>: if the value is set to <code>true</code>, the new due date was calculated based on the creation date of the job. Otherwise, it was calculated using the date the recalcuation took place.</li>
+		<li><strong>duedate</strong>: the new due date of the job</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
     <td>Variable</td>
     <td>ModifyVariable</td>
 	<td>Operator/<br>TaskWorker</td>
