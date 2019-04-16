@@ -113,7 +113,7 @@ GET `/history/process-instance`
   </tr>
   <tr>
     <td>incidentStatus</td>
-	<td>Only include process instances which have an incident in status either <code>open</code> or <code>resolved</code>. 
+	<td>Only include process instances which have an incident in status either <code>open</code> or <code>resolved</code>.
 	To get all process instances, use the query parameter <code>withIncidents</code>.</td>
   </tr>
   <tr>
@@ -163,13 +163,13 @@ GET `/history/process-instance`
     Valid operator values are: <code>eq</code> - equal to; <code>neq</code> - not equal to; <code>gt</code> - greater than;
     <code>gteq</code> - greater than or equal to; <code>lt</code> - lower than; <code>lteq</code> - lower than or equal to;
     <code>like</code>.<br/>
-    <code>key</code> and <code>value</code> may not contain underscore or comma characters.
+    <code>key</code> and <code>value</code> may not contain underscore or comma characters. If such keys or values are needed, the corresponding POST method could be used.
     </td>
   </tr>
   <tr>
     <td>sortBy</td>
     <td>Sort the results by a given criterion. Valid values are
-    <code>instanceId</code>, <code>definitionId</code>, <code>definitionKey</code>, <code>definitionName</code>, <code>definitionVersion</code>, 
+    <code>instanceId</code>, <code>definitionId</code>, <code>definitionKey</code>, <code>definitionName</code>, <code>definitionVersion</code>,
     <code>businessKey</code>, <code>startTime</code>, <code>endTime</code>, <code>duration</code> and <code>tenantId</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
