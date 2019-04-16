@@ -16,11 +16,12 @@ menu:
 This document guides you through the update from Camunda BPM `7.10.x` to `7.11.0`. It covers these use cases:
 
 1. For administrators and developers: [Database Updates](#database-updates)
-2. For administrators and developers: [Full Distribution Update](#full-distribution)
-3. For administrators: [Standalone Web Application](#standalone-web-application)
-4. For developers: [Spring Boot Starter Update](#spring-boot-starter-update)
-5. For developers: [External Task Client Update](#external-task-client-update)
-6. For developers: [Changes Affecting Custom Permissions/Resources](#changes-affecting-custom-permissions-resources)
+1. For administrators and developers: [Full Distribution Update](#full-distribution)
+1. For administrators: [Standalone Web Application](#standalone-web-application)
+1. For developers: [Spring Boot Starter Update](#spring-boot-starter-update)
+1. For developers: [camunda-engine-spring Update](#camunda-engine-spring-update)
+1. For developers: [External Task Client Update](#external-task-client-update)
+1. For developers: [Changes Affecting Custom Permissions/Resources](#changes-affecting-custom-permissions-resources)
 
 This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda BPM 7.11.
 
@@ -105,6 +106,39 @@ If you are using Camunda Spring Boot Starter within you Spring Boot application,
 2. Update **Spring Boot Starter** and, when required, Spring Boot versions in your `pom.xml`.
 3. Update the Camunda BPM version in your `pom.xml` in case you override it before (e.g. when using the enterprise version or a patch releases)
 
+# camunda-engine-spring Update
+
+The module `camunda-engine-spring` has changed dependency scopes of the Spring framework from `compile` to `provided`.
+If your application has a dependency on `camunda-engine-spring`, you must additionally declare explicit dependencies to at least the
+following Spring artifacts:
+
+```xml
+<properties>
+  <spring.version>YOUR SPRING VERSION</spring.version>
+</properties>
+
+<dependency>
+  <groupId>org.springframework</groupId>
+  <artifactId>spring-context</artifactId>
+  <version>${spring.version}</version>
+</dependency>
+<dependency>
+  <groupId>org.springframework</groupId>
+  <artifactId>spring-jdbc</artifactId>
+  <version>${spring.version}</version>
+</dependency>
+<dependency>
+  <groupId>org.springframework</groupId>
+  <artifactId>spring-tx</artifactId>
+  <version>${spring.version}</version>
+</dependency>
+<dependency>
+  <groupId>org.springframework</groupId>
+  <artifactId>spring-orm</artifactId>
+  <version>${spring.version}</version>
+</dependency>
+```
+
 # External Task Client Update
 
 If you are using the **Camunda External Task Client**, please make sure to:
@@ -144,7 +178,7 @@ In case you have at least one of these custom implementations please have a look
           Implement the new <code>Permission#getResources()</code>
        </li>
        <li>
-          Possible clash with newly introduced Permissions, please consider disabling those permissions via process engine configuration 
+          Possible clash with newly introduced Permissions, please consider disabling those permissions via process engine configuration
           <a href="{{< ref "/reference/deployment-descriptors/tags/process-engine.md#disabledPermissions">}}">property</a>
        </li>
       </td>
@@ -166,7 +200,7 @@ In case you have at least one of these custom implementations please have a look
           Create own Permission Enum where it must be specified the custom resource.
         </li>
         <li>
-          Possible clash with newly introduced Permissions, please consider disabling those permissions via process engine configuration 
+          Possible clash with newly introduced Permissions, please consider disabling those permissions via process engine configuration
           <a href="{{< ref "/reference/deployment-descriptors/tags/process-engine.md#disabledPermissions">}}">property</a>
         </li>
       </td>
