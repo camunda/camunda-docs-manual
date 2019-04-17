@@ -1009,6 +1009,152 @@ The following describes the operations logged in the user operation log and the 
       </ul>
     </td>
   </tr>
+  <tr>
+    <td>User</td>
+    <td>Create</td>
+	<td>Admin</td>
+    <td>
+      <ul>
+        <li><strong>userId</strong>: the id of the user that has been created</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Update</td>
+	<td>Admin</td>
+    <td>
+      <ul>
+        <li><strong>userId</strong>: the id of the user that has been updated</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Delete</td>
+	<td>Admin</td>
+    <td>
+      <ul>
+        <li><strong>userId</strong>: the id of the user that has been deleted</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Unlock</td>
+	<td>Admin</td>
+    <td>
+      <ul>
+        <li><strong>userId</strong>: the id of the user that has been unlocked</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>Group</td>
+    <td>Create</td>
+	<td>Admin</td>
+    <td>
+      <ul>
+        <li><strong>groupId</strong>: the id of the group that has been created</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Update</td>
+	<td>Admin</td>
+    <td>
+      <ul>
+        <li><strong>groupId</strong>: the id of the group that has been updated</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Delete</td>
+	<td>Admin</td>
+    <td>
+      <ul>
+        <li><strong>groupId</strong>: the id of the group that has been deleted</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>Tenant</td>
+    <td>Create</td>
+	<td>Admin</td>
+    <td>
+      <ul>
+        <li><strong>tenantId</strong>: the id of the tenant that has been created</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Update</td>
+	<td>Admin</td>
+    <td>
+      <ul>
+        <li><strong>tenantId</strong>: the id of the tenant that has been updated</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Delete</td>
+	<td>Admin</td>
+    <td>
+      <ul>
+        <li><strong>tenantId</strong>: the id of the tenant that has been deleted</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>Group membership</td>
+    <td>Create</td>
+	<td>Admin</td>
+    <td>
+      <ul>
+        <li><strong>userId</strong>: the id of the user that has been added to the group</li>
+		<li><strong>groupId</strong>: the id of the group that the user has been added to</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Delete</td>
+	<td>Admin</td>
+    <td>
+      <ul>
+        <li><strong>userId</strong>: the id of the user that has been deleted from the group</li>
+		<li><strong>groupId</strong>: the id of the group that the user has been deleted from</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>TenantMembership</td>
+    <td>Create</td>
+	<td>Admin</td>
+    <td>
+      <ul>
+        <li><strong>tenantId</strong>: the id of the tenant that the group or user was associated with</li>
+		<li><strong>userId</strong>: the id of the user that has been associated with the tenant. Is not present if the <code>groupId</code> is set</li>
+		<li><strong>groupId</strong>: the id of the group that has been associated with the tenant. Is not present if the <code>userId</code> is set</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Delete</td>
+	<td>Admin</td>
+    <td>
+      <ul>
+        <li><strong>tenantId</strong>: the id of the tenant that the group or user has been deleted from</li>
+		<li><strong>userId</strong>: the id of the user that has been deleted from the tenant. Is not present if the <code>groupId</code> is set</li>
+		<li><strong>groupId</strong>: the id of the group that has been deleted from the tenant. Is not present if the <code>userId</code> is set</li>
+      </ul>
+    </td>
+  </tr>
 </table>
 
 
