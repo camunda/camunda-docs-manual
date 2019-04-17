@@ -640,7 +640,7 @@ The following describes the operations logged in the user operation log and the 
       </ul>
     </td>
   </tr>
-   <tr>
+  <tr>
     <td></td>
     <td>RestartProcessInstance</td>
 	<td>Operator</td>
@@ -648,6 +648,16 @@ The following describes the operations logged in the user operation log and the 
       <ul>
         <li><strong>nrOfInstances</strong>: The amount of process instances restarted</li>
         <li><strong>async</strong>: <code>true</code> if restart was performed asynchronously as a batch, <code>false</code> if restart was performed synchronously</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Resolve</td>
+	<td>Operator</td>
+    <td>
+      <ul>
+        <li><strong>incidentId</strong>: The id of the incident that was resolved</li>
       </ul>
     </td>
   </tr>
