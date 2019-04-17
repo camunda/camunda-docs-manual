@@ -941,6 +941,63 @@ The following describes the operations logged in the user operation log and the 
         <li><strong>deleteReason</strong>: the reason for deletion</li>
       </ul>
     </td>
+  </tr>	
+  <tr>
+    <td>HistoricProcessInstance</td>
+    <td>Delete</td>
+	<td>Operator</td>
+    <td>
+      <ul>
+        <li><strong>nrOfInstances</strong>: the amount of process instances that were deleted</li>
+        <li><strong>async</strong>: <code>true</code> if operation was performed asynchronously as a batch, <code>false</code> if operation was performed synchronously</li>
+        <li><strong>type</strong>: <code>history</code> by default because this operation only concerns historic decision instances</li>
+        <li><strong>deleteReason</strong>: the reason for deletion. This property exists only if operation was performed asynchronously</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>HistoricDecisionInstance</td>
+    <td>Delete</td>
+	<td>Operator</td>
+    <td>
+      <ul>
+        <li><strong>nrOfInstances</strong>: the amount of decision instances that were deleted</li>
+        <li><strong>async</strong>: <code>true</code> if operation was performed asynchronously as a batch, <code>false</code> if operation was performed synchronously</li>
+        <li><strong>type</strong>: <code>history</code> by default because this operation only concerns historic decision instances</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>HistoricTaskInstance</td>
+    <td>Delete</td>
+	<td>Operator</td>
+    <td>
+      <ul>
+        <li><strong>nrOfInstances</strong>: the amount of decision instances that were deleted</li>
+        <li><strong>async</strong>: by default <code>false</code> since the operation can only be performed synchronously</li>
+        <li><strong>type</strong>: <code>history</code> by default because this operation only concerns historic decision instances</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>HistoricBatch</td>
+    <td>Delete</td>
+	<td>Operator</td>
+    <td>
+      <ul>
+        <li><i>No additional property is logged</i></li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>HistoryCleanup</td>
+    <td>CreateHistoryCleanupJobs</td>
+	<td>Operator</td>
+    <td>
+      <ul>
+        <li><strong>immediatelyDue</strong>: <code>true</code> if the operation was performed immediately, <code>false</code> if operation was scheduled regularly</li>
+      </ul>
+    </td>
   </tr>
 </table>
 
