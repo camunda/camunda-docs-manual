@@ -985,13 +985,19 @@ The following describes the operations logged in the user operation log and the 
   </tr>
   <tr>
     <td></td>
-    <td>DeleteHistory</td>
+    <td>Delete</td>
 	<td>Operator</td>
     <td>
       <ul>
-        <li><i>No additional property is logged</i></li>
+        <li><strong>cascadeToHistory</strong>: <code>true</code> if historic data related to the batch job is deleted as well, <code>false</code> if only the runtime data is deleted.</li>
       </ul>
-    </td>
+    </td>    
+  </tr>
+  <tr>
+    <td></td>
+    <td>DeleteHistory</td>
+	<td>Operator</td>
+    <td><i>No additional property is logged</i></td>
   </tr>
   <tr>
     <td>ExternalTask</td>
