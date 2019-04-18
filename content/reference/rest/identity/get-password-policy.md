@@ -6,15 +6,15 @@ weight: 30
 menu:
   main:
     name: "Get Password Policy"
-    identifier: "rest-api-password-policy-get"
-    parent: "rest-api-password-policy"
+    identifier: "rest-api-identity-password-policy-get"
+    parent: "rest-api-identity"
     pre: "GET `/password-policy`"
 
 ---
 
-A password policy consists of a list of rules that new passwords must follow to be policy compliant. This endpoint returns a JSON representation of the list of policy rules.
+A password policy consists of a list of rules that new passwords must follow to be policy compliant. This end point returns a JSON representation of the list of policy rules.
 
-More information on password policies in Camund can be found in the password policy [user guide]({{< ref "/user-guide/process-engine/password-policy.md" >}}) and in the [security instructions]({{< ref "/user-guide/security.md" >}}).
+More information on password policies in Camunda can be found in the password policy [user guide]({{< ref "/user-guide/process-engine/password-policy.md" >}}) and in the [security instructions]({{< ref "/user-guide/security.md" >}}).
 
 # Method
 
@@ -69,6 +69,11 @@ Its properties are as follows:
     <td>application/json</td>
     <td>Request successful.</td>
   </tr>
+  <tr>
+    <td>404</td>
+    <td>application/json</td>
+  <td>No password policy was found.</td>
+  </tr>
 </table>
 
 # Example
@@ -84,24 +89,24 @@ GET `/password-policy`
 {
     "rules": [
         {
-            "placeholder": "LENGTH",
-            "parameter": {"minLength": "10"}
+            "placeholder": "PASSWORD_POLICY_LENGTH",
+            "parameters": {"minLength": "10"}
         },
         {
-            "placeholder": "LOWERCASE",
-            "parameter": {"minLowerCase": "1"}
+            "placeholder": "PASSWORD_POLICY_LOWERCASE",
+            "parameters": {"minLowerCase": "1"}
         },
         {
-            "placeholder": "UPPERCASE",
-            "parameter": {"minUpperCase": "1"}
+            "placeholder": "PASSWORD_POLICY_UPPERCASE",
+            "parameters": {"minUpperCase": "1"}
         },
         {
-            "placeholder": "DIGIT",
-            "parameter": {"minDigit": "1"}
+            "placeholder": "PASSWORD_POLICY_DIGIT",
+            "parameters": {"minDigit": "1"}
         },
         {
-            "placeholder": "SPECIAL",
-            "parameter": {"minSpecial": "1"}
+            "placeholder": "PASSWORD_POLICY_SPECIAL",
+            "parameters": {"minSpecial": "1"}
         }
     ]
 }
