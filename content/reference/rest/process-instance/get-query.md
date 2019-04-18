@@ -122,6 +122,10 @@ GET `/process-instance`
     <td>Restrict the query to all process instances that are top level process instances.</td>
   </tr>
   <tr>
+    <td>leafProcessInstances</td>
+    <td>Restrict the query to all process instances that are leaf instances. (i.e. don't have any sub instances and are not top level process instances)</td>
+  </tr>
+  <tr>
     <td>processDefinitionWithoutTenantId</td>
     <td>Only include process instances which process definition has no tenant id.</td>
   </tr>
