@@ -1169,6 +1169,51 @@ The following describes the operations logged in the user operation log and the 
       </ul>
     </td>
   </tr>
+  <tr>
+    <td>Authorization</td>
+    <td>Create</td>
+	<td>Admin</td>
+    <td>
+      <ul>
+        <li><strong>permissions</strong>: the permissions that have been granted or revoked</li>
+		<li><strong>type</strong>: the type of authorization, can be either 0 (GLOBAL), 1 (GRANT) or 2 (REVOKE)</li>
+		<li><strong>resource</strong>: the name of the resource type</li>
+		<li><strong>resourceId</strong>: The id of the resource. Can be <code>'*'</code> if granted or revoked for all instances of the resource type.</li>
+		<li><strong>userId</strong>: The id of the user the authorization is bound to. Can be <code>'*'</code> if granted or revoked for all users. Is not present when <code>groupId</code> is set.</li>
+		<li><strong>groupId</strong>: The id of the group the authorization is bound to. Is not present when <code>userId</code> is set.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Update</td>
+	<td>Admin</td>
+    <td>
+      <ul>
+        <li><strong>permissions</strong>: the permissions that have been granted or revoked</li>
+		<li><strong>type</strong>: the type of authorization, can be either 0 (GLOBAL), 1 (GRANT) or 2 (REVOKE)</li>
+		<li><strong>resource</strong>: the name of the resource type</li>
+		<li><strong>resourceId</strong>: The id of the resource. Can be <code>'*'</code> if granted or revoked for all instances of the resource type.</li>
+		<li><strong>userId</strong>: The id of the user the authorization is bound to. Can be <code>'*'</code> if granted or revoked for all users. Is not present when <code>groupId</code> is set.</li>
+		<li><strong>groupId</strong>: The id of the group the authorization is bound to. Is not present when <code>userId</code> is set.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Delete</td>
+	<td>Admin</td>
+    <td>
+      <ul>
+        <li><strong>permissions</strong>: the permissions that have been granted or revoked</li>
+		<li><strong>type</strong>: the type of authorization, can be either 0 (GLOBAL), 1 (GRANT) or 2 (REVOKE)</li>
+		<li><strong>resource</strong>: the name of the resource type</li>
+		<li><strong>resourceId</strong>: The id of the resource. Can be <code>'*'</code> if granted or revoked for all instances of the resource type.</li>
+		<li><strong>userId</strong>: The id of the user the authorization is bound to. Can be <code>'*'</code> if granted or revoked for all users. Is not present when <code>groupId</code> is set.</li>
+		<li><strong>groupId</strong>: The id of the group the authorization is bound to. Is not present when <code>userId</code> is set.</li>
+      </ul>
+    </td>
+  </tr>
 </table>
 
 
