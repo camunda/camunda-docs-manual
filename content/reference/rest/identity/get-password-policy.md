@@ -8,7 +8,7 @@ menu:
     name: "Get Password Policy"
     identifier: "rest-api-identity-password-policy-get"
     parent: "rest-api-identity"
-    pre: "GET `/password-policy`"
+    pre: "GET `/identity/password-policy`"
 
 ---
 
@@ -18,7 +18,7 @@ More information on password policies in Camunda can be found in the password po
 
 # Method
 
-GET `/password-policy`
+GET `/identity/password-policy`
 
 # Result
 

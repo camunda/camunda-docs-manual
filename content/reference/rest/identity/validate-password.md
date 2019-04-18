@@ -8,7 +8,7 @@ menu:
     name: "Validate Password"
     identifier: "rest-api-identity-password-policy-validate"
     parent: "rest-api-identity"
-    pre: "POST `/password-policy`"
+    pre: "POST `/identity/password-policy`"
 
 ---
 A password policy consists of a list of rules that new passwords must follow to be policy compliant. A password can be checked for compliancy via this end point.
@@ -17,7 +17,7 @@ More information on password policies in Camunda can be found in the password po
 
 # Method
 
-POST `/password-policy`
+POST `/identity/password-policy`
 
 # Result
 
