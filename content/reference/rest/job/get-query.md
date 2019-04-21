@@ -87,6 +87,17 @@ GET `/job`
     </td>
   </tr>
   <tr>
+    <td>createTimes</td>
+    <td>Only select jobs created before or after the given date.
+    Create time expressions are comma-separated and are structured as follows:<br/>
+    A valid condition value has the form <code>operator_value</code>.
+    <code>operator</code> is the comparison operator to be used and <code>value</code> the date value as string.<br/>
+    <br/>
+    Valid operator values are: <code>gt</code> - greater than; <code>lt</code> - lower than.<br/>
+    <code>value</code> may not contain underscore or comma characters.
+    </td>
+  </tr>
+  <tr>
     <td>withException</td>
     <td>Only select jobs that failed due to an exception. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
