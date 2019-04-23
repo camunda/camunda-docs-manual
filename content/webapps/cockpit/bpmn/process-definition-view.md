@@ -77,13 +77,6 @@ Add a filter for process instances by filtering for a `string` value. Please not
 Add a filter for process instances by filtering for a `boolean` value.
 
 
-**Date variable**
-
-{{< img src="../../img/filter-examples/var-date.png" title="Filter Example" >}}
-
-Add a filter for process instances by filtering for a `date` value. Please note that the date value must be set in accordance to the [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) standard and that you need to encase the value in quotation marks.
-
-
 **Numeric variable**
 
 {{< img src="../../img/filter-examples/var-numeric.png" title="Filter Example" >}}
@@ -111,7 +104,7 @@ Add a filter for process instances by filtering for already completed or still r
 
 {{< img src="../../img/filter-examples/history-end-date.png" title="Filter Example" >}}
 
-Add a filter for process instances by end date. Please note that the date must be set in accordance to the [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) standard and that this option is only available in the [process definition history view][process-definition-history-view]. Again choose between `before` and `after` to filter for instances that were ended before or after the given date. For example, click on `before` to obtain the selection.. 
+Add a filter for process instances by end date. Please note that the date must be set in accordance to the [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) standard and that this option is only available in the [process definition history view][process-definition-history-view]. Again choose between `before` and `after` to filter for instances that were ended before or after the given date. For example, click on `before` to obtain the selection..
 
 
 [process-definition-history-view]: {{< ref "/webapps/cockpit/bpmn/process-history-views.md#process-definition-history-view" >}}

@@ -31,10 +31,10 @@ The activity instance tree contains a node for each activity that is currently a
 
 {{< img src="../../img/cockpit-call-activity-instance-drill-down.png" title="Call Activity Drill Down" >}}
 
-Call activity instances that call at least one process instance have an overlay on the upper right corner that links to their called process instances. 
+Call activity instances that call at least one process instance have an overlay on the upper right corner that links to their called process instances.
 
 
-If the call activity instance calls exactly one process instance, then clicking the overlay redirects to the called process instance page. 
+If the call activity instance calls exactly one process instance, then clicking the overlay redirects to the called process instance page.
 
 However, if the number of called process instances exceeds one, then clicking the overlay will show the called process instances tab containing only process instances called by the selected call activity instance.
 
@@ -58,7 +58,7 @@ The external tasks tab displays various information about external tasks, such a
 
 {{< img src="../../img/variable-filter.png" title="Filter Variables" >}}
 
-In the variables tab, you can filter for variables by variable name, activity instance id and variable value by using search pills. To do so, click in the empty search field and select a criterion. Next, fill in the respective values for the search pill. You can combine multiple search pills to narrow down the results. The total amount of results that suit the search query is displayed to the right. Furthermore, you can copy a link to the current search query to your clipboard by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-link"></i></button> button and you can save search queries to your local browser storage by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and inserting a name in the drop down menu that appears. You can then retrieve the search query by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and selecting the chosen name in the drop down menu.
+In the variables tab, you can filter for variables by variable name, activity instance id and variable value by using search pills. You can filter variable values with the type `String`, `Number`, or `Boolean`. To do so, click in the empty search field and select a criterion. Next, fill in the respective values for the search pill. You can combine multiple search pills to narrow down the results. The total amount of results that suit the search query is displayed to the right. Furthermore, you can copy a link to the current search query to your clipboard by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-link"></i></button> button and you can save search queries to your local browser storage by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and inserting a name in the drop down menu that appears. You can then retrieve the search query by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and selecting the chosen name in the drop down menu.
 
 # Add Variables
 

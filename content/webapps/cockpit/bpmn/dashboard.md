@@ -39,7 +39,7 @@ Please note that this feature is only included in the enterprise edition of the 
 
 {{< img src="../../img/cockpit-search.png" title="cockpit Search" >}}
 
-At the top of the dashboard, you can search for process instances and incidents which fulfill certain search criteria. To do so, click in the search box and select the parameters to search for. You can also begin typing to find the required parameter faster. Depending on the selected property, you have to specify the value of the property. Some properties also allow operators other than equal, e.g., 'like', which allows searching for process instances where the entered value is a substring of the property value. To search for process variables, you also have to enter the variable name you want to search for. To search for a variable of type string, which has a numeric, boolean or null value, you have to wrap the value in single quotes (e.g., `'93288'` or `'NULL'`). You can combine multiple search pills to narrow down the search results.
+At the top of the dashboard, you can search for process instances and incidents which fulfill certain search criteria. To do so, click in the search box and select the parameters to search for. You can also begin typing to find the required parameter faster. Depending on the selected property, you have to specify the value of the property. Some properties also allow operators other than equal, e.g., 'like', which allows searching for process instances where the entered value is a substring of the property value. To search for process variables, you also have to enter the variable name you want to search for. You can search for variable values with the type `String`, `Number`, or `Boolean`. To search for a variable of type string, which has a numeric, boolean or null value, you have to wrap the value in single quotes (e.g., `'93288'` or `'NULL'`). You can combine multiple search pills to narrow down the search results.
 
 To add additional columns to the details of the search results, click on the 'Add column' button and select the desired details in the drop down menu that appears.
 
@@ -47,7 +47,7 @@ Furthermore, you can copy a link to the current search query to your clipboard b
 
 You can always either search for process instances or for incidents. When you add a parameter for an incident search, you can not add a second parameter which would search for a process instance and vice versa.
 
-You can perform batch operation on process instances matching search criteria by clicking "Batch operation" button. 
+You can perform batch operation on process instances matching search criteria by clicking "Batch operation" button.
 
 {{< note title="Heads-up!" class="info" >}}
   The process instance search operates on the history endpoint of the engine. In case the requested historic data is not persisted to the database, then the search does not deliver the desired results.
