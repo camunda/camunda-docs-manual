@@ -141,7 +141,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>leafProcessInstances</td>
-    <td>Restrict the query to all process instances that are leaf instances. (i.e. don't have any sub instances and are not top level process instances)</td>
+    <td>Restrict the query to all process instances that are leaf instances. (i.e. don't have any sub instances)</td>
   </tr>
   <tr>
     <td>processDefinitionWithoutTenantId</td>
