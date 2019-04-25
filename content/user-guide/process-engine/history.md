@@ -1012,6 +1012,22 @@ The following describes the operations logged in the user operation log and the 
     </td>
   </tr>
   <tr>
+    <td></td>
+    <td>SetPriority</td>
+	<td>Operator</td>
+    <td>
+      <ul>
+        <li><strong>priority</strong>: the new priority</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Unlock</td>
+	<td>Operator</td>
+    <td><i>No additional property is logged</i></td>
+  </tr>
+  <tr>
     <td>DecisionInstance</td>
     <td>DeleteHistory</td>
 	<td>Operator</td>
