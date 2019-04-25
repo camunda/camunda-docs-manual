@@ -104,7 +104,7 @@ A JSON object with the following properties:
     <td>Only include suspended process instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
-    <td>hasIncident</td>
+    <td>withIncident</td>
     <td>Filter by presence of incidents. Selects only process instances that have an incident.</td>
   </tr>
   <tr>
