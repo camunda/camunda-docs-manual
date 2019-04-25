@@ -207,3 +207,31 @@ In case you have at least one of these custom implementations please have a look
     </tr>
   </tbody>
 </table>
+
+# Custom WritableIdentityProvider
+
+Custom implementations of the `WritableIdentityProvider` interface need to be adjusted to return the new type `IdentityOperationResult` for all CUD (Create, Update, Delete) operations.
+This includes all interface methods except `createNewUser(String)`, `createNewGroup(String)` and `createNewTenant(String)`.
+
+In order to return an instance of this type, you can easily change a current implementation from
+```java
+public void unlockUser(String userId) {
+  UserEntity user = findUserById(userId);
+  if (user != null && (user.getAttempts() > 0 || user.getLockExpirationTime() != null)) {
+    getIdentityInfoManager().updateUserLock(user, 0, null);
+  }
+}
+```
+to
+```java
+public IdentityOperationResult unlockUser(String userId) {
+  UserEntity user = findUserById(userId);
+  if (user != null && (user.getAttempts() > 0 || user.getLockExpirationTime() != null)) {
+    getIdentityInfoManager().updateUserLock(user, 0, null);
+	return new IdentityOperationResult(user, IdentityOperationResult.OPERATION_UNLOCK);
+  }
+  return new IdentityOperationResult(null, IdentityOperationResult.OPERATION_NONE);
+}
+```
+
+You can also inspect the `DbIdentityServiceProvider` to see how the new return type is handled in the default implementation.
