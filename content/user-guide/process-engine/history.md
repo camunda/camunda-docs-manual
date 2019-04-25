@@ -1175,7 +1175,8 @@ The following describes the operations logged in the user operation log and the 
 	<td>Admin</td>
     <td>
       <ul>
-        <li><strong>permissions</strong>: the permissions that have been granted or revoked</li>
+        <li><strong>permissions</strong>: the list of permissions that has been granted or revoked</li>
+		<li><strong>permissionBits</strong>: the permissions bit mask that is persisted with the authoritation</li>
 		<li><strong>type</strong>: the type of authorization, can be either 0 (GLOBAL), 1 (GRANT) or 2 (REVOKE)</li>
 		<li><strong>resource</strong>: the name of the resource type</li>
 		<li><strong>resourceId</strong>: The id of the resource. Can be <code>'*'</code> if granted or revoked for all instances of the resource type.</li>
@@ -1190,7 +1191,8 @@ The following describes the operations logged in the user operation log and the 
 	<td>Admin</td>
     <td>
       <ul>
-        <li><strong>permissions</strong>: the permissions that have been granted or revoked</li>
+        <li><strong>permissions</strong>: the list of permissions that has been granted or revoked</li>
+		<li><strong>permissionBits</strong>: the permissions bit mask that is persisted with the authoritation</li>
 		<li><strong>type</strong>: the type of authorization, can be either 0 (GLOBAL), 1 (GRANT) or 2 (REVOKE)</li>
 		<li><strong>resource</strong>: the name of the resource type</li>
 		<li><strong>resourceId</strong>: The id of the resource. Can be <code>'*'</code> if granted or revoked for all instances of the resource type.</li>
@@ -1205,7 +1207,8 @@ The following describes the operations logged in the user operation log and the 
 	<td>Admin</td>
     <td>
       <ul>
-        <li><strong>permissions</strong>: the permissions that have been granted or revoked</li>
+        <li><strong>permissions</strong>: the list of permissions that has been granted or revoked</li>
+		<li><strong>permissionBits</strong>: the permissions bit mask that is persisted with the authoritation</li>
 		<li><strong>type</strong>: the type of authorization, can be either 0 (GLOBAL), 1 (GRANT) or 2 (REVOKE)</li>
 		<li><strong>resource</strong>: the name of the resource type</li>
 		<li><strong>resourceId</strong>: The id of the resource. Can be <code>'*'</code> if granted or revoked for all instances of the resource type.</li>
