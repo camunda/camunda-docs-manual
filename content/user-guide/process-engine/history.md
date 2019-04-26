@@ -882,6 +882,18 @@ The following describes the operations logged in the user operation log and the 
   </tr>
   <tr>
     <td></td>
+    <td>Execute</td>
+	<td>Operator</td>
+    <td><i>No additional property is logged</i></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Delete</td>
+	<td>Operator</td>
+    <td><i>No additional property is logged</i></td>
+  </tr>
+  <tr>
+    <td></td>
     <td>SetDueDate</td>
 	<td>Operator</td>
     <td>
@@ -1036,6 +1048,17 @@ The following describes the operations logged in the user operation log and the 
         <li><strong>nrOfInstances</strong>: the amount of decision instances that were deleted</li>
         <li><strong>async</strong>: <code>true</code> if operation was performed asynchronously as a batch, <code>false</code> if operation was performed synchronously</li>
         <li><strong>deleteReason</strong>: the reason for deletion. This property exists only if operation was performed asynchronously</li>
+      </ul>
+    </td>
+  </tr>	
+  <tr>
+    <td>Metrics</td>
+    <td>Delete</td>
+	<td>Operator</td>
+    <td>
+      <ul>
+        <li><strong>timestamp</strong>: The date for which all metrics older than that have been deleted. Only present if specified by the user.</li>
+        <li><strong>reporter</strong>: The reporter for which all metrics reported by it have been deleted. Only present if specified by the user.</li>
       </ul>
     </td>
   </tr>	
