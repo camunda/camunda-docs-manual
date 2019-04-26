@@ -18,7 +18,7 @@ Run the Camunda BPM platform in every Java-runnable environment. Camunda BPM is 
 {{< /note >}}
 
 
-# Container/Application Server for Runtime Components (Excluding Camunda Cycle)
+# Container/Application Server for Runtime Components
 
 ## Application-Embedded Process Engine
 
