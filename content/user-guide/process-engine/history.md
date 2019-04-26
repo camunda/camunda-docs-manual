@@ -1061,7 +1061,37 @@ The following describes the operations logged in the user operation log and the 
         <li><strong>reporter</strong>: The reporter for which all metrics reported by it have been deleted. Only present if specified by the user.</li>
       </ul>
     </td>
-  </tr>	
+  </tr>
+  <tr>
+    <td>Filter</td>
+    <td>Create</td>
+	<td>TaskWorker</td>
+    <td>
+      <ul>
+        <li><strong>filterId</strong>: the id of the filter that been created</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Update</td>
+	<td>TaskWorker</td>
+    <td>
+      <ul>
+        <li><strong>filterId</strong>: the id of the filter that been updated</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Delete</td>
+	<td>TaskWorker</td>
+    <td>
+      <ul>
+        <li><strong>filterId</strong>: the id of the filter that been deleted</li>
+      </ul>
+    </td>
+  </tr>
   <tr>
     <td>User</td>
     <td>Create</td>
