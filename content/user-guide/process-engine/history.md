@@ -666,14 +666,25 @@ The following describes the operations logged in the user operation log and the 
     <td></td>
     <td>DeleteHistory</td>
   	<td>Operator</td>
-      <td>
-        <ul>
-          <li><strong>nrOfInstances</strong>: the amount of process instances that were deleted</li>
-          <li><strong>async</strong>: <code>true</code> if operation was performed asynchronously as a batch, <code>false</code> if operation was performed synchronously</li>
-          <li><strong>deleteReason</strong>: the reason for deletion. This property exists only if the operation was performed asynchronously</li>
-        </ul>
-      </td>
-    </tr>
+    <td>
+      <ul>
+        <li><strong>nrOfInstances</strong>: the amount of process instances that were deleted</li>
+        <li><strong>async</strong>: <code>true</code> if operation was performed asynchronously as a batch, <code>false</code> if operation was performed synchronously</li>
+        <li><strong>deleteReason</strong>: the reason for deletion. This property exists only if the operation was performed asynchronously</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>CreateIncident</td>
+	<td>Operator</td>
+    <td>
+      <ul>
+        <li><strong>incidentType</strong>: The type of incident that was created</li>
+		<li><strong>configuration</strong>: The configuration of the incident that was created</li>
+      </ul>
+    </td>
+  </tr>
   <tr>
     <td></td>
     <td>Resolve</td>
