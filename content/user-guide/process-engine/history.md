@@ -838,6 +838,17 @@ The following describes the operations logged in the user operation log and the 
     </td>
   </tr>
   <tr>
+    <td></td>
+    <td>Evaluate</td>
+    <td>Operator</td>
+    <td>
+      <ul>
+        <li><strong>decisionDefinitionId</strong>: the id of the decision definition that was evaluated.</li>
+        <li><strong>decisionDefinitionKey</strong>: the key of the decision definition that was evaluated.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
     <td>CaseDefinition</td>
     <td>UpdateHistoryTimeToLive</td>
 	<td>Operator</td>
