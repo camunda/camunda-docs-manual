@@ -132,8 +132,10 @@ Request Body:
 Status 200.
 
     {
-        "aVariable": "aStringValue",
-        "anotherVariable": 42,
-        "aThirdVariable": true
-        "additionalProcessVariable": "value"
+        "aVariable": {"value" : "aStringValue", "type": "String",
+                        "valueInfo" : {} },
+        "anotherVariable": {"value" : 42, "type": "Integer",
+                        "valueInfo" : {} },
+        "aThirdVariable": {"value" : true, "type": "Boolean",
+                        "valueInfo" : {} }
     }
