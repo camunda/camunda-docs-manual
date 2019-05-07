@@ -1074,6 +1074,16 @@ The following describes the operations logged in the user operation log and the 
     </td>
   </tr>	
   <tr>
+    <td>CaseInstance</td>
+    <td>DeleteHistory</td>
+	<td>Operator</td>
+    <td>
+      <ul>
+        <li><strong>nrOfInstances</strong>: The amount of case instances that were deleted. Only present if executed in bulk delete.</li>
+      </ul>
+    </td>
+  </tr>	
+  <tr>
     <td>Metrics</td>
     <td>Delete</td>
 	<td>Operator</td>
