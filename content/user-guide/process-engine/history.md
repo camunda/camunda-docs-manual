@@ -694,6 +694,26 @@ The following describes the operations logged in the user operation log and the 
         <li><strong>incidentId</strong>: The id of the incident that was resolved</li>
       </ul>
     </td>
+  </tr> 
+  <tr>
+    <td></td>
+    <td>SetRemovalTime</td>
+	  <td>Operator</td>
+    <td>
+      <ul>
+        <li><strong>async</strong>: <code>true</code> if operation was performed asynchronously as a batch</li>
+        <li><strong>nrOfInstances</strong>: The amount of updated instances</li>
+        <li><strong>removalTime</strong>: The date of which an instance shall be removed</li>
+        <li>
+          <strong>mode</strong>: <code>CALCULATED_REMOVAL_TIME</code> if the removal time was calculated,
+          <code>ABSOLUTE_REMOVAL_TIME</code> if the removal time was set explicitly
+        </li>
+        <li>
+          <strong>hierarchical</strong>: <code>true</code> if the removal time was set across the hiearchy,
+          <code>false</code> if the hierarchy was neglected
+        </li>
+      </ul>
+    </td>
   </tr>
   <tr>
     <td>IdentityLink</td>
@@ -1034,6 +1054,26 @@ The following describes the operations logged in the user operation log and the 
     <td><i>No additional property is logged</i></td>
   </tr>
   <tr>
+    <td></td>
+    <td>SetRemovalTime</td>
+    <td>Operator</td>
+    <td>
+      <ul>
+        <li><strong>async</strong>: <code>true</code> if operation was performed asynchronously as a batch</li>
+        <li><strong>nrOfInstances</strong>: The amount of updated instances</li>
+        <li><strong>removalTime</strong>: The date of which an instance shall be removed</li>
+        <li>
+          <strong>mode</strong>: <code>CALCULATED_REMOVAL_TIME</code> if the removal time was calculated,
+          <code>ABSOLUTE_REMOVAL_TIME</code> if the removal time was set explicitly
+        </li>
+        <li>
+          <strong>hierarchical</strong>: <code>true</code> if the removal time was set across the hiearchy,
+          <code>false</code> if the hierarchy was neglected
+        </li>
+      </ul>
+    </td>
+    </tr>
+  <tr>
     <td>ExternalTask</td>
     <td>SetExternalTaskRetries</td>
 	<td>Operator</td>
@@ -1083,6 +1123,26 @@ The following describes the operations logged in the user operation log and the 
       </ul>
     </td>
   </tr>	
+  <tr>
+    <td></td>
+    <td>SetRemovalTime</td>
+	  <td>Operator</td>
+    <td>
+      <ul>
+        <li><strong>async</strong>: <code>true</code> if operation was performed asynchronously as a batch</li>
+        <li><strong>nrOfInstances</strong>: The amount of updated instances</li>
+        <li><strong>removalTime</strong>: The date of which an instance shall be removed</li>
+        <li>
+          <strong>mode</strong>: <code>CALCULATED_REMOVAL_TIME</code> if the removal time was calculated,
+          <code>ABSOLUTE_REMOVAL_TIME</code> if the removal time was set explicitly
+        </li>
+        <li>
+          <strong>hierarchical</strong>: <code>true</code> if the removal time was set across the hiearchy,
+          <code>false</code> if the hierarchy was neglected
+        </li>
+      </ul>
+    </td>
+  </tr>
   <tr>
     <td>Metrics</td>
     <td>Delete</td>
