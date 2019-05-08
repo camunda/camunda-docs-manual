@@ -1378,6 +1378,36 @@ The following describes the operations logged in the user operation log and the 
       </ul>
     </td>
   </tr>
+  <tr>
+    <td>Property</td>
+    <td>Create</td>
+	<td>Admin</td>
+    <td>
+      <ul>
+        <li><strong>name</strong>: the name of the property that was created</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Update</td>
+	<td>Admin</td>
+    <td>
+      <ul>
+        <li><strong>name</strong>: the name of the property that was updated</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Delete</td>
+	<td>Admin</td>
+    <td>
+      <ul>
+        <li><strong>name</strong>: the name of the property that was deleted</li>
+      </ul>
+    </td>
+  </tr>
 </table>
 
 
