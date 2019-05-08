@@ -1066,10 +1066,6 @@ The following describes the operations logged in the user operation log and the 
           <strong>mode</strong>: <code>CALCULATED_REMOVAL_TIME</code> if the removal time was calculated,
           <code>ABSOLUTE_REMOVAL_TIME</code> if the removal time was set explicitly
         </li>
-        <li>
-          <strong>hierarchical</strong>: <code>true</code> if the removal time was set across the hiearchy,
-          <code>false</code> if the hierarchy was neglected
-        </li>
       </ul>
     </td>
     </tr>
@@ -1112,21 +1108,11 @@ The following describes the operations logged in the user operation log and the 
         <li><strong>deleteReason</strong>: the reason for deletion. This property exists only if operation was performed asynchronously</li>
       </ul>
     </td>
-  </tr>	
-  <tr>
-    <td>CaseInstance</td>
-    <td>DeleteHistory</td>
-	<td>Operator</td>
-    <td>
-      <ul>
-        <li><strong>nrOfInstances</strong>: The amount of case instances that were deleted. Only present if executed in bulk delete.</li>
-      </ul>
-    </td>
-  </tr>	
+  </tr>
   <tr>
     <td></td>
     <td>SetRemovalTime</td>
-	  <td>Operator</td>
+    <td>Operator</td>
     <td>
       <ul>
         <li><strong>async</strong>: <code>true</code> if operation was performed asynchronously as a batch</li>
@@ -1140,6 +1126,16 @@ The following describes the operations logged in the user operation log and the 
           <strong>hierarchical</strong>: <code>true</code> if the removal time was set across the hiearchy,
           <code>false</code> if the hierarchy was neglected
         </li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>CaseInstance</td>
+    <td>DeleteHistory</td>
+	<td>Operator</td>
+    <td>
+      <ul>
+        <li><strong>nrOfInstances</strong>: The amount of case instances that were deleted. Only present if executed in bulk delete.</li>
       </ul>
     </td>
   </tr>
