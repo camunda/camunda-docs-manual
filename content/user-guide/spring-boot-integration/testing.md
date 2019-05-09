@@ -74,4 +74,34 @@ If a static accessor needs to be used (e.g. processEngines.getProcessEngine(name
   }
 )
 ```
-Here, the `camunda.bpm.process-engine-name=foo` will set (a unique name) "foo" as the Process Engine name. 
+Here, the `camunda.bpm.process-engine-name=foo` will set (a unique name) "foo" as the Process Engine name.
+
+## Camunda Assertions
+
+The [Camunda BPM Assertions]({{< ref 
+"/user-guide/testing/_index.md#camunda-assertions" >}}) library is 
+integrated with the Camunda Spring Boot Starter in
+order to make testing processes in your Spring Boot application easier.
+
+### Using Assertions with Context Caching
+
+Out of the box, the Camunda BPM Assertions library tries to use the
+default engine or the (single) one that is available. Since when using
+Context Caching multiple engines are used in different contexts, binding
+the correct Process Engine to the Camunda Assertions library is required
+for both caching and assertions to work correctly. This can be done
+through the following initialization code in the test class:
+
+```java
+  @Autowired
+  ProcessEngine processEngine;  
+
+  @Before
+  public void setUp() {
+    init(processEngine);
+  }
+```
+
+This needs to be done in addition to the _Unique Process
+Engine/Application names_ requirement described in the
+[section above](#using-unique-process-engine-application-names).
