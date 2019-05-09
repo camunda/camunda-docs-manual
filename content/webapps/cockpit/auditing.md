@@ -26,7 +26,18 @@ To get a more detailed explanation about the Java and REST API methods to get us
 # Operation Log in Cockpit
 {{< img src="../img/cockpit-operation-log.png" title="Operation Log" >}}
 
-Camunda Cockpit provides the possibility to audit the activities which each user performs. You can find the Operation Log in the top menu bar under the ‘more’ option. The table is a representation of the history of various user operations, and it provides information about changes performed in the past. The rows are grouped by an operation to provide clear insights on the changes produced by each operation. Results can be filtered using the search bar at the top. You can add and remove columns to show only the relevant information you are interested in.
+Cockpit provides the possibility to audit the activities which each user performs. You can find the Operation Log in the top menu bar under the `more` option. The table is a representation of the history of various user operations, and it provides information about changes performed in the past. The rows are grouped by an operation to provide clear insights on the changes produced by each operation. Results can be filtered using the search bar at the top. You can add columns using the dropdown in the top right. They can be removed by clicking the <button class="btn btn-xs"><i class="glyphicon glyphicon-remove"></i></button> next to the corresponding table header.
+
+## Operations by a specific User
+To only display Operations performed by a specific User, click in the Search field and select `User ID` from the dropdown and enter the ID of the desired user. The user ID can be copied from a log entry by hovering over the name and clicking on the clipboard Icon.
+
+## Operations in a specific Timespan
+You can limit Results the time the operation occurred. Click in the Search field and select `Timestamp` from the dropdown. You can now specify the date and time at which you want to cut off results. By clicking on the operator, you can select if you want results `before` or `after` the specified time. Add another `Timestamp` filter to specify a period.
+{{< img src="../img/cockpit-audit-timestamp.png" title="Filter by Timestamp" >}}
+
+## Operations of a specific Type
+If you are only interested in a specific operation, for example, every time a process instance was manually modified, you can use the `operation` filter. Select the desired operation from the dropdown or start to type the name to filter through the list. For a complete list of logged operations, check out [History and Audit Event Log](/user-guide/process-engine/history/#glossary-of-operations-logged-in-the-user-operation-log).
+{{< img src="../img/cockpit-audit-type.png" title="Filter by Type" >}}
 
 # User Operation Log per Process
 {{< img src="../img/cockpit-user-operation-log.png" title="Batch View Page" >}}
