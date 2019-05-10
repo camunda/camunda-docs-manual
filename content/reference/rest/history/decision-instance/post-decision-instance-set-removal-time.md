@@ -174,7 +174,7 @@ Request Body:
   "absoluteRemovalTime": "2019-05-05T11:56:24.725+0200",
   "hierarchical": true,
   "historicDecisionInstanceQuery": {
-    "unfinished": true
+    "evaluatedBefore": "2019-09-05T17:02:10.123+0200"
   },
   "historicDecisionInstanceIds": [ 
     "b4d2ad98-7240-11e9-98b7-be5e0f7575b7",
