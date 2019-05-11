@@ -113,6 +113,11 @@ Its properties are as follows:
     <td>The time the instance was evaluated. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
+    <td>removalTime</td>
+    <td>String</td>
+    <td>The time after which the instance should be removed by the History Cleanup job. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+  <tr>
     <td>processDefinitionId</td>
     <td>String</td>
     <td>The id of the process definition that this decision instance belongs to.</td>
@@ -191,6 +196,11 @@ Its properties are as follows:
     <td>The decision instance id of the evaluated root decision. Can be <code>null</code> if this instance is the root decision instance of the evaluation.</td>
   </tr>
   <tr>
+    <td>rootProcessInstanceId</td>
+    <td>String</td>
+    <td>The process instance id of the root process instance that initiated the evaluation of this decision. Can be <code>null</code> if this decision instance is not evaluated as part of a BPMN process.</td>
+  </tr>
+  <tr>
     <td>decisionRequirementsDefinitionId</td>
     <td>String</td>
     <td>The id of the decision requirements definition that this decision instance belongs to.</td>
@@ -202,15 +212,19 @@ Its properties are as follows:
   </tr>
 </table>
 
-\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 ## Decision Input Value
 
 {{< rest-decision-input deserializationParameter="disableCustomObjectDeserialization" >}}
 
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
+
 ## Decision Output Value
 
 {{< rest-decision-output deserializationParameter="disableCustomObjectDeserialization" >}}
+
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Response Codes
 
@@ -228,7 +242,7 @@ Its properties are as follows:
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Historic decision instance with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Historic decision instance with given id does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -250,6 +264,7 @@ GET `/history/decision-instance/aDecisionInstId?includeInput=true&includeOutputs
     "decisionDefinitionKey": "invoice-assign-approver",
     "decisionDefinitionName": "Assign Approver",
     "evaluationTime": "2015-09-10T11:22:06.000+0200",
+    "removalTime": null,
     "id": "67ea2c3f-579d-11e5-9848-f0def1e59da8",
     "inputs": [
         {
@@ -259,6 +274,9 @@ GET `/history/decision-instance/aDecisionInstId?includeInput=true&includeOutputs
             "errorMessage": null,
             "id": "67ea2c41-579d-11e5-9848-f0def1e59da8",
             "type": "Double",
+            "createTime":"2015-09-10T11:22:06.000+0200",
+            "removalTime": null,
+            "rootProcessInstanceId": "aRootProcessInstanceId",
             "value": 123.0,
             "valueInfo": {}
         },
@@ -269,6 +287,9 @@ GET `/history/decision-instance/aDecisionInstId?includeInput=true&includeOutputs
             "errorMessage": null,
             "id": "67ea2c40-579d-11e5-9848-f0def1e59da8",
             "type": "String",
+            "createTime":"2015-09-10T11:22:06.000+0200",
+            "removalTime": null,
+            "rootProcessInstanceId": "aRootProcessInstanceId",
             "value": "Misc",
             "valueInfo": {}
         }
@@ -283,6 +304,9 @@ GET `/history/decision-instance/aDecisionInstId?includeInput=true&includeOutputs
             "ruleId": "DecisionRule_1of5a87",
             "ruleOrder": 1,
             "type": "String",
+            "createTime":"2015-09-10T11:22:06.000+0200",
+            "removalTime": null,
+            "rootProcessInstanceId": "aRootProcessInstanceId",
             "value": "accounting",
             "valueInfo": {},
             "variableName": "result"
@@ -291,6 +315,7 @@ GET `/history/decision-instance/aDecisionInstId?includeInput=true&includeOutputs
     "processDefinitionId": "invoice:1:4c6e3197-579d-11e5-9848-f0def1e59da8",
     "processDefinitionKey": "invoice",
     "processInstanceId": "67e98fec-579d-11e5-9848-f0def1e59da8",
+    "rootProcessInstanceId": "f8259e5d-ab9d-11e8-8449-e4a7a094a9d6",
     "caseDefinitionId": null,
     "caseDefinitionKey": null,
     "caseInstanceId": null,

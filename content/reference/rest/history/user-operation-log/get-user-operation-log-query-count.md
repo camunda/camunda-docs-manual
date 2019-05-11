@@ -14,7 +14,7 @@ menu:
 
 
 Queries for the number of user operation log entries that fulfill the given parameters.
-Takes the same parameters as the [Get User Operation Log (Historic)]({{< relref "reference/rest/history/user-operation-log/get-user-operation-log-query.md" >}}) method.
+Takes the same parameters as the [Get User Operation Log (Historic)]({{< ref "/reference/rest/history/user-operation-log/get-user-operation-log-query.md" >}}) method.
 
 
 # Method
@@ -96,6 +96,14 @@ GET `/history/user-operation/count`
     <td>Filter by types of the entities that was affected by this operation, possible values are <code>Task</code>, <code>Attachment</code> or <code>IdentityLink</code>.</td>
   </tr>
   <tr>
+    <td>category</td>
+    <td>Filter by the category that this operation is associated with, possible values are <code>TaskWorker</code>, <code>Admin</code> or <code>Operator</code>.</td>
+  </tr>
+  <tr>
+    <td>categoryIn</td>
+    <td>Filter by the categories that this operation is associated with, possible values are <code>TaskWorker</code>, <code>Admin</code> or <code>Operator</code>.</td>
+  </tr>
+  <tr>
     <td>property</td>
     <td>Only include operations that changed this property, e.g., <code>owner</code> or <code>assignee</code>.</td>
   </tr>
@@ -109,7 +117,7 @@ GET `/history/user-operation/count`
   </tr>
 </table>
 
-\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Result
 
@@ -145,7 +153,7 @@ A JSON object that contains the count as the only property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

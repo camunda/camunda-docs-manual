@@ -57,7 +57,7 @@ public DataSource secondaryDataSource() {
 
 ### `DefaultHistoryConfiguration`
 
-Applies the history configuration to the process engine. If not configured, the history level [FULL]({{< relref "user-guide/process-engine/history.md#choose-a-history-level" >}}) is used.
+Applies the history configuration to the process engine. If not configured, the history level [FULL]({{< ref "/user-guide/process-engine/history.md#choose-a-history-level" >}}) is used.
 If you want to use a custom `HistoryEventHandler`, you just have to provide a bean implementing the interface.
 
 ```java
@@ -197,6 +197,19 @@ public class MyCustomConfiguration extends AbstractCamundaConfiguration {
 <td>Name of the process engine</td>
 <td>Camunda default value</td>
 </tr>
+
+<tr>
+<td><code>.generate-unique-process-engine-name</code></td>
+<td>Generate a unique name for the process engine (format: 'processEngine' + 10 random alphanumeric characters)</td>
+<td>false</td>
+</tr>
+
+<tr>
+<td><code>.generate-unique-process-application-name</code></td>
+<td>Generate a unique Process Application name for every Process Application deployment (format: 'processApplication' + 10 random alphanumeric characters)</td>
+<td>false</td>
+</tr>
+
 <tr>
 <td><code>.default-serialization-format</code></td>
 <td>Default serialization format</td>
@@ -238,9 +251,10 @@ public class MyCustomConfiguration extends AbstractCamundaConfiguration {
 <td>Provides an URL to your Camunda license file and is automatically inserted into the DB when the application starts (but only if no license key is found in the DB).</td>
 <td>By default, the license key will be loaded:
  <ol>
-  <li>from the file with the name <code>camunda-license.txt</code> from classpath (if present)</li> 
+  <li>from the file with the name <code>camunda-license.txt</code> from classpath (if present)</li>
   <li>from path <i>${user.home}/.camunda/license.txt</i> (if present)</li>
  </ol>
+ The license must be exactly in the format as we sent it to you including the header and footer line.
 </td>
 </tr>
 
@@ -306,7 +320,7 @@ takes place but the previous deployment is resumed.</td>
 <tr><td colspan="4"><b>Job Execution</b></td></tr>
 
 <tr>
-<td rowspan="9"><code>camunda.bpm.job-execution</code></td>
+<td rowspan="14"><code>camunda.bpm.job-execution</code></td>
 <td><code>.enabled</code></td>
 <td>If set to <code>false</code>, no JobExecutor bean is created at all. Maybe used for testing.</td>
 <td><code>true</code></td>
@@ -381,7 +395,7 @@ takes place but the previous deployment is resumed.</td>
 <tr><td colspan="4"><b>Datasource</b></td></tr>
 
 <tr>
-<td rowspan="4"><code>camunda.bpm.database</code></td>
+<td rowspan="5"><code>camunda.bpm.database</code></td>
 <td><code>.schema-update</code></td>
 <td>If automatic schema update should be applied, use one of [true, false, create, create-drop, drop-create]</td>
 <td><code>true</code></td>
@@ -404,6 +418,39 @@ takes place but the previous deployment is resumed.</td>
 <td>The dataBase schema name</td>
 <td><i>Camunda default value</i></td>
 </tr>
+
+<tr>
+<td><code>.jdbc-batch-processing</code></td>
+<td>Controls if the engine executes the jdbc statements as Batch or not.
+It has to be disabled for some databases.
+See the <a href="{{<ref "/user-guide/process-engine/database.md#jdbc-batch-processing" >}}">user guide</a> for further details.</td>
+<td><i>Camunda default value: true</i></td>
+</tr>
+
+<tr><td colspan="4"><b>Eventing</b></td></tr>
+<tr>
+<td rowspan="3"><code>camunda.bpm.eventing</code></td>
+<td><code>.execution</code></td>
+<td>Enables eventing of delegate execution events.
+See the <a href="{{<ref "/user-guide/spring-boot-integration/the-spring-event-bridge.md" >}}">user guide</a> for further details.</td>
+<td><code>true</code></td>
+</tr>
+
+<tr>
+<td><code>.history</code></td>
+<td>Enables eventing of history events.
+See the <a href="{{<ref "/user-guide/spring-boot-integration/the-spring-event-bridge.md" >}}">user guide</a> for further details.</td>
+<td><code>true</code></td>
+</tr>
+
+<tr>
+<td><code>.task</code></td>
+<td>Enables eventing of task events.
+See the <a href="{{<ref "/user-guide/spring-boot-integration/the-spring-event-bridge.md" >}}">user guide</a> for further details.</td>
+<td><code>true</code></td>
+</tr>
+
+
 
 <tr><td colspan="4"><b>JPA</b></td></tr>
 <tr>
@@ -459,8 +506,34 @@ takes place but the previous deployment is resumed.</td>
 <td><code>.index-redirect-enabled</code></td>
 <td>Registers a redirect from <code>/</code> to camunda's bundled <code>index.html</code>.
 <br/>
-<a href="https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-developing-web-applications.html#boot-features-spring-mvc-welcome-page">Spring boot</a> always redirects to index.html page. If this property is set to <code>false</code>, you can set up custom welcome page.</td>
+If this property is set to <code>false</code>, the
+<a href="https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-developing-web-applications.html#boot-features-spring-mvc-welcome-page">default</a>
+Spring Boot behaviour is taken into account.</td>
 <td><code>true</code></td>
+</tr>
+
+<tr>
+  <td rowspan="5"><code>camunda.bpm.webapp.csrf</code></td>
+</tr>
+<tr>
+<td><code>.targetOrigin</code></td>
+<td>Sets the application expected deployment domain. See the <a href="{{<ref "/webapps/shared-options/csrf-prevention.md" >}}">user guide</a> for details.</td>
+<td><i>Not set</i></td>
+</tr>
+<tr>
+<td><code>.denyStatus</code></td>
+<td>Sets the HTTP response status code used for a denied request. See the <a href="{{<ref "/webapps/shared-options/csrf-prevention.md" >}}">user guide</a> for details.</td>
+<td><code>403</code></td>
+</tr>
+<tr>
+<td><code>.randomClass</code></td>
+<td>Sets the name of the class used to generate tokens. See the <a href="{{<ref "/webapps/shared-options/csrf-prevention.md" >}}">user guide</a> for details.</td>
+<td><code>java.security.SecureRandom</code></td>
+</tr>
+<tr>
+<td><code>.entryPoints</code></td>
+<td>Sets additional URLs that will not be tested for the presence of a valid token. See the <a href="{{<ref "/webapps/shared-options/csrf-prevention.md" >}}">user guide</a> for details.</td>
+<td><i>Not set</i></td>
 </tr>
 
 <tr><td colspan="4"><b>Authorization</b></td></tr>
@@ -515,6 +588,6 @@ takes place but the previous deployment is resumed.</td>
 <td><code>.create</code></td>
 <td>Name of a "show all" filter. If set, a new filter is created on start that displays all tasks. Useful for testing on h2 db.</td>
 <td>-</td>
-</tr> 
+</tr>
 
 </table>

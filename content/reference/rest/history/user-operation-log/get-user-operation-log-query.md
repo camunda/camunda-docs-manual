@@ -14,7 +14,7 @@ menu:
 
 
 Queries for user operation log entries that fulfill the given parameters.
-The size of the result set can be retrieved by using the [Get User Operation Log Count]({{< relref "reference/rest/history/user-operation-log/get-user-operation-log-query-count.md" >}}) method.
+The size of the result set can be retrieved by using the [Get User Operation Log Count]({{< ref "/reference/rest/history/user-operation-log/get-user-operation-log-query-count.md" >}}) method.
 
 Note that the properties of operation log entries are interpreted as restrictions on the entities they apply to. That means, if a single process instance is updated, the field `processInstanceId` is populated. If a single operation updates all process instances of the same process definition, the field `processInstanceId` is `null` (a `null` restriction is viewed as a wildcard, i.e., matches a process instance with any id) and the field `processDefinitionId` is populated. This way, which entities were changed by a user operation can easily be reconstructed.
 
@@ -98,6 +98,14 @@ GET `/history/user-operation`
     <td>Filter by types of the entities that was affected by this operation, possible values are <code>Task</code>, <code>Attachment</code> or <code>IdentityLink</code>.</td>
   </tr>
   <tr>
+    <td>category</td>
+    <td>Filter by the category that this operation is associated with, possible values are <code>TaskWorker</code>, <code>Admin</code> or <code>Operator</code>.</td>
+  </tr>
+  <tr>
+    <td>categoryIn</td>
+    <td>Filter by the categories that this operation is associated with, possible values are <code>TaskWorker</code>, <code>Admin</code> or <code>Operator</code>.</td>
+  </tr>
+  <tr>
     <td>property</td>
     <td>Only include operations that changed this property, e.g., <code>owner</code> or <code>assignee</code>.</td>
   </tr>
@@ -128,7 +136,7 @@ GET `/history/user-operation`
   </tr>
 </table>
 
-\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Result
 
@@ -172,6 +180,11 @@ Each log entry has the following properties:
     <td>The type of the entity on which this operation was executed, e.g., <code>Task</code> or <code>Attachment</code>.</td>
   </tr>
   <tr>
+    <td>category</td>
+    <td>String</td>
+    <td>The name of the category this operation was associated with, e.g., <code>TaskWorker</code> or <code>Admin</code>.</td>
+  </tr>
+  <tr>
     <td>property</td>
     <td>String</td>
     <td>The property changed by this operation.</td>
@@ -186,7 +199,6 @@ Each log entry has the following properties:
     <td>String</td>
     <td>The new value of the changed property.</td>
   </tr>
-
   <tr>
     <td>deploymentId</td>
     <td>String</td>
@@ -242,9 +254,19 @@ Each log entry has the following properties:
     <td></td>
     <td>If not null, the operation is restricted to entities in relation to this job definition.</td>
   </tr>
-
+  <tr>
+    <td>removalTime</td>
+    <td>String</td>
+    <td>The time after which the entry should be removed by the History Cleanup job. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+  <tr>
+    <td>rootProcessInstanceId</td>
+    <td>String</td>
+    <td>The process instance id of the root process instance that initiated the process containing this entry.</td>
+  </tr>
 </table>
 
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Response Codes
 
@@ -262,7 +284,7 @@ Each log entry has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -293,7 +315,10 @@ GET `/history/user-operation?operationType=Claim&userId=demo&sortBy=timestamp&so
     "entityType": "Task",
     "property": "assignee",
     "orgValue": null,
-    "newValue": "demo"}]
+    "newValue": "demo",
+    "removalTime": "2018-02-10T14:33:19.000+0200",
+    "rootProcessInstanceId": "aRootProcessInstanceId",
+	"category": "TaskWorker"}]
 
 ## (2) Request
 
@@ -319,4 +344,7 @@ GET `/history/user-operation?operationType=Suspend&userId=demo`
     "entityType": "ProcessInstance",
     "property": "suspensionState",
     "orgValue": null,
-    "newValue": "suspended"}]
+    "newValue": "suspended",
+    "removalTime": "2018-02-10T14:33:19.000+0200",
+    "rootProcessInstanceId": "aRootProcessInstanceId",
+	"category": "Operator"}]

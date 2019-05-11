@@ -14,7 +14,7 @@ menu:
 
 
 Queries for historic process instances that fulfill the given parameters.
-The size of the result set can be retrieved by using the [Get Process Instance Count]({{< relref "reference/rest/history/process-instance/get-process-instance-query-count.md" >}}) method.
+The size of the result set can be retrieved by using the [Get Process Instance Count]({{< ref "/reference/rest/history/process-instance/get-process-instance-query-count.md" >}}) method.
 
 
 # Method
@@ -46,6 +46,10 @@ GET `/history/process-instance`
   <tr>
     <td>processInstanceBusinessKeyLike</td>
     <td>Filter by process instance business key that the parameter is a substring of.</td>
+  </tr>
+  <tr>
+    <td>rootProcessInstances</td>
+    <td>Restrict the query to all process instances that are top level process instances.</td>
   </tr>
   <tr>
     <td>superProcessInstanceId</td>
@@ -105,7 +109,7 @@ GET `/history/process-instance`
   </tr>
   <tr>
     <td>incidentType</td>
-    <td>Filter by the incident type. See the <a href="{{< relref "user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
+    <td>Filter by the incident type. See the <a href="{{< ref "/user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
   </tr>
   <tr>
     <td>incidentStatus</td>
@@ -143,6 +147,10 @@ GET `/history/process-instance`
   <tr>
     <td>tenantIdIn</td>
     <td>Filter by a comma-separated list of tenant ids. A process instance must have one of the given tenant ids.</td>
+  </tr>
+  <tr>
+    <td>withoutTenantId</td>
+    <td>Only include historic process instances which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>variables</td>
@@ -224,7 +232,7 @@ GET `/history/process-instance`
   </tr>
 </table>
 
-\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Result
 
@@ -241,6 +249,11 @@ Each historic process instance object has the following properties:
     <td>id</td>
     <td>String</td>
     <td>The id of the process instance.</td>
+  </tr>
+  <tr>
+    <td>rootProcessInstanceId</td>
+    <td>String</td>
+    <td>The process instance id of the root process instance that initiated the process.</td>
   </tr>
   <tr>
     <td>superProcessInstanceId</td>
@@ -293,6 +306,11 @@ Each historic process instance object has the following properties:
     <td>The time the instance ended. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
+    <td>removalTime</td>
+    <td>String</td>
+    <td>The time after which the instance should be removed by the History Cleanup job. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+  <tr>
     <td>durationInMillis</td>
     <td>Number</td>
     <td>The time the instance took to finish (in milliseconds).</td>
@@ -333,7 +351,7 @@ Each historic process instance object has the following properties:
   </tr>
 </table>
 
-\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Response Codes
 
@@ -351,7 +369,7 @@ Each historic process instance object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -375,10 +393,12 @@ GET `/history/process-instance?finishedAfter=2013-01-01T00:00:00.000+0200&finish
     "processDefinitionVersion":1,
     "startTime":"2017-02-10T14:33:19.000+0200",
     "endTime":null,
+    "removalTime": null,
     "durationInMillis":null,
     "startUserId":null,
     "startActivityId":"StartEvent_1",
     "deleteReason":null,
+    "rootProcessInstanceId": "f8259e5d-ab9d-11e8-8449-e4a7a094a9d6",
     "superProcessInstanceId":null,
     "superCaseInstanceId":null,
     "caseInstanceId":null,

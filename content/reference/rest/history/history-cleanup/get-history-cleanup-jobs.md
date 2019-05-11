@@ -11,7 +11,7 @@ menu:
     pre: "GET `/history/cleanup/jobs`"
 
 ---
-Finds history cleanup jobs (See [History cleanup]({{< relref "user-guide/process-engine/history.md#job-progress">}})).
+Finds history cleanup jobs (See [History cleanup]({{< ref "/user-guide/process-engine/history.md#job-progress">}})).
 
 # Method
 
@@ -31,7 +31,7 @@ Not used
 # Result
 
 A list of JSON objects representing scheduled jobs.
-See [Get Job]({{<relref "reference/rest/job/get.md#result" >}}) for the structure and example.
+See [Get Job]({{<ref "/reference/rest/job/get.md#result" >}}) for the structure and example.
 
 # Response Codes
 
@@ -75,7 +75,8 @@ GET `/history/cleanup/jobs`
        "dueDate":"aDueDate",
        "suspended":false,
        "priority":0,
-       "tenantId":null
+       "tenantId":null,
+       "createTime": "2018-05-05T17:00:00+0200"
    },
    {
        "id":"anotherJobId",
@@ -89,7 +90,8 @@ GET `/history/cleanup/jobs`
        "dueDate":"anotherDueDate",
        "suspended":false,
        "priority":0,
-       "tenantId":null
+       "tenantId":null,
+       "createTime": "2018-05-05T17:00:00+0200"
    }
 ]
 ```

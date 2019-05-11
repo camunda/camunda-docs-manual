@@ -26,7 +26,7 @@ A sequence flow is the connector between two elements of a process. After an ele
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#executionlistener" >}}">camunda:executionListener</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#executionlistener" >}}">camunda:executionListener</a>
     </td>
   </tr>
   <tr>
@@ -80,7 +80,7 @@ In this example a simple groovy script is used to evaluate a process variable `s
 ```
 
 Similar to a script task, an external script resource can also be specified (see the documentation
-on [script source]({{< relref "user-guide/process-engine/scripting.md#script-source" >}}) for more information).
+on [script source]({{< ref "/user-guide/process-engine/scripting.md#script-source" >}}) for more information).
 
 ```xml
 <conditionExpression xsi:type="tFormalExpression" language="groovy"
@@ -94,7 +94,7 @@ on [script source]({{< relref "user-guide/process-engine/scripting.md#script-sou
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#resource" >}}">camunda:resource</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#resource" >}}">camunda:resource</a>
     </td>
   </tr>
   <tr>

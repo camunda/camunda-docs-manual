@@ -141,8 +141,19 @@ A JSON object with the following properties:
     <td>boolean</td>
     <td>A flag indicating whether this log represents the deletion of the associated external task.</td>
   </tr>
+  <tr>
+    <td>removalTime</td>
+    <td>String</td>
+    <td>The time after which this log should be removed by the History Cleanup job. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+  <tr>
+    <td>rootProcessInstanceId</td>
+    <td>String</td>
+    <td>The process instance id of the root process instance that initiated the process containing this log.</td>
+  </tr>
 </table>
 
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Response Codes
 
@@ -160,7 +171,7 @@ A JSON object with the following properties:
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Historic external task log with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Historic external task log with given id does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -195,6 +206,8 @@ Status 200.
   "creationLog" : false,
   "failureLog" : true,
   "successLog" : false,
-  "deletionLog" : false
+  "deletionLog" : false,
+  "removalTime":"2018-02-10T14:33:19.000+0200",
+  "rootProcessInstanceId": "aRootProcessInstanceId"
 }
 ```

@@ -22,7 +22,7 @@ This guide uses a number of variables to denote common path names and constants:
 {{< /note >}}
 
 {{< note title="Java 8 compatibility" class="info" >}}
-if you are using Java 8, then please use the Wildfly installation and not JBoss AS. To use JBoss AS, you have to use Java 7 or Java 6.
+if you are using Java 8, then please use the Wildfly installation and not JBoss AS. To use JBoss AS, you have to use Java 7.
 {{< /note >}}
 # Required Setup for JBoss AS 7 / JBoss EAP 6
 
@@ -106,7 +106,7 @@ The SQL DDL scripts reside in the `sql/create` folder of the distribution:
 `$JBOSS_DISTRIBUTION/sql/create/*_engine_$PLATFORM_VERSION.sql`
 `$JBOSS_DISTRIBUTION/sql/create/*_identity_$PLATFORM_VERSION.sql`
 
-As an alternative, you can also find a collection of the SQL scripts on our [Nexus](https://app.camunda.com/nexus/content/repositories/camunda-bpm/org/camunda/bpm/distro/camunda-sql-scripts/). Select the respective version and download the scripts as a `zip` or `tar.gz` file, then open the `camunda-sql-scripts-$PLATFORM_VERSION/create` folder.
+As an alternative, you can also find a collection of the SQL scripts on our [Nexus](https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/distro/camunda-sql-scripts/). Select the respective version and download the scripts as a `zip` or `tar.gz` file, then open the `camunda-sql-scripts-$PLATFORM_VERSION/create` folder.
 
 There is an individual SQL script for each supported database. Select the appropriate script for your database and run it with your database administration tool (e.g., SqlDeveloper for Oracle).
 
@@ -115,7 +115,7 @@ When you create the tables manually, then you have to configure the engine to **
 {{< note title="Heads Up!" class="info" >}}
 If you have defined a specific prefix for the entities of your database, then you will have to manually adjust the `create` scripts accordingly so that the tables are created with the prefix.
 
-Please note further that READ COMMITED is the required isolation level for database systems to run Camunda with. You may have to change the default setting on your database when installing Camunda. For more information see the documentation on [isolation levels]({{< relref "user-guide/process-engine/database.md#isolation-level-configuration" >}}).
+Please note further that READ COMMITED is the required isolation level for database systems to run Camunda with. You may have to change the default setting on your database when installing Camunda. For more information see the documentation on [isolation levels]({{< ref "/user-guide/process-engine/database.md#isolation-level-configuration" >}}).
 {{< /note >}}
 
 ## Create a Datasource
@@ -150,11 +150,11 @@ These links point you to resources for other databases:
 
 This section explains how to perform the required setup steps for Wildfly Application Server.
 
-First, you need to download either the [Camunda Wildfly 8 distribution](http://camunda.org/release/camunda-bpm/wildfly8/), the [Camunda Wildfly 10 distribution](http://camunda.org/release/camunda-bpm/wildfly10/) or the [Camunda Wildfly 11 distribution](http://camunda.org/release/camunda-bpm/wildfly11/).
+First, you need to download the [Camunda WildFly distribution](http://camunda.org/release/camunda-bpm/wildfly/) and the [Camunda WildFly 8 Modules (camunda-wildfly8-modules)](https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/wildfly/camunda-wildfly8-modules/) archive if you're using WildFly 8.
 
 ## Copy Modules
 
-Copy the modules from the `modules/` folder of the Camunda distribution to the `$WILDFLY_HOME/modules/` of your Wildfly application server.
+Copy the modules from the `modules/` folder of the Camunda distribution, or extract the `camunda-wildfly8-modules` archive, to the `$WILDFLY_HOME/modules/` of your Wildfly application server.
 
 {{< note title="Replace H2 Database" >}}
 The WildFly distribution ships a different version of the H2 database than the one that is shipped with Wildfly itself.
@@ -182,6 +182,9 @@ Add the Camunda subsystem as extension:
     <extension module="org.camunda.bpm.wildfly.camunda-wildfly-subsystem"/>
 ```
 
+{{< note title="Heads Up!" class="info" >}}
+The artifact name for the WildFly 8 subsystem has changed. If you're using WildFly 8, be sure to use `org.camunda.bpm.wildfly.camunda-wildfly8-subsystem` as the extension.
+{{< /note >}}
 
 Configure the thread pool for the Camunda BPM platform Job Executor:
 
@@ -288,7 +291,7 @@ This section describes how to install optional dependencies. None of these are r
 
 The following steps are required to deploy the web application:
 
-1. Download the Camunda web application that contains both applications from our [Maven Nexus Server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/webapp/camunda-webapp-jboss/).
+1. Download the Camunda web application that contains both applications from our [Maven Nexus Server](https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/webapp/camunda-webapp-jboss/).
     Alternatively, switch to the private repository for the enterprise version (credentials from license required).
     Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-jboss-$PLATFORM_VERSION.war`.
 2. Optionally, you may change the context path to which the application will be deployed (default is `/camunda`).
@@ -302,7 +305,7 @@ The following steps are required to deploy the web application:
 
 The following steps are required to deploy the REST API:
 
-1. Download the REST API web application archive from our [Maven Nexus Server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/camunda-engine-rest/).
+1. Download the REST API web application archive from our [Maven Nexus Server](https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/camunda-engine-rest/).
    Alternatively, switch to the private repository for the enterprise version (credentials from license required).
    Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION.war`.
 2. Optionally, you may change the context path to which the REST API will be deployed (default is `/engine-rest`).
@@ -352,7 +355,7 @@ To activate Camunda Connect functionality for a process engine, a process engine
 
 ## Camunda Spin
 
-The Camunda Spin plugin can be use to extend the engine functionality to de-/serialize object variables from and to JSON and XML. For more information, see the [Spin Reference]({{< relref "reference/spin/index.md" >}}).
+The Camunda Spin plugin can be use to extend the engine functionality to de-/serialize object variables from and to JSON and XML. For more information, see the [Spin Reference]({{< ref "/reference/spin/_index.md" >}}).
 
 ### Setup Spin
 

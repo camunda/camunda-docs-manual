@@ -15,7 +15,7 @@ menu:
 
 Triggers evaluation of conditions for conditional start event(s).
 Internally this maps to the engine's condition evaluation builder method `ConditionEvaluationBuilder#evaluateStartConditions()`.
-For more information see the [Conditional Start Events]({{< relref "reference/bpmn20/events/conditional-events.md#conditional-start-event" >}}) section of the [BPMN 2.0 Implementation Reference]({{< relref "reference/bpmn20/index.md" >}}).
+For more information see the [Conditional Start Events]({{< ref "/reference/bpmn20/events/conditional-events.md#conditional-start-event" >}}) section of the [BPMN 2.0 Implementation Reference]({{< ref "/reference/bpmn20/_index.md" >}}).
 
 
 # Method
@@ -130,13 +130,13 @@ Each process instance object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>If both <code>tenantId</code> and <code>withoutTenantId</code> are supplied. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>If both <code>tenantId</code> and <code>withoutTenantId</code> are supplied. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>403</td>
     <td>application/json</td>
     <td>If the user is not allowed to start the process instance of the process definition, which start condition was evaluted to `true`.
-     See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+     See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

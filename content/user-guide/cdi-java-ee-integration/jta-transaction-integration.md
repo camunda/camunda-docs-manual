@@ -26,4 +26,4 @@ manager integration, you need to use the
 > implementation. Most notably, IBM WebSphere and Oracle WebLogic historically did not provide this
 > implementation. To achieve JTA transaction integration on these containers, users should
 > use the Spring Framework Abstraction and configure the process engine using the
-> [SpringProcessEngineConfiguration]({{< relref "user-guide/spring-framework-integration/index.md">}}).
+> [SpringProcessEngineConfiguration]({{< ref "/user-guide/spring-framework-integration/_index.md">}}).

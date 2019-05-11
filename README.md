@@ -3,12 +3,13 @@
 This repository contains the sources of the Camunda BPM Documentation.
 
 **Important:** _do NOT change the content of `themes/camunda` directory directly!_
-Instead, Change the [theme](//github.com/camunda/camunda-docs-theme).
+Instead, change the [theme](//github.com/camunda/camunda-docs-theme).
 
 ## Installing Hugo
 
-In order to build this documentation, you first need to install a patched hugo version,  
-which can be downloaded from the [Camunda Nexus][]
+In order to build this documentation, you first need to install [hugo][hugo] v0.50 (newer versions _may_ work).
+
+See the [hugo installation guide][hugo-installation] for more details on howto install Hugo.
 
 ## Building the Documentation
 
@@ -20,10 +21,10 @@ hugo
 
 A static build of the documentation will be placed in the `public/` folder.
 
-While editing the docs, you probably want to start the hugo server in "watch mode":
+While editing the docs, you probably want to start the hugo server (defaults to "watch mode"):
 
 ```bash
-hugo server -w
+hugo server --baseUrl="http://localhost"
 ```
 
 You can then browse the docs under [http://localhost:1313/](http://localhost:1313/).
@@ -183,7 +184,7 @@ By using the `code` which can highlight 1 line or a range of lines (and you can 
 
 [hugo]: http://gohugo.io/
 [hugo-installation]: http://gohugo.io/overview/installing/
-[Camunda Nexus]: https://app.camunda.com/nexus/content/repositories/public/hugo/
+[Camunda Nexus]: https://app.camunda.com/nexus/service/rest/repository/browse/public/hugo/
 [title converter]: http://individed.com/code/to-title-case/
 [openoffice]: https://www.openoffice.org/download/index.html
 [opensans]: https://www.google.com/fonts#UsePlace:use/Collection:Open+Sans

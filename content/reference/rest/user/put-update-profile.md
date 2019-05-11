@@ -58,12 +58,12 @@ A JSON object with the following properties:
   <tr>
     <td>firstName</td>
     <td>String</td>
-    <td>The firstname of the user.</td>
+    <td>The first name of the user.</td>
   </tr>
   <tr>
     <td>lastName</td>
     <td>String</td>
-    <td>The lastname of the user.</td>
+    <td>The last name of the user.</td>
   </tr>
   <tr>
     <td>email</td>
@@ -104,7 +104,7 @@ This method returns no content.
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>The user could not be updated due to an internal server error. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>The user could not be updated due to an internal server error. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

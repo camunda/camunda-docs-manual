@@ -11,7 +11,7 @@ menu:
 
 ---
 
-To enable the [REST API]({{< relref "reference/rest/index.md">}}) you can use the following starter in your `pom.xml`:
+To enable the [REST API]({{< ref "/reference/rest/_index.md">}}) you can use the following starter in your `pom.xml`:
 
 ```xml
 <dependency>

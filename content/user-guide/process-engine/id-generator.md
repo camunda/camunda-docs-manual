@@ -70,4 +70,4 @@ Additionally, you need the following maven dependency:
 ```
 
 [1]: http://wiki.fasterxml.com/JugHome
-[2]: {{< relref "introduction/downloading-camunda.md#full-distribution" >}}
+[2]: {{< ref "/introduction/downloading-camunda.md#full-distribution" >}}

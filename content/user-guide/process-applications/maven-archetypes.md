@@ -16,7 +16,7 @@ They enable a quickstart for developing process applications using the Camunda B
 
 # Overview of Available Maven Archetypes
 
-The following archetypes are currently provided. They are distributed via our Maven repository: https://app.camunda.com/nexus/content/repositories/camunda-bpm/
+The following archetypes are currently provided. They are distributed via our Maven repository: https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/
 
 <table class="table table-bordered">
   <thead>
@@ -24,17 +24,17 @@ The following archetypes are currently provided. They are distributed via our Ma
   </thead>
   <tbody>
     <tr>
-      <td><a href="https://app.camunda.com/nexus/content/repositories/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-cockpit-plugin/">Camunda Cockpit Plugin</a></td>
+      <td><a href="https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-cockpit-plugin/">Camunda Cockpit Plugin</a></td>
       <td>Plugin for Camunda Cockpit, contains REST-Backend, MyBatis database query, HTML and JavaScript frontend, Ant build script for one-click deployment</td>
     </tr>
     <tr>
-      <td><a href="https://app.camunda.com/nexus/content/repositories/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-ejb-war/">Process Application (EJB, WAR)</a></td>
+      <td><a href="https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-ejb-war/">Process Application (EJB, WAR)</a></td>
       <td>Process application that uses a shared Camunda BPM engine in a Java EE Container, e.g., JBoss Wildfly.
           Contains: Camunda EJB Client, Camunda CDI Integration, BPMN Process, Java Delegate as CDI bean, HTML5- & JSF-based start and task forms,
           configuration for JPA (Hibernate), JUnit Test with in-memory engine and visual process test coverage, Arquillian Test for JBoss AS7 & Wildfly, Maven Plugins or Ant build script for one-click deployment in Eclipse</td>
     </tr>
     <tr>
-      <td><a href="https://app.camunda.com/nexus/content/repositories/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-servlet-war/">Process Application (Servlet, WAR)</a></td>
+      <td><a href="https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-servlet-war/">Process Application (Servlet, WAR)</a></td>
       <td>Process application that uses a shared Camunda BPM engine in a Servlet Container, e.g., Apache Tomcat.
           Contains: Servlet process application, BPMN Process, Java Delegate, HTML5-based start and task forms,
           JUnit Test with in-memory engine, Maven Plugins or Ant build script for one-click deployment in Eclipse</td>
@@ -83,13 +83,17 @@ The resulting project should look like this:
 
 Sometimes the creation of the very first Maven project fails in Eclipse. If that happens to you, just try it again. Most of the times the second try works. If the problem persists, [contact us](https://forum.camunda.org/).
 
-# Usage in IntelliJ IDE
+# Usage in IntelliJ IDEA
 
-## Summary
-
-1. Add an archetype plugin (**Settings -> Plugins -> install the archetype plugin**)
-2. Add the catalog file with the full path to the xml file **https://app.camunda.com/nexus/content/repositories/camunda-bpm/archetype-catalog.xml**
-3. Create Maven project from archetype (**New Project -> Maven -> Check "From Archetype"** The com.camunda archetypes should be in the list)
+1. On the "Welcome to IntelliJ IDEA" screen, click on "Configure" and select "Plugins" in the dropdown
+2. In the plugins dialog, click on "Browse repositories..."
+3. Search for the plugin "Maven Archetype Catalogs" and click on "Install"
+4. Restart IntelliJ IDEA
+5. On the "Welcome to IntelliJ IDEA" screen, click on "Configure" and select "Preferences" in the dropdown
+6. In the preferences window, navigate to: "Build, Execution, Deployment > Build Tools > Maven Archetype Catalogs"
+7. Click the plus sign (+) on the right side of the settings dialog to add the archetype catalog `https://app.camunda.com/nexus/content/repositories/camunda-bpm/archetype-catalog.xml` to the list and click OK
+8. To create a Maven project from an archetype, click on the "Welcome to IntelliJ IDEA" screen on "Create New Project"
+9. In the new project dialog, click on the left side on "Maven", check "Create from archetype" and select any `org.camunda.bpm.archetype` entry
 
 # Usage on Command Line
 
@@ -111,7 +115,7 @@ mvn archetype:generate \
   -DarchetypeRepository=https://app.camunda.com/nexus/content/repositories/camunda-bpm \
   -DarchetypeGroupId=org.camunda.bpm.archetype \
   -DarchetypeArtifactId=camunda-archetype-ejb-war \
-  -DarchetypeVersion=7.0.0 \
+  -DarchetypeVersion=7.10.0 \
   -DgroupId=org.example.camunda.bpm \
   -DartifactId=camunda-bpm-ejb-project \
   -Dversion=0.0.1-SNAPSHOT \

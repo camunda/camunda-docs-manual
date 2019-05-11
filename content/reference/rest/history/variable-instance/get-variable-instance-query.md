@@ -14,7 +14,7 @@ menu:
 
 
 Queries for historic variable instances that fulfill the given parameters.
-The size of the result set can be retrieved by using the [Get Variable Instance Count]({{< relref "reference/rest/history/variable-instance/get-variable-instance-query-count.md" >}}) method.
+The size of the result set can be retrieved by using the [Get Variable Instance Count]({{< ref "/reference/rest/history/variable-instance/get-variable-instance-query-count.md" >}}) method.
 
 
 # Method
@@ -57,7 +57,7 @@ GET `/history/variable-instance`
   </tr>
   <tr>
     <td>processInstanceIdIn</td>
-    <td>Only include historic variable instances which belong to one of the passed and comma-separated variable types. A list of all supported variable types can be found <a href="{{< relref "user-guide/process-engine/variables.md#supported-variable-values" >}}">here</a>. <b>Note:</b> All non-primitive variables are assoziated with the type "serializable".
+    <td>Only include historic variable instances which belong to one of the passed and comma-separated variable types. A list of all supported variable types can be found <a href="{{< ref "/user-guide/process-engine/variables.md#supported-variable-values" >}}">here</a>. <b>Note:</b> All non-primitive variables are assoziated with the type "serializable".
     </td>
   </tr>
   <tr>
@@ -224,8 +224,24 @@ Each historic activity instance object has the following properties:
     <td>String</td>
     <td>The current state of the variable. Can be 'CREATED' or 'DELETED'.</td>
   </tr>
+  <tr>
+    <td>createTime</td>
+    <td>String</td>
+    <td>The time the variable was inserted. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+  <tr>
+    <td>removalTime</td>
+    <td>String</td>
+    <td>The time after which the variable should be removed by the History Cleanup job. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+  <tr>
+    <td>rootProcessInstanceId</td>
+    <td>String</td>
+    <td>The process instance id of the root process instance that initiated the process containing this variable.</td>
+  </tr>
 </table>
 
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Response Codes
 
@@ -243,7 +259,7 @@ Each historic activity instance object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -274,7 +290,11 @@ GET `/history/variable-instance?variableName=my_variable`
     "caseExecutionId": null,
     "taskId": null,
     "tenantId": null,
-    "errorMessage": null
+    "errorMessage": null,
+    "state": "CREATED",
+    "createTime":"2017-02-10T14:33:19.000+0200",
+    "removalTime": "2018-02-10T14:33:19.000+0200",
+    "rootProcessInstanceId": "aRootProcessInstanceId"
   }
 ]
 ```

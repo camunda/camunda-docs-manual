@@ -71,6 +71,10 @@ GET `/metrics`
     <td>The interval for which the metrics should be aggregated. Time unit is seconds. 
         Default: The interval is set to 15 minutes (900 seconds).</td>
   </tr>
+  <tr>
+    <td>aggregateByReporter</td>
+    <td>Aggregate metrics by reporter.</td>
+  </tr>
 </table>
 
 # Result
@@ -96,7 +100,7 @@ A JSON array of aggregated metrics. Each aggregated metric has the following pro
   <tr>
     <td>reporter</td>
     <td>String</td>
-    <td>The reporter of the metric.</td>
+    <td>The reporter of the metric. `null` if the metrics are aggregated by reporter.</td>
   </tr>
   <tr>
     <td>value</td>

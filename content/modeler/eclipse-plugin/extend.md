@@ -373,7 +373,7 @@ There are a number of further topics we did not touch yet. These include:
 [10]: https://github.com/camunda/camunda-eclipse-plugin/blob/master/org.camunda.bpm.modeler/src/org/camunda/bpm/modeler/plugin/ICustomTaskProvider.java
 [11]: http://wiki.eclipse.org/Ecore/EObject
 [12]: https://github.com/camunda/camunda-eclipse-plugin/blob/master/org.camunda.bpm.modeler/src/org/camunda/bpm/modeler/ui/property/tabs/AbstractTabCompositeFactory.java
-[13]: {{< relref "user-guide/process-engine/delegation-code.md#field-injection" >}}
+[13]: {{< ref "/user-guide/process-engine/delegation-code.md#field-injection" >}}
 [14]: https://raw.github.com/camunda/camunda-eclipse-plugin/master/documentation/custom-task/images/property-panel.png "Extended Property Panel"
 [15]: https://github.com/camunda/camunda-eclipse-plugin/blob/master/org.camunda.bpm.modeler/src/org/camunda/bpm/modeler/ui/property/tabs/util/FieldInjectionUtil.java
 [16]: https://github.com/camunda/camunda-eclipse-plugin/blob/master/org.camunda.bpm.modeler/src/org/camunda/bpm/modeler/ui/property/tabs/util/PropertyUtil.java

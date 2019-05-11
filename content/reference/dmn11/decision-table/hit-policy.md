@@ -208,7 +208,7 @@ For example, see the salary bonus decision table again, this time with the COUNT
 With an input of 4, the first three rules will be satisfied. Therefore, the result from the decision table will be 3, which means
 that after 4 years the result of the decision table is 3 salary bonuses.
 
-[decision table result]: {{< relref "user-guide/dmn-engine/evaluate-decisions.md#interpret-the-dmndecisiontableresult" >}}
+[decision table result]: {{< ref "/user-guide/dmn-engine/evaluate-decisions.md#interpret-the-dmndecisiontableresult" >}}
 [Unique]: #unique-hit-policy
 [Any]: #any-hit-policy
 [First]: #first-hit-policy

@@ -17,8 +17,8 @@ The following operations can be executed asynchronously
 - [Deletion of Historic Process Instances](#deletion-of-historic-process-instances)
 - [Update suspend state of process instances](#update-suspend-state-of-process-instances)
 - [Setting retries of jobs associated with Process Instances](#setting-retries-of-jobs-associated-with-process-instances)
-- [Process Instance Modification]({{< relref "user-guide/process-engine/process-instance-modification.md#modification-of-multiple-process-instances" >}})
-- [Process Instance Restart]({{< relref "user-guide/process-engine/process-instance-restart.md#asynchronous-batch-execution" >}})
+- [Process Instance Modification]({{< ref "/user-guide/process-engine/process-instance-modification.md#modification-of-multiple-process-instances" >}})
+- [Process Instance Restart]({{< ref "/user-guide/process-engine/process-instance-restart.md#asynchronous-batch-execution" >}})
 - [Setting retries of external tasks](#setting-retries-of-external-tasks)
 
 All batch operations rely on corresponding methods that provide the possibility to
@@ -81,5 +81,5 @@ externalTaskService.setRetriesAsync(
         externalTaskIds, TEST_REASON);
 ```
 
-[batch-migration]: {{< relref "user-guide/process-engine/process-instance-migration.md#asynchronous-batch-migration-execution" >}}
-[batch]: {{< relref "user-guide/process-engine/batch.md" >}}
+[batch-migration]: {{< ref "/user-guide/process-engine/process-instance-migration.md#asynchronous-batch-migration-execution" >}}
+[batch]: {{< ref "/user-guide/process-engine/batch.md" >}}

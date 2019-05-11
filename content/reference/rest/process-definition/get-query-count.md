@@ -14,7 +14,7 @@ menu:
 
 
 Requests the number of process definitions that fulfill the query criteria. Takes the same filtering parameters as the
-[Get Definitions]({{< relref "reference/rest/process-definition/get-query.md" >}}) method.
+[Get Definitions]({{< ref "/reference/rest/process-definition/get-query.md" >}}) method.
 
 
 # Method
@@ -105,7 +105,7 @@ GET `/process-definition/count`
   </tr>
   <tr>
     <td>incidentType</td>
-    <td>Filter by the incident type. See the <a href="{{< relref "user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
+    <td>Filter by the incident type. See the <a href="{{< ref "/user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
   </tr>
   <tr>
     <td>incidentMessage</td>
@@ -141,11 +141,11 @@ GET `/process-definition/count`
   </tr>
   <tr>
     <td>startablePermissionCheck</td>
-    <td>Filter by process definitions which the user is allowed to start in Tasklist. If the user doesn't have permissions the result will be 0.<br/>
-    The permission are:<br/>
-        * CREATE permission for all Process instance<br/>
+    <td>Filter by process definitions which the user is allowed to start in Tasklist. If the user doesn't have these permissions the result will be empty list.<br/>
+    The permissions are:<br/>
+        * CREATE permission for all Process instances<br/>
         * CREATE_INSTANCE and READ permission on Process definition level<br/>
-        </td>
+    </td>
   </tr>
   <tr>
     <td>notStartableInTasklist</td>
@@ -188,7 +188,7 @@ A JSON object that contains the count as the only property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

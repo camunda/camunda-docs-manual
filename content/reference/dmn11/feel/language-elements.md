@@ -13,7 +13,7 @@ menu:
 ---
 
 The Camunda DMN engine supports FEEL for [input entries]. The FEEL term for
-expression in input entires is simple unary tests. These simple unary tests
+expression in input entries are simple unary tests. These simple unary tests
 test an input value against an expression and return either `true` if the test
 is satisfied or `false` otherwise. The expression can contain different
 elements which are described in this sections.
@@ -127,7 +127,7 @@ Examples:
 - `10,[20..30]`: Test if the input is either 10 or between 20 and 30
 - `"Spareribs","Steak","Stew"`: Test if the input is either the String
   Spareribs, Steak or Stew
-- `date and time("2015-11-30T12:00:00"),date and time("2015-12-01T12:00:00")]`:
+- `date and time("2015-11-30T12:00:00"),date and time("2015-12-01T12:00:00")`:
   Test if the input is either the date November 30th, 2015 at 12:00:00 o'clock or
   December 1st, 2015 at 12:00:00 o'clock
 - `>customer.age,>21`: Test if the input is either greater than the `age`
@@ -183,6 +183,6 @@ Examples:
 [ranges]: #range
 [disjunction]: #disjunction
 [negation]: #negation
-[FEEL data types]: {{< relref "reference/dmn11/feel/data-types.md" >}}
-[date types]: {{< relref "reference/dmn11/feel/data-types.md#date" >}}
-[input entries]: {{< relref "reference/dmn11/decision-table/rule.md#input-entry-condition" >}}
+[FEEL data types]: {{< ref "/reference/dmn11/feel/data-types.md" >}}
+[date types]: {{< ref "/reference/dmn11/feel/data-types.md#date" >}}
+[input entries]: {{< ref "/reference/dmn11/decision-table/rule.md#input-entry-condition" >}}

@@ -201,7 +201,7 @@ The following list is an overview of all currently available patch scripts:
       <td>engine_7.7_patch_7.7.8_to_7.7.9_2.sql</td>
       <td>Add a missing index on foreign key to prevent deadlocks.</td>
       <td>DB2, SQL Server</td>
-      <td><a href="https://app.camunda.com/jira/browse/CAM-9006">CAM-9165</a></td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-9165">CAM-9165</a></td>
     </tr>
     <tr>
       <td>7.8</td>
@@ -226,7 +226,39 @@ The following list is an overview of all currently available patch scripts:
       <strong>This is the same patch as engine_7.7_patch_7.7.8_to_7.7.9_2.sql.</strong>
       </td>
       <td>DB2, SQL Server</td>
-      <td><a href="https://app.camunda.com/jira/browse/CAM-9006">CAM-9165</a></td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-9165">CAM-9165</a></td>
+    </tr>
+    <tr>
+      <td>7.8</td>
+      <td>engine_7.8_patch_7.8.8_to_7.8.9.sql</td>
+      <td>Drop ACT_IDX_JOB_HANDLER index causing issues on DB2.</td>
+      <td>DB2</td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-7676">CAM-7676</a></td>
+    </tr>
+    <tr>
+      <td>7.8</td>
+      <td>engine_7.8_patch_7.8.11_to_7.8.12.sql</td>
+      <td>Add index to improve history cleanup performance.</td>
+      <td>All databases</td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-9435">CAM-9435</a></td>
+    </tr>
+    <tr>
+      <td>7.8</td>
+      <td>engine_7.8_patch_7.8.12_to_7.8.13_1.sql</td>
+      <td>Add support for Optimize 2.3.</td>
+      <td>All databases</td>
+      <td>
+        <a href="https://app.camunda.com/jira/browse/CAM-9523">CAM-9523</a>
+      </td>
+    </tr>
+    <tr>
+      <td>7.8</td>
+      <td>engine_7.8_patch_7.8.12_to_7.8.13_2.sql</td>
+      <td>Add support for Optimize 2.3.</td>
+      <td>All databases</td>
+      <td>
+        <a href="https://app.camunda.com/jira/browse/CAM-9525">CAM-9525</a>
+      </td>
     </tr>
     <tr>
       <td>7.9</td>
@@ -242,7 +274,47 @@ The following list is an overview of all currently available patch scripts:
       <strong>This is the same patch as engine_7.8_patch_7.8.7_to_7.8.8.sql.</strong>
       </td>
       <td>DB2, SQL Server</td>
-      <td><a href="https://app.camunda.com/jira/browse/CAM-9006">CAM-9165</a></td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-9165">CAM-9165</a></td>
+    </tr>
+    <tr>
+      <td>7.9</td>
+      <td>engine_7.9_patch_7.9.2_to_7.9.3.sql</td>
+      <td>Drop ACT_IDX_JOB_HANDLER index causing issues on DB2.
+      <strong>This is the same patch as engine_7.8_patch_7.8.8_to_7.8.9.sql.</strong>
+      </td>
+      <td>DB2</td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-7676">CAM-7676</a></td>
+    </tr>
+    <tr>
+      <td>7.9</td>
+      <td>engine_7.9_patch_7.9.5_to_7.9.6.sql</td>
+      <td>Add index to improve history cleanup performance.
+      <strong>This is the same patch as engine_7.8_patch_7.8.11_to_7.8.12.sql.</strong>
+      </td>
+      <td>All databases</td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-9435">CAM-9435</a></td>
+    </tr>
+    <tr>
+      <td>7.9</td>
+      <td>engine_7.9_patch_7.9.6_to_7.9.7_1.sql</td>
+      <td>Add support for Optimize 2.3.
+      <strong>This is the same patch as engine_7.8_patch_7.8.12_to_7.8.13_1.sql.</strong>
+      </td>
+      <td>All databases</td>
+      <td>
+        <a href="https://app.camunda.com/jira/browse/CAM-9523">CAM-9523</a>
+      </td>
+    </tr>
+    <tr>
+      <td>7.9</td>
+      <td>engine_7.9_patch_7.9.6_to_7.9.7_2.sql</td>
+      <td>Add support for Optimize 2.3.
+      <strong>This is the same patch as engine_7.8_patch_7.8.12_to_7.8.13_2.sql.</strong>
+      </td>
+      <td>All databases</td>
+      <td>
+        <a href="https://app.camunda.com/jira/browse/CAM-9525">CAM-9525</a>
+      </td>
     </tr>
   </tbody>
 </table>
@@ -260,7 +332,7 @@ Reason: Passing EL expressions in a task query enables execution of arbitrary co
 
 The process engine no longer evaluates these expressions by default and throws an exception instead. The pevious behavior can be re-enabled by setting the process configuration `enableExpressionsInAdhocQueries` to true.
 
-See the user guide on [security considerations for custom code]({{< relref "user-guide/process-engine/securing-custom-code.md" >}}) for details.
+See the user guide on [security considerations for custom code]({{< ref "/user-guide/process-engine/securing-custom-code.md" >}}) for details.
 
 
 ## 7.6.10 to 7.6.11 / 7.7.5 to 7.7.6 / 7.8.0 to 7.8.1
@@ -269,7 +341,7 @@ See the user guide on [security considerations for custom code]({{< relref "user
 
 You can now configure, if you forbid the usage of Java serialization format, when passing object variables in their Java serialized representation.
 
-The new [configuration parameter `javaSerializationFormatEnabled`]({{< relref "reference/deployment-descriptors/tags/process-engine.md#javaSerializationFormatEnabled" >}}) 
+The new [configuration parameter `javaSerializationFormatEnabled`]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#javaSerializationFormatEnabled" >}}) 
 defaults to `true`, but can be configured to `false` in Camunda engine configuration.
 
 Following use cases are affected:
@@ -300,7 +372,7 @@ runtimeService.setVariable(processInstanceId, "varName",
           .create());
 ```
 
-You can disable Java serialization usage with the help of [this configuration parameter]({{< relref "reference/deployment-descriptors/tags/process-engine.md#javaSerializationFormatEnabled" >}}):
+You can disable Java serialization usage with the help of [this configuration parameter]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#javaSerializationFormatEnabled" >}}):
 
 ```xml
 <property name="javaSerializationFormatEnabled">false</property>
@@ -325,7 +397,7 @@ This feature can be configured in two ways:
 1. The default timer period can be changed to 'this week', 'this month' or 'complete'
 2. The manual seletion of the time period within cockpit can be disabled.   
 
-These attributes can be modifed in the [configuration file]({{< relref "webapps/cockpit/extend/configuration.md#historic-activity-instance-metrics" >}})
+These attributes can be modifed in the [configuration file]({{< ref "/webapps/cockpit/extend/configuration.md#historic-activity-instance-metrics" >}})
 
 ## 7.8.6 to 7.8.7
 
@@ -339,12 +411,12 @@ As of v. 7.8.7, history cleanup can be parallelized, which leads to creation of 
    
 # Full Distribution
 
-This section is applicable if you installed the [Full Distribution]({{< relref "introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.
+This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.
 
 Please note that the following procedure may differ for cluster scenarios. Contact our [support team](https://app.camunda.com/jira/browse/SUPPORT) if you need further assistance.
 
 * Shut down the server
-* Exchange Camunda BPM libraries, tools and webapps (EAR, RAR, Subsystem (JBoss), Shared Libs) - essentially, follow the [installation guide]({{< relref "installation/full/index.md" >}}) for your server.
+* Exchange Camunda BPM libraries, tools and webapps (EAR, RAR, Subsystem (JBoss), Shared Libs) - essentially, follow the [installation guide]({{< ref "/installation/full/_index.md" >}}) for your server.
 * Restart the server
 
 # Application With Embedded Process Engine
@@ -357,7 +429,7 @@ In case you use an embedded process engine inside your Java Application, you nee
 
 # Standalone Webapplication Distribution
 
-In case you installed the [Standalone Webapplication Distribution]({{< relref "introduction/downloading-camunda.md#download-the-runtime" >}}) you need to
+In case you installed the [Standalone Webapplication Distribution]({{< ref "/introduction/downloading-camunda.md#download-the-runtime" >}}) you need to
 
 1. undeploy the previous version of the webapplication,
 2. deploy the new version of the webapplication.

@@ -57,4 +57,4 @@ count as well as a <button class="btn btn-xs"><i class="glyphicon glyphicon-eye-
 {{< img src="../../img/batch/batch_operation_result.png" alt="Batch Operation Result" caption="" >}}
 
 On the results screen you will see the current status of the batch operation creation. Upon successful batch creation, the user is able to
-navigate to [batch monitoring]({{< relref "webapps/cockpit/batch/monitoring.md" >}}). In case of error, this screen will display a corresponding error message.
+navigate to [batch monitoring]({{< ref "/webapps/cockpit/batch/monitoring.md" >}}). In case of error, this screen will display a corresponding error message.

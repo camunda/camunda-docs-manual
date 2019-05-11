@@ -35,6 +35,25 @@ To provide a custom identity provider implementation, the following interfaces c
 * {{< javadocref page="?org/camunda/bpm/engine/impl/identity/ReadOnlyIdentityProvider.html" text="org.camunda.bpm.engine.impl.identity.ReadOnlyIdentityProvider" >}}
 * {{< javadocref page="?org/camunda/bpm/engine/impl/identity/WritableIdentityProvider.html" text="org.camunda.bpm.engine.impl.identity.WritableIdentityProvider" >}}
 
+# Custom Whitelist for User, Group and Tenant IDs
+
+User, Group and Tenant IDs can be matched against a Whitelist Pattern to determine if the provided ID is acceptable or not. The default (global) Regular Expression pattern to match against is **"[a-zA-Z0-9]+|camunda-admin"** i.e. any combination of alphanumeric values or _'camunda-admin'_.
+
+If your organisation allows the usage of additional characters (ex.: special characters), the ProcessEngineConfiguartion propery `generalResourceWhitelistPattern` should be set with the appropriate pattern in the engine's configuration file. Standard [Java Regular Expression](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html) syntax can be used. For example, to accept any character, the following property value can be used:
+
+```xml
+<property name="generalResourceWhitelistPattern" value=".+"/>
+```
+
+The definition of different patterns for User, Group and Tenant IDs is possible by using the appropriate configuration propery:
+
+```xml
+<property name="userResourceWhitelistPattern" value="[a-zA-Z0-9-]+" />
+<property name="groupResourceWhitelistPattern" value="[a-zA-Z]+" />
+<property name="tenantResourceWhitelistPattern" value=".+" />
+```
+
+Note that if a certain pattern isn't defined (ex. the tenant whitelist pattern), the general pattern will be used, either the default one (`"[a-zA-Z0-9]+|camunda-admin"`) or one defined in the configuration file.    
 
 # The Database Identity Service
 
@@ -45,7 +64,7 @@ The database identity service implements both `ReadOnlyIdentityProvider` and `Wr
 
 # The LDAP Identity Service
 
-The LDAP identity service provides read-only access to an LDAP-based user/group repository. The identity service provider is implemented as a [Process Engine Plugin]({{< relref "user-guide/process-engine/process-engine-plugins.md" >}}) and can be added to the process engine configuration. In that case it replaces the default database identity service.
+The LDAP identity service provides read-only access to an LDAP-based user/group repository. The identity service provider is implemented as a [Process Engine Plugin]({{< ref "/user-guide/process-engine/process-engine-plugins.md" >}}) and can be added to the process engine configuration. In that case it replaces the default database identity service.
 
 To use the LDAP identity service, the `camunda-identity-ldap.jar` library has to be added to the classloader of the process engine.
 
@@ -148,11 +167,11 @@ The following is an example of how to configure the LDAP Identity Provider Plugi
 ```
 
 {{< note title="Administrator Authorization Plugin" class="info" >}}
-  The LDAP Identity Provider Plugin is usually used in combination with the [Administrator Authorization Plugin]({{< relref "user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}) which allows you to grant administrator authorizations for a particular LDAP User/Group.
+  The LDAP Identity Provider Plugin is usually used in combination with the [Administrator Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}) which allows you to grant administrator authorizations for a particular LDAP User/Group.
 {{< /note >}}
 
 {{< note title="Multi-Tenancy" class="info" >}}
-Currently, the LDPA Identity Service doesn't support [multi-tenancy]({{< relref "user-guide/process-engine/multi-tenancy.md#single-process-engine-with-tenant-identifiers" >}}). That means it is not possible to get tenants from LDAP and the transparent multi-tenancy access restrictions don't work by default.
+Currently, the LDPA Identity Service doesn't support [multi-tenancy]({{< ref "/user-guide/process-engine/multi-tenancy.md#single-process-engine-with-tenant-identifiers" >}}). That means it is not possible to get tenants from LDAP and the transparent multi-tenancy access restrictions don't work by default.
 {{< /note >}}
 
 ## Configuration Properties of the LDAP Plugin
@@ -337,7 +356,7 @@ The LDAP Identity Provider provides the following configuration properties:
 
 A mechanism exists for preventing subsequent unsuccessful login attempts.The essence of it is that the user is not able to log in for a specific amount of time after unsuccessful login attempts.
 The amount of time is calculated after each attempt but it is limited by maximum delay time.
-After a predefined number of unsuccessful attempts, the user will be locked and only an administrator has permissions to [unlock]({{< relref "webapps/admin/user-management.md" >}}) them.
+After a predefined number of unsuccessful attempts, the user will be locked and only an administrator has permissions to [unlock]({{< ref "/webapps/admin/user-management.md" >}}) them.
 
 The mechanism is configurable with the following properties and respective default values.
 
@@ -346,7 +365,7 @@ The mechanism is configurable with the following properties and respective defau
 * `loginDelayMaxTime=60`
 * `loginDelayBase=3`
 
-For more information, please check the process engine's [login properties]({{< relref "reference/deployment-descriptors/tags/process-engine.md#login-parameters" >}}) section.
+For more information, please check the process engine's [login properties]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#login-parameters" >}}) section.
 
 Calculation of the delay is done via the formula: <code>baseTime * factor^(attempt-1)</code>.
 The behaviour with the default configuration will be:

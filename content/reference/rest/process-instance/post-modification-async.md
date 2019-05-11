@@ -23,7 +23,7 @@ menu:
 
 <p>Instructions are executed asynchronous and in the order they are provided in this request's body. Variables can be provided with every starting instruction.</p>
 
-<p>The exact semantics of modification can be read about in the <a href="{{< relref "user-guide/process-engine/process-instance-modification.md" >}}">user guide</a>.</p>
+<p>The exact semantics of modification can be read about in the <a href="{{< ref "/user-guide/process-engine/process-instance-modification.md" >}}">user guide</a>.</p>
 
 # Method
 
@@ -61,7 +61,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>skipIoMappings</td>
-    <td>Skip execution of <a href="{{< relref "user-guide/process-engine/variables.md#input-output-variable-mapping" >}}">input/output variable mappings</a> for activities that are started or ended as part of this request.</td>
+    <td>Skip execution of <a href="{{< ref "/user-guide/process-engine/variables.md#input-output-variable-mapping" >}}">input/output variable mappings</a> for activities that are started or ended as part of this request.</td>
   </tr>
   <tr>
     <td>instructions</td>
@@ -86,15 +86,15 @@ A JSON object with the following properties:
         </tr>
         <tr>
           <td>activityInstanceId</td>
-          <td><b>Can be used with instructions of type <code>cancel</code>.</b> Specifies the activity instance to cancel. Valid values are the activity instance IDs supplied by the <a href="{{< relref "reference/rest/process-instance/get-activity-instances.md" >}}">Get Activity Instance</a> request.</td>
+          <td><b>Can be used with instructions of type <code>cancel</code>.</b> Specifies the activity instance to cancel. Valid values are the activity instance IDs supplied by the <a href="{{< ref "/reference/rest/process-instance/get-activity-instances.md" >}}">Get Activity Instance</a> request.</td>
         </tr>
         <tr>
           <td>transitionInstanceId</td>
-          <td><b>Can be used with instructions of type <code>cancel</code>.</b> Specifies the transition instance to cancel. Valid values are the transition instance IDs supplied by the <a href="{{< relref "reference/rest/process-instance/get-activity-instances.md" >}}">Get Activity Instance</a> request.</td>
+          <td><b>Can be used with instructions of type <code>cancel</code>.</b> Specifies the transition instance to cancel. Valid values are the transition instance IDs supplied by the <a href="{{< ref "/reference/rest/process-instance/get-activity-instances.md" >}}">Get Activity Instance</a> request.</td>
         </tr>
         <tr>
           <td>ancestorActivityInstanceId</td>
-          <td><p><b>Can be used with instructions of type <code>startBeforeActivity</code>, <code>startAfterActivity</code>, and <code>startTransition</code>.</b> Valid values are the activity instance IDs supplied by the <a href="{{< relref "reference/rest/process-instance/get-activity-instances.md" >}}">Get Activity Instance</a> request.</p>
+          <td><p><b>Can be used with instructions of type <code>startBeforeActivity</code>, <code>startAfterActivity</code>, and <code>startTransition</code>.</b> Valid values are the activity instance IDs supplied by the <a href="{{< ref "/reference/rest/process-instance/get-activity-instances.md" >}}">Get Activity Instance</a> request.</p>
           <p>If there are multiple parent activity instances of the targeted activity, this specifies the ancestor scope in which hierarchy the activity/transition is to be instantiated.</p>
           <p>Example: When there are two instances of a subprocess and an activity contained in the subprocess is to be started, this parameter allows to specify under which subprocess instance the activity should be started.</p></td>
         </tr>
@@ -198,7 +198,7 @@ properties are as follows:
     <td>403</td>
     <td>application/json</td>
     <td>If the user is not allowed to execute batches.
-        See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+        See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>500</td>

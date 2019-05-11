@@ -58,7 +58,7 @@ Camunda BPM distinguishes between two types of identities: users and groups. Aut
 
 A Permission defines the way an identity is allowed to interact with a certain resource.
 
-The following permissions are available:
+The basic permissions available in the engine are:
 
 * None
 * All
@@ -67,20 +67,11 @@ The following permissions are available:
 * Create
 * Delete
 * Access
-* Read Task
-* Update Task
-* Task Work
-* Task Assign
-* Create Instance
-* Read Instance
-* Update Instance
-* Migrate Instance
-* Delete Instance
-* Read History
-* Delete History
 
 Please note that the permission "None" does not mean that no permissions are granted, it stands for "no action".
 Also, the "All" permission will vanish from a user if a single permission is revoked.
+
+For detailed list of available permissions please check [Permission by resource]({{< relref "#permissions-by-resource" >}}) section.
 
 A single authorization object may assign multiple permissions to a single user and resource:
 
@@ -287,7 +278,7 @@ The following table gives an overview for which resources they are available:
     <tr>
       <th>Decision Definition</th>
       <td>X</td>
-      <td></td>
+      <td>X</td>
       <td></td>
       <td></td>
     </tr>
@@ -309,7 +300,7 @@ The following table gives an overview for which resources they are available:
       <th>Filter</th>
       <td>X</td>
       <td>X</td>
-      <td></td>
+      <td>X</td>
       <td>X</td>
     </tr>
     <tr>
@@ -329,9 +320,9 @@ The following table gives an overview for which resources they are available:
     <tr>
       <th>Process Definition</th>
       <td>X</td>
+      <td>X</td>
       <td></td>
-      <td></td>
-      <td></td>
+      <td>X</td>
     </tr>
     <tr>
       <th>Process Instance</th>
@@ -371,18 +362,24 @@ The following table gives an overview for which resources they are available:
   </tbody>
 </table>
 
-To execute an operation [asynchronously]({{< relref "user-guide/process-engine/batch.md">}}), only a "Create" permission on the Batch Resource is required. However, when executing the same operation synchronously, the specific permissions (e.g. "Delete" on Process Instance Resource) are checked. 
+To execute an operation [asynchronously]({{< ref "/user-guide/process-engine/batch.md">}}), only a "Create" permission on the Batch Resource is required. However, when executing the same operation synchronously, the specific permissions (e.g. "Delete" on Process Instance Resource) are checked. 
 
-For example, an user without the "Update" permission on the Process Instance Resource and granted "Create" permission on the Batch Resource can modify multiple Process Instances asynchronously by creating a batch, although he could not execute this operation synchronously.
+For example, a user without the "Update" permission on the Process Instance Resource and granted "Create" permission on the Batch Resource can modify multiple Process Instances asynchronously by creating a batch, although he could not execute this operation synchronously.
 
 ## Additional Task Permissions
 
-This section explains the additional permissions that are available on the Task resource (in addition to Create, Update, Read and Delete).
+In Addition to Update, Read and Delete, the following permissions are available on the Task Resource:
+
+* Task Assign
+* Task Work
+* Update Variable
 
 A user can perform different actions on a task, like assigning the task, claiming the task or completing the task.
 If a user has "Update" permission on a task (or "Update Task" permission on the corresponding process definition) then the user is authorized to perform _all_ these task actions.
 If finer grained authorizations are required, the permissions "Task Work" and "Task Assign" can be used.
 The intuition behind "Task Work" is that it only authorizes the user to _work_ on a task (i.e., claim and complete it) but not assign it to another user or in another way "distribute work" to colleagues.
+
+If a user has "Update Variable" permission on a task (or "Update Task Variable" permission on the corresponding process definition) the user is authorized to perform set/remove task variable actions.
 
 The table below shows a detailed overview on which permissions authorize a user to perform which task actions:
 
@@ -392,6 +389,7 @@ The table below shows a detailed overview on which permissions authorize a user 
     <th></th>
     <th>Task Work</th>
     <th>Task Assign</th>
+    <th>Update Variable</th>
     <th>Update</th>
     </tr>
   </thead>
@@ -400,11 +398,13 @@ The table below shows a detailed overview on which permissions authorize a user 
       <th>Claim</th>
       <td>X</td>
       <td></td>
+      <td></td>
       <td>X</td>
     </tr>
     <tr>
       <th>Complete</th>
       <td>X</td>
+      <td></td>
       <td></td>
       <td>X</td>
     </tr>
@@ -412,48 +412,56 @@ The table below shows a detailed overview on which permissions authorize a user 
       <th>Add Candidate User</th>
       <td></td>
       <td>X</td>
+      <td></td>
       <td>X</td>
     </tr>
     <tr>
       <th>Delete Candidate User</th>
       <td></td>
       <td>X</td>
+      <td></td>
       <td>X</td>
     </tr>
     <tr>
       <th>Set Assignee</th>
       <td></td>
       <td>X</td>
+      <td></td>
       <td>X</td>
     </tr>
     <tr>
       <th>Set Owner</th>
       <td></td>
       <td>X</td>
+      <td></td>
       <td>X</td>
     </tr>
     <tr>
       <th>Add Candidate Group</th>
       <td></td>
       <td>X</td>
+      <td></td>
       <td>X</td>
     </tr>
     <tr>
       <th>Delete Candidate Group</th>
       <td></td>
       <td>X</td>
+      <td></td>
       <td>X</td>
     </tr>
     <tr>
       <th>Save Task</th>
       <td></td>
       <td>X</td>
+      <td></td>
       <td>X</td>
     </tr>
     <tr>
       <th>Set Task Priority</th>
       <td></td>
       <td>X</td>
+      <td></td>
       <td>X</td>
     </tr>
 	<tr>
@@ -461,17 +469,19 @@ The table below shows a detailed overview on which permissions authorize a user 
       <td></td>
       <td></td>
       <td>X</td>
+      <td>X</td>
     </tr>
 	<tr>
       <th>Remove Task Variable</th>
       <td></td>
       <td></td>
       <td>X</td>
+      <td>X</td>
     </tr>
   </tbody>
 </table>
 
-GRANT and REVOKE authorizations with Task Work and Task Assign permissions precede over Update and Update Task.
+GRANT and REVOKE authorizations with Task Work, Task Assign, and Update Variable permissions precede over Update and Update Task.
 
 ### Default Task Permissions
 
@@ -491,6 +501,11 @@ In Addition to Update, Read and Delete, the following permissions are available 
 * Create Instance
 * Read Instance
 * Update Instance
+* Retry Job
+* Suspend
+* Suspend Instance
+* Update Instance Variable
+* Update Task Variable
 * Migrate Instance
 * Delete Instance
 * Read History
@@ -499,9 +514,23 @@ In Addition to Update, Read and Delete, the following permissions are available 
 The "Create Instance" permission is required to start new process instances.
 
 {{< note title="Start new process instance" class="info" >}}
-  To perfom that action, the user also needs to have "Create" permission on the Process Instance resource.
+  To perform that action, the user also needs to have "Create" permission on the Process Instance resource.
 
 {{< /note >}}
+
+GRANT and REVOKE authorizations with Retry Job, Suspend, Suspend Instance, Update Instance Variable, and Update Task Variable permissions precede over Update.
+Keep in mind that user who is allowed to perform variable updates could trigger other changes in the process by updating a variable. For example, successful evaluation of conditional event related to this variable.
+
+## Additional Process Instance Permissions
+
+In Addition to Create, Read, Update, and Delete, the following permissions are available on the Process Instance Resource:
+
+* Retry Job
+* Suspend
+* Update Variable
+
+GRANT and REVOKE authorizations with Retry Job, Suspend, and Update Variable permissions precede over Update.
+Keep in mind that user who is allowed to perform variable updates could trigger other changes in the process by updating a variable. For example, successful evaluation of conditional event related to this variable.
 
 ## Additional Decision Definition Permissions
 
@@ -513,6 +542,39 @@ In Addition to Update, Read and Delete, the following permissions are available 
 
 The "Create Instance" permission is required to evaluate decisions with the decision service.
 
+## Additional Batch Permissions
+
+In Addition to Create, Update, Read and Delete, the following permissions are available on the Batch Resource:
+
+* Read History
+* Delete History
+* Create Batch Migrate Process Instances
+* Create Batch Modify Process Instances
+* Create Batch Restart Process Instances
+* Create Batch Delete Running Process Instances
+* Create Batch Delete Finished Process Instances
+* Create Batch Delete Decision Instances
+* Create Batch Set Job Retries
+* Create Batch Set External Task Retries
+* Create Batch Update Process Instances Suspend
+* Create Batch Set Removal Time
+
+The specific "Create ..." permission has higher priority than the general "Create" permission.
+
+
+## Default Read Variable Permissions
+When the `enforceSpecificVariablePermission` process engine configuration is enabled, in order to read variables, the user needs to be granted with the following permissions:
+
+In case of Tasks
+
+* Read Variable (for standalone tasks)
+
+In case of Process Definitions
+
+* Read Instance Variable (for runtime process instance variables)
+* Read History Variable (for historic variables)
+* Read Task Variable (for runtime task variables)
+
 ## Application Permissions
 
 The resource "Application" uniquely supports the "Access" permission.
@@ -521,6 +583,7 @@ The Access permission controls whether a user has access to a Camunda webapplica
 * `admin`
 * `cockpit`
 * `tasklist`
+* `optimize`
 * `*` (Any / All)
 
 # Administrators
@@ -531,7 +594,7 @@ Camunda BPM has no explicit concept of "administrator" beyond it being a user wh
 
 When downloading the Camunda BPM distribution, the invoice example application creates a group with id `camunda-admin` and grants all authorizations on all resources to this group.
 
-In absense of the demo application, this task is performed by the [Camunda Admin Web Application]({{< relref "webapps/admin/user-management.md#initial-user-setup" >}}). If the Camunda webapplication is started for the first time and no user exists in the database, it asks you to perform the "initial setup". In this process, the `camunda-admin` group is created and granted all permissions on all resources. 
+In absense of the demo application, this task is performed by the [Camunda Admin Web Application]({{< ref "/webapps/admin/user-management.md#initial-user-setup" >}}). If the Camunda webapplication is started for the first time and no user exists in the database, it asks you to perform the "initial setup". In this process, the `camunda-admin` group is created and granted all permissions on all resources. 
 
 {{< note title="LDAP" class="info" >}}
 The group "camunda-admin" is not created when using LDAP (since LDAP is only accessed in a read-only way). Also see the below section on the administrator authorization plugin.
@@ -584,7 +647,7 @@ Complete list of configuration properties:
 
 # Configuration Options
 
-This section expains available process engine configuration options related to authorization.
+This section explains available process engine configuration options related to authorization.
 
 ## Enable Authorization Checks
 
@@ -667,7 +730,7 @@ authorizationService.saveAuthorization(authProcessInstance);
 ```
 # Camunda Admin Webapp
 
-The Camunda Admin Webapplication provides an out of the box [UI for configuring Authorizations]({{< relref "webapps/admin/authorization-management.md" >}}).
+The Camunda Admin Webapplication provides an out of the box [UI for configuring Authorizations]({{< ref "/webapps/admin/authorization-management.md" >}}).
 
 # Performance Considerations
 

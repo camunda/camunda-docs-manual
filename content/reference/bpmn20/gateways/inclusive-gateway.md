@@ -19,6 +19,10 @@ The functionality of the inclusive gateway is based on the incoming and outgoing
 *   __fork__: all outgoing sequence flow conditions are evaluated and for the sequence flow conditions that evaluate to 'true', the flows are followed in parallel, creating one concurrent execution for each sequence flow.
 *   __join__: all concurrent executions arriving at the inclusive gateway wait at the gateway until an execution has arrived for each of the incoming sequence flows that have a process token. This is an important difference to the parallel gateway. So in other words, the inclusive gateway will only wait for the incoming sequence flows that are executed. After the join, the process continues past the joining inclusive gateway.
 
+{{< note title="Limitation" class="warning" >}}
+  Note that in Camunda's implementation of the inclusive gateway, the following holds: If the join waits for a token, but that token takes a different turn in the process so that it can no longer reach the join (e.g. because of a boundary event interrupting the flow), then the join will not trigger.
+{{< /note >}}
+
 Note that an inclusive gateway can have _both_ fork _and_ join behavior, if there are multiple incoming and outgoing sequence flows for the same inclusive gateway. In that case, the gateway will first join all incoming sequence flows that have a process token, before splitting into multiple concurrent paths of executions for the outgoing sequence flows that have a condition that evaluates to 'true'.
 
 <div data-bpmn-diagram="../bpmn/inclusive-gateway"></div>
@@ -90,17 +94,17 @@ Note that an inclusive gateway does not need to be 'balanced' (i.e., a matching 
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncbefore" >}}">camunda:asyncBefore</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}">camunda:asyncAfter</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#exclusive" >}}">camunda:exclusive</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#jobpriority" >}}">camunda:jobPriority</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#asyncbefore" >}}">camunda:asyncBefore</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}">camunda:asyncAfter</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#exclusive" >}}">camunda:exclusive</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#jobpriority" >}}">camunda:jobPriority</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#failedjobretrytimecycle" >}}">camunda:failedJobRetryTimeCycle</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#executionlistener" >}}">camunda:executionListener</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#failedjobretrytimecycle" >}}">camunda:failedJobRetryTimeCycle</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#executionlistener" >}}">camunda:executionListener</a>
     </td>
   </tr>
   <tr>
@@ -116,4 +120,4 @@ Note that an inclusive gateway does not need to be 'balanced' (i.e., a matching 
 # Additional Resources
 
 *   [Inclusive Gateways](http://camunda.org/bpmn/reference.html#gateways-data-based-inclusive-gateways) in the [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html)
-*   [Conditional and Default Sequence Flows]({{< relref "reference/bpmn20/gateways/sequence-flow.md" >}})
+*   [Conditional and Default Sequence Flows]({{< ref "/reference/bpmn20/gateways/sequence-flow.md" >}})

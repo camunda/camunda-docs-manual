@@ -64,9 +64,9 @@ The configuration class `JacksonConfigurator` is required to correctly configure
 You may also have to add the following Jackson providers: `com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider`,
 `org.camunda.bpm.engine.rest.exception.JsonMappingExceptionHandler` and `org.camunda.bpm.engine.rest.exception.JsonParseExceptionHandler`.
 Depending on the runtime environment, this may not be necessary.
-On JBoss AS 7/Wildfly 8 these should be automatically added as an implicit module dependency.
+On JBoss AS 7/Wildfly these should be automatically added as an implicit module dependency.
 
-For proper exception responses of the format as described in the [Introduction]({{< relref "reference/rest/overview/index.md" >}}),
+For proper exception responses of the format as described in the [Introduction]({{< ref "/reference/rest/overview/_index.md" >}}),
 it is necessary to include `RestExceptionHandler`. `ProcessEngineExceptionHandler` is used to translate any exception thrown by the
 engine that is not explicitly handled by the REST API classes to a generic HTTP 500 error with the same response body format.
 If you would like to have all kinds of exceptions translated to this format, you can use `org.camunda.bpm.engine.rest.exception.ExceptionHandler` instead of `ProcessEngineExceptionHandler`.

@@ -14,7 +14,7 @@ menu:
 
 
 Query for a list of users using a list of parameters.
-The size of the result set can be retrieved by using the [Get User Count]({{< relref "reference/rest/user/get-query-count.md" >}}) method.
+The size of the result set can be retrieved by using the [Get User Count]({{< ref "/reference/rest/user/get-query-count.md" >}}) method.
 
 
 # Method
@@ -37,19 +37,19 @@ GET `/user`
   </tr>
   <tr>
     <td>firstName</td>
-    <td>Filter by the firstname of the user.</td>
+    <td>Filter by the first name of the user.</td>
   </tr>
   <tr>
     <td>firstNameLike</td>
-    <td>Filter by the firstname that the parameter is a substring of.</td>
+    <td>Filter by the first name that the parameter is a substring of.</td>
   </tr>
   <tr>
     <td>lastName</td>
-    <td>Filter by the lastname of the user.</td>
+    <td>Filter by the last name of the user.</td>
   </tr>
   <tr>
     <td>lastNameLike</td>
-    <td>Filter by the lastname that the parameter is a substring of.</td>
+    <td>Filter by the last name that the parameter is a substring of.</td>
   </tr>
   <tr>
     <td>email</td>
@@ -108,12 +108,12 @@ Each user object has the following properties:
   <tr>
     <td>firstName</td>
     <td>String</td>
-    <td>The firstname of the user.</td>
+    <td>The first name of the user.</td>
   </tr>
   <tr>
     <td>lastName</td>
     <td>String</td>
-    <td>The lastname of the user.</td>
+    <td>The last name of the user.</td>
   </tr>
   <tr>
     <td>email</td>
@@ -139,7 +139,7 @@ Each user object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code> is specified. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code> is specified. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

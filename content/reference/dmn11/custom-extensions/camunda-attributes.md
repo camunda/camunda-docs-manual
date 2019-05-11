@@ -19,7 +19,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies the history time to live (in days) for the decision definition. It is used within <a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a>.
+      The attribute specifies the history time to live (in days) for the decision definition. It is used within <a href="{{< ref "/user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a>.
     </td>
   </tr>
   <tr>
@@ -71,7 +71,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>DMN 1.1 Elements</th>
     <td>
-      <a href="{{< relref "reference/dmn11/decision-table/input.md" >}}">Input</a>
+      <a href="{{< ref "/reference/dmn11/decision-table/input.md" >}}">Input</a>
     </td>
   </tr>
 </table>

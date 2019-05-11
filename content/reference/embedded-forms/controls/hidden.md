@@ -35,4 +35,4 @@ In the example above, the hidden input field is bound to the variable named `CUS
 
 # Supported Variable Types for Hidden Elements
 
-The hidden input field supports the same variable types as the single line text input `<input type="text"></input>`. See the section on [Supported Variable Types]({{< relref "reference/embedded-forms/controls/inputs.md#supported-variable-types-for-text-inputs" >}}) for details.
+The hidden input field supports the same variable types as the single line text input `<input type="text"></input>`. See the section on [Supported Variable Types]({{< ref "/reference/embedded-forms/controls/inputs.md#supported-variable-types-for-text-inputs" >}}) for details.

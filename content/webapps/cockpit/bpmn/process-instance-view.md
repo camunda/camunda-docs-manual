@@ -18,7 +18,7 @@ Beside the diagram view the process will be displayed as an [activity instance t
 
 Furthermore, you can maximize the diagram view or the detailed information panel by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-resize-full"></i></button> button, respectively the <button class="btn btn-xs"><i class="glyphicon glyphicon-menu-up"></i></button> button, at the bottom left of the diagram view.
 
-[process-definition-view]: {{< relref "webapps/cockpit/bpmn/process-definition-view.md" >}}
+[process-definition-view]: {{< ref "/webapps/cockpit/bpmn/process-definition-view.md" >}}
 
 
 # Activity Instance Tree
@@ -31,10 +31,10 @@ The activity instance tree contains a node for each activity that is currently a
 
 {{< img src="../../img/cockpit-call-activity-instance-drill-down.png" title="Call Activity Drill Down" >}}
 
-Call activity instances that call at least one process instance have an overlay on the upper right corner that links to their called process instances. 
+Call activity instances that call at least one process instance have an overlay on the upper right corner that links to their called process instances.
 
 
-If the call activity instance calls exactly one process instance, then clicking the overlay redirects to the called process instance page. 
+If the call activity instance calls exactly one process instance, then clicking the overlay redirects to the called process instance page.
 
 However, if the number of called process instances exceeds one, then clicking the overlay will show the called process instances tab containing only process instances called by the selected call activity instance.
 
@@ -42,7 +42,7 @@ However, if the number of called process instances exceeds one, then clicking th
 
 {{< img src="../../img/cockpit-detailed-information-view.png" title="Detailed Information Panel" >}}
 
-Use the detailed information panel to get an overview of the variables, incidents, called process instances, user tasks and external tasks that the process instance contains. Furthermore, you can access the [instance modification]({{< relref "webapps/cockpit/bpmn/process-instance-modification.md" >}}) tab. Depending on the selected activity instance in the rendered diagram, the panel lists the corresponding information. You can also focus on the activity instance via a scope link in the table.
+Use the detailed information panel to get an overview of the variables, incidents, called process instances, user tasks and external tasks that the process instance contains. Furthermore, you can access the [instance modification]({{< ref "/webapps/cockpit/bpmn/process-instance-modification.md" >}}) tab. Depending on the selected activity instance in the rendered diagram, the panel lists the corresponding information. You can also focus on the activity instance via a scope link in the table.
 
 In addition to the instance information you can [edit variables]({{< relref "#edit-variables" >}}) or change the assignees of user tasks.
 
@@ -50,13 +50,15 @@ In the incidents tab you can click on the incident message name, which will open
 
 The user tasks tab allows managing users and groups for selected user tasks. Hit the {{< glyphicon name="user" >}} or {{< glyphicon name="th" >}} button to open the corresponding menu.
 
-The external tasks tab displays various information about external tasks, such as the External Task Id, the activity, amount of retries, the Worker Id of the external task, lock expiration time, topic name and the set priority. See the [external tasks]({{< relref "user-guide/process-engine/external-tasks.md" >}}) section of the user guide for more information about external tasks.
+The jobs tab gives you an overview of all currently active jobs. If the job has a duedate, you can edit the duedate by clicking on the {{< glyphicon name="time" >}} button. A dialogue will open where you can choose to recalculate the duedate based on the current time or its creation time. It is also possible to set a specific duedate. Furthermore, you can suspend or activate a job by pressing the {{< glyphicon name="pause" >}} or {{< glyphicon name="play" >}} button respectively.
+
+The external tasks tab displays various information about external tasks, such as the External Task Id, the activity, amount of retries, the Worker Id of the external task, lock expiration time, topic name and the set priority. See the [external tasks]({{< ref "/user-guide/process-engine/external-tasks.md" >}}) section of the user guide for more information about external tasks.
 
 # Filter for Variables
 
 {{< img src="../../img/variable-filter.png" title="Filter Variables" >}}
 
-In the variables tab, you can filter for variables by variable name, activity instance id and variable value by using search pills. To do so, click in the empty search field and select a criterion. Next, fill in the respective values for the search pill. You can combine multiple search pills to narrow down the results. The total amount of results that suit the search query is displayed to the right. Furthermore, you can copy a link to the current search query to your clipboard by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-link"></i></button> button and you can save search queries to your local browser storage by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and inserting a name in the drop down menu that appears. You can then retrieve the search query by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and selecting the chosen name in the drop down menu.
+In the variables tab, you can filter for variables by variable name, activity instance id and variable value by using search pills. You can filter variable values with the type `String`, `Number`, or `Boolean`. To do so, click in the empty search field and select a criterion. Next, fill in the respective values for the search pill. You can combine multiple search pills to narrow down the results. The total amount of results that suit the search query is displayed to the right. Furthermore, you can copy a link to the current search query to your clipboard by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-link"></i></button> button and you can save search queries to your local browser storage by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and inserting a name in the drop down menu that appears. You can then retrieve the search query by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and selecting the chosen name in the drop down menu.
 
 # Add Variables
 

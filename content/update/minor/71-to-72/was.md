@@ -10,7 +10,7 @@ menu:
 
 ---
 
-The following steps describe how to update the Camunda artifacts on an IBM was application server in a shared process engine setting. For the entire migration procedure, refer to the [migration guide][migration-guide]. If not already done, make sure to download the [Camunda BPM 7.2 IBM was distribution](https://app.camunda.com/nexus/content/groups/internal/org/camunda/bpm/was/camunda-bpm-was/).
+The following steps describe how to update the Camunda artifacts on an IBM was application server in a shared process engine setting. For the entire migration procedure, refer to the [migration guide][migration-guide]. If not already done, make sure to download the [Camunda BPM 7.2 IBM was distribution](https://app.camunda.com/nexus/service/rest/repository/browse/internal/org/camunda/bpm/was/camunda-bpm-was/).
 
 The update procedure takes the following steps:
 
@@ -27,7 +27,7 @@ In each of the following steps, the identifiers `$*_VERSION` refer to the curren
 
 {{< note title="Changing Platform Configuration" class="info" >}}
 Depending on your chosen feature set for Camunda BPM, some of the (optional) migration steps may require to change the configuration of the BPM platform. The Camunda enterprise archive (EAR) contains a default platform configuration. If you want to change this configuration, you can replace it as described in the
-[deployment descriptor reference]({{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}).
+[deployment descriptor reference]({{< ref "/reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}).
 {{< /note >}}
 
 ## 1. Uninstall the Camunda Libraries and Archives
@@ -207,8 +207,8 @@ The following steps are required to update the Camunda web applications Cockpit,
 The new shared `Camunda` library affects process applications as well because the Camunda BPM libraries which are available with 7.1 on the global classpath are gone. In order to make the Camunda libraries available to applications, the `Camunda` shared library has to be associated with every process application. If this is not done, the applications fail due to missing resources.
 
 {{< note title="LDAP Entity Caching" class="info" >}}
-With 7.2, it is possible to enable entity caching for Hypertext Application Language (HAL) requests that the camunda web applications make. This can be especially useful when you use camunda in combination with LDAP. To activate caching, the camunda webapp artifact has to be modified and the pre-built application cannot be used as is. See the [REST Api Documentation]({{< relref "reference/rest/overview/hal.md" >}}) for details.
+With 7.2, it is possible to enable entity caching for Hypertext Application Language (HAL) requests that the camunda web applications make. This can be especially useful when you use camunda in combination with LDAP. To activate caching, the camunda webapp artifact has to be modified and the pre-built application cannot be used as is. See the [REST Api Documentation]({{< ref "/reference/rest/overview/hal.md" >}}) for details.
 {{< /note >}}
 
-[configuration-location]: {{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}
-[migration-guide]: {{< relref "update/minor/71-to-72/index.md" >}}
+[configuration-location]: {{< ref "/reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}
+[migration-guide]: {{< ref "/update/minor/71-to-72/_index.md" >}}

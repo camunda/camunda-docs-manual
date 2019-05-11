@@ -76,8 +76,24 @@ A JSON object containing a list of task attachments.
     <td>String</td>
     <td>The url to the remote content of the task attachment.</td>
   </tr>
+  <tr>
+    <td>createTime</td>
+    <td>String</td>
+    <td>The time the variable was inserted. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+  <tr>
+    <td>removalTime</td>
+    <td>String</td>
+    <td>The time after which the attachment should be removed by the History Cleanup job. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+  <tr>
+    <td>rootProcessInstanceId</td>
+    <td>String</td>
+    <td>The process instance id of the root process instance that initiated the process containing the task.</td>
+  </tr>
 </table>
 
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Response Codes
 
@@ -95,7 +111,7 @@ A JSON object containing a list of task attachments.
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>No task exists for the given task id. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>No task exists for the given task id. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -116,7 +132,10 @@ GET `/task/aTaskId/attachment`
     "taskId": "aTaskId",
     "description": "attachmentDescription",
     "type": "attachmentType",
-	"url": "http://my-attachment-content-url.de"
+    "url": "http://my-attachment-content-url.de",
+    "createTime":"2017-02-10T14:33:19.000+0200",
+    "removalTime":"2018-02-10T14:33:19.000+0200",
+    "rootProcessInstanceId": "aRootProcessInstanceId"
   },
   {
     "id": "anotherAttachmentId",
@@ -124,7 +143,10 @@ GET `/task/aTaskId/attachment`
     "taskId": "aTaskId",
     "description": "anotherAttachmentDescription",
     "type": "anotherAttachmentType",
-	"url": "http://my-another-attachment-content-url.de"
+    "url": "http://my-another-attachment-content-url.de",
+    "createTime":"2017-02-10T14:33:19.000+0200",
+    "removalTime":"2018-02-10T14:33:19.000+0200",
+    "rootProcessInstanceId": "aRootProcessInstanceId"
   },
   {
     "id": "yetAnotherAttachmentId",
@@ -132,7 +154,10 @@ GET `/task/aTaskId/attachment`
     "taskId": "aTaskId",
     "description": "yetAnotherAttachmentDescription",
     "type": "yetAnotherAttachmentType",
-	"url": "http://yet-another-attachment-content-url.de"
+    "url": "http://yet-another-attachment-content-url.de",
+    "createTime":"2017-02-10T14:33:19.000+0200",
+    "removalTime":"2018-02-10T14:33:19.000+0200",
+    "rootProcessInstanceId": "aRootProcessInstanceId"
   }
 ]
 ```

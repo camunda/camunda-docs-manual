@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Retrieves history cleanup batch window configuration (See [History cleanup]({{< relref "user-guide/process-engine/history.md#history-cleanup">}})).
+Retrieves history cleanup batch window configuration (See [History cleanup]({{< ref "/user-guide/process-engine/history.md#history-cleanup">}})).
 
 
 # Method

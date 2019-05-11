@@ -11,7 +11,7 @@ menu:
 ---
 
 
-If you use [Delegation Code]({{< relref "user-guide/process-engine/delegation-code.md" >}}), you can access the CMMN model instance and current element of the executed case. If a CMMN model is accessed, it will be cached to avoid redundant database queries.
+If you use [Delegation Code]({{< ref "/user-guide/process-engine/delegation-code.md" >}}), you can access the CMMN model instance and current element of the executed case. If a CMMN model is accessed, it will be cached to avoid redundant database queries.
 
 
 # Case Execution Listener

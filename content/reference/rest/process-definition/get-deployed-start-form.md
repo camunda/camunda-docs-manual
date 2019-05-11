@@ -17,7 +17,7 @@ menu:
 ---
 
 Retrieves the deployed form that can be referenced from a start event. For further information please refer to 
-<a href="{{< relref "user-guide/task-forms/index.md#embedded-task-forms" >}}">User Guide</a>.
+<a href="{{< ref "/user-guide/task-forms/_index.md#embedded-task-forms" >}}">User Guide</a>.
 
 
 # Method
@@ -74,21 +74,21 @@ An object with the deployed start form content.
     <td>400</td>
     <td>application/json</td>
     <td>The form key has wrong format.
-    See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a>
+    See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a>
     for the error response format.</td>
   </tr>
   <tr>
     <td>403</td>
     <td>application/json</td>
     <td>The deployed start form cannot be retrieved due to missing permissions on process definition resource. 
-    See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> 
+    See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> 
     for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
     <td>No deployed start form for a given process definition exists. 
-    See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> 
+    See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> 
     for the error response format.</td>
   </tr>
 </table>

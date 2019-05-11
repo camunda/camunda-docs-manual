@@ -162,7 +162,7 @@ The following extensions are supported for the Signal Intermediate Catching Even
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}">
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}">
         camunda:inputOutput</a>
     </td>
   </tr>
@@ -309,10 +309,10 @@ The following extensions are supported for the Signal Intermediate and End Throw
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#in" >}}">camunda:in</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#failedjobretrytimecycle" >}}">
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#in" >}}">camunda:in</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#failedjobretrytimecycle" >}}">
         camunda:failedJobRetryTimeCycle</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}">
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}">
         camunda:inputOutput</a>
     </td>
   </tr>

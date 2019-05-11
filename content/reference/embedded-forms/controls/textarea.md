@@ -35,4 +35,4 @@ In the example above, the textarea is bound to the variable named `CUSTOMER_ADDR
 # Supported Variable Types for Textareas
 
 The textarea supports the same variable types as the single line text input `<input
-type="text"></input>`. See the section on [Supported Variable Types]({{< relref "reference/embedded-forms/controls/inputs.md#supported-variable-types-for-text-inputs" >}}) for details.
+type="text"></input>`. See the section on [Supported Variable Types]({{< ref "/reference/embedded-forms/controls/inputs.md#supported-variable-types-for-text-inputs" >}}) for details.

@@ -14,7 +14,7 @@ menu:
 
 
 Queries for historic external task logs that fulfill the given parameters.
-This method is slightly more powerful than the [Get External Task Logs]({{< relref "reference/rest/history/external-task-log/get-external-task-log-query.md" >}}) method because it allows filtering by historic external task logs values of the different types `String`, `Number` or `Boolean`.
+This method is slightly more powerful than the [Get External Task Logs]({{< ref "/reference/rest/history/external-task-log/get-external-task-log-query.md" >}}) method because it allows filtering by historic external task logs values of the different types `String`, `Number` or `Boolean`.
 
 
 # Method
@@ -235,8 +235,19 @@ Each historic external task log object has the following properties:
     <td>boolean</td>
     <td>A flag indicating whether this log represents the deletion of the associated external task.</td>
   </tr>
+  <tr>
+    <td>removalTime</td>
+    <td>String</td>
+    <td>The time after which this log should be removed by the History Cleanup job. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+  <tr>
+    <td>rootProcessInstanceId</td>
+    <td>String</td>
+    <td>The process instance id of the root process instance that initiated the process containing this log.</td>
+  </tr>
 </table>
 
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Response Codes
 
@@ -254,7 +265,7 @@ Each historic external task log object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -296,7 +307,9 @@ Request Body:
 	  "creationLog" : false,
 	  "failureLog" : true,
 	  "successLog" : false,
-	  "deletionLog" : false
+	  "deletionLog" : false,
+	  "removalTime":"2018-02-10T14:33:19.000+0200",
+	  "rootProcessInstanceId": "aRootProcessInstanceId"
 	}
 ]
 ```

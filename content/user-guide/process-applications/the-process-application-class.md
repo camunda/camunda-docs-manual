@@ -50,26 +50,8 @@ Notice the `@ProcessApplication` annotation. This annotation fulfills two purpos
 This means that in case you deploy to a Servlet 3.0 compliant container (such as Apache Tomcat 7) annotating your class with `@ProcessApplication` is sufficient.
 
 {{< note title="" class="info" >}}
-  There is a [project template for Maven]({{< relref "user-guide/process-applications/maven-archetypes.md" >}}) called ```camunda-archetype-servlet-war```, which gives you a complete running project based on a ServletProcessApplication.
+  There is a [project template for Maven]({{< ref "/user-guide/process-applications/maven-archetypes.md" >}}) called ```camunda-archetype-servlet-war```, which gives you a complete running project based on a ServletProcessApplication.
 {{< /note >}}
-
-
-## Deploying to Apache Tomcat 6 or Other Pre-Servlet 3.0 Containers
-
-In a Pre-Servlet 3.0 container such as Apache Tomcat 6 (or JBoss Application Server 5 for that matter), you need manually register your ProcessApplication class as Servlet Context Listener in the Servlet Container. This can be achieved by adding a listener element to your `WEB-INF/web.xml` file:
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-
-  <listener>
-    <listener-class>org.my.project.MyProcessApplication</listener-class>
-  </listener>
-
-</web-app>
-```
 
 
 ## Using the ServletProcessApplication Inside an EJB/Java EE Container such as JBoss
@@ -121,7 +103,7 @@ This deployment option requires that your project is a composite deployment (suc
 {{< note title="" class="info" >}}
   We always recommend using the camunda-ejb-client over deploying a custom EjbProcessApplication class unless you want to customize the behavior of the EjbProcessApplication.
 
-  There is a [project template for Maven]({{< relref "user-guide/process-applications/maven-archetypes.md" >}}) called ```camunda-archetype-servlet-war```, which gives you a complete running project based on a ServletProcessApplication.
+  There is a [project template for Maven]({{< ref "/user-guide/process-applications/maven-archetypes.md" >}}) called ```camunda-archetype-servlet-war```, which gives you a complete running project based on a ServletProcessApplication.
 {{< /note >}}
 
 
@@ -154,7 +136,7 @@ public class MyEjbProcessApplication extends EjbProcessApplication {
 
 ## Expose Servlet Context Path Using a Custom EjbProcessApplication
 
-If your application is a `WAR` (or a `WAR` inside an `EAR`) and you want to use [embedded forms]({{< relref "user-guide/task-forms/index.md#embedded-task-forms" >}}) or [external task forms]({{< relref "user-guide/task-forms/index.md#external-task-forms" >}}) inside the [Tasklist]({{< relref "webapps/tasklist/index.md" >}}) application, then your custom EjbProcessApplication must expose the servlet context path of your application as a property. This enables the Tasklist to resolve the path to the embedded or external task forms.
+If your application is a `WAR` (or a `WAR` inside an `EAR`) and you want to use [embedded forms]({{< ref "/user-guide/task-forms/_index.md#embedded-task-forms" >}}) or [external task forms]({{< ref "/user-guide/task-forms/_index.md#external-task-forms" >}}) inside the [Tasklist]({{< ref "/webapps/tasklist/_index.md" >}}) application, then your custom EjbProcessApplication must expose the servlet context path of your application as a property. This enables the Tasklist to resolve the path to the embedded or external task forms.
 
 Therefore your custom EjbProcessApplication must be extended by a `Map` and a getter-method for that `Map` as follows:
 

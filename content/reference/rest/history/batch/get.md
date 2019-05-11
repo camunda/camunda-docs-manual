@@ -54,7 +54,7 @@ Its properties are as follows:
   <tr>
     <td>type</td>
     <td>String</td>
-    <td>The type of the batch. See the <a href="{{< relref "user-guide/process-engine/batch.md#creating-a-batch" >}}">User Guide</a> for more information about batch types.</td>
+    <td>The type of the batch. See the <a href="{{< ref "/user-guide/process-engine/batch.md#creating-a-batch" >}}">User Guide</a> for more information about batch types.</td>
   </tr>
   <tr>
     <td>size</td>
@@ -103,6 +103,11 @@ Its properties are as follows:
     <td>The tenant id of the batch.</td>
   </tr>
   <tr>
+    <td>createUserId</td>
+    <td>String</td>
+    <td>The batch creator's user id.</td>
+  </tr>
+  <tr>
     <td>startTime</td>
     <td>String</td>
     <td>The time the batch was started. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
@@ -112,9 +117,14 @@ Its properties are as follows:
     <td>String</td>
     <td>The time the batch ended. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
+  <tr>
+    <td>removalTime</td>
+    <td>String</td>
+    <td>The time after which the historic batch should be removed by the History Cleanup job. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
 </table>
 
-\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 ## Response codes
 
@@ -134,7 +144,7 @@ Its properties are as follows:
     <td>application/json</td>
     <td>
       Historic batch with given id does not exist.
-      See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+      See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
 </table>
@@ -161,7 +171,9 @@ Status 200.
   "monitorJobDefinitionId": "aMonitorJobDefinitionId",
   "batchJobDefinitionId": "aBatchJobDefinitionId",
   "tenantId": "aTenantId",
+  "createUserId": "aUserId",
   "startTime": "2016-04-12T15:29:33.000+0200",
-  "endTime": "2016-04-12T16:23:34.000+0200"
+  "endTime": "2016-04-12T16:23:34.000+0200",
+  "removalTime": "2016-04-15T16:23:34.000+0200"
 }
 ```

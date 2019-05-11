@@ -58,7 +58,6 @@ Additionally, when using Apache Tomcat:
 The Spring support can be integrated with the following third-party libraries:
 
 * [Apache Commons DBCP](http://commons.apache.org/proper/commons-dbcp/) {{< OD >}}
-* [Apache Commons Lang](http://commons.apache.org/proper/commons-lang/) {{< OD >}}
 * [Spring Framework Spring-Beans][spring] {{< OD >}}
 * [Spring Framework Spring-Core][spring] {{< OD >}}
 * [Spring Framework Spring-ASM][spring] {{< OD >}}
@@ -85,6 +84,6 @@ Camunda Connect depends on the following third-party libraries:
 
 
 [spring]: http://projects.spring.io/spring-framework/
-[spring-xml]: {{< relref "user-guide/process-engine/process-engine-bootstrapping.md#configure-process-engine-using-spring-xml" >}}
-[id-generator]: {{< relref "user-guide/process-engine/id-generator.md" >}}
-[licenses]: {{< relref "introduction/licenses.md" >}}
+[spring-xml]: {{< ref "/user-guide/process-engine/process-engine-bootstrapping.md#configure-process-engine-using-spring-xml" >}}
+[id-generator]: {{< ref "/user-guide/process-engine/id-generator.md" >}}
+[licenses]: {{< ref "/introduction/licenses.md" >}}

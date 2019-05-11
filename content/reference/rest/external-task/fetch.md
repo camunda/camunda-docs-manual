@@ -44,7 +44,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
 	<td>asyncResponseTimeout</td>
-	<td>The <a href="{{< relref "user-guide/process-engine/external-tasks.md#long-polling-to-fetch-and-lock-external-tasks" >}}">Long Polling</a> timeout in milliseconds.<br>
+	<td>The <a href="{{< ref "/user-guide/process-engine/external-tasks.md#long-polling-to-fetch-and-lock-external-tasks" >}}">Long Polling</a> timeout in milliseconds.<br>
 	<strong>Note:</strong> The value cannot be set larger than 1.800.000 milliseconds (corresponds to 30 minutes).</td>
   </tr>
   <tr>
@@ -77,6 +77,29 @@ A JSON object with the following properties:
         <tr>
           <td>businessKey</td>
           <td>A <code>String</code> value which enables the filtering of tasks based on process instance business key.</td>
+        </tr>
+        <tr>
+        <td>processDefinitionId</td>
+          <td>Filter tasks based on process definition id.</td>
+        </tr>
+        <tr>
+          <td>processDefinitionIdIn</td>
+          <td>Filter tasks based on process definition ids.</td>
+        </tr>
+        <tr>
+          <td>processDefinitionKey</td>
+          <td>Filter tasks based on process definition key.</td>
+        </tr>
+        <tr>
+          <td>processDefinitionKeyIn</td>
+          <td>Filter tasks based on process definition keys.</td>
+        </tr>
+        <td>withoutTenantId</td>
+          <td>Filter tasks without tenant id.</td>
+        </tr>
+        <tr>
+          <td>tenantIdIn</td>
+          <td>Filter tasks based on tenant ids.</td>
         </tr>
         <tr>
           <td>processVariables</td>
@@ -217,7 +240,7 @@ Each locked external task object has the following properties:
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>Returned if fetching is not successful, for example due to missing parameters. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if fetching is not successful, for example due to missing parameters. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -301,17 +324,19 @@ Status 200.
 POST `/external-task/fetchAndLock`
 
 Request Body:
-
+```json
     {
       "workerId":"aWorkerId",
       "maxTasks":2,
       "usePriority":true,
       "topics":
           [{"topicName": "createOrder",
-          "lockDuration": 10000
+            "lockDuration": 10000,
+            "processDefinitionId": "aProcessDefinitionId",
+            "tenantIdIn": "tenantOne"
           }]
     }
-
+```
 
 
 ## Response
@@ -329,7 +354,7 @@ Status 200.
       "processDefinitionId": "aProcessDefinitionId",
       "processDefinitionKey": "aProcessDefinitionKey",
       "processInstanceId": "aProcessInstanceId",
-      "tenantId": null,
+      "tenantId": "tenantOne",
       "retries": 3,
       "workerId": "aWorkerId",
       "priority": 4,

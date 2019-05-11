@@ -12,8 +12,8 @@ menu:
 ---
 
 Queries for the number of report results about a decision definition and finished decision instances relevant to history cleanup (see
-<a href="{{< relref "user-guide/process-engine/history.md#history-cleanup" >}}">History cleanup</a>).
-Takes the same parameters as the [Get Cleanable Decision Instance Report]({{< relref "reference/rest/history/decision-definition/get-cleanable-decision-instance-report.md" >}}) method.
+<a href="{{< ref "/user-guide/process-engine/history.md#history-cleanup" >}}">History cleanup</a>).
+Takes the same parameters as the [Get Cleanable Decision Instance Report]({{< ref "/reference/rest/history/decision-definition/get-cleanable-decision-instance-report.md" >}}) method.
 
 # Method
 
@@ -85,7 +85,7 @@ A JSON array containing finished decision instance information relevant to histo
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

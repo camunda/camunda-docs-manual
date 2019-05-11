@@ -15,7 +15,7 @@ menu:
 Creates a deployment.
 
 {{< note title="Security Consideration" class="warning" >}}
-  Deployments can contain custom code in form of scripts or EL expressions to customize process behavior. This may be abused for remote execution of arbitrary code. See the section on <a href="{{< relref "user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide for details.
+  Deployments can contain custom code in form of scripts or EL expressions to customize process behavior. This may be abused for remote execution of arbitrary code. See the section on <a href="{{< ref "/user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide for details.
 {{</note>}}
 
 # Method
@@ -122,7 +122,7 @@ Its properties are as follows:
     <td>Object</td>
     <td>A JSON Object containing a property for each of the process definitions, which are successfully deployed with that deployment.
         The key is the process definition id, the value is a JSON Object corresponding to the process definition, which is defined
-        in the <a href="{{< relref "reference/rest/process-definition/get.md">}}">Process Definition resource</a>.
+        in the <a href="{{< ref "/reference/rest/process-definition/get.md">}}">Process Definition resource</a>.
     </td>
   </tr>
   <tr>
@@ -130,7 +130,7 @@ Its properties are as follows:
     <td>Object</td>
     <td>A JSON Object containing a property for each of the case definitions, which are successfully deployed with that deployment.
         The key is the case definition id, the value is a JSON Object corresponding to the case definition, which is defined
-        in the <a href="{{< relref "reference/rest/case-definition/get.md">}}">Case Definition resource</a>.
+        in the <a href="{{< ref "/reference/rest/case-definition/get.md">}}">Case Definition resource</a>.
     </td>
   </tr>
   <tr>
@@ -138,7 +138,7 @@ Its properties are as follows:
     <td>Object</td>
     <td>A JSON Object containing a property for each of the decision definitions, which are successfully deployed with that deployment.
         The key is the decision definition id, the value is a JSON Object corresponding to the decision definition, which is defined
-        in the <a href="{{< relref "reference/rest/decision-definition/get.md">}}">Decision Definition resource</a>.
+        in the <a href="{{< ref "/reference/rest/decision-definition/get.md">}}">Decision Definition resource</a>.
     </td>
   </tr>
   <tr>
@@ -146,7 +146,7 @@ Its properties are as follows:
     <td>Object</td>
     <td>A JSON Object containing a property for each of the decision requirements definitions, which are successfully deployed with that deployment.
         The key is the decision requirements definition id, the value is a JSON Object corresponding to the decision requirements definition, which is defined
-        in the <a href="{{< relref "reference/rest/decision-requirements-definition/get.md">}}">Decision Requirements Definition resource</a>.
+        in the <a href="{{< ref "/reference/rest/decision-requirements-definition/get.md">}}">Decision Requirements Definition resource</a>.
     </td>
   </tr>
 </table>

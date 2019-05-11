@@ -13,13 +13,13 @@ menu:
 ---
 
 
-This section will describe how you can install the Camunda BPM platform and its components on an Oracle WebLogic.
+This section will describe how you can install the Camunda BPM platform and its components on Oracle WebLogic.
 
 {{< note title="Reading this Guide" class="info" >}}
 This guide uses a number of variables to denote common path names and constants.
 
 * `$WLS_DOMAIN_HOME` points to the Oracle WebLogic application server domain directory (typically something like `/opt/oracle/WebLogic/domains/mydomain`).
-* `$PLATFORM_VERSION` denotes the version of the Camunda BPM platform you want to or have installed, e.g. `7.0.0`.
+* `$PLATFORM_VERSION` denotes the version of the Camunda BPM platform you want to or have installed, e.g. `7.X.Y`.
 * `$WLS_DISTRIBUTION` represents the downloaded Camunda BPM distribution for the Oracle WebLogic Application Server, e.g., `camunda-ee-oracle-wls-$PLATFORM_VERSION.zip`.
 
 The distribution is available at the [Camunda enterprise release page](http://camunda.org/enterprise-release/camunda-bpm/oracle-wls/).
@@ -42,7 +42,7 @@ The Camunda BPM platform requires a set of resources that need to be configured 
 
 ## Create the Database Schema and Tables
 
-In the default configuration of the distribution, the database schema and all required tables are automatically created in an H2 database when the engine starts up for the first time. If you do not want to use the H2 database, you have to 
+In the default configuration of the distribution, the database schema and all required tables are automatically created in an H2 database when the engine starts up for the first time. If you do not want to use the H2 database, you have to
 
 * Create a database schema for the Camunda BPM platform yourself.
 * Execute the SQL DDL scripts which create all required tables and default indices.
@@ -52,7 +52,7 @@ The SQL DDL scripts reside in the `sql/create` folder of the distribution:
 `$WLS_DISTRIBUTION/sql/create/*_engine_$PLATFORM_VERSION.sql`
 `$WLS_DISTRIBUTION/sql/create/*_identity_$PLATFORM_VERSION.sql`
 
-As an alternative, you can also find a collection of the SQL scripts on our [Nexus](https://app.camunda.com/nexus/content/repositories/camunda-bpm/org/camunda/bpm/distro/camunda-sql-scripts/). Select the respective version and download the scripts as a `zip` or `tar.gz` file, then open the `camunda-sql-scripts-$PLATFORM_VERSION/create` folder.
+As an alternative, you can also find a collection of the SQL scripts on our [Nexus](https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/distro/camunda-sql-scripts/). Select the respective version and download the scripts as a `zip` or `tar.gz` file, then open the `camunda-sql-scripts-$PLATFORM_VERSION/create` folder.
 
 There is an individual SQL script for each supported database. Select the appropriate script for your database and run it with your database administration tool (e.g., SqlDeveloper for Oracle).
 
@@ -61,7 +61,7 @@ When you create the tables manually, then you have to configure the engine to **
 {{< note title="Heads Up!" class="info" >}}
 If you have defined a specific prefix for the entities of your database, then you will have to manually adjust the `create` scripts accordingly so that the tables are created with the prefix.
 
-Please note further that READ COMMITED is the required isolation level for database systems to run Camunda with. You may have to change the default setting on your database when installing Camunda. For more information see the documentation on [isolation levels]({{< relref "user-guide/process-engine/database.md#isolation-level-configuration" >}}).
+Please note further that READ COMMITED is the required isolation level for database systems to run Camunda with. You may have to change the default setting on your database when installing Camunda. For more information see the documentation on [isolation levels]({{< ref "/user-guide/process-engine/database.md#isolation-level-configuration" >}}).
 {{< /note >}}
 
 
@@ -90,7 +90,7 @@ In this section we explain how to add a datasource using the Oracle WebLogic Ser
 7. When you finished the creation of the datasource, click the **"Finish"** Button to complete the installation.
 8. Check the box in front of your datasource and test if it works.
 
-Note that you can configure multiple datasources used by different process engine instances. See the [User Guide]({{< relref "user-guide/index.md" >}}) for details.
+Note that you can configure multiple datasources used by different process engine instances. See the [User Guide]({{< ref "/user-guide/_index.md" >}}) for details.
 
 
 # Required Components
@@ -98,16 +98,16 @@ Note that you can configure multiple datasources used by different process engin
 The following steps are required to deploy the Camunda BPM platform onto an Oracle WebLogic server.
 
 
-## Install the Camunda BPM Platform Shared Libraries
+## Install the Camunda BPM Platform Domain Libraries
 
-The shared libraries include the Camunda engine and some utility JARs. The shared libraries must be visible to both the Camunda BPM platform as well as all process applications.
+The domain libraries include the Camunda engine and some utility JARs. The domain libraries must be visible to both the Camunda BPM platform as well as all process applications.
 
-The shared libraries can be found in the lib folder of the distribution:
+The domain libraries can be found in the lib folder of the distribution:
 
 ```
 camunda-ee-oracle-wls-$PLATFORM_VERSION.zip
 |-- modules/
-      |-- lib/  <-- The shared libs
+      |-- lib/  <-- The domain libs
            |-- camunda-engine-$PLATFORM_VERSION.jar
            |-- java-uuid-generator-XX.jar
            |-- mybatis-XX.jar
@@ -115,15 +115,13 @@ camunda-ee-oracle-wls-$PLATFORM_VERSION.zip
       |-- camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear
 ```
 
-The shared libraries must be copied to the `$WLS_DOMAIN_HOME/lib` folder of your Oracle WebLogic Server installation. Do **"NOT"** copy it to your `$WL_HOME/lib` folder.
+The domain libraries must be copied to the `$WLS_DOMAIN_HOME/lib` folder of your Oracle WebLogic Server installation. Do **"NOT"** copy it to your `$WL_HOME/lib` folder.
 Restart the Oracle WebLogic Server after this operation.
 
-{{< note title="Shared Libraries" class="info" >}}
-  You can optionally create a shared library out of the Camunda BPM platform shared libraries. Then associate it with the `camunda-oracle-weblogic-ear` during installation. Associate the shared library with each deployed process application.
+### Use a Custom Location for the Domain Libraries
 
-  Have a look at the [Oracle WebLogic documentation](https://docs.oracle.com/cd/E24329_01/web.1211/e24368/libraries.htm#WLPRG325) on how to create the shared library.
-{{< /note >}}
-
+You can change the location of the domain libraries with the `-Dweblogic.ext.dirs`
+[startup option](https://docs.oracle.com/middleware/12213/wls/START/overview.htm#START-GUID-69C7DB81-B1C5-4BCB-ADCF-2F44B66DD9F8).
 
 ## Install the Camunda BPM Platform Modules
 
@@ -157,13 +155,16 @@ First the `camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear` RAR file must be i
 3. Select the **"Install"** button.
 4. Using the File Browser, select the `camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear` from the modules folder of the Camunda BPM platform for Oracle WebLogic Application Server distribution and continue to the **"Next"** page.
 5. Select **"Install this deployment as an application"** and continue to the **"Next"** page.
-6. Fill in `camunda-bpm-platform` as name for the enterprise application deployment. This setting is **mandatory** and **MUST NOT** be changed.
+6. Fill in `camunda-bpm-platform` as name for the enterprise application deployment.
+{{< note title="Heads Up!" class="info" >}}
+The names of the [JNDI Bindings for BPM Platform Services]({{< ref "/user-guide/runtime-container-integration/jndi-bindings-for-bpmn-platform-services.md" >}}) consist of the name of the enterprise application deployment.
 
+**Please note:** If you change the name of the enterprise application deployment, the JNDI names change as well.
+{{< /note >}}
 {{< img src="../img/ear-name.png" title="EAR Name" >}}
-
 7. Continue to the **"Next"** page.
 8. Select **"Yes, take me to the deployment's configuration screen"** and click the **"Finish"** button to complete the installation.
-9. (optional) [Configure location of the bpm-platform.xml file]({{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md#configure-location-of-the-bpm-platform-xml-file" >}}).
+9. (optional) [Configure location of the bpm-platform.xml file]({{< ref "/reference/deployment-descriptors/descriptors/bpm-platform-xml.md#configure-location-of-the-bpm-platform-xml-file" >}}).
 
 ### Configure the Deployment Order
 

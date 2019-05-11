@@ -35,7 +35,7 @@ All non-implementation Java packages (package name does not contain `impl`) of t
 
 HTTP API (REST API):
 
-* `camunda-engine-rest`: HTTP interface (set of HTTP requests accepted by the REST API as documented in [REST API reference]({{< relref "reference/rest/index.md" >}}). Java classes are not part of the public API.
+* `camunda-engine-rest`: HTTP interface (set of HTTP requests accepted by the REST API as documented in [REST API reference]({{< ref "/reference/rest/_index.md" >}}). Java classes are not part of the public API.
 
 
 # Backwards Compatibility for Public API

@@ -76,7 +76,7 @@ The following extensions are supported for `escalationEventDefinition`.
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#escalationcodevariable" >}}">camunda:escalationCodeVariable</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#escalationcodevariable" >}}">camunda:escalationCodeVariable</a>
     </td>
   </tr>
   <tr>
@@ -122,7 +122,7 @@ The following extensions are supported for `escalationEventDefinition`.
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#escalationcodevariable" >}}">camunda:escalationCodeVariable</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#escalationcodevariable" >}}">camunda:escalationCodeVariable</a>
     </td>
   </tr>
   <tr>

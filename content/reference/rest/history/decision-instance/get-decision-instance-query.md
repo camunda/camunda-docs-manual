@@ -14,7 +14,7 @@ menu:
 
 
 Queries for historic decision instances that fulfill the given parameters. The
-size of the result set can be retrieved by using the [Get Historic Decision Instance Count]({{< relref "reference/rest/history/decision-instance/get-decision-instance-query-count.md" >}}) method.
+size of the result set can be retrieved by using the [Get Historic Decision Instance Count]({{< ref "/reference/rest/history/decision-instance/get-decision-instance-query-count.md" >}}) method.
 
 
 # Method
@@ -201,7 +201,7 @@ GET `/history/decision-instance`
   </tr>
 </table>
 
-\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Result
 
@@ -238,6 +238,11 @@ Each historic decision instance object has the following properties:
     <td>evaluationTime</td>
     <td>String</td>
     <td>The time the instance was evaluated. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+  <tr>
+    <td>removalTime</td>
+    <td>String</td>
+    <td>The time after which the instance should be removed by the History Cleanup job. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
     <td>processDefinitionId</td>
@@ -319,6 +324,11 @@ Each historic decision instance object has the following properties:
     <td>The decision instance id of the evaluated root decision. Can be <code>null</code> if this instance is the root decision instance of the evaluation.</td>
   </tr>
   <tr>
+    <td>rootProcessInstanceId</td>
+    <td>String</td>
+    <td>The process instance id of the root process instance that initiated the evaluation of this decision. Can be <code>null</code> if this decision instance is not evaluated as part of a BPMN process.</td>
+  </tr>
+  <tr>
     <td>decisionRequirementsDefinitionId</td>
     <td>String</td>
     <td>The id of the decision requirements definition that this decision instance belongs to.</td>
@@ -330,16 +340,19 @@ Each historic decision instance object has the following properties:
   </tr>
 </table>
 
-\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 ## Decision Input Value
 
 {{< rest-decision-input deserializationParameter="disableCustomObjectDeserialization" >}}
 
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
+
 ## Decision Output Value
 
 {{< rest-decision-output deserializationParameter="disableCustomObjectDeserialization" >}}
 
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Response Codes
 
@@ -357,7 +370,7 @@ Each historic decision instance object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -373,13 +386,14 @@ GET `/history/decision-instance?includeInputs=true&includeOutputs=true`
 ```json
 [
   {
-    "activityId": "assignApprover",
+      "activityId": "assignApprover",
       "activityInstanceId": "assignApprover:67e9de1e-579d-11e5-9848-f0def1e59da8",
       "collectResultValue": null,
       "decisionDefinitionId": "invoice-assign-approver:1:4c864d79-579d-11e5-9848-f0def1e59da8",
       "decisionDefinitionKey": "invoice-assign-approver",
       "decisionDefinitionName": "Assign Approver",
       "evaluationTime": "2015-09-10T11:22:06.000+0200",
+      "removalTime": null,
       "id": "67ea2c3f-579d-11e5-9848-f0def1e59da8",
       "inputs": [
       {
@@ -389,6 +403,9 @@ GET `/history/decision-instance?includeInputs=true&includeOutputs=true`
         "errorMessage": null,
         "id": "67ea2c41-579d-11e5-9848-f0def1e59da8",
         "type": "Double",
+        "createTime":"2015-09-10T11:22:06.000+0200",
+        "removalTime": null,
+        "rootProcessInstanceId": "aRootProcessInstanceId",
         "value": 123.0,
         "valueInfo": {}
       },
@@ -399,6 +416,9 @@ GET `/history/decision-instance?includeInputs=true&includeOutputs=true`
         "errorMessage": null,
         "id": "67ea2c40-579d-11e5-9848-f0def1e59da8",
         "type": "String",
+        "createTime":"2015-09-10T11:22:06.000+0200",
+        "removalTime": null,
+        "rootProcessInstanceId": "aRootProcessInstanceId",
         "value": "Misc",
         "valueInfo": {}
       }
@@ -413,6 +433,9 @@ GET `/history/decision-instance?includeInputs=true&includeOutputs=true`
       "ruleId": "DecisionRule_1of5a87",
       "ruleOrder": 1,
       "type": "String",
+      "createTime":"2015-09-10T11:22:06.000+0200",
+      "removalTime": null,
+      "rootProcessInstanceId": "aRootProcessInstanceId",
       "value": "accounting",
       "valueInfo": {},
       "variableName": "result"
@@ -421,6 +444,7 @@ GET `/history/decision-instance?includeInputs=true&includeOutputs=true`
     "processDefinitionId": "invoice:1:4c6e3197-579d-11e5-9848-f0def1e59da8",
     "processDefinitionKey": "invoice",
     "processInstanceId": "67e98fec-579d-11e5-9848-f0def1e59da8",
+    "rootProcessInstanceId": "f8259e5d-ab9d-11e8-8449-e4a7a094a9d6",
     "caseDefinitionId": null,
     "caseDefinitionKey": null,
     "caseInstanceId": null,

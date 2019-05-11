@@ -12,8 +12,8 @@ menu:
 ---
 
 Queries for the number of report results about a case definition and finished case instances relevant to history cleanup (see 
-<a href="{{< relref "user-guide/process-engine/history.md#history-cleanup" >}}">History cleanup</a>).
-Takes the same parameters as the [Get Cleanable Case Instance Report]({{< relref "reference/rest/history/case-definition/get-cleanable-case-instance-report.md" >}}) method.
+<a href="{{< ref "/user-guide/process-engine/history.md#history-cleanup" >}}">History cleanup</a>).
+Takes the same parameters as the [Get Cleanable Case Instance Report]({{< ref "/reference/rest/history/case-definition/get-cleanable-case-instance-report.md" >}}) method.
 
 # Method
 
@@ -85,7 +85,7 @@ A JSON array containing finished case instance information relevant to history c
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

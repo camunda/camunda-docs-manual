@@ -126,8 +126,7 @@ element.
 
 {{< note title="Use of Internal API" class="warning" >}}
 
-Please be aware that these APIs are **not** part of the [public API]({{< relref
-"introduction/public-api.md" >}}) and may change in later releases.
+Please be aware that these APIs are **not** part of the [public API]({{< ref "/introduction/public-api.md" >}}) and may change in later releases.
 
 {{< /note >}}
 
@@ -156,4 +155,4 @@ To use this data type transformer in the DMN engine, add it to the
 [DMN engine configuration][data-type-transformer].
 
 
-[data-type-transformer]: {{< relref "user-guide/dmn-engine/embed.md#register-dmn-data-type-transformers" >}}
+[data-type-transformer]: {{< ref "/user-guide/dmn-engine/embed.md#register-dmn-data-type-transformers" >}}

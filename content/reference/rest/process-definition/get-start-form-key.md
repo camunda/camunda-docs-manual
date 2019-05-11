@@ -66,6 +66,11 @@ A JSON object containing the form key.
     <td>String</td>
     <td>The form key for the process definition.</td>
   </tr>
+  <tr>
+    <td>contextPath</td>
+    <td>String</td>
+    <td>The context path of the process application.</td>
+  </tr>
 </table>
 
 
@@ -85,12 +90,12 @@ A JSON object containing the form key.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Process definition has no start form defined. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Process definition has no start form defined. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Process definition with given key does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Process definition with given key does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -105,4 +110,6 @@ GET `/process-definition/key/aKey/startForm`
 
 ## Response
 
-    {"key":"aFormKey"}
+```json
+{"key":"aFormKey","contextPath":"/aContextPath"}
+```

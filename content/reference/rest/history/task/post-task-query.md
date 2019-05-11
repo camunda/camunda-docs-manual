@@ -14,9 +14,9 @@ menu:
 
 
 Queries for historic tasks that fulfill the given parameters.
-This method is slightly more powerful than the [Get Tasks (Historic)]({{< relref "reference/rest/history/task/get-task-query.md" >}}) method because it allows
+This method is slightly more powerful than the [Get Tasks (Historic)]({{< ref "/reference/rest/history/task/get-task-query.md" >}}) method because it allows
 filtering by multiple process or task variables of types `String`, `Number` or `Boolean`.
-The size of the result set can be retrieved by using the [Get Task Count (POST)]({{< relref "reference/rest/history/task/post-task-query-count.md" >}}) method.
+The size of the result set can be retrieved by using the [Get Task Count (POST)]({{< ref "/reference/rest/history/task/post-task-query-count.md" >}}) method.
 
 
 # Method
@@ -301,7 +301,7 @@ A JSON object with the following properties:
         </tr>
         <tr>
           <td>sortBy</td>
-          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>taskId</code>, <code>activityInstanceID</code>, <code>processDefinitionId</code>, <code>processInstanceId</code>, <code>executionId</code>, <code>duration</code>, <code>endTime</code>, <code>startTime</code>, <code>taskName</code>, <code>taskDescription</code>, <code>assignee</code>, <code>owner</code>, <code>dueDate</code>, <code>followUpDate</code>, <code>deleteReason</code>, <code>taskDefinitionKey</code>, <code>priority</code>, <code>caseDefinitionId</code>, <code>caseInstanceId</code>, and <code>caseExecutionId</code> and <code>tenantId</code>.</td>
+          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>taskId</code>, <code>activityInstanceId</code>, <code>processDefinitionId</code>, <code>processInstanceId</code>, <code>executionId</code>, <code>duration</code>, <code>endTime</code>, <code>startTime</code>, <code>taskName</code>, <code>taskDescription</code>, <code>assignee</code>, <code>owner</code>, <code>dueDate</code>, <code>followUpDate</code>, <code>deleteReason</code>, <code>taskDefinitionKey</code>, <code>priority</code>, <code>caseDefinitionId</code>, <code>caseInstanceId</code>, and <code>caseExecutionId</code> and <code>tenantId</code>.</td>
         </tr>
         <tr>
           <td>sortOrder</td>
@@ -312,7 +312,7 @@ A JSON object with the following properties:
   </tr>
 </table>
 
-\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Result
 
@@ -445,9 +445,19 @@ Each historic task object has the following properties:
     <td>String</td>
     <td>The tenant id of the task instance.</td>
   </tr>
+  <tr>
+    <td>removalTime</td>
+    <td>String</td>
+    <td>The time after which the task should be removed by the History Cleanup job. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+  <tr>
+    <td>rootProcessInstanceId</td>
+    <td>String</td>
+    <td>The process instance id of the root process instance that initiated the process containing this task.</td>
+  </tr>
 </table>
 
-\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Response Codes
 
@@ -465,7 +475,7 @@ Each historic task object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -519,5 +529,8 @@ Response
      "due":"2013-01-23T13:49:42.000+0200",
      "parentTaskId":"aParentId",
      "followUp:":"2013-01-23T13:44:42.000+0200",
-     "tenantId":null}]
+     "tenantId":null,
+     "removalTime": "2018-02-10T14:33:19.000+0200",
+     "rootProcessInstanceId": "aRootProcessInstanceId"
+    }]
 

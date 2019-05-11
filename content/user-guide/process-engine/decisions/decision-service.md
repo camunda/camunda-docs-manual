@@ -125,10 +125,10 @@ List<HistoricDecisionInstance> historicDecisions = processEngine
 
 For more information about this, please refer to the [History for DMN Decisions].
 
-[decision table]: {{< relref "reference/dmn11/decision-table/index.md" >}}
-[decision literal expression]: {{< relref "reference/dmn11/decision-literal-expression/index.md" >}}
-[Services API]: {{< relref "user-guide/process-engine/process-engine-api.md#services-api" >}}
-[DMN 1.1 reference]: {{< relref "reference/dmn11/decision-table/index.md" >}}
-[Versioning of Decisions]: {{< relref "user-guide/process-engine/decisions/repository.md#versioning-of-decisions" >}}
-[Authorization Service]: {{< relref "user-guide/process-engine/authorization-service.md" >}}
-[History for DMN Decisions]: {{< relref "user-guide/process-engine/decisions/history.md" >}}
+[decision table]: {{< ref "/reference/dmn11/decision-table/_index.md" >}}
+[decision literal expression]: {{< ref "/reference/dmn11/decision-literal-expression/_index.md" >}}
+[Services API]: {{< ref "/user-guide/process-engine/process-engine-api.md#services-api" >}}
+[DMN 1.1 reference]: {{< ref "/reference/dmn11/decision-table/_index.md" >}}
+[Versioning of Decisions]: {{< ref "/user-guide/process-engine/decisions/repository.md#versioning-of-decisions" >}}
+[Authorization Service]: {{< ref "/user-guide/process-engine/authorization-service.md" >}}
+[History for DMN Decisions]: {{< ref "/user-guide/process-engine/decisions/history.md" >}}

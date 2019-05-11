@@ -93,23 +93,64 @@ require(config.deps, callback);
 
 You can find a complete example about how to use `customScripts` to develop a Cockpit Plugin in the [Camunda BPM examples repository](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/js-only-plugin).
 
-# skipCustomListeners Flag
+# BPMN Diagram Viewer (bpmn.js)
 
-You can configure skipCustomListeners flag globally for cockpit by adding a `skipCustomListeners` property in `app/cockpit/scripts/config.js`:
+The diagram viewer (bpmn.js) can be either customized by moddle extensions or
+[additional modules](https://bpmn.io/toolkit/bpmn-js/walkthrough/#extend-the-modeler). To extend the BPMN diagram viewer
+of Cockpit, a `bpmnJs` property must be added to the `app/cockpit/scripts/config.js` file.
+
+## Additionl Modules
+To add modules, the `additionalModules` property needs to be specified, where each module has a unique name (key) and a
+path (value) to the JavaScript file of the module. The path is relative to the `app/cockpit` folder in the .war file of
+the Camunda Webapp. The suffix `.js` of the file is added automatically and must not be specified.
+
+```json
+...
+bpmnJs: {
+  additionalModules: {
+    myCustomModule: 'my-custom-module/module'
+  }
+}
+...
+```
+
+You can find an example on how to add an additional bpmn.js module to Cockpit in the [Camunda BPM examples repository](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/cockpit-bpmn-js-module).
+
+## Moddle Extensions
+The BPMN moddle can be extended by adding a `moddleExtensions` property. Each moddle extension has a unique name (key)
+and a path (value) to the JSON file of the moddle extension. The path is relative to the `app/cockpit` folder in the
+.war file of the Camunda Webapp. The suffix `.json` of the file is added automatically and must not be specified.
+```json
+...
+bpmnJs: {
+  moddleExtensions: {
+    camunda: 'my-custom-moddle/camunda'
+  }
+}
+...
+```
+
+# skipCustomListeners and skipIoMappings Flags
+
+You can configure the skipCustomListeners and the skipIoMappings flag globally for cockpit by adding a `skipCustomListeners` or `skipIoMappings` property in `app/cockpit/scripts/config.js`:
 
 ```javascript
    window.camCockpitConf = {
      skipCustomListeners: {
        default: true, // default value for skipCustomListeners is true
        hidden: false  // skipCustomListeners checkbox is not hidden
+     },
+     skipIoMappings: {
+       default: true, // default value for skipIoMappings is true
+       hidden: false  // skipIoMappings checkbox is not hidden
      }
    };
 ```
-By default (if not configured), the `skipCustomListeners` flag value is `true`. However, you can set the default value of the flag (`true | false`)
-in the `default` property in `skipCustomListeners` configuration.
+By default (if not configured), the flag value is `true`. However, you can set the default value of the flag (`true | false`)
+in the `default` property in the configuration.
 
-Moreover, the checkbox to enable/disable skipCustomListeners is by default not hidden in Cockpit. You can set this behaviour by configuring the property
-`hidden` (`true | false`) in `skipCustomListeners` configuration. If the `hidden` value is configured to be false, then the skipCustomListeners checkbox 
+Moreover, the checkbox to enable/disable the option is by default not hidden in Cockpit. You can set this behaviour by configuring the property
+`hidden` (`true | false`) in the configuration. If the `hidden` value is configured to be false, then the checkbox
 will be hidden everywhere in Cockpit.
 
 # Runtime Activity Instance Metrics (Process Definition)
@@ -138,11 +179,30 @@ In any case does the toggle button allow to display/remove the statistics on dem
        }
     };
  ```
- By default, the `adjustablePeriod` flag value is `true`. Setting it to false disables the ability in the process definition history view to manually select the time period for which the activity instances are displayed. 
- the `unit` property of `period` allows to specify the default timer period for which the activity instance badges are supposed to be shown. 
- Here it is possible to select form the range of values: `today`, `week`,`month`,`complete`;  
- 
+ By default, the `adjustablePeriod` flag value is `true`. Setting it to false disables the ability in the process definition history view to manually select the time period for which the activity instances are displayed.
+ the `unit` property of `period` allows to specify the default timer period for which the activity instance badges are supposed to be shown.
+ Here it is possible to select form the range of values: `today`, `week`,`month`,`complete`;
 
+# Default Filter for the Historic Process Instances Search
+
+```javascript
+    window.camCockpitConf = {
+      defaultFilter: {
+        historicProcessDefinitionInstancesSearch: {
+          lastDays: 5,
+          event: 'started'
+        }
+      }
+    };
+```
+
+A default filter can be applied for the historic process instances search on the historic process definition view.
+Like this, it is possible to reduce the amount of instances which are being retrieved at the same time.
+
+It is configurable, for how many days in the past instances are queried based on the start or the end time of historic process instances.
+
+* The property `lastDays` specifies the numeric amount of days in the past based on the current time
+* The property `event` can be either set to 'started' or 'ended'
 
 # Advanced Styles Customization
 

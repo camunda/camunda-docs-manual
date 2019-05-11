@@ -16,7 +16,7 @@ menu:
 Updates an existing filter.
 
 {{< note title="Security Consideration" class="warning" >}}
-  The `query` parameter of the request body takes a JSON-serialized query. Some query types (e.g., task queries) allow to specify EL expressions in their parameters and may therefore be abused for remote code execution. See the section on <a href="{{< relref "user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide for details.
+  The `query` parameter of the request body takes a JSON-serialized query. Some query types (e.g., task queries) allow to specify EL expressions in their parameters and may therefore be abused for remote code execution. See the section on <a href="{{< ref "/user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide for details.
 {{</note>}}
 
 # Method
@@ -57,7 +57,7 @@ A JSON object with the following properties:
     <td>
       A JSON object which corresponds to the JSON body of a REST query. I.e., a filter which
       has the resourceType <code>Task</code> must contain a query which is a valid task query
-      (see <a href="{{< relref "reference/rest/task/get-query.md" >}}">Task</a>).
+      (see <a href="{{< ref "/reference/rest/task/get-query.md" >}}">Task</a>).
     </td>
   </tr>
   <tr>
@@ -94,7 +94,7 @@ This method returns no content.
     <td>400</td>
     <td>application/json</td>
     <td>
-      Filter was invalid. See <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error
+      Filter was invalid. See <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error
       response format.
     </td>
   </tr>
@@ -103,14 +103,14 @@ This method returns no content.
     <td>application/json</td>
     <td>
        The authenticated user is unauthorized to update this filter.
-      See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+      See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
     <td>
-      Filter cannot be found. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for
+      Filter cannot be found. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for
       the error response format.
     </td>
   </tr>

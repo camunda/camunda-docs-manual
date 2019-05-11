@@ -60,14 +60,14 @@ This method returns no content.
     <td>application/json</td>
     <td>
        The authenticated user is unauthorized to delete this filter.
-      See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+      See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
     <td>
-      Filter cannot be found. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for
+      Filter cannot be found. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for
       the error response format.
     </td>
   </tr>

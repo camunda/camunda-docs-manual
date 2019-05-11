@@ -169,14 +169,14 @@ the JSR-223 script engine resolving, for example if you want to configure
 the script engine before using it.
 
 
-[decision table]: {{< relref "reference/dmn11/decision-table/index.md" >}}
-[decision literal expression]: {{< relref "reference/dmn11/decision-literal-expression/index.md" >}}
+[decision table]: {{< ref "/reference/dmn11/decision-table/_index.md" >}}
+[decision literal expression]: {{< ref "/reference/dmn11/decision-literal-expression/_index.md" >}}
 [juel]: http://juel.sourceforge.net/
 [EL]: https://jcp.org/aboutJava/communityprocess/final/jsr245/index.html
 [DMN 1.1]: http://www.omg.org/spec/DMN/
-[FEEL]: {{< relref "reference/dmn11/feel/index.md" >}}
+[FEEL]: {{< ref "/reference/dmn11/feel/_index.md" >}}
 [Rhino]: https://developer.mozilla.org/de/docs/Rhino
 [Nashhorn]: https://blogs.oracle.com/nashorn/
 [JSR-223]: https://www.jcp.org/en/jsr/detail?id=223
-[default EL]: {{< relref "user-guide/dmn-engine/embed.md#change-default-expression-languages" >}}
-[configure EL]: {{< relref "user-guide/dmn-engine/embed.md#customize-expression-and-script-resolving" >}}
+[default EL]: {{< ref "/user-guide/dmn-engine/embed.md#change-default-expression-languages" >}}
+[configure EL]: {{< ref "/user-guide/dmn-engine/embed.md#customize-expression-and-script-resolving" >}}

@@ -50,7 +50,16 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>errorCode</td>
-    <td>A error code that indicates the predefined error. Is used to identify the BPMN error handler.</td>
+    <td>An error code that indicates the predefined error. Is used to identify the BPMN error handler.</td>
+  </tr>
+  <tr>
+    <td>errorMessage</td>
+    <td>An error message that describes the error.</td>
+  </tr>
+  <tr>
+    <td>variables</td>
+    <td>A JSON object containing the variables which will be passed to the execution. Each key corresponds to a variable name and each value to a variable value. A variable value is a JSON object with the following properties:
+    {{< rest-var-request transient="true">}}
   </tr>
 </table>
 
@@ -76,17 +85,17 @@ This method returns no content.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if the task's most recent lock was not acquired by the provided worker. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if the task's most recent lock was not acquired by the provided worker. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Returned if the task does not exist. This could indicate a wrong task id as well as a cancelled task, e.g., due to a caught BPMN boundary event. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if the task does not exist. This could indicate a wrong task id as well as a cancelled task, e.g., due to a caught BPMN boundary event. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>Returned if the corresponding process instance could not be resumed successfully. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if the corresponding process instance could not be resumed successfully. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -97,12 +106,23 @@ This method returns no content.
 POST `/external-task/anId/bpmnError`
 
 Request Body:
-
+```json
     {
       "workerId": "aWorker",
-      "errorCode": "bpmn-error"
+      "errorCode": "bpmn-error",
+      "errorMessage": "anErrorMessage",
+      "variables": {
+          "aVariable" : {
+              "value" : "aStringValue",
+              "type": "String"
+          },
+          "anotherVariable" : {
+              "value" : true,
+              "type": "Boolean"
+          }
+      }
     }
-
+```
 ## Response
 
 Status 204. No content.

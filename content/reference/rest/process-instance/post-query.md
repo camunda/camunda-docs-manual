@@ -14,7 +14,7 @@ menu:
 
 
 Queries for process instances that fulfill given parameters through a JSON object.
-This method is slightly more powerful than the [Get Instances]({{< relref "reference/rest/process-instance/get-query.md" >}}) method because it allows
+This method is slightly more powerful than the [Get Instances]({{< ref "/reference/rest/process-instance/get-query.md" >}}) method because it allows
 filtering by multiple process variables of types `String`, `Number` or `Boolean`.
 
 
@@ -104,12 +104,16 @@ A JSON object with the following properties:
     <td>Only include suspended process instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
+    <td>withIncident</td>
+    <td>Filter by presence of incidents. Selects only process instances that have an incident.</td>
+  </tr>
+  <tr>
     <td>incidentId</td>
     <td>Filter by the incident id.</td>
   </tr>
   <tr>
     <td>incidentType</td>
-    <td>Filter by the incident type. See the <a href="{{< relref "user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
+    <td>Filter by the incident type. See the <a href="{{< ref "/user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
   </tr>
   <tr>
     <td>incidentMessage</td>
@@ -134,6 +138,14 @@ A JSON object with the following properties:
   <tr>
     <td>rootProcessInstances</td>
     <td>Restrict the query to all process instances that are top level process instances.</td>
+  </tr>
+  <tr>
+    <td>leafProcessInstances</td>
+    <td>Restrict the query to all process instances that are leaf instances. (i.e. don't have any sub instances)</td>
+  </tr>
+  <tr>
+    <td>processDefinitionWithoutTenantId</td>
+    <td>Only include process instances which process definition has no tenant id.</td>
   </tr>
   <tr>
     <td>variables</td>
@@ -238,7 +250,7 @@ Each process instance object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

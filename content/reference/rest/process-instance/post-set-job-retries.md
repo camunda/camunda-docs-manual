@@ -38,7 +38,7 @@ A JSON object with the following properties:
     <td>processInstanceQuery</td>
     <td>
       A process instance query like the request body for the
-      <a href="{{< relref "reference/rest/process-instance/post-query.md#request-body" >}}">
+      <a href="{{< ref "/reference/rest/process-instance/post-query.md#request-body" >}}">
         <code>Get Instances (POST)</code>
       </a> method.
     </td>
@@ -70,7 +70,7 @@ A JSON object corresponding to the Batch interface in the engine. Its properties
   <tr>
     <td>type</td>
     <td>String</td>
-    <td>The type of the batch. See the <a href="{{< relref "user-guide/process-engine/batch.md#creating-a-batch" >}}">User Guide</a> for more information about batch types.</td>
+    <td>The type of the batch. See the <a href="{{< ref "/user-guide/process-engine/batch.md#creating-a-batch" >}}">User Guide</a> for more information about batch types.</td>
   </tr>
   <tr>
     <td>totalJobs</td>
@@ -145,7 +145,7 @@ A JSON object corresponding to the Batch interface in the engine. Its properties
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if neither processInstanceIds, nor processInstanceQuery is present. Or if the retry count is not specified. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if neither processInstanceIds, nor processInstanceQuery is present. Or if the retry count is not specified. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
