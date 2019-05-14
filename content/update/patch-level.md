@@ -316,6 +316,27 @@ The following list is an overview of all currently available patch scripts:
         <a href="https://app.camunda.com/jira/browse/CAM-9525">CAM-9525</a>
       </td>
     </tr>
+    <tr>
+      <td>7.9</td>
+      <td>engine_7.9_patch_7.9.11_to_7.9.12.sql</td>
+      <td>Add support for Optimize 2.5.
+      </td>
+      <td>All databases</td>
+      <td>
+        <a href="https://app.camunda.com/jira/browse/CAM-10264">CAM-10264</a>
+      </td>
+    </tr>
+    <tr>
+      <td>7.10</td>
+      <td>engine_7.10_patch_7.10.5_to_7.10.6.sql</td>
+      <td>Add support for Optimize 2.5.
+      <strong>This is the same patch as engine_7.9_patch_7.9.11_to_7.9.12.sql.</strong>
+      </td>
+      <td>All databases</td>
+      <td>
+        <a href="https://app.camunda.com/jira/browse/CAM-10264">CAM-10264</a>
+      </td>
+    </tr>
   </tbody>
 </table>
 
