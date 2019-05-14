@@ -235,3 +235,8 @@ public IdentityOperationResult unlockUser(String userId) {
 ```
 
 You can also inspect the `DbIdentityServiceProvider` to see how the new return type is handled in the default implementation.
+
+# Exception Handling in Processes
+
+The semantics of existing processes might change. Now [BpmnErrors can be thrown from listeners]({{< ref "/user-guide/process-engine/delegation-code.md#throw-bpmn-errors-from-listeners" >}}) and could be caught by existing error start or error boundary events. If no error boundary/start event is found on the scope, the execution is ended.
+

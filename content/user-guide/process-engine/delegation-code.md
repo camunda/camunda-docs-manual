@@ -476,13 +476,61 @@ public class BookOutGoodsDelegate implements JavaDelegate {
 
 {{< note title="Note!" class="info" >}}
 
-Throwing a `BpmnError` in the delegation code behaves like modeling an error end event. See the [reference guide]({{< ref "/reference/bpmn20/events/error-events.md#error-boundary-event" >}}) about the details on the behavior, especially the error boundary event. If no error boundary event is found on the scope, the execution is ended.
+Throwing a `BpmnError` in the delegation code behaves like modelling an error end event. See the [reference guide]({{< ref "/reference/bpmn20/events/error-events.md#error-boundary-event" >}}) about the details on the behavior, especially the error boundary event. If no error boundary event is found on the scope, the execution is ended.
 
 {{< /note >}}
 
-[script-sources]: {{< ref "/user-guide/process-engine/scripting.md#script-source" >}}
-[camunda-script]: {{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#camunda-script" >}}
 
+# Throw BPMN Errors from Listeners
+
+It is possible to throw `BpmnError` from [Execution](execution-listener) and [Task](task-listener) Listeners. This is done by using a provided Java exception class from within your Java code (e.g., in the `ExecutionListener` or `TaskListener`):
+
+```java
+public class GoodsListener implements ExecutionListener {
+
+  public void notify(DelegateExecution execution) throws Exception {
+    try {
+        ...
+    } catch (InvalidStockException ex) {
+        throw new BpmnError(INVALID_STOCK_ERROR);
+    }
+  }
+
+}
+```
+or
+
+```java
+public class GoodsListener implements TaskListener {
+
+  public void notify(DelegateTask delegateTask) throws Exception {
+    try {
+        ...
+    } catch (InvalidStockException ex) {
+        throw new BpmnError(INVALID_STOCK_ERROR);
+    }
+  }
+
+}
+```
+When implementing an error catch events, keep in mind that BpmnError will be catch when they are thrown in the following cases:
+
+* start and end execution listeners on activity, gateway, and intermediate events
+* take execution listeners on transitions
+* create, assign, and complete task listeners
+
+The BpmnError will not be catch for:
+
+* start and end process listeners
+* delete task listeners
+* listeners triggered due to process modification or deletion
+* listener triggered due to interrupting boundary event
+
+{{< note title="Note!" class="info" >}}
+
+Throwing a `BpmnError` in the delegation code behaves like modelling an error end event. See the [reference guide]({{< ref "/reference/bpmn20/events/error-events.md#error-boundary-event" >}}) about the details on the behavior, especially the error boundary event. If no error boundary event is found on the scope, the execution is ended.
+
+{{< /note >}}
 
 # Set Business Key from Delegation Code
 
@@ -500,3 +548,6 @@ public class BookOutGoodsDelegate implements JavaDelegate {
 
 }
 ```
+
+[script-sources]: {{< ref "/user-guide/process-engine/scripting.md#script-source" >}}
+[camunda-script]: {{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#camunda-script" >}}
