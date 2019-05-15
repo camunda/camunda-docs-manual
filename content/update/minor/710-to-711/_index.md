@@ -228,7 +228,7 @@ public IdentityOperationResult unlockUser(String userId) {
   UserEntity user = findUserById(userId);
   if (user != null && (user.getAttempts() > 0 || user.getLockExpirationTime() != null)) {
     getIdentityInfoManager().updateUserLock(user, 0, null);
-	return new IdentityOperationResult(user, IdentityOperationResult.OPERATION_UNLOCK);
+    return new IdentityOperationResult(user, IdentityOperationResult.OPERATION_UNLOCK);
   }
   return new IdentityOperationResult(null, IdentityOperationResult.OPERATION_NONE);
 }
