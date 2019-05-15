@@ -513,18 +513,18 @@ public class GoodsListener implements TaskListener {
 
 }
 ```
-When implementing an error catch events, keep in mind that BpmnError will be catch when they are thrown in the following cases:
+When implementing an error catch event, keep in mind that the `BpmnError` will be caught when they are thrown in the following cases:
 
 * start and end execution listeners on activity, gateway, and intermediate events
 * take execution listeners on transitions
 * create, assign, and complete task listeners
 
-The BpmnError will not be catch for:
+The `BpmnError` will not be caught for:
 
 * start and end process listeners
 * delete task listeners
 * listeners triggered due to process modification or deletion
-* listener triggered due to interrupting boundary event
+* listeners triggered due to interrupting boundary events
 
 {{< note title="Note!" class="info" >}}
 
