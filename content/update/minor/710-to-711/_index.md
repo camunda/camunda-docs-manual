@@ -259,5 +259,5 @@ You can also inspect the `DbIdentityServiceProvider` to see how the new return t
 
 # Exception Handling in Processes
 
-The semantics of existing processes might change. Now [BpmnErrors can be thrown from listeners]({{< ref "/user-guide/process-engine/delegation-code.md#throw-bpmn-errors-from-listeners" >}}) and could be caught by existing error start or error boundary events. If no error boundary/start event is found on the scope, the execution is ended.
+The semantics of existing processes might change. A thrown exception from Execution and Task Listeners could be caught by existing error start or error boundary events. If no error boundary/start event is found on the scope, the execution is ended. For more information, please check the [User Guide]({{< ref "/user-guide/process-engine/delegation-code.md#throw-bpmn-errors-from-listeners" >}}).
 
