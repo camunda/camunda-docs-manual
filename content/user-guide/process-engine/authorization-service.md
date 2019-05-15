@@ -178,6 +178,11 @@ The following resources are available:
     <td>16</td>
     <td>Dashboard Id</td>
   </tr>
+  <tr>
+    <td>User Operation Log Category</td>
+    <td>17</td>
+    <td>User Operation Log Entry Category</td>
+  </tr>
 </table>
 
 **Note:** The Resource Id should be '*' when you create new authorization with CREATE permissions only.
@@ -357,6 +362,13 @@ The following table gives an overview for which resources they are available:
       <td>X</td>
       <td>X</td>
       <td>X</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>User Operation Log Category</th>
+      <td>X</td>
+      <td></td>
+      <td></td>
       <td>X</td>
     </tr>
   </tbody>
@@ -584,6 +596,16 @@ The Access permission controls whether a user has access to a Camunda webapplica
 * `cockpit`
 * `tasklist`
 * `optimize`
+* `*` (Any / All)
+
+## User Operation Log Permissions
+
+The resource "User Operation Log Category" controls whether a user can access user operation log entries from the specified categories.
+Out of the box, it can be granted for the following categories (resource ids):
+
+* `TaskWorker`
+* `Admin`
+* `Operator`
 * `*` (Any / All)
 
 # Administrators

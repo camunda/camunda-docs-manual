@@ -208,6 +208,27 @@ In case you have at least one of these custom implementations please have a look
   </tbody>
 </table>
 
+# User Operation Log Permissions
+
+The authorization for user operation log entries has been adjusted.
+ 
+Entries that are not related to process definition keys (e.g. case instances, batches, standalone tasks and standalone jobs)
+can not be read and deleted without proper authorization.
+
+Therefore, permissions `READ` and `DELETE` can be granted on the new resource `UserOperationLogCategory` with resource id set to a specific operation log category or "`*`".
+
+In order to read (or delete) entries that are related to process definitions, a user either needs
+
+* permission `READ` (or `DELETE`) on resource `UserOperationLogCategory` with the resource id set to the respective category of the entry or "`*`"
+* permission `READ_HISTORY` (or `DELETE_HISTORY`) on resource `ProcessDefinition` with the resource id set to the respective process definition key of the entry or "`*`".
+
+In order to read (or delete) entries that are not related to process definitions, a user needs
+
+* permission `READ` (or `DELETE`) on resource `UserOperationLogCategory` with the resource id set to the respective category of the entry or "`*`"
+
+An overview of the operation logs and their categories can be found at [User Operation Log]({{< ref "/user-guide/process-engine/history.md#glossary-of-operations-logged-in-the-user-operation-log" >}}).
+Authorization management is detailed in [Authorization Service]({{< ref "/user-guide/process-engine/authorization-service.md" >}}).
+
 # Custom WritableIdentityProvider
 
 Custom implementations of the `WritableIdentityProvider` interface need to be adjusted to return the new type `IdentityOperationResult` for all CUD (Create, Update, Delete) operations.
