@@ -261,3 +261,147 @@ You can also inspect the `DbIdentityServiceProvider` to see how the new return t
 
 The semantics of existing processes might change. A thrown exception from Execution and Task Listeners could be caught by existing error start or error boundary events. If no error boundary/start event is found on the scope, the execution is ended. For more information, please check the [User Guide]({{< ref "/user-guide/process-engine/delegation-code.md#throw-bpmn-errors-from-listeners" >}}).
 
+# Updated Front End Libraries
+
+With this release, we updated all front end libraries. Changes introduced with newer package versions might impacting:
+
+* [Embedded Task Forms](https://docs.camunda.org/manual/7.11/user-guide/task-forms/#embedded-task-forms)
+* [Custom Scripts](https://docs.camunda.org/manual/7.11/webapps/cockpit/extend/configuration/#custom-scripts)
+
+Please find below a complete table of the updated front end libraries.
+
+If you make use of these packages in your **Embedded Task Forms** as well as your **Custom Scripts**, please make sure that your 
+customizations still work as expected with the new versions used in Camunda BPM 7.11.
+
+<table class="table desc-table">
+  <thead>
+    <tr>
+      <th>Package</th>
+      <th>7.10</th>
+      <th>7.11</th>
+      <th>Further Reading</th>
+    <tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>angular-moment</td>
+      <td>0.9.0</td>
+      <td>1.3.0</td>
+      <td><a href="https://github.com/urish/angular-moment/releases">Release Notes</a></td>
+    </tr>
+    <tr>
+      <td>angular-ui-bootstrap</td>
+      <td>0.11.2</td>
+      <td>2.5.0</td>
+      <td><a href="https://github.com/angular-ui/bootstrap/blob/master/CHANGELOG.md">Change Log</a></td>
+    </tr>
+    <tr>
+      <td>angularjs</td>
+      <td>1.2.29</td>
+      <td>1.7.8</td>
+      <td><a href="https://docs.angularjs.org/guide/migration">Migration Guide</a></td>
+    </tr>
+    <tr>
+      <td>bootstrap</td>
+      <td>3.3.6</td>
+      <td>3.4.1</td>
+      <td><a href="https://github.com/twbs/bootstrap/releases">Release Notes</a></td>
+    </tr>
+    <tr>
+      <td>bpmn-font</td>
+      <td>0.2.0</td>
+      <td>0.8.0</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>bpmn-js</td>
+      <td>3.0.1</td>
+      <td>3.2.1</td>
+      <td><a href="https://github.com/bpmn-io/bpmn-js/blob/master/CHANGELOG.md">Change Log</a></td>
+    </tr>
+    <tr>
+      <td>clipboard</td>
+      <td>1.5.10</td>
+      <td>2.0.4</td>
+      <td><a href="https://github.com/zenorocha/clipboard.js/releases">Release Notes</a></td>
+    </tr>
+    <tr>
+      <td>cmmn-js</td>
+      <td>0.15.2</td>
+      <td>0.17.1</td>
+      <td><a href="https://github.com/bpmn-io/cmmn-js/blob/master/CHANGELOG.md">Change Log</a></td>
+    </tr>
+    <tr>
+      <td>dmn-js</td>
+      <td>5.2.0</td>
+      <td>6.3.2</td>
+      <td><a href="https://github.com/bpmn-io/dmn-js/blob/master/packages/dmn-js/CHANGELOG.md">Change Log</a></td>
+    </tr>
+    <tr>
+      <td>events</td>
+      <td>1.1.0</td>
+      <td>3.0.0</td>
+      <td><a href="https://github.com/Gozala/events/releases">Release Notes</a></td>
+    </tr>
+    <tr>
+      <td>fast-xml-parser</td>
+      <td>2.7.3</td>
+      <td>3.12.14</td>
+      <td><a href="https://github.com/NaturalIntelligence/fast-xml-parser/blob/master/CHANGELOG.md">Change Log</a></td>
+    </tr>
+    <tr>
+      <td>jquery</td>
+      <td>2.1.1</td>
+      <td>3.3.1</td>
+      <td><a href="https://jquery.com/upgrade-guide/3.0/">Upgrade Guide</a></td>
+    </tr>
+    <tr>
+      <td>jquery-ui</td>
+      <td>1.10.5</td>
+      <td>1.12.1</td>
+      <td><a href="https://jqueryui.com/upgrade-guide/1.11/">Upgrade Guide 1.11</a>,<br> <a href="https://jqueryui.com/upgrade-guide/1.12/">Upgrade Guide 1.12</a></td>
+    </tr>
+    <tr>
+      <td>lodash</td>
+      <td>2.4.1</td>
+      <td>4.17.11</td>
+      <td><a href="https://github.com/lodash/lodash/wiki/Changelog">Changelog</a></td>
+    </tr>
+    <tr>
+      <td>moment</td>
+      <td>2.9.0</td>
+      <td>2.24.0</td>
+      <td><a href="https://github.com/moment/moment/blob/develop/CHANGELOG.md">Changelog</a></td>
+    </tr>
+    <tr>
+      <td>mousetrap</td>
+      <td>1.5.3</td>
+      <td>1.6.3</td>
+      <td><a href="https://github.com/ccampbell/mousetrap/releases">Release Notes</a></td>
+    </tr>
+    <tr>
+      <td>q</td>
+      <td>1.4.1</td>
+      <td>1.5.1</td>
+      <td><a href="https://github.com/kriskowal/q/blob/master/CHANGES.md">Changelog</a></td>
+    </tr>
+    <tr>
+      <td>requirejs</td>
+      <td>2.1.22</td>
+      <td>2.3.6</td>
+      <td><a href="https://requirejs.org/docs/download.html#releasenotes">Release Notes</a></td>
+    </tr>
+    <tr>
+      <td>superagent</td>
+      <td>1.4.0</td>
+      <td>4.1.0</td>
+      <td><a href="https://github.com/visionmedia/superagent/releases">Release Notes</a></td>
+    </tr>
+  </tbody>
+</table>
+
+## Noteworthy Changes
+
+* Please pay especially attention to `angularjs` as it introduces a huge amount of changes
+* The directive names of `angular-ui-bootstrap` are now prefixed (i. e. `uib-*`)
+* In form names, special characters are [not allowed anymore](https://docs.angularjs.org/guide/migration#form)
