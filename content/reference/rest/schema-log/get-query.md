@@ -12,7 +12,7 @@ menu:
 
 ---
 
-The schema log is written when changes to the database schema are made. On database creation the initial entry is added. Every update script adds a new entry containing an `id`, the `version` the database was updated to and the date and time (`timestamp`) of the update.
+Queries for schema log entries that fulfill given parameters.
 
 # Method
 

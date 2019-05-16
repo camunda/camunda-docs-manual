@@ -65,6 +65,20 @@ subscriptions. It includes the type, name and configuration of the expected
 event along with information about the corresponding process instance and
 execution.
 
+## Schema Log (`ACT_GE_SCHEMA_LOG`)
+
+The `ACT_GE_SCHEMA_LOG` table contains a history of the database
+schema version. New entries to the table are written when changes to
+the database schema are made. On database creation the initial entry
+is added. Every update script adds a new entry containing an `id`,
+the `version` the database was updated to and the date and time 
+(`timestamp`) of the update.
+
+To retrieve entries from the schema log, the SchemaLogQuery-API can be
+used:
+```java
+List<SchemaLogEntry> entries = managementService.createSchemaLogQuery().list();
+```
 
 # Entity Relationship Diagrams
 
