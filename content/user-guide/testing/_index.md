@@ -279,6 +279,17 @@ For these versions, use the following Maven coordinates:
 </dependency>
 ```
 
+## Migration from community versions
+
+In order to migrate from a Camunda BPM Assert version 1.x / 2.x to a version 3.x or higher, the following points have to be considered:
+
+* The groupId for Maven dependencies has changed, it is now `org.camunda.bpm.assert`. Project dependencies have to be adjusted accordingly.
+* There might be multiple artifacts available for a specific version as shown in the compatibility overview above. The artifact that matches the other project dependencies has to be chosen by `artifactId`.
+* The inheritance from AssertJ's `Assertions` has been cut. In case AssertJ assertions are used in test code besides BPM Assert assertions, the imports have to be adjusted to also include:
+
+```java
+import static org.assertj.core.api.Assertions.*;
+```
 
 # Community extensions to support testing
 
