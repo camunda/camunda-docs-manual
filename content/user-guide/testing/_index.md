@@ -253,10 +253,16 @@ All versions prior to 3.0.0 belong to the community extension are not part of th
     <td>7.0.0 - 7.9.0</td>
   </tr>
   <tr>
-	<td>camunda-bpm-assert</br>camunda-bpm-assert-assertj2</br>camunda-bpm-assert-assertj3-9-1</td>
+    <td>camunda-bpm-assert</br>camunda-bpm-assert-assertj2</br>camunda-bpm-assert-assertj3-9-1</td>
     <td>3.11.1</br>2.9.0</br>3.9.1</td>
-    <td>3.0.0-alpha1</td>
+    <td>3.0.0</td>
     <td>7.10.0</td>
+  </tr>
+  <tr>
+    <td>camunda-bpm-assert</br>camunda-bpm-assert-assertj2</br>camunda-bpm-assert-assertj3-9-1</td>
+    <td>3.11.1</br>2.9.0</br>3.9.1</td>
+    <td>4.0.0-alpha1</td>
+    <td>7.11.0-alpha5</td>
   </tr>
 </table>
 
