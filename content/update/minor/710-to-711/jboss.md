@@ -1,6 +1,6 @@
 ---
 
-title: "Update a JBoss/Wildfly Installation from 7.11 to 7.11"
+title: "Update a JBoss/Wildfly Installation from 7.10 to 7.11"
 
 menu:
   main:
@@ -76,8 +76,14 @@ Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with t
 
 * `org/camunda/connect/camunda-connect-core`
 * `org/camunda/connect/camunda-connect-http`
-* `org/camunda/connect/camunda-connect-soap-http`
+* `org/camunda/connect/camunda-connect-soap-http-client`
 * `org/camunda/bpm/camunda-engine-plugin-connect`
+
+Additionally, also replace the following dependent modules:
+
+* `org/apache/httpcomponents/httpclient`
+* `org/apache/httpcomponents/httpcore`
+* `commons-codec/commons-codec`
 
 ## Camunda Spin
 
@@ -93,12 +99,7 @@ Additionally, also replace the following dependent modules:
 * `com/fasterxml/jackson/core/jackson-annotations`
 * `com/fasterxml/jackson/core/jackson-core`
 * `com/fasterxml/jackson/core/jackson-databind`
-
-## Groovy Scripting
-
-Replace the following module from the folder `$APP_SERVER_HOME/modules/` with its new version from the folder `$APP_SERVER_DISTRIBUTION/modules/` if present:
-
-* `org/codehaus/groovy/groovy-all`
+* `com/jayway/jsonpath/json-path`
 
 # 3. Update Camunda Web Applications
 
@@ -123,6 +124,6 @@ The following steps are required to update the Camunda web applications Cockpit,
 
 
 [update-guide]: {{< ref "/update/minor/710-to-711/_index.md" >}}
-[engine-rest]: https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/camunda-engine-rest/
-[webapp-jboss]: https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/webapp/camunda-webapp-jboss/
+[engine-rest]: https://app.camunda.com/nexus/#browse/browse:camunda-bpm:org%2Fcamunda%2Fbpm%2Fcamunda-engine-rest%2F7.11.0
+[webapp-jboss]: https://app.camunda.com/nexus/#browse/browse:camunda-bpm:org%2Fcamunda%2Fbpm%2Fwebapp%2Fcamunda-webapp-jboss%2F7.11.0%2Fcamunda-webapp-jboss-7.11.0.war
 [jackson-update]: {{< ref "/update/minor/710-to-711/_index.md#jackson-version-update" >}}

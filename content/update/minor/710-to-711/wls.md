@@ -10,7 +10,7 @@ menu:
 
 ---
 
-The following steps describe how to update the Camunda artifacts on an Oracle WebLogic application server in a shared process engine setting. For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the [Camunda BPM 7.11 Oracle WebLogic distribution](https://app.camunda.com/nexus/service/rest/repository/browse/internal/org/camunda/bpm/weblogic/camunda-bpm-weblogic/).
+The following steps describe how to update the Camunda artifacts on an Oracle WebLogic application server in a shared process engine setting. For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the [Camunda BPM 7.11 Oracle WebLogic distribution](https://app.camunda.com/nexus/#browse/browse:camunda-bpm-ee:org%2Fcamunda%2Fbpm%2Fweblogic%2Fcamunda-bpm-weblogic%2F7.11.0-ee).
 
 The update procedure takes the following steps:
 
@@ -61,18 +61,12 @@ Copy the following library from `$WLS_DISTRIBUTION/modules/lib` to the folder `$
 
 * `camunda-connect-core-$CONNECT_VERSION.jar`
 
-
 ## Camunda Spin
 
 Copy the following library from `$WLS_DISTRIBUTION/modules/lib` to the folder `$WLS_DOMAIN_HOME/lib`, if present:
 
 * `camunda-spin-core-$SPIN_VERSION.jar`
 
-## Groovy Scripting
-
-Copy the following library from `$WLS_DISTRIBUTION/modules/lib` to the folder `$WLS_DOMAIN_HOME/lib`, if present:
-
-* `groovy-all-$GROOVY_VERSION.jar`
 
 # 4. Maintain the BPM Platform Configuration
 

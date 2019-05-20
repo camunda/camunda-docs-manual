@@ -10,8 +10,8 @@ menu:
 
 ---
 
-The following steps describe how to update the Camunda artifacts on a Tomcat server in a shared process engine setting. 
-For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the 
+The following steps describe how to update the Camunda artifacts on a Tomcat server in a shared process engine setting.
+For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the
 [Camunda BPM 7.11 Tomcat distribution][tomcat-distribution].
 
 The update procedure takes the following steps:
@@ -38,6 +38,12 @@ Replace the following libraries in the folder `$TOMCAT_HOME/lib/` with their new
 * `camunda-commons-logging-$COMMONS_VERSION.jar`
 * `camunda-commons-typed-values-$COMMONS_VERSION.jar`
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
+* `slf4j-api-$SLF4J_VERSION.jar`
+* `slf4j-jdk14-$SLF4J_VERSION.jar`
+
+Unless you otherwise require it, remove the following library:
+
+* `mail-1.4.1.jar`
 
 # 2. Update Optional Camunda BPM Libraries
 
@@ -65,11 +71,6 @@ Copy the following libraries from `$TOMCAT_DISTRIBUTION/lib` to the folder `$TOM
 * `camunda-spin-core-$SPIN_VERSION.jar`
 * `camunda-engine-plugin-spin-$PLATFORM_VERSION.jar`
 
-## Groovy Scripting
-
-Copy the following library from `$TOMCAT_DISTRIBUTION/lib` to the folder `$TOMCAT_HOME/lib/`, if present:
-
-* `groovy-all-$GROOVY_VERSION.jar`
 
 # 3. Update Web Applications
 
@@ -78,7 +79,7 @@ Copy the following library from `$TOMCAT_DISTRIBUTION/lib` to the folder `$TOMCA
 The following steps are required to update the Camunda REST API on a Tomcat instance:
 
 1. Undeploy an existing web application with a name like `camunda-engine-rest`
-2. Download the REST API web application archive from our [Maven Nexus Server][nexus] Alternatively, switch to the private repository for the enterprise version (credentials from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION-tomcat.war`.
+2. Download the REST API web application archive from our [Maven Nexus Server][nexus-restapi] Alternatively, switch to the private repository for the enterprise version (credentials from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION-tomcat.war`.
 3. Deploy the web application archive to your Tomcat instance.
 
 ## Update Cockpit, Tasklist, and Admin
@@ -86,9 +87,10 @@ The following steps are required to update the Camunda REST API on a Tomcat inst
 The following steps are required to update the Camunda web applications Cockpit, Tasklist, and Admin on a Tomcat instance:
 
 1. Undeploy an existing web application with a name like `camunda-webapp`
-2. Download the Camunda web application archive from our [Maven Nexus Server][nexus]. Alternatively, switch to the private repository for the enterprise version (credentials from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-tomcat-$PLATFORM_VERSION.war`.
+2. Download the Camunda web application archive from our [Maven Nexus Server][nexus-webapp]. Alternatively, switch to the private repository for the enterprise version (credentials from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-tomcat-$PLATFORM_VERSION.war`.
 3. Deploy the web application archive to your Tomcat instance.
 
 [update-guide]: {{< ref "/update/minor/710-to-711/_index.md" >}}
-[nexus]: https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/camunda-engine-rest/
-[tomcat-distribution]: https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/tomcat/camunda-bpm-tomcat/
+[nexus-restapi]: https://app.camunda.com/nexus/#browse/browse:camunda-bpm:org%2Fcamunda%2Fbpm%2Fcamunda-engine-rest%2F7.11.0%2Fcamunda-engine-rest-7.11.0-tomcat.war
+[nexus-webapp]: https://app.camunda.com/nexus/#browse/browse:camunda-bpm:org%2Fcamunda%2Fbpm%2Fwebapp%2Fcamunda-webapp-tomcat%2F7.11.0%2Fcamunda-webapp-tomcat-7.11.0.war
+[tomcat-distribution]: https://camunda.org/release/camunda-bpm/tomcat/7.11/

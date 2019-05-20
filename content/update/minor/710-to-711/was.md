@@ -11,7 +11,7 @@ menu:
 ---
 
 
-The following steps describe how to update the Camunda artifacts on an IBM WebSphere application server in a shared process engine setting. For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the [Camunda BPM 7.11 IBM WebSphere distribution](https://app.camunda.com/nexus/service/rest/repository/browse/internal/org/camunda/bpm/websphere/camunda-bpm-websphere/).
+The following steps describe how to update the Camunda artifacts on an IBM WebSphere application server in a shared process engine setting. For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the [Camunda BPM 7.11 IBM WebSphere distribution](https://app.camunda.com/nexus/#browse/browse:camunda-bpm-ee:org%2Fcamunda%2Fbpm%2Fwebsphere%2Fcamunda-bpm-websphere%2F7.11.0-ee).
 
 The update procedure takes the following steps:
 
@@ -47,10 +47,12 @@ After shutting down the server, replace the following libraries in `$SHARED_LIBR
 * `camunda-commons-logging-$COMMONS_VERSION.jar`
 * `camunda-commons-typed-values-$COMMONS_VERSION.jar`
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
+* `slf4j-api-$SLF4J_VERSION.jar`
+* `slf4j-jdk14-$SLF4J_VERSION.jar`
 
 # 3. Replace Optional Camunda Dependencies
 
-In addition to the core libraries, there may be optional artifacts in `$SHARED_LIBRARY_PATH` for LDAP integration, Camunda Spin, and Groovy scripting. If you use any of these extensions, the following update steps apply:
+In addition to the core libraries, there may be optional artifacts in `$SHARED_LIBRARY_PATH` for LDAP integration, Camunda Spin, and Camunda Connect. If you use any of these extensions, the following update steps apply:
 
 ## LDAP integration
 
@@ -70,11 +72,6 @@ Copy the following library from `$WAS_DISTRIBUTION/modules/lib` to the folder `$
 
 * `camunda-spin-core-$SPIN_VERSION.jar`
 
-## Groovy Scripting
-
-Copy the following library from `$WAS_DISTRIBUTION/modules/lib` to the folder `$SHARED_LIBRARY_PATH`, if present:
-
-* `groovy-all-$GROOVY_VERSION.jar`
 
 # 4. Maintain the BPM Platform Configuration
 

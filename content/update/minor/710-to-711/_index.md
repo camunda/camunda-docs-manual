@@ -22,6 +22,10 @@ This document guides you through the update from Camunda BPM `7.10.x` to `7.11.0
 1. For developers: [camunda-engine-spring Update](#camunda-engine-spring-update)
 1. For developers: [External Task Client Update](#external-task-client-update)
 1. For developers: [Changes Affecting Custom Permissions/Resources](#changes-affecting-custom-permissions-resources)
+1. For administrators and developers: [User Operation Log Permissions](#user-operation-log-permissions)
+1. For developers: [Custom WritableIdentityProvider](#custom-writableidentityprovider)
+1. For developers: [Exception Handling in Processes](#exception-handling-in-processes)
+1. For developers: [Updated Front End Libraries](#updated-front-end-libraries)
 
 This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda BPM 7.11.
 
@@ -49,11 +53,11 @@ Every Camunda installation requires a database schema update.
 
 ### MySQL/MariaDB Specifics
 
-Due to the [Y2K38|https://en.wikipedia.org/wiki/Year_2038_problem] bug in MySQL and MariaDB, these two database systems represent the `TIMESTAMP` data type with a signed 32-bit integer. This limits the maximum date that can be stored to `03:14:07 on 19 January 2038 (UTC)`.
+MySQL and MariaDB represent the `TIMESTAMP` data type with a signed 32-bit integer. This limits the maximum date that can be stored to `03:14:07 on 19 January 2038 (UTC)` (also referred to as the [Y2K38 problem](https://en.wikipedia.org/wiki/Year_2038_problem)).
 
-For this reason, all the `TIMESTAMP` columns that the Camunda engine uses to store future dates were migrated to the `DateTime` data type with a much larger time range.
+For this reason, all the `TIMESTAMP` columns that the Camunda engine uses to store future dates were migrated to the `DATETIME` data type with a much larger time range.
 
-Be aware that `DateTime` does not store time zone information. This means that, when applying the `[MySQL|MariaDB]_engine_7.10_to_7.11.sql` script, the database server time zone will be used to convert the `TIMESTAMP` into `DateTime` values. Any future time zone changes on the database server will offset the time stored in these columns causing an incorrect operation of the engine.
+Be aware that `DATETIME` does not store time zone information. This means that, when applying the `[MySQL|MariaDB]_engine_7.10_to_7.11.sql` script, the database server time zone will be used to convert the `TIMESTAMP` into `DATETIME` values. Any future time zone changes on the database server will offset the time stored in these columns causing an incorrect operation of the engine.
 
 # Full Distribution
 
@@ -84,7 +88,7 @@ For every process application, the Camunda dependencies should be updated to the
 * `camunda-ejb-client`
 * ...
 
-There are no new mandatory dependencies for process applications.
+There are no new mandatory dependencies for process applications. If your process application uses the `camunda-engine-spring` module, please make sure to read the [update section on camunda-engine-spring](#camunda-engine-spring-update).
 
 # Standalone Web Application
 
@@ -100,7 +104,7 @@ If a database other than the default H2 database is used, the following steps mu
 
 # Spring Boot Starter Update
 
-If you are using Camunda Spring Boot Starter within you Spring Boot application, then you would need to:
+If you are using Camunda Spring Boot Starter within you Spring Boot application, then you need to:
 
 1. Check [Version Compatibility Matrix]({{< ref "/user-guide/spring-boot-integration/version-compatibility.md" >}})
 2. Update **Spring Boot Starter** and, when required, Spring Boot versions in your `pom.xml`.
@@ -148,14 +152,14 @@ If you are using the **Camunda External Task Client**, please make sure to:
 
 # Changes Affecting Custom Permissions/Resources
 
-This section concerns you in case the [authorization checks]({{< ref "/user-guide/process-engine/authorization-service.md#enable-authorization-checks" >}}) are enabled and you have custom Permissions or Resources.
+This section concerns you in case the [authorization checks]({{< ref "/user-guide/process-engine/authorization-service.md#enable-authorization-checks" >}}) are enabled and you use custom permissions or resources.
 
 An Authorization assigns a set of Permissions to an identity to interact with a given Resource.
 The build-in [Permissions] (https://docs.camunda.org/javadoc/camunda-bpm-platform/7.11/org/camunda/bpm/engine/authorization/Permissions.html) define the way an identity is allowed to interact with a certain resource.
 The build-in [Resources](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.11/org/camunda/bpm/engine/authorization/Resources.html) are the entities the user interacts with.
 
 A custom Permission is a custom implementation of the [Permission] (https://docs.camunda.org/javadoc/camunda-bpm-platform/7.11/org/camunda/bpm/engine/authorization/Permission.html) interface.
-Also a custom Resource is a custom implementation of the [Resource](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.11/org/camunda/bpm/engine/authorization/Resource.html) interface.
+A custom Resource is a custom implementation of the [Resource](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.11/org/camunda/bpm/engine/authorization/Resource.html) interface.
 In case you have at least one of these custom implementations please have a look at the table below what will be the impact for you:
 <table class="table desc-table">
   <thead>
@@ -166,65 +170,67 @@ In case you have at least one of these custom implementations please have a look
   </thead>
   <tbody>
     <tr>
-      <td>Build-in Permissions <br>
-          Build-in Resources</td>
+      <td>Built-in Permissions <br>
+          Built-in Resources</td>
       <td>None</td>
     </tr>
     <tr>
       <td>Custom Permissions <br>
-          Build-in Resources</td>
+          Built-in Resources</td>
       <td>
         <li>
-          Implement the new <code>Permission#getResources()</code>
+          Implement the new <code>Permission#getResources()</code> method. It must return all resources to which the permission applies.
        </li>
        <li>
-          Possible clash with newly introduced Permissions, please consider disabling those permissions via process engine configuration
-          <a href="{{< ref "/reference/deployment-descriptors/tags/process-engine.md#disabledPermissions">}}">property</a>
+          Possible clash with newly introduced Permissions. See below how to proceed.
        </li>
       </td>
     </tr>
     <tr>
-      <td>Build-in Permissions <br>
+      <td>Built-in Permissions <br>
           Custom Resources</td>
-      <td>Create own Permission Enum where it must be specified the custom resource.</td>
+      <td>Create a dedicated `Permission` Enum that copies the permissions that you use and implement the <code>Permission#getResources()</code> method such that it returns the custom resource.</td>
     </tr>
     <tr>
       <td>Custom Permissions <br>
           Custom Resources</td>
-      <td>Implement the new <code>Permission#getResources()</code></td>
+      <td>
+          Implement the new <code>Permission#getResources()</code> method. It must return all resources to which the permission applies.
+      </td>
     </tr>
     <tr>
-      <td>Build-in Permissions are used for Build-in Resource different than defined by Camunda</td>
+      <td>Built-in permissions are used for built-in resources in combinations other than than those defined by Camunda</td>
       <td>
         <li>
-          Create own Permission Enum where it must be specified the custom resource.
+          Create a dedicated `Permission` Enum that copies the permissions that you use and implement the <code>Permission#getResources()</code> method such that it returns the resource you use them with.
         </li>
         <li>
-          Possible clash with newly introduced Permissions, please consider disabling those permissions via process engine configuration
-          <a href="{{< ref "/reference/deployment-descriptors/tags/process-engine.md#disabledPermissions">}}">property</a>
+          Possible clash with newly introduced Permissions. See below how to proceed.
         </li>
       </td>
     </tr>
   </tbody>
 </table>
 
+## How to avoid a permission clash
+
+1. Check if any of your custom permissions is in conflict with one of the built-in permissions: Check the permission enums in the [org.camunda.bpm.engine.authorization](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.11/index.html?org/camunda/bpm/engine/authorization/package-summary.html) package. Determine if there is any permission that applies to the same resource and has the same value as one of your custom permissions.
+1. Deactivate this built-in permission via a [process engine configuration property]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#disabledPermissions">}}). Note that in this case Camunda no longer enforces the disabled permissions.
+
 # User Operation Log Permissions
 
-The authorization for user operation log entries has been adjusted.
- 
-Entries that are not related to process definition keys (e.g. case instances, batches, standalone tasks and standalone jobs)
-can not be read and deleted without proper authorization.
+The authorization for user operation log entries has been adjusted. Entries that are created with Camunda 7.11 and higher and that are not related to process definition keys (e.g. case instances, batches, standalone tasks and standalone jobs) can no longer be read and deleted without proper authorization.
 
-Therefore, permissions `READ` and `DELETE` can be granted on the new resource `UserOperationLogCategory` with resource id set to a specific operation log category or "`*`".
+Instead, permissions `READ` and `DELETE` can be granted on the new resource `UserOperationLogCategory` with resource id set to a specific operation log category or `*` for all.
 
 In order to read (or delete) entries that are related to process definitions, a user either needs
 
-* permission `READ` (or `DELETE`) on resource `UserOperationLogCategory` with the resource id set to the respective category of the entry or "`*`"
-* permission `READ_HISTORY` (or `DELETE_HISTORY`) on resource `ProcessDefinition` with the resource id set to the respective process definition key of the entry or "`*`".
+* permission `READ` (or `DELETE`) on resource `UserOperationLogCategory` with the resource id set to the respective category of the entry or `*`
+* permission `READ_HISTORY` (or `DELETE_HISTORY`) on resource `ProcessDefinition` with the resource id set to the respective process definition key of the entry or `*`.
 
 In order to read (or delete) entries that are not related to process definitions, a user needs
 
-* permission `READ` (or `DELETE`) on resource `UserOperationLogCategory` with the resource id set to the respective category of the entry or "`*`"
+* permission `READ` (or `DELETE`) on resource `UserOperationLogCategory` with the resource id set to the respective category of the entry or `*`
 
 An overview of the operation logs and their categories can be found at [User Operation Log]({{< ref "/user-guide/process-engine/history.md#glossary-of-operations-logged-in-the-user-operation-log" >}}).
 Authorization management is detailed in [Authorization Service]({{< ref "/user-guide/process-engine/authorization-service.md" >}}).
@@ -255,22 +261,23 @@ public IdentityOperationResult unlockUser(String userId) {
 }
 ```
 
-You can also inspect the `DbIdentityServiceProvider` to see how the new return type is handled in the default implementation.
+You can also inspect the [DbIdentityServiceProvider](https://github.com/camunda/camunda-bpm-platform/blob/7.11.0/engine/src/main/java/org/camunda/bpm/engine/impl/identity/db/DbIdentityServiceProvider.java) to see how the new return type is handled in the default implementation.
 
 # Exception Handling in Processes
 
-The semantics of existing processes might change. A thrown exception from Execution and Task Listeners could be caught by existing error start or error boundary events. If no error boundary/start event is found on the scope, the execution is ended. For more information, please check the [User Guide]({{< ref "/user-guide/process-engine/delegation-code.md#throw-bpmn-errors-from-listeners" >}}).
+As of 7.11.0, exceptions thrown from execution and task listeners can trigger BPMN error events (for more information, please check the [User Guide]({{< ref "/user-guide/process-engine/delegation-code.md#throw-bpmn-errors-from-listeners" >}})). Accordingly, the semantics of existing processes may change if there is an error event that catches the exception.
 
 # Updated Front End Libraries
 
 With this release, we updated all front end libraries. Changes introduced with newer package versions might impacting:
 
-* [Embedded Task Forms](https://docs.camunda.org/manual/7.11/user-guide/task-forms/#embedded-task-forms)
-* [Custom Scripts](https://docs.camunda.org/manual/7.11/webapps/cockpit/extend/configuration/#custom-scripts)
+* [Embedded Task Forms]({{< ref "/user-guide/task-forms#embedded-task-forms" >}})
+* [Custom Scripts]({{< ref "/webapps/cockpit/extend/configuration.md#custom-scripts" >}})
+* [Cockpit Plugins]({{< ref "/webapps/cockpit/extend/plugins.md" >}}) or [Tasklist Plugins]({{< ref "/webapps/tasklist/tasklist-plugins.md" >}})
 
 Please find below a complete table of the updated front end libraries.
 
-If you make use of these packages in your **Embedded Task Forms** as well as your **Custom Scripts**, please make sure that your 
+If you make use of these packages in your **Embedded Task Forms** as well as your **Custom Scripts**, please make sure that your
 customizations still work as expected with the new versions used in Camunda BPM 7.11.
 
 <table class="table desc-table">
