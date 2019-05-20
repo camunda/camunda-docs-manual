@@ -81,6 +81,11 @@ though such combinations must be thoroughly tested before being used in producti
     <td>7.10.0</td>
     <td>2.1.1.RELEASE</td>
   </tr>
+  <tr>
+    <td>3.3.0</td>
+    <td>7.11.0</td>
+    <td>2.1.5.RELEASE</td>
+  </tr>
 </table>
 
 \* For these versions, use the following Maven coordinates:
