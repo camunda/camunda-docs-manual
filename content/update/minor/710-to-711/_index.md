@@ -405,3 +405,17 @@ customizations still work as expected with the new versions used in Camunda BPM 
 * Please pay especially attention to `angularjs` as it introduces a huge amount of changes
 * The directive names of `angular-ui-bootstrap` are now prefixed (i. e. `uib-*`)
 * In form names, special characters are [not allowed anymore](https://docs.angularjs.org/guide/migration#form)
+
+# HTTP Header Security in Webapps
+
+Starting with this release, a HTTP Header Security Servlet Filter is introduced for the Webapps. With Camunda BPM 7.11.0 
+we have added the XSS Protection Header to all server responses in conjunction with the Webapps.
+
+## XSS Protection in Webapps
+
+By default, the XSS Protection HTTP Header is configured in a way that a page gets blocked as soon as the browser detects 
+a cross-site scripting attack. You can either loosen this behavior or even disable the XSS Protection Header. Learn more 
+about how to configure the [HTTP Header Security Filter]({{< ref "/webapps/shared-options/header-security.md" >}}). 
+
+For further reading on how the XSS protection header works in detail, 
+please see [Mozillas MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection).
