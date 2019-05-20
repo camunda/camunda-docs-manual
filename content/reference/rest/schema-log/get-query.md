@@ -5,7 +5,7 @@ weight: 10
 
 menu:
   main:
-    name: "Get Schema Log"
+    name: "Get List"
     identifier: "rest-api-schema-log-get"
     parent: "rest-api-schema-log"
     pre: "GET `/schema/log`"
@@ -98,18 +98,16 @@ GET `/schema/log`
 Status 200
 
 ```json
-{
-  "schemaLogEntries": [
-    {
-      "id": "0"
-      "version": "7.11.0",
-      "timestamp": "2019-05-13T09:07:11.751+0200"
-    },
-    {
-      "id": "1"
-      "version": "7.11.1",
-      "timestamp": "2019-06-1T17:22:05.123+0200"
-    },
-  ]
-}
+[
+  {
+    "id": "0"
+    "version": "7.11.0",
+    "timestamp": "2019-05-13T09:07:11.751+0200"
+  },
+  {
+    "id": "1"
+    "version": "7.11.1",
+    "timestamp": "2019-06-1T17:22:05.123+0200"
+  },
+]
 ```

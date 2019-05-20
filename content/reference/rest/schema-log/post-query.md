@@ -5,7 +5,7 @@ weight: 20
 
 menu:
   main:
-    name: "Get Schema Log (POST)"
+    name: "Get List (POST)"
     identifier: "rest-api-schema-log-post"
     parent: "rest-api-schema-log"
     pre: "POST `/schema/log`"
@@ -136,13 +136,11 @@ Request Body:
 Status 200
 
 ```json
-{
-  "schemaLogEntries": [
-    {
-      "id": "0"
-      "version": "7.11.0",
-      "timestamp": "2019-05-13T09:07:11.751+0200"
-    }
-  ]
-}
+[
+  {
+    "id": "0"
+    "version": "7.11.0",
+    "timestamp": "2019-05-13T09:07:11.751+0200"
+  }
+]
 ```
