@@ -706,7 +706,8 @@ The following describes the operations logged in the user operation log and the 
         <li><strong>removalTime</strong>: The date of which an instance shall be removed</li>
         <li>
           <strong>mode</strong>: <code>CALCULATED_REMOVAL_TIME</code> if the removal time was calculated,
-          <code>ABSOLUTE_REMOVAL_TIME</code> if the removal time was set explicitly
+          <code>ABSOLUTE_REMOVAL_TIME</code> if the removal time was set explicitly,
+          <code>CLEARED_REMOVAL_TIME</code> if the removal time was cleared
         </li>
         <li>
           <strong>hierarchical</strong>: <code>true</code> if the removal time was set across the hiearchy,
@@ -1064,7 +1065,8 @@ The following describes the operations logged in the user operation log and the 
         <li><strong>removalTime</strong>: The date of which an instance shall be removed</li>
         <li>
           <strong>mode</strong>: <code>CALCULATED_REMOVAL_TIME</code> if the removal time was calculated,
-          <code>ABSOLUTE_REMOVAL_TIME</code> if the removal time was set explicitly
+          <code>ABSOLUTE_REMOVAL_TIME</code> if the removal time was set explicitly,
+          <code>CLEARED_REMOVAL_TIME</code> if the removal time was cleared
         </li>
       </ul>
     </td>
@@ -1120,7 +1122,8 @@ The following describes the operations logged in the user operation log and the 
         <li><strong>removalTime</strong>: The date of which an instance shall be removed</li>
         <li>
           <strong>mode</strong>: <code>CALCULATED_REMOVAL_TIME</code> if the removal time was calculated,
-          <code>ABSOLUTE_REMOVAL_TIME</code> if the removal time was set explicitly
+          <code>ABSOLUTE_REMOVAL_TIME</code> if the removal time was set explicitly,
+          <code>CLEARED_REMOVAL_TIME</code> if the removal time was cleared
         </li>
         <li>
           <strong>hierarchical</strong>: <code>true</code> if the removal time was set across the hiearchy,
@@ -1593,7 +1596,7 @@ Strengths:
 Limitations:
 
 * Can only remove data for which a removal time is set. This is especially not the case for data which has been created with Camunda versions < 7.10.0.
-* Changing the TTL of a definition only applies to history data that is created in the future. It does not dynamically update the removal time of already written history data.
+* Changing the TTL of a definition only applies to history data that is created in the future. It does not dynamically update the removal time of already written history data. However, it is possible to [Set a Removal Time via Batch Operations]({{< ref "/user-guide/process-engine/batch-operations.md#set-a-removal-time">}}).
 * History data of case instances is not cleaned up.
 
 ### End-Time-based Strategy
@@ -1688,6 +1691,9 @@ TTL for batches can be defined via attributes of the process engine configuratio
     <entry key="historic-instance-deletion" value="P4D" />
     <entry key="set-job-retries" value="P5D" />
     <entry key="set-external-task-retries" value="P5D" />
+    <entry key="process-set-removal-time" value="P0D" />
+    <entry key="decision-set-removal-time" value="P0D" />
+    <entry key="batch-set-removal-time" value="P0D" />
     <!-- in case of custom batch jobs -->
     <entry key="custom-operation" value="P3D" />
   </map>

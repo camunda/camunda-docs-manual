@@ -69,6 +69,9 @@ Currently supported batch types:
 - [Process Instance Modification][process-instance-modification]
 - [Process Instance Restart][process-instance-restart]
 - [Setting retries of external tasks][set-external-tasks-retries]
+- [Set a Removal Time to Historic Process Instances][set-removal-time]
+- [Set a Removal Time to Historic Decision Instances][set-removal-time]
+- [Set a Removal Time to Historic Batches][set-removal-time]
 
 Java API can be used to create Batch command, please refer to specific commands for
 exact usage example.
@@ -309,3 +312,4 @@ processEngine.getManagementService()
 [process-instance-restart]: {{< ref "/user-guide/process-engine/process-instance-restart.md#asynchronous-batch-execution" >}}
 [process-instance-modification]: {{< ref "/user-guide/process-engine/process-instance-modification.md#modification-of-multiple-process-instances" >}}
 [process-instance-suspend]: {{< ref "/user-guide/process-engine/batch-operations.md#update-suspend-state-of-process-instances">}}
+[set-removal-time]: {{< ref "/user-guide/process-engine/batch-operations.md#set-a-removal-time">}}

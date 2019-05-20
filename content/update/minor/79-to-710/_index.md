@@ -177,6 +177,13 @@ removal time is missing for these historic instances. If you want to get rid of 
 or switch the `historyCleanupStrategy` to the `endTimeBased` cleanup strategy via a 
 [process engine configuration property]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#historyCleanupStrategy" >}}).
 
+{{< note title="Heads Up!" class="info" >}}
+Starting with Camunda BPM 7.11 there exist several Batch Operations to set a removal time to historic processes, decisions and batches.
+This allows you to set a removal time via Camunda Cockpit as well as REST & Java API.
+
+You can learn more about it in the [User Guide]({{< ref "/user-guide/process-engine/batch-operations.md#set-a-removal-time">}}).
+{{< /note >}}
+
 To gain a better understanding of the new cleanup strategy, please see the updated documentation about the 
 [History Cleanup]({{< ref "/user-guide/process-engine/history.md#history-cleanup">}}) feature. 
 

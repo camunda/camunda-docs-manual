@@ -20,6 +20,9 @@ The following operations can be executed asynchronously
 - [Process Instance Modification]({{< ref "/user-guide/process-engine/process-instance-modification.md#modification-of-multiple-process-instances" >}})
 - [Process Instance Restart]({{< ref "/user-guide/process-engine/process-instance-restart.md#asynchronous-batch-execution" >}})
 - [Setting retries of external tasks](#setting-retries-of-external-tasks)
+- [Set a Removal Time to Historic Process Instances](#historic-process-instances)
+- [Set a Removal Time to Historic Decision Instances](#historic-decision-instances)
+- [Set a Removal Time to Historic Batches](#historic-batches)
 
 All batch operations rely on corresponding methods that provide the possibility to
 operate on a list of entities synchronously. Please refer to the general [Batch][batch] documentation to
@@ -79,6 +82,69 @@ Setting retries of external tasks can be performed asynchronously using the foll
 List<String> externalTaskIds = ...;
 externalTaskService.setRetriesAsync(
         externalTaskIds, TEST_REASON);
+```
+
+## Set a Removal Time
+
+Sometimes it is necessary to postpone or even prevent the deletion of certain historic instances.
+A removal time can be set asynchronously to historic processes, decisions and batches.
+
+The following modes can be chosen:
+
+* **Absolute:** Sets the removal time to an arbitrary date
+  * `.absoluteRemovalTime(Date removalTime)`
+* **Cleared:** Resets the removal time (represented as `null`-value); Instances without a removal time are not cleaned-up
+  * `.clearedRemovalTime()`
+* **Calculated:** Recalculates the removal tme based on the Workflow Engine's settings (base time + TTL)
+  * `.calculatedRemovalTime()`
+
+Historic process and decision instances can be part of a hierarchy. To set the same removal time for all instances within
+a hierarchy, the method `.hierarchical()` needs to be called.
+
+### Historic Process Instances
+
+```java
+HistoricProcessInstanceQuery query = 
+  historyService.createHistoricProcessInstanceQuery();
+
+Batch batch = historyService.setRemovalTimeToHistoricProcessInstances()
+  .absoluteRemovalTime(new Date()) // sets an absolute removal time
+   // .clearedRemovalTime()        // resets the removal time to null
+   // .calculatedRemovalTime()     // calculation based on the engine's configuration
+  .byQuery(query)
+  .byIds("693206dd-11e9-b7cb-be5e0f7575b7", "...")
+   // .hierarchical()              // sets a removal time across the hierarchy
+  .executeAsync();
+```
+
+### Historic Decision Instances
+
+```java
+HistoricDecisionInstanceQuery query = 
+  historyService.createHistoricDecisionInstanceQuery();
+
+Batch batch = historyService.setRemovalTimeToHistoricDecisionInstances()
+  .absoluteRemovalTime(new Date()) // sets an absolute removal time
+   // .clearedRemovalTime()        // resets the removal time to null
+   // .calculatedRemovalTime()     // calculation based on the engine's configuration 
+  .byQuery(query)
+  .byIds("693206dd-11e9-b7cb-be5e0f7575b7", "...")
+   // .hierarchical()              // sets a removal time across the hierarchy
+  .executeAsync();
+```
+
+### Historic Batches
+
+```java
+HistoricBatchQuery query = historyService.createHistoricBatchQuery();
+
+Batch batch = historyService.setRemovalTimeToHistoricBatches()
+  .absoluteRemovalTime(new Date()) // sets an absolute removal time
+   // .clearedRemovalTime()        // resets the removal time to null
+   // .calculatedRemovalTime()     // calculation based on the engine's configuration
+  .byQuery(query)
+  .byIds("693206dd-11e9-b7cb-be5e0f7575b7", "...")
+  .executeAsync();
 ```
 
 [batch-migration]: {{< ref "/user-guide/process-engine/process-instance-migration.md#asynchronous-batch-migration-execution" >}}
