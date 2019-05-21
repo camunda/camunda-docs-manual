@@ -26,10 +26,9 @@ This document guides you through the update from Camunda BPM `7.10.x` to `7.11.0
 1. For developers: [Custom WritableIdentityProvider](#custom-writableidentityprovider)
 1. For developers: [Exception Handling in Processes](#exception-handling-in-processes)
 1. For developers: [Updated Front End Libraries](#updated-front-end-libraries)
+1. For developers: [HTTP Header Security in Webapps](#http-header-security-in-webapps)
 
 This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda BPM 7.11.
-
-Noteworthy new Features and Changes in 7.11:
 
 
 # Database Updates
@@ -226,7 +225,7 @@ Instead, permissions `READ` and `DELETE` can be granted on the new resource `Use
 In order to read (or delete) entries that are related to process definitions, a user either needs
 
 * permission `READ` (or `DELETE`) on resource `UserOperationLogCategory` with the resource id set to the respective category of the entry or `*`
-* permission `READ_HISTORY` (or `DELETE_HISTORY`) on resource `ProcessDefinition` with the resource id set to the respective process definition key of the entry or `*`.
+* permission `READ_HISTORY` (or `DELETE_HISTORY`) on resource `ProcessDefinition` with the resource id set to the respective process definition key of the entry or `*`
 
 In order to read (or delete) entries that are not related to process definitions, a user needs
 
