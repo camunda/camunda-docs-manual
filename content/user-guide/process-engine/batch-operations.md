@@ -95,7 +95,7 @@ The following modes can be chosen:
   * `.absoluteRemovalTime(Date removalTime)`
 * **Cleared:** Resets the removal time (represented as `null`-value); Instances without a removal time are not cleaned-up
   * `.clearedRemovalTime()`
-* **Calculated:** Recalculates the removal tme based on the Workflow Engine's settings (base time + TTL)
+* **Calculated:** Recalculates the removal time based on the Workflow Engine's settings (base time + TTL)
   * `.calculatedRemovalTime()`
 
 Historic process and decision instances can be part of a hierarchy. To set the same removal time for all instances within
