@@ -133,6 +133,15 @@ Batch batch = historyService.setRemovalTimeToHistoricDecisionInstances()
   .executeAsync();
 ```
 
+{{< note title="Known limitation" class="info" >}}
+The `.hierarchical()` flag for the decision instances batch operation only sets the removal time within the decision 
+hierarchy. If a decision was called by a Business Rule Task, the calling process instances (including other process 
+instances that are present in the hierarchy) are not updated. 
+
+To update all child instances along the hierarchy of a root process instance (all process as well as decision instances), 
+please use the batch operation for process instances with the `.hierarchical()` flag enabled.
+{{< /note >}}
+
 ### Historic Batches
 
 ```java
