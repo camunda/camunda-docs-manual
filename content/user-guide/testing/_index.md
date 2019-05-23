@@ -169,13 +169,13 @@ To use Camunda BPM Assert, add the following dependency to your ```pom.xml```:
 </dependency>
 ```
 
-Also, you will have to add the AssertJ library v3.11.1 to your dependencies with
+Also, you will have to add the AssertJ library v3.12.2 to your dependencies with
 
 ```xml
 <dependency>
   <groupId>org.assertj</groupId>
   <artifactId>assertj-core</artifactId>
-  <version>3.11.1</version>
+  <version>3.12.2</version>
 </dependency>
 ```
 
@@ -196,17 +196,25 @@ So, if you want to work with Java 1.7 and are therefore bound to AssertJ version
 </dependency>
 ```
 
-If you are using a Spring Boot version 2.0.x that comes with AssertJ version 3.9.1, use the following dependency:
+If you are using a Spring Boot version 2.1.x that comes with AssertJ version 3.11.1, use the following dependency:
+
+```xml
+<dependency>
+  <groupId>org.camunda.bpm.assert</groupId>
+  <artifactId>camunda-bpm-assert-assertj3-11-1</artifactId>
+  <version>4.0.0</version>
+</dependency>
+```
+
+If you are using a Spring Boot version 2.0.x that comes with AssertJ version 3.9.1, use the following dependency (only available in Camunda BPM Assert version 3.x):
 
 ```xml
 <dependency>
   <groupId>org.camunda.bpm.assert</groupId>
   <artifactId>camunda-bpm-assert-assertj3-9-1</artifactId>
-  <version>4.0.0</version>
+  <version>3.0.0</version>
 </dependency>
 ```
-
-As Spring Boot version 2.1.x uses AssertJ version 3.11.1, you can use the default artifact of BPM Assert.
 
 
 ## Assertions Version Compatibility
@@ -259,8 +267,8 @@ All versions prior to 3.0.0 belong to the community extension are not part of th
     <td>7.10.0</td>
   </tr>
   <tr>
-    <td>camunda-bpm-assert</br>camunda-bpm-assert-assertj2</br>camunda-bpm-assert-assertj3-9-1</td>
-    <td>3.11.1</br>2.9.0</br>3.9.1</td>
+    <td>camunda-bpm-assert</br>camunda-bpm-assert-assertj2</br>camunda-bpm-assert-assertj3-11-1</td>
+    <td>3.12.2</br>2.9.0</br>3.11.1</td>
     <td>4.0.0</td>
     <td>7.11.0</td>
   </tr>
@@ -290,7 +298,7 @@ For these versions, use the following Maven coordinates:
 In order to migrate from a Camunda BPM Assert version 1.x / 2.x to a version 3.x or higher, the following points have to be considered:
 
 * The groupId for Maven dependencies has changed, it is now `org.camunda.bpm.assert`. Project dependencies have to be adjusted accordingly.
-* There might be multiple artifacts available for a specific version as shown in the compatibility overview above. The artifact that matches the other project dependencies has to be chosen by `artifactId`.
+* There might be multiple artifacts available for a specific version as shown in the compatibility overview above. The artifact that matches the other project dependencies has to be chosen by `artifactId` and `version`.
 * The inheritance from AssertJ's `Assertions` has been cut. In case AssertJ assertions are used in test code besides BPM Assert assertions, the imports have to be adjusted to also include:
 
 ```java
