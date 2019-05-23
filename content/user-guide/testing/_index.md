@@ -165,7 +165,7 @@ To use Camunda BPM Assert, add the following dependency to your ```pom.xml```:
 <dependency>
   <groupId>org.camunda.bpm.assert</groupId>
   <artifactId>camunda-bpm-assert</artifactId>
-  <version>3.0.0</version>
+  <version>4.0.0</version>
 </dependency>
 ```
 
@@ -192,7 +192,7 @@ So, if you want to work with Java 1.7 and are therefore bound to AssertJ version
 <dependency>
   <groupId>org.camunda.bpm.assert</groupId>
   <artifactId>camunda-bpm-assert-assertj2</artifactId>
-  <version>3.0.0</version>
+  <version>4.0.0</version>
 </dependency>
 ```
 
@@ -202,7 +202,7 @@ If you are using a Spring Boot version 2.0.x that comes with AssertJ version 3.9
 <dependency>
   <groupId>org.camunda.bpm.assert</groupId>
   <artifactId>camunda-bpm-assert-assertj3-9-1</artifactId>
-  <version>3.0.0</version>
+  <version>4.0.0</version>
 </dependency>
 ```
 
@@ -261,8 +261,8 @@ All versions prior to 3.0.0 belong to the community extension are not part of th
   <tr>
     <td>camunda-bpm-assert</br>camunda-bpm-assert-assertj2</br>camunda-bpm-assert-assertj3-9-1</td>
     <td>3.11.1</br>2.9.0</br>3.9.1</td>
-    <td>4.0.0-alpha1</td>
-    <td>7.11.0-alpha5</td>
+    <td>4.0.0</td>
+    <td>7.11.0</td>
   </tr>
 </table>
 
