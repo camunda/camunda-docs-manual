@@ -90,7 +90,7 @@ This example uses the default password policy that enforces a minimum password l
 
 ## Request
 
-POST `/password-policy`
+POST `/identity/password-policy`
 
 Request Body:
 ```
