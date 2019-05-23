@@ -62,22 +62,22 @@ though such combinations must be thoroughly tested before being used in producti
     <td>1.5.6.RELEASE</td>
   </tr>
   <tr>
-    <td>2.3.0</td>
+    <td>2.3.x</td>
     <td>7.8.0</td>
     <td>1.5.8.RELEASE</td>
   </tr>
   <tr>
-    <td>3.0.0</td>
+    <td>3.0.x</td>
     <td>7.9.0</td>
     <td>2.0.2.RELEASE</td>
   </tr>
   <tr>
-    <td>3.1.0</td>
+    <td>3.1.x</td>
     <td>7.10.0</td>
     <td>2.0.2.RELEASE</td>
   </tr>
   <tr>
-    <td>3.2.0</td>
+    <td>3.2.x</td>
     <td>7.10.0</td>
     <td>2.1.1.RELEASE</td>
   </tr>
