@@ -127,14 +127,24 @@ List<MessageCorrelationResult> results = runtimeService
 ```
 The result will be a list of `MessageCorrelationResult` objects. Each result corresponds to a correlation.
 
-Additionally, message correlation builder provides the possibility to correlate the message by local execution variables:
+It is possible to retrieve the process variables on message correlation. By specifying the boolean parameter `shouldDeserializeValues`, you decide whether the variables' values to be serialized or not. Please see the example below:
+
+```java
+MessageCorrelationResultWithVariables result = runtimeService
+  .createMessageCorrelation("aMessageName")
+  .setVariable("name", "value")
+  .correlateWithResultAndVariables(shouldDeserializeValues);
+VariableMap processVariables = result.getVariables();
+```
+
+Additionally, message correlation builder provides the possibility to correlate the message by local execution variables.
   
 ```java
 List<MessageCorrelationResult> results = runtimeService
   .createMessageCorrelation("aMessageName")
   .localVariableEquals("localVarName", "localVarValue"))
   .correlateAllWithResult();
-```  
+```
 
 In this case the matching execution will be selected based on variables existing in it's scope (ignoring all parent scopes).
 
@@ -148,11 +158,22 @@ Alternatively, you can explicitly deliver a message to start a process instance 
 If the message should trigger the starting of a new process instance then you can use the correlation API:
 
 ```java
-runtimeService
+ProcessInstance startedProcessInstance = runtimeService
   .createMessageCorrelation("messageName")
   .processInstanceBusinessKey("businessKey")
   .setVariable("name", "value")
   .correlateStartMessage();
+
+// or
+
+MessageCorrelationResultWithVariables result = runtimeService
+  .createMessageCorrelation("aMessageName")
+  .processInstanceBusinessKey("businessKey")
+  .startMessageOnly()
+  .setVariable("name", "value")
+  .correlateWithResultAndVariables(shouldDeserializeValues);
+ProcessInstance startedProcessInstance = result.getProcessInstance();
+VariableMap processVariables = result.getVariables();
 ```
 
 Or you can use one of the following methods offered by the runtime service:
