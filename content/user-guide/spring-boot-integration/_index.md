@@ -23,7 +23,7 @@ To enable Camunda BPM auto configuration, add the following dependency to your `
 <dependency>
   <groupId>org.camunda.bpm.springboot</groupId>
   <artifactId>camunda-bpm-spring-boot-starter</artifactId>
-  <version>3.3.0</version>
+  <version>3.3.1</version>
 </dependency>
 ```
 
