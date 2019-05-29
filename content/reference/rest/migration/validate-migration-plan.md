@@ -172,7 +172,7 @@ The properties of a instruction report are as follows:
 
 ## Request
 
-POST `/migration/generate`
+POST `/migration/validate`
 
 Request Body:
 
