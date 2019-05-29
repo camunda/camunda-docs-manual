@@ -19,7 +19,7 @@ You have a number of options to configure and create a process engine depending 
 You manage the process engine as part of your application. The following ways exist to configure it:
 
 * [Programmatically via Java API]({{< relref "#bootstrap-a-process-engine-using-the-java-api" >}})
-* [Via XML configuration]({{< relref "#configure-process-engine-using-spring-xml" >}})
+* [Via XML configuration]({{< relref "#configure-process-engine-using-camunda-cfg-xml" >}})
 * [Via Spring]({{< ref "/user-guide/spring-framework-integration/_index.md" >}})
 
 
@@ -62,7 +62,7 @@ ProcessEngine processEngine = ProcessEngineConfiguration.createStandaloneInMemPr
 ```
 
 
-## Configure Process Engine Using Spring XML
+## Configure Process Engine Using camunda cfg XML
 
 The easiest way to configure your Process Engine is through an XML file called `camunda.cfg.xml`. Using that you can simply do:
 
@@ -100,6 +100,7 @@ This will look for a `camunda.cfg.xml` file on the classpath and construct an en
 
 </beans>
 ```
+If no resource `camunda.cfg.xml` is found, the default engine will search for the file `activiti.cfg.xml` as a fallback. If both are missing, the engine stops and prints an error message about the missing configuration resource.
 
 Note that the configuration XML is in fact a Spring configuration. This does not mean that the Camunda engine can only be used in a Spring environment! We are simply leveraging the parsing and dependency injection capabilities of Spring internally for building up the engine.
 
