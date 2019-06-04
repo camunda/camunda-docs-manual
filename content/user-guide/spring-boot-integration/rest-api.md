@@ -21,7 +21,7 @@ To enable the [REST API]({{< ref "/reference/rest/_index.md">}}) you can use the
 </dependency>
 ```
 
-By default the application path is `rest`, so without any further configuration you can access the api at `http://localhost:8080/rest/engine`.
+By default the application path is `rest`, so without any further configuration you can access the api at `http://localhost:8080/rest`.
 
 Because we use jersey, one can use spring boot's [common application properties](http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html). 
 For example, to change the application path, use 
