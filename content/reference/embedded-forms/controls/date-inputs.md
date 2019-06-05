@@ -52,7 +52,7 @@ including the datepicker button is shown below.
        cam-variable-name="CONTRACT_START_DATE"
        cam-variable-type="Date"
        class="form-control"
-       datepicker-popup="yyyy-MM-dd'T'HH:mm:ss"
+       uib-datepicker-popup="yyyy-MM-dd'T'HH:mm:ss"
        is-open="dateFieldOpened" />
 
   <span class="input-group-btn">
@@ -83,7 +83,7 @@ The attributes of the datepicker component are explained below:
 
 Additional attributes of the input element:
 
-* `datepicker-popup="yyyy-MM-dd'T'HH:mm:ss"`: This attribute sets the format of the date which
+* `uib-datepicker-popup="yyyy-MM-dd'T'HH:mm:ss"`: This attribute sets the format of the date which
 is returned by the datepicker. It must be the ISO Date Format.
 * `is-open="dateFieldOpened"`: This attribute contains the name of the variable, which
 indicates the open status of the datepicker. It must be the same variable, which is set to
