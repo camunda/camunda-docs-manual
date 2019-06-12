@@ -86,11 +86,6 @@ Camunda Modeler is a modeling Tool for BPMN 2.0 and DMN 1.1. Camunda Modeler can
 from the [community download page][community-download-page].
 
 
-# Download Camunda Cycle
-
-Camunda Cycle is a tool for BPMN 2.0 interchange and Roundtrip. Camunda Cycle can be downloaded from
-the [community download page][community-download-page].
-
 
 [get-jdk]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [community-download-page]: https://camunda.org/release/camunda-bpm/

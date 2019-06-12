@@ -36,11 +36,6 @@ and [Deployment scenarios]({{< ref "/user-guide/spring-boot-integration/_index.m
 and [Deployment scenarios]({{< ref "/user-guide/spring-boot-integration/_index.md#supported-deployment-scenarios" >}})).
 
 
-# Container for Camunda Cycle
-
-* Apache Tomcat 7
-
-
 # Databases
 
 ## Supported Database Products
