@@ -19,6 +19,7 @@ Note that the sequence flows running out of an event-based Gateway are different
 *   An event-based Gateway may only be followed by elements of the type intermediateCatchEvent.
     (Receive Tasks after an event-based Gateway are not supported by the engine yet.)
 *   An intermediateCatchEvent connected to an event-based Gateway must have a single incoming sequence flow.
+*   Local Variables that are configured on intermediateCatchEvent will not be available for Local Variable Correlation when receiving the message
 
 The following process is an example of a process with an event-based Gateway. When the execution arrives at the event-based Gateway, process execution is suspended. Additionally, the process instance subscribes to the alert signal event and creates a timer which fires after 10 minutes. This effectively causes the process engine to wait for ten minutes for a signal event. If the signal event occurs within 10 minutes, the timer is canceled and execution continues after the signal. If the signal is not fired, execution continues after the timer and the signal subscription is canceled.
 
