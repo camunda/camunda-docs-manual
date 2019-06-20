@@ -80,6 +80,10 @@ GET `/history/process-instance/count`
     <td>Filter by the key of the process definition the instances run on.</td>
   </tr>
   <tr>
+    <td>processDefinitionKeyIn</td>
+    <td>Filter by a comma-separated list of process definition keys. A process instance must have one of the given process definition keys.</td>
+  </tr>
+  <tr>
     <td>processDefinitionKeyNotIn</td>
     <td>Exclude instances that belong to a set of process definitions. Must be a comma-separated list of process definition keys.</td>
   </tr>
