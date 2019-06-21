@@ -82,7 +82,7 @@ This example uses the default password policy that enforces a minimum password l
 
 ## Request
 
-GET `/password-policy`
+GET `/identity/password-policy`
 
 ## Response
 ```

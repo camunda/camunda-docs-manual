@@ -176,6 +176,11 @@ public class MyCustomConfiguration extends AbstractCamundaConfiguration {
 ```
 
 ## Camunda Engine Properties
+In addition to the bean-based way of overriding process engine configuration properties, it is also possible
+to set those properties via an <code>application.yaml</code> configuration file. Instructions on how to use it
+can be found in the <a href="https://docs.camunda.org/get-started/spring-boot/configuration/">Spring Boot Starter Guide</a>.
+
+The available properties are as follows:
 
 <table class="table desc-table">
 <tr>
@@ -591,3 +596,45 @@ Spring Boot behaviour is taken into account.</td>
 </tr>
 
 </table>
+
+
+### Generic Properties
+
+The method of configuration described above does not cover all process engine properties available. To override any process engine configuration
+property that is not exposed (i.e. listed above) you can use generic-properties.
+
+```yaml
+camunda:
+  bpm:
+    generic-properties:
+      properties:
+        ...
+```
+
+{{< note title="Note:" class="info" >}}
+  Overriding an already exposed property using the <code>generic-properties</code>
+  keyword does not effect the process engine configuration. All exposed properties
+  can only be overridden with their exposed identifier.
+{{< /note >}}
+
+### Examples:
+Override configuration using exposed properties:
+
+```yaml
+camunda.bpm:
+  admin-user:
+    id: kermit
+    password: superSecret
+    firstName: Kermit
+  filter:
+    create: All tasks
+```
+Override configuration using generic properties:
+
+```yaml
+camunda:
+  bpm:
+    generic-properties:
+      properties:
+        enable-password-policy: true
+```

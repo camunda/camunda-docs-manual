@@ -65,6 +65,20 @@ subscriptions. It includes the type, name and configuration of the expected
 event along with information about the corresponding process instance and
 execution.
 
+## Schema Log (`ACT_GE_SCHEMA_LOG`)
+
+The `ACT_GE_SCHEMA_LOG` table contains a history of the database
+schema version. New entries to the table are written when changes to
+the database schema are made. On database creation the initial entry
+is added. Every update script adds a new entry containing an `id`,
+the `version` the database was updated to and the date and time 
+(`timestamp`) of the update.
+
+To retrieve entries from the schema log, the SchemaLogQuery-API can be
+used:
+```java
+List<SchemaLogEntry> entries = managementService.createSchemaLogQuery().list();
+```
 
 # Entity Relationship Diagrams
 
@@ -81,29 +95,29 @@ The following Entity Relationship Diagrams visualize the database tables and the
 
 ## Engine BPMN
 
-{{< img src="../img/erd_710_bpmn.svg" title="BPMN Tables" >}}
+{{< img src="../img/erd_711_bpmn.svg" title="BPMN Tables" >}}
 
 
 ## Engine DMN
 
-{{< img src="../img/erd_710_dmn.svg" title="DMN Tables" >}}
+{{< img src="../img/erd_711_dmn.svg" title="DMN Tables" >}}
 
 
 ## Engine CMMN
 
-{{< img src="../img/erd_710_cmmn.svg" title="CMMN Tables" >}}
+{{< img src="../img/erd_711_cmmn.svg" title="CMMN Tables" >}}
 
 
 ## History
 
 To allow different configurations and to keep the tables more flexible, the history tables contain no foreign key constraints.
 
-{{< img src="../img/erd_710_history.svg" title="History Tables" >}}
+{{< img src="../img/erd_711_history.svg" title="History Tables" >}}
 
 
 ## Identity
 
-{{< img src="../img/erd_710_identity.svg" title="Identity Tables" >}}
+{{< img src="../img/erd_711_identity.svg" title="Identity Tables" >}}
 
 
 

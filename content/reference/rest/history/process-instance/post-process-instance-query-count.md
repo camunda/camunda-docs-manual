@@ -82,8 +82,12 @@ A JSON object with the following properties:
     <td>Filter by the key of the process definition the instances run on.</td>
   </tr>
   <tr>
+    <td>processDefinitionKeyIn</td>
+    <td>Filter by a list of process definition keys. A process instance must have one of the given process definition keys. Must be a JSON array of Strings.</td>
+  </tr>
+  <tr>
     <td>processDefinitionKeyNotIn</td>
-    <td>Exclude instances that belong to a set of process definitions. Must be a comma-separated list of process definition keys.</td>
+    <td>Exclude instances that belong to a set of process definitions. Must be a JSON array of Strings.</td>
   </tr>
   <tr>
     <td>processDefinitionName</td>

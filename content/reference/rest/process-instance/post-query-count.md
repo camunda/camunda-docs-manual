@@ -59,6 +59,14 @@ A JSON object with the following properties:
     <td>Filter by the key of the process definition the instances run on.</td>
   </tr>
   <tr>
+    <td>processDefinitionKeyIn</td>
+    <td>Filter by a list of process definition keys. A process instance must have one of the given process definition keys. Must be a JSON array of Strings.</td>
+  </tr>
+  <tr>
+    <td>processDefinitionKeyNotIn</td>
+    <td>Exclude instances by a list of process definition keys. A process instance must not have one of the given process definition keys. Must be a JSON array of Strings.</td>
+  </tr>
+  <tr>
     <td>deploymentId</td>
     <td>Filter by the deployment the id belongs to.</td>
   </tr>

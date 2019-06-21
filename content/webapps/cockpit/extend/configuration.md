@@ -99,7 +99,7 @@ The diagram viewer (bpmn.js) can be either customized by moddle extensions or
 [additional modules](https://bpmn.io/toolkit/bpmn-js/walkthrough/#extend-the-modeler). To extend the BPMN diagram viewer
 of Cockpit, a `bpmnJs` property must be added to the `app/cockpit/scripts/config.js` file.
 
-## Additionl Modules
+## Additional Modules
 To add modules, the `additionalModules` property needs to be specified, where each module has a unique name (key) and a
 path (value) to the JavaScript file of the module. The path is relative to the `app/cockpit` folder in the .war file of
 the Camunda Webapp. The suffix `.js` of the file is added automatically and must not be specified.

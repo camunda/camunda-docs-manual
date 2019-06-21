@@ -38,4 +38,3 @@ To give you an overview of Camunda, the following illustration shows the most im
 * [Camunda Tasklist]({{< ref "/webapps/tasklist/_index.md" >}}) A web application for human workflow management and user tasks that allows process participants to inspect their workflow tasks and navigate to task forms in order to work on the tasks and provide data input.
 * [Camunda Cockpit]({{< ref "/webapps/cockpit/_index.md" >}}) A web application for process monitoring and operations that allows you to search for process instances, inspect their state and repair broken instances.
 * [Camunda Admin]({{< ref "/webapps/admin/_index.md" >}}) A web application that allows you to manage users, groups and authorizations.
-* [Camunda Cycle]({{< ref "/webapps/cycle/_index.md" >}}) A web application for synchronizing BPMN 2.0 process models between different modeling tools and modelers.

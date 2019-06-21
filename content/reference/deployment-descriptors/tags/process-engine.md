@@ -609,6 +609,13 @@ The following is a list with the most commonly used process engine configuration
     </td>
   </tr>
 
+  <tr>
+    <td><a name="enablePasswordPolicy"></a><code>enablePasswordPolicy</code></td>
+    <td>Boolean</td>
+    <td>Set to <code>true</code>, to enable a <a href="{{< ref "/user-guide/process-engine/password-policy">}}">password policy</a> for users that are managed by the engine. If a <a href="https://docs.camunda.org/manual/latest/user-guide/process-engine/password-policy/#customize-the-password-policy">custom password policy</a> is configured, it will be enabled. Otherwise the <a href="https://docs.camunda.org/manual/latest/user-guide/process-engine/password-policy/#default-password-policy">default password policy</a> is activated.
+    </td>
+  </tr>
+
 </table>
 
 ## History cleanup configuration parameters
@@ -731,7 +738,7 @@ The following is a list with the most commonly used process engine configuration
     <td>Integer</td>
     <td>Defines the minimum amount of top-level objects required for data to be removed. Default value is 10. Hint: if the value is too small and the process
     engine continues to be used during history cleanup, it can happen that real SQL delete statements are called very frequently for small amounts of data.<br><br>
-    <strong>Note:</strong> This property cannot be used in conjunction with <code>historyCleanupStrategy</code> set to <code>endTimeBased</code>.</td>
+    <strong>Note:</strong> This property cannot be used in conjunction with <code>historyCleanupStrategy</code> set to <code>removalTimeBased</code>.</td>
   </tr>
   <tr>
     <td><code>historyCleanupDegreeOfParallelism</code></td>

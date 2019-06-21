@@ -458,7 +458,7 @@ how to access the `TaskService` from a `JavaDelegate` implementation.
 
 # Throw BPMN Errors from Delegation Code
 
-In the above example the error event is attached to a service task. In order to get this to work the service task has to throw the corresponding error. This is done by using a provided Java exception class from within your Java code (e.g., in the JavaDelegate):
+It is possible to throw `BpmnError` from delegation code (Java Delegate, Execution and Task Listeners). This is done by using a provided Java exception class from within your Java code (e.g., in the JavaDelegate):
 
 ```java
 public class BookOutGoodsDelegate implements JavaDelegate {
@@ -474,14 +474,30 @@ public class BookOutGoodsDelegate implements JavaDelegate {
 }
 ```
 
+
+## Throw BPMN Errors from Listeners
+
+When implementing an error catch event, keep in mind that the `BpmnError` will be caught when they are thrown in normal flow of the following listeners:
+
+* start and end execution listeners on activity, gateway, and intermediate events
+* take execution listeners on transitions
+* create, assign, and complete task listeners
+
+The `BpmnError` will not be caught for the following listeners:
+
+* start and end process listeners
+* delete task listeners
+* listeners invoked outside of the normal flow:
+    * a process modification is performed which trigger subprocess scope initialization and some of its listeners throws an error
+    * a process instance deletion invokes an end listener throwing an error
+    * a listener is triggered due to interrupting boundary event execution, e.g message correlation on subprocess invokes end listeners throwing an error
+
+
 {{< note title="Note!" class="info" >}}
 
-Throwing a `BpmnError` in the delegation code behaves like modeling an error end event. See the [reference guide]({{< ref "/reference/bpmn20/events/error-events.md#error-boundary-event" >}}) about the details on the behavior, especially the error boundary event. If no error boundary event is found on the scope, the execution is ended.
+Throwing a `BpmnError` in the delegation code behaves like modelling an error end event. See the [reference guide]({{< ref "/reference/bpmn20/events/error-events.md#error-boundary-event" >}}) about the details on the behavior, especially the error boundary event. If no error boundary event is found on the scope, the execution is ended.
 
 {{< /note >}}
-
-[script-sources]: {{< ref "/user-guide/process-engine/scripting.md#script-source" >}}
-[camunda-script]: {{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#camunda-script" >}}
 
 
 # Set Business Key from Delegation Code
@@ -500,3 +516,6 @@ public class BookOutGoodsDelegate implements JavaDelegate {
 
 }
 ```
+
+[script-sources]: {{< ref "/user-guide/process-engine/scripting.md#script-source" >}}
+[camunda-script]: {{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#camunda-script" >}}

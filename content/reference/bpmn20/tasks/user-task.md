@@ -257,6 +257,18 @@ Although the Camunda engine provides an identity management component, which is 
 
 However, note that you can use the identity service in a service / bean or listener to query your user repository if this is useful to you.
 
+# Completion
+
+Complete is part of the [task lifecycle]({{< ref "/webapps/tasklist/task-lifecycle.md" >}}) operation along with create, set candidate, assign, etc. (allow available via Java API). Complete a task by passing variables, optionally the process variables can be retrieved::
+
+```java
+taskService.complete(taskId, variables);
+
+// or complete and retrieve the process variables
+VariableMap processVariables = taskService
+  .completeWithVariablesInReturn(taskId, variables, shouldDeserializeValues);
+```
+
 # Forms
 
 It is possible to provide information to render a User Task form by using the `camunda:formKey`
@@ -301,6 +313,18 @@ for(Task task : tasks) {
 
 Note that it is required to call the `.initializeFormKeys()` method on the `TaskQuery` object to
 make sure the form keys are initialized.
+
+## Form submission
+
+When a form is submitted, it is possible to fetch the process variables in return:
+
+```java
+VariableMap processVariables = formService
+  .submitTaskFormWithVariablesInReturn(taskId, properties, shouldDeserializeValues);
+
+// or avoid unnecessary variable access
+formService.submitTaskForm(taskId, properties);
+```
 
 # Camunda Extensions
 
