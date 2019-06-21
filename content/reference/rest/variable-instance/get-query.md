@@ -136,7 +136,7 @@ A JSON array of variable instance objects. Each variable instance object has the
   <tr>
     <td>value</td>
     <td>String / Number / Boolean / Object</td>
-    <td>The variable's value. Value differs depending on the variable's type and on the deserializeValues parameter.</td>
+    <td>{{< rest-var-response-value deserializationParameter="deserializeValue" >}}</td>
   </tr>
   <tr>
     <td>valueInfo</td>

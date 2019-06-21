@@ -166,12 +166,12 @@ Each historic activity instance object has the following properties:
   <tr>
     <td>type</td>
     <td>String</td>
-    <td>{{< rest-var-response-type >}}}</td>
+    <td>{{< rest-var-response-type >}}</td>
   </tr>
   <tr>
     <td>value</td>
     <td>String/Number/Boolean/Object</td>
-    <td>{{< rest-var-response deserializationParameter="deserializeValues" >}}</td>
+    <td>{{< rest-var-response-value deserializationParameter="deserializeValues" >}}</td>
   </tr>
   <tr>
     <td>valueInfo</td>

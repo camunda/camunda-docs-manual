@@ -263,7 +263,7 @@ Depending on the type of the historic detail it contains further properties. In 
   <tr>
     <td>value</td>
     <td>String/Number/Boolean/Object</td>
-    <td>{{< rest-var-response deserializationParameter="deserializeValues" >}}</td>
+    <td>{{< rest-var-response-value deserializationParameter="deserializeValues" >}}</td>
   </tr>
   <tr>
     <td>valueInfo</td>
