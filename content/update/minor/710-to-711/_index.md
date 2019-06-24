@@ -27,6 +27,8 @@ This document guides you through the update from Camunda BPM `7.10.x` to `7.11.0
 1. For developers: [Exception Handling in Processes](#exception-handling-in-processes)
 1. For developers: [Updated Front End Libraries](#updated-front-end-libraries)
 1. For developers: [HTTP Header Security in Webapps](#http-header-security-in-webapps)
+1. For administrators and developers: 
+[Version of Deployment Descriptor for Web applications Changed](#version-of-deployment-descriptor-changed-web-applications)
 
 This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda BPM 7.11.
 
@@ -425,3 +427,15 @@ about how to configure the [HTTP Header Security Filter]({{< ref "/webapps/share
 
 For further reading on how the XSS protection header works in detail, 
 please see [Mozillas MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection).
+
+# Version of Deployment Descriptor Changed (Web Applications)
+
+In order to allow security-related configurations for the **Session Cookie**, the version of the Deployment Descriptor
+(`web.xml`) was promoted from 2.5 to 3.0.
+
+The following Containers are affected:
+
+* Wildfly
+* JBoss AS
+* JBoss EAP
+* Tomcat
