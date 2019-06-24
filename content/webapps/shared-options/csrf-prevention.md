@@ -13,6 +13,9 @@ menu:
 
 A CSRF filter is enabled by default, validating each modifying request performed through the webapps. The filter implements a (per-session) _Synchronization Token_ method for CSRF validation with an optional _Same Origin with Standard Headers_ verification.
 
+In Spring Boot Starter, the configuration needs to be made in the `application.yaml`.
+Please read more about it [here]({{< ref "/user-guide/spring-boot-integration/configuration.md#csrf" >}}).
+
 If you would like to enable the additional _Same Origin with Standard Headers_ verification, the `targetOrigin` init-parameter should be set in the `web.xml` file of your application. That, and some additional optional initialization parameters are:
 
 ```xml
@@ -35,6 +38,14 @@ If you would like to enable the additional _Same Origin with Standard Headers_ v
     <init-param>
       <param-name>entryPoints</param-name>
       <param-value>/api/engine/engine/default/history/task/count, /api/engine/engine/default/history/variable/count</param-value>
+    </init-param>
+    <init-param>
+      <param-name>enableSecureCookie</param-name>
+      <param-value>true</param-value>               <!-- default value is false -->
+    </init-param>
+    <init-param>
+      <param-name>enableSameSiteCookie</param-name>
+      <param-value>true</param-value>               <!-- default value is true -->
     </init-param>
   </filter>
   <filter-mapping>
@@ -63,5 +74,33 @@ If you would like to enable the additional _Same Origin with Standard Headers_ v
   <tr>
     <td>entryPoints</td>
     <td>Entry points are URLs that will not be tested for the presence of a valid token. They are used to provide a way to navigate back to the protected apps after navigating away from them.</td>
+  </tr>
+  <tr>
+    <td>enableSecureCookie</td>
+    <td>
+      If set to <code>true</code>, the cookie flag <a href="{{< ref "/webapps/shared-options/cookie-security.md#secure" >}}">Secure</a> is enabled.<br>
+      The default value is <code>false</code>.
+    </td>
+  </tr>
+  <tr>
+    <td>enableSameSiteCookie</td>
+    <td>
+      If set to <code>false</code>, the cookie flag <a href="{{< ref "/webapps/shared-options/cookie-security.md#samesite" >}}">SameSite</a> is disabled.<br>
+      The default value is <code>true</code>.
+    </td>
+  </tr>
+  <tr>
+    <td>sameSiteCookieOption</td>
+    <td>
+      Can be configured either to <code>STRICT</code> or <code>LAX</code>.<br>
+      <strong>Note:</strong> This property is ignored when <code>enableSameSiteCookie</code> is set to <code>false</code>.
+    </td>
+  </tr>
+  <tr>
+    <td>sameSiteCookieValue</td>
+    <td>
+      A custom value for the cookie property.<br>
+      <strong>Note:</strong> This property is ignored when <code>enableSameSiteCookie</code> is set to <code>false</code>.
+    </td>
   </tr>
 </table>

@@ -15,12 +15,12 @@ menu:
 
 This page explains how to configure the full distribution for Tomcat Application Server.
 
-# LDAP
+## LDAP
 
 In order to setup LDAP for the Tomcat distribution, you have to perform the following steps:
 
 
-## Add the LDAP Library
+### Add the LDAP Library
 
 Make sure the `camunda-identity-ldap-$PLATFORM_VERSION.jar` is present in the
 `$TOMCAT_DISTRIBUTION/lib/` folder.
@@ -29,7 +29,7 @@ Make sure the `camunda-identity-ldap-$PLATFORM_VERSION.jar` is present in the
 Note: If you use the pre-packaged distribution, the ldap plugin is already present and you can skip this step.
 {{< /note >}}
 
-## Adjust the Process Engine Configuration
+### Adjust the Process Engine Configuration
 
 Edit the file `bpm-platform.xml` located inside the folder `$TOMCAT_HOME/conf` and add the [LDAP Identity Provider Plugin]({{< ref "/user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}) and the [Administrator Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}).
 
@@ -86,7 +86,7 @@ The `administratorUserName` property should contain the user id of the LDAP user
 See our user guide for complete documentation on the [LDAP Identity Provider Plugin]({{< ref "/user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}) and the [Administrator Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}).
 
 
-# HAL Resource Caching
+## HAL Resource Caching
 
 If you use LDAP as Indentity Provider, you should consider [activating caching]({{< ref "/reference/rest/overview/hal.md#caching-of-hal-relations" >}}) of
 Users and Groups in the Camunda webapplication. In order to activate this, add the following
@@ -127,4 +127,20 @@ configuration to the `web.xml` file of Camunda webapplication
   <!-- ... -->
 
 </web-app>
+```
+
+## Session Cookie in Webapps
+
+The deployment descriptor of the Web applications needs to be adjusted, to configure the **Session Cookie**.
+
+You can find it under `WEB-INF/web.xml`. Please watch out for the following section:
+```xml
+...
+<session-config>
+  <cookie-config>
+    <secure>false</secure>
+    <http-only>true</http-only>
+  </cookie-config>
+</session-config>
+...
 ```

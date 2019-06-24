@@ -16,17 +16,17 @@ menu:
 This page explains how to configure the full distribution for an IBM WebSphere application server.
 
 
-# LDAP
+## LDAP
 
 In order to set up LDAP for the IBM WebSphere distribution, you have to perform the following steps:
 
 
-## Add the LDAP Library
+### Add the LDAP Library
 
 Make sure the `camunda-identity-ldap-$PLATFORM_VERSION.jar` is present in the shared library 'Camunda' folder.
 
 
-## Adjust the Process Engine Configuration
+### Adjust the Process Engine Configuration
 
 Edit the file `bpm-platform.xml` located inside the Camunda BPM enterprise archive at `camunda-ibm-websphere-ear-$VERSION.ear/camunda-ibm-websphere-service.jar/META-INF/` and add the [LDAP Identity Provider Plugin]({{< ref "/user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}) and the [Administrator Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}).
 
@@ -83,7 +83,7 @@ The `administratorUserName` property should contain the user id of the LDAP user
 See our user guide for complete documentation on the [LDAP Identity Provider Plugin]({{< ref "/user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}) and the [Administrator Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}).
 
 
-# HAL Resource Caching
+## HAL Resource Caching
 
 If you use LDAP as Indentity Provider, you should consider [activating caching]({{< ref "/reference/rest/overview/hal.md#caching-of-hal-relations" >}}) of
 Users and Groups in the Camunda webapplication. In order to activate this, add the following
@@ -125,3 +125,13 @@ configuration to the `web.xml` file of Camunda webapplication
 
 </web-app>
 ```
+
+## Session Cookie in Webapps
+
+You can configure the **Session Cookie** per deployment via the Admin Web Console of WebSphere.
+
+1. Navigate to **Enterprise Applications > $YOUR_DEPLOYMENT > Session management > Enable cookies**
+{{< img src="../img/cookies.png" title="Session Cookie Configuration" >}}
+2. By enabling the checkbox ... 
+  * ... *"Set session cookies to HTTPOnly to help prevent cross-site scripting attacks"*, you can add the <code>HttpOnly</code> flag to the session cookie
+  * ... *"Restrict cookies to HTTPS sessions"*, you can add the <code>Secure</code> flag to the session cookie
