@@ -478,22 +478,22 @@ Spring Boot behaviour is taken into account.</td>
   <td rowspan="9"><code>camunda.bpm.webapp.csrf</code></td>
 </tr>
 <tr>
-<td><code>.targetOrigin</code></td>
+<td><code>.target-origin</code></td>
 <td>Sets the application expected deployment domain. See the <a href="{{<ref "/webapps/shared-options/csrf-prevention.md" >}}">user guide</a> for details.</td>
 <td><i>Not set</i></td>
 </tr>
 <tr>
-<td><code>.denyStatus</code></td>
+<td><code>.deny-status</code></td>
 <td>Sets the HTTP response status code used for a denied request. See the <a href="{{<ref "/webapps/shared-options/csrf-prevention.md" >}}">user guide</a> for details.</td>
 <td><code>403</code></td>
 </tr>
 <tr>
-<td><code>.randomClass</code></td>
+<td><code>.random-class</code></td>
 <td>Sets the name of the class used to generate tokens. See the <a href="{{<ref "/webapps/shared-options/csrf-prevention.md" >}}">user guide</a> for details.</td>
 <td><code>java.security.SecureRandom</code></td>
 </tr>
 <tr>
-<td><code>.entryPoints</code></td>
+<td><code>.entry-points</code></td>
 <td>Sets additional URLs that will not be tested for the presence of a valid token. See the <a href="{{<ref "/webapps/shared-options/csrf-prevention.md" >}}">user guide</a> for details.</td>
 <td><i>Not set</i></td>
 </tr>
