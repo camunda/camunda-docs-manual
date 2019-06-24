@@ -517,8 +517,8 @@ Spring Boot behaviour is taken into account.</td>
 <td><code>true</code></td>
 </tr>
 
-<tr>
-  <td rowspan="5"><code>camunda.bpm.webapp.csrf</code></td>
+<tr id="csrf">
+  <td rowspan="9"><code>camunda.bpm.webapp.csrf</code></td>
 </tr>
 <tr>
 <td><code>.targetOrigin</code></td>
@@ -539,6 +539,44 @@ Spring Boot behaviour is taken into account.</td>
 <td><code>.entryPoints</code></td>
 <td>Sets additional URLs that will not be tested for the presence of a valid token. See the <a href="{{<ref "/webapps/shared-options/csrf-prevention.md" >}}">user guide</a> for details.</td>
 <td><i>Not set</i></td>
+</tr>
+<tr>
+  <td><code>.enable-secure-cookie</code></td>
+  <td>
+    If set to <code>true</code>, the cookie flag <a href="{{< ref "/webapps/shared-options/cookie-security.md#secure" >}}">Secure</a> is enabled.
+  </td>
+  <td><code>false</code></td>
+</tr>
+<tr>
+  <td><code>.enable-same-site-cookie</code></td>
+  <td>
+    If set to <code>false</code>, the cookie flag <a href="{{< ref "/webapps/shared-options/cookie-security.md#samesite" >}}">SameSite</a> is disabled.
+  </td>
+  <td><code>true</code></td>
+</tr>
+<tr>
+  <td><code>.same-site-cookie-option</code></td>
+  <td>
+    Can be configured either to <code>STRICT</code> or <code>LAX</code>.<br><br>
+    <strong>Note:</strong>
+    <ul>
+      <li>Is ignored when <code>enable-same-site-cookie</code> is set to <code>false</code></li>
+      <li>Cannot be set in conjunction with <code>same-site-cookie-value</code></li>
+    </ul>
+  </td>
+  <td><i>Not set</i></td>
+</tr>
+<tr>
+  <td><code>.same-site-cookie-value</code></td>
+  <td>
+    A custom value for the cookie property.<br><br>
+    <strong>Note:</strong>
+    <ul>
+      <li>Is ignored when <code>enable-same-site-cookie</code> is set to <code>false</code></li>
+      <li>Cannot be set in conjunction with <code>same-site-cookie-option</code></li>
+    </ul>
+  </td>
+  <td><i>Not set</i></td>
 </tr>
 
 <tr><td colspan="4"><b>Authorization</b></td></tr>
@@ -617,7 +655,7 @@ camunda:
   can only be overridden with their exposed identifier.
 {{< /note >}}
 
-### Examples:
+### Examples
 Override configuration using exposed properties:
 
 ```yaml
@@ -637,4 +675,31 @@ camunda:
     generic-properties:
       properties:
         enable-password-policy: true
+```
+
+## Session Cookie
+
+You can configure the **Session Cookie** for the Spring Boot application via the `application.yaml` configuration file.
+
+Camunda Spring Boot Starter versions:
+
+<= 2.3 (Spring Boot version 1.x)
+
+```yaml
+server:
+  session:
+    cookie:
+      secure: true
+      http-only: true # Not possible for versions before 1.5.14
+```
+
+\>= 3.0 (Spring Boot version 2.x)
+
+```yaml
+server:
+  servlet:
+    session:
+      cookie:
+        secure: true
+        http-only: true # Not possible for versions before 2.0.3
 ```

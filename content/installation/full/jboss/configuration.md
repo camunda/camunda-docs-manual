@@ -16,12 +16,12 @@ menu:
 This page explains how to configure the full distribution for the JBoss/Wildfly application server.
 
 
-# LDAP
+## LDAP
 
 In order to setup LDAP for the JBoss/Wildfly Application Server distribution, you have to perform the following steps:
 
 
-## Adjust the Process Engine Configuration
+### Adjust the Process Engine Configuration
 
 Edit the file `standalone.xml` (or `domain.xml`) provided by the JBoss/Wildfly Application Server and add the [LDAP Identity Provider Plugin]({{< ref "/user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}) and the [Administrator Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}).
 
@@ -77,7 +77,7 @@ The `administratorUserName` property should contain the user id of the LDAP user
 See our user guide for complete documentation on the [LDAP Identity Provider Plugin]({{< ref "/user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}) and the [Administrator Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}).
 
 
-# HAL Resource Caching
+## HAL Resource Caching
 
 If you use LDAP as Indentity Provider, you should consider [activating caching]({{< ref "/reference/rest/overview/hal.md#caching-of-hal-relations" >}}) of
 Users and Groups in the Camunda webapplication. In order to activate this, add the following
@@ -120,7 +120,7 @@ configuration to the `web.xml` file of Camunda webapplication
 </web-app>
 ```
 
-# Add Custom Engine Plugins
+## Add Custom Engine Plugins
  
 1.  Add an additional engine plugin as a module to the folder $JBOSS_HOME/modules/
 2.  Add the module dependency to the file `$JBOSS_HOME/modules/org/camunda/bpm/camunda-engine-plugins/main/module.xml` and set the attribute `export="true"` to make sure that the module is visible in the classpath of Camunda's subsystem
@@ -136,3 +136,19 @@ configuration to the `web.xml` file of Camunda webapplication
       
     The `module.xml` file is included in the Camunda BPM Platform distribution. If you install Camunda BPM Platform on a vanilla JBoss/Wildfly container, this file needs to be created manually.
 3. [Configure the process engine plugin]({{< ref "/user-guide/runtime-container-integration/jboss.md#extend-a-process-engine-using-process-engine-plugins" >}}) in the standalone.xml/domain.xml configuration file
+
+## Session Cookie in Webapps
+
+The deployment descriptor of the Web applications needs to be adjusted, to configure the **Session Cookie**.
+
+You can find it under `WEB-INF/web.xml`. Please watch out for the following section:
+```xml
+...
+<session-config>
+  <cookie-config>
+    <secure>false</secure>
+    <http-only>true</http-only>
+  </cookie-config>
+</session-config>
+...
+```
