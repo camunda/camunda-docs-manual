@@ -61,7 +61,7 @@ If you would like to enable the additional _Same Origin with Standard Headers_ v
   </tr>
   <tr>
     <td>targetOrigin</td>
-    <td>Application expected deployment domain: the domain name through which the webapps are accessed. If nothing is set, the _Same Origin with Standard Headers_ verification is not performed.</td>
+    <td>Application expected deployment domain: the domain name through which the webapps are accessed. If nothing is set, the <i>Same Origin with Standard Headers</i> verification is not performed.</td>
   </tr>
   <tr>
     <td>denyStatus</td>
