@@ -20,6 +20,8 @@ This document guides you through the update from Camunda BPM `7.11.x` to `7.12.0
 1. For administrators: [Standalone Web Application](#standalone-web-application)
 1. For developers: [Spring Boot Starter Update](#spring-boot-starter-update)
 1. For developers: [External Task Client Update](#external-task-client-update)
+1. For administrators and developers: 
+[Version of Deployment Descriptor for Web applications Changed](#version-of-deployment-descriptor-changed-web-applications)
 
 This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda BPM 7.12.
 
@@ -108,3 +110,15 @@ If you are using the **Camunda External Task Client**, please make sure to:
 
 1. Check out the [Version Compatibility Matrix]({{< ref "/user-guide/ext-client/compatibility-matrix.md" >}})
 2. Update the version in your `pom.xml` (Java) or `package.json` (NodeJs)
+
+# Version of Deployment Descriptor Changed (Web Applications)
+
+In order to allow security-related configurations for the **Session Cookie**, the version of the Deployment Descriptor
+(`web.xml`) was promoted from 2.5 to 3.0.
+
+The following Containers are affected:
+
+* Wildfly
+* JBoss AS
+* JBoss EAP
+* Tomcat
