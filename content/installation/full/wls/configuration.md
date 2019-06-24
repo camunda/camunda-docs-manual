@@ -16,17 +16,17 @@ menu:
 This page explains how to configure the full distribution for an Oracle WebLogic application server.
 
 
-# LDAP
+## LDAP
 
 In order to set up LDAP for the Oracle WebLogic distribution, you have to perform the following steps:
 
 
-## Add the LDAP Library
+### Add the LDAP Library
 
 Make sure the `camunda-identity-ldap-$PLATFORM_VERSION.jar` is present in the `$WLS_DOMAIN_HOME/lib` folder.
 
 
-## Adjust the Process Engine Configuration
+### Adjust the Process Engine Configuration
 
 Edit the file `bpm-platform.xml` located inside the Camunda BPM enterprise archive at `camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear/camunda-oracle-weblogic-service.jar/META-INF/` and add the [LDAP Identity Provider Plugin]({{< ref "/user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}) and the [Administrator Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}).
 
@@ -83,7 +83,7 @@ The `administratorUserName` property should contain the user id of the LDAP user
 See our user guide for complete documentation on the [LDAP Identity Provider Plugin]({{< ref "/user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}) and the [Administrator Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}).
 
 
-# HAL Resource Caching
+## HAL Resource Caching
 
 If you use LDAP as Indentity Provider, you should consider [activating caching]({{< ref "/reference/rest/overview/hal.md#caching-of-hal-relations" >}}) of
 Users and Groups in the Camunda webapplication. In order to activate this, add the following
@@ -124,4 +124,18 @@ configuration to the `web.xml` file of Camunda webapplication
   <!-- ... -->
 
 </web-app>
+```
+
+## Session Cookie in Webapps
+
+The WebLogic deployment descriptor of the Web applications needs to be adjusted, to configure the **Session Cookie**.
+
+You can find it under `WEB-INF/weblogic.xml`. Please watch out for the following section:
+```xml
+...
+<session-descriptor>
+  <cookie-secure>false</cookie-secure>
+  <cookie-http-only>true</cookie-http-only>
+</session-descriptor>
+...
 ```

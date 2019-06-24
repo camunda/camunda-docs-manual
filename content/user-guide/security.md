@@ -183,6 +183,9 @@ One of the options to query data from the engine is using native queries. Which 
 However, use the native queries with care. Please bear in mind of the SQL Injection while using this approach.
 
 
+The CSRF Prevention makes use of a cookie. By default, some security-related configurations are present for this cookie.
+To ensure full security, please consult the documentation about [Cookie Security]({{< ref "/webapps/shared-options/cookie-security.md" >}}) to learn more about it.
+
 ## Security Configuration in the external Environment
 
 Camunda integrates into an environment, most prominently the database and, when using the web applications or the REST API, also a webserver. In order to secure your Camunda deployment as a whole, the integration is relevant.
@@ -224,3 +227,7 @@ The session cookies domain is configured in web server specific configuration. I
 #### Maximum POST size in server (REST API)
 
 Restriction of the maximum size in bytes of the POST requests is specific to your web server. Please consult the manual of your web server for details, e.g. for Tomcat server, check this [documentation page](https://tomcat.apache.org/tomcat-8.0-doc/config/http.html#Common_Attributes).
+
+### Securing Cookies (Web Applications)
+
+The container provides the session cookie. Please consult the documentation about [Cookie Security]({{< ref "/webapps/shared-options/cookie-security.md" >}}) to learn what configurations are necessary to ensure full security for the session cookie.

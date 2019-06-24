@@ -16,12 +16,12 @@ menu:
 This page explains how to configure the full distribution for the JBoss/Wildfly application server.
 
 
-# LDAP
+## LDAP
 
 In order to setup LDAP for the JBoss/Wildfly Application Server distribution, you have to perform the following steps:
 
 
-## Adjust the Process Engine Configuration
+### Adjust the Process Engine Configuration
 
 Edit the file `standalone.xml` (or `domain.xml`) provided by the JBoss/Wildfly Application Server and add the [LDAP Identity Provider Plugin]({{< ref "/user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}) and the [Administrator Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}).
 
@@ -77,7 +77,7 @@ The `administratorUserName` property should contain the user id of the LDAP user
 See our user guide for complete documentation on the [LDAP Identity Provider Plugin]({{< ref "/user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}) and the [Administrator Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}).
 
 
-# HAL Resource Caching
+## HAL Resource Caching
 
 If you use LDAP as Indentity Provider, you should consider [activating caching]({{< ref "/reference/rest/overview/hal.md#caching-of-hal-relations" >}}) of
 Users and Groups in the Camunda webapplication. In order to activate this, add the following
@@ -118,4 +118,20 @@ configuration to the `web.xml` file of Camunda webapplication
   <!-- ... -->
 
 </web-app>
+```
+
+## Session Cookie in Webapps
+
+The deployment descriptor of the Web applications needs to be adjusted, to configure the **Session Cookie**.
+
+You can find it under `WEB-INF/web.xml`. Please watch out for the following section:
+```xml
+...
+<session-config>
+  <cookie-config>
+    <secure>false</secure>
+    <http-only>true</http-only>
+  </cookie-config>
+</session-config>
+...
 ```
