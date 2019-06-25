@@ -45,13 +45,6 @@ Every Camunda installation requires a database schema update.
 
 3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda BPM platform, e.g., `7.12.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
 
-### MySQL/MariaDB Specifics
-
-MySQL and MariaDB represent the `TIMESTAMP` data type with a signed 32-bit integer. This limits the maximum date that can be stored to `03:14:07 on 19 January 2038 (UTC)` (also referred to as the [Y2K38 problem](https://en.wikipedia.org/wiki/Year_2038_problem)).
-
-For this reason, all the `TIMESTAMP` columns that the Camunda engine uses to store future dates were migrated to the `DATETIME` data type with a much larger time range.
-
-Be aware that `DATETIME` does not store time zone information. This means that, when applying the `[MySQL|MariaDB]_engine_7.11_to_7.12.sql` script, the database server time zone will be used to convert the `TIMESTAMP` into `DATETIME` values. Any future time zone changes on the database server will offset the time stored in these columns causing an incorrect operation of the engine.
 
 # Full Distribution
 
@@ -82,7 +75,7 @@ For every process application, the Camunda dependencies should be updated to the
 * `camunda-ejb-client`
 * ...
 
-There are no new mandatory dependencies for process applications. If your process application uses the `camunda-engine-spring` module, please make sure to read the [update section on camunda-engine-spring](#camunda-engine-spring-update).
+There are no new mandatory dependencies for process applications.
 
 # Standalone Web Application
 
