@@ -152,3 +152,5 @@ You can find it under `WEB-INF/web.xml`. Please watch out for the following sect
 </session-config>
 ...
 ```
+
+Please note that security-related configurations for the **Session Cookie** can only be applied with the Deployment Descriptor (`web.xml`) version set to 3.0.
