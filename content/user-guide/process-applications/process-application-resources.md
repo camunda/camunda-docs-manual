@@ -57,9 +57,9 @@ public class ObjectValueServlet extends HttpServlet {
 }
 ```
 
-Note that the engine API is not called from within delegation code but a from servlet instead. The process engine is therefore not aware of process application context and cannot perform a context switch to use the correct JSON data format for variable serialization. In consequence, the process application-specific JSON configuration does not apply.
+Note that the engine API is not called from within delegation code but from a servlet instead. The process engine is therefore not aware of the process application context and cannot perform a context switch to use the correct JSON data format for variable serialization. In consequence, the process application-specific JSON configuration does not apply.
 
-In such a case, process application context can be declared by using the static methods the class `org.camunda.bpm.application.ProcessApplicationContext` provides. In particular, the method  `#setCurrentProcessApplication` declares the process application to switch into for following engine API invocations. The method `#clear` resets this declaration. In the example, we wrap the `#setVariable` invocation accordingly:
+In such a case, the process application context can be declared by using the static methods that the class `org.camunda.bpm.application.ProcessApplicationContext` provides. In particular, the method  `#setCurrentProcessApplication` declares the process application to switch into for following engine API invocations. The method `#clear` resets this declaration. In the example, we wrap the `#setVariable` invocation accordingly:
 
 ```java
 try {
