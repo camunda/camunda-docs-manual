@@ -177,6 +177,17 @@ Consider disabling execution of expressions in queries. See also: [Custom Code &
 One of the options to query data from the engine is using native queries. Which means to provide own SQL queries to retrieve engine entities if the Query API lacks the possibilities you need.
 However, use the native queries with care. Please bear in mind of the SQL Injection while using this approach.
 
+
+### XML Security
+Camunda handles many XML files containing configurations of process engines, definitions of process models and more. In order to mitigate possible vulnerabilities that can be introduced by XML files, the following measures are activated by default:
+
+* Prevention against XML eXternal Entity (XXE) injections according to [OWASP](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.md)
+* Feature Secure Processing (FSP) of XML files according to [Oracle](https://docs.oracle.com/javase/8/docs/api/javax/xml/XMLConstants.html#FEATURE_SECURE_PROCESSING) which introduces [limits](https://docs.oracle.com/javase/tutorial/jaxp/limits/limits.html) for several XML properties
+
+If the limitations on XML files introduced by XXE prevention need to be removed, XXE processing can be enabled via `enableXxeProcessing` in the [process engine configuration]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#configuration-properties" >}}).
+
+FSP itself can not be disabled in the engine. All properties that are influenced by this can however be configured in the environment via system properties and the `jaxp.properties` file. See the [Oracle documentation](https://docs.oracle.com/javase/tutorial/jaxp/limits/using.html) on how to determine the right limits and how to set them.
+
 ## Security Configuration in the external Environment
 
 Camunda integrates into an environment, most prominently the database and, when using the web applications or the REST API, also a webserver. In order to secure your Camunda deployment as a whole, the integration is relevant.
