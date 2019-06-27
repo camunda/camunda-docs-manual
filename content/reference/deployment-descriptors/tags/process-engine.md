@@ -616,6 +616,20 @@ The following is a list with the most commonly used process engine configuration
     </td>
   </tr>
 
+  <tr>
+    <td><a name="enableReducedCmdExceptionLogging"></a><code>enableReducedCmdExceptionLogging</code></td>
+    <td>Boolean</td>
+    <td>Set to <code>true</code>, to suppress logging of exceptions that occur during command execution. Only exceptions that are not handled by the engine are logged. Use this property with care as it can hide valuable information.
+    </td>
+  </tr>
+
+  <tr>
+    <td><a name="enableReducedJobExceptionLogging"></a><code>enableReducedJobExceptionLogging</code></td>
+    <td>Boolean</td>
+    <td>Set to <code>true</code>, to suppress logging of exceptions that occur during the execution of a job that has retries left. If the job does not have any retries left an exception will still be logged.
+    </td>
+  </tr>
+
 </table>
 
 ## History cleanup configuration parameters
