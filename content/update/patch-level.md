@@ -35,7 +35,9 @@ The one exception to this are bugs in the database schema itself. If you are aff
 Patch scripts are shipped inside the distribution at the following location: `$DISTRIBUTION_PATH/sql/upgrade`, named: `engine_$VERSION_patch_$A_to_$B`.
 If you do choose to apply a database patch, then you must apply all patch scripts that are within the bounds of your update path. This means if your current patch version is `X.X.1` and you update to `X.X.5` you have to execute all patch scripts first where `$A` &ge; `X.X.1` and `$B` &le; `X.X.5`.
 
-Each patch script contains a comment what the fixes are related to and a link to the corresponding [Camunda Jira](https://app.camunda.com/jira/browse/CAM) issue.
+<strong>Note:</strong> Some patches are provided for multiple versions. It is not required to execute them more than once. See the description of the following list for information on duplicate fixes.
+
+The description for each patch script also contains information on what the fixes are related to and a link to the corresponding [Camunda Jira](https://app.camunda.com/jira/browse/CAM) issue.
 
 The following list is an overview of all currently available patch scripts:
 
