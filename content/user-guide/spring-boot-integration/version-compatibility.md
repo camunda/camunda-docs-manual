@@ -69,17 +69,17 @@ though such combinations must be thoroughly tested before being used in producti
   <tr>
     <td>3.0.x</td>
     <td>7.9.0</td>
-    <td>2.0.2.RELEASE</td>
+    <td>2.0.x.RELEASE</td>
   </tr>
   <tr>
     <td>3.1.x</td>
     <td>7.10.0</td>
-    <td>2.0.2.RELEASE</td>
+    <td>2.0.x.RELEASE</td>
   </tr>
   <tr>
     <td>3.2.x</td>
     <td>7.10.0</td>
-    <td>2.1.1.RELEASE</td>
+    <td>2.1.x.RELEASE</td>
   </tr>
 </table>
 
