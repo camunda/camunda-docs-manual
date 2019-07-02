@@ -75,9 +75,13 @@ Clustered or replicated databases are supported given the following conditions. 
 
 # Java Runtime
 
-* Sun/Oracle Hot Spot 7 / 8 / 9 / 10 / 11
-* IBM® J9 virtual machine (JVM) 7 / 8
-* OpenJDK 7 / 8 / 9 / 10 / 11 (including Adopt OpenJDK with Hotspot JVM)
+* Oracle JDK 7 / 8 / 9 / 10 / 11
+* IBM JDK 7 / 8 (with J9 JVM)
+* OpenJDK 7 / 8 / 9 / 10 / 11, including builds of the following products:
+  * Oracle OpenJDK
+  * AdoptOpenJDK (with HotSpot JVM)
+  * Amazon Corretto
+  * Azul Zulu
 
 # Camunda Modeler
 
