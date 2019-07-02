@@ -157,7 +157,7 @@ assertThat(processInstance).isWaitingAt("UserTask_InformCustomer");
 assertThat(task).hasCandidateGroup("Sales").isNotAssigned();
 ```
 
-A more extensive guide with examples can also be found [in the repository](https://github.com/camunda/camunda-bpm-assert/blob/master/camunda-bpm-assert/README.md).
+A more extensive guide with examples can also be found [in the repository](https://github.com/camunda/camunda-bpm-assert/blob/master/README.md).
 
 To use Camunda BPM Assert, add the following dependency to your ```pom.xml```:
 
