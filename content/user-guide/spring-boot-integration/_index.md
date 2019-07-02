@@ -12,7 +12,7 @@ menu:
 
 The Camunda Engine can be used in a Spring Boot application by using provided Spring Boot starters.
 Spring boot starters allow to enable behavior of your spring-boot application by adding dependencies to the classpath.
- 
+
 These starters will pre-configure the Camunda process engine, REST API and Web applications, so they can easily be used in a standalone process application.
 
 If you are not familiar with [Spring Boot](http://projects.spring.io/spring-boot/), read the [getting started](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#getting-started) guide.
@@ -23,7 +23,7 @@ To enable Camunda BPM auto configuration, add the following dependency to your `
 <dependency>
   <groupId>org.camunda.bpm.springboot</groupId>
   <artifactId>camunda-bpm-spring-boot-starter</artifactId>
-  <version>3.0.0</version>
+  <version>3.0.5</version>
 </dependency>
 ```
 
@@ -33,7 +33,7 @@ Other starters that can be used are: [`camunda-bpm-spring-boot-starter-rest`](re
 
 # Overriding Camunda Version
 
-If you want to override the version used by default, add the `camunda.version` property to your `pom.xml` with the version you want 
+If you want to override the version used by default, add the `camunda.version` property to your `pom.xml` with the version you want
 to use and add the camunda bom to the dependency management:
 
 ```xml
@@ -54,7 +54,7 @@ to use and add the camunda bom to the dependency management:
   </dependencies>
 </dependencyManagement>
 ```
-Please check [version compatibility](version-compatibility/) when selecting Spring Boot Starter and Camunda BPM versions. 
+Please check [version compatibility](version-compatibility/) when selecting Spring Boot Starter and Camunda BPM versions.
 
 # Using Enterprise Edition
 
