@@ -128,7 +128,7 @@ configuration to the `web.xml` file of Camunda webapplication
 
 ## Session Cookie in Webapps
 
-The WebLogic deployment descriptor of the Web applications needs to be adjusted, to configure the **Session Cookie**.
+The WebLogic deployment descriptor of the Web applications needs to be adjusted to configure the **Session Cookie**.
 
 You can find it under `WEB-INF/weblogic.xml`. Please watch out for the following section:
 ```xml
@@ -139,3 +139,47 @@ You can find it under `WEB-INF/weblogic.xml`. Please watch out for the following
 </session-descriptor>
 ...
 ```
+
+## Security-related HTTP headers in Webapps
+
+To customize the configuration of security-related HTTP headers in the web applications its deployment descriptor needs 
+to be adjusted. You can find it under `WEB-INF/web.xml`.
+
+Please watch out for the following section:
+```xml
+...
+<filter>
+  <filter-name>HttpHeaderSecurity</filter-name>
+  <filter-class>
+    org.camunda.bpm.webapp.impl.security.filter.headersec.HttpHeaderSecurityFilter
+  </filter-class>
+</filter>
+
+<filter-mapping>
+  <filter-name>HttpHeaderSecurity</filter-name>
+  <url-pattern>/*</url-pattern>
+  <dispatcher>REQUEST</dispatcher>
+</filter-mapping>
+...
+```
+
+You can change the default behavior by adding configuration parameters to the servlet filter configuration:
+```xml
+...
+<filter>
+  <filter-name>HttpHeaderSecurity</filter-name>
+  <filter-class>
+    org.camunda.bpm.webapp.impl.security.filter.headersec.HttpHeaderSecurityFilter
+  </filter-class>
+  
+  <init-param>
+    <param-name>xssProtectionOption</param-name>
+    <param-value>SANITIZE</param-value>
+  </init-param>
+  
+</filter>
+...
+```
+
+Please also see the detailed overview about the 
+[HTTP Header Security configuration settings]({{< ref "/webapps/shared-options/header-security.md#how-to-configure" >}}).

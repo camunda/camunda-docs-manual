@@ -131,6 +131,15 @@ If the limitations on XML files introduced by XXE prevention need to be removed,
 
 FSP itself can not be disabled in the engine. All properties that are influenced by this can however be configured in the environment via system properties and the `jaxp.properties` file. See the [Oracle documentation](https://docs.oracle.com/javase/tutorial/jaxp/limits/using.html) on how to determine the right limits and how to set them.
 
+## HTTP Header Security in Webapps
+
+Out-of-the-box the web applications provide the XSS Protection HTTP header. The header enables browser-side security 
+mechanisms which help to improve the protection against cross-site-scripting (XSS) attacks.
+
+According to your project requirements, the header can be configured more strict or lax. Please see the documentation 
+about the [HTTP Header Security]({{< ref "/webapps/shared-options/header-security.md" >}}) to learn more about XSS 
+Protection, the defaults and how to configure the header according to your needs.
+
 # Security Configuration in the external Environment
 
 Camunda integrates into an environment, most prominently the database and, when using the web applications or the REST API, also a webserver. In order to secure your Camunda deployment as a whole, the integration is relevant.

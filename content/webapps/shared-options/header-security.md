@@ -11,38 +11,20 @@ menu:
     pre: "A HTTP Header Security Filter for the Camunda Web Applications"
 ---
 
-## What is HTTP Header Security?
-The HTTP Header Security allows to add security-related headers to the HTTP response body 
-and enables browser-side security mechanisms. 
+The HTTP Header Security mechanism allows you to add security-related response headers which enable browser-side security mechanisms.
 
-## Where to Find?
-It is implemented with the help of a servlet filter and enabled by default for the Webapps. 
+## XSS Protection
+If the **XSS Protection** header is enabled some cross-site scripting (XSS) attacks are detected, and the malicious parts of the page are either sanitized, or the rendering of the page is blocked entirely.
 
-The HTTP Header Security Filter can be configured (or disabled entirely) in the `web.xml` of the Webapps:
+## Where to Configure?
 
-```xml 
-<!-- HTTP Header Security Filter -->
-<filter>
-  <filter-name>HttpHeaderSecurity</filter-name>
-  <filter-class>
-    org.camunda.bpm.webapp.impl.security.filter.headersec.HttpHeaderSecurityFilter
-  </filter-class>
-  
-  <init-param>
-    <param-name>xssProtectionDisabled</param-name>
-    <param-value>false</param-value>                  <!-- default value -->
-    
-    <param-name>xssProtectionOption</param-name>
-    <param-value>BLOCK</param-value>                  <!-- default value -->
-  </init-param>
-</filter>
+Choose a container from the list and learn where to configure the HTTP Security Headers:
 
-<filter-mapping>
-  <filter-name>HttpHeaderSecurity</filter-name>
-  <url-pattern>/*</url-pattern>
-  <dispatcher>REQUEST</dispatcher>
-</filter-mapping>
-```
+* [Tomcat]({{< ref "/installation/full/tomcat/configuration.md#security-related-http-headers-in-webapps" >}})
+* [JBoss AS, JBoss EAP & Wildfly]({{< ref "/installation/full/jboss/configuration.md#security-related-http-headers-in-webapps" >}})
+* [IBM WebSphere Application Server]({{< ref "/installation/full/was/configuration.md#security-related-http-headers-in-webapps" >}})
+* [Oracle WebLogic Server]({{< ref "/installation/full/wls/configuration.md#security-related-http-headers-in-webapps" >}})
+* [Spring Boot]({{< ref "/user-guide/spring-boot-integration/configuration.md#header-security" >}})
 
 ## How to Configure?
 
