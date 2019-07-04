@@ -579,6 +579,78 @@ Spring Boot behaviour is taken into account.</td>
   <td><i>Not set</i></td>
 </tr>
 
+<tr id="header-security">
+  <td rowspan="8"><code>camunda.bpm.webapp.header-security</code></td>
+</tr>
+<tr>
+  <td><code>.xss-protection-disabled</code></td>
+  <td>
+    The header can be entirely disabled if set to <code>true</code>. <br>
+    Allowed set of values is <code>true</code> and <code>false</code>. 
+  </td>
+  <td><code>false</code></td>
+</tr>
+<tr>
+  <td><code>.xss-protection-option</code></td>
+  <td>
+    The allowed set of values:
+    <ul>
+      <li><code>BLOCK</code>: If the browser detects a cross-site scripting attack, the page is blocked completely</li>
+      <li><code>SANITIZE</code>: If the browser detects a cross-site scripting attack, the page is sanitized from suspicious parts (value <code>0</code>)</li>
+    </ul>
+    <strong>Note:</strong>
+    <ul>
+      <li>Is ignored when <code>.xss-protection-disabled</code> is set to <code>true</code></li>
+      <li>Cannot be set in conjunction with <code>.xss-protection-value</code></li>
+    </ul>
+  </td>
+  <td><code>BLOCK</code></td>
+</tr>
+<tr>
+  <td><code>.xss-protection-value</code></td>
+  <td>
+    A custom value for the header can be specified.<br><br>
+    <strong>Note:</strong>
+    <ul>
+      <li>Is ignored when <code>.xss-protection-disabled</code> is set to <code>true</code></li>
+      <li>Cannot be set in conjunction with <code>.xss-protection-option</code></li>
+    </ul>
+  </td>
+  <td><code>1; mode=block</code></td>
+</tr>
+<tr>
+  <td><code>.content-security-policy-disabled</code></td>
+  <td>
+    The header can be entirely disabled if set to <code>true</code>. <br>
+    Allowed set of values is <code>true</code> and <code>false</code>. 
+  </td>
+  <td><code>false</code></td>
+</tr>
+<tr>
+  <td><code>.content-security-policy-value</code></td>
+  <td>
+    A custom value for the header can be specified.<br><br>
+    <strong>Note:</strong> Property is ignored when <code>.content-security-policy-disabled</code> is set to <code>true</code>
+  </td>
+  <td><code>base-uri 'self'</code></td>
+</tr>
+<tr>
+  <td><code>.content-type-options-disabled</code></td>
+  <td>
+    The header can be entirely disabled if set to <code>true</code>. <br>
+    Allowed set of values is <code>true</code> and <code>false</code>. 
+  </td>
+  <td><code>false</code></td>
+</tr>
+<tr>
+  <td><code>content-type-options-value</code></td>
+  <td>
+    A custom value for the header can be specified.<br><br>
+    <strong>Note:</strong> Property is ignored when <code>.content-security-policy-disabled</code> is set to <code>true</code>
+  </td>
+  <td><code>nosniff</code></td>
+</tr>
+
 <tr><td colspan="4"><b>Authorization</b></td></tr>
 <tr>
 <td rowspan="4"><code>camunda.bpm.authorization</code></td>
