@@ -102,3 +102,16 @@ If you are using the **Camunda External Task Client**, please make sure to:
 1. Check out the [Version Compatibility Matrix]({{< ref "/user-guide/ext-client/compatibility-matrix.md" >}})
 2. Update the version in your `pom.xml` (Java) or `package.json` (NodeJs)
 
+# Camunda DMN Engine and Commons Typed Values Migration
+
+Starting with version 7.12, the **Camunda DMN Engine** and **Camunda Commons Typed Values** library have been migrated into the `camunda-bpm-platform` repository.
+
+While the DMN Engine migration doesn't require any adjustments, users of the Typed Values library will need to adjust the library version. From now on, the Typed Values library will use the Process Engine version. You can find the current Maven coordinates below:
+```xml
+<dependency>
+  <groupId>org.camunda.commons</groupId>
+  <artifactId>camunda-commons-typed-values</artifactId>
+  <version>7.12.0</version>
+</dependency>
+```
+The above is also true when updating the `camunda-commons-typed-values` library on a Container-Managed Process Engine. The new artifact name will contain the Process Engine version (currently, 7.12.0).
