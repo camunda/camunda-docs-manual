@@ -880,6 +880,36 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
+# errorMessage
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute specifies a message to give further information about the error. When an error start event or boudary event catches the error the message will be saved as process variable if `errorMessageVariable` is configured. See <a href="{{< ref "/reference/bpmn20/events/error-events.md" >}}">Error Events</a> for more information.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.String</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      The error message as<code>java.lang.String</code>
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>BPMN 2.0 Elements</th>
+    <td>
+      <a href="{{< ref "/reference/bpmn20/events/error-events.md" >}}">Error</a>
+    </td>
+  </tr>
+</table>
 
 # errorCodeVariable
 
