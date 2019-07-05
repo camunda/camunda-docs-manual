@@ -20,6 +20,7 @@ This document guides you through the update from Camunda BPM `7.11.x` to `7.12.0
 1. For administrators: [Standalone Web Application](#standalone-web-application)
 1. For developers: [Spring Boot Starter Update](#spring-boot-starter-update)
 1. For developers: [External Task Client Update](#external-task-client-update)
+1. For developers: [Security-related HTTP Headers (Webapps)](#security-related-http-headers-webapps)
 
 This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda BPM 7.12.
 
@@ -101,6 +102,16 @@ If you are using the **Camunda External Task Client**, please make sure to:
 
 1. Check out the [Version Compatibility Matrix]({{< ref "/user-guide/ext-client/compatibility-matrix.md" >}})
 2. Update the version in your `pom.xml` (Java) or `package.json` (NodeJs)
+
+# Security-related HTTP Headers (Webapps)
+
+In this release, we introduced the following HTTP response headers in the web applications which are available by default:
+
+* Content Security Policy (`Content-Security-Policy`)
+* Content-Type Options (`X-Content-Type-Options`)
+
+Please see the documentation about the [HTTP Header Security]({{< ref "/webapps/shared-options/header-security.md" >}}) 
+to learn more about the several headers, the defaults and how to configure or even disable them according to your needs.
 
 # Camunda DMN Engine and Commons Typed Values Migration
 
