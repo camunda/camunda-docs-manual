@@ -112,3 +112,17 @@ In this release, we introduced the following HTTP response headers in the web ap
 
 Please see the documentation about the [HTTP Header Security]({{< ref "/webapps/shared-options/header-security.md" >}}) 
 to learn more about the several headers, the defaults and how to configure or even disable them according to your needs.
+
+# Camunda DMN Engine and Commons Typed Values Migration
+
+Starting with version 7.12, the **Camunda DMN Engine** and **Camunda Commons Typed Values** library have been migrated into the `camunda-bpm-platform` repository.
+
+While the DMN Engine migration doesn't require any adjustments, users of the Typed Values library will need to adjust the library version. From now on, the Typed Values library will use the Process Engine version. You can find the current Maven coordinates below:
+```xml
+<dependency>
+  <groupId>org.camunda.commons</groupId>
+  <artifactId>camunda-commons-typed-values</artifactId>
+  <version>7.12.0</version>
+</dependency>
+```
+The above is also true when updating the `camunda-commons-typed-values` library on a Container-Managed Process Engine. The new artifact name will contain the Process Engine version (currently, 7.12.0).

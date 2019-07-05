@@ -46,10 +46,11 @@ Another possibility to define an error is setting of the type (class name) of an
 
 ```xml
 <definitions>
-  <error id="myException" errorCode="com.company.MyBusinessException" name="myBusinessException"/>
-  ...
+  <error id="myException" errorCode="com.company.MyBusinessException" 
+      name="myBusinessException"/>
+  <!-- ... -->
   <process>
-    ...
+    <!-- ... -->
     <endEvent id="myErrorEndEvent">
       <errorEventDefinition errorRef="myException" />
     </endEvent>
@@ -61,6 +62,23 @@ The exception type should only be used for business exceptions and not for techn
 
 An error event handler references the same error element to declare that it catches the error.
 
+It is also possible to define an error message with the <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#errormessage" >}}">`camunda:errorMessage`</a> extension for an error element to give further information about the error.
+The referencing error event definition must specify <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#errormessagevariable" >}}">`camunda:errorMessageVariable`</a> to receive the error message.
+
+```xml
+<definitions>
+  <error id="myError" errorCode="ERROR-OCCURED" name="ERROR-OCCURED" 
+      camunda:errorMessage="This is an error message!" />
+  <!-- ... -->
+  <process>
+    <!-- ... -->
+    <endEvent id="myErrorEndEvent">
+      <errorEventDefinition errorRef="myError" camunda:errorMessageVariable="err"/>
+    </endEvent>
+  </process>
+</definitions>
+```
+When the error thrown by the error end event is catched a process variable with the name `err` will be created that holds message `This is an error message!`.
 
 # Error Start Event
 
@@ -99,6 +117,8 @@ When process execution arrives at an error end event, the current path of execut
 
 ## Camunda Extensions
 
+### Error Event Definition
+
 <table class="table table-striped">
   <tr>
     <th>Attributes</th>
@@ -116,6 +136,25 @@ When process execution arrives at an error end event, the current path of execut
     <td>
       <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}">camunda:inputOutput</a>
     </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>&ndash;</td>
+  </tr>
+</table>
+
+### Error Definition
+
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#errormessage" >}}">camunda:errorMessage</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>&ndash;</td>
   </tr>
   <tr>
     <th>Constraints</th>

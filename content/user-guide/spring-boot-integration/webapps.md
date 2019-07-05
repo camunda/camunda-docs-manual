@@ -27,6 +27,10 @@ To disable this, you have to add to your application properties:
 camunda.bpm.webapp.index-redirect-enabled=false
 ```
 
+{{< note title="Building custom Rest APIs" class="warning" >}}
+  The Camunda Web Applications use a `CSRF Prevention Filter` that expects a `CSRF Token` on any modifying request coming through the `/api/*` url segment in the context path. This means that any Requests mapped to `"/api"` will fail and the current session will be ended if no CSRF Token is present.
+{{< /note >}}
+
 ### Enterprise webapps
 To use the enterprise Web applications, include another starter:
 ```xml
