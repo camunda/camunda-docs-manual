@@ -115,7 +115,7 @@ The default behavior of the query API links filter criteria together with an AND
 OR queries enable building queries in which filter criteria are linked together with an OR expression. 
 
 {{< note title="Heads-up!" class="info" >}}
-  - This functionality is only available for task queries.
+  - This functionality is only available for task and process instance queries (runtime & history).
   - The following methods cannot be applied to an OR query: orderBy...(), initializeFormKeys(), 
   withCandidateGroups(), withoutCandidateGroups(), withCandidateUsers(), withoutCandidateUsers().
 {{< /note >}}

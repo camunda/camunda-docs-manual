@@ -142,6 +142,15 @@ A JSON object with the following properties:
     <code>like</code>.<br/>
     </td>
   </tr>
+  <tr>
+    <td>orQueries</td>
+    <td>
+    A JSON array which contains at least one OR query JSON Object. All previously listed filter criteria can be used  
+    inside of this JSON object. See the <a href="{{< ref "/user-guide/process-engine/process-engine-api.md#or-queries" >}}">user guide</a> 
+    for more information about OR queries.<br><br>
+    The following properties are not supported: <code>sorting</code>.
+    </td>
+  </tr>
 </table>
 
 
