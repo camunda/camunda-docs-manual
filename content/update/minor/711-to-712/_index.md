@@ -21,6 +21,8 @@ This document guides you through the update from Camunda BPM `7.11.x` to `7.12.0
 1. For developers: [Spring Boot Starter Update](#spring-boot-starter-update)
 1. For developers: [External Task Client Update](#external-task-client-update)
 1. For developers: [Security-related HTTP Headers (Webapps)](#security-related-http-headers-webapps)
+1. For developers: [Camunda Commons Typed Values Migration](#camunda-commons-typed-values-migration)
+1. For developers: [Camunda DMN Engine Migration](#camunda-dmn-engine-migration)
 
 This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda BPM 7.12.
 
@@ -113,11 +115,14 @@ In this release, we introduced the following HTTP response headers in the web ap
 Please see the documentation about the [HTTP Header Security]({{< ref "/webapps/shared-options/header-security.md" >}}) 
 to learn more about the several headers, the defaults and how to configure or even disable them according to your needs.
 
-# Camunda DMN Engine and Commons Typed Values Migration
+# Camunda Commons Typed Values Migration
 
-Starting with version 7.12, the **Camunda DMN Engine** and **Camunda Commons Typed Values** library have been migrated into the `camunda-bpm-platform` repository.
+Starting with version 7.12, the **`camunda-commons-typed-values`** library has been migrated into the `camunda-bpm-platform` repository.
 
-While the DMN Engine migration doesn't require any adjustments, users of the Typed Values library will need to adjust the library version. From now on, the Typed Values library will use the Process Engine version. You can find the current Maven coordinates below:
+The changes include:
+
+  * The library version has changed from Camunda Commons (currently at 1.8.0), to the Camunda BPM Platform version (7.12.0). You can find the new Maven coordinates below:
+  
 ```xml
 <dependency>
   <groupId>org.camunda.commons</groupId>
@@ -125,4 +130,9 @@ While the DMN Engine migration doesn't require any adjustments, users of the Typ
   <version>7.12.0</version>
 </dependency>
 ```
-The above is also true when updating the `camunda-commons-typed-values` library on a Container-Managed Process Engine. The new artifact name will contain the Process Engine version (currently, 7.12.0).
+  * The library isn't part of the `camunda-commons-bom` anymore. Now, it is directly part of the `camunda-bom`. Users that are importing the `camunda-commons-bom` will now need to either replace the import with the `camunda-bom`, or, explicitly declare the library version as described above.
+  * When updating the `camunda-commons-typed-values` library on a Container-Managed Process Engine, the new `camunda-commons-typed-values` artifact name will contain the Camunda BPM Platform version.
+  
+# Camunda DMN Engine Migration
+
+The **Camunda DMN Engine** is another migration to the `camunda-bpm-platform` repository happening in version 7.12.0. The DMN Engine migration doesn't require any adjustments. However, any contributions to the DMN Engine will need to be addressed to the [camunda-bpm-platform repository](https://github.com/camunda/camunda-bpm-platform/tree/master/engine-dmn).
