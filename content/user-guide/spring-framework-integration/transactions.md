@@ -126,3 +126,89 @@ public class UserBean {
   }
 }
 ```
+
+# Using Inner Spring Transactions
+
+There are cases during a transaction execution, when we want to process
+a given section of code in a separate, inner transaction. For these 
+purposes, the Spring Transaction Integration allows us to use
+the `Propagation.REQUIRES_NEW` transaction behavior.
+
+Unfortunately, when engine API calls are executed in the Spring context,
+Spring doesn't make it transparent to the Process Engine that the API 
+calls need to be executed in a separate transaction. Due to this, if the
+inner transaction fails, the changes made by the engine API calls are 
+still committed to the Camunda database.
+
+A solution for this is to explicitly declare to the Process Engine that
+a new Process Engine Context is to be created, where all the following
+Engine API calls will store their changes for the database. In case the
+inner transaction fails, the changes in this new Process Engine Context
+will be reverted.
+
+The Process Engine Context must be declared whenever a Spring 
+`Propagation.REQUIRES_NEW` inner transaction is defined in an already 
+running transaction. 
+
+## Example
+
+In the following code-snippet, we can see a Spring `Propagation.REQUIRES_NEW`
+transaction, defined on the `startInnerProcess` method through the Spring 
+`Transactional` annotation. We can assume that the transaction is called 
+in an outer, `Propagation.REQUIRED` transaction, and that below the 
+`startProcessInstanceByKey` engine API call, some custom code continues 
+to execute in the inner transaction, and throws an exception.
+
+```java
+@Service
+public class InnerProcessServiceImpl implements InnerProcessService {
+
+  @Override
+  @Transactional(value = "transactionManager", propagation = Propagation.REQUIRES_NEW, rollbackFor = {Throwable.class})
+  public void startInnerProcess(DelegateExecution execution) {
+
+    execution.getProcessEngineServices()
+      .getRuntimeService()
+      .startProcessInstanceByKey("EXAMPLE_PROCESS");
+
+    // custom code continues
+  }
+}
+```
+
+Since Spring doesn't make the Process Engine aware that the `startProcessInstanceByKey` 
+engine API call is executed in a new transaction, when the custom code 
+fails, the Spring inner transaction will be rolled back, but the data
+from the started Process Instance data will be committed with the outer 
+transaction.
+
+The described problem can be solved by declaring a new Process Engine 
+Context with the static methods of the `org.camunda.bpm.engine.context.ProcessEngineContext`
+class. First, we call the `ProcessEngineContext.requiresNew()` method to 
+declare that a new Context is required. Finally, we call the `ProcessEngineContext.clear()` 
+method to clear the declaration for a new Process Engine Context. This
+is important since a new Process Engine Context will be declared for each 
+following engine API call until the `ProcessEngineContext#clear` method 
+is called.
+
+Using a `try-finally` block is recommended to ensure that the `ProcessEngineContext` 
+static methods are called and cleared even in the presence of exceptions.
+Below, you can find the solution applied to the `startProcessInstanceByKey`
+engine API call of the example above:
+
+```java
+try {
+  
+  // declare new Process Engine Context
+  ProcessEngineContext.requiresNew();
+  
+  // call engine APIs
+  execution.getProcessEngineServices()
+    .getRuntimeService()
+    .startProcessInstanceByKey("EXAMPLE_PROCESS");
+
+} finally {
+  // clear declaration for new Process Engine Context
+  ProcessEngineContext.clear();
+}
+```
