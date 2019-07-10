@@ -31,6 +31,9 @@ camunda.bpm.webapp.index-redirect-enabled=false
   The Camunda Web Applications use a `CSRF Prevention Filter` that expects a `CSRF Token` on any modifying request coming through the `/api/*` url segment in the context path. This means that any Requests mapped to `"/api"` will fail and the current session will be ended if no CSRF Token is present.
 {{< /note >}}
 
+The default error handling coming with the Spring Boot ('whitelabel' error page) is enabled in the starter. To switch to the Camunda error pages (`webjar/META-INF/resources/webjars/camunda/error-XYZ-page.html`), please put them to the application folder structure under `/src/main/resources/public/error/XYZ.html`.
+
+
 ### Enterprise webapps
 To use the enterprise Web applications, include another starter:
 ```xml

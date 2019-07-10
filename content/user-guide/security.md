@@ -190,3 +190,7 @@ Restriction of the maximum size in bytes of the POST requests is specific to you
 ### Securing Cookies (Web Applications)
 
 The container provides the session cookie. Please consult the documentation about [Cookie Security]({{< ref "/webapps/shared-options/cookie-security.md" >}}) to learn what configurations are necessary to ensure full security for the session cookie.
+
+### Error handling
+
+The Webapps have a default error page which is displayed in case of unhandled Internal server errors. The REST API displays the type and short error message when an error is thrown.
