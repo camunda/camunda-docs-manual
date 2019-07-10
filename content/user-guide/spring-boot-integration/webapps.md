@@ -27,6 +27,8 @@ To disable this, you have to add to your application properties:
 camunda.bpm.webapp.index-redirect-enabled=false
 ```
 
+The default error handling coming with the Spring Boot ('whitelabel' error page) is enabled in the starter. To switch to the Camunda error pages (`webjar/META-INF/resources/webjars/camunda/error-XYZ-page.html`), please put them to the application folder structure under `/src/main/resources/public/error/XYZ.html`.
+
 ### Enterprise webapps
 To use the enterprise Web applications, include another starter:
 ```xml
