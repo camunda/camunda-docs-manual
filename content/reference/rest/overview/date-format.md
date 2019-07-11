@@ -12,7 +12,9 @@ menu:
 
 The REST API uses the default date format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, which
 represents a date with milliseconds and timezone information, e.g.,
-`2016-01-25T13:33:42.165+0100`.
+`2016-01-25T13:33:42.165+0100`. 
+
+If you add a date as a GET request parameter, remember the URL encoding, e.g. `2016-01-25T13:33:42.165%2b0100`.
 
 # Custom Date Format
 A custom date format can be configured in the `web.xml`
