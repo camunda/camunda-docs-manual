@@ -617,9 +617,9 @@ The following is a list with the most commonly used process engine configuration
   </tr>
 
   <tr>
-    <td><a name="enableReducedCmdExceptionLogging"></a><code>enableReducedCmdExceptionLogging</code></td>
+    <td><a name="enableCmdExceptionLogging"></a><code>enableCmdExceptionLogging</code></td>
     <td>Boolean</td>
-    <td>Set to <code>true</code>, to suppress logging of exceptions that occur during command execution. Only exceptions that are not handled by the engine are logged. Use this property with care as it can hide valuable information.
+    <td>Set to <code>true</code>, to enable logging of unhandled exceptions that occur during command execution. Handled exceptions may be logged somewhere else. By setting this flag to <code>true</code> there might be duplicate log entries for command exceptions.
     </td>
   </tr>
 
