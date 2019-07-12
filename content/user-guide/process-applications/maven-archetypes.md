@@ -76,7 +76,7 @@ Now you should be able to use the archetypes when creating a new Maven project i
 
 The resulting project should look like this:
 
-{{< img src="../img/eclipse-06-generated-maven-project.png" title="Generated Maven Project in Eclispe" >}}
+{{< img src="../img/eclipse-06-generated-maven-project.png" title="Generated Maven Project in Eclipse" >}}
 
 
 ## Troubleshooting
@@ -102,7 +102,7 @@ Sometimes the creation of the very first Maven project fails in Eclipse. If that
 Run the following command in a terminal to generate a project. Maven will allow you to select an archetype and ask you for all parameters needed to configure it:
 
 <pre class="console">
-mvn archetype:generate -Dfilter=org.camunda.bpm.archetype: -DarchetypeCatalog=https://app.camunda.com/nexus/content/repositories/camunda-bpm
+mvn archetype:generate -Dfilter=org.camunda.bpm.archetype:
 </pre>
 
 
