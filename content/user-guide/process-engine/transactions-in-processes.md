@@ -238,6 +238,52 @@ integrate with
 [tx-spring]: {{< ref "/user-guide/spring-framework-integration/_index.md#spring-transaction-integration" >}}
 [tx-jta]: {{< ref "/user-guide/cdi-java-ee-integration/_index.md" >}}
 
+## Transactions and the Process Engine Context
+
+When a Process Engine Command is executed, the engine
+will create a Process Engine Context. The Context caches database
+entities, so that multiple operations on the same entity do not
+result in multiple database queries. This also means that the changes
+to these entities are accumulated and are flushed to the database
+as soon as the Command returns. However, it should be noted that the 
+current transaction may be committed at a later time.
+
+If a Process Engine Command is nested into another Command, the
+default behaviour is to reuse the existing Process Engine Context.
+This means that the nested Command will have access to the same 
+cached entities and the changes made to them.
+
+When the nested Command is to be executed in a new transaction, a new Process
+Engine Context needs to be created for its execution. In this case, the nested 
+Command will use a new cache for the database entities, independent of the 
+previous (outer) Command cache. This means that, the changes in the cache of
+one Command are invisible to the other Command and vice versa. When the nested
+Command returns, the changes are flushed to the database independently of the 
+Process Engine Context of the outer Command.
+
+The `ProcessEngineContext` utility class can be used to declare to
+the Process Engine that a new Process Engine Context needs to be created
+in order for the database operations in a nested Process Engine Command
+to be separated in a new transaction. The folowing `Java` code example 
+shows how the class can be used:
+
+```java
+try {
+
+  // declare new Process Engine Context
+  ProcessEngineContext.requiresNew();
+  
+  // call engine APIs
+  execution.getProcessEngineServices()
+    .getRuntimeService()
+    .startProcessInstanceByKey("EXAMPLE_PROCESS");
+
+} finally {
+  // clear declaration for new Process Engine Context
+  ProcessEngineContext.clear();
+}
+```
+
 # Optimistic Locking
 
 The Camunda Engine can be used in multi threaded applications. In such a setting, when multiple threads interact with the process engine concurrently, it can happen that these threads attempt to do changes to the same data. For example: two threads attempt to complete the same User Task at the same time (concurrently). Such a situation is a conflict: the task can be completed only once.

@@ -129,16 +129,19 @@ public class UserBean {
 
 # Using Inner Spring Transactions
 
-There are cases during a transaction execution, when we want to process
-a given section of code in a separate, inner transaction. For these 
-purposes, the Spring Transaction Integration allows us to use
-the `Propagation.REQUIRES_NEW` transaction behavior.
+<!--There are cases during a transaction execution, when we want to process-->
+<!--a given section of code in a separate, inner transaction. For these -->
+<!--purposes, the Spring Transaction Integration allows us to use-->
+<!--the `Propagation.REQUIRES_NEW` transaction behavior.-->
 
-Unfortunately, when engine API calls are executed in the Spring context,
-Spring doesn't make it transparent to the Process Engine that the API 
-calls need to be executed in a separate transaction. Due to this, if the
-inner transaction fails, the changes made by the engine API calls are 
-still committed to the Camunda database.
+When engine API calls are executed in the Spring context, Spring doesn't 
+make it transparent to the Process Engine when nested API calls need to 
+be executed in a separate transaction (the `Propagation.REQUIRES_NEW` 
+transaction behavior). This doesn't play well with how the Process Engine 
+Context is used to separate transaction data described in detail in
+[Transactions and the Process Engine Context][transactions-and-engine-context]. 
+Due to this, if the inner transaction fails, the changes made by the engine 
+API calls are still committed to the Camunda database.
 
 A solution for this is to explicitly declare to the Process Engine that
 a new Process Engine Context is to be created, where all the following
@@ -182,10 +185,10 @@ fails, the Spring inner transaction will be rolled back, but the data
 from the started Process Instance data will be committed with the outer 
 transaction.
 
-The described problem can be solved by declaring a new Process Engine 
-Context with the static methods of the `org.camunda.bpm.engine.context.ProcessEngineContext`
-class. First, we call the `ProcessEngineContext.requiresNew()` method to 
-declare that a new Context is required. Finally, we call the `ProcessEngineContext.clear()` 
+The described problem can be solved through the static methods of the 
+`org.camunda.bpm.engine.context.ProcessEngineContext` class. First, we 
+call the `ProcessEngineContext.requiresNew()` method to  declare that a 
+new Context is required. Finally, we call the `ProcessEngineContext.clear()` 
 method to clear the declaration for a new Process Engine Context. This
 is important since a new Process Engine Context will be declared for each 
 following engine API call until the `ProcessEngineContext#clear` method 
@@ -212,3 +215,5 @@ try {
   ProcessEngineContext.clear();
 }
 ```
+
+[transactions-and-engine-context]: {{< ref "/user-guide/process-engine/transactions-in-processes.md#transactions-and-the-process-engine-context" >}}
