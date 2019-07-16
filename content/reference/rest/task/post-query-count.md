@@ -163,6 +163,10 @@ expression as a substring.
     </td>
   </tr>
   <tr>
+    <td>assigneeIn</td>
+    <td>Only include tasks which are assigned to one of the passed and comma-separated user ids.</td>
+  </tr>
+  <tr>
     <td>owner</td>
     <td>Restrict to tasks that the given user owns.</td>
   </tr>
@@ -563,6 +567,7 @@ Request Body:
     "value": 30,
     "operator": "neq"}],
 "processInstanceBusinessKeyIn": "aBusinessKey,anotherBusinessKey",
+"assigneeIn": "anAssignee,anotherAssignee",
 "priority":10}
 ```
 
