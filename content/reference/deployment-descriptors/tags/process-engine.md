@@ -619,7 +619,7 @@ The following is a list with the most commonly used process engine configuration
   <tr>
     <td><a name="enableCmdExceptionLogging"></a><code>enableCmdExceptionLogging</code></td>
     <td>Boolean</td>
-    <td>Set to <code>true</code>, to enable logging of unhandled exceptions that occur during command execution. Handled exceptions may be logged somewhere else. By setting this flag to <code>true</code> there might be duplicate log entries for command exceptions.
+    <td>Set to <code>false</code>, to disable logging of unhandled exceptions that occur during command execution. Handled exceptions may be logged somewhere else. The default setting for this flag is <code>true</code>. Note: There might be duplicate log entries for command exceptions (e.g. when a job fails).
     </td>
   </tr>
 
