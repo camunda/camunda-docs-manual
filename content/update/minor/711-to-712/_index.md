@@ -23,7 +23,6 @@ This document guides you through the update from Camunda BPM `7.11.x` to `7.12.0
 1. For developers: [Security-related HTTP Headers (Webapps)](#security-related-http-headers-webapps)
 1. For developers: [Camunda Commons Typed Values Migration](#camunda-commons-typed-values-migration)
 1. For developers: [Camunda DMN Engine Migration](#camunda-dmn-engine-migration)
-1. For developers: [Changes Affecting Logging Behavior](#changes-affecting-logging-behavior)
 
 This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda BPM 7.12.
 
@@ -137,9 +136,3 @@ The changes include:
 # Camunda DMN Engine Migration
 
 The **Camunda DMN Engine** is another migration to the `camunda-bpm-platform` repository happening in version 7.12.0. The DMN Engine migration doesn't require any adjustments. However, any contributions to the DMN Engine will need to be addressed to the [camunda-bpm-platform repository](https://github.com/camunda/camunda-bpm-platform/tree/master/engine-dmn).
-
-# Changes Affecting Logging Behavior
-
-With 7.12, the logging behavior changes slightly. By default, uncaught exceptions that occur while executing a command will not be logged any more. The exception is rethrown like before and it will be the caller's responsibility to log it (or not). Exceptions in commands that have been executed by the engine will be handled like before (including logging). By setting `enableCmdExceptionLogging` in the engine configuration to `true` the previous behavior can be restored.
-
-The reason for disabling logging of unhandled command exceptions is that in some cases there are multiple log entries of the same exception, e.g. job failures.
