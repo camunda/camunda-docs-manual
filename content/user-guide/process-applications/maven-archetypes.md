@@ -76,7 +76,7 @@ Now you should be able to use the archetypes when creating a new Maven project i
 
 The resulting project should look like this:
 
-{{< img src="../img/eclipse-06-generated-maven-project.png" title="Generated Maven Project in Eclispe" >}}
+{{< img src="../img/eclipse-06-generated-maven-project.png" title="Generated Maven Project in Eclipse" >}}
 
 
 ## Troubleshooting
@@ -91,9 +91,8 @@ Sometimes the creation of the very first Maven project fails in Eclipse. If that
 4. Restart IntelliJ IDEA
 5. On the "Welcome to IntelliJ IDEA" screen, click on "Configure" and select "Preferences" in the dropdown
 6. In the preferences window, navigate to: "Build, Execution, Deployment > Build Tools > Maven Archetype Catalogs"
-7. Click the plus sign (+) on the right side of the settings dialog to add the archetype catalog `https://app.camunda.com/nexus/content/repositories/camunda-bpm/archetype-catalog.xml` to the list and click OK
-8. To create a Maven project from an archetype, click on the "Welcome to IntelliJ IDEA" screen on "Create New Project"
-9. In the new project dialog, click on the left side on "Maven", check "Create from archetype" and select any `org.camunda.bpm.archetype` entry
+7. To create a Maven project from an archetype, click on the "Welcome to IntelliJ IDEA" screen on "Create New Project"
+8. In the new project dialog, click on the left side on "Maven", check "Create from archetype" and select any `org.camunda.bpm.archetype` entry
 
 # Usage on Command Line
 
@@ -102,7 +101,7 @@ Sometimes the creation of the very first Maven project fails in Eclipse. If that
 Run the following command in a terminal to generate a project. Maven will allow you to select an archetype and ask you for all parameters needed to configure it:
 
 <pre class="console">
-mvn archetype:generate -Dfilter=org.camunda.bpm.archetype: -DarchetypeCatalog=https://app.camunda.com/nexus/content/repositories/camunda-bpm
+mvn archetype:generate -Dfilter=org.camunda.bpm.archetype:
 </pre>
 
 
@@ -112,7 +111,6 @@ The following command completely automates the project generation and can be use
 <pre class="console">
 mvn archetype:generate \
   -DinteractiveMode=false \
-  -DarchetypeRepository=https://app.camunda.com/nexus/content/repositories/camunda-bpm \
   -DarchetypeGroupId=org.camunda.bpm.archetype \
   -DarchetypeArtifactId=camunda-archetype-ejb-war \
   -DarchetypeVersion=7.10.0 \
