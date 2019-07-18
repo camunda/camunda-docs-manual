@@ -112,7 +112,6 @@ The following command completely automates the project generation and can be use
 <pre class="console">
 mvn archetype:generate \
   -DinteractiveMode=false \
-  -DarchetypeRepository=https://app.camunda.com/nexus/content/repositories/camunda-bpm \
   -DarchetypeGroupId=org.camunda.bpm.archetype \
   -DarchetypeArtifactId=camunda-archetype-ejb-war \
   -DarchetypeVersion=7.10.0 \
