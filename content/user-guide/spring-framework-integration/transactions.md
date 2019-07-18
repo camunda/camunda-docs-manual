@@ -129,11 +129,6 @@ public class UserBean {
 
 # Using Inner Spring Transactions
 
-<!--There are cases during a transaction execution, when we want to process-->
-<!--a given section of code in a separate, inner transaction. For these -->
-<!--purposes, the Spring Transaction Integration allows us to use-->
-<!--the `Propagation.REQUIRES_NEW` transaction behavior.-->
-
 When engine API calls are executed in the Spring context, Spring doesn't 
 make it transparent to the Process Engine when nested API calls need to 
 be executed in a separate transaction (the `Propagation.REQUIRES_NEW` 
@@ -155,14 +150,26 @@ running transaction.
 
 ## Example
 
-In the following code-snippet, we can see a Spring `Propagation.REQUIRES_NEW`
-transaction, defined on the `startInnerProcess` method through the Spring 
-`Transactional` annotation. We can assume that the transaction is called 
-in an outer, `Propagation.REQUIRED` transaction, and that below the 
-`startProcessInstanceByKey` engine API call, some custom code continues 
-to execute in the inner transaction, and throws an exception.
+In the following code-snippet, we can see a Spring `Propagation.REQUIRED` 
+transaction, defined on the `execute` method, and a Spring `Propagation.REQUIRES_NEW`
+transaction, defined on the `InnerProcessServiceImpl#startInnerProcess` method.
+The `InnerProcessServiceImpl#startInnerProcess` method is called through 
+the `execute` method, resulting in an inner transaction.We can also assume 
+that, in the `startProcessInstanceByKey` engine API call, some custom code 
+continues to execute in the inner transaction, and throws an exception.
 
 ```java
+@Transactional(value = "transactionManager", propagation = Propagation.REQUIRED)
+public void execute(DelegateExecution execution) throws Exception {
+  try {
+    innerProcessService.startInnerProcess(execution);
+  } catch (Exception ex) {
+    // noop
+  }
+}
+
+/* InnerProcessService implementation */
+
 @Service
 public class InnerProcessServiceImpl implements InnerProcessService {
 
@@ -179,8 +186,8 @@ public class InnerProcessServiceImpl implements InnerProcessService {
 }
 ```
 
-Since Spring doesn't make the Process Engine aware that the `startProcessInstanceByKey` 
-engine API call is executed in a new transaction, when the custom code 
+In a case like this one, since Spring doesn't make the Process Engine aware that the `startProcessInstanceByKey` 
+engine API call is executed in a new, inner transaction, when the custom code 
 fails, the Spring inner transaction will be rolled back, but the data
 from the started Process Instance data will be committed with the outer 
 transaction.
