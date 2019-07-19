@@ -167,6 +167,15 @@ A JSON object with the following properties:
     <code>like</code>.<br/>
     </td>
   </tr>
+    <tr>
+    <td>variableNamesIgnoreCase</td>
+    <td>Match all variable names in this query case-insensitively. If set to <code>true</code> <code>variableName</code> and <code>variablename</code> are treated as equal.</td>
+  </tr>
+  <tr>
+    <td>variableValuesIgnoreCase</td>
+    <td>Match all variable values in this query case-insensitively. If set to <code>true</code> <code>variableValue</code> and <code>variablevalue</code> are treated as equal.</td>
+  </tr>
+  <tr>
   <tr>
     <td>orQueries</td>
     <td>

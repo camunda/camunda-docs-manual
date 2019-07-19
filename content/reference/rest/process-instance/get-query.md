@@ -152,6 +152,14 @@ GET `/process-instance`
     </td>
   </tr>
   <tr>
+    <td>variableNamesIgnoreCase</td>
+    <td>Match all variable names in this query case-insensitively. If set <code>variableName</code> and <code>variablename</code> are treated as equal.</td>
+  </tr>
+  <tr>
+    <td>variableValuesIgnoreCase</td>
+    <td>Match all variable values in this query case-insensitively. If set <code>variableValue</code> and <code>variablevalue</code> are treated as equal.</td>
+  </tr>
+  <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
     <code>instanceId</code>, <code>definitionKey</code>, <code>definitionId</code>, <code>tenantId</code> and <code>businessKey</code>.
