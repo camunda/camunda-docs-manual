@@ -18,6 +18,9 @@ params:
     - id: "optimize"
       name: "Optimize"
       url: "/optimize"
+    - id: 'cawemo'
+      name: 'Cawemo'
+      url: '/cawemo'
     - id: "enterprise"
       name: "Enterprise"
       url: "/enterprise"
