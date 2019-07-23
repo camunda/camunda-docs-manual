@@ -131,6 +131,8 @@ If the limitations on XML files introduced by XXE prevention need to be removed,
 
 FSP itself can not be disabled in the engine. All properties that are influenced by this can however be configured in the environment via system properties and the `jaxp.properties` file. See the [Oracle documentation](https://docs.oracle.com/javase/tutorial/jaxp/limits/using.html) on how to determine the right limits and how to set them.
 
+Since BPMN schema validation requires external XSD documents, the property `http://javax.xml.XMLConstants/property/accessExternalSchema` is by default configured to value `all`, which enables referencing XML schemas by any supported protocol. This can be overridden via the system property `javax.xml.accessExternalSchema`, however a value set via `jaxp.properties` does not take effect.
+
 ## HTTP Header Security in Webapps
 
 Out-of-the-box the web applications provide the following security-related HTTP headers:
@@ -141,8 +143,8 @@ Out-of-the-box the web applications provide the following security-related HTTP 
 
 These headers enable browser-side security mechanisms which help to improve the protection against several attacking scenarios.
 
-According to your project requirements, some of these headers can be configured more strict or lax. Please see the 
-documentation about the [HTTP Header Security]({{< ref "/webapps/shared-options/header-security.md" >}}) to learn more 
+According to your project requirements, some of these headers can be configured more strict or lax. Please see the
+documentation about the [HTTP Header Security]({{< ref "/webapps/shared-options/header-security.md" >}}) to learn more
 about the several headers, the defaults and how to configure the HTTP headers according to your needs.
 
 # Security Configuration in the external Environment
