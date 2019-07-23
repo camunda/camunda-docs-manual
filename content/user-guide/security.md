@@ -155,7 +155,7 @@ Similar considerations as for authentication apply. For an in-depth discussion, 
 
 Authorizations can be used to restrict a user from accessing a data object (such as a process or a task) and can be used to restrict how the user can interact with such data objects (read-only vs. modifications). Authorizations in Camunda are very powerful and it is recommended to read the corresponding [documentation entry on authorizations]({{< ref "/user-guide/process-engine/authorization-service.md" >}}).
 
-### Throttle login attempts 
+### Throttle login attempts
 
 The engine gives option to throttle login attempts. The mechanism behind this is enabled by default. You can read more about it under [Identity Service]({{< ref "/user-guide/process-engine/identity-service.md#throttle-login-attempts" >}}) in User Guide.
 
@@ -192,6 +192,8 @@ Camunda handles many XML files containing configurations of process engines, def
 * Feature Secure Processing (FSP) of XML files according to [Oracle](https://docs.oracle.com/javase/8/docs/api/javax/xml/XMLConstants.html#FEATURE_SECURE_PROCESSING) which introduces [limits](https://docs.oracle.com/javase/tutorial/jaxp/limits/limits.html) for several XML properties
 
 FSP itself can not be disabled in the engine. All properties that are influenced by this can however be configured in the environment via system properties and the `jaxp.properties` file. See the [Oracle documentation](https://docs.oracle.com/javase/tutorial/jaxp/limits/using.html) on how to determine the right limits and how to set them.
+
+Since BPMN schema validation requires external XSD documents, the property `http://javax.xml.XMLConstants/property/accessExternalSchema` is by default configured to value `all`, which enables referencing XML schemas by any supported protocol. This can be overridden via the system property `javax.xml.accessExternalSchema`, however a value set via `jaxp.properties` does not take effect.
 
 Prevention against XML eXternal Entity (XXE) injections according to [OWASP](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.md)
 can be activated by setting `enableXxeProcessing` to `false` in the [process engine configuration]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#configuration-properties" >}}).
