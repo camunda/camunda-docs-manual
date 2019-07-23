@@ -153,11 +153,11 @@ GET `/process-instance`
   </tr>
   <tr>
     <td>variableNamesIgnoreCase</td>
-    <td>Match all variable names in this query case-insensitively. If set <code>variableName</code> and <code>variablename</code> are treated as equal.</td>
+    <td>Match all variable names in this query case-insensitively. If set to <code>true</code> <strong>variableName</strong> and <strong>variablename</strong> are treated as equal.</td>
   </tr>
   <tr>
     <td>variableValuesIgnoreCase</td>
-    <td>Match all variable values in this query case-insensitively. If set <code>variableValue</code> and <code>variablevalue</code> are treated as equal.</td>
+    <td>Match all variable values in this query case-insensitively. If set to <code>true</code> <strong>variableValue</strong> and <strong>variablevalue</strong> are treated as equal.</td>
   </tr>
   <tr>
     <td>sortBy</td>
