@@ -94,6 +94,10 @@ A JSON object with the following properties:
           <td>processDefinitionKeyIn</td>
           <td>Filter tasks based on process definition keys.</td>
         </tr>
+        <tr>
+          <td>processDefinitionVersionTag</td>
+          <td>Filter tasks based on process definition version tag.</td>
+        </tr>
         <td>withoutTenantId</td>
           <td>Filter tasks without tenant id.</td>
         </tr>
