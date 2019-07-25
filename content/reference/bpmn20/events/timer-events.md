@@ -39,7 +39,11 @@ Example:
 
 ## Time Duration
 
-To specify how long the timer should run before it is fired, a timeDuration can be specified as a sub-element of timerEventDefinition. The format used is the [ISO 8601 Durations](http://en.wikipedia.org/wiki/ISO_8601#Durations) format (as required by the BPMN 2.0 specification).
+To specify how long the timer should run before it is fired, a timeDuration can be specified as a sub-element of timerEventDefinition. It is possible to define the duration in two different [ISO 8601 Durations](http://en.wikipedia.org/wiki/ISO_8601#Durations) formats:
+<ul>
+  <li>PnYnMnDTnHnMnS</li>
+  <li>PnW</li>
+</ul>
 
 Example (interval lasting 10 days):
 
@@ -51,7 +55,7 @@ Example (interval lasting 10 days):
 
 ## Time Cycle
 
-Specifies repeating intervals, which can be useful for starting process periodically, or for sending multiple reminders for overdue user tasks. A time cycle element can be in two formats. One option is the format of recurring time duration, as specified by the [ISO 8601 Repeating Intervals](http://en.wikipedia.org/wiki/ISO_8601#Repeating_intervals) standard.
+Specifies repeating intervals, which can be useful for starting process periodically, or for sending multiple reminders for overdue user tasks. A time cycle element can be in two formats. One option is the format of recurring [time duration](#time-duration), as specified by the [ISO 8601 Repeating Intervals](http://en.wikipedia.org/wiki/ISO_8601#Repeating_intervals) standard.
 
 Example (3 repeating intervals, each lasting 10 hours):
 
