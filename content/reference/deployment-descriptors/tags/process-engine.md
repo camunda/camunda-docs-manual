@@ -319,7 +319,19 @@ The following is a list with the most commonly used process engine configuration
       </p>
     </td>
   </tr>
-
+  
+  <tr>
+    <td><code>enableFetchProcessDefinitionDescription</code></td>
+    <td>Boolean</td>
+    <td>
+      If set to false, Bpmn Model Instance is not fetched and cached whenever a process definition query is performed and thus the returned process definition does not contain the description.
+      Default value is <code>true</code>.
+      <p>
+        <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
+      </p>
+    </td>
+  </tr>
+  
   <tr>
       <td><code>enableXxeProcessing</code></td>
       <td>Boolean</td>
