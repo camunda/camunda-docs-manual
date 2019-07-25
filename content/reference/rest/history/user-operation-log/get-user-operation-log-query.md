@@ -185,6 +185,11 @@ Each log entry has the following properties:
     <td>The name of the category this operation was associated with, e.g., <code>TaskWorker</code> or <code>Admin</code>.</td>
   </tr>
   <tr>
+    <td>annotation</td>
+    <td>String</td>
+    <td>An arbitrary annotation set by a user for auditing reasons.</td>
+  </tr>
+  <tr>
     <td>property</td>
     <td>String</td>
     <td>The property changed by this operation.</td>
@@ -318,7 +323,8 @@ GET `/history/user-operation?operationType=Claim&userId=demo&sortBy=timestamp&so
     "newValue": "demo",
     "removalTime": "2018-02-10T14:33:19.000+0200",
     "rootProcessInstanceId": "aRootProcessInstanceId",
-	"category": "TaskWorker"}]
+	"category": "TaskWorker",
+	"annotation": "anAnnotation"}]
 
 ## (2) Request
 
@@ -347,4 +353,5 @@ GET `/history/user-operation?operationType=Suspend&userId=demo`
     "newValue": "suspended",
     "removalTime": "2018-02-10T14:33:19.000+0200",
     "rootProcessInstanceId": "aRootProcessInstanceId",
-	"category": "Operator"}]
+	"category": "Operator",
+	"annotation": "anAnnotation"}]
