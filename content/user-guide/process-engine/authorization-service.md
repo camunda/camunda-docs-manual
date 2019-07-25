@@ -367,7 +367,7 @@ The following table gives an overview for which resources they are available:
     <tr>
       <th>User Operation Log Category</th>
       <td>X</td>
-      <td></td>
+      <td>X</td>
       <td></td>
       <td>X</td>
     </tr>
@@ -522,6 +522,7 @@ In Addition to Update, Read and Delete, the following permissions are available 
 * Delete Instance
 * Read History
 * Delete History
+* Update History
 
 The "Create Instance" permission is required to start new process instances.
 

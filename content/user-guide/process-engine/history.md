@@ -452,6 +452,7 @@ A user operation log entry has the following properties:
 * **Operation Type**: The name of the performed operation. Available operation types are listed in the interface {{< javadocref page="?org/camunda/bpm/engine/history/UserOperationLogEntry.html" text="org.camunda.bpm.engine.history.UserOperationLogEntry" >}}. Note that one operation can consist of multiple types, for example a cascading API operation is one user operation, but is split into multiple types of operations.
 * **Entity Type**: An identifier of the type of the entity that was addressed by the operation. Available entity types are listed in the class {{< javadocref page="?org/camunda/bpm/engine/EntityTypes.html" text="org.camunda.bpm.engine.EntityTypes" >}}. Like the operation type, one operation may address more than one type of entity.
 * **Category**: The name of the category the operation is associated with. Available categories are listed in the interface {{< javadocref page="?org/camunda/bpm/engine/history/UserOperationLogEntry.html" text="org.camunda.bpm.engine.history.UserOperationLogEntry" >}}. For example, all task related runtime operations like claiming and completing tasks fall into the category {{< javadocref page="org/camunda/bpm/engine/history/UserOperationLogEntry.html#CATEGORY_TASK_WORKER" text="TaskWorker" >}}.
+* **Annotation**: An arbitrary text annotation set by a user for auditing reasons. Multiple log entries that belong to an operation have the same annotation.
 * **Entity IDs**: A job log entry contains the entity IDs that serve to identify the entities addressed by the operation. For example, an operation log entry on a task contains the id of the task as well as the id of the process instance the task belongs to. As a second example, a log entry for suspending all process instances of a process definition does not contain individual process instance IDs but only the process definition ID.
 * **User ID**: The ID of the user who performed the operation.
 * **Timestamp**: The time at which the operation was performed.
@@ -459,6 +460,30 @@ A user operation log entry has the following properties:
 * **Old Property Value**: The previous value of the changed property. A  `null` value either indicates that the property was previously `null` or is not known.
 * **New Property Value**: The new value of the changed property.
 
+## Annotation of User Operation Logs
+
+User Operation Logs are helpful to audit manual operations. To make it obvious why a certain 
+operation was performed, sometimes it is not enough to only log technical information (e. g. 
+timestamp, operation type, etc.) but also add an annotation that puts the operation in the right 
+business context.
+
+**Please note:** Annotations are present on all entries that belong to an operation log.
+
+Àn annotation can be set and cleared via Java API:
+
+```java
+String operationId = historyService.createUserOperationLogQuery()
+    .singleResult()
+    .getOperationId();
+
+String annotation = "Instances restarted due to wrong turn";
+historyService.setAnnotationForOperationLogById(operationId, annotation);
+
+historyService.clearAnnotationForOperationLogById(operationId);
+```
+
+Please also see the REST API reference for [setting][op-log-set-annotation-rest] and 
+[clearing][op-log-clear-annotation-rest] annotations.
 
 ## Glossary of Operations Logged in the User Operation Log
 
@@ -1154,6 +1179,26 @@ The following describes the operations logged in the user operation log and the 
     </td>
   </tr>
   <tr>
+    <td>OperationLog</td>
+    <td>SetAnnotation</td>
+	  <td>Operator</td>
+    <td>
+      <ul>
+        <li><strong>operationId</strong>: the id of the annotated operation log</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>ClearAnnotation</td>
+	  <td>Operator</td>
+    <td>
+      <ul>
+        <li><strong>operationId</strong>: the id of the annotated operation log</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
     <td>Filter</td>
     <td>Create</td>
 	<td>TaskWorker</td>
@@ -1781,3 +1826,5 @@ The default (and maximum) value is 500. Reduce it if you notice transaction time
 [configuration-options]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#history-cleanup-configuration-parameters">}}
 [1]: http://docs.camunda.org/latest/api-references/javadoc/org/camunda/bpm/engine/impl/history/event/HistoryEventTypes.html
 [2]: https://github.com/camunda/camunda-bpm-examples/tree/master/process-engine-plugin/custom-history-level
+[op-log-set-annotation-rest]: {{< ref "/reference/rest/history/user-operation-log/set-annotation.md" >}}
+[op-log-clear-annotation-rest]: {{< ref "/reference/rest/history/user-operation-log/clear-annotation.md" >}}
