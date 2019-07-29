@@ -238,7 +238,7 @@ public class MyCustomConfiguration extends AbstractCamundaConfiguration {
 <td>Provides an URL to your Camunda license file and is automatically inserted into the DB when the application starts (but only if no license key is found in the DB).</td>
 <td>By default, the license key will be loaded:
  <ol>
-  <li>from the file with the name <code>camunda-license.txt</code> from classpath (if present)</li> 
+  <li>from the file with the name <code>camunda-license.txt</code> from classpath (if present)</li>
   <li>from path <i>${user.home}/.camunda/license.txt</i> (if present)</li>
  </ol>
  The license must be exactly in the format as we sent it to you including the header and footer line.
@@ -267,41 +267,6 @@ public class MyCustomConfiguration extends AbstractCamundaConfiguration {
 <td><code>.deployment-resource-pattern</code></td>
 <td>Location for auto deployment</td>
 <td><code>classpath*:**/*.bpmn, classpath*:**/*.bpmn20.xml, classpath*:**/*.dmn, classpath*:**/*.dmn11.xml, classpath*:**/*.cmmn, classpath*:**/*.cmmn10.xml, classpath*:**/*.cmmn11.xml</code></td>
-</tr>
-
-<tr><td colspan="4"><b>Process application</b></td></tr>
-
-<tr>
-<td rowspan="5"><a name="camunda-bpm-application"></a><code>camunda.bpm.application</code></td>
-<td><code>.delete-upon-undeploy</code></td>
-<td>Indicates whether the undeployment of the process archive should trigger deleting the process engine deployment. If the process engine deployment is deleted,
-all running and historic process instances are removed as well.</td>
-<td><code>false</code></td>
-</tr>
-
-<tr>
-<td><code>.scan-for-process-definitions</code></td>
-<td>Indicates whether the classloader should be scanned for process definitions.</td>
-<td><code>true</code></td>
-</tr>
-
-<tr>
-<td><code>.deploy-changed-only</code></td>
-<td>Indicates whether only changed resources should be part of the deployment. This is independent of the setting that if no resources change, no deployment
-takes place but the previous deployment is resumed.</td>
-<td><code>false</code></td>
-</tr>
-
-<tr>
-<td><code>.resume-previous-versions</code></td>
-<td>Indicates whether old versions of the deployment should be resumed.</td>
-<td><code>false</code></td>
-</tr>
-
-<tr>
-<td><code>.resume-previous-by</code></td>
-<td>Indicates which previous deployments should be resumed by this deployment.</td>
-<td><code>process-definition-key</code></td>
 </tr>
 
 <tr><td colspan="4"><b>Job Execution</b></td></tr>
@@ -588,7 +553,7 @@ Spring Boot behaviour is taken into account.</td>
 <td><code>.create</code></td>
 <td>Name of a "show all" filter. If set, a new filter is created on start that displays all tasks. Useful for testing on h2 db.</td>
 <td>-</td>
-</tr> 
+</tr>
 
 </table>
 
