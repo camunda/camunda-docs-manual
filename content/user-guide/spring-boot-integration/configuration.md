@@ -287,41 +287,6 @@ The available properties are as follows:
 <td><code>classpath*:**/*.bpmn, classpath*:**/*.bpmn20.xml, classpath*:**/*.dmn, classpath*:**/*.dmn11.xml, classpath*:**/*.cmmn, classpath*:**/*.cmmn10.xml, classpath*:**/*.cmmn11.xml</code></td>
 </tr>
 
-<tr><td colspan="4"><b>Process application</b></td></tr>
-
-<tr>
-<td rowspan="5"><a name="camunda-bpm-application"></a><code>camunda.bpm.application</code></td>
-<td><code>.delete-upon-undeploy</code></td>
-<td>Indicates whether the undeployment of the process archive should trigger deleting the process engine deployment. If the process engine deployment is deleted,
-all running and historic process instances are removed as well.</td>
-<td><code>false</code></td>
-</tr>
-
-<tr>
-<td><code>.scan-for-process-definitions</code></td>
-<td>Indicates whether the classloader should be scanned for process definitions.</td>
-<td><code>true</code></td>
-</tr>
-
-<tr>
-<td><code>.deploy-changed-only</code></td>
-<td>Indicates whether only changed resources should be part of the deployment. This is independent of the setting that if no resources change, no deployment
-takes place but the previous deployment is resumed.</td>
-<td><code>false</code></td>
-</tr>
-
-<tr>
-<td><code>.resume-previous-versions</code></td>
-<td>Indicates whether old versions of the deployment should be resumed.</td>
-<td><code>false</code></td>
-</tr>
-
-<tr>
-<td><code>.resume-previous-by</code></td>
-<td>Indicates which previous deployments should be resumed by this deployment.</td>
-<td><code>process-definition-key</code></td>
-</tr>
-
 <tr><td colspan="4"><b>Job Execution</b></td></tr>
 
 <tr>
@@ -586,7 +551,7 @@ Spring Boot behaviour is taken into account.</td>
   <td><code>.xss-protection-disabled</code></td>
   <td>
     The header can be entirely disabled if set to <code>true</code>. <br>
-    Allowed set of values is <code>true</code> and <code>false</code>. 
+    Allowed set of values is <code>true</code> and <code>false</code>.
   </td>
   <td><code>false</code></td>
 </tr>
