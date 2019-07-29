@@ -43,6 +43,15 @@ GET `/history/variable-instance`
     <td>variableValue</td>
     <td>Filter by variable value. Is treated as a <code>String</code> object on server side.</td>
   </tr>
+  </tr>
+  <tr>
+    <td>variableNamesIgnoreCase</td>
+    <td>Match the variable name provided in <code>variableName</code> and <code>variableNameLike</code> case-insensitively. If set to <code>true</code> <strong>variableName</strong> and <strong>variablename</strong> are treated as equal.</td>
+  </tr>
+  <tr>
+    <td>variableValuesIgnoreCase</td>
+    <td>Match the variable value provided in <code>variableValue</code> case-insensitively. If set to <code>true</code> <strong>variableValue</strong> and <strong>variablevalue</strong> are treated as equal.</td>
+  </tr>
   <tr>
     <td>variableTypeIn</td>
     <td>Only include historic variable instances which belong to one of the passed and comma-separated variable types.</td>
