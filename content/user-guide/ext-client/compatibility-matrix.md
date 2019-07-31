@@ -21,10 +21,10 @@ Each version of the Camunda BPM Platform is bound to a specific version of the *
   </tr>
   <tr>
     <td>7.9.0</td>
-    <td>1.0.0</td>
-    <td>1.0.0</td>
+    <td>1.0.x</td>
+    <td>1.0.x</td>
   </tr>
 </table>
 
-Only these default combinations are recommended (and supported) by Camunda. Nevertheless, each version of the External 
+Only these default combinations are recommended (and supported) by Camunda. Nevertheless, each version of the External
 Task Clients can be combined with newer patch versions of the Camunda BPM Workflow Engine.
