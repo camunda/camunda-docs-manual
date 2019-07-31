@@ -141,7 +141,7 @@ Complete examples of how to set up the different External Task Clients can be fo
 
 For a high throughput of external tasks, you should balance between the number of external task instances, the number of clients and the duration of handling the work.
 
-A rule of thump for long running tasks (maybe more than 30 secs) would be, to fetch-and-lock the tasks one by one (maskTasks = 1) and adjust the Long Polling interval to your needs (maybe 60 secs, asyncResponseTime = 60000).
+A rule of thumb for long running tasks (maybe more than 30 secs) would be, to fetch-and-lock the tasks one by one (maskTasks = 1) and adjust the Long Polling interval to your needs (maybe 60 secs, asyncResponseTime = 60000).
 The Java client supports exponential backoff, default by 500 ms with factor 2, limited by 60000 ms. This could be shorted to your needs, too.
 
-As the external task clients didn't use any threading internally, you should start as many clients as needed and balance the load with your operating system.
+As the external task clients do not use any threading internally, you should start as many clients as needed and balance the load with your operating system.
