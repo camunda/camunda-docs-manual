@@ -68,70 +68,7 @@ A JSON object with the following properties:
 A JSON object corresponding to the `Batch` interface in the engine. Its
 properties are as follows:
 
-<table class="table table-striped">
-  <tr>
-    <th>Name</th>
-    <th>Value</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>id</td>
-    <td>String</td>
-    <td>The id of the created batch.</td>
-  </tr>
-  <tr>
-    <td>type</td>
-    <td>String</td>
-    <td>The type of the created batch.</td>
-  </tr>
-  <tr>
-    <td>totalJobs</td>
-    <td>Number</td>
-    <td>
-      The total jobs of a batch is the number of batch execution jobs required to
-      complete the batch.
-    </td>
-  </tr>
-  <tr>
-    <td>batchJobsPerSeed</td>
-    <td>Number</td>
-    <td>
-      The number of batch execution jobs created per seed job invocation.
-      The batch seed job is invoked until it has created all batch execution jobs required by
-      the batch (see <code>totalJobs</code> property).
-    </td>
-  </tr>
-  <tr>
-    <td>invocationsPerBatchJob</td>
-    <td>Number</td>
-    <td>
-      Every batch execution job invokes the command executed by the batch
-      <code>invocationsPerBatchJob</code> times. E.g., for a batch
-      migration batch this specifies the number of batches which
-      are migrated per batch execution job.
-    </td>
-  </tr>
-  <tr>
-    <td>seedJobDefinitionId</td>
-    <td>String</td>
-    <td>The job definition id for the seed jobs of this batch.</td>
-  </tr>
-  <tr>
-    <td>monitorJobDefinitionId</td>
-    <td>String</td>
-    <td>The job definition id for the monitor jobs of this batch.</td>
-  </tr>
-  <tr>
-    <td>batchJobDefinitionId</td>
-    <td>String</td>
-    <td>The job definition id for the batch execution jobs of this batch.</td>
-  </tr>
-  <tr>
-    <td>tenantId</td>
-    <td>String</td>
-    <td>The tenant id of the batch.</td>
-  </tr>
-</table>
+{{< rest-batch-response >}}
 
 # Response Codes
 
