@@ -115,7 +115,7 @@ A JSON object with the following properties:
     <code>like</code>.<br/>
     </td>
   </tr>
-    <tr>
+  <tr>
     <td>variableNamesIgnoreCase</td>
     <td>Match all variable names provided in <code>variables</code> case-insensitively. If set to <code>true</code> <strong>variableName</strong> and <strong>variablename</strong> are treated as equal.</td>
   </tr>
