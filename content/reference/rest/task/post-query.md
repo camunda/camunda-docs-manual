@@ -704,7 +704,7 @@ Request Body:
     {"name": "anotherVarName",
     "value": 30,
     "operator": "neq"}],
-"processInstanceBusinessKeyIn": "aBusinessKey,anotherBusinessKey",
+"processInstanceBusinessKeyIn": ["aBusinessKey","anotherBusinessKey"],
 "priority":10,
 "sorting":
     [{"sortBy": "dueDate",
