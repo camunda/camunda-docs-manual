@@ -31,7 +31,7 @@ Each version of the Camunda BPM Platform is bound to a specific version of the *
   </tr>
   <tr>
     <td>7.11.x</td>
-    <td>1.1.x</td>
+    <td>1.1.x, 1.2.x</td>
     <td>1.2.x</td>
   </tr>
 </table>
