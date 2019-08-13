@@ -339,6 +339,26 @@ The following list is an overview of all currently available patch scripts:
         <a href="https://app.camunda.com/jira/browse/CAM-10264">CAM-10264</a>
       </td>
     </tr>
+    <tr>
+      <td>7.10</td>
+      <td>engine_7.10_patch_7.10.6_to_7.10.7.sql</td>
+      <td>Add index to improve history cleanup performance.</td>
+      <td>All databases</td>
+      <td>
+        <a href="https://app.camunda.com/jira/browse/CAM-10616">CAM-10616</a>
+      </td>
+    </tr>
+    <tr>
+      <td>7.11</td>
+      <td>engine_7.11_patch_7.11.2_to_7.11.3.sql</td>
+      <td>Add index to improve history cleanup performance.
+      <strong>This is the same patch as engine_7.10_patch_7.10.6_to_7.10.7.sql.</strong>
+      </td>
+      <td>All databases</td>
+      <td>
+        <a href="https://app.camunda.com/jira/browse/CAM-10616">CAM-10616</a>
+      </td>
+    </tr>
   </tbody>
 </table>
 
