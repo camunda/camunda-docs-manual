@@ -27,7 +27,7 @@ Let's show this in a concrete example: the user gets an error dialog on the fron
 
 ## Async and Failed Jobs
 
-If you don't want the exception being shown to the user, one option is to make service calls which might cause an async error as described in [Transactions in Processes]({{< ref "/user-guide/process-engine/transactions-in-processes.md" >}}). In that case the exception is stored in the process engine database and the [Job]({{< ref "/user-guide/process-engine/the-job-executor.md" >}}) in the background is marked as failed (to be more precise, the exception is stored and some retry counter is decremented).
+If you don't want the exception being shown to the user, one option is to make service calls, which might cause an error, async (as described in [Transactions in Processes]({{< ref "/user-guide/process-engine/transactions-in-processes.md" >}})). In that case the exception is stored in the process engine database and the [Job]({{< ref "/user-guide/process-engine/the-job-executor.md" >}}) in the background is marked as failed (to be more precise, the exception is stored and some retry counter is decremented).
 
 In the example above this means that the user will not see an error but an "everything successful" dialog. The exception is stored on the job. Now either a clever retry strategy will automatically re-trigger the job later on (when the network is available again) or an operator needs to have a look at the error and trigger an additional retry. This is shown later in more detail.
 
