@@ -89,7 +89,7 @@ After you have received a message, you can choose whether you employ the engine'
 
 The engine offers a basic correlation mechanism that will either signal an execution waiting for a specific message or instantiate a process with a matching message start event. The `RuntimeService` provides a fluent message correlation API:
 
-The result of the correlation is an object of type `MessageCorrelatedResult`. It contains the type of the correlation, which is either `execution` or `processDefinition`.
+The result of the correlation is an object of type `MessageCorrelationResult`. It contains the type of the correlation, which is either `execution` or `processDefinition`.
 The first type is set if the message was correlated to an intermediate message catch event. The second is set if the message was correlated to a start event.
 If the type is set to `execution`, then the result contains an `Execution` object which can be accessed via the `result.getExecution()` method. If the type is set to 
 `processDefinition`, the result contains a `ProcessInstance` object which was created through the start event, which is accessible via the `result.getProcessInstance()` method.
