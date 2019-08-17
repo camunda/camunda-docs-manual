@@ -21,9 +21,9 @@ Please note that Patch Level Updates are only provided to enterprise customers, 
 {{< note title="Reading this Guide" class="info" >}}
 In this guide, a number of variables are used to denote common path names and constants:
 
-* `$DATABASE`: the target database platform, e.g., DB2, MySql etc.
-* `$DISTRIBUTION_PATH`: the path of the downloaded pre-packaged Camunda BPM distribution, e.g., `camunda-bpm-tomcat-$PLATFORM_VERSION.zip` or `camunda-bpm-tomcat-$PLATFORM_VERSION.tar.gz` for Tomcat etc.
-* `$PLATFORM_VERSION`: the version of the Camunda BPM platform you want to install, e.g., `7.1.0`.
+* `$DATABASE`: the target database platform, e.g. DB2, MySQL, etc.
+* `$DISTRIBUTION_PATH`: the path of the downloaded pre-packaged Camunda BPM distribution, e.g. `camunda-bpm-tomcat-$PLATFORM_VERSION.zip` or `camunda-bpm-tomcat-$PLATFORM_VERSION.tar.gz` for Tomcat etc.
+* `$PLATFORM_VERSION`: the version of the Camunda BPM platform you want to install, e.g. `7.1.0`.
 
 {{< /note >}}
 
@@ -424,7 +424,7 @@ You can disable Java serialization usage with the help of [this configuration pa
 ### Groovy version
 
 The pre-built Camunda distributions of versions 7.6.10, 7.7.5 and 7.8.0 ship with Groovy library of version 2.4.5, whereas newer versions come with Groovy 2.4.13. 
-Please updade the library `groovy-all-$GROOVY_VERSION.jar` in the `lib` folder of your application server.
+Please update the library `groovy-all-$GROOVY_VERSION.jar` in the `lib` folder of your application server.
 
 
 ## 7.8.1. to 7.8.2 
@@ -438,9 +438,9 @@ By default the displayed timer period is set to 'today' but can be extended to s
 This feature can be configured in two ways:
 
 1. The default timer period can be changed to 'this week', 'this month' or 'complete'
-2. The manual seletion of the time period within cockpit can be disabled.   
+2. The manual selection of the time period within cockpit can be disabled.   
 
-These attributes can be modifed in the [configuration file]({{< ref "/webapps/cockpit/extend/configuration.md#historic-activity-instance-metrics" >}})
+These attributes can be modified in the [configuration file]({{< ref "/webapps/cockpit/extend/configuration.md#historic-activity-instance-metrics" >}})
 
 ## 7.8.6 to 7.8.7
 
@@ -466,7 +466,7 @@ Please note that the following procedure may differ for cluster scenarios. Conta
 
 In case you use an embedded process engine inside your Java Application, you need to
 
-1. update the Process Engine librarayin your dependency management (Apache MAven, Gradle ...),
+1. update the Process Engine library in your dependency management (Apache Maven, Gradle ...),
 2. re-package the application,
 3. deploy the new version of the application.
 
@@ -479,4 +479,4 @@ In case you installed the [Standalone Webapplication Distribution]({{< ref "/int
 
 # Applying Multiple Patches at Once
 
-It is possible to apply multiple patches in one go (e.g., updateing from `7.1.0` to `7.1.4`).
+It is possible to apply multiple patches in one go (e.g., updating from `7.1.0` to `7.1.4`).
