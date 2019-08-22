@@ -377,7 +377,7 @@ In the scenario of an embedded process engine, the default implementation for th
 
 ## Failed Jobs
 
-Upon failure of job execution, e.g., if a service task invocation throws an exception, a job will be retried a number of times (by default 3). 
+Upon failure of job execution, e.g., if a service task invocation throws an exception, a job will be retried a number of times (by default 2 so that the job is tried three times in total).
 It is not immediately retried and added back to the acquisition queue, but the value of the RETRIES&#95; column is decreased and the executor unlocks the job. 
 The process engine thus performs bookkeeping for failed jobs. The unlocking also includes erasing the time LOCK&#95;EXP&#95;TIME&#95; and the owner of the lock LOCK&#95;OWNER&#95; 
 by setting both entries to `null`. Subsequently, the failed job will automatically be retried once the job is acquired for execution. Once the number of retries 
