@@ -416,6 +416,20 @@ See this [Forum Post](https://forum.camunda.org/t/camunda-json-marshalling-and-j
 
 Camunda Spin is not available in scripts if a process definition is deployed via REST API. Because Wildfly / JBoss handle dependencies using its module system and camunda engine module has no module dependency on the spin module.
 
+### Fix issues with JavaScript Scripting (*Nashorn*)
+Spin library can encounter the exception **classNotFound** when referencing `S()` javascript object.  
+To resolve the issue edit the config file `standalone.xml` and under `<subsystem xmlns="urn:jboss:domain:ee:4.0">` add following XML lines in
+```xml
+<global-modules>
+    <module name="org.jsoup" />
+    <module name="org.camunda.spin.camunda-spin-core" />
+    <module name="org.camunda.spin.camunda-spin-dataformat-json-jackson" />
+    <module name="org.camunda.spin.camunda-spin-dataformat-xml-dom" />
+    <module name="com.jayway.jsonpath.json-path" />
+    <module name="org.camunda.template-engines.camunda-template-engines-freemarker" />
+</global-modules>
+```
+
 ## Groovy Scripting
 
 Add the following modules (if not existing) from the folder `$JBOSS_DISTRIBUTION/modules/` to the folder `$JBOSS_HOME/modules/`:
