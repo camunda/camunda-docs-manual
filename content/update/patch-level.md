@@ -342,7 +342,10 @@ The following list is an overview of all currently available patch scripts:
     <tr>
       <td>7.10</td>
       <td>engine_7.10_patch_7.10.6_to_7.10.7.sql</td>
-      <td>Add index to improve history cleanup performance.</td>
+      <td>Add index to improve history cleanup performance.
+      <br>
+      <strong>This patch script is introduced in 7.10.9</strong>. If your current patch is 7.10.6, 7.10.7 or 7.10.8, please execute the script to upgrade to 7.10.9+.
+      </td>
       <td>All databases</td>
       <td>
         <a href="https://app.camunda.com/jira/browse/CAM-10616">CAM-10616</a>
