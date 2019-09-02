@@ -714,7 +714,7 @@ Request Body:
     {"name": "anotherVarName",
     "value": 30,
     "operator": "neq"}],
-"processInstanceBusinessKeyIn": "aBusinessKey,anotherBusinessKey",
+"processInstanceBusinessKeyIn": ["aBusinessKey", "anotherBusinessKey"],
 "assigneeIn": "anAssignee,anotherAssignee",
 "priority":10,
 "sorting":
