@@ -257,6 +257,33 @@ Although the Camunda engine provides an identity management component, which is 
 
 However, note that you can use the identity service in a service / bean or listener to query your user repository if this is useful to you.
 
+# Reporting Bpmn Error
+
+See the documentation for [Error Boundary Events]({{< ref "/reference/bpmn20/events/error-events.md#error-boundary-event" >}}).
+
+To report a business error during user task operation, use `TaskService#handleBpmnError`. It can be invoked only when the task is active.
+The `#handleBpmnError` method requires a mandatory argument: `errorCode`.
+The error code identifies a predefined error. If the given `errorCode` does not exist or there is no boundary event defined,
+the current activity instance simply ends and the error is not handled.
+
+See the following example:
+
+```java
+
+Task task = taskService.createTaskQuery().taskName("Perform check").singleResult();
+
+// ... business error appears
+
+taskService.handleBpmnError(
+  task.getId(),
+  "bpmn-error-543", // errorCode
+  "Thrown BPMN Error during...", // errorMessage
+  variables);
+```
+
+A BPMN error with the error code `bpmn-error-543` is propagated. If a boundary event with this error code exists, the BPMN error will be caught and handled.
+The error message and variables are optional. They can provide additional information for the error. The variables will be passed to the execution if the BPMN error is caught.
+
 # Completion
 
 Complete is part of the [task lifecycle]({{< ref "/webapps/tasklist/task-lifecycle.md" >}}) operation along with create, set candidate, assign, etc. (allow available via Java API). Complete a task by passing variables, optionally the process variables can be retrieved::
