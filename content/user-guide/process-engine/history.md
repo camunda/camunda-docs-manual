@@ -1719,7 +1719,7 @@ of the process engine configuration. This value is applied as the default whenev
 
 #### Batches
 
-TTL for batches can be defined via attributes of the process engine configuration:
+TTL for batches can be defined via attributes of the process engine configuration in the applicationContext.xml file. Please note that `batchOperationsForHistoryCleanup` configuration is available only in Spring based application.  
 
 ```xml
 <!-- default setting for all batch operations -->
