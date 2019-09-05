@@ -1719,12 +1719,16 @@ of the process engine configuration. This value is applied as the default whenev
 
 #### Batches
 
-TTL for batches can be defined via attributes of the process engine configuration:
+TTL for batches can be defined via attribute of the process engine configuration.
 
 ```xml
 <!-- default setting for all batch operations -->
-<property name="batchOperationHistoryTimeToLive" value="P5D" />
+<property name="batchOperationHistoryTimeToLive">P5D</property>
+```
 
+For Spring based application, the `batchOperationsForHistoryCleanup` configuration is available. It defines history time to live for each specific historic batch operation.
+
+```xml
 <!-- specific TTL for each operation type -->
 <property name="batchOperationsForHistoryCleanup">
   <map>
