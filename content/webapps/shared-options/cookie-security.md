@@ -83,11 +83,18 @@ The following table shows the default configuration of the Web applications.
   <tr>
     <td><code>SameSite</code></td>
     <td>–</td>
-    <td><code>Strict *</code></td>
+    <td><code>Lax *</code></td>
   </tr>
 </table>
 
 \* The <code>SameSite</code> property is not supported for **IBM WebSphere 8 / 9** and disabled by default.
+
+{{< note title="SameSite & Firefox" class="info" >}}
+Firefox prevents sending the Cookie to the server for all subsequent requests until the next restart ...
+
+* ... on **Strict** when opening the Webapps from a cross-origin (GET)
+* ... on **Lax** when a modifying request (e. g. POST) is performed from a cross-origin
+{{< /note >}}
 
 ## How to configure?
 
