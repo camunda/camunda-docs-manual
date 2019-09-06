@@ -278,6 +278,11 @@ Every validation report object contains the following properties:
 }
 ```
 
+## Query Maximum Results Limit Exceptions
+
+When the [maximum results limit of a query]({{< ref "/user-guide/process-engine/process-engine-api.md#query-maximum-results-limit">}}) 
+is exceeded, an exception is thrown which results in an HTTP status code 400.
+
 # Authentication
 
 The REST API ships with an implementation of [HTTP Basic Authentication](http://en.wikipedia.org/wiki/Basic_access_authentication). By default it is switched off (in the rest-api web application and therefore also in the pre-built Camunda BPM distributions). You can activate it by adding a servlet filter as described in the [Authentication]({{< ref "/reference/rest/overview/authentication.md" >}}) section.
