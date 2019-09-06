@@ -109,6 +109,50 @@ List<Task> tasks = taskService.createTaskQuery()
 
 You can find more information on this in the {{< javadocref page="" text="Java Docs" >}}.
 
+## Query Maximum Results Limit
+
+Querying for results without restricting the maximum number of results or querying for a vast number 
+of results can lead to a high memory consumption or even to out of memory exceptions. With the help 
+of the [Query Maximum Results Limit]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#queryMaxResultsLimit" >}}), 
+you can restrict the maximum number of results.
+
+This restriction is only enforced in the following cases:
+
+* an authenticated user performs the query
+* the query API is directly called e. g. via REST API (no enforcement within a process through 
+[Delegation Code]({{< ref "/user-guide/process-engine/delegation-code.md" >}}))
+
+### Forbidden Cases
+
+* Performing a query with an unbounded number of results using the <code>#list()</code> method
+* Performing a [Paginated Query](#paginated-queries) that exceeds the configured limit of maximum results
+* Performing a query-based synchronous operation that affects more instances than the limit of
+ maximum results (please use a [Batch Operation]({{< ref "/user-guide/process-engine/batch-operations.md" >}}) instead)
+
+### Allowed Cases
+
+* Performing a [Paginated Query](#paginated-queries) with a maximum number of results less or equal 
+to the maximum results limit
+* Performing a [Native Query](#native-queries) since it is not accessible via REST API or Webapps
+ and therefore not likely to be exploited
+* Performing a statistic query via REST API
+* Performing a called instance query via Webapps (private API)
+
+## Paginated Queries
+
+Pagination allows configuring the maximum results retrieved by a query as well as the position 
+(index) of the first result.
+
+Please see the following example:
+```java
+List<Task> tasks = taskService.createTaskQuery()
+  .taskAssignee("kermit")
+  .processVariableValueEquals("orderId", "0815")
+  .orderByDueDate().asc()
+  .listPage(20, 50);
+```
+
+The query shown above retrieves 50 results starting at the result with the index 20.
 
 ## OR Queries
 The default behavior of the query API links filter criteria together with an AND expression. 

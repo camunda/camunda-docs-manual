@@ -214,6 +214,18 @@ Consider disabling execution of expressions in queries. See also: [Custom Code &
 One of the options to query data from the engine is using native queries. Which means to provide own SQL queries to retrieve engine entities if the Query API lacks the possibilities you need.
 However, use the native queries with care. Please bear in mind of the SQL Injection while using this approach.
 
+### Maximum Results Limit in Queries
+
+Using the REST API or the Webapps querying for results without restricting the maximum number of 
+results or querying  for a vast number of results can lead to a high memory consumption or even to 
+out of memory exceptions.
+
+You can mitigate the risk of an attack by defining a limit for the maximum number of results  
+(`queryMaxResultsLimit`) in the [process engine configuration]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#queryMaxResultsLimit" >}}).
+
+Please see the User Guide to learn more about the 
+[Query Maximum Results Limit]({{< ref "/user-guide/process-engine/process-engine-api.md#query-maximum-results-limit">}}).
+
 ### CSRF Prevention in the Webapps
 A CSRF filter is enabled by default, validating each modifying request performed through the webapps.
 Please also see the detailed overview on how to configure [CSRF Prevention]({{< ref "/webapps/shared-options/csrf-prevention.md" >}}).

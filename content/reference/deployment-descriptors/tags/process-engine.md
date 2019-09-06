@@ -602,6 +602,18 @@ The following is a list with the most commonly used process engine configuration
     </td>
   </tr>
 
+  <tr>
+    <td><a name="queryMaxResultsLimit"></a><code>queryMaxResultsLimit</code></td>
+    <td>Integer</td>
+    <td>
+        When defining a limit of maximum results, an authenticated user cannot perform a query 
+        with an unbounded number of results or a paginated query that exceeds the limit. 
+        Read more about it in the
+        <a href="{{< ref "/user-guide/process-engine/process-engine-api.md#query-maximum-results-limit">}}">User Guide</a>. <br><br>
+        The default value is 2<sup>31</sup>-1.
+    </td>
+  </tr>
+
 </table>
 
 ## History cleanup configuration parameters
@@ -724,7 +736,7 @@ The following is a list with the most commonly used process engine configuration
     <td>Integer</td>
     <td>Defines the minimum amount of top-level objects required for data to be removed. Default value is 10. Hint: if the value is too small and the process
     engine continues to be used during history cleanup, it can happen that real SQL delete statements are called very frequently for small amounts of data.<br><br>
-    <strong>Note:</strong> This property cannot be used in conjunction with <code>historyCleanupStrategy</code> set to <code>endTimeBased</code>.</td>
+    <strong>Note:</strong> This property cannot be used in conjunction with <code>historyCleanupStrategy</code> set to <code>removalTimeBased</code>.</td>
   </tr>
   <tr>
     <td><code>historyCleanupDegreeOfParallelism</code></td>
