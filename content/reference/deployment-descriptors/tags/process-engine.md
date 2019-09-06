@@ -325,7 +325,7 @@ The following is a list with the most commonly used process engine configuration
       <td>Boolean</td>
       <td>
         If set to <code>true</code>, enables XML eXternal Entity (XXE) Processing. When disabled, it provides protection against XXE Processing attacks.
-        Default value is <code>true</code>.
+        Default value is <code>false</code>.
         <p>
           <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
         </p>
@@ -483,6 +483,7 @@ The following is a list with the most commonly used process engine configuration
         <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
       </p>
     </td>
+  </tr>
 
   <tr>
     <td><code>tenantCheckEnabled</code></td>
@@ -567,6 +568,18 @@ The following is a list with the most commonly used process engine configuration
     <td>Boolean</td>
     <td>
         Sets if Java serialization format can be used, when <a href="{{< ref "/user-guide/process-engine/variables.md#object-values">}}">setting variables by their serialized representation</a>. Default value: <code>false</code>
+    </td>
+  </tr>
+
+  <tr>
+    <td><a name="queryMaxResultsLimit"></a><code>queryMaxResultsLimit</code></td>
+    <td>Integer</td>
+    <td>
+        When defining a limit of maximum results, an authenticated user cannot perform a query 
+        with an unbounded number of results or a paginated query that exceeds the limit. 
+        Read more about it in the
+        <a href="{{< ref "/user-guide/process-engine/process-engine-api.md#query-maximum-results-limit">}}">User Guide</a>. <br><br>
+        The default value is 2<sup>31</sup>-1.
     </td>
   </tr>
 
