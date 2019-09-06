@@ -1329,15 +1329,28 @@ The following attributes are extension attributes for the `camunda` namespace `h
     </td>
   </tr>
   <tr>
+    <td></td>
+    <td><code>id</code></td>
+    <td>
+      The id of the task listener in the parent scope, only required when <code>event</code> is set to <code>timeout</code>
+    </td>
+  </tr>
+  <tr>
     <th>Constraints</th>
     <td colspan="2">
-      The <code>event</code> attribute is required and must be one of the task events: <code>create</code>, <code>assignment</code>, <code>complete</code> or <code>delete</code>
+      The <code>event</code> attribute is required and must be one of the task events: <code>create</code>, <code>assignment</code>, <code>complete</code>, <code>delete</code> or <code>timeout</code>
     </td>
   </tr>
   <tr>
     <td></td>
     <td colspan="2">
       One of the attributes <code>class</code>, <code>expression</code> or <code>delegateExpression</code> is mandatory
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td colspan="2">
+      If the attribute <code>event</code> is set to <code>timeout</code>, the attribute <code>id</code> and exactly one child element of type <a href="{{< ref "/reference/bpmn20/events/timer-events.md#defining-a-timer" >}}">timerEventDefinition</a> are mandatory
     </td>
   </tr>
   <tr>
@@ -1350,7 +1363,8 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>Child elements</th>
     <td colspan="2">
       <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#field" >}}">camunda:field</a>,
-      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#script" >}}">camunda:script</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#script" >}}">camunda:script</a>,
+	  <a href="{{< ref "/reference/bpmn20/events/timer-events.md#defining-a-timer" >}}">timerEventDefinition</a>
     </td>
   </tr>
 </table>

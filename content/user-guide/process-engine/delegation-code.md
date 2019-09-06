@@ -326,6 +326,7 @@ A task listener supports following attributes:
     * **assignment**: occurs when the task is assigned to somebody. Note: when process execution arrives in a userTask, an assignment event will be fired first, before the create event is fired. This might seem like an unnatural order but the reason is pragmatic: when receiving the create event, we usually want to inspect all properties of the task, including the assignee.
     * **complete**: occurs when the task is completed and just before the task is deleted from the runtime data.
     * **delete**: occurs just before the task is deleted from the runtime data.
+	* **timeout**: occurs when the specified timer is due. Note: this event type requires one [timerEventDefinition][timerEventDefinition] child element in the task listener and will only be fired if the [Job Executor][job-executor] is enabled.
 
 
 * **class**: the delegation class that must be called. This class must implement the `org.camunda.bpm.engine.impl.pvm.delegate.TaskListener` interface.
@@ -354,6 +355,9 @@ A task listener supports following attributes:
     <camunda:taskListener event="create" delegateExpression="${myTaskListenerBean}" />
     ```
 
+* **id**: a unique identifier of the listener within the scope of the user task, only required if the `event` is set to `timeout`.
+
+
 Besides the `class`, `expression` and `delegateExpression` attributes, a
 [camunda:script][camunda-script] child element can be used to specify a script as task listener.
 An external script resource can also be declared with the resource attribute of the
@@ -372,6 +376,21 @@ tasks).
   </userTask>
 ```
 
+Furthermore, a [timerEventDefinition][timerEventDefinition] child element can be used in conjunction with the `event` type `timeout`
+in order to define the associated timer. The specified delegate will be called by the [Job Executor][job-executor] when the timer is due.
+The execution of the user task will **not** be interrupted by this.
+
+```xml
+  <userTask id="task">
+    <extensionElements>
+      <camunda:taskListener event="timeout" delegateExpression="${myTaskListenerBean}" id="friendly-reminder" >
+        <timerEventDefinition>
+          <timeDuration xsi:type="tFormalExpression">PT1H</timeDuration>
+        </timerEventDefinition>
+      </camunda:taskListener>
+    </extensionElements>
+  </userTask>
+```
 
 # Field Injection on Listener
 
@@ -519,3 +538,5 @@ public class BookOutGoodsDelegate implements JavaDelegate {
 
 [script-sources]: {{< ref "/user-guide/process-engine/scripting.md#script-source" >}}
 [camunda-script]: {{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#camunda-script" >}}
+[timerEventDefinition]: {{< ref "/reference/bpmn20/events/timer-events.md#defining-a-timer" >}}
+[job-executor]: {{< ref "/user-guide/process-engine/the-job-executor.md" >}}
