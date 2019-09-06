@@ -172,10 +172,11 @@ instance state is preserved when migration is executed.
 When migrating events, it is possible to decide whether the corresponding event
 triggers should be updated or not.  See the [BPMN-specific considerations on
 events]({{< relref "#events" >}}) for details. When generating a migration
-plan, it is possible to define this setting for generated instructions between
-events by using the method `updateEventTrigger`.  For example, the following
-code generates a migration instruction for a boundary event and updates its
-event trigger during migration.
+plan, it is possible to define this setting for generated instructions on 
+[User Tasks]({{< relref "#user-task" >}}) containing `timeout` task listeners and 
+between events by using the method `updateEventTrigger`. For example, 
+the following code generates a migration instruction for a boundary event and 
+updates its event trigger during migration.
 
 {{< note title="Conditional Events" class="info" >}}
 For conditional events the `#updateEventTrigger` is mandatory.
@@ -406,6 +407,17 @@ Depending on the type of the activities a process model contains, migration has 
 
 When a user task is migrated, all properties of the task instance (i.e., `org.camunda.bpm.engine.task.Task`) are preserved apart
 from the process definition id and task definition key. The task is not reinitialized: Attributes like assignee or name do not change.
+
+#### Timeout Task Listeners
+
+User tasks with attached task listeners of event type `timeout` define persistent event triggers that can be updated or preserved during migration.
+For the associated timers, the considerations of [catching events]({{< relref "#events" >}}) apply here as well. On migration of the user task, 
+the following semantics are applied:
+
+* If a timeout task listener is found in the source and target process definition based on its `id`, its persistent event trigger (i.e. timer) is migrated
+* If a timeout task listener in the source process definition is not found in the target definition based on its `id`, then its event trigger is deleted during migration
+* If a timeout task listener of the target definition is not the target of a migration instruction, then a new event trigger is initialized during migration
+
 
 ### Receive Task
 
