@@ -284,6 +284,22 @@ taskService.handleBpmnError(
 A BPMN error with the error code `bpmn-error-543` is propagated. If a boundary event with this error code exists, the BPMN error will be caught and handled.
 The error message and variables are optional. They can provide additional information for the error. The variables will be passed to the execution if the BPMN error is caught.
 
+# Reporting Bpmn Escalation
+
+See the documentation for [Catching Escalation Events]({{< ref "/reference/bpmn20/events/escalation-events.md#catching-escalation-events" >}}).
+
+Reporting an escalation during user task execution can be achieved via `TaskService#handleEscalation`. The user task should be active to do so. The `escalationCode` is compulsory to invoke the escalation, this code identifies a predefined escalation. If the given `escalationCode` does not exist an Process Engine Exception will be thrown. See the following example:
+
+```java
+taskService.handleEscalation(
+  taskId,
+  "escalation-432", // escalationCode
+  variables);
+```
+
+Here an escalation is propagated with escalation code `escalation-432`. If a boundary event with this escalation code exists, the escalation will be caught and handled.
+The variables are optional. They will be passed to the execution if the escalation is caught.
+
 # Completion
 
 Complete is part of the [task lifecycle]({{< ref "/webapps/tasklist/task-lifecycle.md" >}}) operation along with create, set candidate, assign, etc. (allow available via Java API). Complete a task by passing variables, optionally the process variables can be retrieved::
