@@ -49,6 +49,10 @@ A JSON object with the following properties:
     <td>duedate</td>
     <td>The date to set when the job has the next execution.</td>
   </tr>
+  <tr>
+    <td>cascade</td>
+    <td>A boolean value to indicate if modifications to the due date should cascade to subsequent jobs. (e.g. Modify the due date of a timer by +15 minutes. This flag indicates if a +15 minutes should be applied to all subsequent timers.) This flag only affects timer jobs and only works if due date is not null. Default: <code>false</code></td>
+  </tr>
 </table>
 
 
@@ -91,7 +95,10 @@ PUT `/job/aJobId/duedate`
 
 Request Body:
 
-    {"duedate": "2013-08-13T18:43:28.000+0200"}
+    {
+      "duedate": "2013-08-13T18:43:28.000+0200",
+      "cascade": false
+    }
 
 ## Response
 
