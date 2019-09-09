@@ -30,7 +30,7 @@ POST `/task/{id}/bpmnError`
   </tr>
   <tr>
     <td>id</td>
-    <td>The id of the task in which context a BPMN error is reported.</td>
+    <td>The id of the task a BPMN error is reported for.</td>
   </tr>
 </table>
 
