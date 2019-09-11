@@ -1128,7 +1128,7 @@ TTL for batches can be defined via attribute of the process engine configuration
 <property name="batchOperationHistoryTimeToLive">P5D</property>
 ```
 
-For Spring based application, the `batchOperationsForHistoryCleanup` configuration is available. It defines history time to live for each specific historic batch operation.
+The `batchOperationsForHistoryCleanup` property can be configured in Spring based application or via custom [Process Engine Plugins]({{< ref "/user-guide/process-engine/process-engine-plugins.md">}}). It defines history time to live for each specific historic batch operation.
 
 ```xml
 <!-- specific TTL for each operation type -->
