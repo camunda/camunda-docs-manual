@@ -515,7 +515,7 @@ Spring Boot behaviour is taken into account.</td>
 <tr>
   <td><code>.enable-same-site-cookie</code></td>
   <td>
-    If set to <code>false</code>, the cookie flag <a href="{{< ref "/webapps/shared-options/cookie-security.md#samesite" >}}">SameSite</a> is disabled.
+    If set to <code>false</code>, the cookie flag <a href="{{< ref "/webapps/shared-options/cookie-security.md#samesite" >}}">SameSite</a> is disabled. The default value of the <code>SameSite</code> cookie is <code>LAX</code> and it can be changed via <code>same-site-cookie-option</code> configuration property.
   </td>
   <td><code>true</code></td>
 </tr>

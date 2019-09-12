@@ -87,6 +87,7 @@ If you would like to enable the additional _Same Origin with Standard Headers_ v
     <td>
       If set to <code>false</code>, the cookie flag <a href="{{< ref "/webapps/shared-options/cookie-security.md#samesite" >}}">SameSite</a> is disabled.<br>
       The default value is <code>true</code>.
+      The default value of the <code>SameSite</code> cookie is <code>LAX</code> and it can be changed via <code>sameSiteCookieOption</code> configuration property.
     </td>
   </tr>
   <tr>
