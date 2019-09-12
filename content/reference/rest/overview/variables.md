@@ -41,3 +41,42 @@ building is not a Java Applications by itself, make sure you use a text-based
 {{< note title="" class="info" >}}
   To retrieve the serialized form of a variable, use the `deserializeValues=false` GET parameter.
 {{< /note >}}
+
+
+# Serialize Variables of type Object in REST API 
+
+In the REST API, [process variables]({{< ref "/user-guide/process-engine/variables.md" >}}) of type Object can be serialized in JSON or XML format.
+
+Serializing Object into JSON format:
+
+```json
+	{
+	   "variables": {
+	      "aVariable": {
+	         "value": "{\"somekey\": \"somevalue\"}",
+	         "type": "Object",
+	         "valueInfo": {
+	            "objectTypeName": "com.camunda.SomeClass",
+	            "serializationDataFormat": "application/json"
+	         }
+	      }
+	   }
+	}
+```
+
+Serializing Object into XML format:
+
+```json
+	{
+	   "variables": {
+	      "aVariable": {
+	         "value": "<somekey>somevalue</somekey>",
+	         "type": "Object",
+	         "valueInfo": {
+	            "objectTypeName": "com.camunda.SomeClass",
+	            "serializationDataFormat": "application/xml"
+	         }
+	      }
+	   }
+	}
+```	
