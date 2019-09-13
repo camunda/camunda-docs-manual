@@ -54,7 +54,7 @@ GET `/history/variable-instance`
   </tr>
   <tr>
     <td>variableTypeIn</td>
-    <td>Only include historic variable instances which belong to one of the passed and comma-separated variable types.</td>
+    <td>Only include historic variable instances which belong to one of the passed and comma-separated variable types. A list of all supported variable types can be found <a href="{{< ref "/user-guide/process-engine/variables.md#supported-variable-values" >}}">here</a>. <b>Note:</b> All non-primitive variables are associated with the type "serializable".
   </tr>
   <tr>
     <td>includeDeleted</td>
@@ -66,7 +66,7 @@ GET `/history/variable-instance`
   </tr>
   <tr>
     <td>processInstanceIdIn</td>
-    <td>Only include historic variable instances which belong to one of the passed and comma-separated variable types. A list of all supported variable types can be found <a href="{{< ref "/user-guide/process-engine/variables.md#supported-variable-values" >}}">here</a>. <b>Note:</b> All non-primitive variables are assoziated with the type "serializable".
+    <td>Only include historic variable instances which belong to one of the passed and comma-separated process instance ids.</td>
     </td>
   </tr>
   <tr>
