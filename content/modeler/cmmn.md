@@ -7,7 +7,7 @@ menu:
   main:
     name: "CMMN"
     identifier: "camunda-modeler-cmmn"
-    parent: "camunda-modeler"
+    parent: "modeler"
     pre: "How to model executable CMMN 1.1 diagrams."
 
 ---

@@ -7,7 +7,7 @@ menu:
   main:
     name: "DMN"
     identifier: "camunda-modeler-dmn"
-    parent: "camunda-modeler"
+    parent: "modeler"
     pre: "How to model executable DMN 1.1 decision diagrams (DRD) and tables."
 
 ---

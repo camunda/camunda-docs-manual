@@ -7,7 +7,7 @@ menu:
   main:
     name: "BPMN"
     identifier: "camunda-modeler-bpmn"
-    parent: "camunda-modeler"
+    parent: "modeler"
     pre: "How to model executable BPMN 2.0 process diagrams."
 
 ---
@@ -34,7 +34,7 @@ The demo above shows how to create more BPMN 2.0 elements like lanes, task types
 
 ## BPMN 2.0 Coverage
 
-The Camunda Modeler covers all BPMN 2.0 elements for modeling processes and collaborations. 
+The Camunda Modeler covers all BPMN 2.0 elements for modeling processes and collaborations.
 
 ## BPMN 2.0 Properties for Execution
 

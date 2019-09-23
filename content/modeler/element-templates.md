@@ -7,7 +7,7 @@ menu:
   main:
     name: "Element Templates"
     identifier: "camunda-modeler-element-templates"
-    parent: "camunda-modeler"
+    parent: "modeler"
     pre: "Extend the modeler with custom elements."
 
 ---

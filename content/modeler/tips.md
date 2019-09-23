@@ -7,7 +7,7 @@ menu:
   main:
     name: "Tips and Tricks"
     identifier: "camunda-modeler-tips"
-    parent: "camunda-modeler"
+    parent: "modeler"
     pre: "A collection of tips and tricks that make using the modeler most convenient."
 
 ---

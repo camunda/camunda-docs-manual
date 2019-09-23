@@ -29,7 +29,7 @@ To give you an overview of Camunda, the following illustration shows the most im
 
 # Modeler
 
-* [Camunda Modeler]({{< ref "/modeler/camunda-modeler/_index.md" >}}): Modeling tool for BPMN 2.0 and CMMN 1.1 diagrams as well as DMN 1.1 decision tables.
+* [Camunda Modeler]({{< ref "/modeler/_index.md" >}}): Modeling tool for BPMN 2.0 and CMMN 1.1 diagrams as well as DMN 1.1 decision tables.
 * [bpmn.io](http://bpmn.io/): Open-source project for the modeling framework and toolkits.
 
 # Web Applications
