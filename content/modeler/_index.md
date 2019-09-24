@@ -3,7 +3,8 @@
 title: 'Camunda Modeler'
 layout: 'section-list'
 weight: 45
-
+aliases:
+  - modeler/camunda-modeler
 
 menu:
   main:
