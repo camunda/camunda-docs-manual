@@ -84,7 +84,7 @@ A timer's repeat cycle can be controlled via the [REST API](https://docs.camunda
 managementService.setJobDuedate(String jobId, Date newDuedate)
 ```
 
-Changes to one timer instance do not automatically affect subsequent timer instances. Given a recurring timer, that produces a timer event every 30 minutes. If the due date of one timer is changed (e.g. +15minutes) it would be executed 45 minutes after the previous timer. However, the following timer would follow the old pattern and would execute 15 minutes after the changed timer.
+Changes to one timer instance do not automatically affect subsequent timer instances. For example, a certain recurring timer produces a timer event every 30 minutes. If the due date of one timer event is changed (e.g. +15minutes), it would be executed 45 minutes after the previous timer. However, the following timer would follow the old pattern and would execute 15 minutes after the changed timer.
 
 If the desired outcome is to calculate the due dates of all subsequent timers based on the changes made, then it is possible to pass a `cascade` flag (when using the [REST API](https://docs.camunda.org/manual/latest/reference/rest/job/put-set-job-duedate/)) or use the following Java API method:
 
