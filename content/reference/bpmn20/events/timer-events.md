@@ -77,6 +77,22 @@ Note: The first symbol denotes seconds, not minutes as in normal Unix cron.
 
 The recurring time duration option is better suited for handling relative timers, which are calculated in respect to some particular point in time (e.g., the time when a user task was started), while cron expressions can handle absolute timers - which is particularly useful for timer start events.
 
+### Modify a Time Cycle
+A timer's repeat cycle can be controlled via the [REST API](https://docs.camunda.org/manual/latest/reference/rest/job/put-set-job-duedate/) or by calling the ManagementService. By setting the due date of a timer, it is possible to change the point in time when a timer is executed. 
+
+```java
+managementService.setJobDuedate(String jobId, Date newDuedate)
+```
+
+Changes to one timer instance do not automatically affect subsequent timer instances. For example, a certain recurring timer produces a timer event every 30 minutes. If the due date of one timer event is changed (e.g. +15minutes), it would be executed 45 minutes after the previous timer. However, the following timer would follow the old pattern and would execute 15 minutes after the changed timer.
+
+If the desired outcome is to calculate the due dates of all subsequent timers based on the changes made, then it is possible to pass a `cascade` flag (when using the [REST API](https://docs.camunda.org/manual/latest/reference/rest/job/put-set-job-duedate/)) or use the following Java API method:
+
+```java
+managementService.setJobDuedate(String jobId, Date newDuedate, boolean cascade)
+```
+
+
 ## Expressions
 
 You can use expressions for the timer event definitions. By doing so you can influence the timer definition based on process variables. The process variables must contain the [ISO 8601][iso-8601] (or cron for cycle type) string for the appropriate timer type.
