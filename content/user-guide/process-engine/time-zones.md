@@ -20,6 +20,14 @@ The Camunda engine uses the default time zone of the JVM when operating with dat
 
 Database time zone and database sessions time zone are out of scope of the Camunda engine and must be configured explicitly.
 
+{{< note title="Daylight Saving Time" class="warning" >}}
+Timezone information is not saved in the timestamp columns. In order to avoid ambiguous timestamps, it is recommended to use a timezone like `UTC` as the JVM's default timezone 
+that is not adjusted for `Daylight Saving Time (DST)` and therefore cannot produce ambiguous timestamps.
+
+If this is not an option in your setting, please consider disabling the [JobExecutor]({{< ref "/user-guide/process-engine/the-job-executor.md" >}}) during the DST switch in order
+to avoid unexpected job executions. 
+{{< /note >}}
+
 ## Camunda Web Applications
 
 It is possible to use the Camunda Web Applications in different timezones. All dates are translated to/from the local timezone when working with the UI.
