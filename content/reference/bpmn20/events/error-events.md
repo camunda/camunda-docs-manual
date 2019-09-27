@@ -202,7 +202,7 @@ The errorCode is used to match the errors that are caught:
 
 # Unhandled BPMN Error
 
-It can happens that no catching boundary event was defined for an error event. The default behaviour in this case is to log information and end the current execution.
+It can happen that no catching boundary event was defined for an error event. The default behaviour in this case is to log information and end the current execution.
 This behaviour can be changed with <code>enableExceptionsAfterUnhandledBpmnError</code> property set to <code>true</code> 
 (via the process engine configuration or the deployment descriptor) and Process Engine Exception will be thrown if unhandled BPMN Error occurs.
 
