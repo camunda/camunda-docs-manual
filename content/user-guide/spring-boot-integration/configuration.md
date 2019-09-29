@@ -483,7 +483,7 @@ Spring Boot behaviour is taken into account.</td>
 </tr>
 
 <tr id="csrf">
-  <td rowspan="9"><code>camunda.bpm.webapp.csrf</code></td>
+  <td rowspan="10"><code>camunda.bpm.webapp.csrf</code></td>
 </tr>
 <tr>
 <td><code>.target-origin</code></td>
@@ -542,6 +542,13 @@ Spring Boot behaviour is taken into account.</td>
     </ul>
   </td>
   <td><i>Not set</i></td>
+</tr>
+<tr>
+  <td><code>.cookie-name</code></td>
+  <td>
+      A custom value to change the cookie name.
+  </td>
+  <td><code>XSRF-TOKEN</code></td>
 </tr>
 
 <tr id="header-security">
