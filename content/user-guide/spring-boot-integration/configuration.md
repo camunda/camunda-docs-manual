@@ -546,7 +546,10 @@ Spring Boot behaviour is taken into account.</td>
 <tr>
   <td><code>.cookie-name</code></td>
   <td>
-      A custom value to change the cookie name.
+      A custom value to change the cookie name.<br>
+      <strong>Note:</strong> Please make sure to additionally change the cookie name for each webapp 
+      (e. g. <a href="{{< ref "/webapps/cockpit/extend/configuration.md#change-csrf-cookie-name" >}}">Cockpit
+      </a>) separately.
   </td>
   <td><code>XSRF-TOKEN</code></td>
 </tr>

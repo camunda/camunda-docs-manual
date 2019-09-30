@@ -97,6 +97,19 @@ This includes a `custom-ng-module/script.js` file. The path is relative to the
 require(config.deps, callback);
 ```
 
+# Change CSRF Cookie Name
+
+The default name of the CSRF Cookie is `XSRF-TOKEN`. When using other applications within the 
+same-origin, the CSRF mechanisms could interfere with each other. To avoid the name conflict, you 
+can change the name of the CSRF cookie in the `config.js` file as follows:
+```javascript
+var camAdminConf = {
+  // …
+  csrfCookieName: 'MY-XSRF-TOKEN'
+};
+```
+
+**Note:** Please make sure to change the CSRF cookie name also on [server-side]({{<ref "/webapps/shared-options/csrf-prevention.md#cookie-name" >}}).
 
 # Advanced Styles Customization
 

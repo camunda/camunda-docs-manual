@@ -204,6 +204,20 @@ It is configurable, for how many days in the past instances are queried based on
 * The property `lastDays` specifies the numeric amount of days in the past based on the current time
 * The property `event` can be either set to 'started' or 'ended'
 
+# Change CSRF Cookie Name
+
+The default name of the CSRF Cookie is `XSRF-TOKEN`. When using other applications within the 
+same-origin, the CSRF mechanisms could interfere with each other. To avoid the name conflict, you 
+can change the name of the CSRF cookie in the `config.js` file as follows:
+```javascript
+var camCockpitConf = {
+  // …
+  csrfCookieName: 'MY-XSRF-TOKEN'
+};
+```
+
+**Note:** Please make sure to change the CSRF cookie name also on [server-side]({{<ref "/webapps/shared-options/csrf-prevention.md#cookie-name" >}}).
+
 # Advanced Styles Customization
 
 In addition to the basic `user-styles.css` file, you can edit the source style- and layout files
