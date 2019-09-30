@@ -60,3 +60,16 @@ To create a new localization for the Welcome application, copy the provided lang
 save it as a new localization file with the corresponding language code. To make the new translation
 available, add it to the list of available locales in the configuration file.
 
+# Change CSRF Cookie Name
+
+The default name of the CSRF Cookie is `XSRF-TOKEN`. When using other applications within the 
+same-origin, the CSRF mechanisms could interfere with each other. To avoid the name conflict, you 
+can change the name of the CSRF cookie in the `config.js` file as follows:
+```javascript
+var camWelcomeConf = {
+  // …
+  csrfCookieName: 'MY-XSRF-TOKEN'
+};
+```
+
+**Note:** Please make sure to change the CSRF cookie name also on [server-side]({{<ref "/webapps/shared-options/csrf-prevention.md#cookie-name" >}}).

@@ -104,11 +104,14 @@ If you would like to enable the additional _Same Origin with Standard Headers_ v
       <strong>Note:</strong> This property is ignored when <code>enableSameSiteCookie</code> is set to <code>false</code>.
     </td>
   </tr>
-  <tr>
+  <tr id="cookie-name">
     <td>cookieName</td>
     <td>
       A custom value to change the cookie name.<br>
-      The default value is <code>XSRF-TOKEN</code>.
+      The default value is <code>XSRF-TOKEN</code>.<br>
+      <strong>Note:</strong> Please make sure to additionally change the cookie name for each webapp 
+      (e. g. <a href="{{< ref "/webapps/cockpit/extend/configuration.md#change-csrf-cookie-name" >}}">Cockpit
+      </a>) separately.
     </td>
   </tr>
 </table>
