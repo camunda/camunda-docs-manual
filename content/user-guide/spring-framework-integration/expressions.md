@@ -1,18 +1,18 @@
 ---
 
-title: 'Resolving Spring Beans in Expressions'
+title: 'Spring Beans in Processes'
 weight: 40
 
 menu:
   main:
-    name: "Expression Resolving"
+    name: "Spring Bean Resolving"
     identifier: "user-guide-spring-framework-integration-expressions"
     parent: "user-guide-spring-framework-integration"
     pre: "Use Spring Beans in Processes"
 
 ---
 
-# Limit the Exposing Spring Beans
+# Limit the Exposing Spring Beans in Expressions
 
 When using the `ProcessEngineFactoryBean`, by default, all expressions in the BPMN processes will also "see" all the Spring beans. It's possible to limit the beans you want to expose in expressions or even exposing no beans at all using a map that you can configure. The example below exposes a single bean (printer), available to use under the key `printer`. To have NO beans exposed at all, just pass an empty list as `beans` property on the `SpringProcessEngineConfiguration`. When no `beans` property is set, all Spring beans in the context will be available.
 
@@ -33,21 +33,25 @@ When using the `ProcessEngineFactoryBean`, by default, all expressions in the BP
 
 # Using Spring Beans in Expressions
 
-The exposed beans can be used in expressions. For example, the `SpringTransactionIntegrationTest` `hello.bpmn20.xml` shows how a method on a Spring bean can be invoked using a UEL method expression:
+The exposed beans can be used in expressions. For example, the `SpringTransactionIntegrationTest` `testBasicActivitiSpringIntegration.bpmn20.xml` shows how a method on a Spring bean can be invoked using a UEL method expression:
 
 ```xml
 <definitions id="definitions" ...>
 
-  <process id="helloProcess">
-
+  <process id="helloProcess" isExecutable="true">
+  
     <startEvent id="start" />
     <sequenceFlow id="flow1" sourceRef="start" targetRef="print" />
-
-    <serviceTask id="print" camunda:expression="#{printer.printMessage()}" />
-    <sequenceFlow id="flow2" sourceRef="print" targetRef="end" />
-
+    
+    <serviceTask id="print" 
+                 camunda:expression="#{printer.printMessage(execution)}" />
+    <sequenceFlow id="flow2" sourceRef="print" targetRef="userTask" />
+    
+    <userTask id="userTask" />
+    <sequenceFlow id="flow3" sourceRef="userTask" targetRef="end" />
+    
     <endEvent id="end" />
-
+    
   </process>
 
 </definitions>
@@ -58,8 +62,8 @@ Where Printer looks like this:
 ```java
 public class Printer {
 
-  public void printMessage() {
-    System.out.println("hello world");
+  public void printMessage(ActivityExecution execution) {
+    execution.setVariable("myVar", "Hello from Printer!");
   }
 }
 ```
@@ -88,3 +92,34 @@ This functionality is provided by the `org.camunda.bpm.engine.spring.application
 {{< note title="" class="info" >}}
   The `SpringProcessApplicationElResolver` class is automatically detected if the `camunda-engine-spring` module is included as a library of the process application, not as a global library.
 {{< /note >}}
+
+# Using Spring Beans in Scripting
+
+When using `ProcessEngineFactoryBean`, all Spring beans are accessible in Groovy, JavaScript, and Jython. For example, the `ScriptTaskTest-applicationContext.xml` exposes the bean 'testbean':
+
+```xml
+<beans ...>
+  ...
+
+  <bean id="testbean" 
+        class="org.camunda.bpm.engine.spring.test.scripttask.Testbean" />
+</beans>
+```
+Where Testbean looks like this:
+
+```java
+@Component
+public class Testbean {
+  private String name = "name property of testbean";
+
+  public String getName() {
+    return name;
+  }
+}
+```
+
+`Testbean` is referenced then form JavaScript:
+
+```javascript
+  execution.setVariable('foo', testbean.name);
+```
