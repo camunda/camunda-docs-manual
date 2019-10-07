@@ -23,6 +23,7 @@ This document guides you through the update from Camunda BPM `7.11.x` to `7.12.0
 1. For developers: [Security-related HTTP Headers (Webapps)](#security-related-http-headers-webapps)
 1. For developers: [Camunda Commons Typed Values Migration](#camunda-commons-typed-values-migration)
 1. For developers: [Camunda DMN Engine Migration](#camunda-dmn-engine-migration)
+1. For developers: [Task Lifecycle State and Task Events](#task-lifecycle-state-and-task-events)
 
 This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda BPM 7.12.
 
@@ -136,3 +137,16 @@ The changes include:
 # Camunda DMN Engine Migration
 
 The **Camunda DMN Engine** is another migration to the `camunda-bpm-platform` repository happening in version 7.12.0. The DMN Engine migration doesn't require any adjustments. However, any contributions to the DMN Engine will need to be addressed to the [camunda-bpm-platform repository](https://github.com/camunda/camunda-bpm-platform/tree/master/engine-dmn).
+
+# Task Lifecycle State and Task Events
+
+The 7.12.0 release provides a more defined User Task lifecycle. This impacts the order in which Task
+events are fired. Previously, when process execution arrived in a User Task, the assignment event
+was fired **before** the create event (if an assignee was set). With the new Task lifecycle, **if**
+an assignee is explicitly set on the User Task, an assignment event will be fired **after** the
+create event is fired.
+
+Any `create` Task Listeners, that depend on the execution of an `assignment` Task Listener, will
+need to be adjusted. The same goes with `assignment` Task Listeners that hold the assumption that
+they are the first to execute. They will need to be adjusted to consider that `create` Task
+ Listeners will be executed before them.

@@ -1338,7 +1338,9 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Constraints</th>
     <td colspan="2">
-      The <code>event</code> attribute is required and must be one of the task events: <code>create</code>, <code>assignment</code>, <code>complete</code>, <code>delete</code> or <code>timeout</code>
+      The <code>event</code> attribute is required and must be one of the task events: 
+      <code>create</code>, <code>assignment</code>, <code>update</code>, 
+      <code>complete</code>, <code>delete</code> or <code>timeout</code>
     </td>
   </tr>
   <tr>

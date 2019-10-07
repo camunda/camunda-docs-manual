@@ -321,12 +321,23 @@ A task listener is used to execute custom Java logic or an expression upon the o
 
 A task listener supports following attributes:
 
-* **event (required)**: the type of task event on which the task listener will be invoked. Possible events are:
+* **event (required)**: the type of task event on which the task listener will be invoked. 
+  Possible events are:
     * **create**: occurs when the task has been created and all task properties are set.
-    * **assignment**: occurs when the task is assigned to somebody. Note: when process execution arrives in a userTask, an assignment event will be fired first, before the create event is fired. This might seem like an unnatural order but the reason is pragmatic: when receiving the create event, we usually want to inspect all properties of the task, including the assignee.
-    * **complete**: occurs when the task is completed and just before the task is deleted from the runtime data.
+    * **assignment**: occurs when the task is assigned to somebody. Note: when process execution
+     arrives in a userTask, and an assignee is explicitly set on the user task, an assignment event
+     will be fired after the create event is fired. This leaves us to inspect all properties of
+     the task when we receive the create listener. The assignment event can be used for a more
+     fine grained inspection, when the assignee is actually set.
+    * **update**: occurs when a task property is changed (ex. assignee, owner, priority, etc.). 
+     Note: the initial setting of properties when a task is initialised does not fire an update
+     event.
+    * **complete**: occurs when the task is completed and just before the task is deleted from
+     the runtime data.
     * **delete**: occurs just before the task is deleted from the runtime data.
-	* **timeout**: occurs when the specified timer is due. Note: this event type requires one [timerEventDefinition][timerEventDefinition] child element in the task listener and will only be fired if the [Job Executor][job-executor] is enabled.
+	* **timeout**: occurs when the specified timer is due. Note: this event type requires one
+	 [timerEventDefinition][timerEventDefinition] child element in the task listener and will
+	  only be fired if the [Job Executor][job-executor] is enabled.
 
 
 * **class**: the delegation class that must be called. This class must implement the `org.camunda.bpm.engine.impl.pvm.delegate.TaskListener` interface.
