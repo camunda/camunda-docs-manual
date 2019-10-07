@@ -69,13 +69,13 @@ menu:
   </li>
   <br/>
   <li>
-    Finally, the form is submitted.<br/>
+    Finally, the form is completed. Triggering an [BPMN error or escalation event]({{< ref "/reference/bpmn20/tasks/user-task.md#reporting-bpmn-error" >}}) will submit the form .<br/>
     <em>Events:</em>
     <ul>
-      <li><code>submit</code> is fired <strong>before</strong> the submit request is sent to the server. An event handler may
-      prevent the form from being submitted by setting the property `submitPrevented` true.</li>
-      <li><code>submit-success</code> is fired <strong>after</strong> the server successfuly treated the submission.</li>
-      <li><code>submit-failed</code> is fired <strong>after</strong> the server failed at treating the submission
+      <li><code>submit</code>, <code>error</code> or <code>escalation</code> is fired <strong>before</strong> the submit request is sent to the server. An event handler may
+      prevent the form from being submitted by setting the property `submitPrevented`, `errorPrevented` or `escalationPrevented` to true.</li>
+      <li><code>submit-success</code>, <code>error-success</code> or <code>escalation-success</code> is fired <strong>after</strong> the server successfully treated the submission.</li>
+      <li><code>submit-failed</code>, <code>error-failed</code> or <code>escalation-failed</code> is fired <strong>after</strong> the server failed at treating the submission
       or when a network error happened.</li>
     </ul>
   </li>
@@ -128,6 +128,36 @@ Event listeners can be registered from [custom JavaScript]({{< ref "/reference/e
 
     camForm.on('submit-error', function(evt, res) {
       // handle submit-error:
+      var error = res[0];
+    });
+
+    camForm.on('error', function(evt) {
+      // handle error
+      // may prevent the error from being executed:
+      evt.errorPrevented = true;
+    });
+
+    camForm.on('error-success', function() {
+      // handle error-success
+    });
+
+    camForm.on('error-error', function(evt, res) {
+      // handle error-error:
+      var error = res[0];
+    });
+
+    camForm.on('escalation', function(evt) {
+      // handle escalation
+      // may prevent the escalation from being executed:
+      evt.escalationPrevented = true;
+    });
+
+    camForm.on('escalation-success', function() {
+      // handle escalation-success
+    });
+
+    camForm.on('escalation-error', function(evt, res) {
+      // handle escalation-error:
       var error = res[0];
     });
 
