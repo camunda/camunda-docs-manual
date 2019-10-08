@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Restarts process instances that were canceled or terminated synchronously. To execute the restart asynchronously,
+Restarts process instances that were canceled or terminated synchronously. Can also restart completed process instances. It will create a new instance using the original instance information. To execute the restart asynchronously,
 use the [Restart Process Instance Async]({{< ref "/reference/rest/process-definition/post-restart-process-instance-async.md" >}}) method.
 
 For more information about the difference between synchronous and
