@@ -319,26 +319,71 @@ A task listener is used to execute custom Java logic or an expression upon the o
   </userTask>
 ```
 
+## Task Listener Event Lifecycle
+
+The execution of Task Listeners is dependant on the order of firing of 
+the following task-related events:
+
+The **create** event fires when the task has been created and all task properties are set. No
+other task-related event will be fired before the *create* event. The event leaves us to inspect
+all properties of the task when we receive the create listener.
+
+The **update** event occurs when a task property (ex. assignee, owner, priority, etc.) on an already
+created task is changed. Note that the initial setting of properties when a task is created does
+not fire an update event (the task is being created). This also means that the *update* event
+will always occur after a *create* event has already occurred.
+
+The **assignment** event specifically tracks the changes of the Task `assignee` property. The event
+may be fired on two occasions:
+
+1. When a task with an `assignee` explicitly defined in the process definition, has been
+created. In this case, the *assignment* event will be fired after the *create* event.
+1. When an already created task is assigned, i.e. the Task `assignee` property is changed. In
+this case, the *assignment* event will follow the *update* event since changing the `assignee`
+property results in an updated task.
+
+The assignment event can be used for a more fine grained inspection, when the assignee is
+actually set.
+
+The **timeout** event occurs when a Timer, associated with this Task Listener, is due. Note that
+this requires for a Timer to be defined. The `timeout` event may occur after a Task has been
+`created`, and before it has been `completed`.
+
+The **complete** event occurs when the task is _successfully_ completed and just before the task
+is deleted from the runtime data. No other event is fired after the *complete* event, the
+*complete* event results in an end of the task event lifecycle. 
+
+The **delete** event occurs just before the task is deleted from the runtime data, because of an
+interrupting Boundary Event, an interrupting Event Subprocess, or a Process Instance deletion.
+No other event is fired after the *delete* event since it results in an end of the task event
+lifecycle. This means that the *delete* event is mutually exclusive with the *complete* event.
+
+### Task Event Chaining
+
+The descriptions above lay out the order in which Task Events are fired. However, this order may be
+disrupted under the following conditions:
+
+1. When a Task is completed inside a Task Listener, the **complete** event will be fired. A Task
+may be completed, and a `complete` event fired through `create`, `update` or `assignment` Task
+Listeners. 
+1. By using the `TaskService` methods inside a Task Listener, which may cause the firing of
+additional Task Events that will be fired out-of-order with the existing ones. However, the chain of
+events triggered by the invocation of the `TaskService` method will always be in the above-defined
+order.
+
+Under the above-mentioned conditions, users should be careful not to accidentally create a Task
+event loop.
+
+## Defining a Task Listener
+
 A task listener supports following attributes:
 
 * **event (required)**: the type of task event on which the task listener will be invoked. 
-  Possible events are:
-    * **create**: occurs when the task has been created and all task properties are set.
-    * **assignment**: occurs when the task is assigned to somebody. Note: when process execution
-     arrives in a userTask, and an assignee is explicitly set on the user task, an assignment event
-     will be fired after the create event is fired. This leaves us to inspect all properties of
-     the task when we receive the create listener. The assignment event can be used for a more
-     fine grained inspection, when the assignee is actually set.
-    * **update**: occurs when a task property is changed (ex. assignee, owner, priority, etc.). 
-     Note: the initial setting of properties when a task is initialised does not fire an update
-     event.
-    * **complete**: occurs when the task is completed and just before the task is deleted from
-     the runtime data.
-    * **delete**: occurs just before the task is deleted from the runtime data.
-	* **timeout**: occurs when the specified timer is due. Note: this event type requires one
-	 [timerEventDefinition][timerEventDefinition] child element in the task listener and will
-	  only be fired if the [Job Executor][job-executor] is enabled.
+    Possible events are: **create**, **assignment**, **update**, **complete**, **delete** and
+     **timeout**; 
 
+    Note that the **timeout** event requires a [timerEventDefinition][timerEventDefinition] child
+    element in the task listener and will only be fired if the [Job Executor][job-executor] is enabled.
 
 * **class**: the delegation class that must be called. This class must implement the `org.camunda.bpm.engine.impl.pvm.delegate.TaskListener` interface.
 
