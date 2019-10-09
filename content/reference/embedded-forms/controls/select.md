@@ -54,10 +54,7 @@ productTypes.put("001", "Notebook");
 productTypes.put("002", "Server");
 productTypes.put("003", "Workstation");
 
-execution.setVariable("AVAILABLE_PRODUCT_TYPES",  
-  objectValue(customerData)
-    .serializationDataFormat(SerializationDataFormats.JSON)
-    .create());
+execution.setVariable("AVAILABLE_PRODUCT_TYPES",  Spin.JSON(productTypes));
 ```
 
 Would be rendered as
