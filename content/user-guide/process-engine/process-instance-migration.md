@@ -82,7 +82,7 @@ In order to migrate this process instance according to the defined migration pla
 MigrationPlan migrationPlan = ...;
 List<String> processInstanceIds = ...;
 
-runtimeSerivce.newMigration(migrationPlan)
+runtimeService.newMigration(migrationPlan)
   .processInstanceIds(processInstanceIds)
   .execute();
 ```
@@ -274,7 +274,7 @@ MigrationPlan migrationPlan = ...;
 
 List<String> processInstanceIds = ...;
 
-runtimeSerivce.newMigration(migrationPlan)
+runtimeService.newMigration(migrationPlan)
   .processInstanceIds(processInstanceIds)
   .execute();
 ```
@@ -287,7 +287,7 @@ MigrationPlan migrationPlan = ...;
 ProcessInstance instance1 = ...;
 ProcessInstance instance2 = ...;
 
-runtimeSerivce.newMigration(migrationPlan)
+runtimeService.newMigration(migrationPlan)
   .processInstanceIds(instance1.getId(), instance2.getId())
   .execute();
 ```
@@ -303,7 +303,7 @@ ProcessInstanceQuery processInstanceQuery = runtimeService
   .createProcessInstanceQuery()
   .processDefinitionId(migrationPlan.getSourceProcessDefinitionId());
 
-runtimeSerivce.newMigration(migrationPlan)
+runtimeService.newMigration(migrationPlan)
   .processInstanceQuery(processInstanceQuery)
   .execute();
 ```
@@ -326,7 +326,7 @@ can be used for this purpose:
 MigrationPlan migrationPlan = ...;
 List<String> processInstanceIds = ...;
 
-runtimeSerivce.newMigration(migrationPlan)
+runtimeService.newMigration(migrationPlan)
   .processInstanceIds(processInstanceIds)
   .skipCustomListeners()
   .skipIoMappings()
@@ -342,7 +342,7 @@ block until the migration is completed.
 MigrationPlan migrationPlan = ...;
 List<String> processInstanceIds = ...;
 
-runtimeSerivce.newMigration(migrationPlan)
+runtimeService.newMigration(migrationPlan)
   .processInstanceIds(processInstanceIds)
   .execute();
 ```
@@ -361,7 +361,7 @@ return immediately with a reference to the batch which executes the migration.
 MigrationPlan migrationPlan = ...;
 List<String> processInstanceIds = ...;
 
-Batch batch = runtimeSerivce.newMigration(migrationPlan)
+Batch batch = runtimeService.newMigration(migrationPlan)
   .processInstanceIds(processInstanceIds)
   .executeAsync();
 ```
