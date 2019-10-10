@@ -120,6 +120,7 @@ runtimeService.createProcessInstanceModification(processInstance.getId())
   .execute();
 ```
 
+
 ## Process Instance Modification in JUnit Tests
 
 Process instance modification can be very useful in JUnit Tests. You can skip the long part to run through the process from the start to the point you want to test and jump directly to the activity or gateway to test.
@@ -605,6 +606,18 @@ Batch batch = runtimeService.createModification("exampleProcessDefinitionId")
 
 It is possible to skip invocations of execution and task listeners as well as input/output mappings for the transaction that performs the modification. This can be useful when the modification is executed on a system that has no access to the involved process application deployments and their contained classes. Listener and ioMapping invocations can be skipped by using the modification builder's method `execute(boolean skipCustomListeners, boolean skipIoMappings)`.
 
+## Annotation
+
+Use the `annotation` option to pass an arbitrary text annotation for auditing reasons.
+
+```java
+runtimeService.createProcessInstanceModification(processInstanceId)
+  .cancelAllForActivity("declineLoanApplication")
+  .startBeforeActivity("processStartEvent")
+  .annotation("Modified to resolve an error.")
+  .execute();
+```
+It will be visible in [User Operation Log]({{< ref "/user-guide/process-engine/history.md#annotation-of-user-operation-logs" >}}) for the performed modification.
 
 ## Soundness Checks
 

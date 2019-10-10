@@ -469,7 +469,7 @@ business context.
 
 **Please note:** Annotations are present on all entries that belong to an operation log.
 
-Àn annotation can be set and cleared via Java API:
+An annotation can be set and cleared via Java API:
 
 ```java
 String operationId = historyService.createUserOperationLogQuery()
