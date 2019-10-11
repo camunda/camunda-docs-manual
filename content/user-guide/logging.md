@@ -96,6 +96,39 @@ LogFactory.useSlf4jLogging();
 
 somewhere in your setup code.
 
+## Process Data Context
+
+In order to provide details on the current execution context of log statements,
+we set process execution-specific data in the [Mapped Diagnostic Context (MDC)](https://www.slf4j.org/manual.html#mdc).
+
+The process data is held in the MDC for the time of process execution and removed from it after the execution context is successfully left.
+In case of arising exceptions upon execution, the data is kept in the MDC until the calling context,
+i.e. the [JobExecutor]({{< ref "/user-guide/process-engine/the-job-executor.md" >}}) or the surrounding command, finished its logging.
+
+The keys at which the properties are accessible in the MDC can be defined in the 
+[process engine configuration]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#logging-context-parameters" >}}).
+
+In order to access the MDC data, you need to adjust the logging pattern of your logging configuration.
+An example using Logback could look as follows
+
+```xml
+<configuration>
+  ...
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} context:[%X] - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  ...
+</configuration>
+```
+
+By adding the `context:[%X]` to your configuration, all values that are present in the MDC at the time the log statement is created will be displayed.
+Please refer to the manual of your logging framework for further information on how to access the MDC, e.g. the [Logback documentation](http://logback.qos.ch/manual/layouts.html#mdc).
+
+
 # Logging Categories
 
 ## Process Engine

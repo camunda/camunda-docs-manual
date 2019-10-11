@@ -865,3 +865,42 @@ The history time to live defines the number of days using a time specified by th
     <td>Defines acceptable values for the Tenant IDs. Can be defined by using the standard <a href="https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html">Java Regular Expression syntax</a>. Default value: a custom general whitelist pattern or the default <code>[a-zA-Z0-9]+|camunda-admin</code> (if nothing is defined)</td>
   </tr>
 </table>
+
+## Logging context parameters
+
+These parameters define the keys at which the specified data can be retrieved from the Mapped Diagnostic Context (MDC). See [Logging]({{< ref "/user-guide/logging.md#process-data-context" >}}) for details.
+The specified data will only be put into the MDC if a key is defined. All parameters can be set to <code>null</code> or the empty String in order to disable their logging in the MDC.
+
+<table class="table table-striped">
+  <tr>
+    <td><code>logginContextActivityId</code></td>
+    <td>String</td>
+    <td>Defines the key for the current activity id. Default value: <code>activityId</code></td>
+  </tr>
+  <tr>
+    <td><code>logginContextApplicationName</code></td>
+    <td>String</td>
+    <td>Defines the key for the current process application name. Default value: <code>applicationName</code></td>
+  </tr>
+  <tr>
+    <td><code>logginContextBusinessKey</code></td>
+    <td>String</td>
+    <td>Defines the key for the current business key. Default value: <code>null</code> (disabled by default since a lookup into the database might be necessary 
+	in case the business key needs to be fetched from the process instance)</td>
+  </tr>
+  <tr>
+    <td><code>logginContextProcessDefinitionId</code></td>
+    <td>String</td>
+    <td>Defines the key for the current process definition id. Default value: <code>processDefinitionId</code></td>
+  </tr>
+  <tr>
+    <td><code>logginContextProcessInstanceId</code></td>
+    <td>String</td>
+    <td>Defines the key for the current process instance id. Default value: <code>processInstanceId</code></td>
+  </tr>
+  <tr>
+    <td><code>logginContextTenantId</code></td>
+    <td>String</td>
+    <td>Defines the key for the current tenant id. Default value: <code>tenantId</code></td>
+  </tr>
+</table>
