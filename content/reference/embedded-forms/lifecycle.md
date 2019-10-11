@@ -141,8 +141,8 @@ Event listeners can be registered from [custom JavaScript]({{< ref "/reference/e
       // handle error-success
     });
 
-    camForm.on('error-error', function(evt, res) {
-      // handle error-error:
+    camForm.on('error-failed', function(evt, res) {
+      // handle error-failed:
       var error = res[0];
     });
 
@@ -156,8 +156,8 @@ Event listeners can be registered from [custom JavaScript]({{< ref "/reference/e
       // handle escalation-success
     });
 
-    camForm.on('escalation-error', function(evt, res) {
-      // handle escalation-error:
+    camForm.on('escalation-failed', function(evt, res) {
+      // handle escalation-failed:
       var error = res[0];
     });
 
