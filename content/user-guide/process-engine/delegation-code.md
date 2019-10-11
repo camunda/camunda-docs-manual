@@ -363,13 +363,14 @@ lifecycle. This means that the *delete* event is mutually exclusive with the *co
 The descriptions above lay out the order in which Task Events are fired. However, this order may be
 disrupted under the following conditions:
 
-1. When a Task is completed inside a Task Listener, the **complete** event will be fired. A Task
-may be completed, and a `complete` event fired through `create`, `update` or `assignment` Task
-Listeners. 
+1. When calling `Task#complete()` inside a Task Listener, the **complete** event will be fired
+right away. The related Task Listeners will be immediately invoked, after which the remaining
+Task Listeners for the previous event will be processed.
 1. By using the `TaskService` methods inside a Task Listener, which may cause the firing of
-additional Task Events that will be fired out-of-order with the existing ones. However, the chain of
-events triggered by the invocation of the `TaskService` method will always be in the above-defined
-order.
+additional Task Events. As with the **complete** event mentioned above, these Task Events will
+immediately invoke their related Listeners, after which the remaining Task Listeners will be
+processed. However, it should be noted that the chain of events triggered inside the Task Listener,
+by the invocation of the `TaskService` method, will be in the previously described order.
 
 Under the above-mentioned conditions, users should be careful not to accidentally create a Task
 event loop.
