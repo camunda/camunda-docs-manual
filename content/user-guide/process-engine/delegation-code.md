@@ -350,11 +350,16 @@ this requires for a Timer to be defined. The `timeout` event may occur after a T
 `created`, and before it has been `completed`.
 
 The **complete** event occurs when the task is _successfully_ completed and just before the task
-is deleted from the runtime data. No other event is fired after the *complete* event, the
-*complete* event results in an end of the task event lifecycle. 
+is deleted from the runtime data. A successful execution of a task's **complete** Task Listeners
+results in an end of the task event lifecycle.
 
-The **delete** event occurs just before the task is deleted from the runtime data, because of an
-interrupting Boundary Event, an interrupting Event Subprocess, or a Process Instance deletion.
+The **delete** event occurs just before the task is deleted from the runtime data, because of:
+
+1. An interrupting Boundary Event;
+1. An interrupting Event Subprocess; 
+1. A Process Instance deletion;
+1. A BPMN Error thrown inside a Task Listener.
+ 
 No other event is fired after the *delete* event since it results in an end of the task event
 lifecycle. This means that the *delete* event is mutually exclusive with the *complete* event.
 
@@ -371,6 +376,8 @@ additional Task Events. As with the **complete** event mentioned above, these Ta
 immediately invoke their related Listeners, after which the remaining Task Listeners will be
 processed. However, it should be noted that the chain of events triggered inside the Task Listener,
 by the invocation of the `TaskService` method, will be in the previously described order.
+1. By throwing a BPMN Error event inside a Task Listener (ex. a **complete** event Task Listener).
+This would cancel the Task and cause a **delete** event to be fired. 
 
 Under the above-mentioned conditions, users should be careful not to accidentally create a Task
 event loop.
