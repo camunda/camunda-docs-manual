@@ -72,6 +72,11 @@ GET `/history/process-definition/{id}/statistics`
     <td>finishedAfter</td>
     <td>Restrict to process instances that were finished after the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
+  <tr>
+    <td>processInstanceIdIn</td>
+    <td>Restrict to process instances with the given IDs. The IDs must be provided as a comma-separated list.</td>
+  </tr>
+  <tr>
   <td>sortBy</td>
     <td>Sort the results by a given criterion. A valid value is <code>activityId</code>. Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
