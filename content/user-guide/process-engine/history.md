@@ -467,7 +467,10 @@ operation was performed, sometimes it is not enough to only log technical inform
 timestamp, operation type, etc.) but also add an annotation that puts the operation in the right 
 business context.
 
-**Please note:** Annotations are present on all entries that belong to an operation log.
+You can directly add an annotation for the following operations:
+* [Process Instance Modification](op-log-set-annotation-instance-mod)
+
+You can also set an annotation to a operation log which is already present:
 
 An annotation can be set and cleared via Java API:
 
@@ -481,6 +484,8 @@ historyService.setAnnotationForOperationLogById(operationId, annotation);
 
 historyService.clearAnnotationForOperationLogById(operationId);
 ```
+
+**Please note:** Annotations are present on all entries that belong to an operation log.
 
 Please also see the REST API reference for [setting][op-log-set-annotation-rest] and 
 [clearing][op-log-clear-annotation-rest] annotations.
@@ -1832,3 +1837,4 @@ The default (and maximum) value is 500. Reduce it if you notice transaction time
 [2]: https://github.com/camunda/camunda-bpm-examples/tree/master/process-engine-plugin/custom-history-level
 [op-log-set-annotation-rest]: {{< ref "/reference/rest/history/user-operation-log/set-annotation.md" >}}
 [op-log-clear-annotation-rest]: {{< ref "/reference/rest/history/user-operation-log/clear-annotation.md" >}}
+[op-log-set-annotation-instance-mod]: {{< ref "/user-guide/process-engine/process-instance-modification.md" >}}
