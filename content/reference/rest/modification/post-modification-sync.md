@@ -89,6 +89,10 @@ A JSON object with the following properties:
       </table>
     </td>
   </tr>
+  <tr>
+    <td>annotation</td>
+    <td>An arbitrary text annotation set by a user for auditing reasons.</td>
+  </tr>
 
 </table>
 
@@ -150,7 +154,8 @@ Request Body:
   "processInstanceQuery": {
     "processDefinitionId": "aProcessDefinitionId"
   },
-  "skipCustomListeners": true
+  "skipCustomListeners": true,
+  "annotation": "Modified to resolve an error."
 }
 ```
 
