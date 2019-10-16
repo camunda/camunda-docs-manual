@@ -29,8 +29,8 @@ and [Deployment scenarios]({{< ref "/user-guide/spring-boot-integration/_index.m
 ## Container-Managed Process Engine and Camunda Cockpit, Tasklist, Admin
 
 * Apache Tomcat 7.0 / 8.0 / 9.0
-* JBoss Application Server 7.2 and JBoss EAP 6.1 / 6.2 / 6.3 / 6.4 / 7.0 / 7.1 / 7.2
-* Wildfly Application Server 8.2 / 10.1 / 11.0 / 12.0 / 13.0 / 14.0 / 15.0 / 16.0 / 17.0 / 18.0
+* JBoss EAP 6.4 / 7.0 / 7.1 / 7.2
+* Wildfly Application Server 10.1 / 11.0 / 12.0 / 13.0 / 14.0 / 15.0 / 16.0 / 17.0 / 18.0
 * IBM WebSphere Application Server 8.5 / 9.0 ([Enterprise Edition only](http://camunda.com/bpm/enterprise/))
 *	Oracle WebLogic Server 12c (12R1,12R2) ([Enterprise Edition only](http://camunda.com/bpm/enterprise/))
 and [Deployment scenarios]({{< ref "/user-guide/spring-boot-integration/_index.md#supported-deployment-scenarios" >}})).
@@ -42,11 +42,11 @@ and [Deployment scenarios]({{< ref "/user-guide/spring-boot-integration/_index.m
 
 * MySQL 5.6 / 5.7
 * MariaDB 10.0 / 10.2 / 10.3
-* Oracle 10g / 11g / 12c / 18c
-* IBM DB2 9.7 /10.1 / 10.5 / 11.1 (excluding IBM z/OS for all versions)
-* PostgreSQL 9.1 / 9.3 / 9.4 / 9.6 / 10.4 / 10.7 / 11.1 / 11.2
+* Oracle 11g / 12c / 18c
+* IBM DB2 10.5 / 11.1 (excluding IBM z/OS for all versions)
+* PostgreSQL 9.4 / 9.6 / 10.4 / 10.7 / 11.1 / 11.2
 * Amazon Aurora PostgreSQL compatible with PostgreSQL 9.6 / 10.4 / 10.7
-* Microsoft SQL Server 2008 R2/2012/2014/2016/2017 (see [Configuration Note]({{< ref "/user-guide/process-engine/database.md#configuration-for-microsoft-sql-server" >}}))
+* Microsoft SQL Server 2012/2014/2016/2017 (see [Configuration Note]({{< ref "/user-guide/process-engine/database.md#configuration-for-microsoft-sql-server" >}}))
 * H2 1.4 (not recommended for [Cluster Mode]({{< ref "/introduction/architecture.md#clustering-model" >}}) - see [Deployment Note]({{< ref "/user-guide/process-engine/deployments.md" >}}))
 
 ## Database Clustering & Replication
@@ -65,15 +65,14 @@ Clustered or replicated databases are supported given the following conditions. 
 
 # Java
 
-* Java 7
 * Java 8 / 9 / 10 / 11 / 12 / 13 (if supported by your application server/container)
 
 
 # Java Runtime
 
-* Oracle JDK 7 / 8 / 9 / 10 / 11 / 12 / 13
-* IBM JDK 7 / 8 (with J9 JVM)
-* OpenJDK 7 / 8 / 9 / 10 / 11 / 12 / 13, including builds of the following products:
+* Oracle JDK 8 / 9 / 10 / 11 / 12 / 13
+* IBM JDK 8 (with J9 JVM)
+* OpenJDK 8 / 9 / 10 / 11 / 12 / 13, including builds of the following products:
   * Oracle OpenJDK
   * AdoptOpenJDK (with HotSpot JVM)
   * Amazon Corretto
