@@ -452,7 +452,7 @@ $scope.pages = {
   current: 1
 };
 // ...
-$http.post(Uri.appUri('plugin://base/:engine/incident/count'), params).success(function(data) {
+$http.post(Uri.appUri('plugin://base/:engine/incident/count'), params).then(function(data) {
   pages.total = Math.ceil(data.count / pages.size);
 });
 ```
@@ -470,7 +470,7 @@ $scope.pages = {
   current: 1
 };
 // ...
-$http.post(Uri.appUri('plugin://base/:engine/incident/count'), params).success(function(data) {
+$http.post(Uri.appUri('plugin://base/:engine/incident/count'), params).then(function(data) {
   pages.total = data.count;
 });
 ```

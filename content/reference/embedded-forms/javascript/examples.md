@@ -39,7 +39,7 @@ This example includes an image, which is located in the contextPath of the form 
   <script cam-script type="text/form-script">
     inject(['$http', 'Uri', function($http, Uri) {
       camForm.on('form-loaded', function() {
-        $http.get(Uri.appUri("engine://engine/:engine/task/" + camForm.taskId + "/form")).success(function(result){
+        $http.get(Uri.appUri("engine://engine/:engine/task/" + camForm.taskId + "/form")).then(function(result){
           $scope.contextPath = result.contextPath;
         });
       });
@@ -91,7 +91,7 @@ This example first retrieves the process instance id of the task for the form. I
   <script cam-script type="text/form-script">
     inject(['$http', 'Uri', function($http, Uri) {
       camForm.on('form-loaded', function() {
-        $http.get(Uri.appUri('engine://engine/:engine/task/' + camForm.taskId)).success(function(result){
+        $http.get(Uri.appUri('engine://engine/:engine/task/' + camForm.taskId)).then(function(result){
           $scope.upload = function() {
             var formData = new FormData();
             formData.append('data', document.getElementById('fileUpload').files[0]);
