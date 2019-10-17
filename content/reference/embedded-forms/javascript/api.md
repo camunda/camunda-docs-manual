@@ -74,7 +74,7 @@ Only available with AngularJS integration.
     inject(['$http', 'Uri', function($http, Uri) {
       camForm.on('form-loaded', function() {
         // use injected $http service for making requests, e.g.
-        $http.get(Uri.appUri('engine://engine/:engine/task/' + camForm.taskId)).success(function(task) {
+        $http.get(Uri.appUri('engine://engine/:engine/task/' + camForm.taskId)).then(function(task) {
           $scope.task = task;
         });
       });
