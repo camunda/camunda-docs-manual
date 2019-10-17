@@ -48,7 +48,12 @@ http://localhost:8080/camunda/app/admin/default/#/system?section=system-settings
 
 {{< img src="../img/admin-license-key.png" title="License Key" >}}
 
-The license key is stored in the database table `ACT_GE_PROPERTY` as *camunda-license-key*. Instead of using the UI input you can also directly place your license key into your database.
+The license key can be set via the Java API by calling:
+```
+managementService.setLicenseKey(String licenseKey);
+```
+The managementService also offers methods to get and delete the license key from the database.
+The license key is stored in the `ACT_GE_BYTEARRAY` table. A reference to the license entry can be found in the `ACT_GE_PROPERTY` table (`camunda-license-key-id`).
 
 Another possibility is to put the file with the license key in path: `${user.home}/.camunda/license.txt`. It will be automatically loaded to the database table unless it already contains some license key.
 
