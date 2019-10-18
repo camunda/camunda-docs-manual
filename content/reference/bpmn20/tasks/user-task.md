@@ -253,7 +253,7 @@ public class MyAssignmentHandler implements TaskListener {
 
 {{< note title="Note" class="info" >}}
 Assigning a task, or setting any other property through a TaskListener, will not result in an
-`assignemnt` or `update` event unless a `TaskService` method is used to perform these actions. This
+`assignment` or `update` event unless a `TaskService` method is used to perform these actions. This
 is intentional, in order to avoid creating event loops.
 {{< /note >}}
 
