@@ -34,6 +34,10 @@ GET `/group/count`
     <td>Filter by the id of the group.</td>
   </tr>
   <tr>
+    <td>idIn</td>
+    <td>Filter by a comma-separated list of group ids.</td>
+  </tr>
+  <tr>
     <td>name</td>
     <td>Filter by the name of the group.</td>
   </tr>
