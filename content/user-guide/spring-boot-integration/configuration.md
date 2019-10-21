@@ -750,3 +750,40 @@ server:
         secure: true
         http-only: true # Not possible for versions before 2.0.3
 ```
+
+# Configuring Spin DataFormats
+
+The Camunda Spring Boot Starter auto-configures the Spin Jackson Json DataFormat when the
+`camunda-spin-dataformat-json-jackson` dependency is detected on the classpath. To include a
+`DataFormatConfigurator` for the desired Jackson Java 8 module, the appropriate dependency needs
+to be included on the classpath as well.
+
+For example, to provide support for Java 8 Date/time types in Spin (specified in the JSR-310
+specification), the following dependencies, with their appropriate version tags, will need to be
+ added in the Spring Boot Application's
+`pom.xml` file:
+ 
+ ```xml
+<dependencies>
+    <dependency>
+          <groupId>org.camunda.spin</groupId>
+          <artifactId>camunda-spin-dataformat-json-jackson</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.datatype</groupId>
+      <artifactId>jackson-datatype-jsr310</artifactId>
+    </dependency>
+</dependencies>
+```
+
+The available Jackson Java 8 modules can be found [here](https://github.com/FasterXML/jackson
+-modules-java8). Spring Boot also provides some nice configuration properties, to further
+configure the Jackson `ObjectMapper`. They can be found [here](https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#howto-customize-the-jackson-objectmapper).
+
+To provide additional configurations, the following actions need to be performed:
+
+1. Provide a custom implementation of `org.camunda.spin.spi.DataFormatConfigurator`;
+1. Add the appropriate key-value pair of the fully qualified classnames of the interface and the
+   implementaion to the `META-INF/spring.factories` file;
+1. Ensure that the artifact containing the configurator is reachable from Spin’s classloader.
+ 
