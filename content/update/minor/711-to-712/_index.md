@@ -150,3 +150,7 @@ Any `create` Task Listeners that depend on the execution of an `assignment` Task
 need to be adjusted. The same goes with `assignment` Task Listeners that hold the assumption that
 they are the first to execute. They will need to be adjusted to consider that `create` Task Listeners 
 will be executed before them.
+
+Furthermore, `assignment` Task Listeners will no longer be triggered through an assignment within
+another Task Listener. Those that hold this assumption will need to be adjusted, with this
+limitation in mind, by explicitly performing an assignment through the `TaskService`.
