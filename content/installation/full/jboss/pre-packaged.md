@@ -11,13 +11,12 @@ menu:
     pre: "Download and install Wildfly Application Server with the Full Distribution pre-deployed and pre-configured."
 
 ---
-{{< note title="Java 8 compatibility" class="info" >}}
-if you are using Java 8 please use Wildfly installation and not JBoss AS. In order to use JBoss AS you have to use Java 7.
-{{< /note >}}
 
 # Installation Procedure
 
-1. Download the pre-packaged distribution for JBoss AS 7 from http://camunda.org/release/camunda-bpm/jboss/, for Wildfly from http://camunda.org/release/camunda-bpm/wildfly/.
+1. Download the pre-packaged distribution:
+  * JBoss EAP 6.4: http://camunda.org/release/camunda-bpm/jboss/,
+  * Wildfly / JBoss EAP 7.x: http://camunda.org/release/camunda-bpm/wildfly/.
 2. Unpack the distro to a directory.
 3. Adjust the datasource according to your needs (see [Manual Installation]({{<ref "/installation/full/jboss/manual.md" >}})).
 4. Startup the server by running `camunda-welcome.bat` or by using the `$JBOSS_HOME/bin/standalone.{bat/sh}` script.
