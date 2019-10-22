@@ -13,7 +13,7 @@ menu:
 ---
 
 
-This document describes the installation of Camunda BPM and its components on a vanilla [JBoss Application Server 7 / JBoss EAP 6](http://www.jboss.org/products/eap) or vanilla [Wildfly Application Server](http://www.wildfly.org).
+This document describes the installation of Camunda BPM and its components on a vanilla [JBoss EAP 6](http://www.jboss.org/products/eap) or vanilla [Wildfly Application Server / JBoss EAP 7](http://www.wildfly.org).
 
 {{< note title="Reading this Guide" class="info" >}}
 This guide uses a number of variables to denote common path names and constants:
@@ -21,10 +21,7 @@ This guide uses a number of variables to denote common path names and constants:
 `$PLATFORM_VERSION` denotes the version of the Camunda BPM platform you want to install or already have installed, e.g. `7.0.0`.
 {{< /note >}}
 
-{{< note title="Java 8 compatibility" class="info" >}}
-if you are using Java 8, then please use the Wildfly installation and not JBoss AS. To use JBoss AS, you have to use Java 7.
-{{< /note >}}
-# Required Setup for JBoss AS 7 / JBoss EAP 6
+# Required Setup for JBoss EAP 6
 
 This section explains how to perform the required setup steps for JBoss Application Server.
 
@@ -150,7 +147,7 @@ These links point you to resources for other databases:
 
 This section explains how to perform the required setup steps for Wildfly Application Server.
 
-First, you need to download the [Camunda WildFly distribution](http://camunda.org/release/camunda-bpm/wildfly/) and the [Camunda WildFly 8 Modules (camunda-wildfly8-modules)](https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/wildfly/camunda-wildfly8-modules/) archive if you're using WildFly 8.
+First, you need to download the [Camunda WildFly distribution](http://camunda.org/release/camunda-bpm/wildfly/).
 
 ## Copy Modules
 
@@ -181,10 +178,6 @@ Add the Camunda subsystem as extension:
     ...
     <extension module="org.camunda.bpm.wildfly.camunda-wildfly-subsystem"/>
 ```
-
-{{< note title="Heads Up!" class="info" >}}
-The artifact name for the WildFly 8 subsystem has changed. If you're using WildFly 8, be sure to use `org.camunda.bpm.wildfly.camunda-wildfly8-subsystem` as the extension.
-{{< /note >}}
 
 Configure the thread pool for the Camunda BPM platform Job Executor:
 
@@ -284,7 +277,7 @@ These links point you to resources for other databases:
 
 # Optional Components
 
-This section describes how to install optional dependencies. None of these are required to work with the core platform. Before continuing, make sure that the Camunda BPM platform is already installed according to [this step]({{< relref "#required-setup-for-jboss-as-7-jboss-eap-6" >}}) for JBoss AS / JBoss EAP 6, respectively [this step]({{< relref "#required-setup-for-wildfly-jboss-eap-7" >}}) for WildFly / JBoss EAP 7.
+This section describes how to install optional dependencies. None of these are required to work with the core platform. Before continuing, make sure that the Camunda BPM platform is already installed according to [this step]({{< relref "#required-setup-for-jboss-eap-6" >}}) for JBoss EAP 6, respectively [this step]({{< relref "#required-setup-for-wildfly-jboss-eap-7" >}}) for WildFly / JBoss EAP 7.
 
 
 ## Cockpit, Tasklist and Admin

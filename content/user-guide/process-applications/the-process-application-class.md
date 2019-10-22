@@ -237,18 +237,18 @@ When the process engine invokes the Ejb process application, it gets EJB invocat
                                    +--------------------+
 </pre>
 
-The EjbProcessApplication allows to hook into the invocation by overriding the `execute(Callable callable, InvocationContext invocationContext)` method. It provides the context of the current invocation (e.g., the execution) and can be used to execute custom code, for example initialize the security context before a service task is invoked. 
+The EjbProcessApplication allows to hook into the invocation by overriding the `execute(Callable callable, InvocationContext invocationContext)` method. It provides the context of the current invocation (e.g., the execution) and can be used to execute custom code, for example initialize the security context before a service task is invoked.
 
 ```java
 public class MyEjbProcessApplication extends EjbProcessApplication {
 
   @Override
   public <T> T execute(Callable<T> callable, InvocationContext invocationContext) {
-    
+
     if(invocationContext != null) {
       // execute custom code (e.g. initialize the security context)
     }
-    
+
     return execute(callable);
   }
 }
@@ -303,7 +303,7 @@ runtimeContainerDelegate.registerProcessEngine(processEngine);
 
 # The SpringProcessApplication
 
-**Supported on:** JVM, Apache Tomcat. The Spring process application is currently not supported on JBoss AS 7/Wildfly 8
+**Supported on:** JVM, Apache Tomcat. The Spring process application is currently not supported on JBoss EAP 6
 
 **Packaging:** JAR, WAR, EAR
 
