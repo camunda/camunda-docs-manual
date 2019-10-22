@@ -251,6 +251,12 @@ public class MyAssignmentHandler implements TaskListener {
 }
 ```
 
+{{< note title="Note" class="info" >}}
+Assigning a task, or setting any other property through a TaskListener, will not result in an
+`assignment` or `update` event unless a `TaskService` method is used to perform these actions. This
+is intentional, in order to avoid creating event loops.
+{{< /note >}}
+
 ## Assignments and Identity Service
 
 Although the Camunda engine provides an identity management component, which is exposed through the IdentityService, it does not check whether a provided user is known by the identity component. This allows integration of the engine with existing identity management solutions when it is embedded into an application.
