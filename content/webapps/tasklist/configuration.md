@@ -184,8 +184,8 @@ app: {
 
 # Change CSRF Cookie Name
 
-The default name of the CSRF Cookie is `XSRF-TOKEN`. When using other applications within the 
-same-origin, the CSRF mechanisms could interfere with each other. To avoid the name conflict, you 
+The default name of the CSRF Cookie is `XSRF-TOKEN`. When using other applications within the
+same-origin, the CSRF mechanisms could interfere with each other. To avoid the name conflict, you
 can change the name of the CSRF cookie in the `config.js` file as follows:
 ```javascript
 var camTasklistConf = {
@@ -196,6 +196,19 @@ var camTasklistConf = {
 
 **Note:** Please make sure to change the CSRF cookie name also on [server-side]({{<ref "/webapps/shared-options/csrf-prevention.md#cookie-name" >}}).
 
+# Disable Welcome Message for new Users
+
+First-time visitors are shown a message directing them to the camunda welcome page. If you do
+not want this message to be shown, you can disable it by adjusting the `config.js` as follows:
+```javascript
+var camTasklistConf = {
+  // …
+  disableWelcomeMessage: true
+};
+```
+
+**Note:** This does only affect the Tasklist login page. For other webapps, you need to adjust the corresponding config file as well.
+
 # Advanced Styles Customization
 
 In addition to the basic `user-styles.css` file, you can edit the source style- and layout files
@@ -204,9 +217,9 @@ using [less](http://lesscss.org/) to change the overall appearance of Tasklist.
 If you want to customize the interface with `less`, you should probably start by having a look
 at the variables defined in the following files:
 
- - `node_modules/camunda-commons-ui/node_modules/bootstrap/less/variables.less`   
+ - `node_modules/camunda-commons-ui/node_modules/bootstrap/less/variables.less`
    defines the original Bootstrap variables
- - `node_modules/camunda-commons-ui/resources/less/cam-variables.less`   
+ - `node_modules/camunda-commons-ui/resources/less/cam-variables.less`
    overrides some Bootstrap variables (above) and add some custom ones
 
 ## Compiling with Grunt

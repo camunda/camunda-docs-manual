@@ -62,8 +62,8 @@ available, add it to the list of available locales in the configuration file.
 
 # Change CSRF Cookie Name
 
-The default name of the CSRF Cookie is `XSRF-TOKEN`. When using other applications within the 
-same-origin, the CSRF mechanisms could interfere with each other. To avoid the name conflict, you 
+The default name of the CSRF Cookie is `XSRF-TOKEN`. When using other applications within the
+same-origin, the CSRF mechanisms could interfere with each other. To avoid the name conflict, you
 can change the name of the CSRF cookie in the `config.js` file as follows:
 ```javascript
 var camWelcomeConf = {
@@ -73,3 +73,16 @@ var camWelcomeConf = {
 ```
 
 **Note:** Please make sure to change the CSRF cookie name also on [server-side]({{<ref "/webapps/shared-options/csrf-prevention.md#cookie-name" >}}).
+
+# Disable Welcome Message for new Users
+
+First-time visitors are shown a message directing them to the camunda welcome page. If you do
+not want this message to be shown, you can disable it by adjusting the `config.js` as follows:
+```javascript
+var camWelcomeConf = {
+  // …
+  disableWelcomeMessage: true
+};
+```
+
+**Note:** This does only affect the Welcome login page. For other webapps, you need to adjust the corresponding config file as well.
