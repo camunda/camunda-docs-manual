@@ -27,7 +27,7 @@ of the event the listener has asynchronously subscribed to. Immutable event obje
 at the creation time of the event, regardless of the time they are finally received by the listener.
 
 On the execution event stream, `DelegateExecution`s (mutable) and `ExecutionEvent`s (immutable) can be received.
-The task event sream offers `DelegateTask`s (mutable) and `TaskEvent`s (immutable).
+The task event stream offers `DelegateTask`s (mutable) and `TaskEvent`s (immutable).
 On the history event stream, only `HistoryEvent`s (mutable) are published.
 
 The following example gives an overview of how process events can be received in Spring beans. In doing so, you can implement task and delegate listeners by
