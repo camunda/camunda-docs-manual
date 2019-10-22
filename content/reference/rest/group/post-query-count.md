@@ -1,14 +1,14 @@
 ---
 
-title: "Get Group Count"
-weight: 20
+title: "Get Group Count (POST)"
+weight: 38
 
 menu:
   main:
-    name: "Get List Count"
-    identifier: "rest-api-group-get-query-count"
+    name: "Get List Count (POST)"
+    identifier: "rest-api-group-post-query-count"
     parent: "rest-api-group"
-    pre: "GET `/group/count`"
+    pre: "POST `/group/count`"
 
 ---
 
@@ -17,12 +17,14 @@ Queries for groups using a list of parameters and retrieves the count.
 
 # Method
 
-GET `/group/count`
+POST `/group/count`
 
 
 # Parameters
 
-## Query Parameters
+## Request Body
+
+A JSON object with the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -35,7 +37,7 @@ GET `/group/count`
   </tr>
   <tr>
     <td>idIn</td>
-    <td>Filter by a comma-separated list of group ids.</td>
+    <td>Filter by a JSON array of group ids.</td>
   </tr>
   <tr>
     <td>name</td>
@@ -51,14 +53,24 @@ GET `/group/count`
   </tr>
   <tr>
     <td>member</td>
-    <td>Only retrieve groups where the given user id is a member of.</td>
+    <td>Only retrieve groups which the given user id is a member of.</td>
   </tr>
   <tr>
     <td>memberOfTenant</td>
     <td>Only retrieve groups which are members of the given tenant.</td>
   </tr>
+  <tr>
+    <td>sortBy</td>
+    <td>Sort the results lexicographically by a given criterion. Valid values are
+    <code>id</code>, <code>name</code> and <code>type</code>.
+    Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
+  </tr>
+  <tr>
+    <td>sortOrder</td>
+    <td>Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
+    Must be used in conjunction with the <code>sortBy</code> parameter.</td>
+  </tr>
 </table>
-
 
 # Result
 
@@ -103,7 +115,7 @@ A JSON object that contains the count as the only property.
 
 ## Request
 
-GET `/group/count?name=Sales`
+POST `/group/count?name=Sales`
 
 ## Response
 

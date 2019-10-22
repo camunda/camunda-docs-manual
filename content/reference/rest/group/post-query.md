@@ -1,25 +1,25 @@
 ---
 
-title: "Get Groups"
-weight: 10
+title: "Get Groups (POST)"
+weight: 34
 
 menu:
   main:
-    name: "Get List"
-    identifier: "rest-api-group-get-query"
+    name: "Get List (POST)"
+    identifier: "rest-api-group-post-query"
     parent: "rest-api-group"
-    pre: "GET `/group`"
+    pre: "POST `/group`"
 
 ---
 
 
 Queries for a list of groups using a list of parameters.
-The size of the result set can be retrieved by using the [Get Group Count]({{< ref "/reference/rest/group/get-query-count.md" >}}) method.
+The size of the result set can be retrieved by using the [Get Group Count (POST)]({{< ref "/reference/rest/group/post-query-count.md" >}}) method.
 
 
 # Method
 
-GET `/group`
+POST `/group`
 
 
 # Parameters
@@ -32,12 +32,31 @@ GET `/group`
     <th>Description</th>
   </tr>
   <tr>
+    <td>firstResult</td>
+    <td>Pagination of results. Specifies the index of the first result to return.</td>
+  </tr>
+  <tr>
+    <td>maxResults</td>
+    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results if there are no more results left.</td>
+  </tr>
+</table>
+
+## Request Body
+
+A JSON object with the following properties:
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
     <td>id</td>
     <td>Filter by the id of the group.</td>
   </tr>
   <tr>
     <td>idIn</td>
-    <td>Filter by a comma-separated list of group ids.</td>
+    <td>Filter by a JSON array of group ids.</td>
   </tr>
   <tr>
     <td>name</td>
@@ -70,16 +89,7 @@ GET `/group`
     <td>Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
     Must be used in conjunction with the <code>sortBy</code> parameter.</td>
   </tr>
-  <tr>
-    <td>firstResult</td>
-    <td>Pagination of results. Specifies the index of the first result to return.</td>
-  </tr>
-  <tr>
-    <td>maxResults</td>
-    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results if there are no more results left.</td>
-  </tr>
 </table>
-
 
 # Result
 
@@ -135,7 +145,12 @@ Each group object has the following properties:
 
 ## Request
 
-GET `/group?name=Sales`
+POST `/group`
+
+Request Body:
+```json
+{"name": "Sales"}
+```
 
 ## Response
 
