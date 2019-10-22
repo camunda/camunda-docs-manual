@@ -136,6 +136,10 @@ GET `/process-definition/count`
     <td>Filter by the version tag that the parameter is a substring of.</td>
   </tr>
   <tr>
+    <td>withoutVersionTag</td>
+    <td>Only include process definitions without a <code>versionTag</code></td>
+  </tr>
+  <tr>
     <td>startableInTasklist</td>
     <td>Filter by process definitions which are startable in Tasklist.</td>
   </tr>
