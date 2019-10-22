@@ -18,7 +18,17 @@ camunda.bpm.eventing.execution=true
 camunda.bpm.eventing.history=true
 camunda.bpm.eventing.task=true
 ```
-The properties control three event streams for `DelegateExecution`, `TaskDelegate` and `HistoryEvent` respectively.
+The properties control three event streams for execution, task and history events respectively.
+Listeners can subscribe to streams of mutable or immutable event objects.
+The latter of those are particularly useful
+in asynchronous listener scenarios - e.g. when using `TransactionalEventListener`. 
+The mutable event stream objects can be modified multiple times between the creation and the reception 
+of the event the listener has asynchronously subscribed to. Immutable event objects reflect the data
+at the creation time of the event, regardless of the time they are finally received by the listener.
+
+On the execution event stream, `DelegateExecution`s (mutable) and `ExecutionEvent`s (immutable) can be received.
+The task event stream offers `DelegateTask`s (mutable) and `TaskEvent`s (immutable).
+On the history event stream, only `HistoryEvent`s (mutable) are published.
 
 The following example gives an overview of how process events can be received in Spring beans. In doing so, you can implement task and delegate listeners by
 providing Spring beans with annotated methods instead of implementing the `TaskListener` and `ExecutionListener` interfaces.
@@ -36,17 +46,27 @@ class MyListener {
 
   @EventListener
   public void onTaskEvent(DelegateTask taskDelegate) {
-  // handle task event
+    // handle mutable task event
+  }
+
+  @EventListener
+  public void onTaskEvent(TaskEvent taskEvent) {
+    // handle immutable task event
   }
 
   @EventListener
   public void onExecutionEvent(DelegateExecution executionDelegate) {
-  // handle execution event
+    // handle mutable execution event
   }
 
   @EventListener
+  public void onExecutionEvent(ExecutionEvent executionEvent) {
+    // handle immutable execution event
+  }
+  
+  @EventListener
   public void onHistoryEvent(HistoryEvent historyEvent) {
-  // handle history event
+    // handle history event
   }
 
 }
