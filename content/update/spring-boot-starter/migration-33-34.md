@@ -22,8 +22,8 @@ Application's `pom.xml` file:
 ```xml
 <dependencies>
   <dependency>
-        <groupId>org.camunda.spin</groupId>
-        <artifactId>camunda-spin-dataformat-json-jackson</artifactId>
+    <groupId>org.camunda.spin</groupId>
+    <artifactId>camunda-spin-dataformat-json-jackson</artifactId>
   </dependency>
   <dependency>
     <groupId>com.fasterxml.jackson.datatype</groupId>
