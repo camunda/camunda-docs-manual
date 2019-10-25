@@ -93,6 +93,11 @@ The properties of an activity instance are as follows:
     <td>List of String</td>
     <td>A list of execution ids.</td>
   </tr>
+  <tr>
+    <td>incidentIds</td>
+    <td>List of String</td>
+    <td>A list of incident ids.</td>
+  </tr>
 </table>
 
 The properties of a transition instance are as follows:
@@ -138,6 +143,11 @@ The properties of a transition instance are as follows:
     <td>List of String</td>
     <td>A list of execution ids.</td>
   </tr>
+  <tr>
+    <td>incidentIds</td>
+    <td>List of String</td>
+    <td>A list of incident ids.</td>
+  </tr>
 </table>
 
 
@@ -171,45 +181,35 @@ GET `/process-instance/aProcessInstanceId/activity-instances`
 ## Response
 
     {
-      "id": "8f72bc9f-d505-11e2-bafa-3c970e140ef1",
+      "id": "eca75c6b-f70c-11e9-8777-e4a7a094a9d6",
       "parentActivityInstanceId": null,
-      "activityId": "executionProcess:1:8ef5c393-d505-11e2-bafa-3c970e140ef1",
-      "processInstanceId": "8f72bc9f-d505-11e2-bafa-3c970e140ef1",
-      "processDefinitionId": "executionProcess:1:8ef5c393-d505-11e2-bafa-3c970e140ef1",
+      "activityId": "invoice:2:e9d77375-f70c-11e9-8777-e4a7a094a9d6",
+      "activityType": "processDefinition",
+      "processInstanceId": "eca75c6b-f70c-11e9-8777-e4a7a094a9d6",
+      "processDefinitionId": "invoice:2:e9d77375-f70c-11e9-8777-e4a7a094a9d6",
       "childActivityInstances": [
-          {
-              "id": "SubProcess_1:8f72bca4-d505-11e2-bafa-3c970e140ef1",
-              "parentActivityInstanceId": "8f72bc9f-d505-11e2-bafa-3c970e140ef1",
-              "activityId": "SubProcess_1",
-              "activityType": "subProcess",
-              "processInstanceId": "8f72bc9f-d505-11e2-bafa-3c970e140ef1",
-              "processDefinitionId": "executionProcess:1:8ef5c393-d505-11e2-bafa-3c970e140ef1",
-              "childActivityInstances": [],
-              "childTransitionInstances": [
-                  {
-                      "id": "8f72bca9-d505-11e2-bafa-3c970e140ef1",
-                      "parentActivityInstanceId": "SubProcess_1:8f72bca4-d505-11e2-bafa-3c970e140ef1",
-                      "processInstanceId": "8f72bc9f-d505-11e2-bafa-3c970e140ef1",
-                      "processDefinitionId": "executionProcess:1:8ef5c393-d505-11e2-bafa-3c970e140ef1",
-                      "activityId": "ServiceTask_1",
-                      "executionId": "8f72bca9-d505-11e2-bafa-3c970e140ef1"
-                  },
-                  {
-                      "id": "8f72bcaa-d505-11e2-bafa-3c970e140ef1",
-                      "parentActivityInstanceId": "SubProcess_1:8f72bca4-d505-11e2-bafa-3c970e140ef1",
-                      "processInstanceId": "8f72bc9f-d505-11e2-bafa-3c970e140ef1",
-                      "processDefinitionId": "executionProcess:1:8ef5c393-d505-11e2-bafa-3c970e140ef1",
-                      "activityId": "ServiceTask_2",
-                      "executionId": "8f72bcaa-d505-11e2-bafa-3c970e140ef1"
-                  }
-              ],
-              "executionIds": [
-                  "8f72bc9f-d505-11e2-bafa-3c970e140ef1"
-              ]
-          }
+        {
+          "id": "approveInvoice:eca89509-f70c-11e9-8777-e4a7a094a9d6",
+          "parentActivityInstanceId": "eca75c6b-f70c-11e9-8777-e4a7a094a9d6",
+          "activityId": "approveInvoice",
+          "activityType": "userTask",
+          "processInstanceId": "eca75c6b-f70c-11e9-8777-e4a7a094a9d6",
+          "processDefinitionId": "invoice:2:e9d77375-f70c-11e9-8777-e4a7a094a9d6",
+          "childActivityInstances": [],
+          "childTransitionInstances": [],
+          "executionIds": [
+            "eca75c6b-f70c-11e9-8777-e4a7a094a9d6"
+          ],
+          "activityName": "Approve Invoice",
+          "incidentIds": [
+            "648d7e21-f71c-11e9-a725-e4a7a094a9d6"
+          ],
+        }
       ],
       "childTransitionInstances": [],
       "executionIds": [
-          "8f72bc9f-d505-11e2-bafa-3c970e140ef1"
-      ]
+        "eca75c6b-f70c-11e9-8777-e4a7a094a9d6"
+      ],
+      "activityName": "Invoice Receipt",
+      "incidentIds": null,
     }
