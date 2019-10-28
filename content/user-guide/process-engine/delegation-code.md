@@ -321,7 +321,7 @@ A task listener is used to execute custom Java logic or an expression upon the o
 
 ## Task Listener Event Lifecycle
 
-The execution of Task Listeners is dependent on the order of firing of 
+The execution of Task Listeners is dependent on the order of firing of
 the following task-related events:
 
 The **create** event fires when the task has been created and all task properties are set. No
@@ -329,9 +329,10 @@ other task-related event will be fired before the *create* event. The event allo
 all properties of the task when we receive it in the create listener.
 
 The **update** event occurs when a task property (e.g. assignee, owner, priority, etc.) on an already
-created task is changed. Note that the initial setting of properties when a task is created does
-not fire an update event (the task is being created). This also means that the *update* event
-will always occur after a *create* event has already occurred.
+created task is changed. This includes attributes of a task  (e.g. assignee, owner, priority, etc.),
+as well as dependent entities (e.g. attachments, comments, task-local variables).
+Note that the initialization of a task does not fire an update event (the task is being created).
+This also means that the *update* event will always occur after a *create* event has already occurred.
 
 The **assignment** event specifically tracks the changes of the Task's `assignee` property. The event
 may be fired on two occasions:
@@ -356,10 +357,10 @@ results in an end of the task event lifecycle.
 The **delete** event occurs just before the task is deleted from the runtime data, because of:
 
 1. An interrupting Boundary Event;
-1. An interrupting Event Subprocess; 
+1. An interrupting Event Subprocess;
 1. A Process Instance deletion;
 1. A BPMN Error thrown inside a Task Listener.
- 
+
 No other event is fired after the *delete* event since it results in an end of the task event
 lifecycle. This means that the *delete* event is mutually exclusive with the *complete* event.
 
@@ -377,7 +378,7 @@ immediately invoke their related Listeners, after which the remaining Task Liste
 processed. However, it should be noted that the chain of events triggered inside the Task Listener,
 by the invocation of the `TaskService` method, will be in the previously described order.
 1. By throwing a BPMN Error event inside a Task Listener (e.g. a **complete** event Task Listener).
-This would cancel the Task and cause a **delete** event to be fired. 
+This would cancel the Task and cause a **delete** event to be fired.
 
 Under the above-mentioned conditions, users should be careful not to accidentally create a Task
 event loop.
@@ -386,9 +387,9 @@ event loop.
 
 A task listener supports the following attributes:
 
-* **event (required)**: the type of task event on which the task listener will be invoked. 
+* **event (required)**: the type of task event on which the task listener will be invoked.
     Possible events are: **create**, **assignment**, **update**, **complete**, **delete** and
-     **timeout**; 
+     **timeout**;
 
     Note that the **timeout** event requires a [timerEventDefinition][timerEventDefinition] child
     element in the task listener and will only be fired if the [Job Executor][job-executor] is enabled.
