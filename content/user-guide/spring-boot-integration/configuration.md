@@ -472,7 +472,13 @@ See the <a href="{{<ref "/user-guide/spring-boot-integration/the-spring-event-br
 
 <tr><td colspan="4"><b>Webapp</b></td></tr>
 <tr>
-<td><code>camunda.bpm.webapp</code></td>
+<td rowspan="2"><code>camunda.bpm.webapp</code></td>
+<td><code>.enabled</code></td>
+<td>Switch to disable the Camunda Webapp auto-configuration.</td>
+<td><code>true</code></td>
+</tr>
+
+<tr>
 <td><code>.index-redirect-enabled</code></td>
 <td>Registers a redirect from <code>/</code> to camunda's bundled <code>index.html</code>.
 <br/>
