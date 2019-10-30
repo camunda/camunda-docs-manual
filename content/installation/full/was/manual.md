@@ -49,7 +49,7 @@ In order to perform the steps listed in this guide, make sure you understand the
 
 ## Create the Database Schema and Tables
 
-In the default configuration of the distribution, the database schema and all required tables are automatically created in an H2 database when the engine starts up for the first time. If you do not want to use the H2 database, you have to 
+In the default configuration of the distribution, the database schema and all required tables are automatically created in an H2 database when the engine starts up for the first time. If you do not want to use the H2 database, you have to
 
 * Create a database schema for the Camunda BPM platform yourself.
 * Execute the SQL DDL scripts which create all required tables and default indices.
@@ -74,8 +74,12 @@ Please note further that READ COMMITED is the required isolation level for datab
 
 ## JDBC/Datasource Configuration
 
-The Camunda BPM engine uses one or multiple process engines. Use your application server management tooling for the configuration of the datasources.
-The JNDI name of the datasource must be equal to the name used in the datasource-Element of the process engine(s) configured in the bpm-platform.xml file.
+Camunda BPM uses one or multiple process engines which must be connected to a datasource. Use your application server management tooling for the configuration of the datasources. The JNDI name of the datasource must be equal to the name used in the datasource-Element of the process engine(s) configured in the bpm-platform.xml file.
+
+Related resources:
+
+* [WebSphere 8.5: Configuring a JDBC provider and data source](https://www.ibm.com/support/knowledgecenter/en/SSEQTP_8.5.5/com.ibm.websphere.base.iseries.doc/ae/tdat_tccrtprovds.html)
+* [Websphere 9.0: Configuring a JDBC provider and data source](https://www.ibm.com/support/knowledgecenter/en/SSEQTP_9.0.5/com.ibm.websphere.base.doc/ae/tdat_tccrtprovds.html)
 
 ### Default JNDI Name
 
@@ -92,7 +96,7 @@ Note that you may configure multiple datasources used by different process engin
 
 This section explains how you can use the WebSphere Integrated Solutions Console to configure a work manager to be used by the Camunda BPM platform jobexecutor. It is recommended to check the [manual of the application server](http://www-01.ibm.com/software/webservers/appserv/was/library/) for additional details.
 
-Go to **Resources / Asynchronous Bean / Work Managers** and select the appropriate scope, for example: `Cell=<some_id>`
+Go to **Resources / Asynchronous Bean / Work Managers** (Websphere 8) or **Resources / Concurrency / Work Managers** (Websphere 9). Select the appropriate scope, for example: `Cell=<some_id>`.
 Create a new work manager in the scope using the Button **New...**.
 Configure the new Work Manager. The following is a selection of sensible default values:
 
