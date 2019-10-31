@@ -118,6 +118,7 @@ The process engine logs on the following categories
 * org.camunda.bpm.engine.pvm
 * org.camunda.bpm.engine.metrics
 * org.camunda.bpm.engine.util
+* org.camunda.bpm.engine.rest.exception
 * org.camunda.bpm.application
 * org.camunda.bpm.container
 
