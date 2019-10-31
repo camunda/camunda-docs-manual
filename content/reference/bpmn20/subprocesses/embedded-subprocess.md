@@ -31,7 +31,7 @@ In case the subprocess is expanded, the steps of the subprocess are displayed wi
 
 <div data-bpmn-diagram="../bpmn/subprocess_expanded"></div>
 
-One of the main reasons to use a subprocess is to define a scope for a certain event. The following process model shows this: both the investigate software and investigate hardware tasks need to be done in parallel, but both tasks need to be done within a certain time, before Level 2 support is consulted. Here, the scope of the timer (i.e., which activities must be done in time) is constrained by the subprocess.
+One of the main reasons to use a subprocess is to define a scope for an event. The following process model shows this: If we are spontaneously invited to dinner, we will cancel our cooking process. However, if we are already eating, we will not react to an invitation anymore. In more technical terms, the scope of the message event is the subprocess, so the message can only be received while the subprocess is active.
 
 <div data-bpmn-diagram="../bpmn/subprocess_attached"></div>
 
