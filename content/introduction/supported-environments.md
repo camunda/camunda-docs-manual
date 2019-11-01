@@ -91,3 +91,20 @@ Reported to work on
 * Ubuntu 12.04 and newer
 * Fedora 21
 * Debian 8
+
+# Maintenance Policy
+
+Check our [Enterprise Announcements page](/enterprise/announcement/) for confirmed changes to our supported environments in upcoming releases.
+
+## Adding Environments
+
+Whenever a new version of one of the following environments is released, we target support of that new version with the next minor release of Camunda BPM:
+
+* Java Language
+* Wildfly Application Server
+* Oracle Database
+
+The exact release in which we support a new environment depends on factors such as the release date of the environment and the required implementation effort.
+
+Version support for other environments is decided case by case, much of which is based on the demand in our user base.
+
