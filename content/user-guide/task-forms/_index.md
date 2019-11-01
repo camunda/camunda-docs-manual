@@ -59,7 +59,7 @@ To add an embedded form to your application, simply create an HTML file and refe
 
 The file containing the form can be referenced in two ways:
 
-* *app:*: Add the file to your development project in a folder `src/main/webapp/forms`. The HTML file will be packaged into your deployment artifact (typically a WAR archive). During runtime it will be loaded from there.
+* *app:*: Add the file to your development project in a folder `src/main/webapp/forms`. The HTML file will be packaged into your deployment artifact (typically a WAR archive). During runtime it will be loaded from there. If you are using spring boot add the file in a folder `src/main/static/forms`. Also make sure to add the annotation @EnableProcessApplication in your application with a META_INF/processes.xml file to make this work.
 * *deployment:*: The file is part of your deployment (e.g., [by adding it to your process archive]({{< ref "/reference/deployment-descriptors/tags/process-archive.md" >}})), which means that it is stored in the Camunda database. It can then be loaded from there. Note that this allows versioning of your form alongside the process model.
 
 To configure the form in your process, open the process with the [Camunda Modeler](http://camunda.org/bpmn/tool/) and select the desired [UserTask][user-tasks] or [StartEvent][start-event]. Open the properties panel and enter `embedded:app:forms/FORM_NAME.html` (or `embedded:deployment:forms/FORM_NAME.html`) as Form Key. The relevant XML tag looks like this:
