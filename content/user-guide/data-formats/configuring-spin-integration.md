@@ -37,7 +37,7 @@ Note that the package relocation means that you cannot develop against the origi
 
 ## Maven coordinates
 
-Import the [Camunda BOM](/get-started/apache-maven/) to enure that you use the right version of Spin that is tested to work with your version of the process engine.
+Import the [Camunda BOM](/get-started/apache-maven/) to ensure that you use the right version of Spin that is tested to work with your version of the process engine.
 
 All Spin artifacts have the group id `org.camunda.spin`, so in order to import `camunda-spin-core`, we can write:
 
