@@ -102,6 +102,11 @@ A JSON object with the following properties:
     <td>tenantIdIn</td>
     <td>Only include historic variable instances which belong to one of the passed and comma-separated tenant ids.</td>
   </tr>
+  <tr>
+    <td>withoutTenantId</td>
+    <td>Only include historic variable instances that belong to no tenant. Value may only be 
+    <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
 </table>
 
 
