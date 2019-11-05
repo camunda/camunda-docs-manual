@@ -22,9 +22,9 @@ dependency to your `pom.xml` file:
 
 {{< note title="Camunda BOM" >}}
   If you use Spin in combination with the Camunda process engine,
-  please check the [process engine user guide on Spin integration](user-guide/data-formats/configuring-spin-integration/)
-  for how to properly integrate the Spin with the engine.
-  please import the <a class="alert-link" href="/get-started/apache-maven/">
+  please consult the [process engine user guide on Spin integration](user-guide/data-formats/configuring-spin-integration/)
+  on how to properly integrate Spin with the engine.
+  Please import the <a class="alert-link" href="/get-started/apache-maven/">
   Camunda BOM</a> to ensure that you use the Camunda Spin version matching your process engine
   version.
 {{< /note >}}
