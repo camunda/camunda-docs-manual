@@ -240,6 +240,11 @@ A JSON object with the following properties:
     <td>Filter by a list of tenant ids. A task instance must have one of the given tenant ids. Must be a JSON array of Strings.</td>
   </tr>
   <tr>
+    <td>withoutTenantId</td>
+    <td>Only include historic task instances that belong to no tenant. Value may only be 
+    <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>taskVariables</td>
     <td>A JSON array to only include tasks that have variables with certain values. <br/>
 
