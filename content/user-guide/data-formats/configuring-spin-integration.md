@@ -29,7 +29,7 @@ There are three types of Spin artifacts as follows.
 
 `camunda-spin-dataformat-all` is a fat jar that contains `camunda-spin-core`, `camunda-spin-dataformat-json-jackson` and `camunda-spin-dataformat-xml-dom` as well as all their dependencies. The dependencies are shaded into the `spinjar` package namespace.
 
-Note that the package relocation means that you cannot develop against the original namespaces. Example: `camunda-spin-dataformat-json-jackson` uses `jackson-databind` for object (de-)serialization. A common use case is declaring Jackson annotations in custom classes to finetune JSON handling. With relocated dependencies, annotations in the `com.fasterxml.jackson` namespace will not be recognized by Spin.
+Note that the package relocation means that you cannot develop against the original namespaces. Example: `camunda-spin-dataformat-json-jackson` uses `jackson-databind` for object (de-)serialization. A common use case is declaring Jackson annotations in custom classes to finetune JSON handling. With relocated dependencies, annotations in the `com.fasterxml.jackson` namespace will not be recognized by Spin. In that case, consider using `camunda-spin-core`. Keep in mind the implications this may have as described in the [Integration Use Cases](#integration-use-cases) section.
 
 ## camunda-engine-plugin-spin
 
@@ -52,7 +52,7 @@ All Spin artifacts have the group id `org.camunda.spin`, so in order to import `
 
 # Integration Use Cases
 
-Depending on the application and process engine setup, you can either use `camunda-engine-plugin-spin` and `camunda-spin-core` (plus individual data formats) or `camunda-engine-plugin-spin` and `camunda-spin-dataformat-all`. The following sections explain when to use which for the most common use cases.
+Depending on the application and process engine setup, it is recommended to use either `camunda-engine-plugin-spin` and `camunda-spin-core` (plus individual data formats) or `camunda-engine-plugin-spin` and `camunda-spin-dataformat-all`. The following sections explain when to use which for the most common use cases.
 
 ## Embedded Process Engine
 
