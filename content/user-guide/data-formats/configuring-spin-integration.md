@@ -10,93 +10,68 @@ menu:
 
 ---
 
-To use Spin with a process engine, the relevant Spin libraries have to be on the engine's classpath. Furthermore, the process engine plugin provided by Spin has to be registered with the engine. When using a pre-built Camunda distribution, Spin is already integrated.
+To use Spin with the process engine, the following is required:
 
-There are two types of Spin artifacts:
+1. The Spin libraries must be on the engine's classpath
+1. The Spin process engine plugin must be registered with the process engine
 
-* `camunda-spin-core`: a jar that contains only the core Spin classes. In addition to `camunda-spin-core`, single data format artifacts like `camunda-spin-dataformat-json-jackson` and `camunda-spin-dataformat-xml-dom` exist that provide the JSON and XML functionality. These dependencies should be used when the default data formats have to be reconfigured or when custom data formats are used.
-* `camunda-spin-dataformat-all`: a single jar without dependencies that contains the XML and JSON data formats.
-* `camunda-engine-plugin-spin`: a process engine plugin which adds Spin to the Camunda BPM platform.
+The following sections go into the details of integrating Spin with the process engine. Note that when you use a pre-built Camunda distribution, Spin is already integrated.
 
+# Artifacts
 
-# Maven coordinates
-
-{{< note title="" class="info" >}}
-  Please import the [Camunda BOM](/get-started/apache-maven/) to ensure correct versions for every Camunda project.
-{{< /note >}}
-
+There are three types of Spin artifacts as follows.
 
 ## camunda-spin-core
 
-`camunda-spin-core` contains Spin's core classes that every data format implementation requires. Additionally, XML and JSON data formats can be included with the dependencies `camunda-spin-dataformat-json-jackson` and `camunda-spin-dataformat-xml-dom`. These artifacts will transitively pull in their dependencies, like Jackson in the case of the JSON data format. For integration with the engine, the artifact `camunda-engine-plugin-spin` is needed. Given that the BOM is imported, the Maven coordinates are as follows:
+`camunda-spin-core` is a jar that contains only the core Spin classes. It can be combined with single data format artifacts. Camunda provides the artifacts `camunda-spin-dataformat-json-jackson` and `camunda-spin-dataformat-xml-dom` that implement JSON and XML processing. These artifacts transitively pull in libraries they need. For example, `camunda-spin-dataformat-json-jackson` has a dependency to `jackson-databind`.
+
+## camunda-spin-dataformat-all
+
+`camunda-spin-dataformat-all` is a fat jar that contains `camunda-spin-core`, `camunda-spin-dataformat-json-jackson` and `camunda-spin-dataformat-xml-dom` as well as all their dependencies. The dependencies are shaded into the `spinjar` package namespace.
+
+Note that the package relocation means that you cannot develop against the original namespaces. Example: `camunda-spin-dataformat-json-jackson` uses `jackson-databind` for object (de-)serialization. A common use case is declaring Jackson annotations in custom classes to finetune JSON handling. With relocated dependencies, annotations in the `com.fasterxml.jackson` namespace will not be recognized by Spin. In that case, consider using `camunda-spin-core`. Keep in mind the implications this may have as described in the [Integration Use Cases](#integration-use-cases) section.
+
+## camunda-engine-plugin-spin
+
+`camunda-engine-plugin-spin` is a process engine plugin that integrates Spin with a process engine. For example it registers variable serializers that enable the process engine to store Java objects as JSON.
+
+## Maven coordinates
+
+Import the [Camunda BOM](/get-started/apache-maven/) to ensure that you use the right version of Spin that is tested to work with your version of the process engine.
+
+All Spin artifacts have the group id `org.camunda.spin`, so in order to import `camunda-spin-core`, we can write:
 
 ```xml
 <dependency>
   <groupId>org.camunda.spin</groupId>
   <artifactId>camunda-spin-core</artifactId>
+  <!-- The version is omitted here, because it is managed via the BOM.
+    Declare a concrete version if you do not use the BOM -->
 </dependency>
 ```
 
-```xml
-<dependency>
-  <groupId>org.camunda.spin</groupId>
-  <artifactId>camunda-spin-dataformat-json-jackson</artifactId>
-</dependency>
-```
+# Integration Use Cases
 
-```xml
-<dependency>
-  <groupId>org.camunda.spin</groupId>
-  <artifactId>camunda-spin-dataformat-xml-dom</artifactId>
-</dependency>
-```
+Depending on the application and process engine setup, it is recommended to use either `camunda-engine-plugin-spin` and `camunda-spin-core` (plus individual data formats) or `camunda-engine-plugin-spin` and `camunda-spin-dataformat-all`. The following sections explain when to use which for the most common use cases.
 
-```xml
-<dependency>
-  <groupId>org.camunda.bpm</groupId>
-  <artifactId>camunda-engine-plugin-spin</artifactId>
-</dependency>
-```
+## Embedded Process Engine
 
-## camunda-spin-dataformat-all
+If your application manages its own process engine, then using `camunda-engine-plugin-spin` with `camunda-spin-core` is the recommended approach. Declare the dependencies in the `compile` scope so that the Spin libraries and their dependencies are added to your application when you bundle it. Configure `org.camunda.spin.plugin.impl.SpinProcessEnginePlugin` as a process engine plugin according to the [process engine plugin documentation]({{< ref "/user-guide/process-engine/process-engine-plugins.md" >}}).
 
-This artifact contains the XML and JSON dataformats as well as their dependencies. To avoid conflicts with other versions of these dependencies, Spin's dependencies are relocated to different packages. `camunda-spin-dataformat-all` has the following Maven coordinates:
+## Application with Camunda Spring Boot Starter
 
-```xml
-<dependency>
-  <groupId>org.camunda.spin</groupId>
-  <artifactId>camunda-spin-dataformat-all</artifactId>
-</dependency>
-```
+Add the dependencies to `camunda-engine-plugin-spin` and `camunda-spin-core` (along with `camunda-spin-dataformat-json-jackson` and `camunda-spin-dataformat-xml-dom` as needed) to your application. The Spin process engine plugin will be automatically registered with the process engine.
 
+## Shared Process Engine
 
-# Configuring the Spin Process Engine Plugin
+If you use a shared process engine, Spin is usually installed as a shared library in the application server. Check the [installation guide]({{< ref "/installation/full/_index.md" >}}) for your application server for how to set up Spin with a shared engine. When using a pre-built distribution of Camunda BPM, Spin is already pre-configured.
 
-`camunda-engine-plugin-spin` contains a class called `org.camunda.spin.plugin.impl.SpinProcessEnginePlugin` that can be registered with a process engine using the [plugin mechanism]({{< ref "/user-guide/process-engine/process-engine-plugins.md" >}}). For example, a `bpm-platform.xml` file with the plugin enabled would look as follows:
+Depending on the type of application server, `camunda-engine-plugin-spin` should be used with either `camunda-spin-core` or `camunda-spin-dataformat-all`. In the pre-packaged distributions, the following artifacts are used:
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<bpm-platform xmlns="http://www.camunda.org/schema/1.0/BpmPlatform"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.camunda.org/schema/1.0/BpmPlatform http://www.camunda.org/schema/1.0/BpmPlatform ">
+* Tomcat: `camunda-spin-dataformat-all` is provided in Tomcat's shared library path. Using `camunda-spin-dataformat-all` avoids classpath pollution with Spin's dependencies. For example, this ensures that applications are not forced to use Spin's version of Jackson.
+* Wildfly: `camunda-spin-core` (along with `camunda-spin-dataformat-json-jackson` and `camunda-spin-dataformat-xml-dom`) are deployed as modules. Thanks to Wildfly's module system, classpath pollution is not an issue. Whenever a process application is deployed, it receives an implicit module dependency to `camunda-spin-core`.
 
-  ...
+If you want to program against the Spin APIs in your process application, you need to declare a dependency to Spin in your application. As Spin is provided by the application server, the following is important:
 
-  <process-engine name="default">
-    ...
-
-    <plugins>
-      <plugin>
-        <class>org.camunda.spin.plugin.impl.SpinProcessEnginePlugin</class>
-      </plugin>
-    </plugins>
-
-    ...
-  </process-engine>
-
-</bpm-platform>
-```
-
-{{< note title="Note:" class="info" >}}
-  When using a pre-built distribution of Camunda BPM, the plugin is already pre-configured.
-{{< /note >}}
+* Make sure to set the dependencies to scope `provided`. This avoids that a copy of the dependencies is packaged with your application, resulting in various classloading problems at runtime.
+* Make sure to depend on the same Spin artifacts that the application server provides, i.e. either `camunda-spin-core` or `camunda-spin-dataformat-all`.
