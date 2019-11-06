@@ -75,6 +75,11 @@ GET `/history/incident/count`
     <td>Restricts to incidents that have one of the given comma-separated tenant ids.</td>
   </tr>
   <tr>
+    <td>withoutTenantId</td>
+    <td>Only include historic incidents that belong to no tenant. Value may only be 
+    <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>jobDefinitionIdIn</td>
     <td>Restricts to incidents that have one of the given comma-separated job definition ids.</td>
   </tr>
