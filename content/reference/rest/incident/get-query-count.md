@@ -48,6 +48,10 @@ GET `/incident/count`
     <td>Restricts to incidents that belong to a process definition with the given id.</td>
   </tr>
   <tr>
+    <td>processDefinitionKeyIn</td>
+    <td>Restricts to incidents that belong to a process definition with the given keys. Must be a comma-separated list.</td>
+  </tr>
+  <tr>
     <td>processInstanceId</td>
     <td>Restricts to incidents that belong to a process instance with the given id.</td>
   </tr>
