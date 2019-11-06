@@ -129,6 +129,11 @@ GET `/history/case-activity-instance/count`
     <td>tenantIdIn</td>
     <td>Filter by a list of tenant ids. A case activity instance must have one of the given tenant ids.</td>
   </tr>
+  <tr>
+    <td>withoutTenantId</td>
+    <td>Only include historic case activity instances that belong to no tenant. Value may only be 
+    <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
 </table>
 
 \* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
