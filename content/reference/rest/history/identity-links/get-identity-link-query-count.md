@@ -74,6 +74,11 @@ GET `/history/identity-link-log/count`
     <td>tenantIdIn</td>
     <td>Filter by a comma-separated list of tenant ids.</td>
   </tr>
+  <tr>
+    <td>withoutTenantId</td>
+    <td>Only include historic identity links that belong to no tenant. Value may only be 
+    <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
 </table>
 
 
