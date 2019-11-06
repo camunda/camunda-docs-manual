@@ -84,6 +84,11 @@ A JSON object with the following properties:
     <td>Only include historic external task log entries which belong to one of the passed and comma-separated tenant ids.</td>
   </tr>
   <tr>
+    <td>withoutTenantId</td>
+    <td>Only include historic external task log entries that belong to no tenant. Value may only be 
+    <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>priorityLowerThanOrEquals</td>
     <td>Only include logs for which the associated external task had a priority lower than or equal to the given value. Value must be a valid <code>long</code> value.</td>
   </tr>
