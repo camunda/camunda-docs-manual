@@ -175,6 +175,10 @@ customerJson matches:
 */
 ```
 
+Retrieving the variable will deserialize the serialized value if it is not cached already. 
+Please bear in mind that this can pose a security risk if untrusted sources are allowed to store serialized values in process variables that can trigger malicious code execution upon deserialization.
+Consult the [Security Instructions]({{< ref "/user-guide/security.md#type-validation-before-deserialization" >}}) for further information on this.
+
 {{< note title="Default Serialization Format" class="info" >}}
   The engine can be configured to persist all objects for which no explicit data format is specified as JSON. The process engine configuration offers a property `defaultSerializationFormat`. To configure default JSON serialization, set this property to `application/json`. Now, the invocation `runtimeService.setVariable(processInstance.getId(), "customer", new Customer())` directly serializes the customer object as JSON without explicit declaration of the format.
 {{< /note >}}
