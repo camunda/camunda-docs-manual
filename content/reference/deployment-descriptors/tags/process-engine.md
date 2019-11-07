@@ -873,33 +873,33 @@ The specified data will only be put into the MDC if a key is defined. All parame
 
 <table class="table table-striped">
   <tr>
-    <td><code>logginContextActivityId</code></td>
+    <td><code>loggingContextActivityId</code></td>
     <td>String</td>
     <td>Defines the key for the current activity id. Default value: <code>activityId</code></td>
   </tr>
   <tr>
-    <td><code>logginContextApplicationName</code></td>
+    <td><code>loggingContextApplicationName</code></td>
     <td>String</td>
     <td>Defines the key for the current process application name. Default value: <code>applicationName</code></td>
   </tr>
   <tr>
-    <td><code>logginContextBusinessKey</code></td>
+    <td><code>loggingContextBusinessKey</code></td>
     <td>String</td>
     <td>Defines the key for the current business key. Default value: <code>null</code> (disabled by default since a lookup into the database might be necessary 
 	in case the business key needs to be fetched from the process instance)</td>
   </tr>
   <tr>
-    <td><code>logginContextProcessDefinitionId</code></td>
+    <td><code>loggingContextProcessDefinitionId</code></td>
     <td>String</td>
     <td>Defines the key for the current process definition id. Default value: <code>processDefinitionId</code></td>
   </tr>
   <tr>
-    <td><code>logginContextProcessInstanceId</code></td>
+    <td><code>loggingContextProcessInstanceId</code></td>
     <td>String</td>
     <td>Defines the key for the current process instance id. Default value: <code>processInstanceId</code></td>
   </tr>
   <tr>
-    <td><code>logginContextTenantId</code></td>
+    <td><code>loggingContextTenantId</code></td>
     <td>String</td>
     <td>Defines the key for the current tenant id. Default value: <code>tenantId</code></td>
   </tr>
