@@ -570,6 +570,30 @@ The following is a list with the most commonly used process engine configuration
         Sets if Java serialization format can be used, when <a href="{{< ref "/user-guide/process-engine/variables.md#object-values">}}">setting variables by their serialized representation</a>. Default value: <code>false</code>
     </td>
   </tr>
+  
+  <tr>
+    <td><a name="deserializationTypeValidationEnabled"></a><code>deserializationTypeValidationEnabled</code></td>
+    <td>Boolean</td>
+    <td>
+        Sets if validation of types should be performed before JSON and XML deserialization. See <a href="{{< ref "/user-guide/security.md#type-validation-before-deserialization" >}}">Security Instructions</a> for further information. Default value: <code>false</code>
+    </td>
+  </tr>
+  
+  <tr>
+    <td><code>deserializationAllowedPackages</code></td>
+    <td>String</td>
+    <td>
+        Sets the allowed package names of types that are analyzed before JSON and XML deserialization if <code>deserializationTypeValidationEnabled</code> is set to <code>true</code>. With the default validator, this can be a comma-separated list of allowed package names. Only the defined packages and their sub-packages will be allowed in conjunction with the <code>deserializationAllowedClasses</code>. Also, the default validator always allows types within the package "java.lang" and all sub-packages. See <a href="{{< ref "/user-guide/security.md#type-validation-before-deserialization" >}}">Security Instructions</a> for further information. Default value: <code>null</code>
+    </td>
+  </tr>
+  
+  <tr>
+    <td><code>deserializationAllowedClasses</code></td>
+    <td>String</td>
+    <td>
+        Sets the allowed class names of types that are analyzed before JSON and XML deserialization if <code>deserializationTypeValidationEnabled</code> is set to <code>true</code>. With the default validator, this can be a comma-separated list of class names. Only the defined class names will be allowed in conjunction with the <code>deserializationAllowedPackages</code>. Also, the default validator always allows the following types: <code>java.util.ArrayList</code>, <code>java.util.Arrays$ArrayList</code>, <code>java.util.HashMap</code>, <code>java.util.HashSet</code>, <code>java.util.LinkedHashMap</code>, <code>java.util.LinkedHashSet</code>, <code>java.util.LinkedList</code>, <code>java.util.Properties</code>, <code>java.util.TreeMap</code>, <code>java.util.TreeSet</code>. See <a href="{{< ref "/user-guide/security.md#type-validation-before-deserialization" >}}">Security Instructions</a> for further information. Default value: <code>null</code>
+    </td>
+  </tr>
 
   <tr>
     <td><a name="queryMaxResultsLimit"></a><code>queryMaxResultsLimit</code></td>
