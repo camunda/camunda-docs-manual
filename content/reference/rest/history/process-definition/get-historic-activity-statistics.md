@@ -56,8 +56,8 @@ GET `/history/process-definition/{id}/statistics`
     <td>Whether to include the number of activity instances which completed a scope in the result or not. Valid values are <code>true</code> or <code>false</code>. Default: <code>false</code>.</td>
   </tr>
   <tr>
-    <td>closedIncidents</td>
-    <td>Whether to include the number of completed incidents. Valid values are <code>true</code> or <code>false</code>. Default: <code>false</code>.</td>
+    <td>incidents</td>
+    <td>Whether to include the number of incidents. Valid values are <code>true</code> or <code>false</code>. Default: <code>false</code>.</td>
   </tr>
   <tr>
     <td>startedBefore</td>
@@ -130,9 +130,19 @@ Each object has the following properties:
     <td>The total number of all instances which completed a scope of the activity. <strong>Note:</strong> Will be <code>0</code> (not <code>null</code>), if activity instances which completed a scope were excluded.</td>
   </tr>
   <tr>
-    <td>closedIncidents</td>
+    <td>openIncidents</td>
     <td>Number</td>
-    <td>The total number of completed incident for the activity. <strong>Note:</strong> Will be <code>0</code> (not <code>null</code>), if <code>closedIncidents</code> is set to <code>false</code>.</td>
+    <td>The total number of open incident for the activity. <strong>Note:</strong> Will be <code>0</code> (not <code>null</code>), if <code>incidents</code> is set to <code>false</code>.</td>
+  </tr>
+  <tr>
+    <td>resolvedIncidents</td>
+    <td>Number</td>
+    <td>The total number of resolved incident for the activity. <strong>Note:</strong> Will be <code>0</code> (not <code>null</code>), if <code>incidents</code> is set to <code>false</code>.</td>
+  </tr>
+  <tr>
+    <td>deletedIncidents</td>
+    <td>Number</td>
+    <td>The total number of deleted incident for the activity. <strong>Note:</strong> Will be <code>0</code> (not <code>null</code>), if <code>incidents</code> is set to <code>false</code>.</td>
   </tr>
 </table>
 
@@ -173,7 +183,9 @@ GET `history/process-definition/aProcessDefinitionId/statistics?canceled=true`
         "canceled": 50,
         "finished": 0,
         "completeScope": 0,
-        "closedIncidents": 0
+        "openIncidents": 0,
+        "resolvedIncidents": 0,
+        "deletedIncidents": 0
       },
       {
         "id":"anotherActivity",
@@ -181,7 +193,9 @@ GET `history/process-definition/aProcessDefinitionId/statistics?canceled=true`
         "canceled": 150,
         "finished": 0,
         "completeScope": 0,
-        "closedIncidents": 0
+        "openIncidents": 0,
+        "resolvedIncidents": 0,
+        "deletedIncidents": 0
       }
     ]
 
@@ -198,7 +212,9 @@ GET `history/process-definition/aProcessDefinitionId/statistics?finished=true`
         "canceled": 0,
         "finished": 20,
         "completeScope": 0,
-        "closedIncidents": 0
+        "openIncidents": 0,
+        "resolvedIncidents": 0,
+        "deletedIncidents": 0
       },
       {
         "id":"anotherActivity",
@@ -206,7 +222,9 @@ GET `history/process-definition/aProcessDefinitionId/statistics?finished=true`
         "canceled": 0,
         "finished": 30,
         "completeScope": 0,
-        "closedIncidents": 0
+        "openIncidents": 0,
+        "resolvedIncidents": 0,
+        "deletedIncidents": 0
       }
     ]
 
@@ -223,7 +241,9 @@ GET `history/process-definition/aProcessDefinitionId/statistics?completeScope=tr
         "canceled": 0,
         "finished": 0,
         "completeScope": 20,
-        "closedIncidents": 0
+        "openIncidents": 0,
+        "resolvedIncidents": 0,
+        "deletedIncidents": 0
       },
       {
         "id":"anotherActivity",
@@ -231,6 +251,8 @@ GET `history/process-definition/aProcessDefinitionId/statistics?completeScope=tr
         "canceled": 0,
         "finished": 0,
         "completeScope": 1,
-        "closedIncidents": 0
+        "openIncidents": 0,
+        "resolvedIncidents": 0,
+        "deletedIncidents": 0
       }
     ]
