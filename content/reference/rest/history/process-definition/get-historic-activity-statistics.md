@@ -56,8 +56,8 @@ GET `/history/process-definition/{id}/statistics`
     <td>Whether to include the number of activity instances which completed a scope in the result or not. Valid values are <code>true</code> or <code>false</code>. Default: <code>false</code>.</td>
   </tr>
   <tr>
-    <td>closedIncidents</td>
-    <td>Whether to include the number of completed incidents. Valid values are <code>true</code> or <code>false</code>. Default: <code>false</code>.</td>
+    <td>incidents</td>
+    <td>Whether to include the number of incidents. Valid values are <code>true</code> or <code>false</code>. Default: <code>false</code>.</td>
   </tr>
   <tr>
     <td>startedBefore</td>
@@ -173,7 +173,9 @@ GET `history/process-definition/aProcessDefinitionId/statistics?canceled=true`
         "canceled": 50,
         "finished": 0,
         "completeScope": 0,
-        "closedIncidents": 0
+        "openIncidents": 0,
+        "resolvedIncidents": 0,
+        "deletedIncidents": 0
       },
       {
         "id":"anotherActivity",
@@ -181,7 +183,9 @@ GET `history/process-definition/aProcessDefinitionId/statistics?canceled=true`
         "canceled": 150,
         "finished": 0,
         "completeScope": 0,
-        "closedIncidents": 0
+        "openIncidents": 0,
+        "resolvedIncidents": 0,
+        "deletedIncidents": 0
       }
     ]
 
@@ -198,7 +202,9 @@ GET `history/process-definition/aProcessDefinitionId/statistics?finished=true`
         "canceled": 0,
         "finished": 20,
         "completeScope": 0,
-        "closedIncidents": 0
+        "openIncidents": 0,
+        "resolvedIncidents": 0,
+        "deletedIncidents": 0
       },
       {
         "id":"anotherActivity",
@@ -206,7 +212,9 @@ GET `history/process-definition/aProcessDefinitionId/statistics?finished=true`
         "canceled": 0,
         "finished": 30,
         "completeScope": 0,
-        "closedIncidents": 0
+        "openIncidents": 0,
+        "resolvedIncidents": 0,
+        "deletedIncidents": 0
       }
     ]
 
@@ -223,7 +231,9 @@ GET `history/process-definition/aProcessDefinitionId/statistics?completeScope=tr
         "canceled": 0,
         "finished": 0,
         "completeScope": 20,
-        "closedIncidents": 0
+        "openIncidents": 0,
+        "resolvedIncidents": 0,
+        "deletedIncidents": 0
       },
       {
         "id":"anotherActivity",
@@ -231,6 +241,8 @@ GET `history/process-definition/aProcessDefinitionId/statistics?completeScope=tr
         "canceled": 0,
         "finished": 0,
         "completeScope": 1,
-        "closedIncidents": 0
+        "openIncidents": 0,
+        "resolvedIncidents": 0,
+        "deletedIncidents": 0
       }
     ]
