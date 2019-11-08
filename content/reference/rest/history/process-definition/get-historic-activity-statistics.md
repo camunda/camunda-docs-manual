@@ -130,9 +130,19 @@ Each object has the following properties:
     <td>The total number of all instances which completed a scope of the activity. <strong>Note:</strong> Will be <code>0</code> (not <code>null</code>), if activity instances which completed a scope were excluded.</td>
   </tr>
   <tr>
-    <td>closedIncidents</td>
+    <td>openIncidents</td>
     <td>Number</td>
-    <td>The total number of completed incident for the activity. <strong>Note:</strong> Will be <code>0</code> (not <code>null</code>), if <code>closedIncidents</code> is set to <code>false</code>.</td>
+    <td>The total number of open incident for the activity. <strong>Note:</strong> Will be <code>0</code> (not <code>null</code>), if <code>incidents</code> is set to <code>false</code>.</td>
+  </tr>
+  <tr>
+    <td>resolvedIncidents</td>
+    <td>Number</td>
+    <td>The total number of resolved incident for the activity. <strong>Note:</strong> Will be <code>0</code> (not <code>null</code>), if <code>incidents</code> is set to <code>false</code>.</td>
+  </tr>
+  <tr>
+    <td>deletedIncidents</td>
+    <td>Number</td>
+    <td>The total number of deleted incident for the activity. <strong>Note:</strong> Will be <code>0</code> (not <code>null</code>), if <code>incidents</code> is set to <code>false</code>.</td>
   </tr>
 </table>
 
