@@ -165,57 +165,23 @@ To use Camunda BPM Assert, add the following dependency to your ```pom.xml```:
 <dependency>
   <groupId>org.camunda.bpm.assert</groupId>
   <artifactId>camunda-bpm-assert</artifactId>
-  <version>4.0.0</version>
+  <version>5.0.0</version>
 </dependency>
 ```
 
-Also, you will have to add the AssertJ library v3.12.2 to your dependencies with
+Also, you will have to add the AssertJ library v3.13.2 to your dependencies with
 
 ```xml
 <dependency>
   <groupId>org.assertj</groupId>
   <artifactId>assertj-core</artifactId>
-  <version>3.12.2</version>
+  <version>3.13.2</version>
 </dependency>
 ```
 
 If Camunda BPM Assert is used in combination with [Spring Boot](https://spring.io/projects/spring-boot) or the 
 [Camunda Spring Boot Starter](https://docs.camunda.org/manual/latest/user-guide/spring-boot-integration/), 
-the AssertJ dependency will be present in your project already. Due to binary incompatibilities between AssertJ versions, 
-further compatibility artifacts of BPM Assert exist to enable its usage in your project nonetheless. 
-Please choose a compatible Camunda BPM Assert artifact in this case. 
-The artifact that matches the AssertJ version introduced by your project can be chosen by the `artifactId`.
-
-So, if you want to work with Java 1.7 and are therefore bound to AssertJ version 2.x, use the following dependency:
-
-```xml
-<dependency>
-  <groupId>org.camunda.bpm.assert</groupId>
-  <artifactId>camunda-bpm-assert-assertj2</artifactId>
-  <version>4.0.0</version>
-</dependency>
-```
-
-If you are using a Spring Boot version 2.1.x that comes with AssertJ version 3.11.1, use the following dependency:
-
-```xml
-<dependency>
-  <groupId>org.camunda.bpm.assert</groupId>
-  <artifactId>camunda-bpm-assert-assertj3-11-1</artifactId>
-  <version>4.0.0</version>
-</dependency>
-```
-
-If you are using a Spring Boot version 2.0.x that comes with AssertJ version 3.9.1, use the following dependency (only available in Camunda BPM Assert version 3.x):
-
-```xml
-<dependency>
-  <groupId>org.camunda.bpm.assert</groupId>
-  <artifactId>camunda-bpm-assert-assertj3-9-1</artifactId>
-  <version>3.0.0</version>
-</dependency>
-```
-
+the AssertJ dependency will be present in your project already.
 
 ## Assertions Version Compatibility
 
@@ -271,6 +237,12 @@ All versions prior to 3.0.0 belong to the community extension are not part of th
     <td>3.12.2</br>2.9.0</br>3.11.1</td>
     <td>4.0.0</td>
     <td>7.11.0</td>
+  </tr>
+  <tr>
+    <td>camunda-bpm-assert</td>
+    <td>3.13.2</td>
+    <td>5.0.0</td>
+    <td>7.12.0</td>
   </tr>
 </table>
 
