@@ -218,6 +218,11 @@ GET `/history/task`
     <td>Filter by a comma-separated list of tenant ids. A task instance must have one of the given tenant ids.</td>
   </tr>
   <tr>
+    <td>withoutTenantId</td>
+    <td>Only include historic task instances that belong to no tenant. Value may only be 
+    <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>taskVariables</td>
     <td>Only include tasks that have variables with certain values.
     Variable filtering expressions are comma-separated and are structured as follows:<br/>

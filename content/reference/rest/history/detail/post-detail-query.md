@@ -91,6 +91,11 @@ A JSON object with the following properties:
     <td>Filter by a comma-separated list of tenant ids.</td>
   </tr>
   <tr>
+    <td>withoutTenantId</td>
+    <td>Only include historic details that belong to no tenant. Value may only be 
+    <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>userOperationId</td>
     <td>Filter by a user operation id</td>
   </tr>

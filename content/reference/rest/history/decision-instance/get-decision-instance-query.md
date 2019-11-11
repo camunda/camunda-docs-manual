@@ -107,6 +107,11 @@ GET `/history/decision-instance`
     <td>Filter by a comma-separated list of tenant ids. A historic decision instance must have one of the given tenant ids.</td>
   </tr>
   <tr>
+    <td>withoutTenantId</td>
+    <td>Only include historic decision instances that belong to no tenant. Value may only be 
+    <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>evaluatedBefore</td>
     <td>
       Restrict to instances that were evaluated before the given date.

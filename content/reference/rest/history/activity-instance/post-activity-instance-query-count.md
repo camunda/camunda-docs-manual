@@ -103,6 +103,11 @@ A JSON object with the following properties:
     <td>tenantIdIn</td>
     <td>Filter by a list of tenant ids. An activity instance must have one of the given tenant ids. Must be a JSON array of Strings.</td>
   </tr>
+  <tr>
+    <td>withoutTenantId</td>
+    <td>Only include historic activity instances that belong to no tenant. Value may only be 
+    <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
 </table>
 
 \* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.

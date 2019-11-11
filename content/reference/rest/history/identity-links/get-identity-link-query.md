@@ -76,6 +76,11 @@ GET `/history/identity-link-log`
     <td>Filter by a comma-separated list of tenant ids.</td>
   </tr>
   <tr>
+    <td>withoutTenantId</td>
+    <td>Only include historic identity links that belong to no tenant. Value may only be 
+    <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
     <code>time</code>, <code>type</code>, <code>userId</code>, <code>groupId</code>, <code>taskId</code>, <code>processDefinitionId</code>, <code>processDefinitionKey</code>, <code>operationType</code>, <code>assignerId</code>, <code>tenantId</code>.

@@ -129,6 +129,11 @@ GET `/history/case-activity-instance`
     <td>Filter by a comma-separated list of tenant ids. A case activity instance must have one of the given tenant ids.</td>
   </tr>
   <tr>
+    <td>withoutTenantId</td>
+    <td>Only include historic case activity instances that belong to no tenant. Value may only be 
+    <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>sortBy</td>
     <td>Sort the results by a given criterion. Valid values are
     <code>caseActivityInstanceID</code>, <code>caseInstanceId</code>, <code>caseExecutionId</code>, <code>caseActivityId</code>, <code>caseActivityName</code>, <code>createTime</code>, <code>endTime</code>, <code>duration</code>, <code>caseDefinitionId</code> and <code>tenantId</code>.
