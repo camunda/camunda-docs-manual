@@ -26,7 +26,7 @@ This document guides you through the update from Camunda BPM `7.9.x` to `7.10.0`
 9. For administrators: [History Related Changes](#history-related-changes)
 10. For developers: [Changed Webjar Structure](#changed-webjar-structure)
 11. For administrators and developers: [Changed Permissions for Starting Process In Tasklist](#changed-permissions-for-starting-process-in-tasklist)
-12. For developers: [Spin and JAXB](spin-and-jaxb)
+12. For developers: [Spin and JAXB](#spin-and-jaxb)
 
 This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda BPM 7.10.
 
