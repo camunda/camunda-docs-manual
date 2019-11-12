@@ -26,6 +26,7 @@ This document guides you through the update from Camunda BPM `7.9.x` to `7.10.0`
 9. For administrators: [History Related Changes](#history-related-changes)
 10. For developers: [Changed Webjar Structure](#changed-webjar-structure)
 11. For administrators and developers: [Changed Permissions for Starting Process In Tasklist](#changed-permissions-for-starting-process-in-tasklist)
+12. For developers: [Spin and JAXB](spin-and-jaxb)
 
 This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda BPM 7.10.
 
@@ -212,3 +213,10 @@ In order to [start a process via Tasklist]({{< ref "/webapps/tasklist/working-wi
 
 * `CREATE_INSTANCE` and `READ` permissions at process definition level and
 * `CREATE` permission for all process instances.
+
+## Spin and JAXB
+
+Since Java 9, the previously included module "JAXB" was marked as deprecated and with Java 11 the module was removed entirely from the JDK. To make sure that the `camunda-spin-dataformat-all` artefact works seamlessly with Java 9 and versions above (i. e. without additional dependencies or configuration effort), from now on JAXB is directly included in the `camunda-spin-dataformat-all` artefact.
+Our recommendation is instead of using the `camunda-spin-dataformat-all` artefact, you could use the `camunda-spin-dataformat-xml-dom` artefact for the de/serialization of XML.
+
+If you are using Java 9 or above, you additionally need a JAXB implementation, we recommend to use the version `2.2.3` of `com.sun.xml.bind:jaxb-impl`.
