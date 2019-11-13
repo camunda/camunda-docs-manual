@@ -18,8 +18,7 @@ The update procedure takes the following steps:
 
 1. Update the Camunda BPM Core Libraries
 2. Update Optional Camunda BPM Libraries
-3. Maintain Process Applications
-4. Update Web Applications
+3. Update Web Applications
 
 In each of the following steps, the identifier `$*_VERSION` refers to the current versions and the new versions of the artifacts.
 
@@ -90,7 +89,7 @@ The following steps are required to update the Camunda web applications Cockpit,
 2. Download the Camunda web application archive from our [Maven Nexus Server][nexus-webapp]. Alternatively, switch to the private repository for the enterprise version (credentials from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-tomcat-$PLATFORM_VERSION.war`.
 3. Deploy the web application archive to your Tomcat instance.
 
-[update-guide]: {{< ref "/update/minor/710-to-711/_index.md" >}}
+[update-guide]: {{< ref "/update/minor/711-to-712/_index.md" >}}
 [nexus-restapi]: https://app.camunda.com/nexus/#browse/browse:camunda-bpm:org%2Fcamunda%2Fbpm%2Fcamunda-engine-rest%2F7.12.0%2Fcamunda-engine-rest-7.12.0-tomcat.war
 [nexus-webapp]: https://app.camunda.com/nexus/#browse/browse:camunda-bpm:org%2Fcamunda%2Fbpm%2Fwebapp%2Fcamunda-webapp-tomcat%2F7.12.0%2Fcamunda-webapp-tomcat-7.12.0.war
 [tomcat-distribution]: https://camunda.org/release/camunda-bpm/tomcat/7.12/

@@ -25,7 +25,7 @@ In each of the following steps, the identifier `$*_VERSION` refers to the curren
 
 # 1. Uninstall the Camunda Applications and Archives
 
-First, uninstall the Camunda web applications, namely the Camunda REST API (artifact name like `camunda-engine-rest`) and the Camunda applications Cockpit, Tasklist and Admin (artifact name like `camunda-webapp`).
+First, uninstall the Camunda web applications, namely the Camunda REST API (artifact name like `camunda-engine-rest`) and the Camunda applications Cockpit, Tasklist, and Admin (artifact name like `camunda-webapp`).
 
 Uninstall the Camunda EAR. Its name should be `camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear`.
 
@@ -87,4 +87,4 @@ Deploy the web application `$WLS_DISTRIBUTION/webapps/camunda-engine-rest-$PLATF
 Deploy the web application `$WLS_DISTRIBUTION/webapps/camunda-webapp-ee-wls-$PLATFORM_VERSION.war` to your Oracle WebLogic instance.
 
 [configuration-location]: {{< ref "/reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}
-[update-guide]: {{< ref "/update/minor/710-to-711/_index.md" >}}
+[update-guide]: {{< ref "/update/minor/711-to-712/_index.md" >}}
