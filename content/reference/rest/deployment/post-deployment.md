@@ -164,6 +164,11 @@ Its properties are as follows:
     <td>application/json</td>
     <td>Request successful.</td>
   </tr>
+  <tr>
+    <td>400</td>
+    <td>application/json</td>
+    <td>In case one of the bpmn resources cannot be parsed.  See the <a href="{{< ref "/reference/rest/overview/_index.md#parse-exceptions" >}}">Introduction</a> for the error response format.</td>
+  </tr>
 </table>
 
 
@@ -236,4 +241,41 @@ Status 200.
     "deployedDecisionDefinitions": null,
     "deployedDecisionRequirementsDefinitions": null
 }
+```
+
+## Response on Parse Errors
+
+Status 400.
+
+```json
+{
+	"type": "ParseException",
+	"message": "ENGINE-09005 Could not parse BPMN process. Errors: Exclusive Gateway 'ExclusiveGateway_1' has outgoing sequence flow 'SequenceFlow_0' without condition which is not the default flow.",
+	"details": {
+		"invoice.bpmn": {
+			"errors": [
+				{
+					"message": "Exclusive Gateway 'ExclusiveGateway_1' has outgoing sequence flow 'SequenceFlow_0' without condition which is not the default flow.",
+					"line": 77,
+					"column": 15,
+					"mainBpmnElementId": "ExclusiveGateway_1",
+					"bpmnElementIds": [
+						"ExclusiveGateway_1",
+						"SequenceFlow_0"
+					]
+				}
+			],
+			"warnings": [
+				{
+					"message": "It is not recommended to use a cancelling boundary timer event with a time cycle.",
+					"line": 87,
+					"column": 20,
+					"mainBpmnElementId": "BoundaryEvent_1",
+					"bpmnElementIds": [
+						"BoundaryEvent_1"
+					]
+				}
+			]
+		}
+	}
 ```

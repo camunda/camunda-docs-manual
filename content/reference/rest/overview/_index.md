@@ -278,9 +278,52 @@ Every validation report object contains the following properties:
 }
 ```
 
+## Parse Exceptions
+
+If the process bpmn resource cannot be parsed during deployment, the deployment of it will fail and the status code of the response will be set to `400 Bad Request`. Details about the parsing problems are provided in the response body.
+
+#### Type
+
+`ParseException`
+
+#### Response Body
+
+```json
+{
+	"type": "ParseException",
+	"message": "ENGINE-09005 Could not parse BPMN process. Errors: Exclusive Gateway 'ExclusiveGateway_1' has outgoing sequence flow 'SequenceFlow_0' without condition which is not the default flow.",
+	"details": {
+		"invoice.bpmn": {
+			"errors": [
+				{
+					"message": "Exclusive Gateway 'ExclusiveGateway_1' has outgoing sequence flow 'SequenceFlow_0' without condition which is not the default flow.",
+					"line": 77,
+					"column": 15,
+					"mainBpmnElementId": "ExclusiveGateway_1",
+					"bpmnElementIds": [
+						"ExclusiveGateway_1",
+						"SequenceFlow_0"
+					]
+				}
+			],
+			"warnings": [
+				{
+					"message": "It is not recommended to use a cancelling boundary timer event with a time cycle.",
+					"line": 87,
+					"column": 20,
+					"mainBpmnElementId": "BoundaryEvent_1",
+					"bpmnElementIds": [
+						"BoundaryEvent_1"
+					]
+				}
+			]
+		}
+	}
+```
+
 ## Query Maximum Results Limit Exceptions
 
-When the [maximum results limit of a query]({{< ref "/user-guide/process-engine/process-engine-api.md#query-maximum-results-limit">}}) 
+When the [maximum results limit of a query]({{< ref "/user-guide/process-engine/process-engine-api.md#query-maximum-results-limit">}})
 is exceeded, an exception is thrown which results in an HTTP status code 400.
 
 # Authentication
