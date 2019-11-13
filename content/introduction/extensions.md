@@ -50,6 +50,7 @@ The following is a list of current (unsupported) community extensions:
 * [Reactor Event Bus](https://github.com/camunda/camunda-bpm-reactor)
 * [Scenario Testing Library](https://github.com/camunda/camunda-bpm-assert-scenario/)
 * [Single Sign On for JBoss](https://github.com/camunda/camunda-sso-jboss)
+* [Spring Boot Rest Client](https://camunda.github.io/camunda-rest-client-spring-boot/)
 * [Tasklist Translations](https://github.com/camunda/camunda-tasklist-translations)
 * [Wildfly Swarm](https://github.com/camunda/camunda-bpm-wildfly-swarm)
 
