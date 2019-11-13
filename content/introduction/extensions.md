@@ -50,6 +50,7 @@ The following is a list of current (unsupported) community extensions:
 * [PHP SDK](http://camunda.github.io/camunda-bpm-php-sdk/)
 * [Process Test Coverage](https://github.com/camunda/camunda-process-test-coverage)
 * [Reactor Event Bus](https://github.com/camunda/camunda-bpm-reactor)
+* [REST Client Spring Boot](https://github.com/camunda/camunda-rest-client-spring-boot/)
 * [Scenario Testing Library](https://github.com/camunda/camunda-bpm-assert-scenario/)
 * [Single Sign On for JBoss](https://github.com/camunda/camunda-sso-jboss)
 * [Tasklist Translations](https://github.com/camunda/camunda-tasklist-translations)
