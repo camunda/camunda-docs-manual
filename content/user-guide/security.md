@@ -118,14 +118,14 @@ However, use the native queries with care. Please bear in mind of the SQL Inject
 
 ### Maximum Results Limit in Queries
 
-Using the REST API or the Webapps querying for results without restricting the maximum number of 
-results or querying  for a vast number of results can lead to a high memory consumption or even to 
+Using the REST API or the Webapps querying for results without restricting the maximum number of
+results or querying  for a vast number of results can lead to a high memory consumption or even to
 out of memory exceptions.
 
-You can mitigate the risk of an attack by defining a limit for the maximum number of results  
+You can mitigate the risk of an attack by defining a limit for the maximum number of results
 (`queryMaxResultsLimit`) in the [process engine configuration]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#queryMaxResultsLimit" >}}).
 
-Please see the User Guide to learn more about the 
+Please see the User Guide to learn more about the
 [Query Maximum Results Limit]({{< ref "/user-guide/process-engine/process-engine-api.md#query-maximum-results-limit">}}).
 
 ## CSRF Prevention in the Webapps
@@ -166,11 +166,11 @@ about the several headers, the defaults and how to configure the HTTP headers ac
 Process data is not always represented by Java objects but also present in serialized formats such as JSON or XML.
 Camunda offers convenient handling of such formats with the [Spin Plugin]({{< ref "/user-guide/data-formats/configuring-spin-integration.md" >}}), whose default handlers rely on Jackson Databind for JSON and JAXB for XML.
 
-In order to operate on serialized data, it can be deserialized into Java objects. 
-The core routine responsible for the deserialization of objects in Java is however performed without any validation mechanism. 
+In order to operate on serialized data, it can be deserialized into Java objects.
+The core routine responsible for the deserialization of objects in Java is however performed without any validation mechanism.
 Therefore, deserialization in Java is generally prone to being exploited into executing arbitrary code on the JVM that performs the deserialization.
 
-Jackson Databind employs a blacklist of known malicious classes that allow for such attacks and prevent their deserialization. 
+Jackson Databind employs a blacklist of known malicious classes that allow for such attacks and prevent their deserialization.
 It is therefore advisable to use the latest version available in order to work with an up-to-date blacklist.
 As this always is a reactive means only, Jackson Databind also offers a [new whitelist approach](https://medium.com/@cowtowncoder/jackson-2-10-safe-default-typing-2d018f0ce2ba) starting with version 2.10.
 We recommend using this technique if you are working with polymorphic classes that need to be (de)serialized in the JSON format.
@@ -180,13 +180,13 @@ Camunda however also offers multiple APIs that allow to specify the Java type th
 
 In case
 
-1. untrusted sources are able to use the XML APIs mentioned above to inject potentially harmful XML content into your application or 
+1. untrusted sources are able to use the XML APIs mentioned above to inject potentially harmful XML content into your application or
 2. you are not able to use the whitelisting approach Jackson Databind offers but are bound to using default typing in JSON due to polymorphism,
 
 Camunda offers a customizable whitelist approach that can validate the target Java type before the deserialization is triggered.
 
 The [process engine configuration]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#deserializationTypeValidationEnabled" >}}) offers an option to enable this whitelisting.
-With this, a default validator will be registered with the engine that allows for the deserialization of reasonable default packages and classes only. 
+With this, a default validator will be registered with the engine that allows for the deserialization of reasonable default packages and classes only.
 Those defaults can be found in the documentation of the engine properties `deserializationAllowedPackages` and `deserializationAllowedClasses`.
 Those two properties also allow for adding further allowed package and class names of Java types that you consider save to deserialize in your environment.
 
@@ -243,4 +243,10 @@ The container provides the session cookie. Please consult the documentation abou
 
 ### Error handling
 
-The Webapps have a default error page which is displayed in case of unhandled Internal server errors. The REST API displays the type and short error message when an error is thrown.
+The Webapps have a default error page which is displayed in case of unhandled exceptions raised within the scope of the webapps. The REST API displays the type and short error message when an error is thrown. This practice prevents attackers from obtaining technical details about the system, which for example a stacktrace could reveal (see OWASP's [Improper Error Handling article](https://www.owasp.org/index.php/Improper_Error_Handling) for details).
+
+On top of that, it is recommended to configure the application server in the same way for any exceptions raised within the scope of the server. The configuration is server-specific.
+
+Related resources:
+
+* [OWASP Securing Tomcat Guide](https://www.owasp.org/index.php/Securing_tomcat)
