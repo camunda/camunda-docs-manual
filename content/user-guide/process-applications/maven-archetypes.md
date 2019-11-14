@@ -39,6 +39,21 @@ The following archetypes are currently provided. They are distributed via our Ma
           Contains: Servlet process application, BPMN Process, Java Delegate, HTML5-based start and task forms,
           JUnit Test with in-memory engine, Maven Plugins or Ant build script for one-click deployment in Eclipse</td>
     </tr>
+    <tr>
+      <td><a href="https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-spring-boot/">Camunda Spring Boot Application</a></td>
+      <td>Application that uses the Camunda Spring Boot Starter.
+          Contains: Spring Boot Process Application, Camunda Webapps, BPMN Process, Java Delegate, HTML5-based start and task forms,
+          JUnit Test with in-memory engine, Maven Plugins for packing as an executable application.</td>
+    </tr>
+    <tr>
+      <td><a href="https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-spring-boot-demo/">Camunda Spring Boot Application with Demo Users</a></td>
+      <td>Same as the <i>Spring Boot Application</i> archetype and additionally creates demo users and groups for easy start with the Camunda Webapps (use <code>demo/demo</code> to log in).</td>
+    </tr>
+    <tr>
+      <td><a href="https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-engine-plugin/">Process Engine Plugin</a></td>
+      <td>An example for a process engine plugin.
+      Contains: Process engine plugin, BPMN Parse Listener that is registered via the plugin, Task Listener that is added to every user task, JUnit Test with in-memory engine.</td>
+    </tr>
   </tbody>
 </table>
 
