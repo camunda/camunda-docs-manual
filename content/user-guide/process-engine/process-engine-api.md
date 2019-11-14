@@ -111,15 +111,15 @@ You can find more information on this in the {{< javadocref page="" text="Java D
 
 ## Query Maximum Results Limit
 
-Querying for results without restricting the maximum number of results or querying for a vast number 
-of results can lead to a high memory consumption or even to out of memory exceptions. With the help 
-of the [Query Maximum Results Limit]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#queryMaxResultsLimit" >}}), 
+Querying for results without restricting the maximum number of results or querying for a vast number
+of results can lead to a high memory consumption or even to out of memory exceptions. With the help
+of the [Query Maximum Results Limit]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#queryMaxResultsLimit" >}}),
 you can restrict the maximum number of results.
 
 This restriction is only enforced in the following cases:
 
 * an authenticated user performs the query
-* the query API is directly called e. g. via REST API (no enforcement within a process through 
+* the query API is directly called e. g. via REST API (no enforcement within a process through
 [Delegation Code]({{< ref "/user-guide/process-engine/delegation-code.md" >}}))
 
 ### Forbidden Cases
@@ -131,7 +131,7 @@ This restriction is only enforced in the following cases:
 
 ### Allowed Cases
 
-* Performing a [Paginated Query](#paginated-queries) with a maximum number of results less or equal 
+* Performing a [Paginated Query](#paginated-queries) with a maximum number of results less or equal
 to the maximum results limit
 * Performing a [Native Query](#native-queries) since it is not accessible via REST API or Webapps
  and therefore not likely to be exploited
@@ -140,7 +140,7 @@ to the maximum results limit
 
 ## Paginated Queries
 
-Pagination allows configuring the maximum results retrieved by a query as well as the position 
+Pagination allows configuring the maximum results retrieved by a query as well as the position
 (index) of the first result.
 
 Please see the following example:
@@ -155,18 +155,18 @@ List<Task> tasks = taskService.createTaskQuery()
 The query shown above retrieves 50 results starting at the result with the index 20.
 
 ## OR Queries
-The default behavior of the query API links filter criteria together with an AND expression. 
-OR queries enable building queries in which filter criteria are linked together with an OR expression. 
+The default behavior of the query API links filter criteria together with an AND expression.
+OR queries enable building queries in which filter criteria are linked together with an OR expression.
 
 {{< note title="Heads-up!" class="info" >}}
   - This functionality is only available for task and process instance queries (runtime & history).
-  - The following methods cannot be applied to an OR query: orderBy...(), initializeFormKeys(), 
+  - The following methods cannot be applied to an OR query: orderBy...(), initializeFormKeys(),
   withCandidateGroups(), withoutCandidateGroups(), withCandidateUsers(), withoutCandidateUsers().
 {{< /note >}}
 
-After calling `or()`, a chain of several filter criteria could follow. Each filter criterion is linked together 
-with an OR expression. The invocation of `endOr()` marks the end of the OR query. Calling these two methods is comparable 
-to putting the filter criteria in brackets. 
+After calling `or()`, a chain of several filter criteria could follow. Each filter criterion is linked together
+with an OR expression. The invocation of `endOr()` marks the end of the OR query. Calling these two methods is comparable
+to putting the filter criteria in brackets.
 ```java
 List<Task> tasks = taskService.createTaskQuery()
   .taskAssignee("John Munda")
@@ -177,18 +177,20 @@ List<Task> tasks = taskService.createTaskQuery()
   .list();
 ```
 The query above retrieves all tasks which are assigned to "John Munda" and simultaneously either named "Approve Invoice"
-or given the fifth degree of priority. Internally the query would be translated to the following SQL query (slightly simplified):
+or given the fifth degree of priority (`assignee = "John Munda" AND (name = "Approve Invoice" OR priority = 5)`, <a href="https://en.wikipedia.org/wiki/Conjunctive_normal_form">Conjunctive Normal Form</a>).
+
+Internally the query is translated to the following SQL query (slightly simplified):
 
 ```sql
-SELECT DISTINCT * 
-FROM   act_ru_task RES 
-WHERE  RES.assignee_ = 'John Munda' 
-       AND ( Upper(RES.name_) = Upper('Approve Invoice') 
+SELECT DISTINCT *
+FROM   act_ru_task RES
+WHERE  RES.assignee_ = 'John Munda'
+       AND ( Upper(RES.name_) = Upper('Approve Invoice')
              OR RES.priority_ = 5 );
 ```
 
-Inside a query, an arbitrary amount of OR queries can be used. When building a query which consists not only of a single 
-OR query but also of filter criteria linked together with an AND expression, the OR query is appended to the criteria chain 
+An arbitrary amount of OR queries can be used at once. When building a query which consists not only of a single
+OR query but also of filter criteria linked together with an AND expression, the OR query is appended to the criteria chain
 by a leading AND expression.
 
 A filter criterion related to variables can be applied multiple times within the same OR query:
@@ -202,7 +204,7 @@ List<Task> tasks = taskService.createTaskQuery()
   .list();
 ```
 
-Aside from variable related filter criteria, this behavior differs. Whenever a **non-variable-filter-criterion** is used 
+Aside from variable related filter criteria, this behavior differs. Whenever a **non-variable-filter-criterion** is used
 more than once inside a query, only the value which was applied last is utilized:
 ```java
 List<Task> tasks = taskService.createTaskQuery()
@@ -213,7 +215,7 @@ List<Task> tasks = taskService.createTaskQuery()
   .list();
 ```
 {{< note title="Heads-up!" class="info" >}}
-In the query shown above the value "sales" of the filter criterion `taskCandidateGroup` is replaced by the value 
+In the query shown above the value "sales" of the filter criterion `taskCandidateGroup` is replaced by the value
 "controlling". To avoid this behavior, filter criteria with a trailing ...**In** could be used e.g.,:
 
 * taskCandidateGroup**In**()

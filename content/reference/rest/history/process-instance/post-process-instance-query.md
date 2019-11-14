@@ -133,7 +133,7 @@ A JSON object with the following properties:
     </tr>
   <tr>
     <td>incidentStatus</td>
-	<td>Only include process instances which have an incident in status either <code>open</code> or <code>resolved</code>. 
+	<td>Only include process instances which have an incident in status either <code>open</code> or <code>resolved</code>.
 	To get all process instances, use the query parameter <code>withIncidents</code>.</td>
   </tr>
   <tr>
@@ -203,8 +203,8 @@ A JSON object with the following properties:
         </tr>
         <tr>
           <td>sortBy</td>
-          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are 
-          <code>instanceId</code>, <code>definitionId</code>, <code>definitionKey</code>, <code>definitionName</code>, <code>definitionVersion</code>, 
+          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are
+          <code>instanceId</code>, <code>definitionId</code>, <code>definitionKey</code>, <code>definitionName</code>, <code>definitionVersion</code>,
           <code>businessKey</code>, <code>startTime</code>, <code>endTime</code>, <code>duration</code> and <code>tenantId</code>.</td>
         </tr>
         <tr>
@@ -261,10 +261,12 @@ A JSON object with the following properties:
   <tr>
     <td>orQueries</td>
     <td>
-    A JSON array which contains at least one OR query JSON Object. All previously listed filter criteria can be used  
-    inside of this JSON object. See the <a href="{{< ref "/user-guide/process-engine/process-engine-api.md#or-queries" >}}">user guide</a> 
-    for more information about OR queries.<br><br>
-    The following properties are not supported: <code>sorting</code>.
+    A JSON array of nested historic process instance queries with OR semantics. A process instance matches a nested query if it fulfills <i>at least one</i> of the query's predicates. With multiple nested queries, a process instance must fulfill at least one predicate of <i>each</i> query (<a href="https://en.wikipedia.org/wiki/Conjunctive_normal_form">Conjunctive Normal Form</a>).<br><br>
+
+    All process instance query properties can be used except for: <code>sorting</code><br><br>
+
+    See the <a href="{{< ref "/user-guide/process-engine/process-engine-api.md#or-queries" >}}">user guide</a>
+    for more information about OR queries.
     </td>
   </tr>
 </table>

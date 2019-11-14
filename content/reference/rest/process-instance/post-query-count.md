@@ -145,10 +145,12 @@ A JSON object with the following properties:
   <tr>
     <td>orQueries</td>
     <td>
-    A JSON array which contains at least one OR query JSON Object. All previously listed filter criteria can be used  
-    inside of this JSON object. See the <a href="{{< ref "/user-guide/process-engine/process-engine-api.md#or-queries" >}}">user guide</a> 
-    for more information about OR queries.<br><br>
-    The following properties are not supported: <code>sorting</code>.
+    A JSON array of nested process instance queries with OR semantics. A process instance matches a nested query if it fulfills <i>at least one</i> of the query's predicates. With multiple nested queries, a process instance must fulfill at least one predicate of <i>each</i> query (<a href="https://en.wikipedia.org/wiki/Conjunctive_normal_form">Conjunctive Normal Form</a>).<br><br>
+
+    All process instance query properties can be used except for: <code>sorting</code><br><br>
+
+    See the <a href="{{< ref "/user-guide/process-engine/process-engine-api.md#or-queries" >}}">user guide</a>
+    for more information about OR queries.
     </td>
   </tr>
 </table>

@@ -66,7 +66,7 @@ A JSON object with the following properties:
   <tr>
     <td>processInstanceBusinessKeyExpression</td>
     <td>Restrict to tasks that belong to process instances with the given business key which is described by an expression.
-     See the 
+     See the
      <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">user guide</a>
      for more information on available functions.</td>
   </tr>
@@ -82,8 +82,8 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>processInstanceBusinessKeyLikeExpression</td>
-    <td>Restrict to tasks that have a process instance business key that has the parameter value as a substring and is 
-    described by an expression. See the 
+    <td>Restrict to tasks that have a process instance business key that has the parameter value as a substring and is
+    described by an expression. See the
     <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">user guide</a>
     for more information on available functions.</td>
   </tr>
@@ -208,22 +208,22 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>withCandidateGroups</td>
-    <td>Only include tasks which have a candidate group. Value may only be <code>true</code>, 
+    <td>Only include tasks which have a candidate group. Value may only be <code>true</code>,
     as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>withoutCandidateGroups</td>
-    <td>Only include tasks which have no candidate group. Value may only be <code>true</code>, 
+    <td>Only include tasks which have no candidate group. Value may only be <code>true</code>,
     as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>withCandidateUsers</td>
-    <td>Only include tasks which have a candidate user. Value may only be <code>true</code>, 
+    <td>Only include tasks which have a candidate user. Value may only be <code>true</code>,
     as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>withoutCandidateUsers</td>
-    <td>Only include tasks which have no candidate user. Value may only be <code>true</code>, 
+    <td>Only include tasks which have no candidate user. Value may only be <code>true</code>,
     as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
@@ -519,11 +519,13 @@ A JSON object with the following properties:
   <tr>
     <td>orQueries</td>
     <td>
-    A JSON array which contains at least one OR query JSON Object. All previously listed filter criteria can be used  
-    inside of this JSON object. See the <a href="{{< ref "/user-guide/process-engine/process-engine-api.md#or-queries" >}}">user guide</a> 
-    for more information about OR queries.<br><br>
-    The following properties are not supported: <code>sorting</code>, <code>withCandidateGroups</code>, 
-    <code>withoutCandidateGroups</code>, <code>withCandidateUsers</code>, <code>withoutCandidateUsers</code>.
+    A JSON array of nested task queries with OR semantics. A task matches a nested query if it fulfills <i>at least one</i> of the query's predicates. With multiple nested queries, a task must fulfill at least one predicate of <i>each</i> query (<a href="https://en.wikipedia.org/wiki/Conjunctive_normal_form">Conjunctive Normal Form</a>).<br><br>
+
+    All task query properties can be used except for: <code>sorting</code>, <code>withCandidateGroups</code>,
+    <code>withoutCandidateGroups</code>, <code>withCandidateUsers</code>, <code>withoutCandidateUsers</code><br><br>
+
+    See the <a href="{{< ref "/user-guide/process-engine/process-engine-api.md#or-queries" >}}">user guide</a>
+    for more information about OR queries.
     </td>
   </tr>
   <tr>
@@ -758,6 +760,8 @@ Request Body:
 ## Request with OR queries
 
 POST `/task`
+
+Logical query: `assignee = "John Munda" AND (name = "Approve Invoice" OR priority = 5) AND (suspended = false OR taskDefinitionKey = "approveInvoice")`
 
 Request Body:
 ```json
