@@ -11,6 +11,12 @@ menu:
 
 ---
 
+# Upgrade to Spring boot 2.2.1
+
+The 3.4.0 version of the Camunda Spring Boot Starter minor release comes with an update to Spring
+Boot 2.2.1. To see what changes have been introduced from the Spring Boot side, please check the
+Spring Boot 2.2 [Release notes](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.2-Release-Notes).
+
 # Spin DataFormat Configuration
 
 From this minor release, the Camunda Spring Boot Starter provides auto-configuration classes for
