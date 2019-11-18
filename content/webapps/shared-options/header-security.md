@@ -49,10 +49,10 @@ We encourage you to use a stricter **Content Security Policy** than the default 
 
 * `base-uri 'self'`
   * The URI of the HTML Base Tag must not point to a cross-origin
-* `default-src 'self' 'unsafe-inline'`
+* `default-src 'self' 'unsafe-inline' 'unsafe-eval'`
   * Resources (e. g. scripts, styles, fonts, etc.) must not point to a cross-origin
   * Inline styles/scripts must be allowed since the web applications make use of it
-  * JavaScript's `eval(…)` calls are not executed
+  * JavaScript's `eval(…)` calls must be allowed to execute `cam-script` in Tasklist
 * `img-src 'self' data:`
   * Images must not point to a cross-origin
   * Data URIs are allowed since the web applications make use of it
@@ -74,7 +74,7 @@ We encourage you to use a stricter **Content Security Policy** than the default 
 If you want to configure all of the directives introduced above, the policy would look as follows:
 ```
 base-uri 'self';
-default-src 'self' 'unsafe-inline';
+default-src 'self' 'unsafe-inline' 'unsafe-eval';
 img-src 'self' data:;
 block-all-mixed-content;
 form-action 'self';
