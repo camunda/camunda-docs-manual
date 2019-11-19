@@ -161,31 +161,23 @@ According to your project requirements, some of these headers can be configured 
 documentation about the [HTTP Header Security]({{< ref "/webapps/shared-options/header-security.md" >}}) to learn more
 about the several headers, the defaults and how to configure the HTTP headers according to your needs.
 
-## Type Validation before Deserialization
+## Type Validation for Serialization
 
 Process data is not always represented by Java objects but also present in serialized formats such as JSON or XML.
-Camunda offers convenient handling of such formats with the [Spin Plugin]({{< ref "/user-guide/data-formats/configuring-spin-integration.md" >}}), whose default handlers rely on Jackson Databind for JSON and JAXB for XML.
-
 In order to operate on serialized data, it can be deserialized into Java objects.
-The core routine responsible for the deserialization of objects in Java is however performed without any validation mechanism.
-Therefore, deserialization in Java is generally prone to being exploited into executing arbitrary code on the JVM that performs the deserialization.
+Camunda offers convenient handling of such operations with the [Spin Plugin]({{< ref "/user-guide/data-formats/configuring-spin-integration.md" >}}).
 
-Jackson Databind employs a blacklist of known malicious classes that allow for such attacks and prevent their deserialization.
+The Java core routine responsible for the deserialization of objects is however performed without any validation mechanism.
+Therefore, deserialization in Java is generally prone to being exploited into executing arbitrary code upon deserialization.
+Several Camunda APIs (e.g. this [REST API]({{< ref "/reference/rest/execution/local-variables/put-local-variable.md#example-2" >}})) allow to specify the Java type the serialized content should be deserialized to.
+This can potentially lead to content that can be used for arbitrary code execution upon deserialization in your application.
+In case untrusted sources are able to use those APIs in your application, we recommend to install validation mechanisms.
+
+Jackson Databind, used by Camunda for JSON deserialization, by default employs a blacklist of known malicious classes that would allow for such attacks and prevents their deserialization.
 It is therefore advisable to use the latest version available in order to work with an up-to-date blacklist.
-As this always is a reactive means only, Jackson Databind also offers a [new whitelist approach](https://medium.com/@cowtowncoder/jackson-2-10-safe-default-typing-2d018f0ce2ba) starting with version 2.10.
-We recommend using this technique if you are working with polymorphic classes that need to be (de)serialized in the JSON format.
+JAXB, used by Camunda for XML deserialization, offers no explicit whitelisting or blacklisting mechanism.
 
-JAXB offers no explicit whitelisting or blacklisting approaches. Provided an XML content only, JAXB will only create Java objects of known and predefined types based on configuration, e.g. JAXB annotations like `@XmlRootElement`.
-Camunda however also offers multiple APIs that allow to specify the Java type the XML content should be mapped to. This can lead to content that can be used for arbitrary code execution upon deserialization.
-
-In case
-
-1. untrusted sources are able to use the XML APIs mentioned above to inject potentially harmful XML content into your application or
-2. you are not able to use the whitelisting approach Jackson Databind offers but are bound to using default typing in JSON due to polymorphism,
-
-Camunda offers a customizable whitelist approach that can validate the target Java type before the deserialization is triggered.
-
-The [process engine configuration]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#deserializationTypeValidationEnabled" >}}) offers an option to enable this whitelisting.
+Therefore, we recommend enabling the deserialization whitelisting in the [process engine configuration]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#deserializationTypeValidationEnabled" >}}).
 With this, a default validator will be registered with the engine that allows for the deserialization of reasonable default packages and classes only.
 Those defaults can be found in the documentation of the engine properties `deserializationAllowedPackages` and `deserializationAllowedClasses`.
 Those two properties also allow for adding further allowed package and class names of Java types that you consider save to deserialize in your environment.
@@ -194,6 +186,12 @@ In case this default behavior needs further adjustment, a custom validator can b
 The provided object needs to be a subtype of `org.camunda.bpm.engine.runtime.DeserializationTypeValidator` and offer an implementation of the `#validate` method.
 In case you want to rely on allowed package and class names from the engine configuration as well, you can provide a subtype of `org.camunda.bpm.engine.runtime.WhitelistingDeserializationTypeValidator`.
 An implementation of this interface registered as validator will be provided with the defined packages and classes from the engine configuration upon initialization of the engine via `#setAllowedClasses` and `#setAllowedPackages`.
+
+{{< note title="JSON Whitelisting" class="info" >}}
+  Jackson Databind also offers a [new whitelist approach](https://medium.com/@cowtowncoder/jackson-2-10-safe-default-typing-2d018f0ce2ba) starting with version 2.10.
+We recommend using this technique as an additional means if you are working with polymorphic classes that need to be (de)serialized in JSON format.
+This does however not protect your application from arbitrary code execution upon XML deserialization.
+{{< /note >}}
 
 # Security Configuration in the external Environment
 
