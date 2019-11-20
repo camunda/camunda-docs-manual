@@ -61,6 +61,12 @@ If you are searching for a variable of type string, which has a numeric, boolean
 
 Furthermore, you can copy a link to the current search query to your clipboard by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-link"></i></button> button and you can save search queries to your local browser storage by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and inserting a name in the drop down menu that appears. You can then retrieve the search query by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and selecting the chosen name in the drop down menu.
 
+### Case Insensitive Search
+{{< img src="../img/tasklist-case-insensitive.png" title="Task Search" >}}
+
+Sometimes it is not relevant for your search whether the value is capitalized or not. For search queries for Process-, Task- and Case Variables, you can configure if the search should be performed case sensitive or case insensitive. A case insensitive search for `'Fruits Inc.'` will also return matches for values like `'fruits inc.'` or `'FRUITS Inc.'`.
+
+When your search contains one of the Variables mentioned above, two checkboxes appear. You can choose the case handling for the variable name and variable value independently. The option applies to all variable queries within the same search.
 
 # Task View
 

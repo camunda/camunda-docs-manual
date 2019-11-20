@@ -127,6 +127,19 @@ Please note that this feature is only included in the enterprise edition of the 
 {{< /enterprise >}}
 
 Delete the current process definition version by using this feature. In the process definition view, hit the {{< glyphicon name="trash" >}} button on the right side. This opens a confirmation screen in which you can select flags to apply to the delete. You can always choose to enable/disable skipping custom listeners. However, if the process definition version has process instances running, enabling the cascading flag becomes mandatory.
+
+# BPMN Documentation
+
+{{< enterprise >}}
+Please note that this feature is only included in the enterprise edition of the Camunda BPM platform, it is not available in the community edition.
+{{< /enterprise >}}
+
+{{< img src="../../img/cockpit-documentation.png" title="Set Job Priority" >}}
+
+This feature allows you to inspect documentation added in the Camunda Modeler. To do so, open the Documentation tab. Elements with a documentation are indicated with a {{< glyphicon name="info-sign" >}} in the diagram. The documentation table lists all documented elements. Click on a table row to highlight the element in the diagram.
+
+To view long documentations, click on the {{< glyphicon name="info-sign" >}} on the element or the documentation link in the table. This opens a modal which displays the formated documentation in a textbox. To copy the documentation to the clipboard, click on {{< glyphicon name="copy" >}} button.
+
 # Set Job priority
 
 {{< img src="../../img/cockpit-set-job-priority.png" title="Set Job Priority" >}}
