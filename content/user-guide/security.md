@@ -191,6 +191,10 @@ out of memory exceptions.
 You can mitigate the risk of an attack by defining a limit for the maximum number of results
 (`queryMaxResultsLimit`) in the [process engine configuration]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#queryMaxResultsLimit" >}}).
 
+{{< note title="Heads-up!" class="info" >}}
+To gain the full feature set of the Webapps, and not suffer any UX degradation due to unavailable data, the `queryMaxResultsLimit` must be set to `2000`.
+{{< /note >}}
+
 Please see the User Guide to learn more about the
 [Query Maximum Results Limit]({{< ref "/user-guide/process-engine/process-engine-api.md#query-maximum-results-limit">}}).
 
