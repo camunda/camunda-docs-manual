@@ -762,7 +762,8 @@ server:
 The Camunda Spring Boot Starter auto-configures the Spin Jackson Json DataFormat when the
 `camunda-spin-dataformat-json-jackson` dependency is detected on the classpath. To include a
 `DataFormatConfigurator` for the desired Jackson Java 8 module, the appropriate dependency needs
-to be included on the classpath as well.
+to be included on the classpath as well. Note that `camunda-engine-plugin-spin` 
+needs to be included as a dependency as well for the auto-configurators to work.
 
 {{< note title="Heads Up!" class="warning" >}}
 The Spin Jackson Json DataFormat auto-configuration is disabled when using 
@@ -779,6 +780,10 @@ specification), the following dependencies, with their appropriate version tags,
  
  ```xml
 <dependencies>
+    <dependency>
+      <groupId>org.camunda.bpm</groupId>
+      <artifactId>camunda-engine-plugin-spin</artifactId>
+    </dependency>
     <dependency>
       <groupId>org.camunda.spin</groupId>
       <artifactId>camunda-spin-dataformat-json-jackson</artifactId>
