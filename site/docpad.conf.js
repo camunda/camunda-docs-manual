@@ -32,6 +32,7 @@ var docpadConfig = {
         current: process.env.DOCS_VERSION || '7.0',
         all: [
           { id: 'latest', name: 'Latest' },
+		  { id: '7.12', name: '7.12 (stable)' },
           { id: '7.11', name: '7.11 (stable)' },
           { id: '7.10', name: '7.10 (stable)' },
           { id: '7.9', name: '7.9 (stable)' },
