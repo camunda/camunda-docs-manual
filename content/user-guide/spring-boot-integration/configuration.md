@@ -765,6 +765,12 @@ The Camunda Spring Boot Starter auto-configures the Spin Jackson Json DataFormat
 to be included on the classpath as well. Note that `camunda-engine-plugin-spin`
 needs to be included as a dependency as well for the auto-configurators to work.
 
+Auto-configuration is currently supported for the following [Jackson Java 8 modules](https://github.com/FasterXML/jackson-modules-java8):
+
+1. Parameter names (`jackson-module-parameter-names`)
+2. Java 8 Date/time (`jackson-datatype-jdk8`)
+3. Java 8 Datatypes (`jackson-datatype-jsr310`)
+
 {{< note title="Heads Up!" class="warning" >}}
 The Spin Jackson Json DataFormat auto-configuration is disabled when using 
 `camunda-spin-dataformat-all` as a dependency. The `camunda-spin-dataformat-all` artifact shades the
@@ -773,9 +779,8 @@ Jackson libraries, which breaks compatibility with the regular Jackson modules. 
 [Spin Custom DataFormat configuration]({{< relref "reference/spin/extending-spin.md#custom-dataformats" >}}).
 {{< /note >}}
 
-For example, to provide support for Java 8 Date/time types in Spin (specified in the JSR-310
-specification), the following dependencies, with their appropriate version tags, will need to be
- added in the Spring Boot Application's
+For example, to provide support for Java 8 Date/time types in Spin, the following dependencies, with their 
+appropriate version tags, will need to be added in the Spring Boot Application's
 `pom.xml` file:
  
  ```xml
@@ -790,13 +795,12 @@ specification), the following dependencies, with their appropriate version tags,
     </dependency>
     <dependency>
       <groupId>com.fasterxml.jackson.datatype</groupId>
-      <artifactId>jackson-datatype-jsr310</artifactId>
+      <artifactId>jackson-datatype-jdk8</artifactId>
     </dependency>
 </dependencies>
 ```
 
-The available Jackson Java 8 modules can be found [here](https://github.com/FasterXML/jackson
--modules-java8). Spring Boot also provides some nice configuration properties, to further
+Spring Boot also provides some nice configuration properties, to further
 configure the Jackson `ObjectMapper`. They can be found [here](https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#howto-customize-the-jackson-objectmapper).
 
 To provide additional configurations, the following actions need to be performed:
