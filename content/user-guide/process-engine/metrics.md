@@ -72,6 +72,26 @@ The following table describes the built-in metrics. The identifiers of all built
     <td>job-locked-exclusive</td>
     <td>The number of exclusive jobs that are immediately locked and executed.</td>
   </tr>
+  <tr>
+    <td><b>History Clean up</b></td>
+    <td>history-cleanup-removed-process-instances</td>
+    <td>The number of process instances removed by history clean up.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>history-cleanup-removed-case-instances</td>
+    <td>The number of case instances removed by history clean up.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>history-cleanup-removed-decision-instances</td>
+    <td>The number of decision instances removed by history clean up.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>history-cleanup-removed-batch-operations</td>
+    <td>The number of batch operations removed by history clean up.</td>
+  </tr>
 </table>
 
 # Querying
