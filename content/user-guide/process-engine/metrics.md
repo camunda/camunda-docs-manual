@@ -90,7 +90,7 @@ The following table describes the built-in metrics. The identifiers of all built
   <tr>
     <td></td>
     <td>history-cleanup-removed-batch-operations</td>
-    <td>The number of batch operations removed by history clean up</td>
+    <td>The number of batch operations removed by history clean up.</td>
   </tr>
 </table>
 
