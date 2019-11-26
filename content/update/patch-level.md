@@ -352,6 +352,15 @@ The following list is an overview of all currently available patch scripts:
       </td>
     </tr>
     <tr>
+      <td>7.10</td>
+      <td>engine_7.10_patch_7.10.13_to_7.10.14.sql</td>
+      <td>Add index to improve Historic Activity Instance query performance.</td>
+      <td>All databases</td>
+      <td>
+        <a href="https://app.camunda.com/jira/browse/CAM-11117">CAM-11117</a>
+      </td>
+    </tr>
+    <tr>
       <td>7.11</td>
       <td>engine_7.11_patch_7.11.2_to_7.11.3.sql</td>
       <td>Add index to improve history cleanup performance.
@@ -360,6 +369,28 @@ The following list is an overview of all currently available patch scripts:
       <td>All databases</td>
       <td>
         <a href="https://app.camunda.com/jira/browse/CAM-10616">CAM-10616</a>
+      </td>
+    </tr>
+    <tr>
+      <td>7.11</td>
+      <td>engine_7.11_patch_7.11.7_to_7.11.8.sql</td>
+      <td>Add index to improve Historic Activity Instance query performance.
+      <strong>This is the same patch as engine_7.10_patch_7.10.13_to_7.10.14.sql.</strong>
+      </td>
+      <td>All databases</td>
+      <td>
+        <a href="https://app.camunda.com/jira/browse/CAM-11117">CAM-11117</a>
+      </td>
+    </tr>
+    <tr>
+      <td>7.12</td>
+      <td>engine_7.12_patch_7.12.0_to_7.12.1.sql</td>
+      <td>Add index to improve Historic Activity Instance query performance.
+      <strong>This is the same patch as engine_7.10_patch_7.10.13_to_7.10.14.sql.</strong>
+      </td>
+      <td>All databases</td>
+      <td>
+        <a href="https://app.camunda.com/jira/browse/CAM-11117">CAM-11117</a>
       </td>
     </tr>
   </tbody>
