@@ -351,6 +351,15 @@ The following list is an overview of all currently available patch scripts:
         <a href="https://app.camunda.com/jira/browse/CAM-10616">CAM-10616</a>
       </td>
     </tr>
+    <tr>
+      <td>7.10</td>
+      <td>engine_7.10_patch_7.10.13_to_7.10.14.sql</td>
+      <td>Add index to improve Historic Activity Instance query performance.</td>
+      <td>All databases</td>
+      <td>
+        <a href="https://app.camunda.com/jira/browse/CAM-11117">CAM-11117</a>
+      </td>
+    </tr>
   </tbody>
 </table>
 
