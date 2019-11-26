@@ -250,19 +250,22 @@ The process engine logs on the following categories
   </tr>
 </table>
 
+Note, to enable more log output, configure the log level of a logger to `DEBUG` or `FINE` according to the server in use.
+
 {{< note title="Heads Up!" class="warning" >}}
 The output of loggers might change with newer versions.
 {{< /note >}}
 
 ### When to use engine loggers?
 
-Enabling multiple loggers can lead to overwhelming output in the server log file.
-In most of the cases, it is good to enable a minimum loggers according to your needs. But which is the right logger for the my scenario?
-If the previous table is not sufficient to answer to this question, in this section are listed common scenarios where loggers can help to investigate the engine behavior.
+By default, the engine output contains logs with level log `ERROR` and `WARNING`.
+Increasing the level log of some engine loggers can provide more insights to analyze the engine behavior.
+Please be aware, some of the loggers can generate large amounts of information, be cautious when changing a level log to `DEBUG`/`FINE`.
+In this section are listed common scenarios where increasing the engine log levels can be helpful.
 
 #### Database statements
 
-To check the database statements performed by the engine in most of the cases it will be sufficient to enable `org.camunda.bpm.engine.persistence` and `org.camunda.bpm.engine.impl.persistence.entity` loggers.
+To check the database statements performed by the engine in most of the cases, it will be sufficient to increase the level log of `org.camunda.bpm.engine.persistence` and `org.camunda.bpm.engine.impl.persistence.entity` loggers.
 They log respectively the identity of all entities and the statements which are performed.
 However, some of the statements are not covered by them. The full list to see all of the engine database statements is:
 
@@ -274,7 +277,7 @@ However, some of the statements are not covered by them. The full list to see al
 * `org.camunda.bpm.engine.impl.dmn.entity.repository`
 * `org.camunda.bpm.engine.history`
 
-Here is an example how the server log will look like:
+Here is an example of how the server log will look like:
 
 ```plaintext
 25-Nov-2019 15:15:57.870 FINE [thread-1] o.c.c.l.BaseLogger.logDebug ENGINE-03006 Cache state after flush: [
@@ -297,7 +300,7 @@ For further information please visit the [MyBatis documentation](https://mybatis
 
 #### Diagnosing Job Execution
 
-To investigate the Job Execution behavior, as a start enable the following loggers:
+To investigate the Job Execution behavior, as a start switch the level log of the following loggers to `DEBUG`/`FINE`:
 
 * `org.camunda.bpm.engine.impl.persistence.entity.JobEntity` - logs the job execution statements
 * `org.camunda.bpm.engine.jobexecutor` - further job execution logs such as job acquisition and execution operations
@@ -323,19 +326,33 @@ Find more information for Diagnosing the Job Executor in this blog post - [The J
 
 #### Diagnosing Deadlocks
 
-The engine logging will provide further insights in case of deadlock issues by enabling the command and the persistence loggers.
+The engine logging will provide further insights in case of deadlock issues by increasing the level log of the command and the persistence loggers.
+First, determinate the resource involved in the deadlock, then try to narrow down, which are the two transactions blocking each other:
 
-* `org.camunda.bpm.engine.persistence`
-* `org.camunda.bpm.engine.cmd`
+* `org.camunda.bpm.engine.persistence` - the persistence logger will log all the identity of engine entities to find the involved resources causing the deadlock
+* `org.camunda.bpm.engine.cmd` - the command output will help to determinate the scope of the involved transactions which are causing the deadlock
 
 When the issue occurs for a specific entity (e.g. `VariableInstance`), consider enabling the logger of that entity as well (`org.camunda.bpm.engine.impl.persistence.entity.VariableInstanceEntity`).
-This will include the statements of these entities to observe the changes which are perform to them.
-Here is a sample of what traces the server log file will contain when those loggers are enabled.
+Then the output will include the statements of these entities to observe the changes which are performed.
+Here is a sample of what traces the server log file will contain when increasing the log level of these loggers.
 
 ```plaintext
 25-Nov-2019 16:00:50.675 FINE [thread-1] o.c.c.l.BaseLogger.logDebug ENGINE-13005 Starting command -------------------- RemoveExecutionVariablesCmd ----------------------
 25-Nov-2019 16:00:50.676 FINE [thread-1] o.c.c.l.BaseLogger.logDebug ENGINE-13009 opening new command context
-...
+25-Nov-2019 16:00:50.718 FINE [thread-1] o.c.c.l.BaseLogger.logDebug ENGINE-03006 Cache state after flush: [
+  PERSISTENT VariableInstanceEntity[0ec1ab1d-0f8d-11ea-8b01-e4a7a094a9d6]
+  PERSISTENT ProcessDefinitionEntity[invoice:2:ae69d3b4-0c41-11ea-a8eb-e4a7a094a9d6]
+  PERSISTENT HistoricVariableUpdateEventEntity[5eba854e-0f94-11ea-92d9-e4a7a094a9d6]
+  PERSISTENT ExecutionEntity[0ec04b8b-0f8d-11ea-8b01-e4a7a094a9d6]
+  PERSISTENT UserOperationLogEntryEventEntity[5ebb6faf-0f94-11ea-92d9-e4a7a094a9d6]
+  PERSISTENT HistoricVariableInstanceEntity[ddea4bef-0f93-11ea-b2ca-e4a7a094a9d6]
+]
+25-Nov-2019 16:00:50.722 FINE [thread-1] o.c.c.l.BaseLogger.logDebug ENGINE-03008 Flush Summary: [
+  INSERT UserOperationLogEntryEventEntity[5ebb6faf-0f94-11ea-92d9-e4a7a094a9d6]
+  INSERT HistoricVariableUpdateEventEntity[5eba854e-0f94-11ea-92d9-e4a7a094a9d6]
+  DELETE VariableInstanceEntity[ddea4bef-0f93-11ea-b2ca-e4a7a094a9d6]
+  UPDATE HistoricVariableInstanceEntity[ddea4bef-0f93-11ea-b2ca-e4a7a094a9d6]
+]
 25-Nov-2019 16:00:50.725 FINE [thread-1] o.c.c.l.BaseLogger.logDebug ENGINE-03009 SQL operation: 'INSERT'; Entity: 'HistoricVariableUpdateEventEntity[id=5eba854e-0f94-11ea-92d9-e4a7a094a9d6]'
 25-Nov-2019 16:00:50.726 FINE [thread-1] o.c.c.l.BaseLogger.logDebug ENGINE-03009 SQL operation: 'DELETE'; Entity: 'VariableInstanceEntity[id=ddea4bef-0f93-11ea-b2ca-e4a7a094a9d6]'
 25-Nov-2019 16:00:50.727 FINE [thread-1] o.a.i.l.j.BaseJdbcLogger.debug ==>  Preparing: delete from ACT_RU_VARIABLE where ID_ = ? and REV_ = ? 
@@ -343,6 +360,8 @@ Here is a sample of what traces the server log file will contain when those logg
 25-Nov-2019 16:00:50.730 FINE [thread-1] o.c.c.l.BaseLogger.logDebug ENGINE-03009 SQL operation: 'UPDATE'; Entity: 'HistoricVariableInstanceEntity[id=ddea4bef-0f93-11ea-b2ca-e4a7a094a9d6]'
 25-Nov-2019 16:00:50.737 FINE [thread-1] o.c.c.l.BaseLogger.logDebug ENGINE-13006 Finishing command -------------------- RemoveExecutionVariablesCmd ----------------------
 ```
+
+The snippet contains the start and of `RemoveExecutionVariablesCmd`, the flush summary of the operation, and the database statements of the variable instance.
 
 # Legacy: Java Util Logging
 
