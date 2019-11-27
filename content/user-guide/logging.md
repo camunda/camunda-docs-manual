@@ -39,7 +39,7 @@ If you do not care for a specific logging backend, the simplest option is to dir
 maven dependency:
 
 ```xml
-<dependency> 
+<dependency>
   <groupId>org.slf4j</groupId>
   <artifactId>slf4j-jdk14</artifactId>
   <version>1.7.26</version>
@@ -105,7 +105,7 @@ The process data is held in the MDC for the time of process execution and remove
 In case of arising exceptions upon execution, the data is kept in the MDC until the calling context,
 i.e. the [JobExecutor]({{< ref "/user-guide/process-engine/the-job-executor.md" >}}) or the surrounding command, finished its logging.
 
-The keys at which the properties are accessible in the MDC can be defined in the 
+The keys at which the properties are accessible in the MDC can be defined in the
 [process engine configuration]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#logging-context-parameters" >}}).
 
 In order to access the MDC data, you need to adjust the logging pattern of your logging configuration.
@@ -226,7 +226,7 @@ The process engine logs on the following categories
   </tr>
   <tr>
     <td><code>org.camunda.bpm.engine.rest.exception</code></td>
-    <td>logs the exceptions thrown in the engine rest</td>
+    <td>logs the exceptions thrown in the REST API</td>
   </tr>
   <tr>
     <td><code>org.camunda.bpm.engine.script</code></td>
@@ -250,24 +250,28 @@ The process engine logs on the following categories
   </tr>
 </table>
 
-Note, to enable more log output, configure the log level of a logger to `DEBUG` or `FINE` according to the server in use.
+By default, the engine output contains logs with level `ERROR`, `WARNING`, and `INFO`. To enable more log output, e.g. for the purpose of debugging, configure the level of a logger to `DEBUG` or `TRACE`.
 
 {{< note title="Heads Up!" class="warning" >}}
-The output of loggers might change with newer versions.
+The output of loggers can change with newer Camunda versions.
+{{< /note >}}
+
+{{< note title="Heads Up!" class="warning" >}}
+In Tomcat, logging is handled by `java.util.logging` via [Tomcat's JULI](https://tomcat.apache.org/tomcat-9.0-doc/logging.html) implementation. Note that the log levels `DEBUG` and `TRACE` are called `FINE` and `FINEST` in this environment.
 {{< /note >}}
 
 ### When to use engine loggers?
 
-By default, the engine output contains logs with level log `ERROR` and `WARNING`.
-Increasing the level log of some engine loggers can provide more insights to analyze the engine behavior.
-Please be aware, some of the loggers can generate large amounts of information, be cautious when changing a level log to `DEBUG`/`FINE`.
-In this section are listed common scenarios where increasing the engine log levels can be helpful.
+Increasing the level of some engine loggers can provide more insights to analyze the engine behavior.
+Please be aware, some of the loggers can create large amounts of output when changing their level to `DEBUG` or `TRACE`.
+In this section, common scenarios are listed where increasing the engine log levels can be helpful.
 
 #### Database statements
 
-To check the database statements performed by the engine in most of the cases, it will be sufficient to increase the level log of `org.camunda.bpm.engine.persistence` and `org.camunda.bpm.engine.impl.persistence.entity` loggers.
-They log respectively the identity of all entities and the statements which are performed.
-However, some of the statements are not covered by them. The full list to see all of the engine database statements is:
+To check the database statements performed by the engine in most of the cases, it will be sufficient to increase the level of `org.camunda.bpm.engine.persistence` and `org.camunda.bpm.engine.impl.persistence.entity` loggers.
+On level `DEBUG`, they log all SQL statements with their parameters. When set to `TRACE`, the results of the statements are logged in addition. Note if a query has many results, the log output will be large.
+
+However, some of the statements are not covered by only these two loggers. The full list to see all of the engine database statements is:
 
 * `org.camunda.bpm.engine.persistence`
 * `org.camunda.bpm.engine.impl.persistence.entity`
@@ -284,9 +288,9 @@ Here is an example of how the server log will look like:
   PERSISTENT GroupEntity[development]
 ]
 25-Nov-2019 15:15:57.871 FINE [thread-1] o.c.c.l.BaseLogger.logDebug ENGINE-03009 SQL operation: 'INSERT'; Entity: 'AuthorizationEntity[id=19ac0d96-0f8e-11ea-8b01-e4a7a094a9d6]'
-25-Nov-2019 15:15:57.871 FINE [thread-1] o.a.i.l.j.BaseJdbcLogger.debug ==>  Preparing: insert into ACT_RU_AUTHORIZATION ( ID_, TYPE_, GROUP_ID_, USER_ID_, RESOURCE_TYPE_, RESOURCE_ID_, PERMS_, REV_ ) values ( ?, ?, ?, ?, ?, ?, ?, 1 ) 
+25-Nov-2019 15:15:57.871 FINE [thread-1] o.a.i.l.j.BaseJdbcLogger.debug ==>  Preparing: insert into ACT_RU_AUTHORIZATION ( ID_, TYPE_, GROUP_ID_, USER_ID_, RESOURCE_TYPE_, RESOURCE_ID_, PERMS_, REV_ ) values ( ?, ?, ?, ?, ?, ?, ?, 1 )
 25-Nov-2019 15:15:57.872 FINE [thread-1] o.a.i.l.j.BaseJdbcLogger.debug ==> Parameters: 19ac0d96-0f8e-11ea-8b01-e4a7a094a9d6(String), 1(Integer), development(String), null, 2(Integer), development(String), 2(Integer)
-25-Nov-2019 15:17:17.075 FINE [thread-2] o.a.i.l.j.BaseJdbcLogger.debug ==>  Preparing: update ACT_ID_GROUP set REV_ = ?, NAME_ = ?, TYPE_ = ? where ID_ = ? and REV_ = ? 
+25-Nov-2019 15:17:17.075 FINE [thread-2] o.a.i.l.j.BaseJdbcLogger.debug ==>  Preparing: update ACT_ID_GROUP set REV_ = ?, NAME_ = ?, TYPE_ = ? where ID_ = ? and REV_ = ?
 25-Nov-2019 15:17:17.076 FINE [thread-2] o.a.i.l.j.BaseJdbcLogger.debug ==> Parameters: 2(Integer), Dev-Department(String), DEV(String), development(String), 1(Integer)
 ```
 
@@ -300,7 +304,7 @@ For further information please visit the [MyBatis documentation](https://mybatis
 
 #### Diagnosing Job Execution
 
-To investigate the Job Execution behavior, as a start switch the level log of the following loggers to `DEBUG`/`FINE`:
+To investigate the Job Execution behavior, as a start switch the level of the following loggers to `DEBUG`:
 
 * `org.camunda.bpm.engine.impl.persistence.entity.JobEntity` - logs the job execution statements
 * `org.camunda.bpm.engine.jobexecutor` - further job execution logs such as job acquisition and execution operations
@@ -313,7 +317,7 @@ The server log will contain logs similar to:
 25-Nov-2019 15:45:27.615 INFO [Thread-6] o.c.c.l.BaseLogger.logInfo ENGINE-14018 JobExecutor[org.camunda.bpm.engine.impl.jobexecutor.RuntimeContainerJobExecutor] starting to acquire jobs
 25-Nov-2019 15:45:27.619 FINE [Thread-6] o.c.c.l.BaseLogger.logDebug ENGINE-13005 Starting command -------------------- AcquireJobsCmd ----------------------
 25-Nov-2019 15:45:27.620 FINE [Thread-6] o.c.c.l.BaseLogger.logDebug ENGINE-13009 opening new command context
-25-Nov-2019 15:45:27.689 FINE [Thread-6] o.a.i.l.j.BaseJdbcLogger.debug ==>  Preparing: select RES.ID_, RES.REV_, RES.DUEDATE_, RES.PROCESS_INSTANCE_ID_, RES.EXCLUSIVE_ from ACT_RU_JOB RES where (RES.RETRIES_ > 0) and ( RES.DUEDATE_ is null or RES.DUEDATE_ <= ? ) and (RES.LOCK_OWNER_ is null or RES.LOCK_EXP_TIME_ < ?) and RES.SUSPENSION_STATE_ = 1 and (RES.DEPLOYMENT_ID_ is null ) and ( ( RES.EXCLUSIVE_ = 1 and not exists( select J2.ID_ from ACT_RU_JOB J2 where J2.PROCESS_INSTANCE_ID_ = RES.PROCESS_INSTANCE_ID_ -- from the same proc. inst. and (J2.EXCLUSIVE_ = 1) -- also exclusive and (J2.LOCK_OWNER_ is not null and J2.LOCK_EXP_TIME_ >= ?) -- in progress ) ) or RES.EXCLUSIVE_ = 0 ) LIMIT ? OFFSET ? 
+25-Nov-2019 15:45:27.689 FINE [Thread-6] o.a.i.l.j.BaseJdbcLogger.debug ==>  Preparing: select RES.ID_, RES.REV_, RES.DUEDATE_, RES.PROCESS_INSTANCE_ID_, RES.EXCLUSIVE_ from ACT_RU_JOB RES where (RES.RETRIES_ > 0) and ( RES.DUEDATE_ is null or RES.DUEDATE_ <= ? ) and (RES.LOCK_OWNER_ is null or RES.LOCK_EXP_TIME_ < ?) and RES.SUSPENSION_STATE_ = 1 and (RES.DEPLOYMENT_ID_ is null ) and ( ( RES.EXCLUSIVE_ = 1 and not exists( select J2.ID_ from ACT_RU_JOB J2 where J2.PROCESS_INSTANCE_ID_ = RES.PROCESS_INSTANCE_ID_ -- from the same proc. inst. and (J2.EXCLUSIVE_ = 1) -- also exclusive and (J2.LOCK_OWNER_ is not null and J2.LOCK_EXP_TIME_ >= ?) -- in progress ) ) or RES.EXCLUSIVE_ = 0 ) LIMIT ? OFFSET ?
 25-Nov-2019 15:45:27.692 FINE [Thread-6] o.a.i.l.j.BaseJdbcLogger.debug ==> Parameters: 2019-11-25 15:45:27.621(Timestamp), 2019-11-25 15:45:27.621(Timestamp), 2019-11-25 15:45:27.621(Timestamp), 3(Integer), 0(Integer)
 25-Nov-2019 15:45:27.693 FINE [Thread-6] o.a.i.l.j.BaseJdbcLogger.debug <==      Total: 1
 25-Nov-2019 15:45:27.695 FINE [Thread-6] o.c.c.l.BaseLogger.logDebug ENGINE-13011 closing existing command context
@@ -326,15 +330,15 @@ Find more information for Diagnosing the Job Executor in this blog post - [The J
 
 #### Diagnosing Deadlocks
 
-The engine logging will provide further insights in case of deadlock issues by increasing the level log of the command and the persistence loggers.
-First, determinate the resource involved in the deadlock, then try to narrow down, which are the two transactions blocking each other:
+The engine logging will provide further insights in case of deadlock issues by increasing the level of the command and the persistence loggers.
+First, determine the resource involved in the deadlock, then try to narrow down, which are the two transactions blocking each other:
 
 * `org.camunda.bpm.engine.persistence` - the persistence logger will log all the identity of engine entities to find the involved resources causing the deadlock
 * `org.camunda.bpm.engine.cmd` - the command output will help to determinate the scope of the involved transactions which are causing the deadlock
 
 When the issue occurs for a specific entity (e.g. `VariableInstance`), consider enabling the logger of that entity as well (`org.camunda.bpm.engine.impl.persistence.entity.VariableInstanceEntity`).
 Then the output will include the statements of these entities to observe the changes which are performed.
-Here is a sample of what traces the server log file will contain when increasing the log level of these loggers.
+Here is a sample of what traces the server log file will contain when increasing the level of these loggers.
 
 ```plaintext
 25-Nov-2019 16:00:50.675 FINE [thread-1] o.c.c.l.BaseLogger.logDebug ENGINE-13005 Starting command -------------------- RemoveExecutionVariablesCmd ----------------------
@@ -355,7 +359,7 @@ Here is a sample of what traces the server log file will contain when increasing
 ]
 25-Nov-2019 16:00:50.725 FINE [thread-1] o.c.c.l.BaseLogger.logDebug ENGINE-03009 SQL operation: 'INSERT'; Entity: 'HistoricVariableUpdateEventEntity[id=5eba854e-0f94-11ea-92d9-e4a7a094a9d6]'
 25-Nov-2019 16:00:50.726 FINE [thread-1] o.c.c.l.BaseLogger.logDebug ENGINE-03009 SQL operation: 'DELETE'; Entity: 'VariableInstanceEntity[id=ddea4bef-0f93-11ea-b2ca-e4a7a094a9d6]'
-25-Nov-2019 16:00:50.727 FINE [thread-1] o.a.i.l.j.BaseJdbcLogger.debug ==>  Preparing: delete from ACT_RU_VARIABLE where ID_ = ? and REV_ = ? 
+25-Nov-2019 16:00:50.727 FINE [thread-1] o.a.i.l.j.BaseJdbcLogger.debug ==>  Preparing: delete from ACT_RU_VARIABLE where ID_ = ? and REV_ = ?
 25-Nov-2019 16:00:50.728 FINE [thread-1] o.a.i.l.j.BaseJdbcLogger.debug ==> Parameters: ddea4bef-0f93-11ea-b2ca-e4a7a094a9d6(String), 2(Integer)
 25-Nov-2019 16:00:50.730 FINE [thread-1] o.c.c.l.BaseLogger.logDebug ENGINE-03009 SQL operation: 'UPDATE'; Entity: 'HistoricVariableInstanceEntity[id=ddea4bef-0f93-11ea-b2ca-e4a7a094a9d6]'
 25-Nov-2019 16:00:50.737 FINE [thread-1] o.c.c.l.BaseLogger.logDebug ENGINE-13006 Finishing command -------------------- RemoveExecutionVariablesCmd ----------------------
