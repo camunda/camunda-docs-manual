@@ -48,14 +48,6 @@ As a **Community Edition** user you can download the Camunda standalone webapp m
       </td>
     </tr>
     <tr>
-      <td>JBoss AS 7</td>
-      <td>
-        <a href="//camunda.org/release/camunda-bpm/jboss/7.12/camunda-webapp-jboss-standalone-7.12.0.war">
-          camunda-webapp-jboss-standalone-7.12.0.war
-        </a>
-      </td>
-    </tr>
-    <tr>
       <td>WildFly</td>
       <td>
         <a href="//camunda.org/release/camunda-bpm/jboss/7.12/camunda-webapp-jboss-standalone-7.12.0.war">
