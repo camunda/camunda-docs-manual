@@ -14,10 +14,9 @@ menu:
 # Prerequisites
 
 Before downloading Camunda, make sure you have a JRE (Java Runtime Environment), or better, a JDK
-(Java Development Kit) installed. We recommend using Java 8 unless your container/application
-server does not support Java 8 (like JBoss Application Server 7).
+(Java Development Kit) installed. Please check the supported [Java versions]({{< ref "/introduction/supported-environments/.md#java" >}}).
 
-[Download JDK 8][get-jdk]
+[Download JDK][get-jdk]
 
 
 # Download the Runtime
@@ -87,7 +86,7 @@ from the [community download page][community-download-page].
 
 
 
-[get-jdk]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+[get-jdk]: https://www.oracle.com/technetwork/java/javase/downloads/index.html
 [community-download-page]: https://camunda.org/release/camunda-bpm/
 [enterprise-download-page]: /enterprise/download
 [shared-engine]: {{< ref "/introduction/architecture.md#shared-container-managed-process-engine" >}}
