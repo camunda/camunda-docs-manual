@@ -111,5 +111,5 @@ Response Body:
 
     {
       "authenticatedUser": "testUser",
-      "isAuthenticated": true
+      "authenticated": true
     }
