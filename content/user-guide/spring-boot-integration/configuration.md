@@ -776,7 +776,7 @@ The Spin Jackson Json DataFormat auto-configuration is disabled when using
 `camunda-spin-dataformat-all` as a dependency. The `camunda-spin-dataformat-all` artifact shades the
 Jackson libraries, which breaks compatibility with the regular Jackson modules. If usage of 
 `camunda-spin-dataformat-all` is necessary, please use the standard method for 
-[Spin Custom DataFormat configuration]({{< relref "reference/spin/extending-spin.md#custom-dataformats" >}}).
+[Spin Custom DataFormat configuration]({{< ref "/reference/spin/extending-spin.md#custom-dataformats" >}}).
 {{< /note >}}
 
 For example, to provide support for Java 8 Date/time types in Spin, the following dependencies, with their 
