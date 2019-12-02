@@ -96,7 +96,7 @@ are triggered by BPMN errors. A BPMN error can only be reported, if the External
 You can find a detailed documentation about this action in the Camunda BPM [User Guide](https://docs.camunda.org/manual/develop/user-guide/process-engine/external-tasks/#reporting-bpmn-error).
 
 ### Variables
-Both external tasks clients are compatible with all data types the Camunda Engine [supports](https://docs.camunda.org/manual/7.5/user-guide/process-engine/variables/#supported-variable-values).
+Both external tasks clients are compatible with all data types the Camunda Engine [supports]({{<ref "/user-guide/process-engine/variables.md#supported-variable-values">}}).
 Variables can be accessed/altered using typed or the untyped API.
 
 
