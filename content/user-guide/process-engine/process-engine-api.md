@@ -122,20 +122,24 @@ This restriction is only enforced in the following cases:
 * the query API is directly called e. g. via REST API (no enforcement within a process through
 [Delegation Code]({{< ref "/user-guide/process-engine/delegation-code.md" >}}))
 
-### Forbidden Cases
+### Forbidden
 
 * Performing a query with an unbounded number of results using the <code>#list()</code> method
 * Performing a [Paginated Query](#paginated-queries) that exceeds the configured limit of maximum results
 * Performing a query-based synchronous operation that affects more instances than the limit of
  maximum results (please use a [Batch Operation]({{< ref "/user-guide/process-engine/batch-operations.md" >}}) instead)
 
-### Allowed Cases
+### Allowed
 
+* Performing a query using the <code>[Query#unlimitedList](https://docs.camunda.org/javadoc/camunda-bpm-platform/latest/org/camunda/bpm/engine/query/Query.html#unlimitedList--)</code> method
 * Performing a [Paginated Query](#paginated-queries) with a maximum number of results less or equal
 to the maximum results limit
 * Performing a [Native Query](#native-queries) since it is not accessible via REST API or Webapps
  and therefore not likely to be exploited
-* Performing a statistic query via REST API
+ 
+### Limitations
+
+* Performing a statistics query via REST API
 * Performing a called instance query via Webapps (private API)
 
 ## Paginated Queries
