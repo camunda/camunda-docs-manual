@@ -131,7 +131,7 @@ This restriction is only enforced in the following cases:
 
 ### Allowed
 
-* Performing a query using the <code>[Query#unlimitedList](https://docs.camunda.org/javadoc/camunda-bpm-platform/latest/org/camunda/bpm/engine/query/Query.html#unlimitedList--)</code> method
+* Performing a query using the <code>[Query#unlimitedList][javadocs-query-unlimited-list]</code> method
 * Performing a [Paginated Query](#paginated-queries) with a maximum number of results less or equal
 to the maximum results limit
 * Performing a [Native Query](#native-queries) since it is not accessible via REST API or Webapps
@@ -141,6 +141,19 @@ to the maximum results limit
 
 * Performing a statistics query via REST API
 * Performing a called instance query via Webapps (private API)
+
+### Custom Identity Service Queries
+
+When you provide...
+
+1. a custom identity provider implementation by implementing the interface `ReadOnlyIdentityProvider` or `WritableIdentityProvider`
+2. **AND** a dedicated implementation of Identity Service Queries (e. g. `GroupQuery`, `TenantQuery`, `UserQuery`)
+
+Make sure to return all results without any limitation when calling <code>[Query#unlimitedList][javadocs-query-unlimited-list]</code>.
+The possibility to retrieve an unlimited list is important to make sure that the REST API works appropriately since a few endpoints
+rely on retrieving unlimited results.
+
+[javadocs-query-unlimited-list]: {{< javadocref_url page="?org/camunda/bpm/engine/query/Query.html#unlimitedList--" >}}
 
 ## Paginated Queries
 
