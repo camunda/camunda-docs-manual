@@ -142,6 +142,19 @@ to the maximum results limit
 * Performing a statistics query via REST API
 * Performing a called instance query via Webapps (private API)
 
+### Custom Identity Service Queries
+
+When you provide...
+
+1. a custom identity provider implementation by implementing the interface `ReadOnlyIdentityProvider` or `WritableIdentityProvider` 
+2. **AND** a dedicated implementation of Identity Service Queries (e. g. `GroupQuery`, `TenantQuery`, `UserQuery`) 
+
+Make sure to return all results without any limitation when calling <code>[Query#unlimitedList][javadocs-query-unlimited-list]</code>.
+The possibility to retrieve an unlimited list is important to make sure that the REST API works appropriately since a few endpoints 
+rely on retrieving unlimited results.
+
+[javadocs-query-unlimited-list]: https://docs.camunda.org/javadoc/camunda-bpm-platform/latest/org/camunda/bpm/engine/query/Query.html#unlimitedList--
+
 ## Paginated Queries
 
 Pagination allows configuring the maximum results retrieved by a query as well as the position

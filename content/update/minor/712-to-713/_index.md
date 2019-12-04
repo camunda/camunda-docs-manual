@@ -20,6 +20,7 @@ This document guides you through the update from Camunda BPM `7.12.x` to `7.13.0
 1. For administrators: [Standalone Web Application](#standalone-web-application)
 1. For developers: [Spring Boot Starter Update](#spring-boot-starter-update)
 1. For developers: [External Task Client Update](#external-task-client-update)
+1. For developers: [Identity Service Queries](#identity-service-queries)
 
 This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new functionality included in Camunda BPM 7.13.
 
@@ -101,3 +102,17 @@ If you are using the **Camunda External Task Client**, please make sure to:
 
 1. Check out the [Version Compatibility Matrix]({{< ref "/user-guide/ext-client/compatibility-matrix.md" >}})
 2. Update the version in your `pom.xml` (Java) or `package.json` (NodeJs)
+
+# Identity Service Queries
+
+When you provide ...
+
+1. a custom identity provider implementation by implementing the interface `ReadOnlyIdentityProvider` or `WritableIdentityProvider` 
+2. **AND** a dedicated implementation of Identity Service Queries (e. g. `GroupQuery`, `TenantQuery`, `UserQuery`) 
+
+**Please note:** With this release, you need to implement a new API method <code>[Query#unlimitedList][javadocs-query-unlimited-list]</code> 
+so that the REST API works appropriately.
+
+Please read more about it in the [User Guide]({{< ref "/user-guide/process-engine/process-engine-api.md#custom-identity-service-queries" >}}).
+
+[javadocs-query-unlimited-list]: https://docs.camunda.org/javadoc/camunda-bpm-platform/latest/org/camunda/bpm/engine/query/Query.html#unlimitedList--
