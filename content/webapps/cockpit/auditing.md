@@ -39,6 +39,11 @@ You can limit Results the time the operation occurred. Click in the Search field
 If you are only interested in a specific operation, for example, every time a process instance was manually modified, you can use the `operation` filter. Select the desired operation from the dropdown or start to type the name to filter through the list. For a complete list of logged operations, check out [History and Audit Event Log](/user-guide/process-engine/history/#glossary-of-operations-logged-in-the-user-operation-log).
 {{< img src="../img/cockpit-audit-type.png" title="Filter by Type" >}}
 
+## Annotating Operation Logs
+For each operation, an annotation can be added to provide context. To do this, click on the <button class="btn btn-xs"><i class="glyphicon glyphicon-pencil"></i></button> for the operation you want to annotate. The maximum length of the annotation is limited by your database. The length can be configured in the [Cockpit Configuration](/webapps/cockpit/extend/configuration/#user-operation-log-annotation-length).
+
+{{< img src="../img/cockpit-audit-annotation.png" title="Annotation edit" >}}
+
 # User Operation Log per Process
 {{< img src="../img/cockpit-user-operation-log.png" title="Batch View Page" >}}
 
