@@ -40,7 +40,7 @@ If you are only interested in a specific operation, for example, every time a pr
 {{< img src="../img/cockpit-audit-type.png" title="Filter by Type" >}}
 
 ## Annotating Operation Logs
-For each operation, an annotation can be added to provide context. To do this, click on the <button class="btn btn-xs"><i class="glyphicon glyphicon-pencil"></i></button> for the operation you want to annotate. The maximum length of the annotation is limited by your database. The length can be configured in the [Cockpit Configuration](/webapps/cockpit/extend/configuration/#user-operation-log-annotation-length).
+For each operation, an annotation can be added to provide context. To do this, click on the <button class="btn btn-xs"><i class="glyphicon glyphicon-pencil"></i></button> for the operation you want to annotate. The maximum length of the annotation is limited by your database. The length can be configured in the [Cockpit Configuration]({{<ref "/webapps/cockpit/extend/configuration.md#user-operation-log-annotation-length" >}}).
 
 {{< img src="../img/cockpit-audit-annotation.png" title="Annotation edit" >}}
 

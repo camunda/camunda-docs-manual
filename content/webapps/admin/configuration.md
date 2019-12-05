@@ -135,7 +135,7 @@ var camAdminConf = {
 };
 ```
 
-**Note:** This does only affect the Admin Operation Log. For the Cockpit Operation Log, check out the [Cockpit configuration](webapps/cockpit/extend/configuration/#user-operation-log-annotation-length).
+**Note:** This does only affect the Admin Operation Log. For the Cockpit Operation Log, check out the [Cockpit configuration]({{<ref "/webapps/cockpit/extend/configuration.md#user-operation-log-annotation-length" >}}).
 
 
 # Advanced Styles Customization
