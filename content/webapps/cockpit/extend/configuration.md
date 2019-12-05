@@ -231,6 +231,19 @@ var camCockpitConf = {
 
 **Note:** This does only affect the Cockpit login page. For other webapps, you need to adjust the corresponding config file as well.
 
+# User Operation Log Annotation Length
+The default maximum length of a User Operation Log annotation is 4000 characters. Some databases have smaller limits. You can change the maximum allowed input length in the `config.js` file as follows:
+
+```javascript
+var camCockpitConf = {
+  // …
+  userOperationLogAnnotationLength: 4000
+};
+```
+
+**Note:** This does only affect the Cockpit Operation Log. For the Admin Operation Log, check out the [Admin Configuration](/webapps/admin/configuration/#user-operation-log-annotation-length).
+
+
 # Advanced Styles Customization
 
 In addition to the basic `user-styles.css` file, you can edit the source style- and layout files
