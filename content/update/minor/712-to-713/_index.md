@@ -115,4 +115,4 @@ so that the REST API works appropriately.
 
 Please read more about it in the [User Guide]({{< ref "/user-guide/process-engine/process-engine-api.md#custom-identity-service-queries" >}}).
 
-[javadocs-query-unlimited-list]: https://docs.camunda.org/javadoc/camunda-bpm-platform/latest/org/camunda/bpm/engine/query/Query.html#unlimitedList--
+[javadocs-query-unlimited-list]: https://docs.camunda.org/javadoc/camunda-bpm-platform/7.13/org/camunda/bpm/engine/query/Query.html#unlimitedList--
