@@ -14,7 +14,7 @@ menu:
 # Prerequisites
 
 Before downloading Camunda, make sure you have a JRE (Java Runtime Environment), or better, a JDK
-(Java Development Kit) installed. Please check the supported [Java versions]({{< ref "/introduction/supported-environments/.md#java" >}}).
+(Java Development Kit) installed. Please check the supported [Java versions]({{< ref "/introduction/supported-environments.md#java" >}}).
 
 [Download JDK][get-jdk]
 
