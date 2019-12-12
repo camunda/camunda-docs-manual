@@ -198,6 +198,37 @@ BpmnModelInstance modelInstance = Bpmn.createProcess()
   .done();
 ```
 
+# Controlling Transaction Boundaries
+
+The transaction boundaries of a process created with the fluent builder API can be controlled using the `camundaAsyncBefore()` and `camundaAsyncAfter()` methods offered for various process constructs. 
+
+```java
+BpmnModelInstance modelInstance = Bpmn.createProcess()
+  .startEvent()
+  .serviceTask("servicetask")
+    .camundaAsyncBefore()
+  .userTask("task")
+    .camundaAsyncAfter()
+  .done();
+```
+
+The service task in the example above will have a transaction boundary before its execution and the user task will have a transaction boundary after its completion.
+
+If an activity has [multi-instance characteristics][multi-instance], the  `camundaAsyncBefore()` and `camundaAsyncAfter()` methods apply to the multi-instance body as a whole. The transaction boundaries of the individual occurrences (instances) of the multi-instance can be controlled with similar methods, called from **within** the multi-instance builder.
+
+```java
+BpmnModelInstance modelInstance = Bpmn.createProcess()
+  .startEvent()
+  .serviceTask("servicetask")
+    .camundaAsyncBefore() // multi-instance body
+    .multiInstance()
+      .camundaAsyncBefore() // every instance
+      .parallel()
+    .multiInstanceDone()
+  .endEvent()
+  .done();
+```
+
 # Extend a Process With the Fluent Builder API
 
 With the fluent builder API you can not only create processes, you can also extend existing processes.
@@ -302,3 +333,5 @@ it is recommended to first add all new elements to the subprocess and to then cr
 overlapping elements in the diagram.
 
 Branches of gateways are placed one below the other. Auto layout is not provided, therefore the elements of different branches may overlap.
+
+[multi-instance]: ../../../../reference/bpmn20/tasks/task-markers/#multiple-instance
