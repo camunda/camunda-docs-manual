@@ -11,7 +11,7 @@ menu:
 ---
 
 To create simple BPMN processes we provide a fluent builder API. With this API you can easily create basic
-processes in a few lines of code. In the [generate process fluent api](https://github.com/camunda/camunda-bpm-examples/tree/master/bpmn-model-api/generate-process-fluent-api) quickstart we 
+processes in a few lines of code. In the [generate process fluent api](https://github.com/camunda/camunda-bpm-examples/tree/master/bpmn-model-api/generate-process-fluent-api) quickstart we
 demonstrate how to create a rather complex process with 5 tasks and 2 gateways within less than 50 lines of code.
 
 The fluent builder API is not nearly complete but provides you with the following basic elements:
@@ -30,7 +30,7 @@ The fluent builder API is not nearly complete but provides you with the followin
 
 # Create a Process With the Fluent Builder API
 
-To create an empty model instance with a new process the method `Bpmn.createProcess()` is used. After this, 
+To create an empty model instance with a new process the method `Bpmn.createProcess()` is used. After this,
 you can add as many tasks and gateways as you like. At the end you must call `done()` to return the generated
 model instance. For example, a simple process with one user task can be created like this:
 
@@ -232,6 +232,39 @@ userTask.builder()
   .connectTo(serviceTask.getId());
 ```
 
+# Common Model Patterns
+
+## Controlling Transaction Boundaries
+
+The transaction boundaries of a process created with the fluent builder API can be controlled using the `camundaAsyncBefore()` and `camundaAsyncAfter()` methods offered for various process constructs.
+
+```java
+BpmnModelInstance modelInstance = Bpmn.createProcess()
+  .startEvent()
+  .serviceTask("servicetask")
+    .camundaAsyncBefore()
+  .userTask("task")
+    .camundaAsyncAfter()
+  .done();
+```
+
+The service task in the example above will have a transaction boundary before its execution and the user task will have a transaction boundary after its completion.
+
+If an activity has [multi-instance characteristics][multi-instance], the  `camundaAsyncBefore()` and `camundaAsyncAfter()` methods apply to the multi-instance body as a whole. The transaction boundaries of the individual occurrences (instances) of the multi-instance can be controlled with similar methods, called from **within** the multi-instance builder.
+
+```java
+BpmnModelInstance modelInstance = Bpmn.createProcess()
+  .startEvent()
+  .serviceTask("servicetask")
+    .camundaAsyncBefore() // multi-instance body
+    .multiInstance()
+      .camundaAsyncBefore() // every instance
+      .parallel()
+    .multiInstanceDone()
+  .endEvent()
+  .done();
+```
+
 
 # Generation of Diagram Interchange
 
@@ -245,7 +278,7 @@ final BpmnModelInstance myProcess = Bpmn.createExecutableProcess("process-paymen
           .name("Process Payment")
       .endEvent()
       .done();
-    
+
 System.out.println(Bpmn.convertToString(myProcess));
 ```
 
@@ -297,8 +330,10 @@ This example creates a BPMN containing both semantic elements (e.g., service tas
 ```
 The default behavior is that each newly added flow element will be placed next to the previous flow element.
 
-When flow elements are added to an embedded subprocess, then the subprocess is resized when the subprocess border is reached. Therefore, 
-it is recommended to first add all new elements to the subprocess and to then create the following elements. Otherwise it could lead to 
+When flow elements are added to an embedded subprocess, then the subprocess is resized when the subprocess border is reached. Therefore,
+it is recommended to first add all new elements to the subprocess and to then create the following elements. Otherwise it could lead to
 overlapping elements in the diagram.
 
 Branches of gateways are placed one below the other. Auto layout is not provided, therefore the elements of different branches may overlap.
+
+[multi-instance]: ../../../../reference/bpmn20/tasks/task-markers/#multiple-instance
