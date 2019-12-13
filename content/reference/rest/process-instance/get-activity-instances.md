@@ -98,6 +98,17 @@ The properties of an activity instance are as follows:
     <td>List of String</td>
     <td>A list of incident ids.</td>
   </tr>
+  <tr>
+    <td>incidents</td>
+    <td>List of Objects</td>
+    <td>
+        A list of JSON objects containing incident specific properties:
+        <ul>
+            <li><code>id</code>: the id of the incident</li>
+            <li><code>activityId</code>: the activity id in which the incident happened</li>
+        </ul>
+    </td>
+  </tr>
 </table>
 
 The properties of a transition instance are as follows:
@@ -147,6 +158,17 @@ The properties of a transition instance are as follows:
     <td>incidentIds</td>
     <td>List of String</td>
     <td>A list of incident ids.</td>
+  </tr>
+  <tr>
+    <td>incidents</td>
+    <td>List of Objects</td>
+    <td>
+        A list of JSON objects containing incident specific properties:
+        <ul>
+            <li><code>id</code>: the id of the incident</li>
+            <li><code>activityId</code>: the activity id in which the incident happened</li>
+        </ul>
+    </td>
   </tr>
 </table>
 
@@ -204,6 +226,12 @@ GET `/process-instance/aProcessInstanceId/activity-instances`
           "incidentIds": [
             "648d7e21-f71c-11e9-a725-e4a7a094a9d6"
           ],
+          "incidents": [
+            {
+              "id": "648d7e21-f71c-11e9-a725-e4a7a094a9d6",
+              "activityId": "AttachedTimerBoundaryEvent"
+            }
+          ]
         }
       ],
       "childTransitionInstances": [],
@@ -212,4 +240,5 @@ GET `/process-instance/aProcessInstanceId/activity-instances`
       ],
       "activityName": "Invoice Receipt",
       "incidentIds": null,
+      "incidents": null
     }
