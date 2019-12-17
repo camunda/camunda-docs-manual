@@ -415,6 +415,21 @@ The following is a list with the most commonly used process engine configuration
       </p>
     </td>
   </tr>
+  
+  <tr id="enableDefaultDbHistoryEventHandler">
+    <td><code>enableDefaultDbHistoryEventHandler</code></td>
+    <td>Boolean</td>
+    <td>
+        If the value of this flag is <code>true</code>, an instance of the default
+        <code>DbHistoryEventHandler</code> class is included in the collection of History Events
+        Handlers. This flag should be used in conjunction with the 
+        <code>customHistoryEventHandlers</code> List property when defining custom History Event
+        Handlers. The default value is <code>true</code>. 
+      <p>
+        <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
+      </p>
+    </td>
+  </tr>
 
   <tr id="historyRemovalTimeStrategy">
     <td><code>historyRemovalTimeStrategy</code></td>
