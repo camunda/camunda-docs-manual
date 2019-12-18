@@ -50,6 +50,15 @@ A JSON object representing batch window datetimes with timezone.
     <td>Date</td>
     <td>End time of the current or next batch window</td>
   </tr>
+  <tr>
+    <td>enabled</td>
+    <td>Boolean</td>
+    <td>
+      Indicates whether the engine node participates in history cleanup or not.<br>
+      The default is <code>true</code>. Participation can be disabled via <a href="{{<ref "/reference/deployment-descriptors/tags/process-engine.md#history-cleanup-enabled" >}}">Process Engine Configuration</a>.<br>
+      For more details, see <a href="{{<ref "/user-guide/process-engine/history.md#cleanup-execution-participation-per-node" >}}">Cleanup Execution Participation per Node</a>.
+    </td>
+  </tr>
 </table>
 
 # Response Codes
@@ -78,6 +87,7 @@ GET `/history/cleanup/configuration`
 ```json
 {
     "batchWindowStartTime":"2017-09-11T23:59:00.000+0200",
-    "batchWindowEndTime":"2017-09-12T02:00:00.000+0200"
+    "batchWindowEndTime":"2017-09-12T02:00:00.000+0200",
+    "enabled":"true"
 }
 ```
