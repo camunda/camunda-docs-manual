@@ -1668,7 +1668,7 @@ Limitations:
 
 History cleanup is implemented via jobs and performed by the [job executor]({{< ref "/user-guide/process-engine/the-job-executor.md">}}). It therefore competes for execution resources with other jobs, e.g. triggering of BPMN timer events.
 
-Cleanup execution can be controlled in two ways:
+Cleanup execution can be controlled in three ways:
 
 * Cleanup Window: Determines a time frame in which history cleanup runs. This allows to use the job executor's resources only when there is little load on your system (e.g. at night time or weekends). Default value: No cleanup window is defined. That means that history cleanup is not performed automatically.
 * Batch Size: Determines how many instances are cleaned up in one cleanup transaction. Default: 500.
@@ -1832,6 +1832,28 @@ The number of instances that are removed in one cleanup transaction can be set a
 ```
 
 The default (and maximum) value is 500. Reduce it if you notice transaction timeouts during history cleanup.
+
+### Clustered Cleanup
+
+In a multi-engine setup, you can configure whether a specific engine should participate in history cleanup or not.
+Please make sure that the same cleanup execution configuration (window, batch size, degree of parallelism) is present 
+on all participating nodes.
+
+#### Cleanup Execution Participation per Node
+
+Sometimes it is necessary to exclude some nodes in a multi-engine setup from performing history cleanup execution, 
+e. g. to reduce the load on some nodes.
+
+You can disable the history cleanup execution for each node with the following flag:
+```xml
+<property name="historyCleanupEnabled">false</property>
+```
+
+When you exclude a node from executing history cleanup, you don't need to specify the configuration properties 
+related to the cleanup execution since the particular node ignores them. 
+
+**Please Note:** The history cleanup configuration properties that are unrelated to the cleanup execution (e.g., 
+time to live, cleanup strategy, removal time strategy) still need to be defined among all nodes. 
 
 [configuration-options]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#history-cleanup-configuration-parameters">}}
 [1]: http://docs.camunda.org/latest/api-references/javadoc/org/camunda/bpm/engine/impl/history/event/HistoryEventTypes.html
