@@ -1,3 +1,15 @@
+---
+
+title: 'Auditing'
+weight: 50
+
+menu:
+  main:
+    identifier: "user-guide-admin-auditing"
+    parent: "user-guide-admin"
+
+---
+
 It is often desired to inspect which user performed which operation for auditing purposes. Admin operations are logged in the [user operation log]({{< ref "/user-guide/process-engine/history.md#user-operation-log" >}}) that is part of the process engine's history. The log allows to understand
 
 * which operation was performed
