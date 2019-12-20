@@ -13,7 +13,9 @@ menu:
 ---
 
 
-This document describes the installation of Camunda BPM and its components on a vanilla [JBoss EAP 6](http://www.jboss.org/products/eap) or vanilla [Wildfly Application Server / JBoss EAP 7](http://www.wildfly.org).
+This document describes the installation of Camunda BPM and its components on a vanilla 
+[JBoss EAP 6.4](http://www.jboss.org/products/eap) or vanilla 
+[Wildfly Application Server / JBoss EAP 7 ](http://www.wildfly.org).
 
 {{< note title="Reading this Guide" class="info" >}}
 This guide uses a number of variables to denote common path names and constants:
@@ -21,12 +23,16 @@ This guide uses a number of variables to denote common path names and constants:
 `$PLATFORM_VERSION` denotes the version of the Camunda BPM platform you want to install or already have installed, e.g. `7.0.0`.
 {{< /note >}}
 
-# Required Setup for JBoss EAP 6
+# Required Setup for JBoss EAP 6.4
 
 This section explains how to perform the required setup steps for JBoss Application Server.
 
-First, you need to download the [Camunda JBoss distribution](http://camunda.org/release/camunda-bpm/jboss/).
+First, you need to download the [Camunda JBoss distribution](https://camunda.org/enterprise-release/camunda-bpm/jboss/).
 
+## Copy Modules
+
+Copy the modules from the `modules/` folder of the Camunda distribution to the `$JBOSS_HOME/modules/` 
+of your JBoss application server.
 
 ## Adjust the Configuration
 
@@ -277,7 +283,11 @@ These links point you to resources for other databases:
 
 # Optional Components
 
-This section describes how to install optional dependencies. None of these are required to work with the core platform. Before continuing, make sure that the Camunda BPM platform is already installed according to [this step]({{< relref "#required-setup-for-jboss-eap-6" >}}) for JBoss EAP 6, respectively [this step]({{< relref "#required-setup-for-wildfly-jboss-eap-7" >}}) for WildFly / JBoss EAP 7.
+This section describes how to install optional dependencies. None of these are required to work
+with the core platform. Before continuing, make sure that the Camunda BPM platform is already
+installed according to [this step]({{< relref "#required-setup-for-jboss-eap-6" >}}) for JBoss 
+EAP 6.4, respectively [this step]({{< relref "#required-setup-for-wildfly-jboss-eap-7" >}}) 
+for WildFly / JBoss EAP 7.
 
 
 ## Cockpit, Tasklist and Admin
@@ -388,7 +398,8 @@ In order to activate Camunda Spin functionality for a process engine, a process 
 ### Problems with Jackson Annotations
 
 The usage of Jackson annotations on WildFly together with the Camunda Spin JSON serialization can lead to problems.
-WildFly implicitly adds the JAX-RS subsystem to each new deployment, if JAX-RS annotations are present (see the WildFly [documentation](https://docs.jboss.org/author/display/WFLY8/Implicit+module+dependencies+for+deployments) for more information).
+WildFly implicitly adds the JAX-RS subsystem to each new deployment, if JAX-RS annotations are present (see the WildFly 
+[documentation](https://docs.jboss.org/author/display/WFLY8/Implicit+module+dependencies+for+deployments) for more information).
 This JAX-RS subsystem includes the Jackson library, the version of which does not match with the version used by the Camunda SPIN Plugin.
 As a result, Jackson annotations will be ignored. Note that this problem does not necessarily have to emerge upon direct usage of Spin.
 The Spin plugin also comes into play when JSON variables are set or read by the Camunda Process Engine.

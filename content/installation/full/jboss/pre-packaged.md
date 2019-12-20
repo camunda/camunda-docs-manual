@@ -15,7 +15,6 @@ menu:
 # Installation Procedure
 
 1. Download the pre-packaged distribution:
-  * JBoss EAP 6.4: http://camunda.org/release/camunda-bpm/jboss/,
   * Wildfly / JBoss EAP 7.x: http://camunda.org/release/camunda-bpm/wildfly/.
 2. Unpack the distro to a directory.
 3. Adjust the datasource according to your needs (see [Manual Installation]({{<ref "/installation/full/jboss/manual.md" >}})).
