@@ -43,7 +43,7 @@ To simplify this repeating procedure, you can use a helper method like this one.
 
 ```java
 protected <T extends BpmnModelElementInstance> T createElement(BpmnModelElementInstance parentElement, String id, Class<T> elementClass) {
-  T element = modelInstance.newInstance(elementClass);
+  T element = parentElement.getModelInstance().newInstance(elementClass);
   element.setAttributeValue("id", id, true);
   parentElement.addChildElement(element);
   return element;
