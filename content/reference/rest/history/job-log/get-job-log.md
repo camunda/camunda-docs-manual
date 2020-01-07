@@ -143,6 +143,14 @@ A JSON object with the following properties:
     <td>The id of the tenant that this historic job log entry belongs to.</td>
   </tr>
   <tr>
+    <td>hostname</td>
+    <td>String</td>
+    <td>
+      The name of the host of the Process Engine where the 
+      job of this historic job log entry was executed.
+    </td>
+  </tr>
+  <tr>
     <td>creationLog</td>
     <td>boolean</td>
     <td>A flag indicating whether this log represents the creation of the associated job.</td>
@@ -218,6 +226,7 @@ Status 200.
   "deploymentId" : "aDeploymentId",
   "rootProcessInstanceId": "aRootProcessInstanceId",
   "tenantId": null,
+  "hostname": "aHostname",
   "creationLog" : true,
   "failureLog" : false,
   "successLog" : false,
