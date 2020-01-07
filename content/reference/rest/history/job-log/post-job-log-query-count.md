@@ -91,6 +91,10 @@ A JSON object with the following properties:
     <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
+    <td>hostname</td>
+    <td>Filter by hostname.</td>
+  </tr>
+  <tr>
     <td>jobPriorityLowerThanOrEquals</td>
     <td>Only include logs for which the associated job had a priority lower than or equal to the given value. Value must be a valid <code>long</code> value.</td>
   </tr>
