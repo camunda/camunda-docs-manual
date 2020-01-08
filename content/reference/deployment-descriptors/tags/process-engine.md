@@ -598,6 +598,18 @@ The following is a list with the most commonly used process engine configuration
         Default value: <code>1</code>
     </td>
   </tr>
+  
+  <tr id="invocations-per-batch-job-by-batch-type">
+    <td><code>invocationsPerBatchJobByBatchType</code></td>
+    <td>Map</td>
+    <td>
+        Defines the invocations per batch job for each individual
+        batch type. Unless specified in this map, the value of 
+        'invocationsPerBatchJob' is used for batch operations.<br><br>
+        Read more in the 
+        <a href="{{< ref "/user-guide/process-engine/batch.md#configuration" >}}">User Guide</a>.
+    </td>
+  </tr>
 
   <tr>
     <td><code>batchPollTime</code></td>
