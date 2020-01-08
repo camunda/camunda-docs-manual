@@ -212,11 +212,6 @@ execution jobs on every invocation. Every execution job will migrate 1 process
 instance. In sum the seed job will be invoked 100 times, until it has created the
 1000 execution jobs required to complete the batch.
 
-The number of jobs created by every seed job invocation `batchJobsPerSeed`
-(default: 100) and the number of invocations per batch execution job
-`invocationsPerBatchJob` (default: 1) can be configured on the [process engine
-configuration][].
-
 The Java API can be used to get the job definition for the seed job of a batch:
 
 ```java
@@ -293,6 +288,50 @@ monitor job definition can be suspended with the management service:
 processEngine.getManagementService()
   .suspendJobByJobDefinitionId(monitorJobDefinition.getId());
 ```
+
+## Configuration 
+
+You can configure the number of jobs created by every seed job invocation 
+`batchJobsPerSeed` (default: 100) and the number of invocations per batch 
+execution job `invocationsPerBatchJob` (default: 1) in the 
+[process engine configuration][].
+
+The number of invocations per batch execution job can be changed for each batch 
+operation type individually with the help of the process engine configuration property 
+[`invocationsPerBatchJobByBatchType`][invoc-per-batch-job-batch-type]. In case you haven't 
+specified the invocations per batch job by type, the configuration falls back to the global 
+configuration specified via `invocationsPerBatchJob`.
+
+You can configure the property in three ways:
+
+1.  Programmatically with the help of a [Process Engine Plugin][]
+2.  In Spring-based environments via [Spring XML Configuration][spring-xml-config] 
+    ```xml
+    <bean id="processEngineConfiguration" 
+          class="org.camunda.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration">
+    
+      <!-- ... -->
+    
+      <property name="invocationsPerBatchJobByBatchType">
+        <map>
+          <entry key="process-set-removal-time" value="10" />
+          <entry key="historic-instance-deletion" value="3" />
+        
+          <!-- in case of custom batch operations -->
+          <entry key="my-custom-operation" value="7" />
+        </map>
+      </property>
+    </bean>
+    ```
+3.  In Spring Boot environment via the [`application.yaml`][spring-boot-config] file
+    ```yaml
+    camunda.bpm.generic-properties.properties:
+      invocations-per-batch-job-by-batch-type:
+        process-set-removal-time:     10
+        historic-instance-deletion:   3
+        my-custom-operation:          7  # in case of custom batch operations
+    ```
+
 [process-instance-cancellation]: {{< ref "/user-guide/process-engine/batch-operations.md#cancellation-of-running-process-instances">}}
 [process-instance-deletion]: {{< ref "/user-guide/process-engine/batch-operations.md#deletion-of-historic-process-instances">}}
 [set-job-retries]: {{< ref "/user-guide/process-engine/batch-operations.md#setting-retries-of-jobs-associated-with-process-instances">}}
@@ -313,3 +352,7 @@ processEngine.getManagementService()
 [process-instance-modification]: {{< ref "/user-guide/process-engine/process-instance-modification.md#modification-of-multiple-process-instances" >}}
 [process-instance-suspend]: {{< ref "/user-guide/process-engine/batch-operations.md#update-suspend-state-of-process-instances">}}
 [set-removal-time]: {{< ref "/user-guide/process-engine/batch-operations.md#set-a-removal-time">}}
+[invoc-per-batch-job-batch-type]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#invocations-per-batch-job-by-batch-type" >}}
+[Process Engine Plugin]: {{< ref "/user-guide/process-engine/process-engine-plugins.md" >}}
+[spring-xml-config]: {{< ref "/user-guide/spring-framework-integration/configuration.md" >}}
+[spring-boot-config]: {{< ref "/user-guide/spring-boot-integration/configuration.md#camunda-engine-properties" >}}
