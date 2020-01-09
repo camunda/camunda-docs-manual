@@ -60,3 +60,25 @@ Another possibility is to put the file with the license key in path: `${user.hom
 In a clustered scenario, where multiple engines on multiple nodes access a single database, the license only needs to be activated once. When activated, a license is valid until the expiration date or until you have deleted your database. The license key is valid for an unlimited amount of engines.
 
 In a multi tenancy scenario, the license check will be performed for each engine with an own database. Thus, you will be prompted to enter the license key separately for each engine.
+
+## License compatibility
+There are two different types of licenses for Camunda BPM. While the original format is only valid for Camunda BPM, the second format can be valid for multiple Camunda products (like Camunda BPM, Cawemo or Optimize). Such unified licenses are supported with the following releases (including succeeding releases on the same version level):
+
+<table class="table table-striped">
+  <tr>
+    <th>Camunda Engine version</th>
+    <th>Spring Boot Starter version</th>
+  </tr>
+  <tr>
+    <td>7.9.19+</td>
+    <td>3.0.8+</td>
+  </tr>
+  <tr>
+    <td>7.10.13+</td>
+    <td>3.1.8+<br>3.2.9+</td>
+  </tr>
+  <tr>
+    <td>7.11.7+</td>
+    <td>3.3.6+</td>
+  </tr>
+</table>
