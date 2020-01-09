@@ -135,7 +135,18 @@ public class MetricsConfigurationPlugin implements ProcessEnginePlugin {
 
 ## Reporter Identifier
 
-Metrics are reported with an identifier of the reporting party. This identifier allows to attribute reports to individual engine instances when making a metrics query. For example in a cluster, load metrics can be related to individual cluster nodes. By default the process engine generates a reporter id as `<local IP>$<engine name>`. The generation can be customized by implementing the interface {{< javadocref page="?org/camunda/bpm/engine/impl/metrics/MetricsReporterIdProvider.html" text="org.camunda.bpm.engine.impl.metrics.MetricsReporterIdProvider" >}} and setting the engine property `metricsReporterIdProvider` to an instance of that class.
+Metrics are reported with an identifier of the reporting party. This identifier allows to attribute 
+reports to individual engine instances when making a metrics query. For example in a cluster, load 
+metrics can be related to individual cluster nodes. By default the process engine generates a 
+reporter id as `<local IP>$<engine name>`. The generation can be customized by implementing the 
+interface {{< javadocref page="?org/camunda/bpm/engine/impl/history/event/HostnameProvider.html" text="org.camunda.bpm.engine.impl.history.event.HostnameProvider" >}}
+and setting the engine property `hostnameProvider` to an instance of that class.
+
+{{< note title="Heads Up!" class="info" >}}
+The 
+{{< javadocref page="?org/camunda/bpm/engine/impl/metrics/MetricsReporterIdProvider.html" text="org.camunda.bpm.engine.impl.metrics.MetricsReporterIdProvider" >}}
+interface and the corresponding `metricsReporterIdProvider` engine property have been deprecated. 
+{{< /note >}}
 
 ## Disable Reporting
 

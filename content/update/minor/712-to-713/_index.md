@@ -21,6 +21,7 @@ This document guides you through the update from Camunda BPM `7.12.x` to `7.13.0
 1. For developers: [Spring Boot Starter Update](#spring-boot-starter-update)
 1. For developers: [External Task Client Update](#external-task-client-update)
 1. For developers: [Identity Service Queries](#identity-service-queries)
+1. For developers: [MetricsReporterIdProvider interface Deprecation](#metricsreporteridprovider-interface-deprecation)
 
 This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new functionality included in Camunda BPM 7.13.
 
@@ -116,3 +117,17 @@ so that the REST API works appropriately.
 Please read more about it in the [User Guide]({{< ref "/user-guide/process-engine/process-engine-api.md#custom-identity-service-queries" >}}).
 
 [javadocs-query-unlimited-list]: https://docs.camunda.org/javadoc/camunda-bpm-platform/7.13/org/camunda/bpm/engine/query/Query.html#unlimitedList--
+
+# MetricsReporterIdProvider interface Deprecation
+
+As of version 7.13, the `MetricsReporterIdProvider` interface has been deprecated. By default, the
+Metrics Reporter identifier now uses the `SimpleIpBasedProvider` class, which was ported to
+implement the new `HostnameProvider` interface. The `HostnameProvider` interface, and it's default 
+`SimpleIpBasedProvider` implementation, are used to generate `hostname` information for the Historic 
+Job Logs as well.
+
+In case a custom implementation of the `MetricsReporterIdProvider` interface is used, it is
+recommended to port it to the new `HostnameProvider` interface and set it to the appropriate Process
+Engine Configuration property (read more about it [here]({{< ref "/user-guide/process-engine/metrics.md#reporter-identifier" >}})).
+Otherwise, different values will be provided for the Metrics Reporter identifier and the Historic
+Job Logs hostname information.
