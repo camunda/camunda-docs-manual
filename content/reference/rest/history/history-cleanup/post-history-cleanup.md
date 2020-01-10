@@ -30,8 +30,8 @@ POST `/history/cleanup`
     <th>Description</th>
   </tr>
   <tr>
-    <td>executeAtOnce</td>
-    <td>When true the job will be scheduled for nearest future. When false, the job will be scheduled for next batch window start time. Default is `true`.</td>
+    <td>immediatelyDue</td>
+    <td>When true the job will be scheduled for nearest future. When false, the job will be scheduled for next batch window start time. Default is <code>true</code>.</td>
   </tr>
 </table>
 
@@ -73,7 +73,7 @@ See [Get Job]({{<ref "/reference/rest/job/get.md#result" >}}) for the structure 
 
 ## Request
 
-POST `/history/cleanup`
+POST `/history/cleanup?immediatelyDue=false`
 
 ## Response
 
