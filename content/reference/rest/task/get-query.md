@@ -39,6 +39,10 @@ GET `/task`
     <td>Restrict to tasks that belong to process instances with the given id.</td>
   </tr>
   <tr>
+    <td>processInstanceIdIn</td>
+    <td>Restrict to tasks that belong to process instances with the given ids.</td>
+  </tr>
+  <tr>
     <td>processInstanceBusinessKey</td>
     <td>Restrict to tasks that belong to process instances with the given business key.</td>
   </tr>
@@ -678,7 +682,7 @@ Each task object has the following properties:
 
 GET `/task?assignee=anAssignee&delegationState=RESOLVED&maxPriority=50`
 
-Response
+## Response
 
     [{"id":"anId",
      "name":"aName",
