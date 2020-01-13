@@ -62,7 +62,7 @@ In a clustered scenario, where multiple engines on multiple nodes access a singl
 In a multi tenancy scenario, the license check will be performed for each engine with an own database. Thus, you will be prompted to enter the license key separately for each engine.
 
 ## License compatibility
-There are two different types of licenses for Camunda BPM. While the original format is only valid for Camunda BPM, the second format can be valid for multiple Camunda products (like Camunda BPM, Cawemo or Optimize). Such unified licenses are supported with the following releases (including succeeding releases on the same version level):
+There are two different types of licenses for Camunda BPM. While the original format is only valid for Camunda BPM, the second format can be valid for multiple Camunda products (like Camunda BPM, Cawemo or Optimize). Such unified licenses are supported from the versions listed below onwards. Since 7.12.0 all versions (including major/minor releases) support unified license keys.
 
 <table class="table table-striped">
   <tr>
@@ -82,7 +82,7 @@ There are two different types of licenses for Camunda BPM. While the original fo
     <td>3.3.6+</td>
   </tr>
   <tr>
-    <td>7.12+</td>
-    <td>3.4+</td>
+    <td>7.12.x</td>
+    <td>3.4.x</td>
   </tr>
 </table>
