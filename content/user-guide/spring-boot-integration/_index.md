@@ -17,21 +17,40 @@ These starters will pre-configure the Camunda process engine, REST API and Web a
 
 If you are not familiar with [Spring Boot](http://projects.spring.io/spring-boot/), read the [getting started](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#getting-started) guide.
 
+## Dependency Management (BOM)
+
+You can use the BOM (Bill of Materials) to control the versions of Spring Boot Starter:
+
+```xml
+<dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>org.camunda.bpm.springboot</groupId>
+      <artifactId>camunda-bpm-spring-boot-starter-bom</artifactId>
+      <version>${starter.version}</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+  </dependencies>
+</dependencyManagement>
+```
+
+## Adding Starters
+
 To enable Camunda BPM auto configuration, add the following dependency to your ```pom.xml```:
 
 ```xml
 <dependency>
   <groupId>org.camunda.bpm.springboot</groupId>
   <artifactId>camunda-bpm-spring-boot-starter</artifactId>
-  <version>3.4.0</version>
 </dependency>
 ```
 
-This will add the Camunda engine v.7.12 to your dependencies.
+This will add the Camunda Engine to your dependencies.
 
 Other starters that can be used are: [`camunda-bpm-spring-boot-starter-rest`](rest-api) and [`camunda-bpm-spring-boot-starter-webapp`](webapps).
 
-# Overriding Camunda Version
+## Overriding Camunda Version
 
 If you want to override the version used by default, add the `camunda.version` property to your `pom.xml` with the version you want
 to use and add the camunda bom to the dependency management:
@@ -56,7 +75,7 @@ to use and add the camunda bom to the dependency management:
 ```
 Please check [version compatibility](version-compatibility/) when selecting Spring Boot Starter and Camunda BPM versions.
 
-# Using Enterprise Edition
+## Using Enterprise Edition
 
 To use Camunda Spring Boot Starter with Camunda EE you need to:
 
@@ -64,7 +83,8 @@ To use Camunda Spring Boot Starter with Camunda EE you need to:
 
 ```xml
 <properties>
-  <camunda.version>7.12.0-ee</camunda.version>
+  <camunda.version>7.13.0-ee</camunda.version>
+  <starter.version>3.5.0</starter.version>
 </properties>
 
 <dependencyManagement>
@@ -77,6 +97,14 @@ To use Camunda Spring Boot Starter with Camunda EE you need to:
       <scope>import</scope>
       <type>pom</type>
     </dependency>
+
+    <dependency>
+      <groupId>org.camunda.bpm.springboot</groupId>
+      <artifactId>camunda-bpm-spring-boot-starter-bom</artifactId>
+      <version>${starter.version}</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
   </dependencies>
 </dependencyManagement>
 ```
@@ -87,11 +115,10 @@ To use Camunda Spring Boot Starter with Camunda EE you need to:
 <dependency>
   <groupId>org.camunda.bpm.springboot</groupId>
   <artifactId>camunda-bpm-spring-boot-starter-webapp-ee</artifactId>
-  <version>{project-version}</version>
 </dependency>
 ```
 
-# Supported deployment scenarios
+## Supported deployment scenarios
 
 Following deployment scenario is supported by Camunda:
 
