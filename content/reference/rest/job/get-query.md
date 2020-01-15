@@ -216,6 +216,11 @@ Each job object has the following properties:
     <td>The message of the exception that occurred, the last time the job was executed. Is null when no exception occurred.</td>
   </tr>
   <tr>
+    <td>lastFailingActivityId</td>
+    <td>String</td>
+    <td>The id of the activity on which the last exception occurred, the last time the job was executed. Is null when no exception occurred.</td>
+  </tr>
+  <tr>
     <td>suspended</td>
     <td>Boolean</td>
     <td>A flag indicating whether the job is suspended or not.</td>

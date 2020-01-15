@@ -82,6 +82,11 @@ A JSON object that represents an incident object with the following properties:
     <td>The id of the activity this incident is associated with.</td>
   </tr>
   <tr>
+    <td>lastFailingActivityId</td>
+    <td>String</td>
+    <td>The id of the activity on which the last exception occurred.</td>
+  </tr>
+  <tr>
     <td>causeIncidentId</td>
     <td>String</td>
     <td>The id of the associated cause incident which has been triggered.</td>
