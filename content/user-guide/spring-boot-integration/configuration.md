@@ -191,7 +191,7 @@ The available properties are as follows:
   </tr>
 <tr><td colspan="4"><b>General</b></td></tr>
 
-<tr><td rowspan="13"><code>camunda.bpm</code></td>
+<tr><td rowspan="15"><code>camunda.bpm</code></td>
 <td><code>.enabled</code></td>
 <td>Switch to disable the Camunda auto-configuration. Use to exclude Camunda in integration tests.</td>
 <td><code>true</code></td>
