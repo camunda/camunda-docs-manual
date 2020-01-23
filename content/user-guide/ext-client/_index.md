@@ -118,6 +118,34 @@ Untyped variables are stored by using the respective type of their values. It is
 Setting typed variables requires the type to be specified explicitly. Typed variables can also be retrieved, the received object provides a variety of information besides type and
 value. Of course it is also possible to set and get multiple typed variables.
 
+##### Example: Using Typed JSON, XML and Object variables
+
+```java
+// obtained via subscription
+ExternalTaskService externalTaskService = ..;
+ExternalTask externalTask = ..;
+
+VariableMap variables = Variables.createVariables();
+
+JsonValue jsonCustomer = externalTask.getVariableTyped("customer");
+// deserialize jsonCustomer.getValue() to customer object
+// and modify ...
+variables.put("customer", ClientValues.jsonValue(customerJsonString));
+
+XmlValue xmlContract = externalTask.getvariableTyped("contract");
+// deserialize xmlContract.getValue() to contract object
+// and modify ...
+variables.put("contract", ClientValues.xmlValue(contractXmlString));
+
+TypedValue typedInvoice = externalTask.getVariableTyped("invoice");
+Invoice invoice = (Invoice) typedInvoice.getValue();
+// modify invoice object
+variables.put("invoice", ClientValue.objectValue(invoice)
+    .serializationDataFormat("application/xml").create();
+
+externalTaskService.complete(externalTask, variables);
+```
+
 ### Logging
 
 The client implementations support logging various events in the client lifecycle.
