@@ -59,6 +59,10 @@ GET `/history/incident/count`
     <td>Restricts to incidents that belong to an activity with the given id.</td>
   </tr>
   <tr>
+    <td>failedActivityId</td>
+    <td>Restricts to incidents that were created due to the failure of an activity with the given id.</td>
+  </tr>
+  <tr>
     <td>causeIncidentId</td>
     <td>Restricts to incidents that have the given incident id as cause incident.</td>
   </tr>
