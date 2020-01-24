@@ -106,6 +106,10 @@ GET `/job`
     <td>Only select jobs that failed due to an exception with the given message.</td>
   </tr>
   <tr>
+    <td>failedActivityId</td>
+    <td>Only select jobs that failed due to an exception at an activity with the given id.</td>
+  </tr>
+  <tr>
     <td>noRetriesLeft</td>
     <td>Only select jobs which have no retries left. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
@@ -216,7 +220,7 @@ Each job object has the following properties:
     <td>The message of the exception that occurred, the last time the job was executed. Is null when no exception occurred.</td>
   </tr>
   <tr>
-    <td>lastFailingActivityId</td>
+    <td>failedActivityId</td>
     <td>String</td>
     <td>The id of the activity on which the last exception occurred, the last time the job was executed. Is null when no exception occurred.</td>
   </tr>
@@ -284,6 +288,7 @@ GET `/job/count?dueDates=gt_2012-07-17T17:00:00.000+0200,lt_2012-07-17T18:00:00.
         "executionId": "anExecutionId",
         "retries": 0,
         "exceptionMessage": "An exception Message",
+		"failedActivityId": "anActivityId",
         "suspended": false,
         "priority": 10,
         "tenantId": null,
@@ -299,6 +304,7 @@ GET `/job/count?dueDates=gt_2012-07-17T17:00:00.000+0200,lt_2012-07-17T18:00:00.
         "executionId": "anotherExecutionId",
         "retries": 0,
         "exceptionMessage": "Another exception Message",
+		"failedActivityId": "anotherActivityId",
         "suspended": true,
         "priority": 8,
         "tenantId": null,

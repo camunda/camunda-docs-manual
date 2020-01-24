@@ -60,6 +60,10 @@ GET `/history/job-log/count`
     <td>Only include historic job logs which belong to one of the passed activity ids.</td>
   </tr>
   <tr>
+    <td>failedActivityIdIn</td>
+    <td>Only include historic job logs which belong to failures of one of the passed activity ids.</td>
+  </tr>
+  <tr>
     <td>executionIdIn</td>
     <td>Only include historic job logs which belong to one of the passed execution ids.</td>
   </tr>

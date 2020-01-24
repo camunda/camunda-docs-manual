@@ -94,7 +94,7 @@ Its properties are as follows:
     <td>The message of the exception that occurred, the last time the job was executed. Is null when no exception occurred.</td>
   </tr>
   <tr>
-    <td>lastFailingActivityId</td>
+    <td>failedActivityId</td>
     <td>String</td>
     <td>The id of the activity on which the last exception occurred, the last time the job was executed. Is null when no exception occurred.</td>
   </tr>
@@ -160,6 +160,7 @@ GET `/job/aJobId`
       "executionId": "anExecutionId",
       "retries": 0,
       "exceptionMessage": "An exception Message",
+	  "failedActivityId": "anActivityId",
       "suspended": false,
       "priority": 10,
       "tenantId": null,
