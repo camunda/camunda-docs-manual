@@ -60,6 +60,10 @@ GET `/history/incident`
     <td>Restricts to incidents that belong to an activity with the given id.</td>
   </tr>
   <tr>
+    <td>failedActivityId</td>
+    <td>Restricts to incidents that were created due to the failure of an activity with the given id.</td>
+  </tr>
+  <tr>
     <td>causeIncidentId</td>
     <td>Restricts to incidents that have the given incident id as cause incident.</td>
   </tr>
@@ -167,7 +171,7 @@ Each historic incident object has the following properties:
     <td>The id of the activity this incident is associated with.</td>
   </tr>
   <tr>
-    <td>lastFailingActivityId</td>
+    <td>failedActivityId</td>
     <td>String</td>
     <td>The id of the activity on which the last exception occurred.</td>
   </tr>
@@ -271,6 +275,7 @@ GET `/history/incident?processInstanceId=aProcInstId`
     "endTime": null,
     "incidentType": "failedJob",
     "activityId": "serviceTask",
+    "failedActivityId": "serviceTask",
     "causeIncidentId": "aCauseIncidentId",
     "rootCauseIncidentId": "aRootCauseIncidentId",
     "configuration": "aConfiguration",
@@ -292,6 +297,7 @@ GET `/history/incident?processInstanceId=aProcInstId`
     "endTime": "2014-03-10T12:00:00.000+0200",
     "incidentType": "customIncidentType",
     "activityId": "userTask",
+    "failedActivityId": "userTask",
     "causeIncidentId": "anotherCauseIncidentId",
     "rootCauseIncidentId": "anotherRootCauseIncidentId",
     "configuration": "anotherConfiguration",
