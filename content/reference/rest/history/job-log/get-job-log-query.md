@@ -60,6 +60,10 @@ GET `/history/job-log`
     <td>Only include historic job logs which belong to one of the passed activity ids.</td>
   </tr>
   <tr>
+    <td>failedActivityIdIn</td>
+    <td>Only include historic job logs which belong to failures of one of the passed activity ids.</td>
+  </tr>
+  <tr>
     <td>executionIdIn</td>
     <td>Only include historic job logs which belong to one of the passed execution ids.</td>
   </tr>
@@ -195,7 +199,7 @@ Each historic job log object has the following properties:
     <td>The message of the exception that occurred by executing the associated job.</td>
   </tr>
   <tr>
-    <td>lastFailingActivityId</td>
+    <td>failedctivityId</td>
     <td>String</td>
     <td>The id of the activity on which the last exception occurred by executing the associated job.</td>
   </tr>
@@ -330,6 +334,7 @@ GET `/history/job-log?jobId=aJobId`
     "jobRetries" : 3,
     "jobPriority" : 15,
     "jobExceptionMessage" : null,
+	"failedActivityId" : null,
     "executionId" : "anExecutionId",
     "processInstanceId" : "aProcessInstanceId",
     "processDefinitionId" : "aProcessDefinitionId",

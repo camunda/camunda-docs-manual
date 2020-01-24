@@ -107,6 +107,10 @@ A JSON object with the following properties:
     <td>Only select jobs that failed due to an exception with the given message.</td>
   </tr>
   <tr>
+    <td>failedActivityId</td>
+    <td>Only select jobs that failed due to an exception at an activity with the given id.</td>
+  </tr>
+  <tr>
     <td>noRetriesLeft</td>
     <td>Only select jobs which have no retries left. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>

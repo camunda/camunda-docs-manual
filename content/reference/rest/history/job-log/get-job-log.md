@@ -88,7 +88,7 @@ A JSON object with the following properties:
     <td>The message of the exception that occurred by executing the associated job.</td>
   </tr>
   <tr>
-    <td>lastFailingActivityId</td>
+    <td>failedActivityId</td>
     <td>String</td>
     <td>The id of the activity on which the last exception occurred by executing the associated job.</td>
   </tr>
@@ -224,6 +224,7 @@ Status 200.
   "jobRetries" : 3,
   "jobPriority": 15,
   "jobExceptionMessage" : null,
+  "failedActivityId": null,
   "executionId" : "anExecutionId",
   "processInstanceId" : "aProcessInstanceId",
   "processDefinitionId" : "aProcessDefinitionId",
