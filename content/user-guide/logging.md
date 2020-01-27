@@ -41,8 +41,12 @@ maven dependency:
 ```xml
 <dependency> 
   <groupId>org.slf4j</groupId>
-  <artifactId>slf4j-jdk14</artifactId>
-  <version>1.7.13</version>
+  <artifactId>slf4j-api</artifactId>
+  <version>1.7.30</version>
+
+  <groupId>org.slf4j</groupId>
+  <artifactId>slf4j-simple</artifactId>
+  <version>1.7.30</version>
 </dependency>
 ```
 
