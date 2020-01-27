@@ -55,8 +55,12 @@ Add the logback dependency
 ```xml
 <dependency>
   <groupId>ch.qos.logback</groupId>
+  <artifactId>logback-core</artifactId>
+  <version>1.2.3</version>
+  
+  <groupId>ch.qos.logback</groupId>
   <artifactId>logback-classic</artifactId>
-  <version>1.1.2</version>
+  <version>1.2.3</version>
 </dependency>
 ```
 
