@@ -15,6 +15,7 @@ menu:
 You can use a Spring application context XML file for bootstrapping the process engine. It is possible to bootstrap both application-managed and container-managed process engines through Spring.
 
 Note that you can also use a [Spring JavaConfig]({{< relref "#using-spring-javaconfig" >}}) for bootstrapping instead of XML.
+See [Deployment Descriptor Reference]({{< ref "/reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}) for complete documentation of the configuration such as the syntax of the bpm-platform.xml file.
 
 # Configure an Application-Managed Process Engine
 
