@@ -1853,7 +1853,7 @@ When you exclude a node from executing history cleanup, you don't need to specif
 related to the cleanup execution since the particular node ignores them. 
 
 **Please Note:** The history cleanup configuration properties that are unrelated to the cleanup execution (e.g., 
-time to live, cleanup strategy, removal time strategy) still need to be defined among all nodes. 
+time to live, removal time strategy) still need to be defined among all nodes. 
 
 [configuration-options]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#history-cleanup-configuration-parameters">}}
 [1]: http://docs.camunda.org/latest/api-references/javadoc/org/camunda/bpm/engine/impl/history/event/HistoryEventTypes.html
