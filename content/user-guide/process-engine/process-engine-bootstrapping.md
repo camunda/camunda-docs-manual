@@ -57,7 +57,7 @@ Now you can call the `buildProcessEngine()` operation to create a Process Engine
 ProcessEngine processEngine = ProcessEngineConfiguration.createStandaloneInMemProcessEngineConfiguration()
   .setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_FALSE)
   .setJdbcUrl("jdbc:h2:mem:my-own-db;DB_CLOSE_DELAY=1000")
-  .setJobExecutorActivate("true")
+  .setJobExecutorActivate(true)
   .buildProcessEngine();
 ```
 
