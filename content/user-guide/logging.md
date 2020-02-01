@@ -42,11 +42,11 @@ maven dependency:
 <dependency> 
   <groupId>org.slf4j</groupId>
   <artifactId>slf4j-api</artifactId>
-  <version>1.7.30</version>
+  <version>1.7.13</version>
 
   <groupId>org.slf4j</groupId>
   <artifactId>slf4j-simple</artifactId>
-  <version>1.7.30</version>
+  <version>1.7.13</version>
 </dependency>
 ```
 
