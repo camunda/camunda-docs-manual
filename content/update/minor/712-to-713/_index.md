@@ -22,6 +22,7 @@ This document guides you through the update from Camunda BPM `7.12.x` to `7.13.0
 1. For developers: [External Task Client Update](#external-task-client-update)
 1. For developers: [Identity Service Queries](#identity-service-queries)
 1. For developers: [MetricsReporterIdProvider interface Deprecation](#metricsreporteridprovider-interface-deprecation)
+1. For administrators and developers: [New Version of Templating Engines (Freemarker, Velocity)](#new-version-of-templating-engines-freemarker-velocity)
 
 This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new functionality included in Camunda BPM 7.13.
 
@@ -122,8 +123,8 @@ Please read more about it in the [User Guide]({{< ref "/user-guide/process-engin
 
 As of version 7.13, the `MetricsReporterIdProvider` interface has been deprecated. By default, the
 Metrics Reporter identifier now uses the `SimpleIpBasedProvider` class, which was ported to
-implement the new `HostnameProvider` interface. The `HostnameProvider` interface, and it's default 
-`SimpleIpBasedProvider` implementation, are used to generate `hostname` information for the Historic 
+implement the new `HostnameProvider` interface. The `HostnameProvider` interface, and it's default
+`SimpleIpBasedProvider` implementation, are used to generate `hostname` information for the Historic
 Job Logs as well.
 
 In case a custom implementation of the `MetricsReporterIdProvider` interface is used, it is
@@ -131,3 +132,20 @@ recommended to port it to the new `HostnameProvider` interface and set it to the
 Engine Configuration property (read more about it [here]({{< ref "/user-guide/process-engine/metrics.md#reporter-identifier" >}})).
 Otherwise, different values will be provided for the Metrics Reporter identifier and the Historic
 Job Logs hostname information.
+
+# New Version of Templating Engines (Freemarker, Velocity)
+
+Camunda 7.13 includes version 2.0.0 of the `org.camunda.template-engines` artifacts, in particular `camunda-template-engines-freemarker`, `camunda-template-engines-velocity` and `camunda-template-engines-xquery-saxon`.
+
+This updates the following template engine versions:
+
+* Apache Freemarker
+  * Old version: 2.3.20 (Release date: June 2013)
+  * New version: 2.3.29 (Release date: August 2019)
+  * Change log: https://freemarker.apache.org/docs/api/freemarker/template/Configuration.html#Configuration-freemarker.template.Version-
+* Apache Velocity
+  * Old version: 1.7 (Release date: November 2010)
+  * New version: 2.2 (Release date: January 2020)
+  * Change log: https://velocity.apache.org/engine/2.2/upgrading.html
+
+Please note that the new versions of Freemarker and Velocity contain changes that are not compatible with the previous versions. We strongly recommend to test the execution of your templates before applying the update. In addition, you can replace the artifacts of version 2.0.0 by the old artifacts in version 1.1.0 to continue using the old versions of Freemarker and Velocity.
