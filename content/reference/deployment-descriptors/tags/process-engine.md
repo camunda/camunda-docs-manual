@@ -675,7 +675,7 @@ The following is a list with the most commonly used process engine configuration
         Read more about it in the
         <a href="{{< ref "/user-guide/process-engine/process-engine-api.md#query-maximum-results-limit">}}">User Guide</a>.
         <br><br>
-        <strong>Note:</strong> To gain the full feature set of the Webapps, and not suffer any UX degradation due to unavailable data, the <code>queryMaxResultsLimit</code> must be set to <code>2000</code>. <br><br>
+        <strong>Note:</strong> To gain the full feature set of the Webapps, and not suffer any UX degradation due to unavailable data, the <code>queryMaxResultsLimit</code> must be set to <code>2000</code>. If you use Optimize it is recommended to set the value to <code>10 000</code>, so the import of the data to Optimize works out of the box.<br><br>
         The default value is 2<sup>31</sup>-1.
     </td>
   </tr>
