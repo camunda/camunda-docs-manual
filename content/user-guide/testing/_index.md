@@ -154,7 +154,7 @@ Additional to normal JUnit assertions, [Camunda BPM Assert](https://github.com/c
 
 ```java
 assertThat(processInstance).isWaitingAt("UserTask_InformCustomer");
-assertThat(task).hasCandidateGroup("Sales").isNotAssigned();
+assertThat(task()).hasCandidateGroup("Sales").isNotAssigned();
 ```
 
 A more extensive guide with examples can also be found [in the repository](https://github.com/camunda/camunda-bpm-assert/blob/master/README.md).
