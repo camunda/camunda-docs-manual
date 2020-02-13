@@ -16,7 +16,7 @@ menu:
 Rolling updates are not possible prior to Version `7.5`. Or in other words: the first update that can be done in the way described on this page is the update from version `7.5.x` to `7.6.y`.
 
 Also note that it is only possible to update from one minor version to the next. For example, it is possible to update from `7.5.3` to `7.6.2` in a rolling fashion but it is not possible to update from `7.5.3` to `7.7.2` in one go.
-Before the rolling update from one minor to another can be executed, the latest patch, of the current used minor version, must be applied. 
+Before the rolling update from one minor to another can be executed, the latest patch, of the current used minor version, must be applied to all nodes before proceeding to the next minor version.
 
 More considerations for rolling updates can be found at the bottom of this page. Make sure to read them.
 {{< /note >}}
