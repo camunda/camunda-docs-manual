@@ -247,7 +247,7 @@ The Java Query API is exposed as REST service as well, see the [REST documentati
 
 ## Native Queries
 
-Sometimes you need more powerful queries, e.g., queries using an OR operator or restrictions you can not express using the Query API. For these cases, we introduced native queries, which allow you to write your own SQL queries. The return type is defined by the Query object you use and the data is mapped into the correct objects, e.g., Task, ProcessInstance, Execution, etc. Since the query will be fired at the database you have to use table and column names as they are defined in the database. This requires some knowledge about the internal data structure and it is recommended to use native queries with care. The table names can be retrieved via the API to keep the dependency as small as possible.
+Sometimes you need more powerful queries, e.g., queries using an OR operator or restrictions you can not express using the Query API. For these cases, we introduced native queries, which allow you to write your own SQL queries. The return type is defined by the Query object you use and the data is mapped into the correct objects, e.g., Task, ProcessInstance, Execution, etc. Since the query will be fired at the database you have to use table and column names as they are defined in the [database schema]({{< ref "/user-guide/process-engine/database.md" >}}). This requires some knowledge about the internal data structure and it is recommended to use native queries with care. The table names can be retrieved via the API to keep the dependency as small as possible.
 
 ```java
 List<Task> tasks = taskService.createNativeTaskQuery()
