@@ -273,4 +273,4 @@ For performance reasons it might sometimes be desirable not to query the engine 
 
 ## SQL Queries
 
-The table layout is pretty straightforward - we focused on making it easy to understand. Hence it is OK to do SQL queries for e.g., reporting use cases. Just make sure that you do not mess up the engine data by updating the tables without exactly knowing what you are doing.
+The [table layout]({{< ref "/user-guide/process-engine/database.md" >}}) is pretty straightforward - we focused on making it easy to understand. Hence it is OK to do SQL queries for e.g., reporting use cases. Just make sure that you do not mess up the engine data by updating the tables without exactly knowing what you are doing.
