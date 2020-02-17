@@ -92,11 +92,18 @@ If a database other than the default H2 database is used, the following steps mu
 
 # Spring Boot Starter Update
 
-If you are using Camunda Spring Boot Starter within you Spring Boot application, then you need to:
+Starting with version 7.13, the **`camunda-bpm-spring-boot-starter`** library has been migrated into the `camunda-bpm-platform` repository.
+The library version has therefore changed from Camunda Spring Boot Starter (currently at 3.4.x) to the Camunda BPM Platform version (7.13.0).
+The Maven coordinates have not changed otherwise.
+
+Overriding the Camunda version used by the Spring Boot Starter is not necessary anymore. 
+Pick the version of the Starter that resembles the version of Camunda BPM you would like to use.
+
+If you are using Camunda Spring Boot Starter within your Spring Boot application, then you need to:
 
 1. Check [Version Compatibility Matrix]({{< ref "/user-guide/spring-boot-integration/version-compatibility.md" >}})
 2. Update **Spring Boot Starter** and, when required, Spring Boot versions in your `pom.xml`.
-3. Update the Camunda BPM version in your `pom.xml` in case you override it before (e.g., when using the enterprise version or a patch releases)
+3. Remove the Camunda BPM version from your `pom.xml` in case you overrode it before (e.g. when using the enterprise version or a patch release).
 
 # External Task Client Update
 
