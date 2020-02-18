@@ -15,8 +15,8 @@ menu:
 These documents guide you through the process of updating your application or server installation from one Camunda minor version to the other.
 This applies to any updates of the version number "after the first dot", example: `7.3` to `7.4`.
 
-{{< note title="Skipping Minor Versions" class="warning" >}}
-It is possible to skip minor versions when updating your installation since application updates are cumulative. However, the database alteration scripts are NOT cumulative and need to be executed in version order and must include any skipped versions.
+{{< note title="Do I need to apply every minor version if I missed a few?" class="warning" >}}
+If you need to apply multiple minor versions you MUST execute the database alteration scripts in minor version order as they are NOT cumulative. Application library updates are cumulative and don't necessarily require sequential minor version updates. Typically, you can just apply your target minor application libraries. You should, however, check the instructions of EVERY intermediate minor version in case updating the application libraries is required for a particular minor version.
 {{< /note >}}
 
 There is a dedicated update guide for each version:
