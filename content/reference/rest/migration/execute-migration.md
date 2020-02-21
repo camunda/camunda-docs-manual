@@ -161,7 +161,7 @@ This method returns no content.
 
 ## Request
 
-POST `/migration/generate`
+POST `/migration/execute`
 
 Request Body:
 
