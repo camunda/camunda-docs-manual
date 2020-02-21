@@ -39,7 +39,7 @@ To use Camunda Spring Boot Starter with Camunda EE you need to define the EE ver
 <dependency>
   <groupId>org.camunda.bpm.springboot</groupId>
   <artifactId>camunda-bpm-spring-boot-starter-webapp-ee</artifactId>
-  <version>7.13.0</version>
+  <version>7.13.0-ee</version>
 </dependency>
 ```
 
