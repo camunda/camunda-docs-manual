@@ -364,9 +364,9 @@ its unwrapped value.
 
 # Expression Language Integration
 
-By default, the DMN engine uses [JUEL] as expression language for input
-expressions, output entries and literal expressions. It uses [FEEL] as expression language for input
-entries. Please see the [DMN engine][expression languages] guide for more
+By default, the DMN engine uses [FEEL] as expression language for input
+expressions, input entries, output entries and literal expressions. 
+Please see the [DMN engine][expression languages] guide for more
 information about expression languages.
 
 ## Accessing Beans
@@ -376,6 +376,10 @@ JUEL configuration as the Camunda BPM engine. Therefore, it is also
 possible to access Spring and CDI Beans from JUEL expressions in decisions. 
 For more information on this integration, please see the corresponding
 section in the [Spring] and [CDI] guides.
+
+{{< note title="Heads-up!" class="info" >}}
+Beans cannot be accessed when using FEEL as expression language.
+{{< /note >}}
 
 ## Extending the Expression Language
 
@@ -416,7 +420,6 @@ in the platform, not only in DMN decisions.
 [output variable mapping]: {{< ref "/user-guide/process-engine/variables.md#input-output-variable-mapping" >}}
 [execution listener]: {{< ref "/user-guide/process-engine/delegation-code.md#execution-listener" >}}
 [expression languages]: {{< ref "/user-guide/dmn-engine/expressions-and-scripts.md" >}}
-[JUEL]: http://juel.sourceforge.net/
 [FEEL]: {{< ref "/reference/dmn11/feel/_index.md" >}}
 [Spring]: {{< ref "/user-guide/spring-framework-integration/_index.md#expression-resolving" >}}
 [CDI]: {{< ref "/user-guide/cdi-java-ee-integration/expression-resolving.md" >}}
