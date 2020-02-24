@@ -271,15 +271,15 @@ The following expression types exist:
 
 - *Input Expression*: Used to specify the input of a column in a decision
   table. The default language for input expressions in the DMN engine is
-  `JUEL`.
+  `FEEL`.
 - *Input Entry*: Used to specify the condition of a rule in a decision
   table. The default language for input entries in the DMN engine is
   `FEEL`.
 - *Output Entry*: Used to specify the output of a rule in a decision
   table. The default language for output entries in the DMN engine is
-  `JUEL`.
+  `FEEL`.
   
-The default expression language of a [DMN decision literal expression] can also be configured, the default in the DMN engine is `JUEL`.
+The default expression language of a [DMN decision literal expression] can also be configured, the default in the DMN engine is `FEEL`.
 
 Read more about the default expressions in the corresponding [section][expressions].
 
@@ -294,8 +294,7 @@ configuration
 ```
 
 Please note that the chosen language must be available in the classpath. By
-default `JUEL` and `FEEL` are available. The default `FEEL` implementation
-is only supported for input entries.
+default `JUEL` and `FEEL` are available.
 
 If the JDK includes a JavaScript
 implementation like Rhino or Nashorn, then `javascript` is available as well.

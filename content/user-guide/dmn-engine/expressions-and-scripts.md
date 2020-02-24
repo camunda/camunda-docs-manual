@@ -72,9 +72,7 @@ elements `inputExpression`, `inputEntry`, `outputEntry` and `literalExpression`:
 The Camunda DMN engine supports two expression languages out of the box:
 
 - `JUEL`: An [implementation][juel] of the Java [Unified Expression Language][EL]
-- `FEEL`: The Friendly Enough Expression Language of the [DMN 1.1] standard.
-  **Note**: `FEEL` is only supported for Input Entries in the Camunda DMN
-  engine. See the [reference][FEEL] for more information.
+- `FEEL`: The Friendly Enough Expression Language of the [DMN 1.2] standard.
 
 Depending on the JDK you use, there may also be a `Javascript` implementation
 available like [Rhino] or [Nashhorn].
@@ -100,10 +98,10 @@ to your project `pom.xml`:
 The default expression languages of the different expression types in the
 DMN engine are as follows:
 
-- *Input Expression*: `JUEL`
+- *Input Expression*: `FEEL`
 - *Input Entry*: `FEEL`
-- *Output Entry*: `JUEL`
-- *Literal Expression*: `JUEL`
+- *Output Entry*: `FEEL`
+- *Literal Expression*: `FEEL`
 
 The default language can be changed by setting it directly in the DMN 1.1 XML as global expression language with the `expressionLanguage` attribute of
 the `definitions` element:
@@ -173,8 +171,7 @@ the script engine before using it.
 [decision literal expression]: {{< ref "/reference/dmn11/decision-literal-expression/_index.md" >}}
 [juel]: http://juel.sourceforge.net/
 [EL]: https://jcp.org/aboutJava/communityprocess/final/jsr245/index.html
-[DMN 1.1]: http://www.omg.org/spec/DMN/
-[FEEL]: {{< ref "/reference/dmn11/feel/_index.md" >}}
+[DMN 1.2]: http://www.omg.org/spec/DMN/
 [Rhino]: https://developer.mozilla.org/de/docs/Rhino
 [Nashhorn]: https://blogs.oracle.com/nashorn/
 [JSR-223]: https://www.jcp.org/en/jsr/detail?id=223

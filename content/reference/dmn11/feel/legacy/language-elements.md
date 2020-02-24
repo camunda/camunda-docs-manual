@@ -7,10 +7,16 @@ menu:
   main:
     name: "Language Elements"
     identifier: "dmn-ref-feel-language-elements"
-    parent: "dmn-ref-feel"
+    parent: "dmn-ref-feel-legacy"
     pre: "Supported FEEL Language Elements"
 
 ---
+
+{{< note title="Heads Up!" class="info" >}}
+This page provides information on the legacy FEEL Engine, that was used before the 
+current <a href="{{< ref "/user-guide/dmn-engine/feel/_index.md" >}}">Scala-based FEEL Engine</a>
+was integrated into the Camunda BPM Platform.
+{{< /note >}}
 
 The Camunda DMN engine supports FEEL for [input entries]. The FEEL term for
 expression in input entries are simple unary tests. These simple unary tests
@@ -183,6 +189,6 @@ Examples:
 [ranges]: #range
 [disjunction]: #disjunction
 [negation]: #negation
-[FEEL data types]: {{< ref "/reference/dmn11/feel/data-types.md" >}}
-[date types]: {{< ref "/reference/dmn11/feel/data-types.md#date" >}}
+[FEEL data types]: {{< ref "/reference/dmn11/feel/legacy/data-types.md" >}}
+[date types]: {{< ref "/reference/dmn11/feel/legacy/data-types.md#date" >}}
 [input entries]: {{< ref "/reference/dmn11/decision-table/rule.md#input-entry-condition" >}}

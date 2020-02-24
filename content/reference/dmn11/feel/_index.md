@@ -15,8 +15,12 @@ menu:
 Decision Model and Notation (DMN) defines a Friendly Enough Expression
 Language (FEEL). It can be used to evaluate expressions in a decision table.
 
-The Camunda DMN engine **only** supports FEEL for [input entries] of a
-decision table. This corresponds to FEEL simple unary tests.
+Camunda BPM relies on an independently maintained project to provide FEEL support. You can find the 
+documentation about the **FEEL Language Reference** in the [FEEL Scala Engine Documentation][] 
+(link to external documentation).
 
+Please also check out the [User Guide] to learn more about the integration of the FEEL Scala Engine 
+in Camunda BPM.
 
-[input entries]: {{< ref "/reference/dmn11/decision-table/rule.md#input-entry-condition" >}}
+[FEEL Scala Engine Documentation]: https://camunda.github.io/feel-scala/
+[User Guide]: {{< ref "/user-guide/dmn-engine/feel/_index.md" >}}
