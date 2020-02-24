@@ -15,8 +15,4 @@ menu:
 Decision Model and Notation (DMN) defines a Friendly Enough Expression
 Language (FEEL). It can be used to evaluate expressions in a decision table.
 
-The Camunda DMN engine **only** supports FEEL for [input entries] of a
-decision table. This corresponds to FEEL simple unary tests.
-
-
-[input entries]: {{< ref "/reference/dmn11/decision-table/rule.md#input-entry-condition" >}}
+TODO: Point out that the reference for the new feel engine can only be found on the external documentation

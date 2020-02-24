@@ -7,7 +7,7 @@ menu:
   main:
     name: "Language Elements"
     identifier: "dmn-ref-feel-language-elements"
-    parent: "dmn-ref-feel"
+    parent: "dmn-ref-feel-legacy"
     pre: "Supported FEEL Language Elements"
 
 ---
@@ -183,6 +183,6 @@ Examples:
 [ranges]: #range
 [disjunction]: #disjunction
 [negation]: #negation
-[FEEL data types]: {{< ref "/reference/dmn11/feel/data-types.md" >}}
-[date types]: {{< ref "/reference/dmn11/feel/data-types.md#date" >}}
+[FEEL data types]: {{< ref "/reference/dmn11/feel/legacy/data-types.md" >}}
+[date types]: {{< ref "/reference/dmn11/feel/legacy/data-types.md#date" >}}
 [input entries]: {{< ref "/reference/dmn11/decision-table/rule.md#input-entry-condition" >}}
