@@ -51,7 +51,14 @@ public class EngineBuilder {
     
     // Build the process engine
     processEngine = engineConfiguration.buildProcessEngine();
-  }   
+  }
+  
+  @PreDestroy
+  public void stopEngine() {
+    // Ensure the engine and job executor are shutdown as well
+    processEngine.close();
+    managedJobExecutor.shutdown();
+  }
 }
 ```
 
