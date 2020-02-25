@@ -37,7 +37,6 @@ The following is a list of current (unsupported) community extensions:
 * [DMN Scala Extension](https://github.com/camunda/dmn-scala)
 * [Elastic Search Extension](https://github.com/camunda/camunda-bpm-elasticsearch)
 * [Email Connectors](https://github.com/camunda/camunda-bpm-mail)
-* [FEEL Scala Extension](https://github.com/camunda/feel-scala)
 * [Grails Plugin](https://github.com/plexiti/camunda-grails-plugin)
 * [GraphQL API](https://github.com/camunda/camunda-graphql)
 * [Keycloak Identity Provider Plugin](https://github.com/camunda/camunda-bpm-identity-keycloak)
