@@ -16,7 +16,7 @@ The descriptions on this page apply to the use case where there is *no* existing
 
 # ManagedJobExecutor
 
-Integration into the application server is offered by a specific type of `JobExecutor` called the `ManagedJobExecutor`. The function of the `ManagedJobExecutor` is to ensure that job execution within the process engine is correctly controlled by the application server, by using managed resources (primarily: managed threads).
+Integration into application servers without a resource-aware implementation is offered by a specific type of `JobExecutor` called the `ManagedJobExecutor`. The purpose of the `ManagedJobExecutor` is to ensure that job execution within the process engine is correctly controlled by the application server, by using managed resources (primarily: managed threads).
 
 In order to facilitate the `ManagedJobExecutor`, the engine must be configured to use it. For instance, when bootstrapping the engine from Java code, you would create a new instance of the `ManagedJobExecutor` and provide the resource dependency it has by injecting it from your application server's environment. The `ManagedJobExecutor` can then be set as the `JobExecutor` that the process engine should use.
 
