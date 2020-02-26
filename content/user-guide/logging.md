@@ -189,6 +189,18 @@ The process engine logs on the following categories
     <td>logs exceptions that occur during decision evaluation</td>
   </tr>
   <tr>
+    <td><code>org.camunda.bpm.dmn.feel</code></td>
+    <td>logs events that occur during decision evaluation with the JUEL FEEL Engine</td>
+  </tr>
+  <tr>
+    <td><code>org.camunda.bpm.dmn.feel.scala</code></td>
+    <td>logs events that occur during decision evaluation with the Scala FEEL Engine</td>
+  </tr>
+  <tr>
+    <td><code>org.camunda.feel.FeelEngine</code></td>
+    <td>logs events that occur during expression evaluation with the Scala FEEL Engine</td>
+  </tr>
+  <tr>
     <td><code>org.camunda.bpm.engine.externaltask</code></td>
     <td>logger for the external task</td>
   </tr>

@@ -23,6 +23,7 @@ This document guides you through the update from Camunda BPM `7.12.x` to `7.13.0
 1. For developers: [Identity Service Queries](#identity-service-queries)
 1. For developers: [MetricsReporterIdProvider interface Deprecation](#metricsreporteridprovider-interface-deprecation)
 1. For administrators and developers: [New Version of Templating Engines (Freemarker, Velocity)](#new-version-of-templating-engines-freemarker-velocity)
+1. For administrators and developers: [FEEL Engine Logger Category Update](#feel-engine-logger-category-update)
 
 This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new functionality included in Camunda BPM 7.13.
 
@@ -156,3 +157,21 @@ This updates the following template engine versions:
   * Change log: https://velocity.apache.org/engine/2.2/upgrading.html
 
 Please note that the new versions of Freemarker and Velocity contain changes that are not compatible with the previous versions. We strongly recommend to test the execution of your templates before applying the update. In addition, you can replace the artifacts of version 2.0.0 by the old artifacts in version 1.1.0 to continue using the old versions of Freemarker and Velocity.
+
+
+# FEEL Engine Logger Category Update
+
+As of version 7.13, the Camunda DMN Engine uses the new Scala FEEL Engine. The
+new FEEL Engine uses the slf4j logging "facade", as defined in the 
+[Camunda docs]({{< ref "/user-guide/logging.md" >}}).
+
+However, since the Scala FEEL Engine is a [separate project](https://github.com/camunda/feel-scala/), 
+it defines its own logger category. Users that filter the old FEEL Engine logs will need to update 
+their configurations by adding a configuration for the new FEEL Engine logger category 
+`org.camunda.feel.FeelEngine`.
+
+For the Camunda-related integration code of the Scala FEEL Engine, the new, 
+`org.camunda.bpm.dmn.feel.scala` logger category was added. The logs under this category will
+cover only the "Scala FEEL Engine"-related operations. For a more general configuration, the old 
+`org.camunda.bpm.dmn.feel` can still be used. If a more fine-grained configuration is needed, the
+new logger category can be utilized.
