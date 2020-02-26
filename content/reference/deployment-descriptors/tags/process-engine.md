@@ -720,6 +720,19 @@ The following is a list with the most commonly used process engine configuration
         The default value is 2<sup>31</sup>-1.
     </td>
   </tr>
+  
+  <tr id="dmnFeelEnableLegacyBehavior">
+    <td><code>dmnFeelEnableLegacyBehavior</code></td>
+    <td>Boolean</td>
+    <td>
+      Set to <code>true</code> to restore the legacy FEEL configuration of the DMN Engine. This
+      will result in the usage of the old, Java-based FEEL Engine, as well as the usage of JUEL
+      in DMN input expressions, output entries and literal expressions. When set to 
+      <code>false</code>, the new, Scala-based FEEL Engine is used, and FEEL is used as the
+      default language for DMN input expressions, input and output entries, and literal expressions.
+      Default value: <code>false</code>
+    </td>
+  </tr>
 
 </table>
 
