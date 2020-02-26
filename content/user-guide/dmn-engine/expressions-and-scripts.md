@@ -102,6 +102,11 @@ DMN engine are as follows:
 - *Input Entry*: `FEEL`
 - *Output Entry*: `FEEL`
 - *Literal Expression*: `FEEL`
+ 
+{{< note title="Legacy Behavior" class="info" >}}
+You can find how to go back to the legacy behavior, where `JUEL` was used for input expressions, 
+output entries and literal expressions [here]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#dmnFeelEnableLegacyBehavior" >}}).
+{{< /note >}}
 
 The default language can be changed by setting it directly in the DMN 1.1 XML as global expression language with the `expressionLanguage` attribute of
 the `definitions` element:
