@@ -15,7 +15,13 @@ menu:
 Camunda BPM provides a wrapper for the FEEL Scala Engine to implement Custom Functions, which can be 
 called in expressions and unary tests. 
 
+{{< note title="Custom Function Behavior" class="warning" >}}
 Please note that the Custom Function Mechanism of the Standalone FEEL Scala Engine might behave differently.
+{{< /note >}}
+
+You can add Custom Functions to the Process Engine (or the Standalone DMN Engine) only programmatically 
+through a [Process Engine Plugin]. Read more about it in the section about how to 
+[Register Custom Function Providers].
 
 ## Implement a Custom Function
 
@@ -63,7 +69,7 @@ public class CustomFunctionProvider implements FeelCustomFunctionProvider {
 }
 ```
 
-When calling `CustomFunction.create()` a builder is returned you can use to configure the Custom Function.
+When calling `CustomFunction.create()`, a builder is returned that you can use to configure the Custom Function.
 
 The builder has the following configuration options:
 
@@ -96,9 +102,6 @@ the property [dmnFeelCustomFunctionProviders] using a [Process Engine Plugin].
 
 The DMN Engine has a property `feelCustomFunctionProviders` of type `List` in the 
 `DefaultDmnEngineConfiguration` to register Custom Function Providers.
-
-[Process Engine Plugin]: {{< ref "/user-guide/process-engine/process-engine-plugins.md" >}}
-[dmnFeelCustomFunctionProviders]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#dmnFeelCustomFunctionProviders" >}}
 
 ## Type Handling
 
@@ -182,3 +185,6 @@ All Java types listed in "Argument Types" plus the types listed in the [FEEL Dat
 documentation can be returned by a Custom Function.
 
 [FEEL Data Types]: https://camunda.github.io/feel-scala/feel-data-types
+[Process Engine Plugin]: {{< ref "/user-guide/process-engine/process-engine-plugins.md" >}}
+[dmnFeelCustomFunctionProviders]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#dmnFeelCustomFunctionProviders" >}}
+[Register Custom Function Providers]: #register-custom-function-providers
