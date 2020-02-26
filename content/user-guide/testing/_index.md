@@ -166,6 +166,7 @@ To use Camunda BPM Assert, add the following dependency to your ```pom.xml```:
   <groupId>org.camunda.bpm.assert</groupId>
   <artifactId>camunda-bpm-assert</artifactId>
   <version>5.0.0</version>
+  <scope>test</scope>
 </dependency>
 ```
 
@@ -176,6 +177,7 @@ Also, you will have to add the AssertJ library v3.13.2 to your dependencies with
   <groupId>org.assertj</groupId>
   <artifactId>assertj-core</artifactId>
   <version>3.13.2</version>
+  <scope>test</scope>
 </dependency>
 ```
 
@@ -252,6 +254,7 @@ All versions prior to 3.0.0 belong to the community extension are not part of th
   <groupId>org.camunda.bpm.extension</groupId>
   <artifactId>camunda-bpm-assert</artifactId>
   <version>1.x</version> <!-- set correct version here -->
+  <scope>test</scope>
 </dependency>
 ```
 
@@ -262,6 +265,7 @@ For these versions, use the following Maven coordinates:
   <groupId>org.camunda.bpm.extension</groupId>
   <artifactId>camunda-bpm-assert</artifactId>
   <version>2.x</version> <!-- set correct version here -->
+  <scope>test</scope>
 </dependency>
 ```
 
