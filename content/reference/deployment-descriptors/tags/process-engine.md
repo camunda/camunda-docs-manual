@@ -733,6 +733,15 @@ The following is a list with the most commonly used process engine configuration
       Default value: <code>false</code>
     </td>
   </tr>
+  
+  <tr id="dmnFeelCustomFunctionProviders">
+    <td><code>dmnFeelCustomFunctionProviders</code></td>
+    <td>List</td>
+    <td>
+        Define a list of instances of <code>FeelCustomFunctionProvider</code>.<br><br>
+        Read more about it in the <a href="{{< ref "/user-guide/dmn-engine/feel/custom-functions.md" >}}">User Guide</a>.
+    </td>
+  </tr>
 
 </table>
 
