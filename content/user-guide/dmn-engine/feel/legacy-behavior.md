@@ -31,7 +31,7 @@ By using the legacy FEEL Engine, the Camunda DMN Engine **only** supports `FEEL`
 simple unary tests.
 {{< /note >}}
 
-[Migration Guide]: {{< ref "/update/minor/712-to-713/_index.md#feel" >}}
+[Migration Guide]: {{< ref "/update/minor/712-to-713/_index.md#entirely-replaced-feel-engine" >}}
 [legacy behavior flag]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#dmnFeelEnableLegacyBehavior" >}}
-[fluent feel flag setter]: {{< javadocref_url page="?org/camunda/bpm/dmn/engine/impl/DefaultDmnEngineConfiguration.html#enableFeelLegacyBehavior-boolean-" >}}
-[feel flag setter]: {{< javadocref_url page="?org/camunda/bpm/dmn/engine/impl/DefaultDmnEngineConfiguration.html#setEnableFeelLegacyBehavior-boolean-" >}}
+[fluent feel flag setter]: {{< javadocref_url page="org/camunda/bpm/dmn/engine/impl/DefaultDmnEngineConfiguration.html#enableFeelLegacyBehavior-boolean-" >}}
+[feel flag setter]: {{< javadocref_url page="org/camunda/bpm/dmn/engine/impl/DefaultDmnEngineConfiguration.html#setEnableFeelLegacyBehavior-boolean-" >}}
