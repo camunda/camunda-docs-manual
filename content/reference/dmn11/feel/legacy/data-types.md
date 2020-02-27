@@ -12,6 +12,12 @@ menu:
 
 ---
 
+{{< note title="Heads Up!" class="info" >}}
+This page provides information on the legacy FEEL Engine, that was used before the 
+current <a href="{{< ref "/user-guide/dmn-engine/feel/_index.md" >}}">Scala-based FEEL Engine</a>
+was integrated into the Camunda BPM Platform.
+{{< /note >}}
+
 The Camunda DMN engine supports the following FEEL data types.
 
 # String
