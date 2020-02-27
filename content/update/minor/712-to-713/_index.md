@@ -23,7 +23,7 @@ This document guides you through the update from Camunda BPM `7.12.x` to `7.13.0
 1. For developers: [Identity Service Queries](#identity-service-queries)
 1. For developers: [MetricsReporterIdProvider interface Deprecation](#metricsreporteridprovider-interface-deprecation)
 1. For administrators and developers: [New Version of Templating Engines (Freemarker, Velocity)](#new-version-of-templating-engines-freemarker-velocity)
-1. For administrators and developers: [FEEL Engine Logger Category Update](#feel-engine-logger-category-update)
+1. For developers: [Entirely Replaced FEEL Engine](#entirely-replaced-feel-engine)
 
 This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new functionality included in Camunda BPM 7.13.
 
@@ -158,14 +158,58 @@ This updates the following template engine versions:
 
 Please note that the new versions of Freemarker and Velocity contain changes that are not compatible with the previous versions. We strongly recommend to test the execution of your templates before applying the update. In addition, you can replace the artifacts of version 2.0.0 by the old artifacts in version 1.1.0 to continue using the old versions of Freemarker and Velocity.
 
+# Entirely Replaced FEEL Engine
 
-# FEEL Engine Logger Category Update
+With this release, we replaced the old FEEL Engine completely. From now on, Camunda BPM uses the 
+[FEEL Scala Engine](https://github.com/camunda/feel-scala) (opens external link) by default.
+You can restore the legacy behavior via a [configuration property][feel-legacy-prop].
 
-As of version 7.13, the Camunda DMN Engine uses the new Scala FEEL Engine. The
-new FEEL Engine uses the slf4j logging "facade", as defined in the 
+## New Custom Function Mechanism
+
+The FEEL Engine provides an all-new Custom Function mechanism. It is now possible to register Custom 
+Functions programmatically. Please read all about it in the documentation about [Custom FEEL Functions].
+The old way to register a Custom Function is not supported with the new FEEL Engine.
+
+## New Default Expression Languages
+
+The FEEL Engine changes the default Expression Languages for certain DMN Notation Elements:
+
+<table class="table table-striped">
+  <tr>
+    <th>DMN Notation Element</th>
+    <th>Old</th>
+    <th>New</th>
+  </tr>
+  <tr>
+    <td>Input Expression</td>
+    <td>JUEL</td>
+    <td>FEEL</td>
+  </tr>
+  <tr>
+    <td>Input Entries</td>
+    <td>FEEL</td>
+    <td>FEEL</td>
+  </tr>
+  <tr>
+    <td>Output Entries</td>
+    <td>JUEL</td>
+    <td>FEEL</td>
+  </tr>
+  <tr>
+    <td>Literal Expression</td>
+    <td>JUEL</td>
+    <td>FEEL</td>
+  </tr>
+</table>
+
+Expression languages defined in the DMN Model (*.dmn file) will override the defaults.
+
+## New Logger Category
+
+The new FEEL Engine uses the slf4j logging "facade", as defined in the 
 [Camunda docs]({{< ref "/user-guide/logging.md" >}}).
 
-However, since the Scala FEEL Engine is a [separate project](https://github.com/camunda/feel-scala/), 
+However, since the new FEEL Engine is an [independently maintained project](https://github.com/camunda/feel-scala/), 
 it defines its own logger category. Users that filter the old FEEL Engine logs will need to update 
 their configurations by adding a configuration for the new FEEL Engine logger category 
 `org.camunda.feel.FeelEngine`.
@@ -175,3 +219,65 @@ For the Camunda-related integration code of the Scala FEEL Engine, the new,
 cover only the "Scala FEEL Engine"-related operations. For a more general configuration, the old 
 `org.camunda.bpm.dmn.feel` can still be used. If a more fine-grained configuration is needed, the
 new logger category can be utilized.
+
+## Differences in the Expression Language
+
+Make sure to migrate your Expressions to FEEL 1.2 when using the new FEEL Engine. The legacy
+FEEL Engine has a partial coverage of FEEL 1.1.
+
+Additionally, make sure your FEEL expressions respect the following breaking changes.
+
+### Objects Cannot Be Compared 
+
+Previously it was possible to compare objects when the class of the respective objects implements 
+`java.lang.Comparable`. Objects cannot be compared with the new FEEL Engine.
+
+### Spin Java API Cannot Be Called
+
+The handling of Spin-based JSON & XML variables has changed fundamentally. For more information, 
+please see the documentation about [FEEL Engine Spin Integration]. The Spin Java API cannot be
+called directly in FEEL Expressions with the new FEEL Engine.
+
+### Beans Are Not Automatically Resolved
+
+Previously, the FEEL Engine took care of resolving beans automatically. Beans are not automatically
+resolved with the new FEEL Engine.
+
+### Changed Exception Classes
+
+The following exception classes were consolidated to `org.camunda.bpm.dmn.feel.impl.FeelException`:
+
+* `org.camunda.bpm.dmn.feel.impl.juel.FeelConvertException`
+* `org.camunda.bpm.dmn.feel.impl.juel.FeelMethodInvocationException`
+* `org.camunda.bpm.dmn.feel.impl.juel.FeelMissingFunctionException`
+* `org.camunda.bpm.dmn.feel.impl.juel.FeelMissingVariableException`
+* `org.camunda.bpm.dmn.feel.impl.juel.FeelSyntaxException`
+
+### Single-Quoted String Literals Not Allowed
+
+Previously, double-quoted as well as single-quoted string literals were allowed.
+The new FEEL Engine is more strict on the specification here. Use single quotes 
+for string literals in expressions. 
+
+**Example:** Migrate 'foo' to "foo"
+
+**Single-quoted string literals are considered as a bug in the old FEEL Engine.**
+
+### Timezone Information Is Respected
+
+From now on, an exception is thrown when a variable of type `java.util.Date` is compared with the 
+FEEL expression: `date and time("2019-09-12T13:00:00@Europe/Berlin")`. 
+
+**Ignoring the timezone information is considered as a bug in the old FEEL Engine.**
+
+### Known Issues in the New FEEL Engine
+
+Please also check out the status of the following known issues when migrating your FEEL Expressions:
+
+* https://jira.camunda.com/browse/CAM-11269
+* https://jira.camunda.com/browse/CAM-11304
+* https://jira.camunda.com/browse/CAM-11382
+
+[feel-legacy-prop]: {{< ref "/user-guide/dmn-engine/feel/legacy-behavior.md" >}}
+[Custom FEEL Functions]: {{< ref "/user-guide/dmn-engine/feel/custom-functions.md" >}}
+[FEEL Engine Spin Integration]: {{< ref "/user-guide/dmn-engine/feel/spin-integration.md" >}}
