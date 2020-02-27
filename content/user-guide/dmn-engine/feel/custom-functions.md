@@ -110,80 +110,15 @@ you can return.
 
 ### Argument Types
 
-<table class="table table-striped">
-  <tr>
-    <th>Argument Type</th>
-    <th>FEEL Expression</th>
-  </tr>
-  <tr>
-    <td><code>null</code></td>
-    <td><code>null</code></td>
-  </tr>
-  <tr>
-    <td><code>java.lang.String</code></td>
-    <td><code>"foo"</code></td>
-  </tr>
-  <tr>
-    <td><code>java.lang.Double</code></td>
-    <td><code>3.1415</code></td>
-  </tr>
-  <tr>
-    <td><code>java.lang.Long</code></td>
-    <td><code>3</code></td>
-  </tr>
-  <tr>
-    <td><code>java.lang.Boolean</code></td>
-    <td><code>true</code></td>
-  </tr>
-  <tr>
-    <td><code>java.time.LocalTime</code></td>
-    <td><code>time("11:45:30")</code></td>
-  </tr>
-  <tr>
-    <td><code>org.camunda.feel.syntaxtree.ZonedTime</code></td>
-    <td>
-        <code>time("11:45:30+02:00")</code><br>
-        <code>time("10:31:10@Europe/Paris")</code>
-    </td>
-  </tr>
-  <tr>
-    <td><code>java.time.LocalDate</code></td>
-    <td><code>date("2017-03-10")</code></td>
-  </tr>
-  <tr>
-    <td><code>java.time.LocalDateTime</code></td>
-    <td><code>date and time("2019-08-12T22:22:22")</code></td>
-  </tr>
-  <tr>
-    <td><code>java.time.ZonedDateTime</code></td>
-    <td>
-        <code>date and time("2019-08-12T22:22:22+02:00")</code><br>
-        <code>date and time("2019-08-12T22:22:22@Europe/Berlin")</code>
-    </td>
-  </tr>
-  <tr>
-    <td><code>java.time.Duration</code></td>
-    <td><code>duration("P4D")</code></td>
-  </tr>
-  <tr>
-    <td><code>java.time.Period</code></td>
-    <td><code>duration("P1Y6M")</code></td>
-  </tr>
-  <tr>
-    <td><code>java.util.Map</code></td>
-    <td><code>{ "foo": "bar" }</code></td>
-  </tr>
-  <tr>
-    <td><code>java.util.List</code></td>
-    <td><code>[ "foo", "bar", "baz" ]</code></td>
-  </tr>
-</table>
+All Java types listed in the "Return Types" section of the [FEEL Type Handling] documentation can be 
+passed into a Custom Function.
 
 ### Return Types
 
-All Java types listed in "Argument Types" plus the types listed in the [FEEL Data Types] 
-documentation can be returned by a Custom Function.
+All Java types listed in the "Return Types" section of the [FEEL Type Handling] documentation plus 
+the types listed in the [FEEL Data Types] documentation can be returned by a Custom Function.
 
+[FEEL Type Handling]: {{< ref "/user-guide/dmn-engine/feel/type-handling.md#return-types" >}}
 [FEEL Data Types]: https://camunda.github.io/feel-scala/feel-data-types
 [Process Engine Plugin]: {{< ref "/user-guide/process-engine/process-engine-plugins.md" >}}
 [dmnFeelCustomFunctionProviders]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#dmnFeelCustomFunctionProviders" >}}
