@@ -28,13 +28,13 @@ camunda-bpm-run
 │   ├── keystore/
 │   │   └── put your SSL key store here if you want to use HTTPS
 │   ├── resources/
-│   │   └── put your BPMN files here
+│   │   └── put your BPMN files, forms and scripts here
 │   └── application.yml
 ├── internal/
 ├── start.bat
 └── start.sh
 ```
-Execute one of the two start scripts (start.bat for Windows, start.sh for Linux/Mac). After a few seconds, you will be able to access the Camunda webapps via http://localhost:8080 and the REST API via http://localhost:8080
+Execute one of the two start scripts (`start.bat` for Windows, `start.sh` for Linux/Mac). After a few seconds, you will be able to access the Camunda webapps via http://localhost:8080 and the REST API via http://localhost:8080/rest/
 
 ## Disable Webapps or REST API
 By default Camunda BPM Run launches with the webapps and REST API modules. If you want only one of them enabled, execute the start script with a command-line interface with a `--webapps` or `--rest` property to enable the specific module.
@@ -55,9 +55,9 @@ Deployments via the [REST API](/reference/rest/deployment/post-deployment/) are 
 ## Automatic License Pickup
 If you downloaded the enterprise version of Camunda BPM Run, you will need a license key to enable the enterprise features.
 
-Provided a valid license file under `~/.camunda/license.txt`, and Camunda BPM Run will automatically pick it up and use it to unlock the enterprise features.
+Provided a valid license file under `${user.home}/.camunda/license.txt`, Camunda BPM Run will automatically pick it up and use it to unlock the enterprise features.
 
-You can still enter the license key in the Admin webapp UI.
+You can also still enter the license key in the Admin webapp UI.
 
 # Configure Camunda BPM Run
 
@@ -220,9 +220,9 @@ After starting Camunda BPM Run, you can access the webapps via https://localhost
 
 ## Logging
 Camunda BPM provides fine-grained and customizable logging. An overview of the available logging categories can be found in the [Logging User Guide](/user-guide/logging/#process-engine).
-To configure the logging behavior in Camunda BPM Run, customize your application.yml with the following properties.
+To configure the logging behavior in Camunda BPM Run, customize your `application.yml` with the following properties.
 
-For more information on logging configuration visit the [](https://howtodoinjava.com/spring-boot2/logging/configure-logging-application-yml/)
+For more information on logging configuration visit the [Spring Boot Logging Guide](https://howtodoinjava.com/spring-boot2/logging/configure-logging-application-yml/).
 
 <table class="table desc-table">
   <tr>
