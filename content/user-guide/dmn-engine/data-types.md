@@ -57,7 +57,10 @@ The following types are supported by the DMN engine:
   </tr>
   <tr>
     <td>date</td>
-    <td>java.util.Date, java.lang.String</td>
+    <td>
+        java.util.Date, java.lang.String, <br>
+        java.time.LocalDateTime, java.time.ZonedDateTime
+    </td>
     <td>DateValue</td>
   </tr>
 </table>
@@ -71,8 +74,12 @@ transformed into an untyped value by default.
 ## Working with Dates
 
 The DMN engine supports a `date` type which is a combination of date and time.
-By default, the data type transformer accept objects of the type
-`java.util.Date` and Strings having the format `yyyy-MM-dd'T'HH:mm:ss`.
+By default, the data type transformer accept objects of the types:
+
+* `java.util.Date`
+* Strings having the format `yyyy-MM-dd'T'HH:mm:ss`
+* `java.time.LocalDateTime`
+* `java.time.ZonedDateTime` 
 
 If you prefer another format or different representation of a date,
 implement a custom type and [replace the default transformer][data-type-transformer].
