@@ -12,6 +12,12 @@ menu:
 
 ---
 
+{{< note title="Heads Up!" class="info" >}}
+This page provides information on the legacy FEEL Engine, that was used before the 
+current <a href="{{< ref "/user-guide/dmn-engine/feel/_index.md" >}}">Scala-based FEEL Engine</a>
+was integrated into the Camunda BPM Platform.
+{{< /note >}}
+
 The Camunda DMN engine supports FEEL for [input entries]. The FEEL term for
 expression in input entries are simple unary tests. These simple unary tests
 test an input value against an expression and return either `true` if the test
