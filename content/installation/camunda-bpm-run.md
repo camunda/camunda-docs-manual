@@ -29,4 +29,4 @@ If you need to install Java Runtime Environment, you can [find the download from
 1. Configure the distro as described in the [user guide]({{< ref "/user-guide/camunda-bpm-run.md" >}}).
 1. Start Camunda BPM Run by executing the start script (start.bat for Windows, start.sh for Linux/Mac).
 1. Access the Camunda webapps (Cockpit, Tasklist, Admin) via http://localhost:8080.
-1. Access the [REST API](/reference/rest/overview) via http://localhost:8080/rest (e.g. http://localhost:8080/rest/engine).
+1. Access the [REST API]({{< ref "/reference/rest/overview/_index.md" >}}) via http://localhost:8080/rest (e.g. http://localhost:8080/rest/engine).

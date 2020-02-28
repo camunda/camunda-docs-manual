@@ -10,7 +10,7 @@ menu:
 
 ---
 
-Camunda BPM Run is a pre-packaged distro of the Camunda BPM platform, including the Camunda webapps (Cockpit, Tasklist, Admin) and the [REST API](/reference/rest/overview).
+Camunda BPM Run is a pre-packaged distro of the Camunda BPM platform, including the Camunda webapps (Cockpit, Tasklist, Admin) and the [REST API]({{< ref "/reference/rest/overview/_index.md" >}}).
 
 The idea behind Run is to provide a full Camunda BPM distro with a simple but powerful configuration mechanism that can be operated by everyone, regardless of their knowledge about Java or application server configuration.
 
@@ -42,7 +42,7 @@ By default Camunda BPM Run launches with the webapps and REST API modules. If yo
 ## Connect to a Database
 Camunda BPM Run is pre-configured to use a file-based h2 database for testing. If you want to use a custom standalone database, follow these steps:
 
-1. Make sure your database is among the [supported database systems](/introduction/supported-environments/#supported-database-products).
+1. Make sure your database is among the [supported database systems]({{< ref "/introduction/supported-environments.md#supported-database-products" >}}).
 1. Drop a JDBC driver jar for your database system in the `configuration/database` folder.
 1. Add the JDBC URL and login credentials to the `application.yml` like described [below](#database).
 1. Restart Camunda BPM Run
@@ -50,7 +50,7 @@ Camunda BPM Run is pre-configured to use a file-based h2 database for testing. I
 ## Deploy BPMN Models
 In the unpacked distro, you will find a `resources` folder. All files (including BPMN, DMN, CMMN, form, and script files) will be deployed when you start Camunda BPM Run.
 
-Deployments via the [REST API](/reference/rest/deployment/post-deployment/) are still possible.
+Deployments via the [REST API]({{< ref "/reference/rest/deployment/post-deployment.md" >}}) are still possible.
 
 ## Automatic License Pickup
 If you downloaded the enterprise version of Camunda BPM Run, you will need a license key to enable the enterprise features.
@@ -65,7 +65,7 @@ Just like all the other distros, you can tailor Camunda BPM Run to your needs. T
 
 {{< note title="Note:" class="info" >}}
 Camunda BPM Run is based on the [Camunda Spring Boot Starter](https://github.com/camunda/camunda-bpm-spring-boot-starter). 
-All [configuration properties](/user-guide/spring-boot-integration/configuration/#camunda-engine-properties) from the camunda-spring-boot-starter are available to customize Camunda BPM Run.
+All [configuration properties]({{< ref "/user-guide/spring-boot-integration/configuration.md#camunda-engine-properties" >}}) from the camunda-spring-boot-starter are available to customize Camunda BPM Run.
 {{< /note >}}
 
 ## Database
@@ -102,7 +102,7 @@ The distro comes with a file-based h2 database for testing. It is recommended to
 </table>
 
 ## Authentication
-To add authentication to requests against the [REST API](/reference/rest/overview), you can enable basic authentication.
+To add authentication to requests against the [REST API]({{< ref "/reference/rest/overview/_index.md" >}}), you can enable basic authentication.
 
 <table class="table desc-table">
   <tr>
@@ -125,7 +125,7 @@ To add authentication to requests against the [REST API](/reference/rest/overvie
 </table>
 
 ## Cross-Origin Resource Sharing
-If you want to allow cross-origin requests to the [REST API](/reference/rest/overview), you need to enable CORS.
+If you want to allow cross-origin requests to the [REST API]({{< ref "/reference/rest/overview/_index.md" >}}), you need to enable CORS.
 <table class="table desc-table">
   <tr>
       <th>Prefix</th>
@@ -147,10 +147,10 @@ If you want to allow cross-origin requests to the [REST API](/reference/rest/ove
 </table>
 
 ## LDAP Identity Service
-Camunda BPM can manage users and authorizations on its own, but if you want to use an existing LDAP authentication database you can enable the [LDAP Identity Service Plugin](/user-guide/process-engine/identity-service/#the-ldap-identity-service)
+Camunda BPM can manage users and authorizations on its own, but if you want to use an existing LDAP authentication database you can enable the [LDAP Identity Service Plugin]({{< ref "/user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}})
 which provides read-only access to the LDAP repository.
 
-Find all available configuration properties in the [LDAP Plugin Guide](/user-guide/process-engine/identity-service/#configuration-properties-of-the-ldap-plugin)
+Find all available configuration properties in the [LDAP Plugin Guide]({{< ref "/user-guide/process-engine/identity-service.md#configuration-properties-of-the-ldap-plugin" >}})
 
 <table class="table desc-table">
   <tr>
@@ -219,7 +219,7 @@ After starting Camunda BPM Run, you can access the webapps via https://localhost
 </table>
 
 ## Logging
-Camunda BPM provides fine-grained and customizable logging. An overview of the available logging categories can be found in the [Logging User Guide](/user-guide/logging/#process-engine).
+Camunda BPM provides fine-grained and customizable logging. An overview of the available logging categories can be found in the [Logging User Guide]({{< ref "/user-guide/logging.md#process-engine" >}}).
 To configure the logging behavior in Camunda BPM Run, customize your `application.yml` with the following properties.
 
 For more information on logging configuration visit the [Spring Boot Logging Guide](https://howtodoinjava.com/spring-boot2/logging/configure-logging-application-yml/).
