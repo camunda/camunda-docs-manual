@@ -14,7 +14,7 @@ Camunda BPM Run is a pre-packaged distro of the Camunda BPM platform, including 
 
 The idea behind Run is to provide a full Camunda BPM distro with a simple but powerful configuration mechanism that can be operated by everyone, regardless of their knowledge about Java or application server configuration.
 
-For a step-by-step installation guide head over to the [installation section](/installation/camunda-bpm-run/) and get started in minutes.
+For a step-by-step installation guide head over to the [installation section]({{< ref "/installation/camunda-bpm-run.md" >}}) and get started in minutes.
 
 # Starting with Camunda BPM Run
 
