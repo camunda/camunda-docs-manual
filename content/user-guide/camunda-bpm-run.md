@@ -23,7 +23,7 @@ After downloading the [distro](https://app.camunda.com/nexus/repository/public/o
 ```
 camunda-bpm-run
 ├── configuration/
-│   ├── database/
+│   ├── userlib/
 │   │   └── put your database driver jar here
 │   ├── keystore/
 │   │   └── put your SSL key store here if you want to use HTTPS
@@ -43,7 +43,7 @@ By default Camunda BPM Run launches with the webapps and REST API modules. If yo
 Camunda BPM Run is pre-configured to use a file-based h2 database for testing. If you want to use a custom standalone database, follow these steps:
 
 1. Make sure your database is among the [supported database systems]({{< ref "/introduction/supported-environments.md#supported-database-products" >}}).
-1. Drop a JDBC driver jar for your database system in the `configuration/database` folder.
+1. Drop a JDBC driver jar for your database system in the `configuration/userlib` folder.
 1. Add the JDBC URL and login credentials to the `application.yml` like described [below](#database).
 1. Restart Camunda BPM Run
 
@@ -86,7 +86,7 @@ The distro comes with a file-based h2 database for testing. It is recommended to
   </tr>
   <tr>
       <td><code>.driver-class-name</code></td>
-      <td>The class name of the JDBC driver for your database system. Remember to put the driver jar for your database system in <code>configuration/database</code>.</td>
+      <td>The class name of the JDBC driver for your database system. Remember to put the driver jar for your database system in <code>configuration/userlib</code>.</td>
       <td>-</td>
   </tr>
   <tr>
