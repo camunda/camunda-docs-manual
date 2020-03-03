@@ -42,7 +42,7 @@ and [Deployment scenarios]({{< ref "/user-guide/spring-boot-integration/_index.m
 
 * MySQL 5.6 / 5.7
 * MariaDB 10.0 / 10.2 / 10.3
-* Oracle 11g / 12c / 18c
+* Oracle 11g / 12c / 18c / 19c
 * IBM DB2 10.5 / 11.1 (excluding IBM z/OS for all versions)
 * PostgreSQL 9.4 / 9.6 / 10.4 / 10.7 / 11.1 / 11.2
 * Amazon Aurora PostgreSQL compatible with PostgreSQL 9.6 / 10.4 / 10.7
