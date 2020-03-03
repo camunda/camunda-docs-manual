@@ -23,12 +23,14 @@ After downloading the [distro](https://app.camunda.com/nexus/repository/public/o
 ```
 camunda-bpm-run
 ├── configuration/
-│   ├── userlib/
-│   │   └── put your database driver jar here
 │   ├── keystore/
 │   │   └── put your SSL key store here if you want to use HTTPS
 │   ├── resources/
 │   │   └── put your BPMN files, forms and scripts here
+│   ├── sql/
+│   │   └── necessary SQL scripts to prepare your database system
+│   ├── userlib/
+│   │   └── put your database driver jar here
 │   └── application.yml
 ├── internal/
 ├── start.bat
@@ -40,9 +42,11 @@ Execute one of the two start scripts (`start.bat` for Windows, `start.sh` for Li
 By default Camunda BPM Run launches with the webapps and REST API modules. If you want only one of them enabled, execute the start script with a command-line interface with a `--webapps` or `--rest` property to enable the specific module.
 
 ## Connect to a Database
-Camunda BPM Run is pre-configured to use a file-based h2 database for testing. If you want to use a custom standalone database, follow these steps:
+Camunda BPM Run is pre-configured to use a file-based H2 database for testing. The database schema and all required tables are automatically created when the engine starts up for the first time. If you want to use a custom standalone database, follow these steps:
 
 1. Make sure your database is among the [supported database systems]({{< ref "/introduction/supported-environments.md#supported-database-products" >}}).
+1. Create a database schema for the Camunda BPM platform yourself.
+1. Execute the SQL DDL scripts which create all required tables and default indices. The scripts can be found in the `configuration/sql/create` folder.
 1. Drop a JDBC driver jar for your database system in the `configuration/userlib` folder.
 1. Add the JDBC URL and login credentials to the `application.yml` like described [below](#database).
 1. Restart Camunda BPM Run
