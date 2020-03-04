@@ -256,7 +256,7 @@ The following exception classes were consolidated to `org.camunda.bpm.dmn.feel.i
 ### Single-Quoted String Literals Not Allowed
 
 Previously, double-quoted as well as single-quoted string literals were allowed.
-The new FEEL Engine is more strict on the specification here. Use single quotes 
+The new FEEL Engine is more strict on the specification here. Use double quotes 
 for string literals in expressions. 
 
 **Example:** Migrate 'foo' to "foo"
