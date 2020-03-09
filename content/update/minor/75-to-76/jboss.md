@@ -13,8 +13,8 @@ menu:
 The following steps describe how to update the Camunda artifacts on a JBoss AS
 7, Wildfly 8 and Wildfly 10 server in a shared process engine scenario. For the entire
 procedure, refer to the [update guide][update-guide]. If not
-already done, make sure to download the [Camunda BPM 7.6 JBoss distribution](http://camunda.org/release/camunda-bpm/jboss/7.6/), [Camunda BPM 7.6 Wildfly 8](http://camunda.org/release/camunda-bpm/wildfly8/7.6/)
-or [Camunda BPM 7.6 Wildfly 10 distribution](http://camunda.org/release/camunda-bpm/wildfly10/7.6/). In the following instructions
+already done, make sure to download the [Camunda BPM 7.6 JBoss distribution](https://downloads.camunda.cloud/release/camunda-bpm/jboss/7.6/), [Camunda BPM 7.6 Wildfly 8](https://downloads.camunda.cloud/release/camunda-bpm/wildfly8/7.6/)
+or [Camunda BPM 7.6 Wildfly 10 distribution](https://downloads.camunda.cloud/release/camunda-bpm/wildfly10/7.6/). In the following instructions
 `$APP_SERVER` should be replaced with either `jboss` or `wildfly`, depending on
 the used application server.
 
