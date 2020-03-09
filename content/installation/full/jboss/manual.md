@@ -28,7 +28,7 @@ if you are using Java 8, then please use the Wildfly installation and not JBoss 
 
 This section explains how to perform the required setup steps for JBoss Application Server.
 
-First, you need to download the [Camunda JBoss distribution](http://camunda.org/release/camunda-bpm/jboss/).
+First, you need to download the [Camunda JBoss distribution](http://downloads.camunda.cloud/release/camunda-bpm/jboss/).
 
 
 ## Adjust the Configuration
@@ -150,7 +150,7 @@ These links point you to resources for other databases:
 
 This section explains how to perform the required setup steps for Wildfly Application Server.
 
-First, you need to download the [Camunda WildFly distribution](http://camunda.org/release/camunda-bpm/wildfly/) and the [Camunda WildFly 8 Modules (camunda-wildfly8-modules)](https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/wildfly/camunda-wildfly8-modules/) archive if you're using WildFly 8.
+First, you need to download the [Camunda WildFly distribution](http://downloads.camunda.cloud/release/camunda-bpm/wildfly/) and the [Camunda WildFly 8 Modules (camunda-wildfly8-modules)](https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/wildfly/camunda-wildfly8-modules/) archive if you're using WildFly 8.
 
 ## Copy Modules
 
