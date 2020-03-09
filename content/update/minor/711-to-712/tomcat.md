@@ -92,4 +92,4 @@ The following steps are required to update the Camunda web applications Cockpit,
 [update-guide]: {{< ref "/update/minor/711-to-712/_index.md" >}}
 [nexus-restapi]: https://app.camunda.com/nexus/#browse/browse:camunda-bpm:org%2Fcamunda%2Fbpm%2Fcamunda-engine-rest%2F7.12.0%2Fcamunda-engine-rest-7.12.0-tomcat.war
 [nexus-webapp]: https://app.camunda.com/nexus/#browse/browse:camunda-bpm:org%2Fcamunda%2Fbpm%2Fwebapp%2Fcamunda-webapp-tomcat%2F7.12.0%2Fcamunda-webapp-tomcat-7.12.0.war
-[tomcat-distribution]: https://camunda.org/release/camunda-bpm/tomcat/7.12/
+[tomcat-distribution]: https://downloads.camunda.cloud/release/camunda-bpm/tomcat/7.12/
