@@ -22,7 +22,7 @@ This guide uses a number of variables to denote common path names and constants.
 * `$PLATFORM_VERSION` denotes the version of the Camunda BPM platform you want to or have installed, e.g. `7.X.Y`.
 * `$WLS_DISTRIBUTION` represents the downloaded Camunda BPM distribution for the Oracle WebLogic Application Server, e.g., `camunda-ee-oracle-wls-$PLATFORM_VERSION.zip`.
 
-The distribution is available at the [Camunda enterprise release page](http://camunda.org/enterprise-release/camunda-bpm/oracle-wls/).
+The distribution is available at the [Camunda enterprise release page](https://downloads.camunda.cloud/enterprise-release/camunda-bpm/oracle-wls/).
 You will be asked to enter the credentials you received during the trial or subscription process.
 {{< /note >}}
 
