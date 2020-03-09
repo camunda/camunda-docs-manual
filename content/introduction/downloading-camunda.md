@@ -87,7 +87,7 @@ from the [community download page][community-download-page].
 
 
 [get-jdk]: https://www.oracle.com/technetwork/java/javase/downloads/index.html
-[community-download-page]: https://camunda.org/release/camunda-bpm/
+[community-download-page]: https://downloads.camunda.cloud/release/camunda-bpm/
 [enterprise-download-page]: /enterprise/download
 [shared-engine]: {{< ref "/introduction/architecture.md#shared-container-managed-process-engine" >}}
 [embedded-engine]: {{< ref "/introduction/architecture.md#embedded-process-engine" >}}
