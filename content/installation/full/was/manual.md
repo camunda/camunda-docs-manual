@@ -22,7 +22,7 @@ Throughout this guide we will use a number of variables to denote common path na
 * `$PLATFORM_VERSION` denotes the version of the Camunda BPM platform you want to install or already have installed, e.g., `7.2.0`.
 * `$WAS_DISTRIBUTION` represents the downloaded Camunda BPM distribution for the IBM WebSphere Application Server, e.g., `camunda-ee-ibm-was-$PLATFORM_VERSION.zip`.
 
-The distribution is available at the [Camunda enterprise release page](http://camunda.org/enterprise-release/camunda-bpm/ibm-was/).
+The distribution is available at the [Camunda enterprise release page](https://downloads.camunda.cloud/enterprise-release/camunda-bpm/ibm-was/).
 You will be asked to enter the credentials you received during the trial or subscription process.
 {{< /note >}}
 
