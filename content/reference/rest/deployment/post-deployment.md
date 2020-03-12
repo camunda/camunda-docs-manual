@@ -25,6 +25,24 @@ POST `/deployment/create`
 
 # Parameters
 
+## Request Header
+
+The following required request header records:
+
+<table class="table table-striped">
+  <tr>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>Content-Type</td>
+    <td>multipart/form-data</td>
+    <td>Uploading definition data from file</td>
+  </tr>
+</table>
+
+
 ## Request Body
 
 A multipart form submit with the following parts:
@@ -55,10 +73,10 @@ A multipart form submit with the following parts:
     </td>
   </tr>
   <tr>
-    <td>deployment-source</td>
+    <td>deployment-data</td>
     <td>text/plain</td>
     <td>
-      The source for the deployment to be created.
+      The definition data file for the deployment to be created.
     </td>
   </tr>
   <tr>
