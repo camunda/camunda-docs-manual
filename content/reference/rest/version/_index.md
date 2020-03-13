@@ -2,7 +2,8 @@
 
 title: "Version"
 weight: 230
-layout: "single"
+
+layout: "single"
 
 menu:
   main:
@@ -27,7 +28,7 @@ This method takes no parameters.
 
 # Result
 
-A JSON array containing the version of the Rest API.
+A JSON object containing the version of the Rest API.
 
 <table class="table table-striped">
   <tr>
