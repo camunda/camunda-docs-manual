@@ -168,9 +168,9 @@ In any case does the toggle button allow to display/remove the statistics on dem
     window.camCockpitConf = {
        historicActivityInstanceMetrics: {
          adjustablePeriod: true,
-         //select from the default time period: today, week, month, complete
+         //select from the default time period: day, week, month, complete
          period: {
-           unit: 'today'
+           unit: 'day'
          }
        }
     };
