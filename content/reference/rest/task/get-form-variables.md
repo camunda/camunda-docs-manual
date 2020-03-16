@@ -77,7 +77,7 @@ value is a JSON object with the following properties:
   </tr>
   <tr>
     <td>200</td>
-    <td>application/xhtml+xml</td>
+    <td>application/json</td>
     <td>Request successful.</td>
   </tr>
   <tr>
