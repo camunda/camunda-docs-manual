@@ -190,7 +190,8 @@ Request Body:
       },
       "processVariables" : {
         "aVariable" : {"value" : "aNewValue", "type": "String", 
-                        "valueInfo" : { "transient" : true } },
+                        "valueInfo" : { "transient" : true }
+                      },
         "anotherVariable" : {"value" : true, "type": "Boolean"}
       }
     }
@@ -213,7 +214,8 @@ POST `/message`
       },
       "processVariables" : {
         "aVariable" : {"value" : "aNewValue", "type": "String",
-                        "valueInfo" : { "transient" : true } },
+                        "valueInfo" : { "transient" : true }
+                      },
         "anotherVariable" : {"value" : true, "type": "Boolean"}
       },
       "resultEnabled" : true
@@ -248,7 +250,8 @@ POST `/message`
       },
       "processVariables" : {
         "aVariable" : {"value" : "aNewValue", "type": "String",
-                        "valueInfo" : { "transient" : true } },
+                        "valueInfo" : { "transient" : true }
+                      },
         "anotherVariable" : {"value" : true, "type": "Boolean"}
       },
       "resultEnabled" : true,
@@ -267,7 +270,8 @@ POST `/message`
         "processInstance": null,
         "variables" : {
           "aVariable" : {"value" : "aNewValue", "type": "String",
-                        "valueInfo" : { "transient" : true } },
+                        "valueInfo" : { "transient" : true }
+                      },
           "anotherVariable" : {"value" : true, "type": "Boolean"}
         }
     }]
