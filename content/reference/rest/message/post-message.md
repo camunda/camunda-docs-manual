@@ -257,7 +257,7 @@ POST `/message`
 
 ### Response
     [{
-        "resultType": "Execution,
+        "resultType": "Execution",
         "execution": {
           "id": "anExecutionId",
           "processInstanceId": "aProcInstId",
@@ -269,5 +269,6 @@ POST `/message`
           "aVariable" : {"value" : "aNewValue", "type": "String",
                         "valueInfo" : { "transient" : true } },
           "anotherVariable" : {"value" : true, "type": "Boolean"}
+        }
     }]
  
