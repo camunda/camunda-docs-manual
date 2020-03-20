@@ -65,14 +65,14 @@ Clustered or replicated databases are supported given the following conditions. 
 
 # Java
 
-* Java 8 / 9 / 10 / 11 / 12 / 13 (if supported by your application server/container)
+* Java 8 / 9 / 10 / 11 / 12 / 13 / 14 (if supported by your application server/container)
 
 
 # Java Runtime
 
-* Oracle JDK 8 / 9 / 10 / 11 / 12 / 13
+* Oracle JDK 8 / 9 / 10 / 11 / 12 / 13 / 14
 * IBM JDK 8 (with J9 JVM)
-* OpenJDK 8 / 9 / 10 / 11 / 12 / 13, including builds of the following products:
+* OpenJDK 8 / 9 / 10 / 11 / 12 / 13 / 14, including builds of the following products:
   * Oracle OpenJDK
   * AdoptOpenJDK (with HotSpot JVM)
   * Amazon Corretto
