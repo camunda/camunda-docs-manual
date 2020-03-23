@@ -47,7 +47,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>A Boolean value that indicates whether the message should only be correlated to executions and process definitions which belong to no tenant or not. Value may only be <code>true</code>, as <code>false</code> is the default behavior. Must not be supplied in conjunction with a <code>withoutTenantId</code>.</td>
+    <td>A Boolean value that indicates whether the message should only be correlated to executions and process definitions which belong to no tenant or not. Value may only be <code>true</code>, as <code>false</code> is the default behavior. Must not be supplied in conjunction with a <code>tenantId</code>.</td>
   </tr>
   <tr>
     <td>processInstanceId</td>
