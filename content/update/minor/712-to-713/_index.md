@@ -24,7 +24,7 @@ This document guides you through the update from Camunda BPM `7.12.x` to `7.13.0
 1. For developers: [MetricsReporterIdProvider interface Deprecation](#metricsreporteridprovider-interface-deprecation)
 1. For administrators and developers: [New Version of Templating Engines (Freemarker, Velocity)](#new-version-of-templating-engines-freemarker-velocity)
 1. For developers: [Entirely Replaced FEEL Engine](#entirely-replaced-feel-engine)
-1. For Developers: [DMN 1.3 Support in Cockpit](#dmn-13-support-in-cockpit)
+1. For Developers: [DMN 1.3 Support in Cockpit](#dmn-1-3-support-in-cockpit)
 
 This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new functionality included in Camunda BPM 7.13.
 
