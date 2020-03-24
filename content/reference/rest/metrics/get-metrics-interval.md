@@ -49,7 +49,7 @@ GET `/metrics`
   <tr>
     <td>reporter</td>
     <td>The name of the reporter (host), on which the metrics was logged. This will have value
-     provided by the [hostname configuration property]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#hostname">}}).
+     provided by the <a href="{{< ref "/reference/deployment-descriptors/tags/process-engine.md#hostname" >}}">configuration property</a>.
     </td>
   </tr>
   <tr>
