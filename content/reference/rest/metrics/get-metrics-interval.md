@@ -102,7 +102,7 @@ A JSON array of aggregated metrics. Each aggregated metric has the following pro
   <tr>
     <td>reporter</td>
     <td>String</td>
-    <td>The reporter of the metric. `null` if the metrics are aggregated by reporter.</td>
+    <td>The reporter of the metric. <code>null</code> if the metrics are aggregated by reporter.</td>
   </tr>
   <tr>
     <td>value</td>
