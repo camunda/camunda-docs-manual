@@ -54,7 +54,7 @@ Byte Stream.
   </tr>
   <tr>
     <td>200</td>
-    <td>application/json</td>
+    <td>application/octet-stream</td>
     <td>Request successful.</td>
   </tr>
   <tr>
