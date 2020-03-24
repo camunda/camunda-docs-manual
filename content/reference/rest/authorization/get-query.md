@@ -122,6 +122,24 @@ Each group object has the following properties:
     <td>String</td>
     <td>The resource Id. The value "*" represents an authorization ranging over all instances of a resource.</td>
   </tr>
+  <tr>
+    <td>removalTime</td>
+    <td>String</td>
+    <td>
+        The removal time indicates the date a historic instance authorization is cleaned up. 
+        A removal time can only be assigned to a historic instance authorization. 
+        Can be <code>null</code> when not related to a historic instance resource or when the removal time strategy is end and the root process instance is not finished.
+        Default format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.
+    </td>
+  </tr>
+  <tr>
+    <td>rootProcessInstanceId</td>
+    <td>String</td>
+    <td>
+        The process instance id of the root process instance the historic instance authorization is related to. 
+        Can be <code>null</code> if not related to a historic instance resource.
+    </td>
+  </tr>
 </table>
 
 
@@ -169,4 +187,6 @@ Status 200.
      "userId": "jonny2",
      "groupId": null,
      "resourceType": 1,
-     "resourceId": "*"}]
+     "resourceId": "*",
+     "removalTime": "2018-02-10T14:33:19.000+0200",
+     "rootProcessInstanceId": "f8259e5d-ab9d-11e8-8449-e4a7a094a9d6"}]
