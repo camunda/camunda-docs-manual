@@ -49,7 +49,7 @@ GET `/metrics`
   <tr>
     <td>reporter</td>
     <td>The name of the reporter (host), on which the metrics was logged. This will have value
-     provided by the [hostname configuration property]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#hostname">}}).
+     provided by the <a href="{{< ref "/reference/deployment-descriptors/tags/process-engine.md#hostname" >}}">configuration property</a>.
     </td>
   </tr>
   <tr>
@@ -102,7 +102,7 @@ A JSON array of aggregated metrics. Each aggregated metric has the following pro
   <tr>
     <td>reporter</td>
     <td>String</td>
-    <td>The reporter of the metric. `null` if the metrics are aggregated by reporter.</td>
+    <td>The reporter of the metric. <code>null</code> if the metrics are aggregated by reporter.</td>
   </tr>
   <tr>
     <td>value</td>
@@ -138,7 +138,7 @@ A JSON array of aggregated metrics. Each aggregated metric has the following pro
 
 ## Request
 
-GET `/metrics?name=activity-instance-end&startDate='1970-01-01T01:45:00.000+0200'&endDate='1970-01-01T02:00:00.000+0200'`
+GET `/metrics?name=activity-instance-end&startDate=1970-01-01T01:45:00.000%2b0200&endDate=1970-01-01T02:00:00.000%2b0200`
 
 ## Response
 

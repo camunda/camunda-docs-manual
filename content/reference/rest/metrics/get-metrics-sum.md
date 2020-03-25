@@ -43,6 +43,7 @@ GET `/metrics/{metrics-name}/sum`
       <code>history-cleanup-removed-process-instances</code>,
       <code>history-cleanup-removed-case-instances</code>,
       <code>history-cleanup-removed-decision-instances</code>
+      <code>history-cleanup-removed-batch-operations</code>
     </td>
   </tr>
 </table>
@@ -104,7 +105,7 @@ A JSON object providing the result:
 
 ## Request
 
-GET `/metrics/activity-instance-end/sum?startDate=2015-01-01T00:00:00.000+0200`
+GET `/metrics/activity-instance-end/sum?startDate=2015-01-01T00:00:00.000%2b0200`
 
 ## Response
 
