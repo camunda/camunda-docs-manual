@@ -77,7 +77,7 @@ A JSON object with the following properties:
   <tr>
     <td>processInstanceBusinessKeyIn</td>
     <td>Restrict to tasks that belong to process instances with one of the give business keys.
-       The keys need to be in array.
+       The keys need to be in an array.
     </td>
   </tr>
   <tr>
@@ -186,7 +186,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>assigneeIn</td>
-    <td>Only include tasks which are assigned to one of the passed in array user ids</td>
+    <td>Only include tasks which are assigned to one of the user ids passed in the array</td>
   </tr>
   <tr>
     <td>owner</td>
