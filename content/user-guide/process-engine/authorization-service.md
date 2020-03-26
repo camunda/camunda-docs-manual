@@ -154,6 +154,11 @@ The following resources are available:
     <td>Task Id</td>
   </tr>
   <tr>
+    <td>Historic Task</td>
+    <td>19</td>
+    <td>Historic Task Id</td>
+  </tr>
+  <tr>
     <td>Tenant</td>
     <td>11</td>
     <td>Tenant Id</td>
@@ -342,6 +347,13 @@ The following table gives an overview for which resources they are available:
       <td>X</td>
       <td>X</td>
       <td>X</td>
+    </tr>
+    <tr>
+      <th>Historic Task</th>
+      <td>X</td>
+      <td></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <th>Tenant</th>
@@ -582,6 +594,10 @@ In case of Tasks
 
 * Read Variable (for process and standalone tasks)
 
+In case of Historic Tasks
+
+* Read Variable (only enforced when [Historic Instance Permissions](#historic-instance-permissions) are enabled)
+
 In case of Process Definitions
 
 * Read Instance Variable (for runtime process instance variables)
@@ -608,6 +624,38 @@ Out of the box, it can be granted for the following categories (resource ids):
 * `Admin`
 * `Operator`
 * `*` (Any / All)
+
+## Historic Instance Permissions
+
+The resources control whether a user can read the history related to a specific instance.
+
+Compared to runtime permissions, historic permissions are not immediately removed when the related 
+instance has been finished. The [Removal-Time-based History Cleanup Strategy] removes historic 
+permissions at a later point.
+
+You can enable the permissions with the help of a [process engine configuration flag][hist-inst-perm-config-flag]:
+
+```xml
+<property name="enableHistoricInstancePermissions">true</property>
+```
+
+The feature is disabled by default because of two reasons:
+
+1. When enabled, the SQL queries are more complex because additional authorization checks are performed.
+   More complex queries may degrade the performance.
+2. When enabled and an Identity Link is added to a Task, the respective User or Group is authorized
+   to read the associated history (e. g. for the Task, Variable, or Identity Link History).
+   For Camunda BPM versions <= 7.12, the history is not readable in this case.
+
+### Historic Task Permissions
+
+When permission is granted to a Historic Task, you can use the following queries to retrieve the 
+entities related to the Historic Task:
+
+* Historic Task Instance Query
+* Historic Variable Instance Query
+* Historic Detail Query
+* Identity Link Log Query
 
 # Administrators
 
@@ -773,3 +821,6 @@ Revoke authorizations are expensive to check. The check needs to consider the pr
 On these databases, revoke authorizations are effectively unusable.
 
 Also see the [Configuration Options](#check-revoke-authorizations) section on this page.
+
+[hist-inst-perm-config-flag]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#enable-historic-instance-permissions" >}}
+[Removal-Time-based History Cleanup Strategy]: {{< ref "/user-guide/process-engine/history.md#removal-time-based-strategy" >}}
