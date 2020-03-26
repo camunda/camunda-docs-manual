@@ -77,7 +77,7 @@ A JSON object with the following properties:
   <tr>
     <td>processInstanceBusinessKeyIn</td>
     <td>Restrict to tasks that belong to process instances with one of the give business keys.
-        The keys need to be in a comma-separated list.
+       The keys need to be in an array.
     </td>
   </tr>
   <tr>
@@ -186,7 +186,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>assigneeIn</td>
-    <td>Only include tasks which are assigned to one of the passed and comma-separated user ids.</td>
+    <td>Only include tasks which are assigned to one of the user ids passed in the array</td>
   </tr>
   <tr>
     <td>owner</td>
@@ -720,8 +720,8 @@ Request Body:
     {"name": "anotherVarName",
     "value": 30,
     "operator": "neq"}],
-"processInstanceBusinessKeyIn": "aBusinessKey,anotherBusinessKey",
-"assigneeIn": "anAssignee,anotherAssignee",
+"processInstanceBusinessKeyIn": ["aBusinessKey", "anotherBusinessKey"],
+"assigneeIn": ["anAssignee", "anotherAssignee"],
 "priority":10,
 "sorting":
     [{"sortBy": "dueDate",
