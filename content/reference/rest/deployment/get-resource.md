@@ -80,7 +80,7 @@ Its properties are as follows:
   </tr>
   <tr>
     <td>200</td>
-    <td>application/octet-stream</td>
+    <td>application/json</td>
     <td>Request successful.</td>
   </tr>
   <tr>
