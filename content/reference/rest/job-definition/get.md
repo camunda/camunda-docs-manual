@@ -93,6 +93,11 @@ Its properties are as follows:
     <td>String</td>
     <td>The id of the tenant this job definition is associated with.</td>
   </tr>
+  <tr>
+    <td>deploymentId</td>
+    <td>String</td>
+    <td>The id of the deployment this job definition is related to. In a deployment-aware setup, this leads to all jobs of the same definition being executed on the same node.</td>
+  </tr>
 </table>
 
 
@@ -135,5 +140,6 @@ GET `/job-definition/aJobDefinitionId`
         "jobConfiguration": "",
         "suspended": false,
         "overridingJobPriority": 15,
-        "tenantId": null
+        "tenantId": null,
+		"deploymentId": "aDeploymentId"	
       }
