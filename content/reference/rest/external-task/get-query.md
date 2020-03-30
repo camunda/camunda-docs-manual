@@ -262,6 +262,7 @@ GET `/external-task?topicName=aTopic`
 
 Status 200.
 
+```json
     [{
       "activityId": "anActivityId",
       "activityInstanceId": "anActivityInstanceId",
@@ -300,3 +301,4 @@ Status 200.
       "priority": 3,
       "businessKey": "aBusinessKey"
     }]
+```

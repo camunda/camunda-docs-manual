@@ -99,13 +99,15 @@ POST `/external-task/retries-async`
 
 Request Body:
 
+```json
     {
-      "retries": 123
+      "retries": 123,
       "externalTaskIds": [
         "anExternalTask",
         "anotherExternalTask"
       ]
     }
+```
 
 ## Response
 

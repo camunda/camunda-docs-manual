@@ -39,13 +39,13 @@ A JSON object with the following properties:
     <td><b>Mandatory.</b> The maximum number of tasks to return.</td>
   </tr>
   <tr>
-	<td>usePriority</td>
-	<td>A boolean value, which indicates whether the task should be fetched based on its priority or arbitrarily.</td>
+    <td>usePriority</td>
+    <td>A boolean value, which indicates whether the task should be fetched based on its priority or arbitrarily.</td>
   </tr>
   <tr>
-	<td>asyncResponseTimeout</td>
-	<td>The <a href="{{< ref "/user-guide/process-engine/external-tasks.md#long-polling-to-fetch-and-lock-external-tasks" >}}">Long Polling</a> timeout in milliseconds.<br>
-	<strong>Note:</strong> The value cannot be set larger than 1.800.000 milliseconds (corresponds to 30 minutes).</td>
+    <td>asyncResponseTimeout</td>
+    <td>The <a href="{{< ref "/user-guide/process-engine/external-tasks.md#long-polling-to-fetch-and-lock-external-tasks" >}}">Long Polling</a> timeout in milliseconds.<br>
+    <strong>Note:</strong> The value cannot be set larger than 1.800.000 milliseconds (corresponds to 30 minutes).</td>
   </tr>
   <tr>
     <td>topics</td>
@@ -79,7 +79,7 @@ A JSON object with the following properties:
           <td>A <code>String</code> value which enables the filtering of tasks based on process instance business key.</td>
         </tr>
         <tr>
-        <td>processDefinitionId</td>
+          <td>processDefinitionId</td>
           <td>Filter tasks based on process definition id.</td>
         </tr>
         <tr>
@@ -98,7 +98,8 @@ A JSON object with the following properties:
           <td>processDefinitionVersionTag</td>
           <td>Filter tasks based on process definition version tag.</td>
         </tr>
-        <td>withoutTenantId</td>
+        <tr>
+          <td>withoutTenantId</td>
           <td>Filter tasks without tenant id.</td>
         </tr>
         <tr>
@@ -257,6 +258,7 @@ POST `/external-task/fetchAndLock`
 
 Request Body:
 
+```json
     {
       "workerId":"aWorkerId",
       "maxTasks":2,
@@ -267,11 +269,13 @@ Request Body:
           "variables": ["orderId"]
           }]
     }
+```
 
 ## Response
 
 Status 200.
 
+```json
     [{
       "activityId": "anActivityId",
       "activityInstanceId": "anActivityInstanceId",
@@ -320,6 +324,7 @@ Status 200.
         }
       }
     }]
+```
 
 # Example with all variables
  
@@ -328,6 +333,7 @@ Status 200.
 POST `/external-task/fetchAndLock`
 
 Request Body:
+
 ```json
     {
       "workerId":"aWorkerId",
@@ -347,6 +353,7 @@ Request Body:
 
 Status 200.
 
+```json
     [{
       "activityId": "anActivityId",
       "activityInstanceId": "anActivityInstanceId",
@@ -397,5 +404,4 @@ Status 200.
         }
       }
     }]
-
-
+```
