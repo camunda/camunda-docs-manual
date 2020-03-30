@@ -90,6 +90,34 @@ To declare a Service Task to be handled externally, the attribute `camunda:type`
            camunda:type="external"
            camunda:topic="ShipmentProcessing" />
 ```
+# Calling APIs
+
+camunda:connector  is an extension that allows calling REST/SOAP APIs directly from the workflow. Connector is available as one of the implementations for service task. Once Connector is selected as implementation, it must be configured. A new tab “Connector” gets added to service task properties where the following can be defined:
+1.	Connector Id: http-connector for REST API and soap-http-connector for SOAP API
+2.	Input Parameters: provide the parameters to execute an API: url, method, headers and payload
+3.	Output Parameters: contain the values of response parameters after API execution: response, headers and statusCode 
+
+```xml
+<bpmn:serviceTask id="callAPI" name="Call API">
+      <bpmn:extensionElements>
+        <camunda:connector>
+          <camunda:inputOutput>
+            <camunda:inputParameter name="url">http://camunda.org </camunda:inputParameter>
+            <camunda:inputParameter name="method">GET</camunda:inputParameter>
+            <camunda:inputParameter name="headers">
+              <camunda:map>
+                <camunda:entry key="content-type">application/json</camunda:entry>
+              </camunda:map>
+            </camunda:inputParameter>
+            <camunda:outputParameter name="response">
+              <camunda:script scriptFormat="javascript">print(response)</camunda:script>
+            </camunda:outputParameter>
+          </camunda:inputOutput>
+          <camunda:connectorId>http-request</camunda:connectorId>
+        </camunda:connector>
+      </bpmn:extensionElements>
+    </bpmn:serviceTask>
+```
 
 # Camunda Extensions
 
