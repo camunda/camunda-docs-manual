@@ -13,7 +13,9 @@ menu:
 ---
 
 
-Retrieves all variables visible from the task. A variable is visible from the task if it is a local task variable or declared in a parent scope of the task. See documentation on [visiblity of variables]({{< ref "/user-guide/process-engine/variables.md" >}}).
+Retrieves all variables visible from the task. A variable is visible from the task if it is a local task variable or 
+declared in a parent scope of the task. See documentation on 
+[visiblity of variables]({{< ref "/user-guide/process-engine/variables.md" >}}).
 
 
 # Method
@@ -80,46 +82,25 @@ Each key is a variable name and each value a variable value object that has the 
 </table>
 
 
-# Example
+# Examples
 
-## Request
+## Example 1
 
-GET `/task/aTaskId/variables`
-
-## Response
-
-```json
-{
-"aTaskVariableKey":
-   {
-   "value":
-   {
-    "property1":"aPropertyValue",
-    "property2":true
-   },
-   "type":"ExampleVariableObject"
-   }
-}
-```
-
-
-# Example 1
-
-## Request
+### Request
 
 GET `/task/aTaskId/variables`
   
-## Response
+### Response
 
 {{< rest-vars-response-example-deserialized >}}
 
     
-# Example 2
+## Example 2
 
-## Request
+### Request
 
 GET `/task/aTaskId/variables?deserializeValues=false`
   
-## Response
+### Response
 
 {{< rest-vars-response-example-serialized >}}
