@@ -289,3 +289,30 @@ With this release, cockpit adds support for DMN 1.3, the next version of the DMN
 
 The Camunda engine already supports the DMN 1.3 namespace by default, so there are no more steps required to migrate.
 Make sure you have the latest version of [Camunda Modeler](https://camunda.com/download/modeler/) installed to edit DMN 1.3 files locally.
+
+# Deployment-Aware Batch Operations
+
+With this release, all [batch operations][] that work on process-related elements, e.g. process instances, are deployment-aware.
+From the list of currently available batch operations, only [Set a Removal Time to Historic Batches][set-removal-time-batch] is not deployment-aware. 
+This is because only the *jobs* of a batch might need deployment-related resources, the batch itself does not and is therefore not bound to a deployment.
+
+Since [Monitor Jobs][] do not need any deployment-related resources anymore with this release as well,
+only [Seed Jobs][] and [Execution Jobs][] are affected by this. Technically, seed jobs and execution jobs will receive a `deploymentId` so [deployment-aware job executors][job-cluster] can pick up those jobs of a batch that need to be executed on their nodes.
+
+The deployment id of the seed job is chosen from a list of involved deployments. The list of deployments involved in a batch is derived from the elements of the batch operation, e.g. for chosen process instances the deployments their process definitions belong to are fetched. Execution jobs only contain elements of the same deployment and are bound to it as well.
+
+This feature also works in a [Rolling Update scenario][]. All batches created in versions prior to 7.13.0 will be executed with the same behavior they had before.
+Only batches created and run on nodes that run on version 7.13.0 or later will be able to create deployment-aware batch jobs for all process-related batch operations.
+
+For custom batch operations the new mechanism also means that deployment-aware batch jobs can be created in a more transparent way.
+The `BatchConfiguration` now has a new attribute `idMappings` that comprises a list of deployment-to-ids mappings.
+The routine creating the batch entity with the custom batch type handler simply needs to provide such a list of mappings to the configuration.
+The seed job creation as well as the batch job creation in the seed job will transparently take care of producing deployment-aware jobs afterwards.
+
+[batch operations]: {{< ref "/user-guide/process-engine/batch-operations.md" >}}
+[Monitor Jobs]: {{< ref "/user-guide/process-engine/batch.md#monitor-job" >}}
+[Seed Jobs]: {{< ref "/user-guide/process-engine/batch.md#seed-job" >}}
+[Execution Jobs]: {{< ref "/user-guide/process-engine/batch.md#execution-jobs" >}}
+[set-removal-time-batch]: {{< ref "/user-guide/process-engine/batch-operations.md#historic-batches" >}}
+[job-cluster]: {{< ref "/user-guide/process-engine/the-job-executor.md#job-execution-in-heterogeneous-clusters" >}}
+[Rolling Update scenario]: {{< ref "/update/rolling-update.md" >}}
