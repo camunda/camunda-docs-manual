@@ -51,7 +51,12 @@ This method returns no content.
   <tr>
     <td>200</td>
     <td>text/plain</td>
-    <td>Request successful.</td>
+    <td>Request successful. In case the external task has error details.</td>
+  </tr>
+  <tr>
+    <td>204</td>
+    <td></td>
+    <td>Request successful. In case the external task has no error details.</td>
   </tr>
   <tr>
     <td>404</td>
