@@ -216,6 +216,11 @@ Each external task object has the following properties:
         <td>The key of the process definition the external task is defined in.</td>
       </tr>
       <tr>
+        <td>processDefinitionVersionTag</td>
+        <td>String</td>
+        <td>The version tag of the process definition the external task is defined in.</td>
+      </tr>
+      <tr>
         <td>processInstanceId</td>
         <td>String</td>
         <td>The id of the process instance the external task belongs to.</td>
