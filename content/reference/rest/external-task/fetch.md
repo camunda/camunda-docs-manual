@@ -205,6 +205,11 @@ Each locked external task object has the following properties:
     <td>The number of retries the task currently has left.</td>
   </tr>
   <tr>
+    <td>suspended</td>
+    <td>boolean</td>
+    <td>Whether the process instance the external task belongs to is suspended.</td>
+  </tr>
+  <tr>
     <td>workerId</td>
     <td>String</td>
     <td>The id of the worker that posesses or posessed the most recent lock.</td>

@@ -8,7 +8,7 @@ menu:
     name: "Set Retries Sync"
     identifier: "rest-api-external-task-post-retries-sync"
     parent: "rest-api-external-task"
-    pre: "PUT `/external-task/retries-sync`"
+    pre: "PUT `/external-task/retries`"
 
 ---
 
@@ -93,7 +93,7 @@ This method returns no content.
 
 ## Request
 
-PUT `/external-task/retries-sync`
+PUT `/external-task/retries`
 
 Request Body:
 
