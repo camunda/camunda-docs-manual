@@ -37,6 +37,10 @@ GET `/external-task`
     <td>Filter by an external task's id.</td>
   </tr>
   <tr>
+    <td>externalTaskIdIn</td>
+    <td>Filter by the comma-separated list of external task ids.</td>
+  </tr>
+  <tr>
     <td>topicName</td>
     <td>Filter by an external task topic.</td>
   </tr>
