@@ -59,7 +59,7 @@ This method returns no content.
     <td>Request successful. In case the external task has no error details.</td>
   </tr>
   <tr>
-    <td>404</td>
+    <td>500</td>
     <td>application/json</td>
     <td>An external task with the given id does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
