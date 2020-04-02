@@ -295,7 +295,7 @@ com.example.Order order = new com.example.Order();
 
 VariableMap variables =
   Variables.create()
-    .putValueTyped("order", Variables.objectValue(order))
+    .putValueTyped("order", Variables.objectValue(order).create())
     .putValueTyped("string", Variables.stringValue("a string value"));
 runtimeService.setVariablesLocal(execution.getId(), "order", variables);
 ```
