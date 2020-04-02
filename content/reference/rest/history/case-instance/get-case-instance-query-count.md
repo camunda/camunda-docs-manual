@@ -1,6 +1,6 @@
 ---
 
-title: "Get Case Instances Count"
+title: "Get Historic Case Instance Count"
 weight: 20
 
 menu:
@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for the number of historic case instances that fulfill the given parameters.  Takes the same
-parameters as the [Get Case Instances]({{< relref "reference/rest/history/case-instance/get-case-instance-query.md" >}}) method.
+Queries for the number of historic case instances that fulfill the given parameters.  Takes the same
+parameters as the [Get Historic Case Instances]({{< ref "/reference/rest/history/case-instance/get-case-instance-query.md" >}}) method.
 
 
 # Method
@@ -67,20 +67,24 @@ GET `/history/case-instance/count`
     <td>Filter by case instance business key that the parameter is a substring of.</td>
   </tr>
   <tr>
+    <td>caseActivityIdIn</td>
+    <td>Filter by a comma-separated list of case activity ids. A historic case instance must have historic case activity instances in at least one of the given case activity ids.</td>
+  </tr>
+  <tr>
     <td>createdBefore</td>
-    <td>Restrict to instances that were created before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to instances that were created before the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>createdAfter</td>
-    <td>Restrict to instances that were created after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to instances that were created after the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>closedBefore</td>
-    <td>Restrict to instances that were closed before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to instances that were closed before the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>closedAfter</td>
-    <td>Restrict to instances that were closed after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to instances that were closed after the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>createdBy</td>
@@ -105,6 +109,10 @@ GET `/history/case-instance/count`
   <tr>
     <td>tenantIdIn</td>
     <td>Filter by a comma-separated list of tenant ids. A case instance must have one of the given tenant ids.</td>
+  </tr>
+  <tr>
+    <td>withoutTenantId</td>
+    <td>Only include historic case instances which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>active</td>
@@ -140,8 +148,17 @@ GET `/history/case-instance/count`
     <code>key</code> and <code>value</code> may not contain underscore or comma characters.
     </td>
   </tr>
+  <tr>
+    <td>variableNamesIgnoreCase</td>
+    <td>Match all variable names provided in <code>variables</code> case-insensitively. If set to <code>true</code> <strong>variableName</strong> and <strong>variablename</strong> are treated as equal.</td>
+  </tr>
+  <tr>
+    <td>variableValuesIgnoreCase</td>
+    <td>Match all variable values provided in <code>variables</code> case-insensitively. If set to <code>true</code> <strong>variableValue</strong> and <strong>variablevalue</strong> are treated as equal.</td>
+  </tr>
 </table>
 
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Result
 
@@ -177,7 +194,7 @@ A JSON object that contains the count as the only property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

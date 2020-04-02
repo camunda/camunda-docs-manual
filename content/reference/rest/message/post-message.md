@@ -15,7 +15,7 @@ menu:
 
 Correlates a message to the process engine to either trigger a message start event or an intermediate message catching event.
 Internally this maps to the engine's message correlation builder methods `MessageCorrelationBuilder#correlateWithResult()` and `MessageCorrelationBuilder#correlateAllWithResult()`.
-For more information about the correlation behavior, see the [Message Events]({{< relref "reference/bpmn20/events/message-events.md" >}}) section of the [BPMN 2.0 Implementation Reference]({{< relref "reference/bpmn20/index.md" >}}).
+For more information about the correlation behavior, see the [Message Events]({{< ref "/reference/bpmn20/events/message-events.md" >}}) section of the [BPMN 2.0 Implementation Reference]({{< ref "/reference/bpmn20/_index.md" >}}).
 
 
 # Method
@@ -43,32 +43,45 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>tenantId</td>
-    <td>Used to correlate the message for a tenant with the given id. Will only correlate to executions and process definitions which belong to the tenant.</td>
+    <td>Used to correlate the message for a tenant with the given id. Will only correlate to executions and process definitions which belong to the tenant. Must not be supplied in conjunction with a <code>withoutTenantId</code>.</td>
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>A Boolean value that indicates whether the message should only be correlated to executions and process definitions which belong to no tenant or not. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>A Boolean value that indicates whether the message should only be correlated to executions and process definitions which belong to no tenant or not. Value may only be <code>true</code>, as <code>false</code> is the default behavior. Must not be supplied in conjunction with a <code>tenantId</code>.</td>
   </tr>
   <tr>
     <td>processInstanceId</td>
-    <td>Used to correlate the message to the process instance with the given id. Must not be supplied in conjunction with a <code>tenantId</code>. </td>
+    <td>Used to correlate the message to the process instance with the given id.</td>
   </tr>
   <tr>
     <td>correlationKeys</td>
     <td>Used for correlation of process instances that wait for incoming messages.
     Has to be a JSON object containing key-value pairs that are matched against process instance variables during correlation.
     Each key is a variable name and each value a JSON variable value object with the following properties.
-
     {{< rest-var-request-primitive-only >}}
-
     <p><strong>Note:</strong> Process instance variables are the global variables of a process instance.
     Local variables of child executions (such as in subprocesses) are not considered!</p></td>
   </tr>
+    <tr>
+      <td>localCorrelationKeys</td>
+      <td>Local variables used for correlation of executions (process instances) that wait for incoming messages.
+      Has to be a JSON object containing key-value pairs that are matched against local variables during correlation.
+      Each key is a variable name and each value a JSON variable value object with the following properties.
+      {{< rest-var-request-primitive-only >}}
+      <p><strong>Note:</strong> Only variable values that are defined in the execution scope are taken into account,
+       without taking outer (parent) scopes.</p></td>
+    </tr>
   <tr>
     <td>processVariables</td>
     <td>A map of variables that is injected into the triggered execution or process instance after the message has been delivered.
     Each key is a variable name and each value a JSON variable value object with the following properties.
-    {{< rest-var-request >}}
+    {{< rest-var-request transient="true">}}
+  </tr>
+  <tr>
+    <td>processVariablesLocal</td>
+    <td>A map of local variables that is injected into the triggered execution or process instance after the message has been delivered.
+    Each key is a variable name and each value a JSON variable value object with the following properties.
+    {{< rest-var-request transient="true">}}
   </tr>
   <tr>
     <td>all</td>
@@ -79,6 +92,11 @@ A JSON object with the following properties:
     <td>A Boolean value that indicates whether the result of the correlation should be returned or not. If this property is set to <code>true</code>, there will be returned a list of message correlation result objects.
     Depending on the <code>all</code> property, there will be either one ore more returned results in the list.
     <p>The default value is <code>false</code>, which means no result will be returned.</p>
+  </tr>
+  <tr>
+    <td>variablesInResultEnabled</td>
+    <td>A Boolean value that indicates whether the result of the correlation should contain process variables or not. The parameter  <code>resultEnabled</code> should be set to <code>true</code> in order to use this it.
+    <p>The default value is <code>false</code>, which means the variables will not be returned.</p>
   </tr>
 </table>
 
@@ -107,7 +125,7 @@ Otherwise, a JSON array of the message correlation results will be returned. Eac
    <td>Object</td>
    <td>
     This property only has a value if the resultType is set to <code>ProcessDefinition</code>.
-    The processInstance with the properties as described in the <a href="{{< relref "reference/rest/process-instance/get.md" >}}">get single instance</a> method.
+    The processInstance with the properties as described in the <a href="{{< ref "/reference/rest/process-instance/get.md" >}}">get single instance</a> method.
    </td>
   </tr>
   <tr>
@@ -115,7 +133,15 @@ Otherwise, a JSON array of the message correlation results will be returned. Eac
    <td>Object</td>
    <td>
     This property only has a value if the resultType is set to <code>Execution</code>.
-    The execution with the properties as described in the <a href="{{< relref "reference/rest/execution/get.md" >}}">get single execution</a> method.
+    The execution with the properties as described in the <a href="{{< ref "/reference/rest/execution/get.md" >}}">get single execution</a> method.
+   </td>
+  </tr>
+  <tr>
+   <td>variables</td>
+   <td>List</td>
+   <td>
+    This property is returned if the <code>variablesInResultEnabled</code> is set to <code>true</code>.
+    Contains a list of the process variables.
    </td>
   </tr>
 </table>
@@ -142,21 +168,20 @@ Otherwise, a JSON array of the message correlation results will be returned. Eac
     <td>400</td>
     <td>application/json</td>
     <td>If no <code>messageName</code> was supplied. If both <code>tenantId</code> and <code>withoutTenantId</code> are supplied.</br>
-    If the message has not been correlated to exactly one entity (execution or process definition), or the variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    If the message has not been correlated to exactly one entity (execution or process definition), or the variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 # Example
 
+## Correlate without result
 
-## Request
+### Request
 
 POST `/message`
 
 Request Body:
 
-<p>Variant 1:</p>
-
     {
       "messageName" : "aMessage",
       "businessKey" : "aBusinessKey",
@@ -164,13 +189,22 @@ Request Body:
         "aVariable" : {"value" : "aValue", "type": "String"}
       },
       "processVariables" : {
-        "aVariable" : {"value" : "aNewValue", "type": "String"},
+        "aVariable" : {"value" : "aNewValue", "type": "String", 
+                        "valueInfo" : { "transient" : true }
+                      },
         "anotherVariable" : {"value" : true, "type": "Boolean"}
       }
     }
 
-<p>Variant 2:</p>
+### Response
 
+
+Status 204. No content.
+
+## Correlate with result
+
+### Request
+POST `/message`
 
     {
       "messageName" : "aMessage",
@@ -179,33 +213,66 @@ Request Body:
         "aVariable" : {"value" : "aValue", "type": "String"}
       },
       "processVariables" : {
-        "aVariable" : {"value" : "aNewValue", "type": "String"},
+        "aVariable" : {"value" : "aNewValue", "type": "String",
+                        "valueInfo" : { "transient" : true }
+                      },
         "anotherVariable" : {"value" : true, "type": "Boolean"}
       },
       "resultEnabled" : true
     }
 
-
-
-## Response
-
-<p>Variant 1:</p>
-
-Status 204. No content.
-
-<p>Variant 2:</p>
-
+### Response
     [{
-	"resultType": "ProcessDefinition",
-	"execution": null,
-	"processInstance": {
-		"links": [],
-		"id": "aProcInstId",
-		"definitionId": "aProcDefId",
-		"businessKey": "aKey",
-		"caseInstanceId": "aCaseInstId",
-		"ended": false,
-		"suspended": false,
-		"tenantId": "aTenantId"
-	}
+        "resultType": "ProcessDefinition",
+        "execution": null,
+        "processInstance": {
+          "links": [],
+            "id": "aProcInstId",
+            "definitionId": "aProcDefId",
+            "businessKey": "aKey",
+            "caseInstanceId": "aCaseInstId",
+            "ended": false,
+            "suspended": false,
+            "tenantId": "aTenantId"
+        }
     }]
+
+## Correlate with result and variables
+
+### Request
+POST `/message`
+
+    {
+      "messageName" : "aMessage",
+      "businessKey" : "aBusinessKey",
+      "correlationKeys" : {
+        "aVariable" : {"value" : "aValue", "type": "String"}
+      },
+      "processVariables" : {
+        "aVariable" : {"value" : "aNewValue", "type": "String",
+                        "valueInfo" : { "transient" : true }
+                      },
+        "anotherVariable" : {"value" : true, "type": "Boolean"}
+      },
+      "resultEnabled" : true,
+      "variablesInResultEnabled" : true,
+    }
+
+### Response
+    [{
+        "resultType": "Execution",
+        "execution": {
+          "id": "anExecutionId",
+          "processInstanceId": "aProcInstId",
+          "ended": false,
+          "tenantId": "aTenantId"
+        },
+        "processInstance": null,
+        "variables" : {
+          "aVariable" : {"value" : "aNewValue", "type": "String",
+                        "valueInfo" : { "transient" : true }
+                      },
+          "anotherVariable" : {"value" : true, "type": "Boolean"}
+        }
+    }]
+ 

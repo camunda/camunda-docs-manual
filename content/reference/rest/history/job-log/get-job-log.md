@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Job Log"
+title: "Get Job Log"
 weight: 30
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single historic job log by id.
+Retrieves a historic job log by id.
 
 
 # Method
@@ -58,6 +58,11 @@ A JSON object with the following properties:
     <td>The time when the log entry has been written.</td>
   </tr>
   <tr>
+    <td>removalTime</td>
+    <td>String</td>
+    <td>The time after which the log entry should be removed by the History Cleanup job. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+  <tr>
     <td>jobId</td>
     <td>String</td>
     <td>The id of the associated job.</td>
@@ -83,6 +88,11 @@ A JSON object with the following properties:
     <td>The message of the exception that occurred by executing the associated job.</td>
   </tr>
   <tr>
+    <td>failedActivityId</td>
+    <td>String</td>
+    <td>The id of the activity on which the last exception occurred by executing the associated job.</td>
+  </tr>
+  <tr>
     <td>jobDefinitionId</td>
     <td>String</td>
     <td>The id of the job definition on which the associated job was created.</td>
@@ -90,7 +100,7 @@ A JSON object with the following properties:
   <tr>
     <td>jobDefinitionType</td>
     <td>String</td>
-    <td>The job definition type of the associated job.</td>
+    <td>The job definition type of the associated job. See the <a href="{{< ref "/user-guide/process-engine/the-job-executor.md#job-creation" >}}">User Guide</a> for more information about job definition types.</td>
   </tr>
   <tr>
     <td>jobDefinitionConfiguration</td>
@@ -128,9 +138,22 @@ A JSON object with the following properties:
     <td>The id of the deployment which the associated job belongs to.</td>
   </tr>
   <tr>
+    <td>rootProcessInstanceId</td>
+    <td>String</td>
+    <td>The process instance id of the root process instance that initiated the process which the associated job belongs to.</td>
+  </tr>
+  <tr>
     <td>tenantId</td>
     <td>String</td>
     <td>The id of the tenant that this historic job log entry belongs to.</td>
+  </tr>
+  <tr>
+    <td>hostname</td>
+    <td>String</td>
+    <td>
+      The name of the host of the Process Engine where the 
+      job of this historic job log entry was executed.
+    </td>
   </tr>
   <tr>
     <td>creationLog</td>
@@ -154,6 +177,7 @@ A JSON object with the following properties:
   </tr>
 </table>
 
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Response Codes
 
@@ -171,7 +195,7 @@ A JSON object with the following properties:
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Historic job log with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Historic job log with given id does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -189,7 +213,8 @@ Status 200.
 ```json
 {
   "id" : "someId",
-  "timestamp" : "2015-01-15T15:22:20",
+  "timestamp" : "2015-01-15T15:22:20.000+0200",
+  "removalTime": "2018-02-10T14:33:19.000+0200",
   "jobId" : "aJobId",
   "jobDefinitionId" : "aJobDefinitionId",
   "activityId" : "serviceTask",
@@ -199,12 +224,15 @@ Status 200.
   "jobRetries" : 3,
   "jobPriority": 15,
   "jobExceptionMessage" : null,
+  "failedActivityId": null,
   "executionId" : "anExecutionId",
   "processInstanceId" : "aProcessInstanceId",
   "processDefinitionId" : "aProcessDefinitionId",
   "processDefinitionKey" : "aProcessDefinitionKey",
   "deploymentId" : "aDeploymentId",
+  "rootProcessInstanceId": "aRootProcessInstanceId",
   "tenantId": null,
+  "hostname": "aHostname",
   "creationLog" : true,
   "failureLog" : false,
   "successLog" : false,

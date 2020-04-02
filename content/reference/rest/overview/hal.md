@@ -17,8 +17,8 @@ process definition or assignee of a task directly into the response, which in tu
 reduces the number of necessary requests to gather all information about a
 single task or a list of tasks.
 
-In order to interact with `HAL`, you have to set `application/hal+json` as Accept header. The
-response of a `HAL` request has always the following structure:
+To interact with `HAL`, you have to set `application/hal+json` as Accept header. The
+response of a `HAL` request always has the following structure:
 
 ```json
 {
@@ -144,7 +144,7 @@ During the generation of a HAL response, linked resources are resolved to embed
 them.  Some of these resolved resources, like process definitions or users, are
 rarely modified. Also, if user information is stored in an external system (such as
 LDAP), every request will access this external system which is an
-unnecessary overhead. To reduces such expensive requests, the REST API can be
+unnecessary overhead. To reduce such expensive requests, the REST API can be
 configured to use a cache to temporary store such relations.
 
 This caching can be configured in the `web.xml` file of the REST API (or the Camunda Web Application in

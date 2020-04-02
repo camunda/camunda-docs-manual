@@ -1,6 +1,6 @@
 ---
 
-title: 'Get Single Definition'
+title: 'Get Definition'
 weight: 100
 
 menu:
@@ -17,16 +17,16 @@ menu:
 ---
 
 
-Retrieves a single process definition according to the ProcessDefinition interface in the engine.
+Retrieves a process definition according to the `ProcessDefinition` interface in the engine.
 
 
 # Method
 
 GET `/process-definition/{id}`
 
-GET `/process-definition/key/{key}` (returns the latest version of process definition which belongs to no tenant)
+GET `/process-definition/key/{key}` (returns the latest version of the process definition which belongs to no tenant)
 
-GET `/process-definition/key/{key}/tenant-id/{tenant-id}` (returns the latest version of process definition for tenant)
+GET `/process-definition/key/{key}/tenant-id/{tenant-id}` (returns the latest version of the process definition for tenant)
 
 # Parameters
 
@@ -53,7 +53,7 @@ GET `/process-definition/key/{key}/tenant-id/{tenant-id}` (returns the latest ve
 
 # Result
 
-A JSON object corresponding to the ProcessDefinition interface in the engine.
+A JSON object corresponding to the `ProcessDefinition` interface in the engine.
 Its properties are as follows:
 
 <table class="table table-striped">
@@ -70,7 +70,7 @@ Its properties are as follows:
   <tr>
     <td>key</td>
     <td>String</td>
-    <td>The key of the process definition, i.e. the id of the BPMN 2.0 XML process definition.</td>
+    <td>The key of the process definition, i.e., the id of the BPMN 2.0 XML process definition.</td>
   </tr>
   <tr>
     <td>category</td>
@@ -122,6 +122,16 @@ Its properties are as follows:
     <td>String</td>
     <td>The version tag of the process definition.</td>
   </tr>
+    <tr>
+      <td>historyTimeToLive</td>
+      <td>Number</td>
+      <td>History time to live value of the process definition. Is used within <a href="{{< ref "/user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a>.</td>
+  </tr>
+  <tr>
+      <td>startableInTasklist</td>
+      <td>Boolean</td>
+      <td>A flag indicating whether the process definition is startable in Tasklist or not.</td>
+  </tr>
 </table>
 
 
@@ -141,7 +151,7 @@ Its properties are as follows:
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Process definition with given id or key does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Process definition with given id or key does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -150,22 +160,27 @@ Its properties are as follows:
 
 ## Request
 
-<!-- TODO: Insert a 'real' example -->
-GET `/process-definition/aProcessDefinitionId`
+GET `/process-definition/invoice:1:c3a63aaa-2046-11e7-8f94-34f39ab71d4e`
 
-GET `/process-definition/key/aProcessDefinitionKey`
+GET `/process-definition/key/invoice`
 
 ## Response
 
-    {"id":"aProcessDefinitionId",
-    "key":"aProcessDefinitionKey",
-    "category":"aCategory",
-    "description":"aDescription",
-    "name":"aName",
-    "version":42,
-    "resource":"aResourceName",
-    "deploymentId":"aDeploymentId",
-    "diagram":"aResourceName",
-    "suspended":true,
-    "tenantId":null,
-    "versionTag":"1.0.0"}
+```json
+{
+  "id":"invoice:1:c3a63aaa-2046-11e7-8f94-34f39ab71d4e",
+  "key":"invoice",
+  "category":"http://www.omg.org/spec/BPMN/20100524/MODEL",
+  "description":null,
+  "name":"Invoice Receipt",
+  "version":1,
+  "resource":"invoice.v1.bpmn",
+  "deploymentId":"c398cd26-2046-11e7-8f94-34f39ab71d4e",
+  "diagram":null,
+  "suspended":false,
+  "tenantId":null,
+  "versionTag":null,
+  "historyTimeToLive":5,
+  "startableInTasklist": true
+}
+```

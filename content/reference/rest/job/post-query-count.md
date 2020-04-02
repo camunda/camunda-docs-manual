@@ -1,6 +1,6 @@
 ---
 
-title: "Get Jobs Count (POST)"
+title: "Get Job Count (POST)"
 weight: 50
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Query for jobs that fulfill given parameters. This method takes the same message body as the [POST query]({{< relref "reference/rest/job/post-query.md" >}}) and therefore it is slightly more powerful than the [GET query count]({{< relref "reference/rest/job/get-query-count.md" >}}).
+Queries for jobs that fulfill given parameters. This method takes the same message body as the [Get Jobs (POST)]({{< ref "/reference/rest/job/post-query.md" >}}) method and therefore it is slightly more powerful than the [Get Job Count]({{< ref "/reference/rest/job/get-query-count.md" >}}) method.
 
 
 # Method
@@ -66,7 +66,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>executable</td>
-    <td>Only select jobs which are executable, ie. retries &gt; 0 and due date is <code>null</code> or due date is in the past. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only select jobs which are executable, i.e., retries &gt; 0 and due date is <code>null</code> or due date is in the past. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>timers</td>
@@ -88,12 +88,27 @@ A JSON object with the following properties:
     </td>
   </tr>
   <tr>
+    <td>createTimes</td>
+    <td>Only select jobs created before or after the given date.
+    Create time expressions are comma-separated and are structured as follows:<br/>
+    A valid condition value has the form <code>operator_value</code>.
+    <code>operator</code> is the comparison operator to be used and <code>value</code> the date value as string.<br/>
+    <br/>
+    Valid operator values are: <code>gt</code> - greater than; <code>lt</code> - lower than.<br/>
+    <code>value</code> may not contain underscore or comma characters.
+    </td>
+  </tr>
+  <tr>
     <td>withException</td>
     <td>Only select jobs that failed due to an exception. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>exceptionMessage</td>
     <td>Only select jobs that failed due to an exception with the given message.</td>
+  </tr>
+  <tr>
+    <td>failedActivityId</td>
+    <td>Only select jobs that failed due to an exception at an activity with the given id.</td>
   </tr>
   <tr>
     <td>noRetriesLeft</td>
@@ -121,11 +136,11 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only include jobs which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include jobs which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>includeJobsWithoutTenantId</td>
-    <td>Include jobs which belongs to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Include jobs which belong to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
 </table>
 
@@ -164,7 +179,7 @@ A JSON object that contains the count as the only property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for due date comparison is used. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for due date comparison is used. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -182,11 +197,22 @@ Request Body:
         [
           {
             "operator": "gt",
-            "value": "2012-07-17'T'17:00:00"
+            "value": "2012-07-17T17:00:00.000+0200"
           },
           {
             "operator": "lt",
-            "value": "2012-07-17'T'18:00:00"
+            "value": "2012-07-17T18:00:00.000+0200"
+          }
+        ],
+      "createTimes":
+        [
+          {
+            "operator": "gt",
+            "value": "2012-05-05T10:00:00.000+0200"
+          },
+          {
+            "operator": "lt",
+            "value": "2012-07-16T15:00:00.000+0200"
           }
         ]
     }

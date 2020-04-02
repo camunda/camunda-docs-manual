@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Deletes a running process instance.
+Deletes a running process instance by id.
 
 
 # Method
@@ -36,6 +36,37 @@ DELETE `/process-instance/{id}`
   </tr>
 </table>
 
+## Query Parameters
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>skipCustomListeners</td>
+    <td>
+      If set to <code>true</code>, the custom listeners will be skipped.
+    </td>
+  </tr>
+  <tr>
+    <td>skipIoMappings</td>
+    <td>
+      If set to <code>true</code>, the input/output mappings will be skipped.
+    </td>
+  </tr>
+  <tr>
+    <td>skipSubprocesses</td>
+    <td>
+      If set to <code>true</code>, subprocesses related to deleted processes will be skipped.</td>
+  </tr>
+  <tr>
+    <td>failIfNotExists</td>
+    <td>If set to <code>false</code>, the request will still be successful if the process id is not found.</td>
+  </tr>
+</table>
+
+
 # Result
 
 This method returns no content.
@@ -57,7 +88,7 @@ This method returns no content.
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Process instance with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Process instance with given id does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

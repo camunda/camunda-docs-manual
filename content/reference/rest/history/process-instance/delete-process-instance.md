@@ -1,6 +1,6 @@
 ---
 
-title: "Delete a single historic Process Instance"
+title: "Delete a Historic Process Instance"
 weight: 60
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Deletes a single process instance from the history.
+Deletes a process instance from the history by id.
 
 
 # Method
@@ -36,6 +36,18 @@ DELETE `/history/process-instance/{id}`
   </tr>
 </table>
 
+## Query Parameters
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>failIfNotExists</td>
+    <td>If set to <code>false</code>, the request will still be successful if the process id is not found.</td>
+  </tr>
+</table>
 
 # Result
 
@@ -57,7 +69,7 @@ No content.
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Historic process instance with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Historic process instance with given id does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -70,4 +82,4 @@ DELETE `/history/process-instance/aProcInstId`
 
 ## Response
 
-No Content.
+Status 204. No content.

@@ -16,8 +16,8 @@ certain events occur during process execution.
 
 There are different types of Delegation Code:
 
-* **Java Delegates** can be attached to a [BPMN Service Task]({{< relref "reference/bpmn20/tasks/service-task.md" >}}).
-* **Delegate Variable Mapping** can be attached to a [Call Activity]({{< relref "reference/bpmn20/subprocesses/call-activity.md" >}}).
+* **Java Delegates** can be attached to a [BPMN Service Task]({{< ref "/reference/bpmn20/tasks/service-task.md" >}}).
+* **Delegate Variable Mapping** can be attached to a [Call Activity]({{< ref "/reference/bpmn20/subprocesses/call-activity.md" >}}).
 * **Execution Listeners** can be attached to any event within the normal token flow, e.g., starting a process instance or entering an activity.
 * **Task Listeners** can be attached to events within the user task lifecycle, e.g., creation or completion of a user task.
 
@@ -53,12 +53,9 @@ manipulated through the {{< javadocref page="?org/camunda/bpm/engine/delegate/De
 }
 ```
 
-Note: there will be **only one instance of that Java class created for the serviceTask it is
-defined on**. All process-instances share the same class instance that
-will be used to call execute(DelegateExecution).
-This means that the class must not use any member variables and must
-be thread-safe, since it can be executed simultaneously from different
-threads. This also influences the way Field Injection is handled.
+{{< note title="Note!" class="info" >}}
+Each time a delegation class referencing activity is executed, a separate instance of this class will be created. This means that each time an activity is executed there will be used another instance of the class to call `execute(DelegateExecution)`.
+{{< /note >}}
 
 The classes that are referenced in the process definition (i.e., by using
 `camunda:class`  ) are **NOT instantiated during deployment**.
@@ -98,7 +95,7 @@ setter/private field on the injection target should always be `org.camunda.bpm.e
 {{< /note >}}
 
 The following code snippet shows how to inject a constant value into a field.
-Field Injection is supported when using the `class` attribute. Note that we need
+Field Injection is supported when using the `class` or `delegateExpression` attribute. Note that we need
 to declare a `extensionElements` XML element before the actual field injection
 declarations, which is a requirement of the BPMN 2.0 XML Schema.
 
@@ -136,8 +133,8 @@ used:
 
 To inject values that are dynamically resolved at runtime, expressions
 can be used. Those expressions can use process variables, CDI or Spring
-beans. As already noted, an instance of the Java class is shared among
-all process-instances in a service task. To have dynamic injection of
+beans. As already noted, a separate instance of the Java class will be created
+each time the service task is executed. To have dynamic injection of
 values in fields, you can inject value and method expressions in an
 `org.camunda.bpm.engine.delegate.Expression`
 which can be evaluated/invoked using the `DelegateExecution`
@@ -184,8 +181,12 @@ Alternatively, you can also set the expressions as an attribute instead of a chi
   <camunda:field name="text2" expression="Hello ${gender == 'male' ? 'Mr.' : 'Mrs.'} ${name}" />
 ```
 
-{{< note title="" class="info" >}}
-  Since the Java class instance is reused, the injection only happens once, when the service task is called the first time. When the fields are altered by your code, the values won't be re-injected so you should treat them as immutable and not make any changes to them.
+{{< note title="Note!" class="info" >}}
+  The injection happens each time the service task is called since a separate instance of the class will be created. When the fields are altered by your code, the values will be re-injected when the activity is executed next time.
+{{< /note >}}
+
+{{< note title="" class="warning" >}}
+  For the same reasons as mentioned above, field injection should not be (usually) used with Spring beans, which are singletons by default. Otherwise, you may run into inconsistencies due to concurrent modification of the bean fields.
 {{< /note >}}
 
 # Delegate Variable Mapping
@@ -213,7 +214,7 @@ The `mapInputVariables` method is called before the call activity is executed, t
 The input variables should be put into the given variables map.
 The `mapOutputVariables` method is called after the call activity was executed, to map the output variables.
 The output variables can be directly set into the caller execution.
-The behavior of the class loading is similar to the class loading on [Java Delegates]({{< relref "user-guide/process-engine/delegation-code.md#java-delegate" >}}).
+The behavior of the class loading is similar to the class loading on [Java Delegates]({{< ref "/user-guide/process-engine/delegation-code.md#java-delegate" >}}).
 
 
 # Execution Listener
@@ -318,14 +319,80 @@ A task listener is used to execute custom Java logic or an expression upon the o
   </userTask>
 ```
 
-A task listener supports following attributes:
+## Task Listener Event Lifecycle
 
-* **event (required)**: the type of task event on which the task listener will be invoked. Possible events are:
-    * **create**: occurs when the task has been created and all task properties are set.
-    * **assignment**: occurs when the task is assigned to somebody. Note: when process execution arrives in a userTask, an assignment event will be fired first, before the create event is fired. This might seem like an unnatural order but the reason is pragmatic: when receiving the create event, we usually want to inspect all properties of the task, including the assignee.
-    * **complete**: occurs when the task is completed and just before the task is deleted from the runtime data.
-    * **delete**: occurs just before the task is deleted from the runtime data.
+The execution of Task Listeners is dependent on the order of firing of
+the following task-related events:
 
+The **create** event fires when the task has been created and all task properties are set. No
+other task-related event will be fired before the *create* event. The event allows us to inspect
+all properties of the task when we receive it in the create listener.
+
+The **update** event occurs when a task property (e.g. assignee, owner, priority, etc.) on an already
+created task is changed. This includes attributes of a task  (e.g. assignee, owner, priority, etc.),
+as well as dependent entities (e.g. attachments, comments, task-local variables).
+Note that the initialization of a task does not fire an update event (the task is being created).
+This also means that the *update* event will always occur after a *create* event has already occurred.
+
+The **assignment** event specifically tracks the changes of the Task's `assignee` property. The event
+may be fired on two occasions:
+
+1. When a task with an `assignee` explicitly defined in the process definition has been
+created. In this case, the *assignment* event will be fired after the *create* event.
+1. When an already created task is assigned, i.e. the Task's `assignee` property is changed. In
+this case, the *assignment* event will follow the *update* event since changing the `assignee`
+property results in an updated task.
+
+The assignment event can be used for a more fine grained inspection, when the assignee is
+actually set.
+
+The **timeout** event occurs when a Timer, associated with this Task Listener, is due. Note that
+this requires for a Timer to be defined. The `timeout` event may occur after a Task has been
+`created`, and before it has been `completed`.
+
+The **complete** event occurs when the task is _successfully_ completed and just before the task
+is deleted from the runtime data. A successful execution of a task's **complete** Task Listeners
+results in an end of the task event lifecycle.
+
+The **delete** event occurs just before the task is deleted from the runtime data, because of:
+
+1. An interrupting Boundary Event;
+1. An interrupting Event Subprocess;
+1. A Process Instance deletion;
+1. A BPMN Error thrown inside a Task Listener.
+
+No other event is fired after the *delete* event since it results in an end of the task event
+lifecycle. This means that the *delete* event is mutually exclusive with the *complete* event.
+
+### Task Event Chaining
+
+The descriptions above lay out the order in which Task Events are fired. However, this order may be
+disrupted under the following conditions:
+
+1. When calling `Task#complete()` inside a Task Listener, the **complete** event will be fired
+right away. The related Task Listeners will be immediately invoked, after which the remaining
+Task Listeners for the previous event will be processed.
+1. By using the `TaskService` methods inside a Task Listener, which may cause the firing of
+additional Task Events. As with the **complete** event mentioned above, these Task Events will
+immediately invoke their related Listeners, after which the remaining Task Listeners will be
+processed. However, it should be noted that the chain of events triggered inside the Task Listener,
+by the invocation of the `TaskService` method, will be in the previously described order.
+1. By throwing a BPMN Error event inside a Task Listener (e.g. a **complete** event Task Listener).
+This would cancel the Task and cause a **delete** event to be fired.
+
+Under the above-mentioned conditions, users should be careful not to accidentally create a Task
+event loop.
+
+## Defining a Task Listener
+
+A task listener supports the following attributes:
+
+* **event (required)**: the type of task event on which the task listener will be invoked.
+    Possible events are: **create**, **assignment**, **update**, **complete**, **delete** and
+     **timeout**;
+
+    Note that the **timeout** event requires a [timerEventDefinition][timerEventDefinition] child
+    element in the task listener and will only be fired if the [Job Executor][job-executor] is enabled.
 
 * **class**: the delegation class that must be called. This class must implement the `org.camunda.bpm.engine.impl.pvm.delegate.TaskListener` interface.
 
@@ -339,7 +406,7 @@ A task listener supports following attributes:
     }
     ```
 
-    It is also possible to use Field Injection to pass process variables or the execution to the delegation class. Note that an instance of the delegation class is created upon process deployment (as is the case with any class delegation in the engine), which means that the instance is shared between all process instance executions.
+    It is also possible to use Field Injection to pass process variables or the execution to the delegation class. Note that each time a delegation class referencing activity is executed, a separate instance of this class will be created.
 
 * **expression**: (cannot be used together with the class attribute): specifies an expression that will be executed when the event happens. It is possible to pass the DelegateTask object and the name of the event (using task.eventName) to the called object as parameters.
 
@@ -352,6 +419,9 @@ A task listener supports following attributes:
     ```xml
     <camunda:taskListener event="create" delegateExpression="${myTaskListenerBean}" />
     ```
+
+* **id**: a unique identifier of the listener within the scope of the user task, only required if the `event` is set to `timeout`.
+
 
 Besides the `class`, `expression` and `delegateExpression` attributes, a
 [camunda:script][camunda-script] child element can be used to specify a script as task listener.
@@ -371,6 +441,21 @@ tasks).
   </userTask>
 ```
 
+Furthermore, a [timerEventDefinition][timerEventDefinition] child element can be used in conjunction with the `event` type `timeout`
+in order to define the associated timer. The specified delegate will be called by the [Job Executor][job-executor] when the timer is due.
+The execution of the user task will **not** be interrupted by this.
+
+```xml
+  <userTask id="task">
+    <extensionElements>
+      <camunda:taskListener event="timeout" delegateExpression="${myTaskListenerBean}" id="friendly-reminder" >
+        <timerEventDefinition>
+          <timeDuration xsi:type="tFormalExpression">PT1H</timeDuration>
+        </timerEventDefinition>
+      </camunda:taskListener>
+    </extensionElements>
+  </userTask>
+```
 
 # Field Injection on Listener
 
@@ -457,7 +542,7 @@ how to access the `TaskService` from a `JavaDelegate` implementation.
 
 # Throw BPMN Errors from Delegation Code
 
-In the above example the error event is attached to a service task. In order to get this to work the service task has to throw the corresponding error. This is done by using a provided Java exception class from within your Java code (e.g., in the JavaDelegate):
+It is possible to throw `BpmnError` from delegation code (Java Delegate, Execution and Task Listeners). This is done by using a provided Java exception class from within your Java code (e.g., in the JavaDelegate):
 
 ```java
 public class BookOutGoodsDelegate implements JavaDelegate {
@@ -474,5 +559,49 @@ public class BookOutGoodsDelegate implements JavaDelegate {
 ```
 
 
-[script-sources]: {{< relref "user-guide/process-engine/scripting.md#script-source" >}}
-[camunda-script]: {{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-script" >}}
+## Throw BPMN Errors from Listeners
+
+When implementing an error catch event, keep in mind that the `BpmnError` will be caught when they are thrown in normal flow of the following listeners:
+
+* start and end execution listeners on activity, gateway, and intermediate events
+* take execution listeners on transitions
+* create, assign, and complete task listeners
+
+The `BpmnError` will not be caught for the following listeners:
+
+* start and end process listeners
+* delete task listeners
+* listeners invoked outside of the normal flow:
+    * a process modification is performed which trigger subprocess scope initialization and some of its listeners throws an error
+    * a process instance deletion invokes an end listener throwing an error
+    * a listener is triggered due to interrupting boundary event execution, e.g message correlation on subprocess invokes end listeners throwing an error
+
+
+{{< note title="Note!" class="info" >}}
+
+Throwing a `BpmnError` in the delegation code behaves like modelling an error end event. See the [reference guide]({{< ref "/reference/bpmn20/events/error-events.md#error-boundary-event" >}}) about the details on the behavior, especially the error boundary event. If no error boundary event is found on the scope, the execution is ended.
+
+{{< /note >}}
+
+
+# Set Business Key from Delegation Code
+
+The option to set a new value of business key to already running process instance is shown in the example below:
+
+```java
+public class BookOutGoodsDelegate implements JavaDelegate {
+
+  public void execute(DelegateExecution execution) throws Exception {
+    ...
+    String recalculatedKey = (String) execution.getVariable("recalculatedKeyVariable");
+    execution.setProcessBusinessKey(recalculatedKey);
+    ...
+  }
+
+}
+```
+
+[script-sources]: {{< ref "/user-guide/process-engine/scripting.md#script-source" >}}
+[camunda-script]: {{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#camunda-script" >}}
+[timerEventDefinition]: {{< ref "/reference/bpmn20/events/timer-events.md#defining-a-timer" >}}
+[job-executor]: {{< ref "/user-guide/process-engine/the-job-executor.md" >}}

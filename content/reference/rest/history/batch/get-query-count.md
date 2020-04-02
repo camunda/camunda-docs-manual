@@ -1,6 +1,6 @@
 ---
 
-title: "Get Batches Count (Historic)"
+title: "Get Historic Batch Count"
 weight: 20
 
 menu:
@@ -13,9 +13,8 @@ menu:
 ---
 
 
-Request the number of historic batches that fulfill the query criteria.
-Takes the same filtering parameters as the [GET query]({{< relref
-"reference/rest/history/batch/get-query.md" >}}).
+Requests the number of historic batches that fulfill the query criteria.
+Takes the same filtering parameters as the [Get Historic Batches]({{< ref "/reference/rest/history/batch/get-query.md" >}}) method.
 
 
 # Method
@@ -39,15 +38,15 @@ GET `/history/batch/count`
   </tr>
   <tr>
     <td>type</td>
-    <td>Filter by batch type.</td>
+    <td>Filter by batch type. See the <a href="{{< ref "/user-guide/process-engine/batch.md#creating-a-batch" >}}">User Guide</a> for more information about batch types.</td>
   </tr>
   <tr>
     <td>completed</td>
     <td>
       Filter completed or not completed batches. If the value is
-      <code>true</code> only completed batches, i.e. end time is set, are
-      counted. Otherwise if the value is <code>false</code> only running
-      batches, i.e. end time is null, are counted.
+      <code>true</code>, only completed batches, i.e., end time is set, are
+      counted. Otherwise, if the value is <code>false</code>, only running
+      batches, i.e., end time is null, are counted.
     </td>
   </tr>
   <tr>
@@ -97,7 +96,7 @@ A JSON object that contains the count as the only property.
     <td>application/json</td>
     <td>
       Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>.
-      See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+      See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
 </table>

@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Case Instance"
+title: "Get Historic Case Instance"
 weight: 30
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single historic case instance according to the `HistoricCaseInstance` interface in the engine.
+Retrieves a historic case instance by id, according to the `HistoricCaseInstance` interface in the engine.
 
 
 # Method
@@ -59,6 +59,16 @@ Its properties are as follows:
     <td>The business key of the case instance.</td>
   </tr>
   <tr>
+    <td>caseDefinitionName</td>
+    <td>String</td>
+    <td>The name of the case definition that this case instance belongs to.</td>
+  </tr>
+  <tr>
+    <td>caseDefinitionKey</td>
+    <td>String</td>
+    <td>The key of the case definition that this case instance belongs to.</td>
+  </tr>
+  <tr>
     <td>caseDefinitionId</td>
     <td>String</td>
     <td>The id of the case definition that this case instance belongs to.</td>
@@ -66,12 +76,12 @@ Its properties are as follows:
   <tr>
     <td>createTime</td>
     <td>String</td>
-    <td>The time the instance was created. Has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The time the instance was created. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
     <td>closeTime</td>
     <td>String</td>
-    <td>The time the instance was closed. Has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The time the instance was closed. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
     <td>durationInMillis</td>
@@ -130,6 +140,7 @@ Its properties are as follows:
   </tr>
 </table>
 
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Response Codes
 
@@ -147,7 +158,7 @@ Its properties are as follows:
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Historic case instance with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Historic case instance with given id does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -165,8 +176,8 @@ GET `/history/case-instance/aCaseInstId`
   "id": "aCaseInstId",
   "businessKey": "aKey",
   "caseDefinitionId": "aCaseDefId",
-  "createTime": "2013-03-23T13:42:43",
-  "closeTime": "2013-03-23T13:42:45",
+  "createTime": "2013-03-23T13:42:43.000+0200",
+  "closeTime": "2013-03-23T13:42:45.000+0200",
   "durationInMillis": 2000,
   "createUserId": "aStartUserId",
   "superCaseInstanceId": "aSuperCaseInstanceId",

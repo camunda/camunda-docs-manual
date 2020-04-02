@@ -15,12 +15,12 @@ menu:
 
 This page explains how to configure the full distribution for Tomcat Application Server.
 
-# LDAP
+## LDAP
 
 In order to setup LDAP for the Tomcat distribution, you have to perform the following steps:
 
 
-## Add the LDAP Library
+### Add the LDAP Library
 
 Make sure the `camunda-identity-ldap-$PLATFORM_VERSION.jar` is present in the
 `$TOMCAT_DISTRIBUTION/lib/` folder.
@@ -29,9 +29,9 @@ Make sure the `camunda-identity-ldap-$PLATFORM_VERSION.jar` is present in the
 Note: If you use the pre-packaged distribution, the ldap plugin is already present and you can skip this step.
 {{< /note >}}
 
-## Adjust the Process Engine Configuration
+### Adjust the Process Engine Configuration
 
-Edit the file `bpm-platform.xml` located inside the folder `$TOMCAT_HOME/conf` and add the [LDAP Identity Provider Plugin]({{< relref "user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}) and the [Administrator Authorization Plugin]({{< relref "user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}).
+Edit the file `bpm-platform.xml` located inside the folder `$TOMCAT_HOME/conf` and add the [LDAP Identity Provider Plugin]({{< ref "/user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}) and the [Administrator Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}).
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -83,12 +83,12 @@ Edit the file `bpm-platform.xml` located inside the folder `$TOMCAT_HOME/conf` a
 
 The `administratorUserName` property should contain the user id of the LDAP user you want to grant administrator authorizations to. You can then use this user to log in to the web application and grant authorizations to additional users.
 
-See our user guide for complete documentation on the [LDAP Identity Provider Plugin]({{< relref "user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}) and the [Administrator Authorization Plugin]({{< relref "user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}).
+See our user guide for complete documentation on the [LDAP Identity Provider Plugin]({{< ref "/user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}) and the [Administrator Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}).
 
 
-# HAL Resource Caching
+## HAL Resource Caching
 
-If you use LDAP as Indentity Provider, you should consider [activating caching]({{< relref "reference/rest/overview/hal.md#caching-of-hal-relations" >}}) of
+If you use LDAP as Indentity Provider, you should consider [activating caching]({{< ref "/reference/rest/overview/hal.md#caching-of-hal-relations" >}}) of
 Users and Groups in the Camunda webapplication. In order to activate this, add the following
 configuration to the `web.xml` file of Camunda webapplication
 (`camunda-webapp-tomcat-$PLATFORM_VERSION.war/WEB-INF/web.xml`):
@@ -128,3 +128,68 @@ configuration to the `web.xml` file of Camunda webapplication
 
 </web-app>
 ```
+
+## Session Cookie in Webapps
+
+The deployment descriptor of the Web applications needs to be adjusted, to configure the **Session Cookie**.
+
+You can find it under `WEB-INF/web.xml`. Please watch out for the following section:
+```xml
+...
+<session-config>
+  <cookie-config>
+    <secure>false</secure>
+    <http-only>true</http-only>
+  </cookie-config>
+</session-config>
+...
+```
+
+Please note that security-related configurations for the **Session Cookie** can only be applied with the Deployment Descriptor (`web.xml`) version set to 3.0.
+
+## Security-related HTTP headers in Webapps
+
+To customize the configuration of security-related HTTP headers in the web applications its deployment descriptor needs 
+to be adjusted. You can find it under `WEB-INF/web.xml`.
+
+Please watch out for the following section:
+```xml
+...
+<filter>
+  <filter-name>HttpHeaderSecurity</filter-name>
+  <filter-class>
+    org.camunda.bpm.webapp.impl.security.filter.headersec.HttpHeaderSecurityFilter
+  </filter-class>
+</filter>
+
+<filter-mapping>
+  <filter-name>HttpHeaderSecurity</filter-name>
+  <url-pattern>/*</url-pattern>
+  <dispatcher>REQUEST</dispatcher>
+</filter-mapping>
+...
+```
+
+You can change the default behavior by adding configuration parameters to the servlet filter configuration:
+```xml
+...
+<filter>
+  <filter-name>HttpHeaderSecurity</filter-name>
+  <filter-class>
+    org.camunda.bpm.webapp.impl.security.filter.headersec.HttpHeaderSecurityFilter
+  </filter-class>
+  
+  <init-param>
+    <param-name>contentSecurityPolicyValue</param-name>
+    <param-value>
+      base-uri 'self';
+      default-src 'self' 'unsafe-inline'
+    </param-value>
+  </init-param>
+  
+</filter>
+...
+```
+
+Please also see the detailed overview about the 
+[HTTP Header Security configuration settings]({{< ref "/webapps/shared-options/header-security.md#how-to-configure" >}}).

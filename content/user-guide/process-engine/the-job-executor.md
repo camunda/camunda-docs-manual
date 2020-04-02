@@ -11,7 +11,7 @@ menu:
 ---
 
 
-A job is an explicit representation of a task to trigger process execution. A job is created whenever a wait state is reached during process execution that has to be triggered internally. This is the case when a timer event or a task marked for asynchronous execution (see [transaction boundaries]({{< relref "user-guide/process-engine/transactions-in-processes.md" >}})) is approached. Job processing can therefore be separated into three phases:
+A job is an explicit representation of a task to trigger process execution. A job is created whenever a wait state is reached during process execution that has to be triggered internally. This is the case when a timer event or a task marked for asynchronous execution (see [transaction boundaries]({{< ref "/user-guide/process-engine/transactions-in-processes.md" >}})) is approached. Job processing can therefore be separated into three phases:
 
 * [Job Creation]({{< relref "#job-creation" >}})
 * [Job Acquisition]({{< relref "#job-acquisition" >}})
@@ -44,9 +44,9 @@ For unit testing scenarios it is cumbersome to work with this background compone
 
 # Job Creation
 
-Jobs are created for a range of purposes by the process engine:
+Jobs are created for a range of purposes by the process engine. The following job types exist:
 
-* Asynchronous continuation to set [transaction boundaries]({{< relref "user-guide/process-engine/transactions-in-processes.md" >}}) in the process
+* Asynchronous continuations to set [transaction boundaries]({{< ref "/user-guide/process-engine/transactions-in-processes.md" >}}) in the process
 * Timer jobs for BPMN timer events
 * Asynchronous handling of BPMN events
 
@@ -98,7 +98,7 @@ Job priorities can be specified in the BPMN model as well as overridden at runti
 
 Job Priorities can be assigned at the process or the activity level. To achieve this the Camunda extension attribute `camunda:jobPriority` can be used.
 
-For specifying the priority, both constant values and [expressions]({{< relref "user-guide/process-engine/expression-language.md" >}}) are supported. When using a constant value, the same priority is assigned to all instances of the process or activity. Expressions, on the other hand, allow assigning a different priority to each instance of the process or activity. Expression must evaluate to a number in the Java `long` range.
+For specifying the priority, both constant values and [expressions]({{< ref "/user-guide/process-engine/expression-language.md" >}}) are supported. When using a constant value, the same priority is assigned to all instances of the process or activity. Expressions, on the other hand, allow assigning a different priority to each instance of the process or activity. Expression must evaluate to a number in the Java `long` range.
 The concrete value can be the result of a complex calculation and be based on user-provided data (resulting from a task form or other sources).
 
 
@@ -156,7 +156,7 @@ In the above example the priority is determined based on the property `status` o
 #### Resolution Context of Priority Expressions
 
 This section explains which context variables and functions are available when evaluating priority expressions.
-For some general documentation on this, see the corresponding [documentation section]({{< relref "user-guide/process-engine/expression-language.md#availability-of-variables-and-functions-inside-expression-language" >}}).
+For some general documentation on this, see the corresponding [documentation section]({{< ref "/user-guide/process-engine/expression-language.md#availability-of-variables-and-functions-inside-expression-language" >}}).
 
 All priority expressions are evaluated in the context of an existing execution. This means that variable `execution` is implicitly defined as well as all of the execution's variables by their name.
 
@@ -171,7 +171,7 @@ Examples:
 
 When starting a process instance via a call activity, you sometimes want the process instance to "inherit" the priority of the calling process instance.
 The easiest way to achieve this is by passing the priority using a variable and referencing it using an expression in the called process.
-See also [Call Activity Parameters]({{< relref "reference/bpmn20/subprocesses/call-activity.md#passing-variables" >}}) for details on how to pass variables using call activities.
+See also [Call Activity Parameters]({{< ref "/reference/bpmn20/subprocesses/call-activity.md#passing-variables" >}}) for details on how to pass variables using call activities.
 
 
 ### Set Job Definition Priorities via ManagementService API
@@ -246,18 +246,25 @@ Job acquisition is concerned with polling this database table and locking jobs.
 
 ## Acquirable Jobs
 
-A job is acquirable, i.e. a candidate for execution, if it fulfills all following conditions:
+A job is acquirable, i.e., a candidate for execution, if it fulfills all following conditions:
 
 * it is due, meaning that the value in the `DUEDATE_` column is in the past
 * it is not locked, meaning that the value in the `LOCK_EXP_TIME_` column is in the past
-* its retries have not elapsed, meaning that the value in the `RETRIES_` column is greater than zero.
+* its retries have not been depleted, meaning that the value in the `RETRIES_` column is greater than zero.
 
-In addition, the process engine has a concept of suspending a process definition and a process instance. A job is only acquirable if neither the corresponding process instance nor the corresponding process definition are suspended.
+In addition, the process engine has a concept of job suspension. For example, a job gets suspended when the process instance it belongs gets suspended. A job is only acquirable if it is not suspended.
 
+### Job Acquisition performance optimisation
+
+To optimize the acquisition of jobs that need to be executed immediately, the `DUEDATE_` column is not set (`null`) and a (positive) null check is added as a condition for acquisition.
+
+In case each job must have a `DUEDATE_` set, the optimisation can be disabled. This can be done by setting the `ensureJobDueDateNotNull` [process engine configuration flag]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#ensureJobDueDateNotNull" >}}) to `true`.
+
+However, any jobs created with a `null` value for `DUEDATE_` before disabling the optimisation will not be picked up by the Job Acquisition phase, unless the jobs are explicitly updated with a due date through the {{< javadocref page="?org/camunda/bpm/engine/ManagementService.html#setJobDuedate-java.lang.String-java.util.Date-" text="Java" >}}/[Rest]({{< ref "/reference/rest/job/put-set-job-duedate.md" >}}) API.
 
 ## The Two Phases of Job Acquisition
 
-Job acquisition has two phases. In the first phase the job executor queries for a configurable amount of acquirable jobs. If at least one job can be found, it enters the second phase, locking the jobs. Locking is necessary in order to ensure that jobs are executed exactly once. In a clustered scenario, it is accustom to operate multiple job executor instances (one for each node) that all poll the same ACT&#95;RU&#95;JOB table. Locking a job ensures that it is only acquired by a single job executor instance. Locking a job means updating its values in the LOCK&#95;EXP&#95;TIME&#95; and LOCK&#95;OWNER&#95; columns. The LOCK&#95;EXP&#95;TIME&#95; column is updated with a timestamp signifying a date that lies in the future. The intuition behind this is that we want to lock the job until that date is reached. The LOCK&#95;OWNER&#95; column is updated with a value uniquely identifying the current job executor instance. In a clustered scenario this could be a node name uniquely identifying the current cluster node.
+Job acquisition has two phases. In the first phase the job executor queries for a configurable amount of acquirable jobs. If at least one job can be found, it enters the second phase, locking the jobs. Locking is necessary in order to ensure that jobs are executed exactly once. In a clustered scenario, it is customary to operate multiple job executor instances (one for each node) that all poll the same ACT&#95;RU&#95;JOB table. Locking a job ensures that it is only acquired by a single job executor instance. Locking a job means updating its values in the LOCK&#95;EXP&#95;TIME&#95; and LOCK&#95;OWNER&#95; columns. The LOCK&#95;EXP&#95;TIME&#95; column is updated with a timestamp signifying a date that lies in the future. The intuition behind this is that we want to lock the job until that date is reached. The LOCK&#95;OWNER&#95; column is updated with a value uniquely identifying the current job executor instance. In a clustered scenario this could be a node name uniquely identifying the current cluster node.
 
 The situation where multiple job executor instances attempt to lock the same job concurrently is accounted for by using optimistic locking (see REV&#95; column).
 
@@ -365,19 +372,62 @@ For example:
 
 Acquired jobs are executed by a thread pool. The thread pool consumes jobs from the acquired jobs queue. The acquired jobs queue is an in-memory queue with a fixed capacity. When an executor starts executing a job, it is first removed from the queue.
 
-In the scenario of an embedded process engine, the default implementation for this thread pool is a `java.util.concurrent.ThreadPoolExecutor`. However, this is not allowed in Java EE environments. There we hook into the application server capabilities of thread management. See the platform-specific information in the [Runtime Container Integration]({{< relref "user-guide/runtime-container-integration/index.md" >}}) section on how this achieved.
+In the scenario of an embedded process engine, the default implementation for this thread pool is a `java.util.concurrent.ThreadPoolExecutor`. However, this is not allowed in Java EE environments. There we hook into the application server capabilities of thread management. See the platform-specific information in the [Runtime Container Integration]({{< ref "/user-guide/runtime-container-integration/_index.md" >}}) section on how this achieved.
 
 
 ## Failed Jobs
 
-Upon failure of job execution, e.g. if a service task invocation throws an exception, a job will be retried a number of times (by default 3). It is not immediately retried and added back to the acquisition queue, but the value of the RETRIES&#95; column is decreased. The process engine thus performs bookkeeping for failed jobs. After updating the RETRIES&#95; column, the executor moves on to the next job. This means that the failed job will automatically be retried once the LOCK&#95;EXP&#95;TIME&#95; date is expired.
+Upon failure of job execution, e.g., if a service task invocation throws an exception, a job will be retried a number of times (by default 2 so that the job is tried three times in total).
+It is not immediately retried and added back to the acquisition queue, but the value of the RETRIES&#95; column is decreased and the executor unlocks the job. 
+The process engine thus performs bookkeeping for failed jobs. The unlocking also includes erasing the time LOCK&#95;EXP&#95;TIME&#95; and the owner of the lock LOCK&#95;OWNER&#95; 
+by setting both entries to `null`. Subsequently, the failed job will automatically be retried once the job is acquired for execution. Once the number of retries 
+is exhausted (the value of the RETRIES&#95; column equals 0), the job is not executed any more and the engine stops at this job, signaling that it cannot proceed.
 
-In real life it is useful to configure the retry strategy, i.e. the number of times a job is retried and when it is retried, so the LOCK&#95;EXP&#95;TIME&#95;. In the Camunda engine, this can be configured as an [extension element]({{< relref "reference/bpmn20/custom-extensions/extension-elements.md#failedjobretrytimecycle" >}}) of a task in the BPMN 2.0 XML:
+{{< note title="" class="info" >}}
+While all failed jobs are retried, there is one case in which a job's retries are not decremented. This is, if a job fails due to an optimistic locking exception. Optimistic Locking is the process engine's mechanism to resolve conflicting resource updates, for example when two jobs of a process instance are executed in parallel (see the following sections on [concurrent job execution]({{< relref "#concurrent-job-execution" >}})). As an optimistic locking exception is no exceptional situation from an operator's point of view and resolves eventually, it does not cause a retry decrement.
+{{< /note >}}
+
+If incident creation is enabled for jobs, then once job retries are depleted, an incident is created (see [(De-)Activate Incidents]({{< ref "/user-guide/process-engine/incidents.md#de-activate-incidents" >}})).
+Incidents and historic incidents related to the job can be requested via Java API like this:
+```java
+List<Incident> incidents = engineRule.getRuntimeService()
+        .createIncidentQuery().configuration(jobId).list();
+
+List<HistoricIncident> historicIncidents = engineRule.getHistoryService()
+        .createHistoricIncidentQuery().configuration(jobId).list();
+```
+
+### Retry Time Cycle Configuration
+
+By default, a failed job will be retried three times and the retries are performed immediately after the failure. In daily business it might be useful to configure a retry strategy, i.e., by setting how often a job is retried and how long the engine should wait until it tries to execute a job again. This configuration can be specified globally in the process engine configuration.
+
+```xml
+<process-engine name="default">
+  ...
+  <properties>
+    ...
+    <property name="failedJobRetryTimeCycle">R5/PT5M</property>
+  </properties>
+</process-engine>
+```
+
+The configuration follows the [ISO_8601 standard for repeating time intervals](http://en.wikipedia.org/wiki/ISO_8601#Repeating_intervals). In the example, `R5/PT5M` means that the maximum number of retries is 5 (`R5`) and the delay of retry is 5 minutes (`PT5M`).
+
+The Camunda engine allows you to configure this setting for the following specific elements:
+
+* [Activities (tasks, call activities, subprocesses)]({{< relref "#use-a-custom-job-retry-configuration-for-activities" >}})
+* [Events]({{< relref "#use-a-custom-job-retry-configuration-for-events" >}})
+* [Multi-Instance Activities ]({{< relref "#use-a-custom-job-retry-configuration-for-multi-instance-activities" >}})
+
+
+#### Use a Custom Job Retry Configuration for Activities 
+
+As soon as the retry configuration is enabled, it can be applied to tasks, call activities, embedded subprocesses and transactions subprocesses. For instance, the job retry in a task can be configured in the Camunda engine in the BPMN 2.0 XML as follows:
 
 ```xml
 <definitions xmlns:camunda="http://camunda.org/schema/1.0/bpmn">
   ...
-  <serviceTask id="failingServiceTask" camunda:class="org.camunda.engine.test.cmd.FailingDelegate" camunda:asyncBefore="true">
+  <serviceTask id="failingServiceTask" camunda:asyncBefore="true" camunda:class="org.mycompany.FailingDelegate">
     <extensionElements>
       <camunda:failedJobRetryTimeCycle>R5/PT5M</camunda:failedJobRetryTimeCycle>
     </extensionElements>
@@ -386,53 +436,53 @@ In real life it is useful to configure the retry strategy, i.e. the number of ti
 </definitions>
 ```
 
-The configuration follows the [ISO_8601 standard for repeating time intervals](http://en.wikipedia.org/wiki/ISO_8601#Repeating_intervals). In the example, `R5/PT5M` means that the maximum number of retries is 5 (`R5`) and the delay of retry is 5 minutes (`PT5M`).
+You can also set an expression as in the retry configuration. For example:
 
-The retry configuration can be applied to tasks, call activities, embedded subprocesses and transactions subprocesses.
+```xml
+  <camunda:failedJobRetryTimeCycle>${retryCycle}</camunda:failedJobRetryTimeCycle>
+```
 
-{{< note title="" class="info" >}}
-While all failed jobs are retried, there is one case in which a job's retries are not decremented. This is, if a job fails due to an optimistic locking exception. Optimistic Locking is the process engine's mechanism to resolve conflicting resource updates, for example when two jobs of a process instance are executed in parallel (see the following sections on [concurrent job execution]({{< relref "#concurrent-job-execution" >}})). As an optimistic locking exception is no exceptional situation from an operator's point of view and resolves eventually, it does not cause a retry decrement.
-{{< /note >}}
+The LOCK&#95;EXP&#95;TIME&#95; is used to define when the job can be executed again, meaning the failed job will automatically be retried once the LOCK&#95;EXP&#95;TIME&#95; date is expired.
 
-### Configure Job Retry of Events 
+#### Use a Custom Job Retry Configuration for Events 
 
 The job retries can also be configured for the following events:
 
 * Timer Start Event
 * Boundary Timer Event
 * Intermediate Timer Catch Event
-* Intermediate Signal Throw Event
+* Intermediate Throw Event
 
 Similar to tasks, the retries can be configured as an extension element of the event. The following example defines three retries after 5 seconds each for a boundary timer event:
 
 ```xml
 <definitions xmlns:camunda="http://camunda.org/schema/1.0/bpmn">
   ...
-  <boundaryEvent id="BoundaryEvent_1" name="Boundary event" attachedToRef="Freigebenden_zuordnen_143">
+  <boundaryEvent id="BoundaryEvent" name="BoundaryName" attachedToRef="MyActivity">
     <extensionElements>
       <camunda:failedJobRetryTimeCycle>R3/PT5S</camunda:failedJobRetryTimeCycle>
     </extensionElements>
     <outgoing>SequenceFlow_3</outgoing>
-    <timerEventDefinition id="sid-ac5dcb4b-58e5-4c0c-b30a-a7009623769d">
-      <timeDuration xsi:type="tFormalExpression" id="sid-772d5012-17c2-4ae4-a044-252006933a1a">PT10S</timeDuration>
+    <timerEventDefinition>
+      <timeDuration>PT10S</timeDuration>
     </timerEventDefinition>
   </boundaryEvent>
   ...
 </definitions>
 ```
 
-Recap: a retry may be required if there are any failures during the transaction which follows the timer.
+Reminder: a retry may be required if there are any failures during the transaction which follows the timer.
 
-### Configure Job Retry of Multi-Instance Activities
+#### Use a Custom Job Retry Configuration for Multi-Instance Activities
 
-If the retry configuration is set for a multi-instance activity then the configuration is applied to the [multi-instance body]({{< relref "user-guide/process-engine/transactions-in-processes.md#asynchronous-continuations-of-multi-instance-activities" >}}). Additionally, the retries of the inner activities can also be configured using the extension element as child of the `multiInstanceLoopCharacteristics` element. 
+If the retry configuration is set for a multi-instance activity then the configuration is applied to the [multi-instance body]({{< ref "/user-guide/process-engine/transactions-in-processes.md#asynchronous-continuations-of-multi-instance-activities" >}}). Additionally, the retries of the inner activities can also be configured using the extension element as child of the `multiInstanceLoopCharacteristics` element. 
 
 The following example defines the retries of a multi-instance service task with asynchronous continuation of the multi-instance body and the inner activity. If a failure occur during one of the five parallel instances then the job of the failed instance will be retried up to 3 times with a delay of 5 seconds. In case all instances ended successful and a failure occur during the transaction which follows the task, the job will be retried up to 5 times with a delay of 5 minutes.
 
 ```xml
 <definitions xmlns:camunda="http://camunda.org/schema/1.0/bpmn">
   ...
-  <serviceTask id="failingServiceTask" camunda:class="org.camunda.engine.test.cmd.FailingDelegate" camunda:asyncAfter="true" >
+  <serviceTask id="failingServiceTask" camunda:asyncAfter="true" camunda:class="org.mycompany.FailingDelegate">
     <extensionElements>
       <!-- configuration for multi-instance body, e.g. after task ended -->
       <camunda:failedJobRetryTimeCycle>R5/PT5M</camunda:failedJobRetryTimeCycle>
@@ -449,13 +499,51 @@ The following example defines the retries of a multi-instance service task with 
 </definitions>
 ```
 
+### Retry Intervals
+The property retry time cycle (e.g. R5/PT5M) allows to define the number of retries and an interval when the failed job should be retried. However that case the interval is always (at least) 5 minutes. When you need none static interval you can configure list of retry intervals (separated by commas) on global level or for a specific job configuration. The local configuration takes precedence.
+Here is an example of the process engine configuration:
+```xml
+<process-engine name="default">
+  ...
+  <properties>
+    ...
+    <property name="failedJobRetryTimeCycle">PT10M,PT17M,PT20M</property>
+  </properties>
+</process-engine>
+```
+The retry times would be three and the behaviour for this example would be the following:
+
+* job fails for the first time -> the job will be retried in 10 minutes (PT10M is applied)
+* job fails for the second time -> the job will be retried in 17 minutes (PT17M is applied)
+* job fails for the third time -> the job will be retried in 20 minutes (PT20M is applied)
+
+If the user decide to change the retry number to higher during the retries, the last interval of the list would be applied within the difference of the new value and the size of the list. After that it would continue with the normal flow as above.
+
+### Custom Retry Configuration
+
+You can configure an custom retry configuration by adding the `customPostBPMNParseListeners` property and specify your custom `FailedJobParseListener` to the process engine configuration:
+
+```xml
+<bean id="processEngineConfiguration" class="org.camunda.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration">
+  <!-- Your defined properties! -->
+  ...
+  <property name="customPostBPMNParseListeners">
+    <list>
+      <bean class="com.company.impl.bpmn.parser.CustomFailedJobParseListener" />
+    </list>
+  </property>
+  ...
+</bean>
+```
+
+
 # Concurrent Job Execution
 
 The Job Executor makes sure that **jobs from a single process instance are never executed concurrently**. Why is this? Consider the following process definition:
 
 {{< img src="../img/job-executor-exclusive-jobs.png" title="Exclusive Jobs" >}}
 
-We have a parallel gateway followed by three service tasks which all perform an [asynchronous continuation]({{< relref "user-guide/process-engine/transactions-in-processes.md#asynchronous-continuations" >}}). As a result of this, three jobs are added to the database. Once such a job is present in the database it can be processed by the job executor. It acquires the jobs and delegates them to a thread pool of worker threads which actually process the jobs. This means that using an asynchronous continuation, you can distribute the work to this thread pool (and in a clustered scenario even across multiple thread pools in the cluster).
+We have a parallel gateway followed by three service tasks which all perform an [asynchronous continuation]({{< ref "/user-guide/process-engine/transactions-in-processes.md#asynchronous-continuations" >}}). As a result of this, three jobs are added to the database. Once such a job is present in the database it can be processed by the job executor. It acquires the jobs and delegates them to a thread pool of worker threads which actually process the jobs. This means that using an asynchronous continuation, you can distribute the work to this thread pool (and in a clustered scenario even across multiple thread pools in the cluster).
 
 This is usually a good thing. However it also bears an inherent problem: consistency. Consider the parallel join after the service tasks. When the execution of a service task is completed, we arrive at the parallel join and need to decide whether to wait for the other executions or whether we can move forward. That means, for each branch arriving at the parallel join, we need to take a decision whether we can continue or whether we need to wait for one or more other executions from the other branches.
 
@@ -493,7 +581,7 @@ In larger deployments however, this quickly leads to a poorly manageable situati
 {{< img src="../img/job-executor-multiple-engines.png" title="Multiple Engines" >}}
 
 **This setup enables centralized monitoring of job acquisition and execution**.
-See the platform-specific information in the [Runtime Container Integration]({{< relref "user-guide/runtime-container-integration/index.md" >}}) section on how the thread pooling is implemented on the different platforms.
+See the platform-specific information in the [Runtime Container Integration]({{< ref "/user-guide/runtime-container-integration/_index.md" >}}) section on how the thread pooling is implemented on the different platforms.
 
 Different job acquisitions can also be configured differently, e.g. to meet business requirements like SLAs. For example, the acquisition's timeout when no more executable jobs are present can be configured differently per acquisition.
 
@@ -506,7 +594,7 @@ To which job acquisition a process engine is assigned can be specified in the de
 </process-engine>
 ```
 
-Job acquisitions have to be declared in the BPM platform's deployment descriptor, see [the container-specific configuration options]({{< relref "user-guide/runtime-container-integration/index.md" >}}).
+Job acquisitions have to be declared in the BPM platform's deployment descriptor, see [the container-specific configuration options]({{< ref "/user-guide/runtime-container-integration/_index.md" >}}).
 
 
 # Cluster Setups

@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves the corresponding exception stacktrace to the passed historic job log id.
+Retrieves the corresponding exception stacktrace to the passed historic job log by id.
 
 
 # Method
@@ -38,7 +38,7 @@ GET `/history/job-log/{id}/stacktrace`
 
 # Result
 
-The result is the corresponding stacktrace as a plain text.
+The result is the corresponding stacktrace as plain text.
 
 
 # Response Codes
@@ -51,13 +51,13 @@ The result is the corresponding stacktrace as a plain text.
   </tr>
   <tr>
     <td>200</td>
-    <td>application/json</td>
+    <td>text/plain</td>
     <td>Request successful.</td>
   </tr>
   <tr>
     <td>404</td>
-    <td>application/json</td>
-    <td>Historic job log with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>text/plain</td>
+    <td>Historic job log with given id does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

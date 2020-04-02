@@ -13,10 +13,9 @@ menu:
 ---
 
 
-Query for batch statistics that fulfill given parameters. Parameters may be the
+Queries for batch statistics that fulfill given parameters. Parameters may be the
 properties of batches, such as the id or type.  The size of the result set can
-be retrieved by using the [GET statistics query count]({{< relref
-"reference/rest/batch/get-statistics-query-count.md" >}}).
+be retrieved by using the [Get Batch Statistics Count]({{< ref "/reference/rest/batch/get-statistics-query-count.md" >}}) method.
 
 
 # Method
@@ -39,7 +38,7 @@ GET `/batch/statistics`
   </tr>
   <tr>
     <td>type</td>
-    <td>Filter by batch type.</td>
+    <td>Filter by batch type. See the <a href="{{< ref "/user-guide/process-engine/batch.md#creating-a-batch" >}}">User Guide</a> for more information about batch types.</td>
   </tr>
   <tr>
     <td>tenantIdIn</td>
@@ -101,7 +100,7 @@ Each batch statistics object has the following properties:
   <tr>
     <td>type</td>
     <td>String</td>
-    <td>The type of the batch.</td>
+    <td>The type of the batch. See the <a href="{{< ref "/user-guide/process-engine/batch.md#creating-a-batch" >}}">User Guide</a> for more information about batch types.</td>
   </tr>
   <tr>
     <td>totalJobs</td>
@@ -123,7 +122,7 @@ Each batch statistics object has the following properties:
     <td>Number</td>
     <td>
       The number of batch execution jobs created per seed job invocation.
-      The batch seed job is invoked until it created all batch execution jobs required by
+      The batch seed job is invoked until it has created all batch execution jobs required by
       the batch (see <code>totalJobs</code> property).
     </td>
   </tr>
@@ -155,12 +154,17 @@ Each batch statistics object has the following properties:
   <tr>
     <td>suspended</td>
     <td>Boolean</td>
-    <td>Indicates wheter this batch is suspened or not.</td>
+    <td>Indicates wheter this batch is suspended or not.</td>
   </tr>
   <tr>
     <td>tenantId</td>
     <td>String</td>
     <td>The tenant id of the batch.</td>
+  </tr>
+  <tr>
+    <td>createUserId</td>
+    <td>String</td>
+    <td>The batch creator's user id.</td>
   </tr>
   <tr>
     <td>remainingJobs</td>
@@ -208,7 +212,7 @@ Each batch statistics object has the following properties:
     <td>application/json</td>
     <td>
       Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>.
-      See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+      See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
 </table>
@@ -238,6 +242,7 @@ Status 200.
     "batchJobDefinitionId": "aBatchJobDefinitionId",
     "suspened": false,
     "tenantId": "aTenantId",
+    "createUserId": "aUserId",
     "remainingJobs": 3,
     "completedJobs": 7,
     "failedJobs": 1

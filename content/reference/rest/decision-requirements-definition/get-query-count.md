@@ -1,6 +1,6 @@
 ---
 
-title: "Get Decision Requirements Definitions Count"
+title: "Get Decision Requirements Definition Count"
 weight: 20
 
 menu:
@@ -13,9 +13,8 @@ menu:
 ---
 
 
-Request the number of decision requirements definitions that fulfill the query criteria.
-Takes the same filtering parameters as the [GET query]({{< relref
-"reference/rest/decision-requirements-definition/get-query.md" >}}).
+Requests the number of decision requirements definitions that fulfill the query criteria.
+Takes the same filtering parameters as the [Get Decision Requirements Definitions]({{< ref "/reference/rest/decision-requirements-definition/get-query.md" >}}) method.
 
 
 # Method
@@ -55,7 +54,7 @@ GET `/decision-requirements-definition/count`
   </tr>
   <tr>
     <td>key</td>
-    <td>Filter by decision requirements definition key, i.e. the id in the DMN 1.1 XML. Exact match.</td>
+    <td>Filter by decision requirements definition key, i.e., the id in the DMN 1.1 XML. Exact match.</td>
   </tr>
   <tr>
     <td>keyLike</td>
@@ -91,11 +90,11 @@ GET `/decision-requirements-definition/count`
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only include decision requirements definitions which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include decision requirements definitions which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>includeDecisionRequirementsDefinitionsWithoutTenantId</td>
-    <td>Include decision requirements definitions which belongs to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Include decision requirements definitions which belong to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
 </table>
 
@@ -136,7 +135,7 @@ A JSON object that contains the count as the only property.
     <td>application/json</td>
     <td>
       Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>.
-      See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+      See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
 </table>

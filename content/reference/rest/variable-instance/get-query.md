@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Query for variable instances that fulfill given parameters. Parameters may be the properties of variable instances, such as the name or type. The size of the result set can be retrieved by using the [get variable instances count]({{< relref "reference/rest/variable-instance/get-query-count.md" >}}) method.
+Query for variable instances that fulfill given parameters. Parameters may be the properties of variable instances, such as the name or type. The size of the result set can be retrieved by using the [Get Variable Instance Count]({{< ref "/reference/rest/variable-instance/get-query-count.md" >}}) method.
 
 
 # Method
@@ -81,6 +81,14 @@ GET `/variable-instance`
     </td>
   </tr>
   <tr>
+    <td>variableNamesIgnoreCase</td>
+    <td>Match all variable names provided in <code>variableValues</code> case-insensitively. If set to <code>true</code> <strong>variableName</strong> and <strong>variablename</strong> are treated as equal.</td>
+  </tr>
+  <tr>
+    <td>variableValuesIgnoreCase</td>
+    <td>Match all variable values provided in <code>variableValues</code> case-insensitively. If set to <code>true</code> <strong>variableValue</strong> and <strong>variablevalue</strong> are treated as equal.</td>
+  </tr>
+  <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
     <code>variableName</code>, <code>variableType</code>, <code>activityInstanceId</code> and <code>tenantId</code>.
@@ -136,7 +144,7 @@ A JSON array of variable instance objects. Each variable instance object has the
   <tr>
     <td>value</td>
     <td>String / Number / Boolean / Object</td>
-    <td>The variable's value. Value differs depending on the variable's type and on the deserializeValues parameter.</td>
+    <td>{{< rest-var-response-value deserializationParameter="deserializeValue" >}}</td>
   </tr>
   <tr>
     <td>valueInfo</td>
@@ -198,7 +206,7 @@ A JSON array of variable instance objects. Each variable instance object has the
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

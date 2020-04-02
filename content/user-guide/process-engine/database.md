@@ -65,6 +65,20 @@ subscriptions. It includes the type, name and configuration of the expected
 event along with information about the corresponding process instance and
 execution.
 
+## Schema Log (`ACT_GE_SCHEMA_LOG`)
+
+The `ACT_GE_SCHEMA_LOG` table contains a history of the database
+schema version. New entries to the table are written when changes to
+the database schema are made. On database creation the initial entry
+is added. Every update script adds a new entry containing an `id`,
+the `version` the database was updated to and the date and time 
+(`timestamp`) of the update.
+
+To retrieve entries from the schema log, the SchemaLogQuery-API can be
+used:
+```java
+List<SchemaLogEntry> entries = managementService.createSchemaLogQuery().list();
+```
 
 # Entity Relationship Diagrams
 
@@ -81,29 +95,29 @@ The following Entity Relationship Diagrams visualize the database tables and the
 
 ## Engine BPMN
 
-{{< img src="../img/erd_75_bpmn.svg" title="BPMN Tables" >}}
+{{< img src="../img/erd_712_bpmn.svg" title="BPMN Tables" >}}
 
 
 ## Engine DMN
 
-{{< img src="../img/erd_75_dmn.svg" title="DMN Tables" >}}
+{{< img src="../img/erd_712_dmn.svg" title="DMN Tables" >}}
 
 
 ## Engine CMMN
 
-{{< img src="../img/erd_75_cmmn.svg" title="CMMN Tables" >}}
+{{< img src="../img/erd_712_cmmn.svg" title="CMMN Tables" >}}
 
 
 ## History
 
 To allow different configurations and to keep the tables more flexible, the history tables contain no foreign key constraints.
 
-{{< img src="../img/erd_75_history.svg" title="History Tables" >}}
+{{< img src="../img/erd_712_history.svg" title="History Tables" >}}
 
 
 ## Identity
 
-{{< img src="../img/erd_75_identity.svg" title="Identity Tables" >}}
+{{< img src="../img/erd_712_identity.svg" title="Identity Tables" >}}
 
 
 
@@ -126,7 +140,19 @@ The data source that is constructed based on the provided JDBC properties will h
 * `jdbcMaxWaitTime`: This is a low level setting that gives the pool a chance to print a log status and re-attempt the acquisition of a connection in the case that it takes unusually long (to avoid failing silently forever if the pool is misconfigured). Default is 20000 (20 seconds).
 * `jdbcStatementTimeout`: The amount of time in seconds the JDBC driver will wait for a response from the database. Default is null which means that there is no timeout.
 
-Example database configuration:
+
+## Jdbc Batch Processing
+
+<a name="jdbcBatchProcessing"></a>Another configuration - `jdbcBatchProcessing` - sets if batch processing mode must be used when sending SQL statements to the database. When switched off, statements are executed one by one.
+Values: `true` (default), `false`.
+
+Known issues with batch processing:
+
+* batch processing is not working for Oracle versions earlier than 12.
+* when using batch processing on MariaDB and DB2, `jdbcStatementTimeout` is being ignored.
+
+
+## Example database configuration
 
 ```xml
 <property name="jdbcUrl" value="jdbc:h2:mem:camunda;DB_CLOSE_DELAY=1000" />
@@ -158,12 +184,12 @@ The following properties can be set, regardless of whether you are using the JDB
 
 * `databaseType`: It's normally not necessary to specify this property as it is automatically analyzed from the database connection meta data. Should only be specified in case automatic detection fails. Possible values: {h2, mysql, oracle, postgres, mssql, db2, mariadb}. This setting will determine which create/drop scripts and queries will be used. See the 'supported databases' section for an overview of which types are supported.</li>
 * `databaseSchemaUpdate`: Allows to set the strategy to handle the database schema on process engine boot and shutdown.
-  * `false` (default): Checks the version of the DB schema against the library when the process engine is being created and throws an exception if the versions don't match.
-  * `true`: Upon building the process engine, a check is performed and an update of the schema is performed if necessary. If the schema doesn't exist, it is created.
+  * `true` (default): Upon building the process engine, a check is performed whether the Camunda tables exist in the database. If they don't exist, they are created. It must be ensured that the version of the DB schema matches the version of the process engine library, unless performing a [Rolling Update]({{< ref "/update/rolling-update.md" >}}). Updates of the database schema have to be done manually as described in the [Update and Migration Guide]({{< ref "/update/_index.md" >}}).
+  * `false`: Does not perform any checks and assumes that the Camunda table exist in the database. It must be ensured that the version of the DB schema matches the version of the process engine library, unless performing a [Rolling Update]({{< ref "/update/rolling-update.md" >}}). Updates of the database schema have to be done manually as described in the [Update and Migration Guide]({{< ref "/update/_index.md" >}}).
   * `create-drop`: Creates the schema when the process engine is being created and drops the schema when the process engine is being closed.
 
 {{< note title="Supported Databases" class="info" >}}
-  For information on supported databases please refer to [Supported Environments]({{< relref "introduction/supported-environments.md#databases" >}})
+  For information on supported databases please refer to [Supported Environments]({{< ref "/introduction/supported-environments.md#databases" >}})
 {{< /note >}}
 
 Here are some sample JDBC urls:
@@ -252,12 +278,23 @@ History:
 alter table ACT_HI_PROCINST add constraint ACT_UNIQ_HI_BUS_KEY UNIQUE (PROC_DEF_ID_, BUSINESS_KEY_);
 ```
 
-### Custom Configuration for Microsoft SQL Server
+## Isolation Level Configuration
+
+Most database management systems provide four different isolation levels to be set. For instance the levels defined by ANSI/USO SQL are (from low to high isolation):
+
+* READ UNCOMMITTED 
+* READ COMMITTED
+* REPEATABLE READS
+* SERIALIZABLE 
+
+The required isolation level to run Camunda with is **READ COMMITTED**, which may have a different name according to your database system. Setting the level to REPEATABLE READS is known to cause deadlocks, so one needs to be careful, when changing the isolation level.
+
+## Configuration for Microsoft SQL Server
 
 Microsoft SQL Server implements the isolation level `READ_COMMITTED` different
 than most databases and does not interact well with the process engine's
-optimistic locking scheme. As a result you may suffer deadlocks when
-putting the process engine under high load.
+[optimistic locking]({{< ref "/user-guide/process-engine/transactions-in-processes.md#optimistic-locking" >}}) scheme. 
+As a result you may suffer deadlocks when putting the process engine under high load.
 
 If you experience deadlocks in your MSSQL installation, you must execute the
 following statements in order to enable SNAPSHOT isolation:
@@ -269,5 +306,60 @@ SET ALLOW_SNAPSHOT_ISOLATION ON
 ALTER DATABASE [process-engine]
 SET READ_COMMITTED_SNAPSHOT ON
 ```
-
 where `[process-engine]` contains the name of your database.
+
+## Configuration for MariaDB Galera Cluster
+
+This section documents the supported Galera Cluster configuration for MariaDB. Both server and client need to be configured correctly. Please note that there are some [known limitations](#galera-cluster-known-limitations) which apply when using Galera cluster, see below.
+
+{{< note title="Warning" class="warning" >}}
+Please note that server and client configuration settings defined below are the only configuration that is supported for Galera Cluster. Other configurations are not supported.
+{{</ note >}}
+
+### Server Configuration
+
+The following configuration needs to go into the `[galera]` configuration section in the `my.cnf.d/server.cnf` on each server:
+
+```
+[galera]
+binlog_format=row
+default_storage_engine=InnoDB
+innodb_autoinc_lock_mode=2
+transaction-isolation=READ-COMMITTED
+wsrep_on=ON
+wsrep_causal_reads = 1
+wsrep_sync_wait = 7
+...
+```
+
+Note that other setting may be present in this section but the settings `transaction-isolation`, `wsrep_on`, `wsrep_causal_reads` and `wsrep_sync_wait` need to present and need to have **exactly** the values shown above.
+
+### Client Configuration
+
+Only `failover` and `sequential` configurations are supported. **Other client configuration modes like `replication:`, `loadbalance:`, `aurora:` are not supported.**
+
+The following is the required format of the jdbcUrl property in datasource configurations:
+
+```
+jdbc:mariadb:[failover|sequential]://[host1:port],[host2:port],.../[data-base-name]
+```
+
+Examples:
+
+```
+jdbc:mariadb:failover://192.168.1.1:32980,192.168.1.2:32980,192.168.1.3:32980/process-engine
+jdbc:mariadb:sequential://192.168.1.1:32980,192.168.1.2:32980,192.168.1.3:32980/process-engine
+```
+
+Important: when running Camunda in a cluster, the client configuration needs to be the same on each node.
+
+### Galera Cluster Known Limitations
+
+The following known limitations apply when using Galera Cluster:
+
+1. APIs requiring Pessimistic read locks in the database do not work correctly. Affected APIs: Exclusive Message correlation (`.correlateExclusively()`). See ({{< javadocref page="?org/camunda/bpm/engine/runtime/MessageCorrelationBuilder.html#correlateExclusively()" text="Javadocs" >}}).
+Another possible negative effects:
+ * duplication of deployed definitions when deploying the same resources from two threads simultaneously
+ * duplication of history cleanup job when calling `HistoryService#cleanUpHistoryAsync` from two threads simultaneously
+2. Duplicate checking during deployment does not work if resources are deployed in a cluster concurrently. Concrete impact: suppose there is a Camunda process engine cluster which connects to the same Galera cluster. On deployment of a new process application the process engine nodes will check if the BPMN processes provided by the process application are already deployed, to avoid duplicate deployments. If the deployment is done simultaneously on multiple process engine nodes an exclusive read lock is acquired on the the database (technically, this means that each node performs an SQL `select for update` query.), to do the duplicate checking reliably under concurrency. This does not work on Galera Cluster and may lead to multiple versions of the same process being deployed.
+3. The `jdbcStatementTimeout` configuration setting does not work and cannot be used.

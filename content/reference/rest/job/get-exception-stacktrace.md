@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves the corresponding exception stacktrace to the passed job id.
+Retrieves the exception stacktrace corresponding to the passed job id.
 
 # Method
 
@@ -38,7 +38,7 @@ GET `/job/{id}/stacktrace`
 
 # Result
 
-The result is the corresponding stacktrace as a plain text.
+The result is the corresponding stacktrace as plain text.
 
 
 # Response Codes
@@ -57,7 +57,7 @@ The result is the corresponding stacktrace as a plain text.
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Job with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Job with given id does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

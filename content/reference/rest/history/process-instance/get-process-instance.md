@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Process Instance"
+title: "Get Process Instance"
 weight: 30
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single historic process instance according to the `HistoricProcessInstance` interface in the engine.
+Retrieves a historic process instance by id, according to the `HistoricProcessInstance` interface in the engine.
 
 
 # Method
@@ -53,6 +53,11 @@ Its properties are as follows:
     <td>The id of the process instance.</td>
   </tr>
   <tr>
+    <td>rootProcessInstanceId</td>
+    <td>String</td>
+    <td>The process instance id of the root process instance that initiated the process.</td>
+  </tr>
+  <tr>
     <td>superProcessInstanceId</td>
     <td>String</td>
     <td>The id of the parent process instance, if it exists.</td>
@@ -68,9 +73,19 @@ Its properties are as follows:
     <td>The id of the parent case instance, if it exists.</td>
   </tr>
   <tr>
+    <td>processDefinitionName</td>
+    <td>String</td>
+    <td>The name of the process definition that this process instance belongs to.</td>
+  </tr>
+  <tr>
     <td>processDefinitionKey</td>
     <td>String</td>
     <td>The key of the process definition that this process instance belongs to.</td>
+  </tr>
+  <tr>
+    <td>processDefinitionVersion</td>
+    <td>Integer</td>
+    <td>The version of the process definition that this process instance belongs to.</td>
   </tr>
   <tr>
     <td>processDefinitionId</td>
@@ -85,12 +100,17 @@ Its properties are as follows:
   <tr>
     <td>startTime</td>
     <td>String</td>
-    <td>The time the instance was started. Has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The time the instance was started. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
     <td>endTime</td>
     <td>String</td>
-    <td>The time the instance ended. Has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The time the instance ended. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+  <tr>
+    <td>removalTime</td>
+    <td>String</td>
+    <td>The time after which the instance should be removed by the History Cleanup job. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
     <td>durationInMillis</td>
@@ -105,7 +125,7 @@ Its properties are as follows:
   <tr>
     <td>startActivityId</td>
     <td>String</td>
-    <td>The id of the initial activity that was executed (e.g. a start event).</td>
+    <td>The id of the initial activity that was executed (e.g., a start event).</td>
   </tr>
   <tr>
     <td>deleteReason</td>
@@ -117,8 +137,23 @@ Its properties are as follows:
     <td>String</td>
     <td>The tenant id of the process instance.</td>
   </tr>
+  <tr>
+    <td>state</td>
+    <td>String</td>
+    <td>
+        last state of the process instance, possible values are:
+        <ul style="list-style: none;">
+                <li>ACTIVE - running process instance</li>
+                <li>SUSPENDED - suspended process instances</li>
+                <li>COMPLETED - completed through normal end event</li>
+                <li>EXTERNALLY_TERMINATED - terminated externally, for instance through REST API</li>
+                <li>INTERNALLY_TERMINATED - terminated internally, for instance by terminating boundary event</li>
+        </ul>
+    </td>
+  </tr>
 </table>
 
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Response Codes
 
@@ -136,7 +171,7 @@ Its properties are as follows:
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Historic process instance with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Historic process instance with given id does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -151,18 +186,24 @@ GET `/history/process-instance/aProcInstId`
 
 ```json
 {
-  "id": "aProcInstId",
-  "businessKey": "aKey",
-  "processDefinitionId": "aProcDefId",
-  "startTime": "2013-03-23T13:42:43",
-  "endTime": "2013-03-23T13:42:45",
-  "durationInMillis": 2000,
-  "startUserId": "aStartUserId",
-  "startActivityId": "aStartActivityId",
-  "deleteReason": "aDeleteReason",
-  "superProcessInstanceId": "aSuperProcessInstanceId",
-  "superCaseInstanceId": null,
-  "caseInstanceId": "aCaseInstanceId",
-  "tenantId":null
+  "id":"7c80cc8f-ef95-11e6-b6e6-34f39ab71d4e",
+  "businessKey":null,
+  "processDefinitionId":"invoice:1:7bf79f13-ef95-11e6-b6e6-34f39ab71d4e",
+  "processDefinitionKey":"invoice",
+  "processDefinitionName":"Invoice Receipt",
+  "processDefinitionVersion":1,
+  "startTime":"2017-02-10T14:33:19.000+0200",
+  "endTime":null,
+  "removalTime": null,
+  "durationInMillis":null,
+  "startUserId":null,
+  "startActivityId":"StartEvent_1",
+  "deleteReason":null,
+  "rootProcessInstanceId": "f8259e5d-ab9d-11e8-8449-e4a7a094a9d6",
+  "superProcessInstanceId":null,
+  "superCaseInstanceId":null,
+  "caseInstanceId":null,
+  "tenantId":null,
+  "state":"ACTIVE"
 }
 ```

@@ -30,7 +30,7 @@ public class DecisionTest {
     VariableMap variables = Variables.createVariables();
 
     DmnDecision decision = dmnEngine.parseDecision("decision", inputStream);
-    DmnDecisionTableResult result = dmnEngine.evaluateDecisionTable(decision, variables);
+    DmnDecisionResult result = dmnEngine.evaluateDecision(decision, variables);
 
     // assert the result
     // ...
@@ -64,9 +64,9 @@ public class DecisionTest {
 ```
 
 The {{< javadocref
-page="?org/camunda/bpm/dmn/engine/DmnDecisionTableResult.html"
-text="DmnDecisionTableResult" >}} implements the interface
-`List<DmnDecisionRuleResult>`. Whereas the {{< javadocref
-page="?org/camunda/bpm/dmn/engine/DmnDecisionRuleResult.html"
-text="DmnDecisionRuleResult" >}} implements the interface `Map<String, Object>`. 
+page="?org/camunda/bpm/dmn/engine/DmnDecisionResult.html"
+text="DmnDecisionResult" >}} implements the interface
+`List<DmnDecisionResultEntries>`. Whereas the {{< javadocref
+page="?org/camunda/bpm/dmn/engine/DmnDecisionResultEntries.html"
+text="DmnDecisionResultEntries" >}} implements the interface `Map<String, Object>`. 
 This allows you to use common `List` or `Map` asserts.

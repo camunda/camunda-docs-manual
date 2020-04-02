@@ -17,14 +17,14 @@ menu:
 ---
 
 
-Retrieves the DMN XML of this decision definition.
+Retrieves the DMN XML of a decision definition.
 
 
 # Method
 
 GET `/decision-definition/{id}/xml`
 
-GET `/decision-definition/key/{key}/xml` (returns the XML for the latest version of decision definition which belongs to no tenant)
+GET `/decision-definition/key/{key}/xml` (returns the XML for the latest version of the decision definition which belongs to no tenant)
 
 GET `/decision-definition/key/{key}/tenant-id/{tenant-id}/xml` (returns the XML of the latest version of the decision definition for tenant)
 
@@ -93,7 +93,7 @@ A JSON object containing the id of the decision definition and the DMN 1.0 XML.
     <td>application/json</td>
     <td>
       Decision definition with given id or key does not exist.
-      See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+      See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
 </table>

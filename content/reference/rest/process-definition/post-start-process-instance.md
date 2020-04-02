@@ -24,9 +24,9 @@ Instantiates a given process definition. Process variables and business key may 
 
 POST `/process-definition/{id}/start`
 
-POST `/process-definition/key/{key}/start` (starts the latest version of process definition which belongs to no tenant)
+POST `/process-definition/key/{key}/start` (starts the latest version of the process definition which belongs to no tenant)
 
-POST `/process-definition/key/{key}/tenant-id/{tenant-id}/start` (starts the latest version of process definition for tenant)
+POST `/process-definition/key/{key}/tenant-id/{tenant-id}/start` (starts the latest version of the process definition for tenant)
 
 
 # Parameters
@@ -55,7 +55,7 @@ POST `/process-definition/key/{key}/tenant-id/{tenant-id}/start` (starts the lat
 
 ## Request Body
 
-A JSON object with the following properties: (at least an empty object `{}`)
+A JSON object with the following properties: (at least an empty JSON object `{}` or an empty request body)
 
 <table class="table table-striped">
   <tr>
@@ -65,7 +65,7 @@ A JSON object with the following properties: (at least an empty object `{}`)
   <tr>
     <td>variables</td>
     <td>A JSON object containing the variables the process is to be initialized with. Each key corresponds to a variable name and each value to a variable value. A variable value is a JSON object with the following properties:
-    {{< rest-var-request >}}
+    {{< rest-var-request transient="true">}}
   </tr>
   <tr>
     <td>businessKey</td>
@@ -83,7 +83,11 @@ A JSON object with the following properties: (at least an empty object `{}`)
       <p>
         The instructions are executed in the order they are in. An instruction may have the following properties:
       </p>
-      <table>
+      <table class="table table-striped">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
         <tr>
           <td>type</td>
           <td><b>Mandatory.</b> One of the following values: <code>startBeforeActivity</code>, <code>startAfterActivity</code>, <code>startTransition</code>. A <code>startBeforeActivity</code> instruction requests to start execution before entering a given activity. A <code>startAfterActivity</code> instruction requests to start at the single outgoing sequence flow of a given activity. A <code>startTransition</code> instruction requests to execute a specific sequence flow.</td>
@@ -99,7 +103,7 @@ A JSON object with the following properties: (at least an empty object `{}`)
         <tr>
           <td>variables</td>
           <td><p><b>Can be used with instructions of type <code>startBeforeActivity</code>, <code>startAfterActivity</code>, and <code>startTransition</code>.</b> A JSON object containing variable key-value pairs. Each key is a variable name and each value a JSON variable value object.</p>
-          {{< rest-var-request local="Indicates whether the variable should be a local variable or not. If set to <code>true</code>, the variable becomes a local variable of the execution entering the target activity." >}}</td>
+          {{< rest-var-request transient="true" local="Indicates whether the variable should be a local variable or not. If set to <code>true</code>, the variable becomes a local variable of the execution entering the target activity." >}}</td>
         </tr>
       </table>
     </td>
@@ -114,7 +118,7 @@ A JSON object with the following properties: (at least an empty object `{}`)
   <tr>
     <td>skipIoMappings</td>
     <td>
-      Skip execution of <a href="{{< relref "user-guide/process-engine/variables.md#input-output-variable-mapping" >}}">input/output variable mappings</a> for activities that are started or ended as part of this request.
+      Skip execution of <a href="{{< ref "/user-guide/process-engine/variables.md#input-output-variable-mapping" >}}">input/output variable mappings</a> for activities that are started or ended as part of this request.
       <p><b>Note:</b> This option is currently only respected when start instructions are submitted via the <code>startInstructions</code> property.</p>
     </td>
   </tr>
@@ -185,7 +189,7 @@ Properties are:
     <td>
       A JSON object containing a property for each of the latest variables.
       The key is the variable name, the value is a JSON object of serialized variable values with the following properties:
-      {{< rest-var-response deserializationParameter="" >}}
+      {{< rest-var-response deserializationParameter="" transient="true">}}
     </td>
   </tr>
 </table>
@@ -207,17 +211,17 @@ Properties are:
   <tr>
     <td>400</td>
     <td>application/json</td>
-        <td>The instance could not be created due to an invalid variable value, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+        <td>The instance could not be created due to an invalid variable value, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
-        <td>The instance could not be created due to a non existing process definition key. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+        <td>The instance could not be created due to a non existing process definition key. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>The instance could not be created successfully. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>The instance could not be created successfully. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -234,21 +238,37 @@ POST `/process-definition/key/aProcessDefinitionKey/start`
 
 Request body:
 
-    {"variables":
-        {"aVariable" : {"value" : "aStringValue", "type": "String"},
-         "anotherVariable" : {"value" : true, "type": "Boolean"}},
-         "businessKey" : "myBusinessKey"
+    {
+      "variables": {
+        "aVariable" : {
+            "value" : "aStringValue",
+            "type": "String"
+        },
+        "anotherVariable" : {
+          "value" : true,
+          "type": "Boolean"
         }
+      },
+     "businessKey" : "myBusinessKey"
+    }
 
 ### Response
 
-    {"links":[{"method": "GET", "href":"http://localhost:8080/rest-test/process-instance/anId","rel":"self"}],
-    "id":"anId",
-    "definitionId":"aProcessDefinitionId",
-    "businessKey":"myBusinessKey",
-    "tenantId":null,
-    "ended":false,
-    "suspended":false}
+    {
+      "links": [
+        {
+          "method": "GET",
+          "href":"http://localhost:8080/rest-test/process-instance/anId",
+          "rel":"self"
+        }
+      ],
+      "id":"anId",
+      "definitionId":"aProcessDefinitionId",
+      "businessKey":"myBusinessKey",
+      "tenantId":null,
+      "ended":false,
+      "suspended":false
+    }
 
 ## Starting a process instance with variables in return:
 
@@ -265,9 +285,13 @@ Request body:
        "aVariable" : {
          "value" : "aStringValue",
          "type": "String"},
-      "anotherVariable" : {
+       "anotherVariable" : {
          "value" : true,
-         "type": "Boolean"}
+         "type": "Boolean",
+         "valueInfo" : {
+            "transient" : true
+          }
+        }
      },
      "businessKey" : "myBusinessKey",
      "withVariablesInReturn": true
@@ -277,11 +301,12 @@ Request body:
 
     {
       "links": [
-      {
-        "method": "GET",
-        "href": "http://localhost:8080/rest-test/process-instance/aProcInstId",
-        "rel": "self"
-      }],
+        {
+          "method": "GET",
+          "href": "http://localhost:8080/rest-test/process-instance/aProcInstId",
+          "rel": "self"
+        }
+      ],
       "id": "aProcInstId",
       "definitionId": "aProcessDefinitionId",
       "businessKey": "myBusinessKey",
@@ -292,7 +317,9 @@ Request body:
         "anotherVariable": {
             "type": "Boolean",
             "value": true,
-            "valueInfo": { }
+            "valueInfo": {
+              "transient" : true
+            }
         },
         "aVariable": {
             "type": "String",
@@ -312,40 +339,55 @@ POST `/process-definition/key/aProcessDefinitionKey/start`
 
 Request Body:
 
-    {"variables":
-        {"aProcessVariable" : {"value" : "aStringValue", "type": "String"}},
-          "businessKey" : "myBusinessKey",
-    "skipCustomListeners" : true,
-    "startInstructions" :
-      [
-      {
-        "type": "startBeforeActivity",
-        "activityId": "activityId",
-        "variables":
-          {"var": {
-            "value": "aVariableValue",
-            "local": false,
-            "type": "String"}
-          }
+    {
+      "variables": {
+        "aProcessVariable" : {
+          "value" : "aStringValue",
+          "type": "String"
+        }
       },
-      {
-        "type": "startAfterActivity",
-        "activityId": "anotherActivityId",
-        "variables":
-          {"varLocal": {
-            "value": "anotherVariableValue",
-            "local": true,
-            "type": "String"}
+      "businessKey" : "myBusinessKey",
+      "skipCustomListeners" : true,
+      "startInstructions" :
+        [
+          {
+            "type": "startBeforeActivity",
+            "activityId": "activityId",
+            "variables": {
+              "var": {
+                "value": "aVariableValue",
+                "local": false,
+                "type": "String"}
+            }
+          },
+          {
+            "type": "startAfterActivity",
+            "activityId": "anotherActivityId",
+            "variables": {
+              "varLocal": {
+                "value": "anotherVariableValue",
+                "local": true,
+                "type": "String"
+              }
+            }
           }
-      }]
-          }
+        ]
+    }
 
 ### Response
 
-    {"links":[{"method": "GET", "href":"http://localhost:8080/rest-test/process-instance/anId","rel":"self"}],
-    "id":"anId",
-    "definitionId":"aProcessDefinitionId",
-    "businessKey":"myBusinessKey",
-    "tenantId":null,
-    "ended":false,
-    "suspended":false}
+    {
+      "links": [
+        {
+          "method": "GET", 
+          "href":"http://localhost:8080/rest-test/process-instance/anId",
+          "rel":"self"
+        }
+      ],
+      "id":"anId",
+      "definitionId":"aProcessDefinitionId",
+      "businessKey":"myBusinessKey",
+      "tenantId":null,
+      "ended":false,
+      "suspended":false
+    }

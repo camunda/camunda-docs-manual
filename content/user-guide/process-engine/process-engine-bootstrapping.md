@@ -19,13 +19,13 @@ You have a number of options to configure and create a process engine depending 
 You manage the process engine as part of your application. The following ways exist to configure it:
 
 * [Programmatically via Java API]({{< relref "#bootstrap-a-process-engine-using-the-java-api" >}})
-* [Via XML configuration]({{< relref "#configure-process-engine-using-spring-xml" >}})
-* [Via Spring]({{< relref "user-guide/spring-framework-integration/index.md" >}})
+* [Via XML configuration]({{< relref "#configure-process-engine-using-camunda-cfg-xml" >}})
+* [Via Spring]({{< ref "/user-guide/spring-framework-integration/_index.md" >}})
 
 
 # Shared, Container Managed Process Engine
 
-A container of your choice (e.g., Tomcat, JBoss, GlassFish or IBM WebSphere) manages the process engine for you. The configuration is carried out in a container specific way, see [Runtime Container Integration]({{< relref "user-guide/runtime-container-integration/index.md" >}}) for details.
+A container of your choice (e.g., Tomcat, JBoss or IBM WebSphere) manages the process engine for you. The configuration is carried out in a container specific way, see [Runtime Container Integration]({{< ref "/user-guide/runtime-container-integration/_index.md" >}}) for details.
 
 
 ## ProcessEngineConfiguration Bean
@@ -57,12 +57,12 @@ Now you can call the `buildProcessEngine()` operation to create a Process Engine
 ProcessEngine processEngine = ProcessEngineConfiguration.createStandaloneInMemProcessEngineConfiguration()
   .setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_FALSE)
   .setJdbcUrl("jdbc:h2:mem:my-own-db;DB_CLOSE_DELAY=1000")
-  .setJobExecutorActivate("true")
+  .setJobExecutorActivate(true)
   .buildProcessEngine();
 ```
 
 
-## Configure Process Engine Using Spring XML
+## Configure Process Engine Using camunda cfg XML
 
 The easiest way to configure your Process Engine is through an XML file called `camunda.cfg.xml`. Using that you can simply do:
 
@@ -100,6 +100,7 @@ This will look for a `camunda.cfg.xml` file on the classpath and construct an en
 
 </beans>
 ```
+If no resource `camunda.cfg.xml` is found, the default engine will search for the file `activiti.cfg.xml` as a fallback. If both are missing, the engine stops and prints an error message about the missing configuration resource.
 
 Note that the configuration XML is in fact a Spring configuration. This does not mean that the Camunda engine can only be used in a Spring environment! We are simply leveraging the parsing and dependency injection capabilities of Spring internally for building up the engine.
 
@@ -128,7 +129,6 @@ All these `ProcessEngineConfiguration.createXXX()` methods return a `ProcessEngi
 The `bpm-platform.xml` file is used to configure the Camunda BPM platform in the following distributions:
 
 * Apache Tomcat
-* GlassFish Application Server
 * IBM WebSphere Application Server
 * Oracle WebLogic Application Server
 
@@ -159,11 +159,11 @@ The `<process-engine ... />` xml tag allows you to define a process engine:
 </bpm-platform>
 ```
 
-See the [Deployment Descriptor Reference]({{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}) for complete documentation of the syntax of the `bpm-platform.xml` file.
+See the [Deployment Descriptor Reference]({{< ref "/reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}) for complete documentation of the syntax of the `bpm-platform.xml` file.
 
 
 ## Configure Process Engine in the processes.xml
 
-The process engine can also be configured and bootstrapped using the `META-INF/processes.xml` file. See [Section on processes.xml file]({{< relref "user-guide/process-applications/the-processes-xml-deployment-descriptor.md" >}}) for details.
+The process engine can also be configured and bootstrapped using the `META-INF/processes.xml` file. See [Section on processes.xml file]({{< ref "/user-guide/process-applications/the-processes-xml-deployment-descriptor.md" >}}) for details.
 
-See the [Deployment Descriptor Reference]({{< relref "reference/deployment-descriptors/descriptors/processes-xml.md" >}}) for complete documentation of the syntax of the `processes.xml` file.
+See the [Deployment Descriptor Reference]({{< ref "/reference/deployment-descriptors/descriptors/processes-xml.md" >}}) for complete documentation of the syntax of the `processes.xml` file.

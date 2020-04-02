@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Deliver a message to a specific execution to trigger an existing message event subscription. Inject process variables as the message's payload.
+Delivers a message to a specific execution by id, to trigger an existing message event subscription. Inject process variables as the message's payload.
 
 
 # Method
@@ -53,7 +53,7 @@ A JSON object with the following properties:
   <tr>
     <td>variables</td>
     <td>A JSON object containing variable key-value pairs. Each key is a variable name and each value a JSON variable value object.
-    {{< rest-var-request >}}
+    {{< rest-var-request transient="true" >}}
   </tr>
 </table>
 
@@ -79,13 +79,13 @@ This method returns no content.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>500</td>
     <td>application/json</td>
     <td>The addressed execution has no pending message subscriptions for the given message.
-    See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

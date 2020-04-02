@@ -12,13 +12,13 @@ menu:
 
 ---
 
-Decision tables allow specifying different types of expressions.
+Decision tables and decision literal expressions allow specifying different types of expressions.
 This section describes which types of expressions exist.
 It lists which expression languages are supported and demonstrates how to change the used expression language for an expression.
 
 # Expressions in DMN
 
-As shown in the [decision table] reference, three types of expressions are supported:
+As shown in the [decision table] and [decision literal expression] reference, four types of expressions are supported:
 
 - *Input Expression*: sets the input value for an input column
   of the decision table
@@ -26,13 +26,15 @@ As shown in the [decision table] reference, three types of expressions are suppo
   table is applicable
 - *Output Entry*: returns a value which is added to the output of a matched rule
   of the decision table
+- *Literal Expression*: used to determine the value of a decision literal expression 
 
 You can read more on this in the [DMN 1.1 reference][decision table]. In
-the DMN 1.1 XML, expressions can be found in the following XML
-elements `inputExpression`, `inputEntry` and `outputEntry`:
+the DMN 1.1 XML, expressions can be found in the XML
+elements `inputExpression`, `inputEntry`, `outputEntry` and `literalExpression`:
 
 ```xml
-<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn11.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
+  
   <decision id="decision" name="Decision">
     <decisionTable>
       <input id="input">
@@ -54,6 +56,14 @@ elements `inputExpression`, `inputEntry` and `outputEntry`:
       </rule>
     </decisionTable>
   </decision>
+
+   <decision id="decision2 name="Decision 2">
+    <!-- the literal expression determines the value of this decision -->
+    <literalExpression>
+      <text>a + b</text>
+    </literalExpression> 
+  </decision>
+  
 </definitions>
 ```
 
@@ -62,11 +72,9 @@ elements `inputExpression`, `inputEntry` and `outputEntry`:
 The Camunda DMN engine supports two expression languages out of the box:
 
 - `JUEL`: An [implementation][juel] of the Java [Unified Expression Language][EL]
-- `FEEL`: The Friendly Enough Expression Language of the [DMN 1.1] standard.
-  **Note**: `FEEL` is only supported for Input Entries in the Camunda DMN
-  engine. See the [reference][FEEL] for more information.
+- `FEEL`: The Friendly Enough Expression Language of the [DMN 1.2] standard.
 
-Depending on the JDK you use there may also be a `Javascript` implementation
+Depending on the JDK you use, there may also be a `Javascript` implementation
 available like [Rhino] or [Nashhorn].
 
 You can also use every other script language which provides a [JSR-223]
@@ -90,9 +98,15 @@ to your project `pom.xml`:
 The default expression languages of the different expression types in the
 DMN engine are as follows:
 
-- *Input Expression*: `JUEL`
+- *Input Expression*: `FEEL`
 - *Input Entry*: `FEEL`
-- *Output Entry*: `JUEL`
+- *Output Entry*: `FEEL`
+- *Literal Expression*: `FEEL`
+ 
+{{< note title="Legacy Behavior" class="info" >}}
+You can find how to go back to the legacy behavior, where `JUEL` was used for input expressions, 
+output entries and literal expressions [here]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#dmnFeelEnableLegacyBehavior" >}}).
+{{< /note >}}
 
 The default language can be changed by setting it directly in the DMN 1.1 XML as global expression language with the `expressionLanguage` attribute of
 the `definitions` element:
@@ -100,7 +114,7 @@ the `definitions` element:
 ```xml
 <!-- this sets the default expression language for all expressions -->
 <!-- in this file to javascript -->
-<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn11.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn" expressionLanguage="javascript">
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn" expressionLanguage="javascript">
   <decision  id="decision" name="Decision">
     <decisionTable>
       <!-- ... -->
@@ -117,7 +131,8 @@ Additionally, it is possible to change the default expression language in the de
 It is also possible to set the language for each expression individually using the `expressionLanguage` attribute:
 
 ```xml
-<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn11.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
+  
   <decision id="decision" name="Decision">
     <decisionTable>
       <input id="input">
@@ -139,6 +154,14 @@ It is also possible to set the language for each expression individually using t
       </rule>
     </decisionTable>
   </decision>
+  
+  <decision id="decision2" name="Decision 2">
+    <!-- use groovy for this literal expression -->
+    <literalExpression expressionLanguage="groovy">
+      <text>a + b</text>
+    </literalExpression> 
+  </decision>
+
 </definitions>
 ```
 
@@ -149,13 +172,13 @@ the JSR-223 script engine resolving, for example if you want to configure
 the script engine before using it.
 
 
-[decision table]: {{< relref "reference/dmn11/decision-table/index.md" >}}
+[decision table]: {{< ref "/reference/dmn11/decision-table/_index.md" >}}
+[decision literal expression]: {{< ref "/reference/dmn11/decision-literal-expression/_index.md" >}}
 [juel]: http://juel.sourceforge.net/
 [EL]: https://jcp.org/aboutJava/communityprocess/final/jsr245/index.html
-[DMN 1.1]: http://www.omg.org/spec/DMN/
-[FEEL]: {{< relref "reference/dmn11/feel/index.md" >}}
+[DMN 1.2]: http://www.omg.org/spec/DMN/
 [Rhino]: https://developer.mozilla.org/de/docs/Rhino
 [Nashhorn]: https://blogs.oracle.com/nashorn/
 [JSR-223]: https://www.jcp.org/en/jsr/detail?id=223
-[default EL]: {{< relref "user-guide/dmn-engine/embed.md#change-default-expression-languages" >}}
-[configure EL]: {{< relref "user-guide/dmn-engine/embed.md#customize-expression-and-script-resolving" >}}
+[default EL]: {{< ref "/user-guide/dmn-engine/embed.md#change-default-expression-languages" >}}
+[configure EL]: {{< ref "/user-guide/dmn-engine/embed.md#customize-expression-and-script-resolving" >}}

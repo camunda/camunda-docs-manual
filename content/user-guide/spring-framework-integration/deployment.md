@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Spring integration also has a special feature for deploying resources. In the process engine configuration, you can specify a set of resources. When the process engine is created, all those resources will be scanned and deployed. There is filtering in place that prevents duplicate deployments. Only in case the resources have actually changed, new deployments will be deployed to the engine database. This makes sense in a lot of use cases, where the Spring container is rebooted often (e.g. testing).
+Spring integration also has a special feature for deploying resources. In the process engine configuration, you can specify a set of resources. When the process engine is created, all those resources will be scanned and deployed. There is filtering in place that prevents duplicate deployments. Only in case the resources have actually changed, new deployments will be deployed to the engine database. This makes sense in a lot of use cases, where the Spring container is rebooted often (e.g., testing).
 
 Here's an example:
 

@@ -13,7 +13,7 @@ menu:
 
 # LDAP
 
-If you connect the Camunda BPM platform with the LDAP identity service, you have read-only access to the users and groups. Create new users and groups via the LDAP system, but not in the admin application. Find more information about how to configure the process engine in order to use the LDAP identity service [here]({{< relref "user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}).
+If you connect the Camunda BPM platform with the LDAP identity service, you have read-only access to the users and groups. Create new users and groups via the LDAP system, but not in the admin application. Find more information about how to configure the process engine in order to use the LDAP identity service [here]({{< ref "/user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}).
 
 
 # Logo and Header Color
@@ -37,6 +37,31 @@ and can override the standard styles.
   border-bottom-color: blue;
 }
 ```
+
+# Localization
+
+The localization of Admin is contained in the `app/admin/locales/` directory. This
+directory contains a separate localization file for every available language. The file name
+consists of the language code and the suffix `.json` (e.g., `en.json`).
+
+Admin uses a locale file corresponding to the language settings of the browser. You can
+set the `availableLocales` property in the configuration file to provide a list of available
+locales. Every locale which is contained in this list must have a locale file in the `locales`
+directory with the corresponding language code.
+
+If the browser uses a language which is not available, Admin uses the locale which is
+defined via the `fallbackLocale` property in the configuration file:
+
+```javascript
+"locales": {
+  "availableLocales": ["en", "de"],
+  "fallbackLocale": "en"
+}
+```
+
+To create a new localization for Admin, copy the provided language file, translate it and
+save it as new localization file with the corresponding language code. To make the new translation
+available, add it to the list of available locales in the configuration file.
 
 # Custom Scripts
 
@@ -71,6 +96,46 @@ This includes a `custom-ng-module/script.js` file. The path is relative to the
 ```javascript
 require(config.deps, callback);
 ```
+
+# Change CSRF Cookie Name
+
+The default name of the CSRF Cookie is `XSRF-TOKEN`. When using other applications within the
+same-origin, the CSRF mechanisms could interfere with each other. To avoid the name conflict, you
+can change the name of the CSRF cookie in the `config.js` file as follows:
+```javascript
+var camAdminConf = {
+  // …
+  csrfCookieName: 'MY-XSRF-TOKEN'
+};
+```
+
+**Note:** Please make sure to change the CSRF cookie name also on [server-side]({{<ref "/webapps/shared-options/csrf-prevention.md#cookie-name" >}}).
+
+# Disable Welcome Message for new Users
+
+First-time visitors are shown a message directing them to the camunda welcome page. If you do
+not want this message to be shown, you can disable it by adjusting the `config.js` as follows:
+```javascript
+var camAdminConf = {
+  // …
+  disableWelcomeMessage: true
+};
+```
+
+**Note:** This does only affect the Admin login page. For other webapps, you need to adjust the corresponding config file as well.
+
+
+# User Operation Log Annotation Length
+The default maximum length of a User Operation Log annotation is 4000 characters. Some databases have smaller limits. You can change the maximum allowed input length in the `config.js` file as follows:
+
+```javascript
+var camAdminConf = {
+  // …
+  userOperationLogAnnotationLength: 4000
+};
+```
+
+**Note:** This does only affect the Admin Operation Log. For the Cockpit Operation Log, check out the [Cockpit configuration]({{<ref "/webapps/cockpit/extend/configuration.md#user-operation-log-annotation-length" >}}).
 
 
 # Advanced Styles Customization

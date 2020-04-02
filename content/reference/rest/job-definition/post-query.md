@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Query for job definitions that fulfill given parameters. This method is slightly more powerful than the [GET query]({{< relref "reference/rest/job-definition/get-query.md" >}}) because it allows filtering by multiple job definitions of types <code>String</code>, <code>Number</code> or <code>Boolean</code>.
+Queries for job definitions that fulfill given parameters. This method is slightly more powerful than the [Get Job Definitions]({{< ref "/reference/rest/job-definition/get-query.md" >}}) method because it allows filtering by multiple job definitions of types <code>String</code>, <code>Number</code> or <code>Boolean</code>.
 
 
 # Method
@@ -67,11 +67,11 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>jobType</td>
-    <td>Only include job definitions which exist for the given job type.</td>
+    <td>Only include job definitions which exist for the given job type. See the <a href="{{< ref "/user-guide/process-engine/the-job-executor.md#job-creation" >}}">User Guide</a> for more information about job types.</td>
   </tr>
   <tr>
     <td>jobConfiguration</td>
-    <td>Only include job definitions which exist for the given job configuration.</td>
+    <td>Only include job definitions which exist for the given job configuration. For example: for timer jobs it is the timer configuration.</td>
   </tr>
   <tr>
     <td>active</td>
@@ -91,17 +91,21 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only include job definitions which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include job definitions which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>includeJobDefinitionsWithoutTenantId</td>
-    <td>Include job definitions which belongs to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Include job definitions which belong to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>sorting</td>
     <td>
-        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e. whether it is primary, secondary, etc. The ordering objects have the following properties:
-      <table>
+        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e., whether it is primary, secondary, etc. The ordering objects have the following properties:
+      <table class="table table-striped">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
         <tr>
           <td>sortBy</td>
           <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>jobDefinitionId</code>, <code>activityId</code>, <code>processDefinitionId</code>, <code>processDefinitionKey</code>, <code>jobType</code>, <code>jobConfiguration</code> and <code>tenantId</code>.</td>
@@ -150,12 +154,12 @@ Each job definition object has the following properties:
   <tr>
     <td>jobType</td>
     <td>String</td>
-    <td>The type of the job which is running for this job definition, for example: asynchronous continuation, timer etc.</td>
+    <td>The type of the job which is running for this job definition. See the <a href="{{< ref "/user-guide/process-engine/the-job-executor.md#job-creation" >}}">User Guide</a> for more information about job types.</td>
   </tr>
   <tr>
     <td>jobConfiguration</td>
     <td>String</td>
-    <td>The configuration of a job definition provides details about the jobs which will be created, for example: for timer jobs it is the timer configuration.</td>
+    <td>The configuration of a job definition provides details about the jobs which will be created. For example: for timer jobs it is the timer configuration.</td>
   </tr>
   <tr>
     <td>overridingJobPriority</td>
@@ -171,6 +175,11 @@ Each job definition object has the following properties:
     <td>tenantId</td>
     <td>String</td>
     <td>The id of the tenant this job definition is associated with.</td>
+  </tr>
+  <tr>
+    <td>deploymentId</td>
+    <td>String</td>
+    <td>The id of the deployment this job definition is related to. In a deployment-aware setup, this leads to all jobs of the same definition being executed on the same node.</td>
   </tr>
 </table>
 
@@ -191,7 +200,7 @@ Each job definition object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -230,7 +239,8 @@ Request Body:
         "jobConfiguration": "",
         "suspended": false,
         "overridingJobPriority": 15,
-        "tenantId": null
+        "tenantId": null,
+		"deploymentId": "aDeploymentId"	
       },
       {
         "id": "aJobDefId",
@@ -241,6 +251,7 @@ Request Body:
         "jobConfiguration": "",
         "suspended": true,
         "overridingJobPriority": null,
-        "tenantId": null
+        "tenantId": null,
+		"deploymentId": "aDeploymentId"	
       }
     ]

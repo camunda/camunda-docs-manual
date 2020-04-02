@@ -1,11 +1,11 @@
 ---
 
-title: "Install the Standalone Webapplication"
+title: "Install the Standalone Webapplication (.war)"
 weight: 20
 
 menu:
   main:
-    name: "Standalone Webapplication"
+    name: "Standalone Webapplication (.war)"
     identifier: "installation-guide-standalone"
     parent: "installation-guide"
     pre: "Install the Standalone Webapplication (bundling an embedded Process Engine) inside an Application Server like Wildfly or Tomcat."
@@ -14,22 +14,50 @@ menu:
 
 
 This document will guide you through the installation and configuration of the Camunda standalone web application.
-The Camunda web application combines [Cockpit]({{< relref "webapps/cockpit/index.md" >}}) and [Tasklist]({{< relref "webapps/tasklist/index.md" >}}). The web application is self-contained and includes
-an [embedded process engine]({{< relref "introduction/architecture.md#embedded-process-engine" >}}), which is configured inside the application. The process engine is configured using the
+The Camunda web application combines [Cockpit]({{< ref "/webapps/cockpit/_index.md" >}}) and [Tasklist]({{< ref "/webapps/tasklist/_index.md" >}}). The web application is self-contained and includes
+an [embedded process engine]({{< ref "/introduction/architecture.md#embedded-process-engine" >}}), which is configured inside the application. The process engine is configured using the
 Spring Framework and will automatically start when the application is deployed. The process engine must be configured
 to connect to a database (see the [database configuration]({{< relref "#database-configuration" >}}) section). By default the process engine will use a built-in
 identity service, which can be replaced with LDAP (see the [LDAP configuration]({{< relref "#ldap-configuration" >}}) section).
 
 {{< note title="Embedded vs. Shared Process Engine" >}}
-Note: Since the Camunda standalone web application uses an [embedded process engine]({{< relref "introduction/architecture.md#embedded-process-engine" >}}) it must not be installed to an application server from a Camunda distribution download. Application servers contained in Camunda distributions already provide a [shared process engine]({{< relref "introduction/architecture.md#shared-container-managed-process-engine" >}})
+Note: Since the Camunda standalone web application uses an [embedded process engine]({{< ref "/introduction/architecture.md#embedded-process-engine" >}}) it must not be installed to an application server from a Camunda distribution download. Application servers contained in Camunda distributions already provide a [shared process engine]({{< ref "/introduction/architecture.md#shared-container-managed-process-engine" >}})
 {{< /note >}}
 
 
 # Download
 
-Download the Camunda standalone webapp matching your application server from
-our [download page](http://camunda.org/download). Enterprise subscription
-customers use the [enterprise download page](/enterprise/download/#full-distributions-and-standalone-web-applications).
+If you are an **Enterprise Edition** Customer, please use the [enterprise download page](/enterprise/download/#full-distributions-and-standalone-web-applications).
+
+As a **Community Edition** user you can download the Camunda standalone webapp matching your application server here:
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Application Server</th>
+      <th>Link</th>
+    </tr>      
+  </thead>
+  <tbody>
+    <tr>
+      <td>Apache Tomcat</td>
+      <td>
+        <a href="//downloads.camunda.cloud/release/camunda-bpm/tomcat/7.12/camunda-webapp-tomcat-standalone-7.12.0.war">
+          camunda-webapp-tomcat-standalone-7.12.0.war
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>WildFly</td>
+      <td>
+        <a href="//downloads.camunda.cloud/release/camunda-bpm/jboss/7.12/camunda-webapp-jboss-standalone-7.12.0.war">
+          camunda-webapp-jboss-standalone-7.12.0.war
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 
 # Deploy
 
@@ -103,13 +131,13 @@ order to activate it, simply uncomment the lines shown below:
 </bean>
 ```
 
-To configure the LDAP service please adjust the values of the bean named `ldapIdentityProviderPlugin` as described in the [user guide]({{< relref "user-guide/process-engine/identity-service.md#configuration-properties-of-the-ldap-plugin" >}}).
-Do not forget to configure the [Administrator Authorization Plugin]({{< relref "user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}) as well.
+To configure the LDAP service please adjust the values of the bean named `ldapIdentityProviderPlugin` as described in the [user guide]({{< ref "/user-guide/process-engine/identity-service.md#configuration-properties-of-the-ldap-plugin" >}}).
+Do not forget to configure the [Administrator Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}) as well.
 
 
 # HAL Resource Caching
 
-If you use LDAP as Indentity Provider, you should consider [activating caching]({{< relref "reference/rest/overview/hal.md#caching-of-hal-relations" >}}) of Users and Groups in the Camunda webapplication. In order to activate this, add the following configuration to the `web.xml` file of Camunda webapplication:
+If you use LDAP as Indentity Provider, you should consider [activating caching]({{< ref "/reference/rest/overview/hal.md#caching-of-hal-relations" >}}) of Users and Groups in the Camunda webapplication. In order to activate this, add the following configuration to the `web.xml` file of Camunda webapplication:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

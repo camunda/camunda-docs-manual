@@ -13,9 +13,9 @@ menu:
 ---
 
 
-Query for case executions that fulfill given parameters.
+Queries for case executions that fulfill given parameters.
 Parameters may be static as well as dynamic runtime properties of case executions.
-The size of the result set can be retrieved by using the [get case executions count]({{< relref "reference/rest/case-execution/get-query-count.md" >}}) method.
+The size of the result set can be retrieved by using the [Get Case Execution Count]({{< ref "/reference/rest/case-execution/get-query-count.md" >}}) method.
 
 
 # Method
@@ -111,6 +111,14 @@ GET `/case-execution`
     <code>like</code>.<br/>
     <code>key</code> and <code>value</code> may not contain underscore or comma characters.
     </td>
+  </tr>
+  <tr>
+    <td>variableNamesIgnoreCase</td>
+    <td>Match all variable names provided in <code>variables</code> and <code>caseInstanceVariables</code> case-insensitively. If set to <code>true</code> <strong>variableName</strong> and <strong>variablename</strong> are treated as equal.</td>
+  </tr>
+  <tr>
+    <td>variableValuesIgnoreCase</td>
+    <td>Match all variable values provided in <code>variables</code> and <code>caseInstanceVariables</code> case-insensitively. If set to <code>true</code> <strong>variableValue</strong> and <strong>variablevalue</strong> are treated as equal.</td>
   </tr>
   <tr>
     <td>sortBy</td>
@@ -252,7 +260,7 @@ Each case execution object has the following properties:
     <td>400</td>
     <td>application/json</td>
     <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>,
-    or if an invalid operator for variable comparison is used. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    or if an invalid operator for variable comparison is used. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -268,15 +276,33 @@ GET `/case-execution?variables=myVariable_eq_camunda,mySecondVariable_neq_aBadVa
 
     [
       {
-        "links"            : [],
-        "id"               : "aCaseExecutionId",
-        "caseInstanceId"   : "aCaseInstId",
-        "required"         : false,
-        "repeatable"       : true,
-        "repetition"       : false,
-        "active"           : true,
-        "enabled"          : false,
-        "disabled"         : false,
-        "tenantId"         : null
+        "id"                  : "7340e4ed-63b2-11e6-973e-56847afe9799",
+        "caseInstanceId"      : "7340e4ed-63b2-11e6-973e-56847afe9799",
+        "caseDefinitionId"    : "underwriting:1:dde173eb-63b1-11e6-973e-56847afe9799",
+        "activityId"          : "_manual_underwriting",
+        "activityName"        : "Underwriting",
+        "activityType"        : "casePlanModel",
+        "activityDescription" : null,
+        "parentId"            : null,
+        "tenantId"            : null,
+        "required"            : false,
+        "enabled"             : false,
+        "active"              : true,
+        "disabled"            : false
+      },
+      {
+        "id"                  : "73413315-63b2-11e6-973e-56847afe9799",
+        "caseInstanceId"      : "7340e4ed-63b2-11e6-973e-56847afe9799",
+        "caseDefinitionId"    : "underwriting:1:dde173eb-63b1-11e6-973e-56847afe9799",
+        "activityId"          : "PI_humanTaskDecide",
+        "activityName"        : "decide on application",
+        "activityType"        : "humanTask",
+        "activityDescription" : null,
+        "parentId"            : "7340e4ed-63b2-11e6-973e-56847afe9799",
+        "tenantId"            : null,
+        "required"            : false,
+        "enabled"             : false,
+        "active"              : true,
+        "disabled"            : false
       }
     ]

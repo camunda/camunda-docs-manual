@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for historic details that fulfill the given parameters.
-The size of the result set can be retrieved by using the [count]({{< relref "reference/rest/history/detail/get-detail-query-count.md" >}}) method.
+Queries for historic details that fulfill the given parameters.
+The size of the result set can be retrieved by using the [Get Historic Detail Count]({{< ref "/reference/rest/history/detail/get-detail-query-count.md" >}}) method.
 
 
 # Method
@@ -34,6 +34,10 @@ GET `/history/detail`
   <tr>
     <td>processInstanceId</td>
     <td>Filter by process instance id.</td>
+  </tr>
+  <tr>
+    <td>processInstanceIdIn</td>
+    <td>Only include historic details which belong to one of the passed process instance ids.</td>
   </tr>
   <tr>
     <td>executionId</td>
@@ -56,8 +60,21 @@ GET `/history/detail`
     <td>Filter by variable instance id.</td>
   </tr>
   <tr>
+    <td>variableTypeIn</td>
+    <td>Only include historic details where the variable updates belong to one of the passed and comma-separated variable types. A list of all supported variable types can be found <a href="{{< ref "/user-guide/process-engine/variables.md#supported-variable-values" >}}">here</a>. <b>Note:</b> All non-primitive variables are associated with the type "serializable".</td>
+  </tr>
+  <tr>
     <td>tenantIdIn</td>
     <td>Filter by a comma-separated list of tenant ids.</td>
+  </tr>
+  <tr>
+    <td>withoutTenantId</td>
+    <td>Only include historic details that belong to no tenant. Value may only be 
+    <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
+    <td>userOperationId</td>
+    <td>Filter by a user operation id</td>
   </tr>
   <tr>
     <td>formFields</td>
@@ -70,6 +87,14 @@ GET `/history/detail`
   <tr>
     <td>excludeTaskDetails</td>
     <td>Excludes all task-related <strong>HistoricDetails</strong>, so only items which have no task id set will be selected. When this parameter is used together with <code>taskId</code>, this call is ignored and task details are <strong>not</strong> excluded. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
+    <td>occurredBefore</td>
+    <td>Restrict to historic details that occured before the given date (including the date). By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
+  </tr>
+  <tr>
+    <td>occurredAfter</td>
+    <td>Restrict to historic details that occured after the given date (including the date). By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>sortBy</td>
@@ -100,7 +125,7 @@ GET `/history/detail`
 
 # Result
 
-A json array of historic detail objects.
+A JSON array of historic detail objects.
 Each historic detail object has the following properties:
 
 <table class="table table-striped">
@@ -175,11 +200,28 @@ Each historic detail object has the following properties:
     <td>The id of the tenant that this historic detail belongs to.</td>
   </tr>
   <tr>
+    <td>userOperationId</td>
+    <td>String</td>
+    <td>The id of user operation which links historic detail with <a href="{{< ref "/reference/rest/history/user-operation-log/_index.md" >}}">user operation log</a> entries.</td>
+  </tr>
+  <tr>
     <td>time</td>
     <td>String</td>
-    <td>The time when this historic detail occurred has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The time when this historic detail occurred, default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+  <tr>
+    <td>removalTime</td>
+    <td>String</td>
+    <td>The time after which the historic detail should be removed by the History Cleanup job. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+  <tr>
+    <td>rootProcessInstanceId</td>
+    <td>String</td>
+    <td>The process instance id of the root process instance that initiated the process containing this historic detail.</td>
   </tr>
 </table>
+
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 Depending on the type of the historic detail it contains further properties. In case of an <code>HistoricVariableUpdate</code> the following properties are also provided:
 
@@ -207,7 +249,7 @@ Depending on the type of the historic detail it contains further properties. In 
   <tr>
     <td>value</td>
     <td>String/Number/Boolean/Object</td>
-    <td>{{< rest-var-response deserializationParameter="deserializeValues" >}}</td>
+    <td>{{< rest-var-response-value deserializationParameter="deserializeValues" >}}</td>
   </tr>
   <tr>
     <td>valueInfo</td>
@@ -263,7 +305,7 @@ In case of an <code>HistoricFormField</code> the following properties are also p
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -272,40 +314,66 @@ In case of an <code>HistoricFormField</code> the following properties are also p
 
 ## Request
 
-GET `/history/detail?processInstanceId=aProcInstId`
+GET `/history/detail?processInstanceId=3cd597b7-001a-11e7-8c6b-34f39ab71d4e`
 
 ## Response
 
 ```json
 [
   {
-    "id": "12345",
-    "processInstanceId": "aProcInstId",
-    "activityInstanceId": "anActInstId",
-    "executionId": "anExecutionId",
+    "type": "variableUpdate",
+    "id": "3cd79390-001a-11e7-8c6b-34f39ab71d4e",
+    "processDefinitionKey": "invoice",
+    "processDefinitionId": "invoice:1:3c59899b-001a-11e7-8c6b-34f39ab71d4e",
+    "processInstanceId": "3cd597b7-001a-11e7-8c6b-34f39ab71d4e",
+    "activityInstanceId": "StartEvent_1:3cd7456e-001a-11e7-8c6b-34f39ab71d4e",
+    "executionId": "3cd597b7-001a-11e7-8c6b-34f39ab71d4e",
+    "caseDefinitionKey": null,
+    "caseDefinitionId": null,
     "caseInstanceId": null,
     "caseExecutionId": null,
-    "time": "2014-02-28T15:00:00",
-    "variableName": "myProcessVariable",
-    "variableInstanceId": "aVariableInstanceId",
-    "variableType": "String",
-    "value": "aVariableValue",
-    "revision": 1,
+    "taskId": null,
+    "tenantId": null,
+    "userOperationId": "3cd76c7f-001a-11e7-8c6b-34f39ab71d4e",
+    "time": "2017-03-03T15:03:54.000+0200",
+    "variableName": "amount",
+    "variableInstanceId": "3cd65b08-001a-11e7-8c6b-34f39ab71d4e",
+    "variableType": "Double",
+    "value": 30.0,
+    "valueInfo": {},
+    "revision": 0,
     "errorMessage": null,
-    "tenantId": null
+    "removalTime":"2018-02-10T14:33:19.000+0200",
+    "rootProcessInstanceId": "aRootProcessInstanceId"
   },
   {
-    "id": "12345",
-    "processInstanceId": "aProcInstId",
-    "activityInstanceId": "anActInstId",
-    "executionId": "anExecutionId",
+    "type": "variableUpdate",
+    "id": "3cd79392-001a-11e7-8c6b-34f39ab71d4e",
+    "processDefinitionKey": "invoice",
+    "processDefinitionId": "invoice:1:3c59899b-001a-11e7-8c6b-34f39ab71d4e",
+    "processInstanceId": "3cd597b7-001a-11e7-8c6b-34f39ab71d4e",
+    "activityInstanceId": "StartEvent_1:3cd7456e-001a-11e7-8c6b-34f39ab71d4e",
+    "executionId": "3cd597b7-001a-11e7-8c6b-34f39ab71d4e",
+    "caseDefinitionKey": null,
+    "caseDefinitionId": null,
     "caseInstanceId": null,
     "caseExecutionId": null,
-    "taskId": "aTaskId",
-    "time": "2014-02-28T15:00:00",
-    "fieldId": "aFieldId",
-    "fieldValue": "aFieldValue",
-    "tenantId": null
+    "taskId": null,
+    "tenantId": null,
+    "userOperationId": "3cd76c7f-001a-11e7-8c6b-34f39ab71d4e",
+    "time": "2017-03-03T15:03:54.000+0200",
+    "variableName": "invoiceDocument",
+    "variableInstanceId": "3cd65b0a-001a-11e7-8c6b-34f39ab71d4e",
+    "variableType": "File",
+    "value": null,
+    "valueInfo": {
+      "mimeType": "application/pdf",
+      "filename": "invoice.pdf"
+    },
+    "revision": 0,
+    "errorMessage": null,
+    "removalTime":"2018-02-10T14:33:19.000+0200",
+    "rootProcessInstanceId": "aRootProcessInstanceId"
   }
 ]
 ```

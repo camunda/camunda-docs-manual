@@ -8,7 +8,7 @@ menu:
     name: "Embed"
     identifier: "user-guide-dmn-engine-embedding"
     parent: "user-guide-dmn-engine"
-    pre: "Use the DMN Engine as a Library in an Application"
+    pre: "Use the DMN Engine as a library in an application"
 
 ---
 
@@ -31,7 +31,7 @@ artifact in the `dependencies` section.
 # Building a DMN Engine
 
 To build a new DMN engine, create a DMN engine configuration.
-Configure it as needed and than build a new DMN engine from it.
+Configure it as needed and then build a new DMN engine from it.
 
 ```java
 // create default DMN engine configuration
@@ -52,7 +52,7 @@ DmnEngine dmnEngine = configuration.buildEngine();
 The DMN engine configuration allows you add a custom decision table {{< javadocref
 page="?org/camunda/bpm/dmn/engine/delegate/DmnDecisionTableEvaluationListener.html"
 text="evaluation listener" >}}. A decision table evaluation listener is
-notified after a decision table was evaluated. It receives an evaluation event
+notified after a decision table has been evaluated. It receives an evaluation event
 which contains the result of the evaluation. You can decide if the
 listener should be notified before or after the default listeners.
 
@@ -94,7 +94,7 @@ configuration.setEngineMetricCollector(metricCollector);
 The DMN engine configuration allows you add a custom {{< javadocref
 page="?org/camunda/bpm/dmn/engine/delegate/DmnDecisionEvaluationListener.html"
 text="decision evaluation listener" >}}. A decision evaluation listener is
-notified after a decision with all the required decisions were evaluated. It receives an evaluation event
+notified after a decision with all the required decisions has been evaluated. It receives an evaluation event
 which contains the result of the evaluation. You can decide if the
 listener should be notified before or after the default listeners.
 
@@ -119,8 +119,7 @@ configuration.getCustomPostDecisionEvaluationListeners()
 
 {{< note title="Use of Internal API" class="warning" >}}
 
-Please be aware that these APIs are **not** part of the [public API]({{< relref
-"introduction/public-api.md" >}}) and may change in later releases.
+Please be aware that these APIs are **not** part of the [public API]({{< ref "/introduction/public-api.md" >}}) and may change in later releases.
 
 {{< /note >}}
 
@@ -272,13 +271,15 @@ The following expression types exist:
 
 - *Input Expression*: Used to specify the input of a column in a decision
   table. The default language for input expressions in the DMN engine is
-  `JUEL`.
+  `FEEL`.
 - *Input Entry*: Used to specify the condition of a rule in a decision
   table. The default language for input entries in the DMN engine is
   `FEEL`.
 - *Output Entry*: Used to specify the output of a rule in a decision
   table. The default language for output entries in the DMN engine is
-  `JUEL`.
+  `FEEL`.
+  
+The default expression language of a [DMN decision literal expression] can also be configured, the default in the DMN engine is `FEEL`.
 
 Read more about the default expressions in the corresponding [section][expressions].
 
@@ -293,11 +294,10 @@ configuration
 ```
 
 Please note that the chosen language must be available in the classpath. By
-default `JUEL` and `FEEL` are available. The default `FEEL` implementation
-is only supported for input entries.
+default `JUEL` and `FEEL` are available.
 
-If the JDK includes a javascript
-implementation like Rhino or `javascript` is available as well.
+If the JDK includes a JavaScript
+implementation like Rhino or Nashorn, then `javascript` is available as well.
 
 It is also possible to use other script languages like `groovy`, `python` or `ruby`.
 Just make sure that the corresponding libraries are available on the classpath at runtime.
@@ -353,10 +353,11 @@ For more information on how to configure and use SLF4J, please refer to the
 
 [evaluation listener]: {{< javadocref page="?org/camunda/bpm/dmn/engine/delegate/DmnDecisionTableEvaluationListener.html" text="DmnDecisionTableEvaluationListener Interface" >}}
 [DMN model API]: https://github.com/camunda/camunda-dmn-model
-[data types]: {{< relref "user-guide/dmn-engine/data-types.md" >}}
-[hit policies]: {{< relref "reference/dmn11/decision-table/hit-policy.md" >}}
+[data types]: {{< ref "/user-guide/dmn-engine/data-types.md" >}}
+[hit policies]: {{< ref "/reference/dmn11/decision-table/hit-policy.md" >}}
 [SLF4J]: http://www.slf4j.org/
 [LOGBack]: http://logback.qos.ch/
 [user manual]: http://www.slf4j.org/manual.html
-[DMN decision table]: {{< relref "reference/dmn11/decision-table/index.md" >}}
-[expressions]: {{< relref "user-guide/dmn-engine/expressions-and-scripts.md" >}}
+[DMN decision table]: {{< ref "/reference/dmn11/decision-table/_index.md" >}}
+[DMN decision literal expression]: {{< ref "/reference/dmn11/decision-literal-expression/_index.md" >}}
+[expressions]: {{< ref "/user-guide/dmn-engine/expressions-and-scripts.md" >}}

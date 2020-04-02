@@ -11,7 +11,7 @@ menu:
 
 ---
 
-A Business Rule task is used to synchronously execute one or more rules.
+A Business Rule Task is used to synchronously execute one or more rules.
 
 {{< bpmn-symbol type="business-rule-task" >}}
 
@@ -19,11 +19,15 @@ A Business Rule task is used to synchronously execute one or more rules.
 # Using Camunda DMN Engine
 
 You can use the Camunda DMN engine integration to evaluate a DMN decision. You have
-to specify the decision key to evaluate as the `camunda:decisionRef` attribute. Additionally
+to specify the decision key to evaluate as the `camunda:decisionRef` attribute. Additionally, 
 the `camunda:decisionRefBinding` specifies which version of the decision should be evaluated.
-Valid values are `deployment` which evaluates the decision version which was deployed with the process
-version, `latest` which will always evaluate the latest decision version and `version` which
-allows you to specify a specific version to execute with the `camunda:decisionRefVersion` attribute.
+Valid values are:
+
+* `deployment`, which evaluates the decision version which was deployed with the process
+version,
+* `latest` which will always evaluate the latest decision version,
+* `version` which allows you to specify a specific version to execute with the `camunda:decisionRefVersion` attribute, and
+* `versionTag` which allows you to specify a specific version tag to execute with the `camunda:decisionRefVersionTag` attribute.
 
 ```xml
 <businessRuleTask id="businessRuleTask"
@@ -39,7 +43,7 @@ The `camunda:decisionRefBinding` attribute defaults to `latest`.
     camunda:decisionRef="myDecision" />
 ```
 
-The attributes `camunda:decisionRef` and `camunda:decisionRefVersion` can both be specified as
+The attributes `camunda:decisionRef`, `camunda:decisionRefVersion`, and `camunda:decisionRefVersionTag` can be specified as
 an expression which will be evaluated on execution of the task.
 
 ```xml
@@ -49,7 +53,7 @@ an expression which will be evaluated on execution of the task.
     camunda:decisionRefVersion="${decisionVersion}" />
 ```
 
-The output of the decision, also called decision result, is not saved as process variable automatically. It has to pass into a process variable by using a [predefined]({{< relref "user-guide/process-engine/decisions/bpmn-cmmn.md#predefined-mapping-of-the-decision-result" >}}) or a [custom]({{< relref "user-guide/process-engine/decisions/bpmn-cmmn.md#custom-mapping-into-process-variables" >}}) mapping of the decision result.
+The output of the decision, also called decision result, is not saved as process variable automatically. It has to pass into a process variable by using a [predefined]({{< ref "/user-guide/process-engine/decisions/bpmn-cmmn.md#predefined-mapping-of-the-decision-result" >}}) or a [custom]({{< ref "/user-guide/process-engine/decisions/bpmn-cmmn.md#custom-mapping-into-process-variables" >}}) mapping of the decision result.
 
 In case of a predefined mapping, the `camunda:mapDecisionResult` attribute references the mapper to use. The result of the mapping is saved in the variable which is specified by the `camunda:resultVariable` attribute. If no predefined mapper is set then the `resultList` mapper is used by default.
 
@@ -60,19 +64,19 @@ In case of a predefined mapping, the `camunda:mapDecisionResult` attribute refer
     camunda:resultVariable="result" />
 ```
 
-See the [User Guide]({{< relref "user-guide/process-engine/decisions/bpmn-cmmn.md#the-decision-result" >}}) for details about the mapping.
+See the [User Guide]({{< ref "/user-guide/process-engine/decisions/bpmn-cmmn.md#the-decision-result" >}}) for details about the mapping.
 
 {{< note title="Name of the Result Variable" class="warning" >}}
-The result variable should not have the name `decisionResult` since the decision result itself is saved in a variable with this name. Otherwise an exception is thrown while saving the result variable.
+The result variable should not have the name `decisionResult`, as the decision result itself is saved in a variable with this name. Otherwise, an exception is thrown while saving the result variable.
 {{< /note >}}
 
 # DecisionRef Tenant Id
 
-When the business rule task resolves the decision definition to be evaluated it must take into account multi tenancy.
+When the Business Rule Task resolves the decision definition to be evaluated it must take multi tenancy into account.
 
 ## Default Tenant Resolution
 By default, the tenant id of the calling process definition is used to evaluate the decision definition.
-That is, if the calling process definition has no tenant id, then the business rule task evaluate a decision definition using the provided key, binding and without a tenant id (tenant id = null).
+That is, if the calling process definition has no tenant id, then the Business Rule Task evaluates a decision definition using the provided key, binding and without a tenant id (tenant id = null).
 If the calling process definition has a tenant id, a decision definition with the provided key and the same tenant id is evaluated.
 
 Note that the tenant id of the calling process instance is not taken into account in the default behavior.
@@ -118,13 +122,13 @@ implementation of the rule task the same way as in a Service Task.
 
 # Using Delegate Code
 
-Alternatively a business rule task can be implemented using Java Delegation just as a Service Task. For more
+Alternatively, a Business Rule Task can be implemented using Java Delegation just as a Service Task. For more
 information on this please see the [Service Tasks]({{< relref "service-task.md" >}}) documentation.
 
 
 # Implementing as an External Task
 
-In addition to the above, a business rule task can be implemented via the [external task]({{< relref "user-guide/process-engine/external-tasks.md" >}}) mechanism where an external system polls the process engine for work to do. See the section on [service tasks](({{< relref "service-task.md#external-tasks" >}})) how to configure an external task.
+In addition to the above, a Business Rule Task can be implemented via the [External Task]({{< ref "/user-guide/process-engine/external-tasks.md" >}}) mechanism where an external system polls the process engine for work to do. See the section on [Service Tasks](({{< relref "service-task.md#external-tasks" >}}) for more information about how to configure an external task.
 
 
 # Camunda Extensions
@@ -133,31 +137,32 @@ In addition to the above, a business rule task can be implemented via the [exter
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncbefore" >}}">camunda:asyncBefore</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}">camunda:asyncAfter</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#class" >}}">camunda:class</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#decisionref" >}}">camunda:decisionRef</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#decisionrefbinding" >}}">camunda:decisionRefBinding</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#decisionreftenantid" >}}">camunda:decisionRefTenantId</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#decisionrefversion" >}}">camunda:decisionRefVersion</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#delegateexpression" >}}">camunda:delegateExpression</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#exclusive" >}}">camunda:exclusive</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#expression" >}}">camunda:expression</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#jobpriority" >}}">camunda:jobPriority</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#mapdecisionresult" >}}">camunda:mapDecisionResult</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#resultvariable" >}}">camunda:resultVariable</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#topic" >}}">camunda:topic</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#type" >}}">camunda:type</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#taskpriority" >}}">camunda:taskPriority</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#asyncbefore" >}}">camunda:asyncBefore</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}">camunda:asyncAfter</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#class" >}}">camunda:class</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#decisionref" >}}">camunda:decisionRef</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#decisionrefbinding" >}}">camunda:decisionRefBinding</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#decisionreftenantid" >}}">camunda:decisionRefTenantId</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#decisionrefversion" >}}">camunda:decisionRefVersion</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#decisionrefversiontag" >}}">camunda:decisionRefVersionTag</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#delegateexpression" >}}">camunda:delegateExpression</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#exclusive" >}}">camunda:exclusive</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#expression" >}}">camunda:expression</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#jobpriority" >}}">camunda:jobPriority</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#mapdecisionresult" >}}">camunda:mapDecisionResult</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#resultvariable" >}}">camunda:resultVariable</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#topic" >}}">camunda:topic</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#type" >}}">camunda:type</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#taskpriority" >}}">camunda:taskPriority</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#failedjobretrytimecycle" >}}">camunda:failedJobRetryTimeCycle</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#field" >}}">camunda:field</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#connector" >}}">camunda:connector</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}">camunda:inputOutput</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#failedjobretrytimecycle" >}}">camunda:failedJobRetryTimeCycle</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#field" >}}">camunda:field</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#connector" >}}">camunda:connector</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}">camunda:inputOutput</a>
     </td>
   </tr>
   <tr>
@@ -198,7 +203,7 @@ In addition to the above, a business rule task can be implemented via the [exter
 
 # Additional Resources
 
-* [Decisions]({{< relref "user-guide/process-engine/decisions/index.md" >}})
-* [Service Tasks]({{< relref "reference/bpmn20/tasks/service-task.md" >}})
+* [Decisions]({{< ref "/user-guide/process-engine/decisions/_index.md" >}})
+* [Service Tasks]({{< ref "/reference/bpmn20/tasks/service-task.md" >}})
 * [Tasks](http://camunda.org/bpmn/reference.html#activities-task) in the [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html)
 * [Demo using Drools on the Business Rule Task](https://github.com/camunda/camunda-consulting/tree/master/one-time-examples/order-confirmation-rules)

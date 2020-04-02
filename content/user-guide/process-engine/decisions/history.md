@@ -11,7 +11,7 @@ menu:
     pre: "Audit evaluated Decisions"
 ---
 
-After a decision definition was evaluated either from a BPMN process, CMMN
+After a decision definition has been evaluated either from a BPMN process, CMMN
 case or through the Decision Service, the inputs and outputs are saved in the
 History of the platform. The history entity is of type
 `HistoricDecisionInstance` and has the event type `evaluate`.
@@ -21,7 +21,7 @@ Event Log].
 
 {{< note title="History Level" class="info" >}}
 
-History level of **FULL** is required. Otherwise, no history
+History level **FULL** is required. Otherwise, no history
 for decisions is created.
 
 {{< /note >}}
@@ -43,7 +43,7 @@ List<HistoricDecisionInstance> historicDecisions = processEngine
   .list();
 ```
 
-Decisions which where evaluated from a [BPMN business rule task] can be
+Decisions which were evaluated from a [BPMN business rule task] can be
 filtered by the process definition id or key and process instance id.
 
 ```java
@@ -65,7 +65,7 @@ historicDecisionInstances = historyService
   .list();
 ```
 
-Decisions which where evaluated from a [CMMN decision task] can be filtered
+Decisions which were evaluated from a [CMMN decision task] can be filtered
 by the case definition id or key and case instance id.
 
 ```java
@@ -147,8 +147,8 @@ reference].
 
 The {{< javadocref
 page="?org/camunda/bpm/engine/history/HistoricDecisionInputInstance"
-text="HistoricDecisionInputInstance" >}} represents one input clause of an
-evaluated decision.
+text="HistoricDecisionInputInstance" >}} represents one input of an
+evaluated decision (e.g., an input clause of a decision table). 
 
 ```java
 HistoricDecisionInputInstance input = ...;
@@ -167,16 +167,17 @@ Object value = input.getValue();
 TypedValue typedValue = input.getTypedValue();
 ```
 
-Note that the value may be the result of a type transformation in case the
-input expression specifies a type.
+Note that the value may be the result of a type transformation in case the 
+input specifies a type.
 
 ## Historic Decision Output Instance
 
 The {{< javadocref
 page="?org/camunda/bpm/engine/history/HistoricDecisionOutputInstance"
 text="HistoricDecisionOutputInstance" >}} represents one output entry of an
-evaluated decision. The Historic Decision Instance contains one Historic
-Decision Output Instance for each output clause and matched rule.
+evaluated decision. If the decision is implemented as decision table, the 
+`HistoricDecisionInstance` contains one `HistoricDecisionOutputInstance` 
+for each output clause and matched rule.
 
 ```java
 HistoricDecisionOutputInstance output = ...;
@@ -213,8 +214,8 @@ You can audit the evaluated decision definitions in the [Cockpit] webapp.
 
 
 
-[Cockpit]: {{< relref "webapps/cockpit/dmn/index.md" >}}
-[History and Audit Event Log]: {{< relref "user-guide/process-engine/history.md" >}}
-[DMN 1.1 reference]: {{< relref "reference/dmn11/decision-table/hit-policy.md" >}}
-[BPMN business rule task]: {{< relref "reference/bpmn20/tasks/business-rule-task.md#using-camunda-dmn-engine" >}}
-[CMMN decision task]: {{< relref "reference/cmmn11/tasks/decision-task.md" >}}
+[Cockpit]: {{< ref "/webapps/cockpit/dmn/_index.md" >}}
+[History and Audit Event Log]: {{< ref "/user-guide/process-engine/history.md" >}}
+[DMN 1.1 reference]: {{< ref "/reference/dmn11/decision-table/hit-policy.md" >}}
+[BPMN business rule task]: {{< ref "/reference/bpmn20/tasks/business-rule-task.md#using-camunda-dmn-engine" >}}
+[CMMN decision task]: {{< ref "/reference/cmmn11/tasks/decision-task.md" >}}

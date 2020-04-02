@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Case Instance"
+title: "Get Case Instance"
 weight: 30
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single case instance according to the `CaseInstance` interface in the engine.
+Retrieves a case instance by id, according to the `CaseInstance` interface in the engine.
 
 
 # Method
@@ -39,7 +39,7 @@ GET `/case-instance/{id}`
 
 # Result
 
-A JSON object corresponding to the CaseInstance interface in the engine.
+A JSON object corresponding to the `CaseInstance` interface in the engine.
 Its properties are as follows:
 
 <table class="table table-striped">
@@ -101,7 +101,7 @@ Its properties are as follows:
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Case instance with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Case instance with given id does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

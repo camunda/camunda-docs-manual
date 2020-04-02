@@ -10,19 +10,19 @@ menu:
 
 ---
 
-The following steps describe how to upgrade the Camunda artifacts on a Tomcat server in a shared process engine setting. For the entire migration procedure, refer to the [migration guide][migration-guide]. If not already done, make sure to download the [Camunda BPM 7.2 Tomcat distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/tomcat/camunda-bpm-tomcat/).
+The following steps describe how to update the Camunda artifacts on a Tomcat server in a shared process engine setting. For the entire migration procedure, refer to the [migration guide][migration-guide]. If not already done, make sure to download the [Camunda BPM 7.2 Tomcat distribution](https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/tomcat/camunda-bpm-tomcat/).
 
-The upgrade procedure takes the following steps:
+The update procedure takes the following steps:
 
-1. Upgrade the Camunda BPM core libraries
-2. Upgrade and configure optional Camunda BPM libraries (*optional*)
+1. Update the Camunda BPM core libraries
+2. Update and configure optional Camunda BPM libraries (*optional*)
 3. Configure process engines
-4. Upgrade Camunda web applications
+4. Update Camunda web applications
 
 In each of the following steps, the identifiers `$*_VERSION` refer to the current version and the new versions of the artifacts.
 
 
-# 1. Upgrade the Camunda BPM Core Libraries
+# 1. Update the Camunda BPM Core Libraries
 
 Replace the following libraries in the folder `$TOMCAT_HOME/lib/` with their new versions from the folder `$TOMCAT_DISTRIBUTION/lib/`:
 
@@ -48,7 +48,7 @@ If present, remove the following artifacts:
 **Note:** The libraries `camunda-engine-spring-$PLATFORM_VERSION.jar` and `camunda-engine-spring-$PLATFORM_VERSION.jar` should be part of application deployments and therefore not in the global library folder. Make sure your process applications bundle these libraries when you remove them from the global folder.
 
 
-# 2. Upgrade and Configure Optional Camunda BPM Libraries
+# 2. Update and Configure Optional Camunda BPM Libraries
 
 In addition, there are artifacts for Camunda Connect, Camunda Spin, the Freemarker template language and Groovy scripting that may optionally be added to the folder `$TOMCAT_HOME/lib/`. Since all these artifacts add new functionality, the following steps are not required for migration.
 
@@ -154,27 +154,27 @@ As of 7.2, the default behavior of script variables has changed. Script variable
 
 As an alternative, process application developers can migrate script code by replacing all implicit declarations of process variables in their scripts with an explicit call to `execution.setVariable('varName', 'value')`.
 
-## 4. Upgrade Camunda Web Applications
+## 4. Update Camunda Web Applications
 
-#### Upgrade Camunda REST API
+#### Update Camunda REST API
 
-The following steps are required to upgrade the camunda REST API on a Tomcat instance:
+The following steps are required to update the camunda REST API on a Tomcat instance:
 
 1. Undeploy an existing web application with a name like `camunda-engine-rest`
-2. Download the REST API web application archive from our [Maven Nexus Server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/camunda-engine-rest/). Or switch to the private repository for the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION-tomcat.war`.
+2. Download the REST API web application archive from our [Maven Nexus Server](https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/camunda-engine-rest/). Or switch to the private repository for the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION-tomcat.war`.
 3. Deploy the web application archive to your Tomcat instance.
 
-#### Upgrade Camunda Cockpit, Tasklist, and Admin
+#### Update Camunda Cockpit, Tasklist, and Admin
 
-The following steps are required to upgrade the camunda web applications Cockpit, Tasklist, and Admin on a Tomcat instance:
+The following steps are required to update the camunda web applications Cockpit, Tasklist, and Admin on a Tomcat instance:
 
 1. Undeploy an existing web application with a name like `camunda-webapp`
-2. Download the Camunda web application archive from our [Maven Nexus Server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/webapp/camunda-webapp-tomcat/). Or switch to the private repository for the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-tomcat-$PLATFORM_VERSION.war`.
+2. Download the Camunda web application archive from our [Maven Nexus Server](https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/webapp/camunda-webapp-tomcat/). Or switch to the private repository for the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-tomcat-$PLATFORM_VERSION.war`.
 3. Deploy the web application archive to your Tomcat instance.
 
 {{< note title="LDAP Entity Caching" class="info" >}}
-With 7.2, it is possible to enable entity caching for Hypertext Application Language (HAL) requests that the camunda web applications make. This can be especially useful when you use camunda in combination with LDAP. To activate caching, the camunda webapp artifact has to be modified and the pre-built application cannot be used as is. See the [REST Api Documentation]({{< relref "reference/rest/overview/hal.md" >}}) for details.
+With 7.2, it is possible to enable entity caching for Hypertext Application Language (HAL) requests that the camunda web applications make. This can be especially useful when you use camunda in combination with LDAP. To activate caching, the camunda webapp artifact has to be modified and the pre-built application cannot be used as is. See the [REST Api Documentation]({{< ref "/reference/rest/overview/hal.md" >}}) for details.
 {{< /note >}}
 
-[configuration-location]: {{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}
-[migration-guide]: {{< relref "update/minor/71-to-72/index.md" >}}
+[configuration-location]: {{< ref "/reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}
+[migration-guide]: {{< ref "/update/minor/71-to-72/_index.md" >}}

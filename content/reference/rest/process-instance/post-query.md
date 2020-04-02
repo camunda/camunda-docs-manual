@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for process instances that fulfill given parameters through a JSON object.
-This method is slightly more powerful than the [GET query]({{< relref "reference/rest/process-instance/get-query.md" >}}) because it allows
+Queries for process instances that fulfill given parameters through a JSON object.
+This method is slightly more powerful than the [Get Instances]({{< ref "/reference/rest/process-instance/get-query.md" >}}) method because it allows
 filtering by multiple process variables of types `String`, `Number` or `Boolean`.
 
 
@@ -60,6 +60,10 @@ A JSON object with the following properties:
     <td>Filter by process instance business key.</td>
   </tr>
   <tr>
+    <td>businessKeyLike</td>
+    <td>Filter by process instance business key that the parameter is a substring of.</td>
+  </tr>
+  <tr>
     <td>caseInstanceId</td>
     <td>Filter by case instance id.</td>
   </tr>
@@ -70,6 +74,14 @@ A JSON object with the following properties:
   <tr>
     <td>processDefinitionKey</td>
     <td>Filter by the key of the process definition the instances run on.</td>
+  </tr>
+  <tr>
+    <td>processDefinitionKeyIn</td>
+    <td>Filter by a list of process definition keys. A process instance must have one of the given process definition keys. Must be a JSON array of Strings.</td>
+  </tr>
+  <tr>
+    <td>processDefinitionKeyNotIn</td>
+    <td>Exclude instances by a list of process definition keys. A process instance must not have one of the given process definition keys. Must be a JSON array of Strings.</td>
   </tr>
   <tr>
     <td>deploymentId</td>
@@ -100,12 +112,16 @@ A JSON object with the following properties:
     <td>Only include suspended process instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
+    <td>withIncident</td>
+    <td>Filter by presence of incidents. Selects only process instances that have an incident.</td>
+  </tr>
+  <tr>
     <td>incidentId</td>
     <td>Filter by the incident id.</td>
   </tr>
   <tr>
     <td>incidentType</td>
-    <td>Filter by the incident type.</td>
+    <td>Filter by the incident type. See the <a href="{{< ref "/user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
   </tr>
   <tr>
     <td>incidentMessage</td>
@@ -121,11 +137,23 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only include process instances which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include process instances which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>activityIdIn</td>
     <td>Filter by a list of activity ids. A process instance must currently wait in a leaf activity with one of the given activity ids.</td>
+  </tr>
+  <tr>
+    <td>rootProcessInstances</td>
+    <td>Restrict the query to all process instances that are top level process instances.</td>
+  </tr>
+  <tr>
+    <td>leafProcessInstances</td>
+    <td>Restrict the query to all process instances that are leaf instances. (i.e. don't have any sub instances)</td>
+  </tr>
+  <tr>
+    <td>processDefinitionWithoutTenantId</td>
+    <td>Only include process instances which process definition has no tenant id.</td>
   </tr>
   <tr>
     <td>variables</td>
@@ -140,13 +168,36 @@ A JSON object with the following properties:
     </td>
   </tr>
   <tr>
+    <td>variableNamesIgnoreCase</td>
+    <td>Match all variable names in this query case-insensitively. If set to <code>true</code> <strong>variableName</strong> and <strong>variablename</strong> are treated as equal.</td>
+  </tr>
+  <tr>
+    <td>variableValuesIgnoreCase</td>
+    <td>Match all variable values in this query case-insensitively. If set to <code>true</code> <strong>variableValue</strong> and <strong>variablevalue</strong> are treated as equal.</td>
+  </tr>
+  <tr>
+    <td>orQueries</td>
+    <td>
+    A JSON array of nested process instance queries with OR semantics. A process instance matches a nested query if it fulfills <i>at least one</i> of the query's predicates. With multiple nested queries, a process instance must fulfill at least one predicate of <i>each</i> query (<a href="https://en.wikipedia.org/wiki/Conjunctive_normal_form">Conjunctive Normal Form</a>).<br><br>
+
+    All process instance query properties can be used except for: <code>sorting</code><br><br>
+
+    See the <a href="{{< ref "/user-guide/process-engine/process-engine-api.md#or-queries" >}}">user guide</a>
+    for more information about OR queries.
+    </td>
+  </tr>
+  <tr>
     <td>sorting</td>
     <td>
-        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e. whether it is primary, secondary, etc. The ordering objects have the following properties:
-      <table>
+        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e., whether it is primary, secondary, etc. The ordering objects have the following properties:
+      <table class="table table-striped">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
         <tr>
           <td>sortBy</td>
-          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>instanceId</code>, <code>definitionKey</code>, <code>definitionId</code> and <code>tenantId</code>.</td>
+          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>instanceId</code>, <code>definitionKey</code>, <code>definitionId</code>, <code>tenantId</code> and <code>businessKey</code>.</td>
         </tr>
         <tr>
           <td>sortOrder</td>
@@ -226,7 +277,7 @@ Each process instance object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

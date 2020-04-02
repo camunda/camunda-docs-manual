@@ -1,6 +1,6 @@
 ---
 
-title: "Delete Single Deployment"
+title: "Delete Deployment"
 weight: 80
 
 menu:
@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Deletes a deployment.
+Deletes a deployment by id.
 
 
 # Method
@@ -50,6 +50,10 @@ DELETE `/deployment/{id}`
     <td>skipCustomListeners</td>
     <td><code>true</code>, if only the built-in ExecutionListeners should be notified with the end event.</td>
   </tr>
+  <tr>
+    <td>skipIoMappings</td>
+    <td><code>true</code>, if all input/output mappings should not be invoked.</td>
+  </tr>
 </table>
 
 # Result
@@ -73,7 +77,7 @@ This method returns no content.
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Deployment with id 'aDeploymentId' does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>A Deployment with the provided id does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

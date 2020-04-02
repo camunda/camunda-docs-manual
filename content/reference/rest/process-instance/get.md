@@ -1,6 +1,6 @@
 ---
 
-title: 'Get Single Instance'
+title: 'Get Instance'
 weight: 90
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single process instance according to the `ProcessInstance` interface in the engine.
+Retrieves a process instance by id, according to the `ProcessInstance` interface in the engine.
 
 
 # Method
@@ -39,7 +39,7 @@ GET `/process-instance/{id}`
 
 # Result
 
-A JSON object corresponding to the ProcessInstance interface in the engine.
+A JSON object corresponding to the `ProcessInstance` interface in the engine.
 Its properties are as follows:
 
 <table class="table table-striped">
@@ -105,7 +105,7 @@ Its properties are as follows:
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Process instance with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Process instance with given id does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

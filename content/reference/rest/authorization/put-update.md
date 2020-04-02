@@ -1,6 +1,6 @@
 ---
 
-title: "Update a Single Authorization"
+title: "Update an Authorization"
 weight: 70
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Updates a single authorization.
+Updates an authorization by id.
 
 # Method
 
@@ -55,7 +55,7 @@ A JSON object with the following properties:
   <tr>
     <td>userId</td>
     <td>String</td>
-    <td>The id of the user this authorization has been created for. The value "\*" represents a global authorization ranging over all users.</td>
+    <td>The id of the user this authorization has been created for. The value "*" represents a global authorization ranging over all users.</td>
   </tr>
   <tr>
     <td>groupId</td>
@@ -65,12 +65,12 @@ A JSON object with the following properties:
   <tr>
     <td>resourceType</td>
     <td>Integer</td>
-    <td>An integer representing the resource type.</td>
+    <td>An integer representing the resource type. See the <a href="{{< ref "/user-guide/process-engine/authorization-service.md#resources" >}}">User Guide</a> for a list of integer representations of resource types.</td>
   </tr>
   <tr>
     <td>resourceId</td>
     <td>String</td>
-    <td>The resource Id. The value "\*" represents an authorization ranging over all instances of a resource.</td>
+    <td>The resource Id. The value "*" represents an authorization ranging over all instances of a resource.</td>
   </tr>
 </table>
 
@@ -93,9 +93,14 @@ This method returns no content.
     <td>Request successful.</td>
   </tr>
   <tr>
+    <td>400</td>
+    <td>application/json</td>
+    <td>Returned if some of the properties in the request body are invalid, for example if a permission parameter is not valid for the provided resourceType. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+  </tr>
+  <tr>
     <td>403</td>
     <td>application/json</td>
-    <td>The authenticated user is unauthorized to update this resource. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>The authenticated user is unauthorized to update this resource. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
@@ -105,7 +110,7 @@ This method returns no content.
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>The authorization could not be updated due to an internal server error. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>The authorization could not be updated due to an internal server error. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

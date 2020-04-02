@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" id="dinnerDecisions" name="Dinner Decisions" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="Decision_13nychf" name="Beverages">
+    <extensionElements>
+      <biodi:bounds x="122" y="184" width="180" height="80" />
+      <biodi:edge source="InputData_0pgvdj9">
+        <biodi:waypoints x="523" y="338" />
+        <biodi:waypoints x="476" y="265" />
+      </biodi:edge>
+      <biodi:edge source="Decision_0v6lvdk">
+        <biodi:waypoints x="104" y="338" />
+        <biodi:waypoints x="163" y="264" />
+      </biodi:edge>
+    </extensionElements>
+    <informationRequirement>
+      <requiredInput href="#InputData_0pgvdj9" />
+    </informationRequirement>
+    <informationRequirement>
+      <requiredDecision href="#Decision_0v6lvdk" />
+    </informationRequirement>
+    <decisionTable>
+      <output typeRef="string" />
+    </decisionTable>
+  </decision>
+  <decision id="Decision_0v6lvdk" name="Dish">
+    <extensionElements>
+      <biodi:bounds x="-17" y="338" width="180" height="80" />
+      <biodi:edge source="InputData_0rin549">
+        <biodi:waypoints x="215" y="498" />
+        <biodi:waypoints x="279" y="419" />
+      </biodi:edge>
+      <biodi:edge source="InputData_1axnom3">
+        <biodi:waypoints x="401" y="498" />
+        <biodi:waypoints x="341" y="419" />
+      </biodi:edge>
+      <biodi:edge source="KnowledgeSource_0b8hnqo">
+        <biodi:waypoints x="-140" y="376" />
+        <biodi:waypoints x="-17" y="376" />
+      </biodi:edge>
+    </extensionElements>
+    <informationRequirement>
+      <requiredInput href="#InputData_0rin549" />
+    </informationRequirement>
+    <informationRequirement>
+      <requiredInput href="#InputData_1axnom3" />
+    </informationRequirement>
+    <authorityRequirement>
+      <requiredAuthority href="#KnowledgeSource_0b8hnqo" />
+    </authorityRequirement>
+    <decisionTable id="DecisionTable_040j91i">
+      <output id="OutputClause_0lfar1z" typeRef="string" />
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_0rin549" name="Season">
+    <extensionElements>
+      <biodi:bounds x="-104" y="497" width="125" height="45" />
+    </extensionElements>
+  </inputData>
+  <inputData id="InputData_1axnom3" name="Number of Guests">
+    <extensionElements>
+      <biodi:bounds x="117" y="497" width="125" height="45" />
+    </extensionElements>
+  </inputData>
+  <inputData id="InputData_0pgvdj9" name="Guests with children?">
+    <extensionElements>
+      <biodi:bounds x="237" y="337" width="125" height="45" />
+    </extensionElements>
+  </inputData>
+  <knowledgeSource id="KnowledgeSource_0b8hnqo" name="Men&#39;s Cookbook">
+    <extensionElements>
+      <biodi:bounds x="-240" y="344" width="100" height="63" />
+    </extensionElements>
+  </knowledgeSource>
+</definitions>

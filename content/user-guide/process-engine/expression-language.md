@@ -37,10 +37,10 @@ usage of EL.
   <tr>
     <td>
       <a href="#conditions">
-        Sequence Flows
+        Sequence Flows, Conditional Events
       </a>
     </td>
-    <td>Expression language as condition expression of a sequence flow</td>
+    <td>Expression language as condition expression</td>
   </tr>
   <tr>
     <td>
@@ -60,7 +60,7 @@ usage of EL.
   </tr>
   <tr>
     <td>
-      <a href="{{< relref "user-guide/process-engine/the-job-executor.md#specifying-priorities-in-bpmn-xml" >}}">
+      <a href="{{< ref "/user-guide/process-engine/the-job-executor.md#specifying-priorities-in-bpmn-xml" >}}">
         All Flow Nodes, Process Definition
       </a>
     </td>
@@ -75,7 +75,7 @@ usage of EL.
 
 Besides Java code, Camunda BPM also supports the evaluation of expressions as delegation code. For
 general information about delegation code, see the corresponding
-[section]({{< relref "user-guide/process-engine/delegation-code.md" >}}).
+[section]({{< ref "/user-guide/process-engine/delegation-code.md" >}}).
 
 Two types of expressions are currently supported: `camunda:expression` and
 `camunda:delegateExpression`.
@@ -127,15 +127,16 @@ interface.
 
 ## Conditions
 
-To use conditional sequence flows, expression language is usually used. Therefore, a
-`conditionExpression` element of a sequence flow of the type `tFormalExpression` has to be used.
-The text content of the element is the expression to be evaluated.
+To use conditional sequence flows or conditional events, expression language is usually used.
+For conditional sequence flows, a `conditionExpression` element of a sequence flow has to be used.
+For conditional events, a `condition` element of a conditional event has to be used. Both are
+of the type `tFormalExpression`. The text content of the element is the expression to be evaluated.
 
-Inside the expression some special variables are available which enable the access of the current
-context. To find more information about the available variables please see the [corresponding
+Within the expression, some special variables are available which enable access of the current
+context. To find more information about the available variables, please see the [corresponding
 section][variables].
 
-The following example shows the usage of expression language as condition of a sequence flow:
+The following example shows usage of expression language as condition of a sequence flow:
 
 ```xml
   <sequenceFlow>
@@ -143,6 +144,14 @@ The following example shows the usage of expression language as condition of a s
       ${test == 'foo'}
     </conditionExpression>
   </sequenceFlow>
+```
+
+For usage of expression language on conditional events, see the following example:
+
+```xml
+<conditionalEventDefinition>
+  <condition type="tFormalExpression">${var1 == 1}</condition>
+</conditionalEventDefinition>
 ```
 
 
@@ -332,8 +341,8 @@ If the Camunda Spin process engine plugin is activated, the Spin functions `S`,
 [official documentation]: http://docs.oracle.com/javaee/5/tutorial/doc/bnahq.html
 [examples]: http://docs.oracle.com/javaee/5/tutorial/doc/bnahq.html#bnain
 [variables]: {{< relref "#availability-of-variables-and-functions-inside-expression-language" >}}
-[Spring]: {{< relref "user-guide/spring-framework-integration/index.md#expression-resolving" >}}
-[CDI]: {{< relref "user-guide/cdi-java-ee-integration/expression-resolving.md" >}}
-[BPMN]: {{< relref "reference/bpmn20/index.md" >}}
-[CMMN]: {{< relref "reference/cmmn11/index.md" >}}
-[spin-section]: {{< relref "user-guide/data-formats/index.md" >}}
+[Spring]: {{< ref "/user-guide/spring-framework-integration/_index.md#expression-resolving" >}}
+[CDI]: {{< ref "/user-guide/cdi-java-ee-integration/expression-resolving.md" >}}
+[BPMN]: {{< ref "/reference/bpmn20/_index.md" >}}
+[CMMN]: {{< ref "/reference/cmmn11/_index.md" >}}
+[spin-section]: {{< ref "/user-guide/data-formats/_index.md" >}}

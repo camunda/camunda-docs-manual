@@ -20,7 +20,7 @@ _Old_ plugins will still be visible on the dashboard until you change their name
 
 Read more about [cockpit dashboard plugins][cockpit-dashboard-plugins].
 
-[cockpit-dashboard-plugins]: {{< relref "webapps/cockpit/extend/plugins.md" >}}#dashboard
+[cockpit-dashboard-plugins]: {{< ref "/webapps/cockpit/extend/plugins.md" >}}#dashboard
 
 
 # Available modules
@@ -100,7 +100,7 @@ define(['angular', 'jquery', 'moment'], function(angular, $, moment) {
 
 # Version changes
 
-The following modules have been upgraded to a newer version:
+The following modules have been updated to a newer version:
 
 <table class="table table-bordered">
   <thead>

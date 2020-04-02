@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Historic Detail"
+title: "Get Historic Detail"
 weight: 30
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single historic detail by id.
+Retrieves a historic detail by id.
 
 
 # Method
@@ -127,11 +127,28 @@ An object having the following properties:
     <td>The id of the tenant that this historic detail belongs to.</td>
   </tr>
   <tr>
+    <td>userOperationId</td>
+    <td>String</td>
+    <td>The id of user operation which links historic detail with <a href="{{< ref "/reference/rest/history/user-operation-log/_index.md" >}}">user operation log</a> entries.</td>
+  </tr>
+  <tr>
     <td>time</td>
     <td>String</td>
-    <td>The time when this historic detail occurred, has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The time when this historic detail occurred, default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+  <tr>
+    <td>removalTime</td>
+    <td>String</td>
+    <td>The time after which the historic detail should be removed by the History Cleanup job. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+  <tr>
+    <td>rootProcessInstanceId</td>
+    <td>String</td>
+    <td>The process instance id of the root process instance that initiated the process containing this historic detail.</td>
   </tr>
 </table>
+
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 Depending on the type of the historic detail it contains further properties. In case of a <code>HistoricVariableUpdate</code> the following properties are also provided:
 
@@ -159,7 +176,7 @@ Depending on the type of the historic detail it contains further properties. In 
   <tr>
     <td>value</td>
     <td>String/Number/Boolean/Object</td>
-    <td>{{< rest-var-response deserializationParameter="deserializeValue" >}}</td>
+    <td>{{< rest-var-response-value deserializationParameter="deserializeValue" >}}</td>
   </tr>
   <tr>
     <td>valueInfo</td>
@@ -214,7 +231,7 @@ In case of an <code>HistoricFormField</code> the following properties are also p
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Variable with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Variable with given id does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -223,7 +240,7 @@ In case of an <code>HistoricFormField</code> the following properties are also p
 
 ## Request
 
-GET `/history/detail/someId`
+GET `/history/detail/3cd79390-001a-11e7-8c6b-34f39ab71d4e`
 
 ## Response
 
@@ -231,19 +248,29 @@ Status 200.
 
 ```json
 {
-  "id": "12345",
-  "processInstanceId": "aProcInstId",
-  "activityInstanceId": "anActInstId",
-  "executionId": "anExecutionId",
+  "type": "variableUpdate",
+  "id": "3cd79390-001a-11e7-8c6b-34f39ab71d4e",
+  "processDefinitionKey": "invoice",
+  "processDefinitionId": "invoice:1:3c59899b-001a-11e7-8c6b-34f39ab71d4e",
+  "processInstanceId": "3cd597b7-001a-11e7-8c6b-34f39ab71d4e",
+  "activityInstanceId": "StartEvent_1:3cd7456e-001a-11e7-8c6b-34f39ab71d4e",
+  "executionId": "3cd597b7-001a-11e7-8c6b-34f39ab71d4e",
+  "caseDefinitionKey": null,
+  "caseDefinitionId": null,
   "caseInstanceId": null,
   "caseExecutionId": null,
-  "time": "2014-02-28T15:00:00",
-  "variableName": "myProcessVariable",
-  "variableInstanceId": "aVariableInstanceId",
-  "variableType": "String",
-  "value": "aVariableValue",
-  "revision": 1,
+  "taskId": null,
+  "tenantId": null,
+  "userOperationId": "3cd76c7f-001a-11e7-8c6b-34f39ab71d4e",
+  "time": "2017-03-03T15:03:54.000+0200",
+  "variableName": "amount",
+  "variableInstanceId": "3cd65b08-001a-11e7-8c6b-34f39ab71d4e",
+  "variableType": "Double",
+  "value": 30.0,
+  "valueInfo": {},
+  "revision": 0,
   "errorMessage": null,
-  "tenantId": null
+  "removalTime":"2018-02-10T14:33:19.000+0200",
+  "rootProcessInstanceId": "aRootProcessInstanceId"
 }
 ```

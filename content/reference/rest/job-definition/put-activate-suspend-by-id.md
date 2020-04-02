@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Activate or suspend a given job definition by id.
+Activates or suspends a given job definition by id.
 
 # Method
 
@@ -53,10 +53,11 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>executionDate</td>
-    <td>The date on which the given job definition will be activated or suspended. If null, the suspension state of the given job definition is updated immediately. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>The date on which the given job definition will be activated or suspended. If null, the suspension state of the given job definition is updated immediately. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
 </table>
 
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Result
 
@@ -79,7 +80,7 @@ This method returns no content.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the request parameters are invalid, for example if the provided <code>executionDate</code> parameter doesn't have the expected format. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the request parameters are invalid, for example if the provided <code>executionDate</code> parameter doesn't have the expected format. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -93,7 +94,7 @@ PUT `/job-definition/aJobDefinitionId/suspended`
     {
       "suspended" : true,
       "includeJobs" : true,
-      "executionDate" : "2013-11-21T10:49:45"
+      "executionDate" : "2013-11-21T10:49:45.000+0200"
     }
 
 ## Response

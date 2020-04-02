@@ -11,11 +11,11 @@ menu:
 
 ---
 
-A Subprocess is an activity that contains other activities, gateways, events, etc. which itself forms a process that is part of the bigger process. A Subprocess is completely defined inside a parent process (that's why it's often called an embedded Subprocess).
+A subprocess is an activity that contains other activities, gateways, events, etc., which itself forms a process that is part of a bigger process. A subprocess is completely defined inside a parent process (that's why it's often called an embedded Subprocess).
 
 Subprocesses have two major use cases:
 
-*   Subprocesses allow hierarchical modeling. Many modeling tools allow that subprocesses can be collapsed, hiding all the details of the subprocess and displaying a high-level end-to-end overview of the business process.
+*   Subprocesses allow hierarchical modeling. Many modeling tools allow that subprocesses can be collapsed, hiding all the details of the subprocess and displaying a high-level, end-to-end overview of the business process.
 *   A subprocess creates a new scope for events. Events that are thrown during execution of the subprocess can be caught by a boundary event on the boundary of the subprocess, thus creating a scope for that event, limited to the subprocess.
 
 Using a subprocess does impose some constraints:
@@ -31,11 +31,11 @@ In case the subprocess is expanded, the steps of the subprocess are displayed wi
 
 <div data-bpmn-diagram="../bpmn/subprocess_expanded"></div>
 
-One of the main reasons to use a subprocess is to define a scope for a certain event. The following process model shows this: both the investigate software and investigate hardware tasks need to be done in parallel, but both tasks need to be done within a certain time, before Level 2 support is consulted. Here, the scope of the timer (i.e., which activities must be done in time) is constrained by the subprocess.
+One of the main reasons to use a subprocess is to define a scope for an event. The following process model shows this: If we are spontaneously invited to dinner, we will cancel our cooking process. However, if we are already eating, we will not react to an invitation anymore. In more technical terms, the scope of the message event is the subprocess, so the message can only be received while the subprocess is active.
 
 <div data-bpmn-diagram="../bpmn/subprocess_attached"></div>
 
-A subprocess is defined by the subprocess element. All activities, gateways, events, etc. that are part of the subprocess, need to be enclosed within this element.
+A subprocess is defined by the subprocess element. All activities, gateways, events, etc. that are part of the subprocess need to be enclosed within this element.
 
 ```xml
 <startEvent id="outerStartEvent" />
@@ -54,17 +54,17 @@ A subprocess is defined by the subprocess element. All activities, gateways, eve
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncbefore" >}}">camunda:asyncBefore</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}">camunda:asyncAfter</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#exclusive" >}}">camunda:exclusive</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#jobpriority" >}}">camunda:jobPriority</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#asyncbefore" >}}">camunda:asyncBefore</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}">camunda:asyncAfter</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#exclusive" >}}">camunda:exclusive</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#jobpriority" >}}">camunda:jobPriority</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#failedjobretrytimecycle" >}}">camunda:failedJobRetryTimeCycle</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}">camunda:inputOutput</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#failedjobretrytimecycle" >}}">camunda:failedJobRetryTimeCycle</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}">camunda:inputOutput</a>
     </td>
   </tr>
   <tr>

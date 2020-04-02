@@ -1,6 +1,6 @@
 ---
 
-title: "Get Variable Instances Count (POST)"
+title: "Get Variable Instance Count (POST)"
 weight: 60
 
 menu:
@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for historic variable instances that fulfill the given parameters.
-This method takes the same message body as the [POST query]({{< relref "reference/rest/history/variable-instance/post-variable-instance-query.md" >}}) and therefore it is more powerful regarding variable values than the [GET query count]({{< relref "reference/rest/history/variable-instance/get-variable-instance-query-count.md" >}}) method.
+Queries for historic variable instances that fulfill the given parameters.
+This method takes the same message body as the [Get Variable Instances (POST)]({{< ref "/reference/rest/history/variable-instance/post-variable-instance-query.md" >}}) method and therefore it is more powerful regarding variable values than the [Get Variable Instance Count]({{< ref "/reference/rest/history/variable-instance/get-variable-instance-query-count.md" >}}) method.
 
 
 # Method
@@ -46,12 +46,33 @@ A JSON object with the following properties:
     <td>Filter by variable value. May be <code>String</code>, <code>Number</code> or <code>Boolean</code>.</td>
   </tr>
   <tr>
+    <td>variableValue</td>
+    <td>Filter by variable value. Is treated as a <code>String</code> object on server side.</td>
+  </tr>
+  </tr>
+  <tr>
+    <td>variableNamesIgnoreCase</td>
+    <td>Match the variable name provided in <code>variableName</code> and <code>variableNameLike</code> case-insensitively. If set to <code>true</code> <strong>variableName</strong> and <strong>variablename</strong> are treated as equal.</td>
+  </tr>
+  <tr>
+    <td>variableValuesIgnoreCase</td>
+    <td>Match the variable value provided in <code>variableValue</code> case-insensitively. If set to <code>true</code> <strong>variableValue</strong> and <strong>variablevalue</strong> are treated as equal.</td>
+  </tr>
+  <tr>
+    <td>includeDeleted</td>
+    <td>Include variables that has already been deleted during the execution.</td>
+  </tr>
+  <tr>
     <td>processInstanceId</td>
     <td>Filter by the process instance the variable belongs to.</td>
   </tr>
   <tr>
     <td>processInstanceIdIn</td>
     <td>Only include historic variable instances which belong to one of the passed process instance ids.</td>
+  </tr>
+  <tr>
+    <td>processDefinitionId</td>
+    <td>Filter by the process definition the variable belongs to.</td>
   </tr>
   <tr>
     <td>executionIdIn</td>
@@ -66,6 +87,10 @@ A JSON object with the following properties:
     <td>Only include historic variable instances which belong to one of the passed case execution ids.</td>
   </tr>
   <tr>
+    <td>caseActivityIdIn</td>
+    <td>Only include historic variable instances which belong to one of the passed case activity ids.</td>
+  </tr>
+  <tr>
     <td>taskIdIn</td>
     <td>Only include historic variable instances which belong to one of the passed task ids.</td>
   </tr>
@@ -76,6 +101,11 @@ A JSON object with the following properties:
   <tr>
     <td>tenantIdIn</td>
     <td>Only include historic variable instances which belong to one of the passed and comma-separated tenant ids.</td>
+  </tr>
+  <tr>
+    <td>withoutTenantId</td>
+    <td>Only include historic variable instances that belong to no tenant. Value may only be 
+    <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
 </table>
 
@@ -114,7 +144,7 @@ A JSON object that contains the count as the only property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

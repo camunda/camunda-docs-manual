@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Decision Definition"
+title: "Get Decision Definition"
 weight: 30
 
 menu:
@@ -17,7 +17,7 @@ menu:
 ---
 
 
-Retrieves a single decision definition according to the DecisionDefinition interface in the engine.
+Retrieves a decision definition by id, according to the `DecisionDefinition` interface in the engine.
 
 
 # Method
@@ -54,7 +54,7 @@ GET `/decision-definition/key/{key}/tenant-id/{tenant-id}` (returns the latest v
 
 # Result
 
-A JSON object corresponding to the DecisionDefinition interface in the engine.
+A JSON object corresponding to the `DecisionDefinition` interface in the engine.
 Its properties are as follows:
 
 <table class="table table-striped">
@@ -71,7 +71,7 @@ Its properties are as follows:
   <tr>
     <td>key</td>
     <td>String</td>
-    <td>The key of the decision definition, i.e. the id of the DMN 1.0 XML decision definition.</td>
+    <td>The key of the decision definition, i.e., the id of the DMN 1.0 XML decision definition.</td>
   </tr>
   <tr>
     <td>category</td>
@@ -113,6 +113,16 @@ Its properties are as follows:
     <td>String</td>
     <td>The tenant id of the decision definition.</td>
   </tr>
+  <tr>
+    <td>versionTag</td>
+    <td>String</td>
+    <td>The version tag of the process definition.</td>
+  </tr>
+  <tr>
+    <td>historyTimeToLive</td>
+    <td>Number</td>
+    <td>History time to live value of the decision definition. Is used within <a href="{{< ref "/user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a>.</td>
+  </tr>
 </table>
 
 
@@ -134,7 +144,7 @@ Its properties are as follows:
     <td>application/json</td>
     <td>
       Decision definition with given id or key does not exist.
-      See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+      See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
 </table>
@@ -161,6 +171,8 @@ GET `/decision-definition/key/aDecisionDefinitionKey`
   "deploymentId": "c627175e-41b7-11e6-b0ef-00aa004d0001",
   "decisionRequirementsDefinitionId":"dish:1:c633c195-41b7-11e6-b0ef-00aa004d0001",
   "decisionRequirementsDefinitionKey":"dish",
-  "tenantId": null
+  "tenantId": null,
+  "versionTag":null,
+  "historyTimeToLive": 5
 }
 ```

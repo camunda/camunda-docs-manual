@@ -1,26 +1,33 @@
 ---
 
-title: "Custom Date Format"
+title: "Date Format"
 weight: 60
 
 menu:
   main:
-    identifier: "rest-api-overview-custom-date-format"
+    identifier: "rest-api-overview-date-format"
     parent: "rest-api-overview"
 
 ---
 
-The REST API uses the default date format `yyyy-MM-dd'T'HH:mm:ss` which
-represents a date without milliseconds and timezone information, eg
-`2016-01-25T13:33:42`. A custom date format can be configured in the `web.xml`
-file of the REST API. Therefore the ServletContextListener
-`CustomJacksonDateFormatListener` has to be added. And the custom date format
+The REST API uses the default date format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, which
+represents a date with milliseconds and timezone information, e.g.,
+`2016-01-25T13:33:42.165+0100`. 
+
+If you add a date as a GET request parameter, remember the URL encoding, e.g. `2016-01-25T13:33:42.165%2b0100`.
+
+# Custom Date Format
+A custom date format can be configured in the `web.xml`
+file of the REST API. To do so, the ServletContextListener
+`CustomJacksonDateFormatListener` has to be added. The custom date format
 can be specified by the context parameter
 `org.camunda.bpm.engine.rest.jackson.dateFormat`.
 
-For example if the date format should contain milliseconds and timezone
-information (`yyyy-MM-dd'T'HH:mm:ss.SSSZ`) the following configuration can be
-used:
+For example, if the date format should not contain milliseconds and timezone
+information (`yyyy-MM-dd'T'HH:mm:ss`) the following configuration can be
+used.
+
+To achieve this, you can edit the `WEB-INF/web.xml` file as follows:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -38,7 +45,7 @@ used:
 
   <context-param>
     <param-name>org.camunda.bpm.engine.rest.jackson.dateFormat</param-name>
-    <param-value>yyyy-MM-dd'T'HH:mm:ss.SSSZ</param-value>
+    <param-value>yyyy-MM-dd'T'HH:mm:ss</param-value>
   </context-param>
 
   <!-- ... -->
@@ -46,6 +53,12 @@ used:
 ```
 
 With this configuration the REST API will return dates with millisecond
-precision and timezone information. Also new dates can be submitted with
-milliseconds and timezone information to the REST API without losing these
-details.
+precision and timezone information. Also, new dates with milliseconds and timezone information 
+can be submitted to the REST API without losing these details.
+
+{{< note title="Webapps compatibility" class="warning" >}}
+Be aware that, to be able to use the Camunda webapps, the date format must correspond to the following:
+
+`yyyy-MM-dd['T'HH:mm[:ss[.SSS[Z]]]]`
+
+{{< /note >}}

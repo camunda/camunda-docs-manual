@@ -19,9 +19,9 @@ The `/filter` resource supports two custom OPTIONS requests, one for the resourc
 
 # Method
 
-OPTIONS `/filter` for available interactions on resource
+OPTIONS `/filter` for available interactions on resource.
 
-OPTIONS `/filter/{id}` for available interactions on resource instance
+OPTIONS `/filter/{id}` for available interactions on resource instance.
 
 
 # Result
@@ -42,12 +42,12 @@ A JSON object with a single property named `links`, providing a list of resource
   <tr>
     <td>href</td>
     <td>String</td>
-    <td>The interaction URL</td>
+    <td>The interaction URL.</td>
   </tr>
   <tr>
     <td>rel</td>
     <td>String</td>
-    <td>The relation of the interaction (ie. a symbolic name representing the nature of the interaction). Examples: <code>create</code>, <code>delete</code> ...</td>
+    <td>The relation of the interaction (i.e., a symbolic name representing the nature of the interaction). Examples: <code>create</code>, <code>delete</code> ...</td>
   </tr>
 </table>
 

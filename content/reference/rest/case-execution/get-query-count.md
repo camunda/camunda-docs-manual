@@ -1,6 +1,6 @@
 ---
 
-title: "Get Case Executions Count"
+title: "Get Case Execution Count"
 weight: 20
 
 menu:
@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for the number of case executions that fulfill given parameters.
-Takes the same parameters as the [get case executions]({{< relref "reference/rest/case-execution/get-query.md" >}}) method.
+Queries for the number of case executions that fulfill given parameters.
+Takes the same parameters as the [Get Case Executions]({{< ref "/reference/rest/case-execution/get-query.md" >}}) method.
 
 
 # Method
@@ -111,6 +111,15 @@ GET `/case-execution/count`
     <code>key</code> and <code>value</code> may not contain underscore or comma characters.
     </td>
   </tr>
+  <tr>
+    <td>variableNamesIgnoreCase</td>
+    <td>Match all variable names provided in <code>variables</code> and <code>caseInstanceVariables</code> case-insensitively. If set to <code>true</code> <strong>variableName</strong> and <strong>variablename</strong> are treated as equal.</td>
+  </tr>
+  <tr>
+    <td>variableValuesIgnoreCase</td>
+    <td>Match all variable values provided in <code>variables</code> and <code>caseInstanceVariables</code> case-insensitively. If set to <code>true</code> <strong>variableValue</strong> and <strong>variablevalue</strong> are treated as equal.</td>
+  </tr>
+
 </table>
 
 
@@ -148,7 +157,7 @@ A JSON object that contains the count as the only property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if an invalid operator for variable comparison is used. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if an invalid operator for variable comparison is used. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

@@ -15,7 +15,7 @@ menu:
 
 Updates or deletes the variables visible from the task.
 Updates precede deletions. So, if a variable is updated AND deleted, the deletion overrides the update.
-A variable is visible from the task if it is a local task variable or declared in a parent scope of the task. See documentation on [visiblity of variables]({{< relref "user-guide/process-engine/variables.md" >}}).
+A variable is visible from the task if it is a local task variable or declared in a parent scope of the task. See documentation on [visiblity of variables]({{< ref "/user-guide/process-engine/variables.md" >}}).
 
 
 # Method
@@ -51,7 +51,7 @@ A JSON object with the following properties:
   <tr>
     <td>modifications</td>
     <td>A JSON object containing variable key-value pairs. Each key is a variable name and each value a JSON variable value object with the following properties:
-    {{< rest-var-request >}}
+    {{< rest-var-request transient="true">}}
   </tr>
   <tr>
     <td>deletions</td>
@@ -81,7 +81,7 @@ This method returns no content.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The variable value or type is invalid. For example the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>The variable value or type is invalid. For example the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>500</td>
@@ -100,10 +100,10 @@ Request Body:
 
 ```json
 {
-  "modifications": [
+  "modifications": {
     "aVariable": { "value": "aValue", "type": "String" },
     "anotherVariable": { "value": 42, "type": "Integer" }
-  ],
+  },
   "deletions": [
     "aThirdVariable", "FourthVariable"
   ]

@@ -10,7 +10,7 @@ menu:
 
 ---
 
-The process engine reports runtime metrics to the database that can help with drawing conclusions about usage, load, and performance of the BPM platform. Metrics are reported in the database table `ACT_RU_METER_LOG` as natural numbers in the Java `long` range and count the occurrence of specific events. Single metric entries consist of a metric identifier, a value that the metric took in a certain timespan and a name identifying the metric reporter. There is a set of built-in metrics that are reported by default.
+The process engine reports runtime metrics to the database that can help draw conclusions about usage, load, and performance of the BPM platform. Metrics are reported in the database table `ACT_RU_METER_LOG` as natural numbers in the Java `long` range and count the occurrence of specific events. Single metric entries consist of a metric identifier, a value that the metric took in a certain timespan and a name identifying the metric reporter. There is a set of built-in metrics that are reported by default.
 
 # Built-in Metrics
 
@@ -25,7 +25,12 @@ The following table describes the built-in metrics. The identifiers of all built
   <tr>
     <td><b>BPMN Execution</b></td>
     <td>activity-instance-start</td>
-    <td>The number of activity instances started.</td>
+    <td>The number of activity instances started. This is also known as <b>flow node instances (FNI)</b>.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>activity-instance-end/td>
+    <td>The number of activity instances ended.</td>
   </tr>
   <tr>
     <td><b>DMN Execution</b></td>
@@ -66,6 +71,26 @@ The following table describes the built-in metrics. The identifiers of all built
     <td></td>
     <td>job-locked-exclusive</td>
     <td>The number of exclusive jobs that are immediately locked and executed.</td>
+  </tr>
+  <tr>
+    <td><b>History Clean up</b></td>
+    <td>history-cleanup-removed-process-instances</td>
+    <td>The number of process instances removed by history clean up.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>history-cleanup-removed-case-instances</td>
+    <td>The number of case instances removed by history clean up.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>history-cleanup-removed-decision-instances</td>
+    <td>The number of decision instances removed by history clean up.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>history-cleanup-removed-batch-operations</td>
+    <td>The number of batch operations removed by history clean up.</td>
   </tr>
 </table>
 
@@ -110,8 +135,24 @@ public class MetricsConfigurationPlugin implements ProcessEnginePlugin {
 
 ## Reporter Identifier
 
-Metrics are reported with an identifier of the reporting party. This identifier allows to attribute reports to individual engine instances when making a metrics query. For example in a cluster, load metrics can be related to individual cluster nodes. By default the process engine generates a reporter id as `<local IP>$<engine name>`. The generation can be customized by implementing the interface {{< javadocref page="?org/camunda/bpm/engine/impl/metrics/MetricsReporterIdProvider.html" text="org.camunda.bpm.engine.impl.metrics.MetricsReporterIdProvider" >}} and setting the engine property `metricsReporterIdProvider` to an instance of that class.
+Metrics are reported with an identifier of the reporting party. This identifier allows to attribute 
+reports to individual engine instances when making a metrics query. For example in a cluster, load 
+metrics can be related to individual cluster nodes. By default the process engine generates a 
+reporter id as `<local IP>$<engine name>`. The generation can be customized by implementing the 
+interface {{< javadocref page="?org/camunda/bpm/engine/impl/history/event/HostnameProvider.html" text="org.camunda.bpm.engine.impl.history.event.HostnameProvider" >}}
+and setting the engine property `hostnameProvider` to an instance of that class.
+
+{{< note title="Heads Up!" class="info" >}}
+The 
+{{< javadocref page="?org/camunda/bpm/engine/impl/metrics/MetricsReporterIdProvider.html" text="org.camunda.bpm.engine.impl.metrics.MetricsReporterIdProvider" >}}
+interface and the corresponding `metricsReporterIdProvider` engine property have been deprecated. 
+{{< /note >}}
 
 ## Disable Reporting
 
-By default, all built-in metrics are reported. Using the engine configuration flag `isMetricsEnabled` metrics reporting can be disabled.
+By default, all built-in metrics are reported. For the configuration via XML file (e.g. standalone.xml or bpm-platform.xml) you can disable reporting by adding the property:
+```xml
+<property name="metricsEnabled">false</property>
+```
+
+If you are directly accessing the Java API, you can disable the metrics reporting by using the engine configuration flag `isMetricsEnabled` and set it to `false`.

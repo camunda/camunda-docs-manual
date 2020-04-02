@@ -13,10 +13,10 @@ menu:
 ---
 
 
-Query for batches that fulfill given parameters. Parameters may be
+Queries for batches that fulfill given parameters. Parameters may be
 the properties of batches, such as the id or type.  The
-size of the result set can be retrieved by using the [GET query count]({{<
-relref "reference/rest/batch/get-query-count.md" >}}).
+size of the result set can be retrieved by using the [Get Batch Count]({{<
+ref "/reference/rest/batch/get-query-count.md" >}}) method.
 
 
 # Method
@@ -39,7 +39,7 @@ GET `/batch`
   </tr>
   <tr>
     <td>type</td>
-    <td>Filter by batch type.</td>
+    <td>Filter by batch type. See the <a href="{{< ref "/user-guide/process-engine/batch.md#creating-a-batch" >}}">User Guide</a> for more information about batch types.</td>
   </tr>
   <tr>
     <td>tenantIdIn</td>
@@ -87,82 +87,7 @@ GET `/batch`
 A JSON array of batch objects.
 Each batch object has the following properties:
 
-<table class="table table-striped">
-  <tr>
-    <th>Name</th>
-    <th>Value</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>id</td>
-    <td>String</td>
-    <td>The id of the batch.</td>
-  </tr>
-  <tr>
-    <td>type</td>
-    <td>String</td>
-    <td>The type of the batch.</td>
-  </tr>
-  <tr>
-    <td>totalJobs</td>
-    <td>Number</td>
-    <td>
-      The total jobs of a batch is the number of batch execution jobs required to
-      complete the batch.
-    </td>
-  </tr>
-  <tr>
-    <td>jobsCreated</td>
-    <td>Number</td>
-    <td>
-      The number of batch execution jobs already created by the seed job.
-    </td>
-  </tr>
-  <tr>
-    <td>batchJobsPerSeed</td>
-    <td>Number</td>
-    <td>
-      The number of batch execution jobs created per seed job invocation.
-      The batch seed job is invoked until it created all batch execution jobs required by
-      the batch (see <code>totalJobs</code> property).
-    </td>
-  </tr>
-  <tr>
-    <td>invocationsPerBatchJob</td>
-    <td>Number</td>
-    <td>
-      Every batch execution job invokes the command executed by the batch
-      <code>invocationsPerBatchJob</code> times. E.g., for a process instance
-      migration batch this specifies the number of process instances which
-      are migrated per batch execution job.
-    </td>
-  </tr>
-  <tr>
-    <td>seedJobDefinitionId</td>
-    <td>String</td>
-    <td>The job definition id for the seed jobs of this batch.</td>
-  </tr>
-  <tr>
-    <td>monitorJobDefinitionId</td>
-    <td>String</td>
-    <td>The job definition id for the monitor jobs of this batch.</td>
-  </tr>
-  <tr>
-    <td>batchJobDefinitionId</td>
-    <td>String</td>
-    <td>The job definition id for the batch execution jobs of this batch.</td>
-  </tr>
-  <tr>
-    <td>suspended</td>
-    <td>Boolean</td>
-    <td>Indicates wheter this batch is suspened or not.</td>
-  </tr>
-  <tr>
-    <td>tenantId</td>
-    <td>String</td>
-    <td>The tenant id of the batch.</td>
-  </tr>
-</table>
+{{< rest-batch-response >}}
 
 
 ## Response codes
@@ -183,7 +108,7 @@ Each batch object has the following properties:
     <td>application/json</td>
     <td>
       Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>.
-      See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+      See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
 </table>
@@ -211,8 +136,9 @@ Status 200.
     "seedJobDefinitionId": "aSeedJobDefinitionId",
     "monitorJobDefinitionId": "aMonitorJobDefinitionId",
     "batchJobDefinitionId": "aBatchJobDefinitionId",
-    "suspened": false,
-    "tenantId": "aTenantId"
+    "suspended": false,
+    "tenantId": "aTenantId",
+    "createUserId": "aUserId"
   }
 ]
 ```

@@ -1,5 +1,5 @@
 ---
-baseurl: "/manual/develop/"
+baseURL: "/manual/develop/"
 languageCode: "en-us"
 title: "Camunda BPM documentation"
 theme: "camunda"
@@ -13,17 +13,33 @@ params:
       name: "Get Started"
       url: "/get-started"
     - id: "manual"
-      name: "Manual"
+      name: "BPM Platform"
       url: "/manual"
+    - id: "optimize"
+      name: "Optimize"
+      url: "/optimize"
+    - id: 'cawemo'
+      name: 'Cawemo'
+      url: '/cawemo'
     - id: "enterprise"
       name: "Enterprise"
       url: "/enterprise"
+    - id: "security"
+      name: "Security"
+      url: "/security"
   section:
     id: "manual"
     version: "develop"
-    versionAlias: "7.6"
+    versionAlias: "7.13"
     versions:
       - "latest"
+      - "7.12"
+      - "7.11"
+      - "7.10"
+      - "7.9"
+      - "7.8"
+      - "7.7"
+      - "7.6"
       - "7.5"
       - "7.4"
       - "7.3"
@@ -34,4 +50,15 @@ params:
   github:
     repositoryName: "camunda/camunda-docs-manual"
     branch: "master"
+
+outputs:
+  home:
+    - "HTML"
+    - "RSS"
+  section:
+    - "HTML"
+
+disableKinds:
+- taxonomy
+- taxonomyTerm
 ...

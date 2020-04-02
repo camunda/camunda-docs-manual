@@ -17,15 +17,15 @@ menu:
 ---
 
 
-Activate or suspend a given process definition by id or by latest version of process definition key.
+Activates or suspends a given process definition by id or by latest version of process definition key.
 
 # Method
 
 PUT `/process-definition/{id}/suspended`
 
-PUT `/process-definition/key/{key}/suspended` (suspend the latest version of process definition which belongs to no tenant)
+PUT `/process-definition/key/{key}/suspended` (suspend the latest version of the process definition which belongs to no tenant)
 
-PUT `/process-definition/key/{key}/tenant-id/{tenant-id}/suspended` (suspended the latest version of process definition for tenant)
+PUT `/process-definition/key/{key}/tenant-id/{tenant-id}/suspended` (suspended the latest version of the process definition for tenant)
 
 
 # Parameters
@@ -97,12 +97,12 @@ This method returns no content.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the request parameters are invalid, for example if the provided <code>executionDate</code> parameter doesn't have the expected format. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the request parameters are invalid, for example if the provided <code>executionDate</code> parameter doesn't have the expected format. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Process definition with given key does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Process definition with given key does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

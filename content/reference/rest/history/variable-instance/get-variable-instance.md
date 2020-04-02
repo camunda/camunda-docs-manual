@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Variable Instance"
+title: "Get Variable Instance"
 weight: 30
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single historic variable by id.
+Retrieves a historic variable by id.
 
 
 # Method
@@ -80,7 +80,7 @@ A user object with the following properties:
   <tr>
     <td>value</td>
     <td>String/Number/Boolean/Object</td>
-    <td>{{< rest-var-response deserializationParameter="deserializeValue" >}}</td>
+    <td>{{< rest-var-response-value deserializationParameter="deserializeValue" >}}</td>
   </tr>
   <tr>
     <td>valueInfo</td>
@@ -147,7 +147,29 @@ A user object with the following properties:
     <td>String</td>
     <td>An error message in case a Java Serialized Object could not be de-serialized.</td>
   </tr>
+   <tr>
+    <td>state</td>
+    <td>String</td>
+    <td>The current state of the variable. Can be 'CREATED' or 'DELETED'.</td>
+  </tr>
+  <tr>
+    <td>createTime</td>
+    <td>String</td>
+    <td>The time the variable was inserted. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+  <tr>
+    <td>removalTime</td>
+    <td>String</td>
+    <td>The time after which the variable should be removed by the History Cleanup job. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+  <tr>
+    <td>rootProcessInstanceId</td>
+    <td>String</td>
+    <td>The process instance id of the root process instance that initiated the process containing this variable.</td>
+  </tr>
 </table>
+
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 
 # Response Codes
@@ -166,7 +188,7 @@ A user object with the following properties:
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Variable with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Variable with given id does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -199,6 +221,10 @@ Status 200.
   "caseExecutionId": null,
   "taskId": null,
   "tenantId": null,
-  "errorMessage": null
+  "errorMessage": null,
+  "state": "CREATED",
+  "createTime":"2017-02-10T14:33:19.000+0200",
+  "removalTime": "2018-02-10T14:33:19.000+0200",
+  "rootProcessInstanceId": "aRootProcessInstanceId"
 }
 ```

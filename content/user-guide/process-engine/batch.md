@@ -1,7 +1,7 @@
 ---
 
 title: 'Batch'
-weight: 175
+weight: 270
 
 menu:
   main:
@@ -59,26 +59,26 @@ The following gives an overview of the Java API for batches.
 
 A batch is created by executing a process engine command asynchronously.
 
-Currently supported commands:
+Currently supported batch types:
 
-- [Process Instance Migration][migration]
+- [Process Instance Migration][batch-migration]
+- [Cancellation of running Process Instances][process-instance-cancellation]
+- [Deletion of Historic Process Instances][process-instance-deletion]
+- [Update Process Instance Suspend State][process-instance-suspend]
+- [Setting retries of jobs associated with Process Instances][set-job-retries]
+- [Process Instance Modification][process-instance-modification]
+- [Process Instance Restart][process-instance-restart]
+- [Setting retries of external tasks][set-external-tasks-retries]
+- [Set a Removal Time to Historic Process Instances][set-removal-time]
+- [Set a Removal Time to Historic Decision Instances][set-removal-time]
+- [Set a Removal Time to Historic Batches][set-removal-time]
 
-To start a [batch process instance migration][batch-migration], the Java API can be used.
-
-```java
-RuntimeService runtimeService = processEngine.getRuntimeService();
-MigrationPlanBuilder migrationPlan = runtimeService.createMigrationPlan(...);
-List<String> processInstanceIds = ...
-
-Batch batch = runtimeService
-  .newMigration(migrationPlan)
-  .processInstanceIds(processInstanceIds)
-  .executeAsync();
-```
+Java API can be used to create Batch command, please refer to specific commands for
+exact usage example.
 
 ## Query a Batch
 
-You can query a running batch by the id and the type. For example to query
+You can query a running batch by the id and the type, for example to query
 for all running process instance migration batches.
 
 ```java
@@ -127,6 +127,8 @@ List<HistoricJobLog> batchExecutionJobLogs = processEngine.getHistoryService()
   .list();
 ```
 
+You can make a configuration for [history cleanup][] of the finished historic batch operations.
+
 ## Suspend a Batch
 
 To pause the execution of a batch and all corresponding jobs, a batch
@@ -137,7 +139,7 @@ processEngine.getManagementService()
   .suspendBatchById("myBatch");
 ```
 
-A suspended batch can then be activated again also using the management
+A suspended batch can then be activated again, also using the management
 service.
 
 ```java
@@ -167,14 +169,14 @@ processEngine.getHistoryService()
 ```
 
 {{< note title="" class="info" >}}
-For a running batch which still executes jobs it is recommend
+For a running batch which still executes jobs it is recommended
 to suspend the batch before deleting it.
-See section [Suspend a Batch](#suspend-a-batch) for more information.
+See the [Suspend a Batch](#suspend-a-batch) section for details.
 {{< /note >}}
 
 ## Priority of a Batch
 
-As all batch jobs are executed using the job executor it is possible to use the
+As all batch jobs are executed using the job executor, it is possible to use the
 [job prioritization][] feature to adjust the priority of batch jobs. The
 default batch job priority is set by the process engine configuration
 `batchJobPriority`.
@@ -192,6 +194,11 @@ processEngine.getManagementService()
   .setOverridingJobPriorityForJobDefinition(batchJobDefinitionId, 100, true);
 ```
 
+## Operation log
+
+Please note that a user operation log is written for Batch creation itself only, execution
+of the seed job as well as individual jobs that perform operations are performed by Job Executor
+and therefore are not considered to be user operations.
 
 # Job Definitions
 
@@ -204,11 +211,6 @@ default process engine configuration the seed job will create 10 batch
 execution jobs on every invocation. Every execution job will migrate 1 process
 instance. In sum the seed job will be invoked 100 times, until it has created the
 1000 execution jobs required to complete the batch.
-
-The number of jobs created by every seed job invocation `batchJobsPerSeed`
-(default: 100) and the number of invocations per batch execution job
-`invocationsPerBatchJob` (default: 1) can be configured on the [process engine
-configuration][].
 
 The Java API can be used to get the job definition for the seed job of a batch:
 
@@ -287,14 +289,70 @@ processEngine.getManagementService()
   .suspendJobByJobDefinitionId(monitorJobDefinition.getId());
 ```
 
-[migration]: {{< relref "user-guide/process-engine/process-instance-migration.md" >}}
-[batch-migration]: {{< relref "user-guide/process-engine/process-instance-migration.md#asynchronous-batch-migration-execution" >}}
-[job executor]: {{< relref "user-guide/process-engine/the-job-executor.md" >}}
-[process engine configuration]: {{< relref "user-guide/process-engine/process-engine-bootstrapping.md" >}}
+## Configuration 
+
+You can configure the number of jobs created by every seed job invocation 
+`batchJobsPerSeed` (default: 100) and the number of invocations per batch 
+execution job `invocationsPerBatchJob` (default: 1) in the 
+[process engine configuration][].
+
+The number of invocations per batch execution job can be changed for each batch 
+operation type individually with the help of the process engine configuration property 
+[`invocationsPerBatchJobByBatchType`][invoc-per-batch-job-batch-type]. In case you haven't 
+specified the invocations per batch job by type, the configuration falls back to the global 
+configuration specified via `invocationsPerBatchJob`.
+
+You can configure the property in three ways:
+
+1.  Programmatically with the help of a [Process Engine Plugin][]
+2.  In Spring-based environments via [Spring XML Configuration][spring-xml-config] 
+    ```xml
+    <bean id="processEngineConfiguration" 
+          class="org.camunda.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration">
+    
+      <!-- ... -->
+    
+      <property name="invocationsPerBatchJobByBatchType">
+        <map>
+          <entry key="process-set-removal-time" value="10" />
+          <entry key="historic-instance-deletion" value="3" />
+        
+          <!-- in case of custom batch operations -->
+          <entry key="my-custom-operation" value="7" />
+        </map>
+      </property>
+    </bean>
+    ```
+3.  In Spring Boot environment via the [`application.yaml`][spring-boot-config] file
+    ```yaml
+    camunda.bpm.generic-properties.properties:
+      invocations-per-batch-job-by-batch-type:
+        process-set-removal-time:     10
+        historic-instance-deletion:   3
+        my-custom-operation:          7  # in case of custom batch operations
+    ```
+
+[process-instance-cancellation]: {{< ref "/user-guide/process-engine/batch-operations.md#cancellation-of-running-process-instances">}}
+[process-instance-deletion]: {{< ref "/user-guide/process-engine/batch-operations.md#deletion-of-historic-process-instances">}}
+[set-job-retries]: {{< ref "/user-guide/process-engine/batch-operations.md#setting-retries-of-jobs-associated-with-process-instances">}}
+[migration]: {{< ref "/user-guide/process-engine/process-instance-migration.md" >}}
+[batch-migration]: {{< ref "/user-guide/process-engine/process-instance-migration.md#asynchronous-batch-migration-execution" >}}
+[job executor]: {{< ref "/user-guide/process-engine/the-job-executor.md" >}}
+[process engine configuration]: {{< ref "/user-guide/process-engine/process-engine-bootstrapping.md" >}}
 [seed job]: #seed-job
-[retry]: {{< relref "user-guide/process-engine/the-job-executor.md#failed-jobs" >}}
-[incidents]: {{< relref "user-guide/process-engine/incidents.md" >}}
-[history level]: {{< relref "user-guide/process-engine/history.md#choose-a-history-level" >}}
-[job prioritization]: {{< relref "user-guide/process-engine/the-job-executor.md#job-prioritization" >}}
-[job-definition-priority]: {{< relref "user-guide/process-engine/the-job-executor.md#override-priority-by-job-definition" >}}
-[job-priority]: {{< relref "user-guide/process-engine/the-job-executor.md#set-job-priorities-via-managementservice-api" >}}
+[retry]: {{< ref "/user-guide/process-engine/the-job-executor.md#failed-jobs" >}}
+[incidents]: {{< ref "/user-guide/process-engine/incidents.md" >}}
+[history level]: {{< ref "/user-guide/process-engine/history.md#choose-a-history-level" >}}
+[history cleanup]: {{< ref "/user-guide/process-engine/history.md#history-time-to-live-for-batch-operations" >}}
+[job prioritization]: {{< ref "/user-guide/process-engine/the-job-executor.md#job-prioritization" >}}
+[job-definition-priority]: {{< ref "/user-guide/process-engine/the-job-executor.md#override-priority-by-job-definition" >}}
+[job-priority]: {{< ref "/user-guide/process-engine/the-job-executor.md#set-job-priorities-via-managementservice-api" >}}
+[set-external-tasks-retries]: {{< ref "/user-guide/process-engine/batch-operations.md#setting-retries-of-external-tasks" >}}
+[process-instance-restart]: {{< ref "/user-guide/process-engine/process-instance-restart.md#asynchronous-batch-execution" >}}
+[process-instance-modification]: {{< ref "/user-guide/process-engine/process-instance-modification.md#modification-of-multiple-process-instances" >}}
+[process-instance-suspend]: {{< ref "/user-guide/process-engine/batch-operations.md#update-suspend-state-of-process-instances">}}
+[set-removal-time]: {{< ref "/user-guide/process-engine/batch-operations.md#set-a-removal-time">}}
+[invoc-per-batch-job-batch-type]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#invocations-per-batch-job-by-batch-type" >}}
+[Process Engine Plugin]: {{< ref "/user-guide/process-engine/process-engine-plugins.md" >}}
+[spring-xml-config]: {{< ref "/user-guide/spring-framework-integration/configuration.md" >}}
+[spring-boot-config]: {{< ref "/user-guide/spring-boot-integration/configuration.md#camunda-engine-properties" >}}

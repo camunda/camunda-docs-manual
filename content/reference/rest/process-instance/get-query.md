@@ -14,9 +14,9 @@ menu:
 
 
 
-Query for process instances that fulfill given parameters.
+Queries for process instances that fulfill given parameters.
 Parameters may be static as well as dynamic runtime properties of process instances.
-The size of the result set can be retrieved by using the [get instances count]({{< relref "reference/rest/process-instance/get-query-count.md" >}}) method.
+The size of the result set can be retrieved by using the [Get Instance Count]({{< ref "/reference/rest/process-instance/get-query-count.md" >}}) method.
 
 
 # Method
@@ -42,6 +42,10 @@ GET `/process-instance`
     <td>Filter by process instance business key.</td>
   </tr>
   <tr>
+    <td>businessKeyLike</td>
+    <td>Filter by process instance business key that the parameter is a substring of.</td>
+  </tr>
+  <tr>
     <td>caseInstanceId</td>
     <td>Filter by case instance id.</td>
   </tr>
@@ -52,6 +56,14 @@ GET `/process-instance`
   <tr>
     <td>processDefinitionKey</td>
     <td>Filter by the key of the process definition the instances run on.</td>
+  </tr>
+  <tr>
+    <td>processDefinitionKeyIn</td>
+    <td>Filter by a comma-separated list of process definition keys. A process instance must have one of the given process definition keys.</td>
+  </tr>
+  <tr>
+    <td>processDefinitionKeyNotIn</td>
+    <td>Exclude instances by a comma-separated list of process definition keys. A process instance must not have one of the given process definition keys.</td>
   </tr>
   <tr>
     <td>deploymentId</td>
@@ -82,12 +94,16 @@ GET `/process-instance`
     <td>Only include suspended process instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
+    <td>withIncident</td>
+    <td>Filter by presence of incidents. Selects only process instances that have an incident.</td>
+  </tr>
+  <tr>
     <td>incidentId</td>
     <td>Filter by the incident id.</td>
   </tr>
   <tr>
     <td>incidentType</td>
-    <td>Filter by the incident type.</td>
+    <td>Filter by the incident type. See the <a href="{{< ref "/user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
   </tr>
   <tr>
     <td>incidentMessage</td>
@@ -103,11 +119,23 @@ GET `/process-instance`
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only include process instances which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include process instances which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>activityIdIn</td>
     <td>Filter by a comma-separated list of activity ids. A process instance must currently wait in a leaf activity with one of the given activity ids.</td>
+  </tr>
+  <tr>
+    <td>rootProcessInstances</td>
+    <td>Restrict the query to all process instances that are top level process instances.</td>
+  </tr>
+  <tr>
+    <td>leafProcessInstances</td>
+    <td>Restrict the query to all process instances that are leaf instances. (i.e. don't have any sub instances)</td>
+  </tr>
+  <tr>
+    <td>processDefinitionWithoutTenantId</td>
+    <td>Only include process instances which process definition has no tenant id.</td>
   </tr>
   <tr>
     <td>variables</td>
@@ -124,9 +152,17 @@ GET `/process-instance`
     </td>
   </tr>
   <tr>
+    <td>variableNamesIgnoreCase</td>
+    <td>Match all variable names in this query case-insensitively. If set to <code>true</code> <strong>variableName</strong> and <strong>variablename</strong> are treated as equal.</td>
+  </tr>
+  <tr>
+    <td>variableValuesIgnoreCase</td>
+    <td>Match all variable values in this query case-insensitively. If set to <code>true</code> <strong>variableValue</strong> and <strong>variablevalue</strong> are treated as equal.</td>
+  </tr>
+  <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>instanceId</code>, <code>definitionKey</code>, <code>definitionId</code> and <code>tenantId</code>.
+    <code>instanceId</code>, <code>definitionKey</code>, <code>definitionId</code>, <code>tenantId</code> and <code>businessKey</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
@@ -213,7 +249,7 @@ Each process instance object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

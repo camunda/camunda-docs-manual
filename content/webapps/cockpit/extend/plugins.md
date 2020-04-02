@@ -81,7 +81,7 @@ As runtime relevant resource it defines
 9. a css file that contains the style definitions for the client-side plugin. This file must be named `plugin.css` and be located in the `app` directory of the plugin asset directory
 
 {{< note title="Related Example" class="info">}}
-  [How to develop a cockpit plugin]({{< relref "examples/tutorials/develop-cockpit-plugin.md" >}})
+  [How to develop a cockpit plugin](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/cockpit-sample-plugin)
 {{< /note >}}
 
 
@@ -129,27 +129,25 @@ var ViewConfig = [ 'ViewsProvider', function(ViewsProvider) {
 }];
 ```
 
-For more information on creating and configuring your own plugin, please see [How to develop a Cockpit plugin]({{< relref "examples/tutorials/develop-cockpit-plugin.md" >}}).
+For more information on creating and configuring your own plugin, please see [How to develop a Cockpit plugin](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/cockpit-sample-plugin).
 
 
-## Dashboard
+## Navigation
 
-**Name:** `cockpit.dashboard.section` (previously, now deprecate `cockpit.dashboard`)
+{{< img src="../../img/plugin-points/plugin-point-navigation.png" title="Navigation" >}}
 
-{{< img src="../../img/plugin-points/plugin-point-cockpit-dashboard.png" title="Dashboard" >}}
+**Name:** `cockpit.navigation`
 
-With Camunda BPM 7.5, the dashboard and sections of Cockpit have been re-organized and new names have been
-given to the plugin points.
-
-
-_Old_ plugins will still be visible on the dashboard until you change their namespace
-(from `cockpit.dasboard` to `cockpit.dashboard.section`).
 
 ### Setup
 
-The dashboard section plugins have some additional properties / options you can set to control the way
-they integrate in the application.
-You can find some [examples of those plugins here](https://github.com/camunda/camunda-bpm-webapp/blob/master/ui/cockpit/plugins/base/app/views/dashboard/).
+The dashboard navigation plugins can be used to define custom menu entries.
+
+#### `weight`
+
+Takes a number and will defined where the plugin should be placed.  
+The bigger the value is the most left it will be placed.  
+A value smaller than 0 will put the menu point within the dropdown.
 
 #### `pagePath`
 
@@ -174,7 +172,7 @@ You can dynamically determine if a section is accessible using the following not
 // …
 access: ['angularDependency', function (angularDependency) {
   return function (callback) {
-    var bool = angularDependency.something; // would hide the dashboard section / header link if `bool` is false
+    var bool = angularDependency.something; // would hide the menu point if `bool` is false
     cb(null, bool);
   };
 }]
@@ -183,6 +181,23 @@ access: ['angularDependency', function (angularDependency) {
 You can see a [working example](https://github.com/camunda/camunda-bpm-webapp/blob/f270dee14046448ad0d2afb44eef75aabc82e15b/ui/cockpit/plugins/base/app/views/dashboard/reports.js#L21-L32) in which the plugin is hidden when no report types are found.
 
 
+
+## Dashboard
+
+**Name:** `cockpit.dashboard`
+
+{{< img src="../../img/plugin-points/plugin-point-dashboard-custom.png" title="Dashboard" >}}
+
+With Camunda BPM 7.6, the dashboard plugins of Cockpit have been re-organized and new names have been
+given to the plugin points.
+
+The `cockpit.dashboard` plugin point will allow to add your custom views at the bottom of the dashboard.
+
+## Metrics
+
+**Name:** `cockpit.dashboard.metrics`
+
+{{< img src="../../img/plugin-points/plugin-point-dashboard-metrics-view.png" title="Dashboard" >}}
 
 ## Processes Dashboard
 
@@ -195,6 +210,12 @@ You can see a [working example](https://github.com/camunda/camunda-bpm-webapp/bl
 **Name:** `cockpit.decisions.dashboard`
 
 {{< img src="../../img/plugin-points/plugin-point-cockpit-decisions-dashboard.png" title="Dashboard" >}}
+
+## Cases Dashboard
+
+**Name:** `cockpit.cases.dashboard`
+
+{{< img src="../../img/plugin-points/plugin-point-cockpit-cases-dashboard.png" title="Dashboard" >}}
 
 ## Process Definition Runtime Tab
 
@@ -237,14 +258,33 @@ You can see a [working example](https://github.com/camunda/camunda-bpm-webapp/bl
 
 ## Process Definition Diagram Overlay
 
-**Name:** `cockpit.processDefinition.diagram.overlay`
+**Name:** `cockpit.processDefinition.diagram.plugin`
 
 {{< img src="../../img/plugin-points/plugin-point-definition-diagram-overlay.png" title="Definition Diagram Overlay" >}}
 
+Diagram overlay plugins are a little different from other plugins.
+Overlay function needs to be provided, that uses bpmn-js diagram control object to to new overlays to diagram.
+For example look at [instance count plugin](https://github.com/camunda/camunda-bpm-webapp/blob/master/ui/cockpit/plugins/base/app/views/processDefinition/diagramPlugins/instanceCount.js#L10).
+
+```javascript
+var ViewConfig = [ 'ViewsProvider', function(ViewsProvider) {
+  ViewsProvider.registerDefaultView('cockpit.processDefinition.view', {
+    id: 'runtime',
+    priority: 20,
+    label: 'Runtime',
+    overlay: [
+      'control', 'processData', 'pageData', 'processDiagram',
+      function(control, processData, pageData, processDiagram) {
+        // Plugin code here
+      }
+    ]
+  });
+}];
+```
 
 ## Process Instance Diagram Overlay
 
-**Name:** `cockpit.processInstance.diagram.overlay`
+**Name:** `cockpit.processInstance.diagram.plugin`
 
 {{< img src="../../img/plugin-points/plugin-point-instance-diagram-overlay.png" title="Instance Diagram Overlay" >}}
 
@@ -278,7 +318,7 @@ You can see a [working example](https://github.com/camunda/camunda-bpm-webapp/bl
 
 This plugin should contain an initialize function recieving a data object with the following fields:
 
-* `decisionDefinition`: The data about the decision definition corresponding to the [REST response]({{< relref "reference/rest/decision-definition/get.md#result" >}})
+* `decisionDefinition`: The data about the decision definition corresponding to the [REST response]({{< ref "/reference/rest/decision-definition/get.md#result" >}})
 * `decisionData`: The data-depend object for the decision definition
 * `tableControl`: Control object for the rendered dmn-table corresponding to the [dmn-table widget](http://camunda.github.io/camunda-commons-ui/cam-widget-dmn-viewer.html)
 
@@ -315,6 +355,48 @@ ViewsProvider.registerDefaultView('cockpit.decisionDefinition.table', {
 {{< img src="../../img/plugin-points/plugin-point-decision-instance-table.png" title="Decision Instance Table" >}}
 
 
+## Case Definition Tab
+
+**Name:** `cockpit.caseDefinition.tab`
+
+{{< img src="../../img/plugin-points/plugin-point-case-definition-tab.png" title="Case Definition Tab" >}}
+
+
+## Case Definition Action
+
+**Name:** `cockpit.caseDefinition.action`
+
+{{< img src="../../img/plugin-points/plugin-point-case-definition-action.png" title="Case Definition Action" >}}
+
+
+## Case Definition Diagram Overlay
+
+**Name:** `cockpit.caseDefinition.diagram.overlay`
+
+{{< img src="../../img/plugin-points/plugin-point-case-definition-diagram-overlay.png" title="Case Definition Diagram Overlay" >}}
+
+
+## Case Instance Tab
+
+**Name:** `cockpit.caseInstance.tab`
+
+{{< img src="../../img/plugin-points/plugin-point-case-instance-tab.png" title="Case Instance Tab" >}}
+
+
+## Case Instance Action
+
+**Name:** `cockpit.caseInstance.action`
+
+{{< img src="../../img/plugin-points/plugin-point-case-instance-action.png" title="Case Instance Action" >}}
+
+
+## Case Instance Diagram Overlay
+
+**Name:** `cockpit.caseInstance.diagram.overlay`
+
+{{< img src="../../img/plugin-points/plugin-point-case-instance-diagram-overlay.png" title="Case Instance Diagram Overlay" >}}
+
+
 ## Repository Resource Action
 
 **Name:** `cockpit.repository.resource.action`
@@ -335,7 +417,7 @@ ViewsProvider.registerDefaultView('cockpit.decisionDefinition.table', {
 
 {{< img src="../../img/plugin-points/plugin-point-task-dashboard.png" title="Open Task Dashboard" >}}
 
-See the [Open Tasks Dashboard]({{< relref "webapps/cockpit/tasks-dashboard.md" >}}) section for an example open task 
+See the [Open Tasks Dashboard]({{< ref "/webapps/cockpit/tasks-dashboard.md" >}}) section for an example open task
 dashboard plugin.
 
 
@@ -343,4 +425,10 @@ dashboard plugin.
 
 **Name:** `cockpit.report`
 
-See the [Reports]({{< relref "webapps/cockpit/reporting.md" >}}) section for an example report plugin.
+See the [Reports]({{< ref "/webapps/cockpit/reporting.md" >}}) section for an example report plugin.
+
+## Incident Action
+
+**Name:** `cockpit.incident.action`
+
+{{< img src="../../img/plugin-points/plugin-point-incident-action.png" title="Incident Action" >}}

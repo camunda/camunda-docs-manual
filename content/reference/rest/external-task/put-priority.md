@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Set the priority of an existing external task. The default value of a priority is 0.
+Sets the priority of an existing external task by id. The default value of a priority is 0.
 
 
 # Method
@@ -70,7 +70,7 @@ This method returns no content.
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Returned if the task does not exist. This could indicate a wrong task id as well as a cancelled task, e.g., due to a caught BPMN boundary event. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if the task does not exist. This could indicate a wrong task id as well as a cancelled task, e.g., due to a caught BPMN boundary event. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -82,9 +82,11 @@ PUT `/external-task/{anId}/priority`
 
 Request Body:
 
+```json
     {
       "priority": 5
     }
+```
 
 ## Response
 

@@ -19,7 +19,7 @@ The descriptions in this section are general for the constructs they describe. C
 
 # Lifecycles By Example
 
-In order to understand the role lifecycles play for CMMN execution, consider the following case:
+To understand the role lifecycles play for CMMN execution, consider the following case:
 
 {{< img src="../img/example-lifecycle-case.png" >}}
 
@@ -47,7 +47,7 @@ This case contains two human tasks *Task A* and *Task B* that are connected by a
 </center>
 9. A user may close the case instance by invoking `caseService.closeCaseInstance(caseInstanceId);`. The case instance reaches the state `CLOSED`.
 
-Notice how the lifecycle states define the overall state of the case and restrict the interactions that are possible. For example, the tasks A and B can only be worked on when in state `ACTIVE`. Before, they go through states `AVAILABLE` and `ENABLED` that represent that conditions for working on the task are not yet met, for example that the task was not manually started or that a sentry is not fulfilled yet.
+Notice how the lifecycle states define the overall state of the case and restrict the interactions that are possible. For example, the tasks A and B can only be worked on when in state `ACTIVE`. Before, they go through states `AVAILABLE` and `ENABLED`, which represent that conditions for working on the task are not yet met, for example that the task was not manually started or that a sentry is not fulfilled yet.
 
 This formal lifecycle model is exposed via the `CaseService` API in Camunda. Not only is it possible to trigger state transitions as in the code examples above. By making a case instance or case execution query, the current lifecycles state of a plan items are exposed. For example, the following code gets the state of the plan item for Task A:
 
@@ -95,7 +95,7 @@ States:
       terminated
     </td>
     <td>
-      The transition <i>terminate</i> automatically triggers when the case instance's exit criteria are fulfilled.
+      The transition <i>terminate</i> automatically triggers when the case instance's exit criteria are fulfilled. Furthermore, it is possible to manually terminate an <i>active</i> case instance via the <code>CaseService</code> API.
     </td>
   </tr>
   <tr>
@@ -150,7 +150,7 @@ States:
       active
     </td>
     <td>
-      When a task or stage becomes active, its actual work is performed. For a stage, all contained plan items are instantiated. For a task, its actual work is issued, e.g., for a human task, a task instance is created and needs to be worked on by a user. In order for a task or stage to become active, at least one entry criterion has to be fulfilled and it has to be activated. Activation can either be performed manually by a human worker using the <code>CaseService</code> API or by specifying a manual activation rule that evaluates to <code>false</code>.
+      When a task or stage becomes active, its actual work is performed. For a stage, all contained plan items are instantiated. For a task, its actual work is issued, e.g., for a human task, a task instance is created and needs to be worked on by a user. In order for a task or stage to become active, at least one entry criterion has to be fulfilled. Activation can either be performed manually by a human worker using the <code>CaseService</code> API if the manualActivation rule is specified or automatically if not manualActivation rule is specified.
     </td>
   </tr>
   <tr>
@@ -166,7 +166,7 @@ States:
       terminated
     </td>
     <td>
-      The <i>exit</i> transition triggers when the task's/stage's exit criteria are met. A task/stage in state <i>terminated</i> is removed from the runtime database.
+      The <i>exit</i> transition triggers when the task's/stage's exit criteria are met or when the parent (Case instance or a stage) is terminated. Furthermore, it is possible to manually terminate an <i>active</i> stage/task via the <code>CaseService</code> API. A task/stage in state <i>terminated</i> is removed from the runtime database.
     </td>
   </tr>
 </table>
@@ -180,24 +180,33 @@ The lifecycle of a milestone plan item is the following:
 States
 
 <table class="table table-striped">
-<tr>
-<th>State</th>
-<th>Description</th>
-</tr>
-<tr>
-<td>
-available
-</td>
-<td>
-A milestone becomes available as soon as the stage it is contained in becomes active.
-</td>
-</tr>
-<tr>
-<td>
-completed
-</td>
-<td>
-The transition <i>occur</i> automatically triggers when all entry criteria of the milestone are fulfilled.
-</td>
-</tr>
+  <tr>
+    <th>State</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>
+      available
+    </td>
+    <td>
+      A milestone becomes available as soon as the stage it is contained in becomes active.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      completed
+    </td>
+    <td>
+      The transition <i>occur</i> automatically triggers when all entry criteria of the milestone are fulfilled.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      terminated
+    </td>
+    <td>
+      It is possible to manually terminate an <i>available</i> milestone via the <code>CaseService</code> API. A task/stage in state <i>terminated</i> is removed from the runtime database.
+    </td>
+  </tr>
+
 </table>

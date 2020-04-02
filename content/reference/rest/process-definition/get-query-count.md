@@ -1,6 +1,6 @@
 ---
 
-title: 'Get Definitions Count'
+title: 'Get Definition Count'
 weight: 40
 
 menu:
@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Request the number of process definitions that fulfill the query criteria. Takes the same filtering parameters as the
-[GET query]({{< relref "reference/rest/process-definition/get-query.md" >}}).
+Requests the number of process definitions that fulfill the query criteria. Takes the same filtering parameters as the
+[Get Definitions]({{< ref "/reference/rest/process-definition/get-query.md" >}}) method.
 
 
 # Method
@@ -53,7 +53,11 @@ GET `/process-definition/count`
   </tr>
   <tr>
     <td>key</td>
-    <td>Filter by process definition key, i.e. the id in the BPMN 2.0 XML. Exact match.</td>
+    <td>Filter by process definition key, i.e., the id in the BPMN 2.0 XML. Exact match.</td>
+  </tr>
+  <tr>
+    <td>keysIn</td>
+    <td>Filter by process definition keys.</td>
   </tr>
   <tr>
     <td>keyLike</td>
@@ -101,7 +105,7 @@ GET `/process-definition/count`
   </tr>
   <tr>
     <td>incidentType</td>
-    <td>Filter by the incident type.</td>
+    <td>Filter by the incident type. See the <a href="{{< ref "/user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
   </tr>
   <tr>
     <td>incidentMessage</td>
@@ -117,11 +121,11 @@ GET `/process-definition/count`
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only include process definitions which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include process definitions which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>includeProcessDefinitionsWithoutTenantId</td>
-    <td>Include process definitions which belongs to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Include process definitions which belong to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>versionTag</td>
@@ -130,6 +134,26 @@ GET `/process-definition/count`
   <tr>
     <td>versionTagLike</td>
     <td>Filter by the version tag that the parameter is a substring of.</td>
+  </tr>
+  <tr>
+    <td>withoutVersionTag</td>
+    <td>Only include process definitions without a <code>versionTag</code></td>
+  </tr>
+  <tr>
+    <td>startableInTasklist</td>
+    <td>Filter by process definitions which are startable in Tasklist.</td>
+  </tr>
+  <tr>
+    <td>startablePermissionCheck</td>
+    <td>Filter by process definitions which the user is allowed to start in Tasklist. If the user doesn't have these permissions the result will be empty list.<br/>
+    The permissions are:<br/>
+        * CREATE permission for all Process instances<br/>
+        * CREATE_INSTANCE and READ permission on Process definition level<br/>
+    </td>
+  </tr>
+  <tr>
+    <td>notStartableInTasklist</td>
+    <td>Filter by process definitions which are not startable in Tasklist.</td>
   </tr>
 </table>
 
@@ -168,7 +192,7 @@ A JSON object that contains the count as the only property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

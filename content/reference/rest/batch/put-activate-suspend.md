@@ -1,6 +1,6 @@
 ---
 
-title: "Activate/Suspend Single Batch"
+title: "Activate/Suspend Batch"
 weight: 40
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Activate or suspend a batch.
+Activates or suspends a batch by id.
 
 # Method
 
@@ -78,7 +78,7 @@ This method returns no content.
     <td>application/json</td>
     <td>
       Returned if the batch cannot be suspended or activated.
-      See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">
+      See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">
       Introduction</a> for the error response format.
     </td>
   </tr>

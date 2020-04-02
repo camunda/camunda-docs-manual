@@ -43,11 +43,11 @@ Note: The default value for the attribute `isBlocking` is `true`. To define a `n
 
 # Transactional Behavior
 
-The activation of the process task as well as the creation and execution of the process instance are performed in the same transaction. The transaction is executed until a wait state or an asynchronous continuation is reached inside the called process instance (for further details read the [Transactions in Processes]({{< relref "user-guide/process-engine/transactions-in-processes.md" >}}) section of the user guide). To launch a process instance asynchronously it is possible to declare the process' start event as asynchronous with the XML attribute `asyncBefore="true"`  (see [Asynchronous Instantiation]({{< relref "reference/bpmn20/events/start-events.md" >}})).
+The activation of the process task as well as the creation and execution of the process instance are performed in the same transaction. The transaction is executed until a wait state or an asynchronous continuation is reached inside the called process instance (for further details read the [Transactions in Processes]({{< ref "/user-guide/process-engine/transactions-in-processes.md" >}}) section of the user guide). To launch a process instance asynchronously it is possible to declare the process' start event as asynchronous with the XML attribute `asyncBefore="true"`  (see [Asynchronous Instantiation]({{< ref "/reference/bpmn20/events/start-events.md" >}})).
 
 # Process Binding
 
-By default, the process task creates a new process instance of the latest process definition with the specified key. In order to specify a different version of a process, it is possible to define a binding with the Camunda custom attribute `processBinding`. The following values are allowed for the attribute `processBinding`:
+By default, the process task creates a new process instance of the latest process definition with the specified key. To specify a different version of a process, it is possible to define a binding with the Camunda custom attribute `processBinding`. The following values are allowed for the attribute `processBinding`:
 
 * `latest`: use the latest process definition version (which is also the default behavior if the attribute is not defined)
 * `deployment`: use the process definition version that is part of the calling case definition's deployment (note: this requires that a process with the specified key is deployed along with the case definition)
@@ -105,7 +105,7 @@ An expression also allows using the tenant id of the calling case instance inste
 
 # Exchange Variables
 
-The Camunda custom extensions elements `in` and `out` allow to exchange variables between the process task (in a case instance) and the process instance that it creates: `in` elements of a process task map case variables to input variables of the launched process instance and `out` mappings of a process task map output variables of the process instance to case variables, e.g.,
+The Camunda custom extensions elements `in` and `out` allow to exchange variables between the process task (in a case instance) and the process instance that it creates: `in` elements of a process task map case variables to input variables of the launched process instance and `out` mappings of a process task map output variables of the process instance to case variables, e.g.,:
 
 ```xml
 <processTask id="checkCreditProcess" name="Check credit" processRef="checkCreditProcess">
@@ -170,7 +170,7 @@ With `local="true"` for the `in` mapping, only `var2` is mapped into the called 
 
 # Pass a Business Key
 
-In addition to [exchanging variables]({{< relref "reference/cmmn11/tasks/process-task.md#exchange-variables" >}}), it is possible to pass a business key to the called process instance. Since a business key is immutable, this is one way mapping. It is not possible to have output mapping for a business key.
+In addition to [exchanging variables]({{< ref "/reference/cmmn11/tasks/process-task.md#exchange-variables" >}}), it is possible to pass a business key to the called process instance. Since a business key is immutable, this is one way mapping. It is not possible to have output mapping for a business key.
 
 The following example shows how the business key of the calling case instance can be passed to the called process instance. In this case, the calling case instance and the called process instance end up with the same business key.
 
@@ -198,18 +198,18 @@ If the business key of the called process instance should be different than the 
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-attributes.md#processbinding" >}}">camunda:processBinding</a>,
-      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-attributes.md#processtenantid" >}}">camunda:processTenantId</a>,
-      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-attributes.md#processversion" >}}">camunda:processVersion</a>
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-attributes.md#processbinding" >}}">camunda:processBinding</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-attributes.md#processtenantid" >}}">camunda:processTenantId</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-attributes.md#processversion" >}}">camunda:processVersion</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-elements.md#in" >}}">camunda:in</a>,
-      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-elements.md#out" >}}">camunda:out</a>,
-      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-elements.md#caseexecutionlistener" >}}">camunda:caseExecutionListener</a>,
-      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-elements.md#variablelistener" >}}">camunda:variableListener</a>
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-elements.md#in" >}}">camunda:in</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-elements.md#out" >}}">camunda:out</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-elements.md#caseexecutionlistener" >}}">camunda:caseExecutionListener</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-elements.md#variablelistener" >}}">camunda:variableListener</a>
     </td>
   </tr>
   <tr>

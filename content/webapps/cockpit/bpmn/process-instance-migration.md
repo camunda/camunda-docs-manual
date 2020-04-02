@@ -19,9 +19,7 @@ Please note that this feature is only included in the enterprise edition of the 
 
 {{< img src="../../img/migration/step1_overview.png" title="Process Instance Migration" >}}
 
-You can migrate running process instances from their current process definition version to another version of that definition or another process definition altogether. You can access the migration page either by clicking on the `Migration` link on the processes section of the Cockpit dashboard, or by navigating to the process definition or instance view of a process with multiple versions.
-
-{{< img src="../../img/migration/accessing_1.png" title="Link to Process Instance Migration Page from Cockpit Dashboard" >}}
+You can migrate running process instances from their current process definition version to another version of that definition or another process definition altogether. You can access the migration page by navigating to the process definition or instance view of a process with multiple versions.
 
 {{< img src="../../img/migration/accessing_2.png" title="Link to Process Instance Migration Page from Process Definition Page" >}}
 
@@ -35,7 +33,7 @@ Performing a migration consists of four steps:
 
 # Create a Migration Plan
 
-When accessing the migration page from the process definition or instance page, an appropriate source and target definition key and version is already set. Otherwise you can set the process definition key and version for both the source and target at the top of the page. After selecting a source and a target, the diagrams for these process definition versions are displayed. Also, a first draft of a migration plan is [generated]({{< relref "user-guide/process-engine/process-instance-migration.md#generating-a-migration-plan" >}}) and successfully mapped activities are highlighted with a green checkmark symbol <span class="badge" style="border: 1px solid #4cae4c; background-color: #5cb85c;">
+When accessing the migration page from the process definition or instance page, an appropriate source and target definition key and version is already set. Otherwise you can set the process definition key and version for both the source and target at the top of the page. After selecting a source and a target, the diagrams for these process definition versions are displayed. Also, a first draft of a migration plan is [generated]({{< ref "/user-guide/process-engine/process-instance-migration.md#generating-a-migration-plan" >}}) and successfully mapped activities are highlighted with a green checkmark symbol <span class="badge" style="border: 1px solid #4cae4c; background-color: #5cb85c;">
   <span class="glyphicon glyphicon-ok"></span>
 </span>. Hovering over an activity highlights the corresponding source and target activities for the mapping.
 
@@ -73,7 +71,7 @@ If you create a mapping that is incorrect, a red error indicator <span class="ba
 
 ## Set Update Event Trigger flag
 
-To set the [update event trigger flag]({{< relref "user-guide/process-engine/process-instance-migration.md#events" >}}) for events, first create a mapping for the event. Then click on the green checkmark indicator to open the details tooltip. The opened popup contains a checkbox to update the event trigger.
+To set the [update event trigger flag]({{< ref "/user-guide/process-engine/process-instance-migration.md#events" >}}) for events, first create a mapping for the event. Then click on the green checkmark indicator to open the details tooltip. The opened popup contains a checkbox to update the event trigger.
 
 
 ## Show migration plan
@@ -87,7 +85,9 @@ You can also click on an activity to show a green arrow pointing from the source
 
 {{< img src="../../img/migration/step2.png" title="Select instances for migration" >}}
 
-After finishing the migration plan, click the `Select Instances` button to proceed to instance selection. Initially, all instances of the source process definition version are displayed. You can use the filter bar above the list of instances to filter the displayed instances. Using the checkboxes to the left of the instances, you can mark them for migration. All instances you select on this page are migrated.
+After finishing the migration plan, click the `Select Instances` button to proceed to instance selection. Initially, all instances of the source process definition version are displayed. You can use the filter bar above the list of instances to filter the displayed instances. Furthermore, you can copy a link to the current filter query to your clipboard by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-link"></i></button> button and you can save filter queries to your local browser storage by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and inserting a name in the drop down menu that appears. You can then retrieve the filter query by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and selecting the chosen name in the drop down menu.
+
+Using the checkboxes to the left of the instances, you can mark them for migration. All instances you select on this page are migrated.
 
 If you do not explicitly select any instances, all instances of the source process definition version are migrated to the target version.
 
@@ -105,7 +105,7 @@ By clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-eye-
 
 {{< img src="../../img/migration/step4_batch.png" title="Executing migration asynchronously" >}}
 
-After clicking `Execute Migration`, the result screen is displayed. If the migration was performed successfully, that is indicated on this page. For asynchronous migrations, a link to the [batch page]({{< relref "webapps/cockpit/batches.md" >}}) is displayed where the progress of the batch can be observed.
+After clicking `Execute Migration`, the result screen is displayed. If the migration was performed successfully, that is indicated on this page. For asynchronous migrations, a link to the [batch page]({{< ref "/webapps/cockpit/batch/monitoring.md" >}}) is displayed where the progress of the batch can be observed.
 
 ## Error: Migration Plan invalid
 

@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Complete an external task and update process variables.
+Completes an external task by id and updates process variables.
 
 
 # Method
@@ -52,7 +52,13 @@ A JSON object with the following properties:
   <tr>
     <td>variables</td>
     <td><p>A JSON object containing variable key-value pairs. Each key is a variable name and each value a JSON variable value object with the following properties:</p>
-    {{< rest-var-request >}}
+    {{< rest-var-request transient="true" >}}</td>
+  </tr>
+  <tr>
+    <td>localVariables</td>
+    <td><p>A JSON object containing variable key-value pairs. Each key is a variable name and each value a JSON variable value object with the following properties:</p>
+    <p>Local variables are set only in the scope of external task.</p>
+    {{< rest-var-request transient="true" >}}</td>
   </tr>
 </table>
 
@@ -78,17 +84,17 @@ This method returns no content.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if the task's most recent lock was not acquired by the provided worker. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if the task's most recent lock was not acquired by the provided worker. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Returned if the task does not exist. This could indicate a wrong task id as well as a cancelled task, e.g. due to a caught BPMN boundary event. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if the task does not exist. This could indicate a wrong task id as well as a cancelled task, e.g., due to a caught BPMN boundary event. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>Returned if the corresponding process instance could not be resumed successfully. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if the corresponding process instance could not be resumed successfully. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -100,13 +106,17 @@ POST `/external-task/anId/complete`
 
 Request Body:
 
+```json
     {
       "workerId": "aWorker",
       "variables":
           {"aVariable": {"value": "aStringValue"},
           "anotherVariable": {"value": 42},
-          "aThirdVariable": {"value": true}}
+          "aThirdVariable": {"value": true}},
+      "localVariables":
+          {"aLocalVariable": {"value": "aStringValue"}}
     }
+```
 
 ## Response
 

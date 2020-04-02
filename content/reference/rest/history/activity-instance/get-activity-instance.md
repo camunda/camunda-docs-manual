@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Activity Instance (Historic)"
+title: "Get Historic Activity Instance"
 weight: 30
 
 menu:
@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Retrieves a single historic activity instance according to the `HistoricActivityInstance` interface
+Retrieves a historic activity instance by id, according to the `HistoricActivityInstance` interface
 in the engine.
 
 
@@ -115,12 +115,12 @@ Its properties are as follows:
   <tr>
     <td>startTime</td>
     <td>String</td>
-    <td>The time the instance was started. Has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The time the instance was started. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
     <td>endTime</td>
     <td>String</td>
-    <td>The time the instance ended. Has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The time the instance ended. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
     <td>durationInMillis</td>
@@ -135,15 +135,26 @@ Its properties are as follows:
   <tr>
     <td>completeScope</td>
     <td>Boolean</td>
-    <td>If true, this activity instance did complete a BPMN 2.0 scope </td>
+    <td>If true, this activity instance did complete a BPMN 2.0 scope.</td>
   </tr>
   <tr>
     <td>tenantId</td>
     <td>String</td>
     <td>The tenant id of the activity instance.</td>
   </tr>
+  <tr>
+    <td>removalTime</td>
+    <td>String</td>
+    <td>The time after which the activity instance should be removed by the History Cleanup job. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+  <tr>
+    <td>rootProcessInstanceId</td>
+    <td>String</td>
+    <td>The process instance id of the root process instance that initiated the process containing this activity instance.</td>
+  </tr>
 </table>
 
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Response Codes
 
@@ -161,7 +172,7 @@ Its properties are as follows:
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Historic activity instance with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Historic activity instance with given id does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -186,13 +197,15 @@ GET `/history/activity-instance/aActivityInstId`
   "canceled": true,
   "completeScope": false,
   "durationInMillis": 2000,
-  "endTime": "2013-04-23T18:42:43",
+  "endTime": "2013-04-23T18:42:43.000+0200",
   "executionId": "anExecutionId",
   "parentActivityInstanceId": "aHistoricParentActivityInstanceId",
   "processDefinitionId": "aProcDefId",
   "processInstanceId": "aProcInstId",
-  "startTime": "2013-04-23T11:20:43",
+  "startTime": "2013-04-23T11:20:43.000+0200",
   "taskId": "aTaskId",
-  "tenantId":null
+  "tenantId":null,
+  "removalTime":"2018-02-10T14:33:19.000+0200",
+  "rootProcessInstanceId": "aRootProcessInstanceId"
 }
 ```

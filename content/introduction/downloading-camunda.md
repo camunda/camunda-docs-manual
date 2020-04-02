@@ -14,16 +14,15 @@ menu:
 # Prerequisites
 
 Before downloading Camunda, make sure you have a JRE (Java Runtime Environment), or better, a JDK
-(Java Development Kit) installed. We recommend using Java 8 unless your container/application
-server does not support Java 8 (like JBoss Application Server 7).
+(Java Development Kit) installed. Please check the supported [Java versions]({{< ref "/introduction/supported-environments.md#java" >}}).
 
-[Download JDK 8][get-jdk]
+[Download JDK][get-jdk]
 
 
 # Download the Runtime
 
 Camunda is a flexible framework which can be used in different contexts. See [Architecture Overview]
-({{< relref "introduction/architecture.md" >}}) for more details. Based on how you want
+({{< ref "/introduction/architecture.md" >}}) for more details. Based on how you want
 to use Camunda, you can choose a different distribution.
 
 
@@ -34,6 +33,8 @@ customers:
 
 * [Community download page][community-download-page]
 * [Enterprise download page][enterprise-download-page]
+
+It is also possible to run Camunda BPM with [Spring Boot][run-with-spring-boot] and [Docker][run-with-docker].
 
 
 ## Full Distribution
@@ -52,7 +53,7 @@ The full distribution bundles
   If you download the full distribution for an open source application
   server/container, the container itself is included. For example, if you download the tomcat
   distribution, tomcat itself is included and the Camunda binaries (process engine and
-  webapplications) are pre-installed into the container. This is not true for the the Oracle Weblogic
+  webapplications) are pre-installed into the container. This is not true for the the Oracle WebLogic
   and IBM WebSphere downloads. These downloads do not include the application servers themselves.
 {{< /note >}}
 
@@ -84,16 +85,13 @@ Camunda Modeler is a modeling Tool for BPMN 2.0 and DMN 1.1. Camunda Modeler can
 from the [community download page][community-download-page].
 
 
-# Download Camunda Cycle
 
-Camunda Cycle is a tool for BPMN 2.0 interchange and Roundtrip. Camunda Cycle can be downloaded from
-the [community download page][community-download-page].
-
-
-[get-jdk]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
-[community-download-page]: http://camunda.org/download
+[get-jdk]: https://www.oracle.com/technetwork/java/javase/downloads/index.html
+[community-download-page]: https://downloads.camunda.cloud/release/camunda-bpm/
 [enterprise-download-page]: /enterprise/download
-[shared-engine]: {{< relref "introduction/architecture.md#shared-container-managed-process-engine" >}}
-[embedded-engine]: {{< relref "introduction/architecture.md#embedded-process-engine" >}}
-[installation-guide-standalone]: {{< relref "installation/standalone-webapplication.md" >}}
-[installation-guide-full]: {{< relref "installation/index.md" >}}
+[shared-engine]: {{< ref "/introduction/architecture.md#shared-container-managed-process-engine" >}}
+[embedded-engine]: {{< ref "/introduction/architecture.md#embedded-process-engine" >}}
+[installation-guide-standalone]: {{< ref "/installation/standalone-webapplication.md" >}}
+[installation-guide-full]: {{< ref "/installation/_index.md" >}}
+[run-with-spring-boot]: {{< ref "/user-guide/spring-boot-integration/_index.md" >}}
+[run-with-docker]: {{< ref "/installation/docker.md" >}}

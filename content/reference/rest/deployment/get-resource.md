@@ -1,6 +1,6 @@
 ---
 
-title: 'Get Single Deployment Resource'
+title: 'Get Deployment Resource'
 weight: 60
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single deployment resource by resource id for the given deployment.
+Retrieves a deployment resource by resource id for the given deployment.
 
 
 # Method
@@ -80,13 +80,13 @@ Its properties are as follows:
   </tr>
   <tr>
     <td>200</td>
-    <td>application/octet-stream</td>
+    <td>application/json</td>
     <td>Request successful.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Deployment Resource with given resource id or deployment id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Deployment Resource with given resource id or deployment id does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

@@ -16,7 +16,7 @@ We'll explain the `SpringTransactionIntegrationTest` found in the Spring example
 
 When passing the DataSource to the `SpringProcessEngineConfiguration` (using property "dataSource"), the Camunda engine uses a `org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy` internally, which wraps the passed DataSource. This is done to make sure the SQL connections retrieved from the DataSource and the Spring transactions play well together. This implies that it's no longer needed to proxy the dataSource yourself in Spring configuration, although it's still allowed to pass a `TransactionAwareDataSourceProxy` into the `SpringProcessEngineConfiguration`. In this case no additional wrapping will occur.
 
-Make sure when declaring a `TransactionAwareDataSourceProxy` in Spring configuration yourself, that you don't use it for resources that are already aware of Spring-transactions (e.g. `DataSourceTransactionManager` and `JPATransactionManager` need the un-proxied dataSource).
+Make sure when declaring a `TransactionAwareDataSourceProxy` in Spring configuration yourself, that you don't use it for resources that are already aware of Spring-transactions (e.g., `DataSourceTransactionManager` and `JPATransactionManager` need the un-proxied dataSource).
 
 ```xml
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -73,7 +73,7 @@ The remainder of that Spring configuration file contains the beans and configura
 </beans>
 ```
 
-First the application context is created with any of the Spring ways to do that. In this example you could use a classpath XML resource to configure our Spring application context:
+First, the application context is created with any of the Spring ways to do that. In this example you could use a classpath XML resource to configure our Spring application context:
 
 ```java
 ClassPathXmlApplicationContext applicationContext =
@@ -126,3 +126,101 @@ public class UserBean {
   }
 }
 ```
+
+# Using Inner Spring Transactions
+
+When engine API calls are executed in the Spring context, Spring doesn't 
+make it transparent to the Process Engine when nested API calls need to 
+be executed in a separate transaction (the `Propagation.REQUIRES_NEW` 
+transaction behavior). This doesn't play well with how the Process Engine 
+Context is used to separate transaction data described in detail in
+[Transactions and the Process Engine Context][transactions-and-engine-context]. 
+Due to this, if the inner transaction fails, the changes made by the engine 
+API calls are still committed to the Camunda database.
+
+A solution for this is to explicitly declare to the Process Engine that
+a new Process Engine Context is to be created, where all the following
+Engine API calls will store their changes for the database. In case the
+inner transaction fails, the changes in this new Process Engine Context
+will be reverted.
+
+The Process Engine Context must be declared whenever a Spring 
+`Propagation.REQUIRES_NEW` inner transaction is defined in an already 
+running transaction. 
+
+## Example
+
+In the following code-snippet, we can see a Spring `Propagation.REQUIRED` 
+transaction, defined on the `execute` method, and a Spring `Propagation.REQUIRES_NEW`
+transaction, defined on the `InnerProcessServiceImpl#startInnerProcess` method.
+The `InnerProcessServiceImpl#startInnerProcess` method is called through 
+the `execute` method, resulting in an inner transaction.We can also assume 
+that, in the `startProcessInstanceByKey` engine API call, some custom code 
+continues to execute in the inner transaction, and throws an exception.
+
+```java
+@Transactional(value = "transactionManager", propagation = Propagation.REQUIRED)
+public void execute(DelegateExecution execution) throws Exception {
+  try {
+    innerProcessService.startInnerProcess(execution);
+  } catch (Exception ex) {
+    // noop
+  }
+}
+
+/* InnerProcessService implementation */
+
+@Service
+public class InnerProcessServiceImpl implements InnerProcessService {
+
+  @Override
+  @Transactional(value = "transactionManager", propagation = Propagation.REQUIRES_NEW, rollbackFor = {Throwable.class})
+  public void startInnerProcess(DelegateExecution execution) {
+
+    execution.getProcessEngineServices()
+      .getRuntimeService()
+      .startProcessInstanceByKey("EXAMPLE_PROCESS");
+
+    // custom code continues
+  }
+}
+```
+
+In a case like this one, since Spring doesn't make the Process Engine aware that the `startProcessInstanceByKey` 
+engine API call is executed in a new, inner transaction, when the custom code 
+fails, the Spring inner transaction will be rolled back, but the data
+from the started Process Instance data will be committed with the outer 
+transaction.
+
+The described problem can be solved through the static methods of the 
+`org.camunda.bpm.engine.context.ProcessEngineContext` class. First, we 
+call the `ProcessEngineContext.requiresNew()` method to  declare that a 
+new Context is required. Finally, we call the `ProcessEngineContext.clear()` 
+method to clear the declaration for a new Process Engine Context. This
+is important since a new Process Engine Context will be declared for each 
+following engine API call until the `ProcessEngineContext#clear` method 
+is called.
+
+Using a `try-finally` block is recommended to ensure that the `ProcessEngineContext` 
+static methods are called and cleared even in the presence of exceptions.
+Below, you can find the solution applied to the `startProcessInstanceByKey`
+engine API call of the example above:
+
+```java
+try {
+  
+  // declare new Process Engine Context
+  ProcessEngineContext.requiresNew();
+  
+  // call engine APIs
+  execution.getProcessEngineServices()
+    .getRuntimeService()
+    .startProcessInstanceByKey("EXAMPLE_PROCESS");
+
+} finally {
+  // clear declaration for new Process Engine Context
+  ProcessEngineContext.clear();
+}
+```
+
+[transactions-and-engine-context]: {{< ref "/user-guide/process-engine/transactions-in-processes.md#transactions-and-the-process-engine-context" >}}

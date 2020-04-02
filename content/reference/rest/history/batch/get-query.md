@@ -1,6 +1,6 @@
 ---
 
-title: "Get Batches (Historic)"
+title: "Get Historic Batches"
 weight: 10
 
 menu:
@@ -13,10 +13,10 @@ menu:
 ---
 
 
-Query for historic batches that fulfill given parameters. Parameters may be
-the properties of batches, such as the id or type.  The
-size of the result set can be retrieved by using the [GET query count]({{<
-relref "reference/rest/history/batch/get-query-count.md" >}}).
+Queries for historic batches that fulfill given parameters. Parameters may be
+the properties of batches, such as the id or type. The
+size of the result set can be retrieved by using the [Get Historic Batch Count]({{<
+ref "/reference/rest/history/batch/get-query-count.md" >}}) method.
 
 
 # Method
@@ -39,15 +39,15 @@ GET `/history/batch`
   </tr>
   <tr>
     <td>type</td>
-    <td>Filter by batch type.</td>
+    <td>Filter by batch type. See the <a href="{{< ref "/user-guide/process-engine/batch.md#creating-a-batch" >}}">User Guide</a> for more information about batch types.</td>
   </tr>
   <tr>
     <td>completed</td>
     <td>
       Filter completed or not completed batches. If the value is
-      <code>true</code> only completed batches, i.e. end time is set, are
-      returned. Otherwise if the value is <code>false</code> only running
-      batches, i.e. end time is null, are returned.
+      <code>true</code>, only completed batches, i.e., end time is set, are
+      returned. Otherwise, if the value is <code>false</code>, only running
+      batches, i.e., end time is null, are returned.
     </td>
   </tr>
   <tr>
@@ -102,7 +102,7 @@ Each historic batch object has the following properties:
   <tr>
     <td>type</td>
     <td>String</td>
-    <td>The type of the batch.</td>
+    <td>The type of the batch. See the <a href="{{< ref "/user-guide/process-engine/batch.md#creating-a-batch" >}}">User Guide</a> for more information about batch types.</td>
   </tr>
   <tr>
     <td>totalJobs</td>
@@ -117,7 +117,7 @@ Each historic batch object has the following properties:
     <td>Number</td>
     <td>
       The number of batch execution jobs created per seed job invocation.
-      The batch seed job is invoked until it created all batch execution jobs required by
+      The batch seed job is invoked until it has created all batch execution jobs required by
       the batch (see <code>totalJobs</code> property).
     </td>
   </tr>
@@ -152,17 +152,28 @@ Each historic batch object has the following properties:
     <td>The tenant id of the batch.</td>
   </tr>
   <tr>
+    <td>createUserId</td>
+    <td>String</td>
+    <td>The batch creator's user id.</td>
+  </tr>
+  <tr>
     <td>startTime</td>
     <td>String</td>
-    <td>The time the batch was started. Has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The time the batch was started. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
     <td>endTime</td>
     <td>String</td>
-    <td>The time the batch ended. Has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The time the batch ended. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+  <tr>
+    <td>removalTime</td>
+    <td>String</td>
+    <td>The time after which the historic batch should be removed by the History Cleanup job. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
 </table>
 
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 ## Response codes
 
@@ -182,7 +193,7 @@ Each historic batch object has the following properties:
     <td>application/json</td>
     <td>
       Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>.
-      See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+      See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
 </table>
@@ -210,8 +221,10 @@ Status 200.
     "monitorJobDefinitionId": "aMonitorJobDefinitionId",
     "batchJobDefinitionId": "aBatchJobDefinitionId",
     "tenantId": "aTenantId",
-    "startTime": "2016-04-12T15:29:33",
-    "endTime": "2016-04-12T16:23:34"
+    "createUserId": "aUserId",
+    "startTime": "2016-04-12T15:29:33.000+0200",
+    "endTime": "2016-04-12T16:23:34.000+0200",
+    "removalTime": "2016-04-15T16:23:34.000+0200"
   }
 ]
 ```

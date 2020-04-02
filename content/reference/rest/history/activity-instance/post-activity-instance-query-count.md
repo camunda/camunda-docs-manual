@@ -1,6 +1,6 @@
 ---
 
-title: "Get Activity Instances Count (POST)"
+title: "Get Historic Activity Instance Count (POST)"
 weight: 50
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Query for the number of historic activity instances that fulfill the given parameters.
+Queries for the number of historic activity instances that fulfill the given parameters.
 
 
 # Method
@@ -66,42 +66,51 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>finished</td>
-    <td>Only include finished activity instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include finished activity instances. Value may only be <code>true</code>, as <code>false</code> behaves the same as when the property is not set.</td>
   </tr>
   <tr>
     <td>unfinished</td>
-    <td>Only include unfinished activity instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include unfinished activity instances. Value may only be <code>true</code>, as <code>false</code>
+    behaves the same as when the property is not set.</td>
   </tr>
   <tr>
     <td>canceled</td>
-    <td>Only include canceled activity instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include canceled activity instances. Value may only be <code>true</code>, as <code>false</code> behaves
+    the same as when the property is not set.</td>
   </tr>
   <tr>
     <td>completeScope</td>
-    <td>Only include activity instances which completed a scope. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include activity instances which completed a scope. Value may only be <code>true</code>, as <code>false</code>
+    behaves the same as when the property is not set.</td>
   </tr>
   <tr>
   <td>startedBefore</td>
-    <td>Restrict to instances that were started before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to instances that were started before the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>startedAfter</td>
-    <td>Restrict to instances that were started after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to instances that were started after the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>finishedBefore</td>
-    <td>Restrict to instances that were finished before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to instances that were finished before the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>finishedAfter</td>
-    <td>Restrict to instances that were finished after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to instances that were finished after the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>tenantIdIn</td>
     <td>Filter by a list of tenant ids. An activity instance must have one of the given tenant ids. Must be a JSON array of Strings.</td>
   </tr>
+  <tr>
+    <td>withoutTenantId</td>
+    <td>Only include historic activity instances that belong to no tenant. Value may only be 
+    <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
 </table>
 
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Result
 
@@ -137,7 +146,7 @@ A JSON object that contains the count as the only property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

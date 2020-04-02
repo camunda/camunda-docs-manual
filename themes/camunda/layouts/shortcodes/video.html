@@ -1,0 +1,8 @@
+<figure class="image{{ with .Get "class" }} {{.}}{{ end }}">
+<span><video loop autoplay width=100%><source
+  src="{{ .Get "src" }}"
+      type="video/mp4"
+      {{ if (.Get "title") }}
+          title="{{ with .Get "title"}}{{.}}{{ end }}"
+      {{ end }} /></video></span>
+</figure>

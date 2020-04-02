@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single user's profile.
+Retrieves a user's profile.
 
 
 # Method
@@ -56,12 +56,12 @@ Each user object has the following properties:
   <tr>
     <td>firstName</td>
     <td>String</td>
-    <td>The firstname of the user.</td>
+    <td>The first name of the user.</td>
   </tr>
   <tr>
     <td>lastName</td>
     <td>String</td>
-    <td>The lastname of the user.</td>
+    <td>The last name of the user.</td>
   </tr>
   <tr>
     <td>email</td>
@@ -92,7 +92,7 @@ Each user object has the following properties:
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Execution with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Execution with given id does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

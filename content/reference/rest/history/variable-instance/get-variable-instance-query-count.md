@@ -1,6 +1,6 @@
 ---
 
-title: "Get Variable Instances Count"
+title: "Get Variable Instance Count"
 weight: 20
 
 menu:
@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for the number of historic variable instances that fulfill the given parameters.
-Takes the same parameters as the [get historic variable instances]({{< relref "reference/rest/history/variable-instance/get-variable-instance-query.md" >}}).
+Queries for the number of historic variable instances that fulfill the given parameters.
+Takes the same parameters as the [Get Variable Instances]({{< ref "/reference/rest/history/variable-instance/get-variable-instance-query.md" >}}) method.
 
 
 # Method
@@ -44,12 +44,33 @@ GET `/history/variable-instance/count`
     <td>Filter by variable value. Is treated as a <code>String</code> object on server side.</td>
   </tr>
   <tr>
+    <td>variableValue</td>
+    <td>Filter by variable value. Is treated as a <code>String</code> object on server side.</td>
+  </tr>
+  </tr>
+  <tr>
+    <td>variableNamesIgnoreCase</td>
+    <td>Match the variable name provided in <code>variableName</code> and <code>variableNameLike</code> case-insensitively. If set to <code>true</code> <strong>variableName</strong> and <strong>variablename</strong> are treated as equal.</td>
+  </tr>
+  <tr>
+    <td>variableValuesIgnoreCase</td>
+    <td>Match the variable value provided in <code>variableValue</code> case-insensitively. If set to <code>true</code> <strong>variableValue</strong> and <strong>variablevalue</strong> are treated as equal.</td>
+  </tr>
+  <tr>
+    <td>includeDeleted</td>
+    <td>Include variables that has already been deleted during the execution.</td>
+  </tr>
+  <tr>
     <td>processInstanceId</td>
     <td>Filter by the process instance the variable belongs to.</td>
   </tr>
   <tr>
     <td>processInstanceIdIn</td>
     <td>Only include historic variable instances which belong to one of the passed process instance ids.</td>
+  </tr>
+  <tr>
+    <td>processDefinitionId</td>
+    <td>Filter by the process definition the variable belongs to.</td>
   </tr>
   <tr>
     <td>executionIdIn</td>
@@ -64,6 +85,10 @@ GET `/history/variable-instance/count`
     <td>Only include historic variable instances which belong to one of the passed and comma-separated case execution ids.</td>
   </tr>
   <tr>
+    <td>caseActivityIdIn</td>
+    <td>Only include historic variable instances which belong to one of the passed and comma-separated case activity ids.</td>
+  </tr>
+  <tr>
     <td>taskIdIn</td>
     <td>Only include historic variable instances which belong to one of the passed and comma-separated task ids.</td>
   </tr>
@@ -74,6 +99,11 @@ GET `/history/variable-instance/count`
   <tr>
     <td>tenantIdIn</td>
     <td>Only include historic variable instances which belong to one of the passed and comma-separated tenant ids.</td>
+  </tr>
+  <tr>
+    <td>withoutTenantId</td>
+    <td>Only include historic variable instances that belong to no tenant. Value may only be 
+    <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
 </table>
 

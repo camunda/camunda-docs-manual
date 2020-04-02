@@ -1,6 +1,6 @@
 ---
 
-title: 'Get Instances Count (POST)'
+title: 'Get Instance Count (POST)'
 weight: 110
 
 menu:
@@ -13,9 +13,9 @@ menu:
 ---
 
 
-Query for the number of process instances that fulfill the given parameters.
-This method takes the same message body as the [POST query]({{< relref "reference/rest/process-instance/post-query.md" >}})
-and therefore it is slightly more powerful than the [GET query count]({{< relref "reference/rest/process-instance/get-query-count.md" >}}).
+Queries for the number of process instances that fulfill the given parameters.
+This method takes the same message body as the [Get Instances (POST)]({{< ref "/reference/rest/process-instance/post-query.md" >}}) method
+and therefore it is slightly more powerful than the [Get Instance Count]({{< ref "/reference/rest/process-instance/get-query-count.md" >}}) method.
 
 
 # Method
@@ -43,6 +43,10 @@ A JSON object with the following properties:
     <td>Filter by process instance business key.</td>
   </tr>
   <tr>
+    <td>businessKeyLike</td>
+    <td>Filter by process instance business key that the parameter is a substring of.</td>
+  </tr>
+  <tr>
     <td>caseInstanceId</td>
     <td>Filter by case instance id.</td>
   </tr>
@@ -53,6 +57,14 @@ A JSON object with the following properties:
   <tr>
     <td>processDefinitionKey</td>
     <td>Filter by the key of the process definition the instances run on.</td>
+  </tr>
+  <tr>
+    <td>processDefinitionKeyIn</td>
+    <td>Filter by a list of process definition keys. A process instance must have one of the given process definition keys. Must be a JSON array of Strings.</td>
+  </tr>
+  <tr>
+    <td>processDefinitionKeyNotIn</td>
+    <td>Exclude instances by a list of process definition keys. A process instance must not have one of the given process definition keys. Must be a JSON array of Strings.</td>
   </tr>
   <tr>
     <td>deploymentId</td>
@@ -88,7 +100,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>incidentType</td>
-    <td>Filter by the incident type.</td>
+    <td>Filter by the incident type. See the <a href="{{< ref "/user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
   </tr>
   <tr>
     <td>incidentMessage</td>
@@ -104,11 +116,19 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only include process instances which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include process instances which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>activityIdIn</td>
     <td>Filter by a list of activity ids. A process instance must currently wait in a leaf activity with one of the given activity ids.</td>
+  </tr>
+  <tr>
+    <td>rootProcessInstances</td>
+    <td>Restrict the query to all process instances that are top level process instances.</td>
+  </tr>
+  <tr>
+    <td>processDefinitionWithoutTenantId</td>
+    <td>Only include process instances which process definition has no tenant id.</td>
   </tr>
   <tr>
     <td>variables</td>
@@ -120,6 +140,17 @@ A JSON object with the following properties:
     Valid operator values are: <code>eq</code> - equal to; <code>neq</code> - not equal to; <code>gt</code> - greater than;
     <code>gteq</code> - greater than or equal to; <code>lt</code> - lower than; <code>lteq</code> - lower than or equal to;
     <code>like</code>.<br/>
+    </td>
+  </tr>
+  <tr>
+    <td>orQueries</td>
+    <td>
+    A JSON array of nested process instance queries with OR semantics. A process instance matches a nested query if it fulfills <i>at least one</i> of the query's predicates. With multiple nested queries, a process instance must fulfill at least one predicate of <i>each</i> query (<a href="https://en.wikipedia.org/wiki/Conjunctive_normal_form">Conjunctive Normal Form</a>).<br><br>
+
+    All process instance query properties can be used except for: <code>sorting</code><br><br>
+
+    See the <a href="{{< ref "/user-guide/process-engine/process-engine-api.md#or-queries" >}}">user guide</a>
+    for more information about OR queries.
     </td>
   </tr>
 </table>
@@ -159,7 +190,7 @@ A JSON object that contains the count as the only property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

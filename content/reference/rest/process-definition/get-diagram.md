@@ -18,6 +18,8 @@ menu:
 
 Retrieves the diagram of a process definition.
 
+If the process definition's deployment contains an image resource with the same file name as the process definition, the deployed image will be returned by the Get Diagram endpoint.  Example: `someProcess.bpmn` and `someProcess.png`. Supported file extentions for the image are: `svg`, `png`, `jpg`, and `gif`.
+
 
 # Method
 
@@ -78,7 +80,7 @@ The image diagram of this process.
     <td>404</td>
     <td>application/json</td>
     <td>Process definition with given id or key does not exist.
-        See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+        See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

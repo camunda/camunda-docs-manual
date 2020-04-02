@@ -18,11 +18,11 @@ A decision table has a hit policy that specifies what the
 results of the evaluation of a decision table consist of.
 
 The hit policy is set in the `hitPolicy` attribute on the `decisionTable` XML
-element. If no hit policy is set then the default hit policy `UNIQUE` is used.
+element. If no hit policy is set, then the default hit policy `UNIQUE` is used.
 
 ```xml
-<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn11.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
-  <decision id="decision" name="Dish">
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="dish" name="Dish">
     <decisionTable id="decisionTable" hitPolicy="RULE ORDER">
       <!-- .. -->
     </decisionTable>
@@ -30,7 +30,7 @@ element. If no hit policy is set then the default hit policy `UNIQUE` is used.
 </definitions>
 ```
 
-In the visual representation of the decision table the hit policy is specified
+In the visual representation of the decision table, the hit policy is specified
 by the initial letter of the hit policy. The following hit policies are
 supported by the Camunda DMN engine:
 
@@ -76,7 +76,7 @@ output entries of the satisfied rule.
 
 If more than one rule is satisfied, the Unique hit policy is violated.
 
-See the following decision table. 
+See the following decision table.
 {{< img src="../img/hit-policy-unique.png" title="Hit Policy Unique" class="no-lightbox" >}}
 Depending on the current season the dish should be chosen.
 Only one dish can be chosen, since only one season can exist at the same time.
@@ -92,8 +92,8 @@ is violated.
 
 See the following example:
 {{< img src="../img/hit-policy-any.png" title="Hit Policy Any" class="no-lightbox" >}}
-There is a decision table for the leave application. If the applier
-has no vacation days left or he is currently in the probation period, the application will be refused. 
+This is a decision table for the leave application. If the applier
+has no vacation days left or is currently in the probation period, the application will be refused.
 Otherwise the application is applied.
 
 ## First Hit Policy
@@ -102,7 +102,7 @@ Multiple rules can be satisfied. The decision table result contains only
 the output of the first satisfied rule.
 
 {{< img src="../img/hit-policy-first.png" title="Hit Policy First" class="no-lightbox" >}}
-See the decistion table for advertisement. Regarding the current age of the user, which
+See the above decistion table for advertisement. Regarding the current age of the user, which
 advertisement should be shown is decided. For example, the user is 19 years old. All the rules will match, but since
 the hit policy is set to first only, the advertisement for Cars is used.
 
@@ -113,7 +113,7 @@ of all satisfied rules in the order of the rules in the decision table.
 
 {{< img src="../img/hit-policy-rule-order.png" title="Hit Policy Rule Order" class="no-lightbox" >}}
 Again, see the advertisement example with the rule order policy. Say we have a user at the age of 19 again.
-All rules are satisfied so all outputs are given, ordered by the rule ordering. 
+All rules are satisfied so all outputs are given, ordered by the rule ordering.
 It can perhaps be used to indicate the priority of the displayed advertisements.
 
 ## Collect Hit Policy
@@ -123,7 +123,7 @@ of all satisfied rules in an arbitrary order as a list.
 
 {{< img src="../img/hit-policy-collect.png" title="Hit Policy Collect" class="no-lightbox" >}}
 With this hit policy, the output list has no ordering. So the advertisement will be arbitrary
-if the age is for example 19.
+if, for example, the age is 19.
 
 Additionally, an aggregator can be specified for the Collect hit policy. If an
 aggregator is specified, the decision table result will only contain a single
@@ -131,7 +131,7 @@ output entry. The aggregator will generate the output entry from all satisfied
 rules. **Note** if the Collect hit policy is used with an aggregator, the
 decision table can only have one output.
 
-The aggregator is set as the `aggregation` attribute of the `descisionTable`
+The aggregator is set as the `aggregation` attribute of the `decisionTable`
 XML element.
 
 ```xml
@@ -179,7 +179,7 @@ the Camunda DMN engine:
 #### SUM aggregator
 The SUM aggregator sums up all outputs from the satisfied rules.
 {{< img src="../img/hit-policy-collect-sum.png" title="Hit Policy Collect SUM" class="no-lightbox" >}}
-The showed decision table can be used to sum up the salary bonus for an employee. For example, the employee has been working in the company for 
+The showed decision table can be used to sum up the salary bonus for an employee. For example, the employee has been working in the company for
 3.5 years. So the first, second and third rule will match and the result of the decision table is 600, since the output is summed up.
 
 #### MIN aggregator
@@ -204,11 +204,11 @@ The COUNT aggregator can be use to return the count of satisfied rules.
 
 {{< img src="../img/hit-policy-collect-count.png" title="Hit Policy Collect COUNT" class="no-lightbox" >}}
 
-For example, see the salary bonus decision table again, this time with the COUNT aggregator. 
+For example, see the salary bonus decision table again, this time with the COUNT aggregator.
 With an input of 4, the first three rules will be satisfied. Therefore, the result from the decision table will be 3, which means
 that after 4 years the result of the decision table is 3 salary bonuses.
 
-[decision table result]: {{< relref "user-guide/dmn-engine/evaluate-decisions.md#interpret-the-dmndecisiontableresult" >}}
+[decision table result]: {{< ref "/user-guide/dmn-engine/evaluate-decisions.md#interpret-the-dmndecisiontableresult" >}}
 [Unique]: #unique-hit-policy
 [Any]: #any-hit-policy
 [First]: #first-hit-policy

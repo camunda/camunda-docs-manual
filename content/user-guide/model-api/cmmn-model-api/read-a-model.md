@@ -11,7 +11,7 @@ menu:
 ---
 
 
-If you already created a CMMN model and want to process it by the CMMN model API you can import it with the
+If you already created a CMMN model and want to process it through the CMMN model API, you can import it with the
 following methods.
 
 ```java
@@ -24,7 +24,7 @@ InputStream stream = [...]
 CmmnModelInstance modelInstance = Cmmn.readModelFromStream(stream);
 ```
 
-After you imported your model you can search for elements by their id or by the type of elements.
+After you imported your model you can search for elements by their id or by the type of element.
 
 ```java
 // find element instance by ID
@@ -36,7 +36,7 @@ Collection<ModelElementInstance> humanTaskInstances = modelInstance.getModelElem
 ```
 
 For every element instance you can now read and edit the attribute values. You can do this by either using the provided
-helper methods or the generic XML model API. If you added custom attributes to the CMMN elements you can
+helper methods or the generic XML model API. If you added custom attributes to the CMMN elements, you can
 always access them with the generic XML model API.
 
 ```java
@@ -59,8 +59,8 @@ humanTask.setAttributeValue("custom-attribute", "new value");
 humanTask.setAttributeValueNs("custom-attribute", "http://camunda.org/custom", "new value");
 ```
 
-You can also access the child elements of an element or references to other elements. For example a plan item
-references a definition element (like human task, process task etc.) while the referenced definition element contains
+You can also access the child elements of an element or references to other elements. For example, a plan item
+references a definition element (like human task, process task, etc.) while the referenced definition element contains
 default control.
 
 Consider the following simple CMMN model:

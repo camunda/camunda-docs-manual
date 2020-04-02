@@ -16,7 +16,7 @@ menu:
 
 Tasklist uses the concept of plugins to add own functionality without having to extend or hack the Tasklist web application.
 
-For further details about the concepts behind plugins, please read the [Cockpit plugins section]({{< relref "webapps/cockpit/extend/plugins.md" >}}).
+For further details about the concepts behind plugins, please read the [Cockpit plugins section]({{< ref "/webapps/cockpit/extend/plugins.md" >}}).
 
 {{< note title="Difference between Cockpit and Tasklist plugins:" class="warning">}}
   * To publish the plugin with Tasklist, its class name must be put into a file called ```org.camunda.bpm.tasklist.plugin.spi.TasklistPlugin``` that resides in the directory ```META-INF/services```.
@@ -41,6 +41,12 @@ Here you can see the various points at which you are able to add your own plugin
 
 ---
 
+**Name:** `tasklist.header`.
+
+{{< img src="../img/plugin-points/tasklist-plugin-tasklist-header.png" title="Plugin Point" >}}
+
+---
+
 **Name:** `tasklist.task.detail`.
 
 {{< img src="../img/plugin-points/tasklist-plugin-task-detail.png" title="Plugin Point" >}}
@@ -50,6 +56,12 @@ Here you can see the various points at which you are able to add your own plugin
 **Name:** `tasklist.list`.
 
 {{< img src="../img/plugin-points/tasklist-plugin-list.png" title="Plugin Point" >}}
+
+---
+
+**Name:** `tasklist.card`.
+
+{{< img src="../img/plugin-points/tasklist-plugin-card.png" title="Plugin Point" >}}
 
 ---
 

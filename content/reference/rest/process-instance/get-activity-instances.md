@@ -12,7 +12,7 @@ menu:
 ---
 
 
-Retrieves an Activity Instance (Tree) for a given process instance.
+Retrieves an Activity Instance (Tree) for a given process instance by id.
 
 
 # Method
@@ -66,7 +66,7 @@ The properties of an activity instance are as follows:
   <tr>
     <td>activityType</td>
     <td>String</td>
-    <td>The type of activity (corresponds to the XML element name in the BPMN 2.0, e.g. 'userTask').</td>
+    <td>The type of activity (corresponds to the XML element name in the BPMN 2.0, e.g., 'userTask').</td>
   </tr>
   <tr>
     <td>processInstanceId</td>
@@ -92,6 +92,22 @@ The properties of an activity instance are as follows:
     <td>executionIds</td>
     <td>List of String</td>
     <td>A list of execution ids.</td>
+  </tr>
+  <tr>
+    <td>incidentIds</td>
+    <td>List of String</td>
+    <td>A list of incident ids.</td>
+  </tr>
+  <tr>
+    <td>incidents</td>
+    <td>List of Objects</td>
+    <td>
+        A list of JSON objects containing incident specific properties:
+        <ul>
+            <li><code>id</code>: the id of the incident</li>
+            <li><code>activityId</code>: the activity id in which the incident happened</li>
+        </ul>
+    </td>
   </tr>
 </table>
 
@@ -121,7 +137,7 @@ The properties of a transition instance are as follows:
   <tr>
     <td>activityType</td>
     <td>String</td>
-    <td>The type of the activity that this instance enters (asyncBefore job) or leaves (asyncAfter job). Corresponds to the XML element name in the BPMN 2.0, e.g. 'userTask'.</td>
+    <td>The type of the activity that this instance enters (asyncBefore job) or leaves (asyncAfter job). Corresponds to the XML element name in the BPMN 2.0, e.g., 'userTask'.</td>
   </tr>
   <tr>
     <td>processInstanceId</td>
@@ -137,6 +153,22 @@ The properties of a transition instance are as follows:
     <td>executionId</td>
     <td>List of String</td>
     <td>A list of execution ids.</td>
+  </tr>
+  <tr>
+    <td>incidentIds</td>
+    <td>List of String</td>
+    <td>A list of incident ids.</td>
+  </tr>
+  <tr>
+    <td>incidents</td>
+    <td>List of Objects</td>
+    <td>
+        A list of JSON objects containing incident specific properties:
+        <ul>
+            <li><code>id</code>: the id of the incident</li>
+            <li><code>activityId</code>: the activity id in which the incident happened</li>
+        </ul>
+    </td>
   </tr>
 </table>
 
@@ -157,7 +189,7 @@ The properties of a transition instance are as follows:
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Process instance with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Process instance with given id does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -171,45 +203,42 @@ GET `/process-instance/aProcessInstanceId/activity-instances`
 ## Response
 
     {
-      "id": "8f72bc9f-d505-11e2-bafa-3c970e140ef1",
+      "id": "eca75c6b-f70c-11e9-8777-e4a7a094a9d6",
       "parentActivityInstanceId": null,
-      "activityId": "executionProcess:1:8ef5c393-d505-11e2-bafa-3c970e140ef1",
-      "processInstanceId": "8f72bc9f-d505-11e2-bafa-3c970e140ef1",
-      "processDefinitionId": "executionProcess:1:8ef5c393-d505-11e2-bafa-3c970e140ef1",
+      "activityId": "invoice:2:e9d77375-f70c-11e9-8777-e4a7a094a9d6",
+      "activityType": "processDefinition",
+      "processInstanceId": "eca75c6b-f70c-11e9-8777-e4a7a094a9d6",
+      "processDefinitionId": "invoice:2:e9d77375-f70c-11e9-8777-e4a7a094a9d6",
       "childActivityInstances": [
-          {
-              "id": "SubProcess_1:8f72bca4-d505-11e2-bafa-3c970e140ef1",
-              "parentActivityInstanceId": "8f72bc9f-d505-11e2-bafa-3c970e140ef1",
-              "activityId": "SubProcess_1",
-              "activityType": "subProcess",
-              "processInstanceId": "8f72bc9f-d505-11e2-bafa-3c970e140ef1",
-              "processDefinitionId": "executionProcess:1:8ef5c393-d505-11e2-bafa-3c970e140ef1",
-              "childActivityInstances": [],
-              "childTransitionInstances": [
-                  {
-                      "id": "8f72bca9-d505-11e2-bafa-3c970e140ef1",
-                      "parentActivityInstanceId": "SubProcess_1:8f72bca4-d505-11e2-bafa-3c970e140ef1",
-                      "processInstanceId": "8f72bc9f-d505-11e2-bafa-3c970e140ef1",
-                      "processDefinitionId": "executionProcess:1:8ef5c393-d505-11e2-bafa-3c970e140ef1",
-                      "activityId": "ServiceTask_1",
-                      "executionId": "8f72bca9-d505-11e2-bafa-3c970e140ef1"
-                  },
-                  {
-                      "id": "8f72bcaa-d505-11e2-bafa-3c970e140ef1",
-                      "parentActivityInstanceId": "SubProcess_1:8f72bca4-d505-11e2-bafa-3c970e140ef1",
-                      "processInstanceId": "8f72bc9f-d505-11e2-bafa-3c970e140ef1",
-                      "processDefinitionId": "executionProcess:1:8ef5c393-d505-11e2-bafa-3c970e140ef1",
-                      "activityId": "ServiceTask_2",
-                      "executionId": "8f72bcaa-d505-11e2-bafa-3c970e140ef1"
-                  }
-              ],
-              "executionIds": [
-                  "8f72bc9f-d505-11e2-bafa-3c970e140ef1"
-              ]
-          }
+        {
+          "id": "approveInvoice:eca89509-f70c-11e9-8777-e4a7a094a9d6",
+          "parentActivityInstanceId": "eca75c6b-f70c-11e9-8777-e4a7a094a9d6",
+          "activityId": "approveInvoice",
+          "activityType": "userTask",
+          "processInstanceId": "eca75c6b-f70c-11e9-8777-e4a7a094a9d6",
+          "processDefinitionId": "invoice:2:e9d77375-f70c-11e9-8777-e4a7a094a9d6",
+          "childActivityInstances": [],
+          "childTransitionInstances": [],
+          "executionIds": [
+            "eca75c6b-f70c-11e9-8777-e4a7a094a9d6"
+          ],
+          "activityName": "Approve Invoice",
+          "incidentIds": [
+            "648d7e21-f71c-11e9-a725-e4a7a094a9d6"
+          ],
+          "incidents": [
+            {
+              "id": "648d7e21-f71c-11e9-a725-e4a7a094a9d6",
+              "activityId": "AttachedTimerBoundaryEvent"
+            }
+          ]
+        }
       ],
       "childTransitionInstances": [],
       "executionIds": [
-          "8f72bc9f-d505-11e2-bafa-3c970e140ef1"
-      ]
+        "eca75c6b-f70c-11e9-8777-e4a7a094a9d6"
+      ],
+      "activityName": "Invoice Receipt",
+      "incidentIds": null,
+      "incidents": null
     }

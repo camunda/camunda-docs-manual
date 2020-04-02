@@ -13,10 +13,10 @@ menu:
 ---
 
 
-Query for deployments that fulfill given parameters. Parameters may be the
+Queries for deployments that fulfill given parameters. Parameters may be the
 properties of deployments, such as the id or name or a range of the deployment time.
 The size of the result set
-can be retrieved by using the [get deployments count]({{< relref "reference/rest/deployment/get-query-count.md" >}}) method.
+can be retrieved by using the [Get Deployment count]({{< ref "/reference/rest/deployment/get-query-count.md" >}}) method.
 
 
 # Method
@@ -59,19 +59,19 @@ GET `/deployment`
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only include deployments which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include deployments which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>includeDeploymentsWithoutTenantId</td>
-    <td>Include deployments which belongs to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Include deployments which belong to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>after</td>
-    <td>Restricts to all deployments after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code></td>
+    <td>Restricts to all deployments after the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>before</td>
-    <td>Restricts to all deployments before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code></td>
+    <td>Restricts to all deployments before the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>sortBy</td>
@@ -94,6 +94,7 @@ GET `/deployment`
   </tr>
 </table>
 
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Result
 
@@ -129,7 +130,7 @@ A JSON array of deployment objects. Each deployment object has the following pro
   <tr>
     <td>deploymentTime</td>
     <td>Date</td>
-    <td>The date time of the deployment.</td>
+    <td>The date and time of the deployment.</td>
   </tr>
 </table>
 
@@ -150,7 +151,7 @@ A JSON array of deployment objects. Each deployment object has the following pro
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -171,7 +172,7 @@ GET `/deployment?name=deploymentName`
     "name": "deploymentName",
     "source": "process application",
     "tenantId": null,
-    "deploymentTime": "2013-04-23T13:42:43"
+    "deploymentTime": "2013-04-23T13:42:43.000+0200"
   }
 ]
 ```

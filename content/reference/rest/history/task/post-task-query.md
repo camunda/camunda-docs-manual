@@ -1,6 +1,6 @@
 ---
 
-title: "Get Task (Historic) (POST)"
+title: "Get Tasks (Historic) (POST)"
 weight: 30
 
 menu:
@@ -13,10 +13,10 @@ menu:
 ---
 
 
-Query for historic tasks that fulfill the given parameters.
-This method is slightly more powerful than the [GET query]({{< relref "reference/rest/history/task/get-task-query.md" >}}) because it allows
+Queries for historic tasks that fulfill the given parameters.
+This method is slightly more powerful than the [Get Tasks (Historic)]({{< ref "/reference/rest/history/task/get-task-query.md" >}}) method because it allows
 filtering by multiple process or task variables of types `String`, `Number` or `Boolean`.
-The size of the result set can be retrieved by using [get tasks count (POST)]({{< relref "reference/rest/history/task/post-task-query-count.md" >}}) method.
+The size of the result set can be retrieved by using the [Get Task Count (POST)]({{< ref "/reference/rest/history/task/post-task-query-count.md" >}}) method.
 
 
 # Method
@@ -66,6 +66,20 @@ A JSON object with the following properties:
     <td>Filter by process instance id.</td>
   </tr>
   <tr>
+    <td>processInstanceBusinessKey</td>
+    <td>Filter by process instance business key.</td>
+  </tr>
+  <tr>
+  <tr>
+    <td>processInstanceBusinessKeyIn</td>
+    <td>Filter by process instances with one of the give business keys.
+        The keys need to be in a comma-separated list.
+    </td>
+  </tr>
+  <tr>
+    <td>processInstanceBusinessKeyLike</td>
+    <td>Filter by  process instance business key that has the parameter value as a substring.</td>
+  </tr>
     <td>executionId</td>
     <td>Filter by the id of the execution that executed the task.</td>
   </tr>
@@ -126,6 +140,10 @@ A JSON object with the following properties:
     <td>Restrict to tasks that have the given key.</td>
   </tr>
   <tr>
+    <td>taskDefinitionKeyIn</td>
+    <td>Restrict to tasks that have one of the given key.</td>
+  </tr>
+  <tr>
     <td>taskDeleteReason</td>
     <td>Restrict to tasks that have the given delete reason.</td>
   </tr>
@@ -179,31 +197,52 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>taskDueDate</td>
-    <td>Restrict to tasks that are due on the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that are due on the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>taskDueDateBefore</td>
-    <td>Restrict to tasks that are due before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that are due before the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>taskDueDateAfter</td>
-    <td>Restrict to tasks that are due after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that are due after the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>taskFollowUpDate</td>
-    <td>Restrict to tasks that have a followUp date on the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that have a followUp date on the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>taskFollowUpDateBefore</td>
-    <td>Restrict to tasks that have a followUp date before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that have a followUp date before the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>taskFollowUpDateAfter</td>
-    <td>Restrict to tasks that have a followUp date after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that have a followUp date after the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
+  </tr>
+  <tr>
+  <td>startedBefore</td>
+    <td>Restrict to tasks that were started before the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
+  </tr>
+  <tr>
+    <td>startedAfter</td>
+    <td>Restrict to tasks that were started after the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
+  </tr>
+  <tr>
+    <td>finishedBefore</td>
+    <td>Restrict to tasks that were finished before the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
+  </tr>
+  <tr>
+    <td>finishedAfter</td>
+    <td>Restrict to tasks that were finished after the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>tenantIdIn</td>
     <td>Filter by a list of tenant ids. A task instance must have one of the given tenant ids. Must be a JSON array of Strings.</td>
+  </tr>
+  <tr>
+    <td>withoutTenantId</td>
+    <td>Only include historic task instances that belong to no tenant. Value may only be 
+    <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>taskVariables</td>
@@ -230,21 +269,29 @@ A JSON object with the following properties:
     <code>like</code>.<br/>
     </td>
   </tr>
+  <tr>
+    <td>variableNamesIgnoreCase</td>
+    <td>Match the variable name provided in <code>taskVariables</code> and <code>processVariables</code> case-insensitively. If set to <code>true</code> <strong>variableName</strong> and <strong>variablename</strong> are treated as equal.</td>
+  </tr>
+  <tr>
+    <td>variableValuesIgnoreCase</td>
+    <td>Match the variable value provided in <code>taskVariables</code> and <code>processVariables</code> case-insensitively. If set to <code>true</code> <strong>variableValue</strong> and <strong>variablevalue</strong> are treated as equal.</td>
+  </tr>
    <tr>
     <td>taskInvolvedUser</td>
-    <td>Restrict on the historic identity links of any type of user.</td>
+    <td>Restrict to tasks with a historic identity link to the given user.</td>
   </tr>
   <tr>
     <td>taskInvolvedGroup</td>
-    <td>Restrict on the historic identity links of any type of group.</td>
+    <td>Restrict to tasks with a historic identity link to the given group.</td>
   </tr>
   <tr>
     <td>taskHadCandidateUser</td>
-    <td>Restrict on the historic identity links of type candidate user.</td>
+    <td>Restrict to tasks with a historic identity link to the given candidate user.</td>
   </tr>
   <tr>
     <td>taskHadCandidateGroup</td>
-    <td>Restrict on the historic identity links of type candidate group.</td>
+    <td>Restrict to tasks with a historic identity link to the given candidate group.</td>
   </tr>
   <tr>
     <td>withCandidateGroups</td>
@@ -259,11 +306,15 @@ A JSON object with the following properties:
   <tr>
     <td>sorting</td>
     <td>
-        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e. whether it is primary, secondary, etc. The ordering objects have the following properties:
-      <table>
+        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e., whether it is primary, secondary, etc. The ordering objects have the following properties:
+      <table class="table table-striped">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
         <tr>
           <td>sortBy</td>
-          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>taskId</code>, <code>activityInstanceID</code>, <code>processDefinitionId</code>, <code>processInstanceId</code>, <code>executionId</code>, <code>duration</code>, <code>endTime</code>, <code>startTime</code>, <code>taskName</code>, <code>taskDescription</code>, <code>assignee</code>, <code>owner</code>, <code>dueDate</code>, <code>followUpDate</code>, <code>deleteReason</code>, <code>taskDefinitionKey</code>, <code>priority</code>, <code>caseDefinitionId</code>, <code>caseInstanceId</code>, and <code>caseExecutionId</code> and <code>tenantId</code>.</td>
+          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>taskId</code>, <code>activityInstanceId</code>, <code>processDefinitionId</code>, <code>processInstanceId</code>, <code>executionId</code>, <code>duration</code>, <code>endTime</code>, <code>startTime</code>, <code>taskName</code>, <code>taskDescription</code>, <code>assignee</code>, <code>owner</code>, <code>dueDate</code>, <code>followUpDate</code>, <code>deleteReason</code>, <code>taskDefinitionKey</code>, <code>priority</code>, <code>caseDefinitionId</code>, <code>caseInstanceId</code>, and <code>caseExecutionId</code> and <code>tenantId</code>.</td>
         </tr>
         <tr>
           <td>sortOrder</td>
@@ -274,6 +325,7 @@ A JSON object with the following properties:
   </tr>
 </table>
 
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Result
 
@@ -364,12 +416,12 @@ Each historic task object has the following properties:
   <tr>
     <td>startTime</td>
     <td>String</td>
-    <td>The time the task was started. Has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The time the task was started. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
     <td>endTime</td>
     <td>String</td>
-    <td>The time the task ended. Has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The time the task ended. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
     <td>duration</td>
@@ -389,7 +441,7 @@ Each historic task object has the following properties:
   <tr>
     <td>due</td>
     <td>String</td>
-    <td>The task's due date. Has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The task's due date. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
     <td>parentTaskId</td>
@@ -399,15 +451,36 @@ Each historic task object has the following properties:
   <tr>
     <td>followUp</td>
     <td>String</td>
-    <td>The follow-up date for the task. Format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The follow-up date for the task. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
     <td>tenantId</td>
     <td>String</td>
     <td>The tenant id of the task instance.</td>
   </tr>
+  <tr>
+    <td>removalTime</td>
+    <td>String</td>
+    <td>The time after which the task should be removed by the History Cleanup job. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+  <tr>
+    <td>rootProcessInstanceId</td>
+    <td>String</td>
+    <td>The process instance id of the root process instance that initiated the process containing this task.</td>
+  </tr>
+  <tr>
+    <td>orQueries</td>
+    <td>
+    A JSON array which contains at least one OR query JSON Object. All previously listed filter criteria can be used  
+    inside of this JSON object. See the <a href="{{< ref "/user-guide/process-engine/process-engine-api.md#or-queries" >}}">user guide</a> 
+    for more information about OR queries.<br><br>
+    The following properties are not supported: <code>sorting</code>, <code>withCandidateGroups</code>, 
+    <code>withoutCandidateGroups</code>.
+    </td>
+  </tr>
 </table>
 
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Response Codes
 
@@ -425,7 +498,7 @@ Each historic task object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -471,13 +544,16 @@ Response
      "deleteReason": "aDeleteReason",
      "owner":"anOwner",
      "assignee":"anAssignee",
-     "startTime":"2013-01-23T13:42:42",
-     "endTime":"2013-01-23T13:45:42",
+     "startTime":"2013-01-23T13:42:42.000+0200",
+     "endTime":"2013-01-23T13:45:42.000+0200",
      "duration": 2000,
      "taskDefinitionKey":"aTaskDefinitionKey",
      "priority":10,
-     "due":"2013-01-23T13:49:42",
+     "due":"2013-01-23T13:49:42.000+0200",
      "parentTaskId":"aParentId",
-     "followUp:":"2013-01-23T13:44:42",
-     "tenantId":null}]
+     "followUp:":"2013-01-23T13:44:42.000+0200",
+     "tenantId":null,
+     "removalTime": "2018-02-10T14:33:19.000+0200",
+     "rootProcessInstanceId": "aRootProcessInstanceId"
+    }]
 

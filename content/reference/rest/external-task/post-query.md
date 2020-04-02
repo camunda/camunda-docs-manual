@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for external tasks that fulfill given parameters in the form of a json object.
-This method is slightly more powerful than the [GET query]({{< relref "reference/rest/external-task/get-query.md" >}}) because it allows to specify a hierarchical result sorting.
+Queries for external tasks that fulfill given parameters in the form of a JSON object.
+This method is slightly more powerful than the [Get External Tasks]({{< ref "/reference/rest/external-task/get-query.md" >}}) method because it allows to specify a hierarchical result sorting.
 
 
 # Method
@@ -64,11 +64,11 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>locked</td>
-    <td>Only include external tasks that are currently locked (i.e. they have a lock time and it has not expired). Value may only be <code>true</code>, as <code>false</code> matches any external task.</td>
+    <td>Only include external tasks that are currently locked (i.e., they have a lock time and it has not expired). Value may only be <code>true</code>, as <code>false</code> matches any external task.</td>
   </tr>
   <tr>
     <td>notLocked</td>
-    <td>Only include external tasks that are currently not locked (i.e. they have no lock or it has expired). Value may only be <code>true</code>, as <code>false</code> matches any external task.</td>
+    <td>Only include external tasks that are currently not locked (i.e., they have no lock or it has expired). Value may only be <code>true</code>, as <code>false</code> matches any external task.</td>
   </tr>
   <tr>
     <td>withRetriesLeft</td>
@@ -80,15 +80,19 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>lockExpirationAfter</td>
-    <td>Restrict to external tasks that have a lock that expires after a given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to external tasks that have a lock that expires after a given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>lockExpirationBefore</td>
-    <td>Restrict to external tasks that have a lock that expires before a given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to external tasks that have a lock that expires before a given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>activityId</td>
     <td>Filter by the id of the activity that an external task is created for.</td>
+  </tr>
+  <tr>
+    <td>activityIdIn</td>
+    <td>Filter by the comma-separated list of ids of the activities that an external task is created for.</td>
   </tr>
   <tr>
     <td>executionId</td>
@@ -97,6 +101,10 @@ A JSON object with the following properties:
   <tr>
     <td>processInstanceId</td>
     <td>Filter by the id of the process instance that an external task belongs to.</td>
+  </tr>
+  <tr>
+    <td>processInstanceIdIn</td>
+    <td>Filter by a comma-separated list of process instance ids that an external task may belong to.</td>
   </tr>
   <tr>
     <td>processDefinitionId</td>
@@ -126,13 +134,17 @@ A JSON object with the following properties:
     <td>sorting</td>
     <td>
       <p>
-        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e. whether it is primary, secondary, etc. The ordering objects have the following properties:
+        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e., whether it is primary, secondary, etc. The ordering objects have the following properties:
       </p>
-      <table>
+      <table class="table table-striped">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
         <tr>
           <td>sortBy</td>
           <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>id</code>, <code>lockExpirationTime</code>, 
-								<code>processInstanceId</code>, <code>processDefinitionId</code>, <code>processDefinitionKey</code>, <code>taskPriority</code> and <code>tenantId</code>.</td>
+              <code>processInstanceId</code>, <code>processDefinitionId</code>, <code>processDefinitionKey</code>, <code>taskPriority</code> and <code>tenantId</code>.</td>
         </tr>
         <tr>
           <td>sortOrder</td>
@@ -143,6 +155,7 @@ A JSON object with the following properties:
   </tr>
 </table>
 
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Result
 
@@ -155,81 +168,98 @@ Each external task object has the following properties:
     <th>Value</th>
     <th>Description</th>
   </tr>
-  <tr>
-    <td>activityId</td>
-    <td>String</td>
-    <td>The id of the activity that this external task belongs to.</td>
-  </tr>
-  <tr>
-    <td>activityInstanceId</td>
-    <td>String</td>
-    <td>The id of the activity instance that the external task belongs to.</td>
-  </tr>
-  <tr>
-    <td>errorMessage</td>
-    <td>String</td>
-    <td>The error message that was supplied when the last failure of this task was reported.</td>
-  </tr>
-  <tr>
-    <td>executionId</td>
-    <td>String</td>
-    <td>The id of the execution that the external task belongs to.</td>
-  </tr>
-  <tr>
-    <td>id</td>
-    <td>String</td>
-    <td>The external task's id.</td>
-  </tr>
-  <tr>
-    <td>lockExpirationTime</td>
-    <td>String</td>
-    <td>The date that the task's most recent lock expires or has expired.</td>
-  </tr>
-  <tr>
-    <td>processDefinitionId</td>
-    <td>String</td>
-    <td>The id of the process definition the external task is defined in.</td>
-  </tr>
-  <tr>
-    <td>processDefinitionKey</td>
-    <td>String</td>
-    <td>The key of the process definition the external task is defined in.</td>
-  </tr>
-  <tr>
-    <td>processInstanceId</td>
-    <td>String</td>
-    <td>The id of the process instance the external task belongs to.</td>
-  </tr>
-  <tr>
-    <td>tenantId</td>
-    <td>String</td>
-    <td>The id of the tenant the external task belongs to.</td>
-  </tr>
-  <tr>
-    <td>retries</td>
-    <td>Number</td>
-    <td>The number of retries the task currently has left.</td>
-  </tr>
-  <tr>
-    <td>suspended</td>
-    <td>Boolean</td>
-    <td>A flag indicating whether the external task is suspended or not.</td>
-  </tr>
-  <tr>
-    <td>workerId</td>
-    <td>String</td>
-    <td>The id of the worker that posesses or posessed the most recent lock.</td>
-  </tr>
-  <tr>
-    <td>topicName</td>
-    <td>String</td>
-    <td>The external task's topic name.</td>
-  </tr>
-  <tr>
-    <td>priority</td>
-    <td>Number</td>
-    <td>The priority of the external task.</td>
-  </tr>  
+      <tr>
+        <td>activityId</td>
+        <td>String</td>
+        <td>The id of the activity that this external task belongs to.</td>
+      </tr>
+      <tr>
+        <td>activityInstanceId</td>
+        <td>String</td>
+        <td>The id of the activity instance that the external task belongs to.</td>
+      </tr>
+      <tr>
+        <td>errorMessage</td>
+        <td>String</td>
+        <td>The full error message submitted with the latest reported failure executing this task;
+        <br/><code>null</code> if no failure was reported previously or if no error message was submitted</td>
+      </tr>
+      <tr>
+        <td>errorDetails</td>
+        <td>String</td>
+        <td>The error details submitted with the latest reported failure executing this task.
+        <br/><code>null</code> if no failure was reported previously or if no error details was submitted</td>
+      </tr>
+      <tr>
+        <td>executionId</td>
+        <td>String</td>
+        <td>The id of the execution that the external task belongs to.</td>
+      </tr>
+      <tr>
+        <td>id</td>
+        <td>String</td>
+        <td>The id of the external task.</td>
+      </tr>
+      <tr>
+        <td>lockExpirationTime</td>
+        <td>String</td>
+        <td>The date that the task's most recent lock expires or has expired.</td>
+      </tr>
+      <tr>
+        <td>processDefinitionId</td>
+        <td>String</td>
+        <td>The id of the process definition the external task is defined in.</td>
+      </tr>
+      <tr>
+        <td>processDefinitionKey</td>
+        <td>String</td>
+        <td>The key of the process definition the external task is defined in.</td>
+      </tr>
+      <tr>
+        <td>processDefinitionVersionTag</td>
+        <td>String</td>
+        <td>The version tag of the process definition the external task is defined in.</td>
+      </tr>
+      <tr>
+        <td>processInstanceId</td>
+        <td>String</td>
+        <td>The id of the process instance the external task belongs to.</td>
+      </tr>
+      <tr>
+        <td>tenantId</td>
+        <td>String</td>
+        <td>The id of the tenant the external task belongs to.</td>
+      </tr>
+      <tr>
+        <td>retries</td>
+        <td>Number</td>
+        <td>The number of retries the task currently has left.</td>
+      </tr>
+      <tr>
+        <td>suspended</td>
+        <td>Boolean</td>
+        <td>A flag indicating whether the external task is suspended or not.</td>
+      </tr>
+      <tr>
+        <td>workerId</td>
+        <td>String</td>
+        <td>The id of the worker that posesses or posessed the most recent lock.</td>
+      </tr>
+      <tr>
+        <td>topicName</td>
+        <td>String</td>
+        <td>The topic name of the external task.</td>
+      </tr>
+      <tr>
+        <td>priority</td>
+        <td>Number</td>
+        <td>The priority of the external task.</td>
+      </tr>
+      <tr>
+        <td>businessKey</td>
+        <td>String</td>
+        <td>The business key of the process instance the external task belongs to.</td>
+      </tr>
 </table>
 
 
@@ -249,7 +279,7 @@ Each external task object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -262,6 +292,7 @@ POST `/external-task`
 
 Request Body:
 
+```json
     {
       "processDefinitionId":"aProcessDefinitionId",
       "sorting":
@@ -272,18 +303,21 @@ Request Body:
           "sortOrder": "desc"
           }]
     }
+```
 
 ## Response
 
 Status 200.
 
+```json
     [{
       "activityId": "anActivityId",
       "activityInstanceId": "anActivityInstanceId",
       "errorMessage": "anErrorMessage",
+      "errorDetails": "anErrorDetails",
       "executionId": "anExecutionId",
       "id": "anExternalTaskId",
-      "lockExpirationTime": "2015-10-06T16:34:42",
+      "lockExpirationTime": "2015-10-06T16:34:42.000+0200",
       "processDefinitionId": "aProcessDefinitionId",
       "processDefinitionKey": "aProcessDefinitionKey",
       "processInstanceId": "aProcessInstanceId",
@@ -292,15 +326,17 @@ Status 200.
       "suspended": false,
       "workerId": "aWorkerId",
       "topicName": "aTopic",
-	  "priority": 9
+      "priority": 9,
+      "businessKey": "aBusinessKey"
     },
     {
       "activityId": "anotherActivityId",
       "activityInstanceId": "anotherActivityInstanceId",
       "errorMessage": "anotherErrorMessage",
+      "errorDetails": "anotherErrorDetails",
       "executionId": "anotherExecutionId",
       "id": "anotherExternalTaskId",
-      "lockExpirationTime": "2015-10-06T16:34:42",
+      "lockExpirationTime": "2015-10-06T16:34:42.000+0200",
       "processDefinitionId": "aProcessDefinitionId",
       "processDefinitionKey": "anotherProcessDefinitionKey",
       "processInstanceId": "anotherProcessInstanceId",
@@ -309,5 +345,7 @@ Status 200.
       "suspended": false,
       "workerId": "aWorkerId",
       "topicName": "aTopic",
-	  "priority": 3
+      "priority": 3,
+      "businessKey": "aBusinessKey"
     }]
+```

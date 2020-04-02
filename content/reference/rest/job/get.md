@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Job"
+title: "Get Job"
 weight: 30
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single job according to the `Job` interface in the engine.
+Retrieves a job by id, according to the `Job` interface in the engine.
 
 
 # Method
@@ -39,7 +39,7 @@ GET `/job/{id}`
 
 # Result
 
-A JSON object corresponding to the Job interface in the engine.
+A JSON object corresponding to the `Job` interface in the engine.
 Its properties are as follows:
 
 <table class="table table-striped">
@@ -94,6 +94,11 @@ Its properties are as follows:
     <td>The message of the exception that occurred, the last time the job was executed. Is null when no exception occurred.</td>
   </tr>
   <tr>
+    <td>failedActivityId</td>
+    <td>String</td>
+    <td>The id of the activity on which the last exception occurred, the last time the job was executed. Is null when no exception occurred.</td>
+  </tr>
+  <tr>
     <td>suspended</td>
     <td>Boolean</td>
     <td>A flag indicating whether the job is suspended or not.</td>
@@ -107,6 +112,11 @@ Its properties are as follows:
     <td>tenantId</td>
     <td>String</td>
     <td>The id of the tenant which this job belongs to.</td>
+  </tr>
+  <tr>
+    <td>createTime</td>
+    <td>String</td>
+    <td>The date on which this job has been created.</td>
   </tr>
 </table>
 
@@ -127,7 +137,7 @@ Its properties are as follows:
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Job with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Job with given id does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -142,12 +152,17 @@ GET `/job/aJobId`
 
     {
       "id": "aJobId",
-      "dueDate": "2013-07-17T17:00:00",
+      "jobDefinitionId": "f9eec330-e3ff-11e8-8f7d-e4a7a094a9d6",
+      "dueDate": "2018-07-17T17:00:00+0200",
       "processInstanceId": "aProcessInstanceId",
+      "processDefinitionId": "timer:1:f9ee9c1f-e3ff-11e8-8f7d-e4a7a094a9d6",
+      "processDefinitionKey": "timer",
       "executionId": "anExecutionId",
       "retries": 0,
       "exceptionMessage": "An exception Message",
+	  "failedActivityId": "anActivityId",
       "suspended": false,
       "priority": 10,
-      "tenantId": null
+      "tenantId": null,
+      "createTime": "2018-05-05T17:00:00+0200"
     }

@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Executes the job. </br><strong>Note:</strong> The execution of the job happens synchronously in the same thread.</code>
+Executes a job by id. </br><strong>Note:</strong> The execution of the job happens synchronously in the same thread.</code>
 
 
 # Method
@@ -58,12 +58,12 @@ This method returns no content.
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Job with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Job with given id does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>The job could not be executed successfully. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>The job could not be executed successfully. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -72,7 +72,7 @@ This method returns no content.
 
 ## Request
 
-PUT `/job/aJobId/execute`
+POST `/job/aJobId/execute`
 
 ## Response
 

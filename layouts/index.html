@@ -4,7 +4,9 @@
 <div class="page-content home">
   <div class="container-fluid">
     <div class="col-xs-12 content-header">
-      {{ partial "edit-on-github.html" . }}
+      <div class="edit-on-github">
+        <a target="_blank" href="https://github.com/{{.Site.Params.github.repositoryName}}/tree/{{.Site.Params.github.branch}}/layouts/index.html"><i>Edit on Github</i> <span class="cam-docs-github"></span></a>
+      </div>
       <h1 class="page-title">The Camunda BPM Manual</h1>
     </div>
 
@@ -19,13 +21,13 @@
           <h2>Getting Started</h2>
           <p>
              The Guide
-             <a href="/get-started/bpmn20/" class="text-uppercase">Get started with BPMN 2.0</a>
+             <a href="/get-started/quick-start/" class="text-uppercase">Get started with Camunda</a>
              is the quickest and easiest way to get up and running with Camunda. Alternatives include:</p>
         </header>
 
         <div class="row">
           <div class="col-xs-6 col-md-4">
-            <a href="/get-started/bpmn20/">BPMN 2.0</a>
+            <a href="/get-started/quick-start/">BPMN 2.0</a>
           </div>
           <div class="col-xs-6 col-md-4">
             <a href="/get-started/cmmn11/">CMMN 1.1</a>
@@ -37,7 +39,7 @@
             <a href="/get-started/spring/">Spring Framework</a>
           </div>
           <div class="col-xs-6 col-md-4">
-            <a href="/get-started/javaee6/">Java EE 6</a>
+            <a href="/get-started/javaee7/">Java EE 7</a>
           </div>
           <div class="col-xs-6 col-md-4">
             <a href="/get-started/apache-maven/">Apache Maven</a>
@@ -53,16 +55,16 @@
             <strong>Introduction</strong>
             <ul class="list-unstyled">
               <li>
-                <a href="{{ ref . "introduction/index.md" }}">Overview</a>
+                <a href="{{ ref . "/introduction/_index.md" }}">Overview</a>
               </li>
               <li>
-                <a href="{{ ref . "introduction/downloading-camunda.md" }}">Download</a>
+                <a href="{{ ref . "/introduction/downloading-camunda.md" }}">Download</a>
               </li>
               <li>
-                <a href="{{ ref . "introduction/architecture.md" }}">Architecture</a>
+                <a href="{{ ref . "/introduction/architecture.md" }}">Architecture</a>
               </li>
               <li>
-                <a href="{{ ref . "introduction/supported-environments.md" }}">Supported Environments</a>
+                <a href="{{ ref . "/introduction/supported-environments.md" }}">Supported Environments</a>
               </li>
             </ul>
           </div>
@@ -71,19 +73,19 @@
             <strong>Guides</strong>
             <ul class="list-unstyled">
               <li>
-                <a href="{{ ref . "installation/index.md" }}">Installation</a>
+                <a href="{{ ref . "/installation/_index.md" }}">Installation</a>
               </li>
               <li>
-                <a href="{{ ref . "user-guide/index.md" }}">User Guide</a>
+                <a href="{{ ref . "/user-guide/_index.md" }}">User Guide</a>
               </li>
               <li>
-                <a href="{{ ref . "modeler/index.md" }}">Modeler</a>
+                <a href="{{ ref . "/modeler/_index.md" }}">Modeler</a>
               </li>
               <li>
-                <a href="{{ ref . "webapps/index.md" }}">Web Applications</a>
+                <a href="{{ ref . "/webapps/_index.md" }}">Web Applications</a>
               </li>
               <li>
-                <a href="">Update &amp; Migration</a>
+                <a href="{{ ref . "/update/_index.md" }}">Update &amp; Migration</a>
               </li>
             </ul>
           </div>
@@ -92,22 +94,22 @@
             <strong>References</strong>
             <ul class="list-unstyled">
               <li>
-                <a href="{{ ref . "reference/rest/index.md" }}">REST Api</a>
+                <a href="{{ ref . "/reference/rest/_index.md" }}">REST Api</a>
               </li>
               <li>
-                <a href="{{ ref . "reference/javadoc.md" }}">Javadoc</a>
+                <a href="{{ ref . "/reference/javadoc.md" }}">Javadoc</a>
               </li>
               <li>
-                <a href="{{ ref . "reference/bpmn20/index.md" }}">BPMN 2.0</a>
+                <a href="{{ ref . "/reference/bpmn20/_index.md" }}">BPMN 2.0</a>
               </li>
               <li>
-                <a href="{{ ref . "reference/cmmn11/index.md" }}">CMMN 1.1</a>
+                <a href="{{ ref . "/reference/cmmn11/_index.md" }}">CMMN 1.1</a>
               </li>
               <li>
-                <a href="{{ ref . "reference/dmn11/index.md" }}">DMN 1.1</a>
+                <a href="{{ ref . "/reference/dmn11/_index.md" }}">DMN 1.1</a>
               </li>
               <li>
-                <a href="{{ ref . "reference/embedded-forms/index.md" }}">HTML Forms</a>
+                <a href="{{ ref . "/reference/embedded-forms/_index.md" }}">HTML Forms</a>
               </li>
             </ul>
           </div>
@@ -121,7 +123,7 @@
         <header>
           <h2>Getting Help</h2>
 
-          <p>In case you get stuck on a problem make sure to <a href="https://groups.google.com/forum/#!forum/camunda-bpm-users">ask for Help in the Forums</a> or on <a href="http://stackoverflow.com/questions/tagged/camunda">Stack Overflow</a>.</p>
+          <p>In case you get stuck on a problem make sure to <a href="https://forum.camunda.org">ask for Help in the Forums</a> or on <a href="http://stackoverflow.com/questions/tagged/camunda">Stack Overflow</a>.</p>
 
           <p>In case you are an <a href="http://camunda.com/bpm/enterprise/">Enterprise Support</a> customer, create a support case in Jira.</p>
         </header>
@@ -132,7 +134,7 @@
         <header>
           <h2>Community Extensions</h2>
 
-          <p>A number of <a href="{{ ref . "introduction/extensions.md" }}">Community Extensions</a> enhance Camunda with additional capabilities.</p>
+          <p>A number of <a href="{{ ref . "/introduction/extensions.md" }}">Community Extensions</a> enhance Camunda with additional capabilities.</p>
         </header>
 
 <!-- list below is sorted in alphabetical order -->
@@ -144,16 +146,10 @@
             <a href="https://github.com/camunda/camunda-bpm-camel">Apache Camel Integration</a>
           </div>
           <div class="col-xs-6 col-md-4">
-            <a href="https://github.com/camunda/camunda-bpm-assert">AssertJ Testing Library</a>
-          </div>
-          <div class="col-xs-6 col-md-4">
             <a href="https://github.com/camunda/docker-camunda-bpm-platform">Camunda Docker Images</a>
           </div>
           <div class="col-xs-6 col-md-4">
-            <a href="https://github.com/camunda/ibo-prometheus-cycle-connector">Cycle Ibo Prometheus Connector</a>
-          </div>
-          <div class="col-xs-6 col-md-4">
-            <a href="https://github.com/camunda/trisotech-cycle-connector">Cycle Trisotech Connector</a>
+            <a href="https://github.com/camunda/dmn-scala">DMN Scala Extension</a>
           </div>
           <div class="col-xs-6 col-md-4">
             <a href="https://github.com/camunda/camunda-bpm-elasticsearch">Elastic Search Extension</a>
@@ -165,11 +161,20 @@
             <a href="https://github.com/plexiti/camunda-grails-plugin">Grails Plugin</a>
           </div>
           <div class="col-xs-6 col-md-4">
+            <a href="https://github.com/camunda/camunda-graphql">GraphQL API</a>
+          </div>
+          <div class="col-xs-6 col-md-4">
+            <a href="https://github.com/camunda/camunda-bpm-migration">Migration API</a>
+          </div>
+          <div class="col-xs-6 col-md-4">
+            <a href="https://github.com/camunda/camunda-bpm-mockito">Mockito Testing Library</a>
+          </div>
+          <div class="col-xs-6 col-md-4">
             <a href="https://github.com/camunda/camunda-bpm-needle">Needle Testing Library</a>
           </div>
           <div class="col-xs-6 col-md-4">
             <a href="https://github.com/camunda/camunda-bpm-platform-osgi">OSGi Integration</a>
-          </div>          
+          </div>
           <div class="col-xs-6 col-md-4">
             <a href="http://camunda.github.io/camunda-bpm-php-sdk/">PHP SDK</a>
           </div>
@@ -180,14 +185,18 @@
             <a href="https://github.com/camunda/camunda-bpm-reactor">Reactor Event Bus</a>
           </div>
           <div class="col-xs-6 col-md-4">
-            <a href="https://github.com/camunda/camunda-sso-jboss">Single Sign On for JBoss</a>
+            <a href="https://github.com/camunda/camunda-bpm-assert-scenario/">Scenario Testing Library</a>
           </div>
           <div class="col-xs-6 col-md-4">
-            <a href="https://github.com/camunda/camunda-bpm-spring-boot-starter">Spring Boot Starter</a>
+            <a href="https://github.com/camunda/camunda-sso-jboss">Single Sign On for JBoss</a>
           </div>
           <div class="col-xs-6 col-md-4">
             <a href="https://github.com/camunda/camunda-tasklist-translations">Tasklist Translations</a>
           </div>
+          <div class="col-xs-6 col-md-4">
+            <a href="https://github.com/camunda/camunda-bpm-wildfly-swarm">Wildfly Swarm</a>
+          </div>
+
         </div>
       </section>
     </div>

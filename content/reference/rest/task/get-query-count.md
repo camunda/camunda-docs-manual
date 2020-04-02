@@ -1,6 +1,6 @@
 ---
 
-title: 'Get Tasks Count'
+title: 'Get Task Count'
 weight: 30
 
 menu:
@@ -13,11 +13,11 @@ menu:
 ---
 
 
-Get the number of tasks that fulfill a provided filter.
-Corresponds to the size of the result set when using the [get tasks]({{< relref "reference/rest/task/get-query.md" >}}) method.
+Retrieves the number of tasks that fulfill a provided filter.
+Corresponds to the size of the result set when using the [Get Tasks]({{< ref "/reference/rest/task/get-query.md" >}}) method.
 
 {{< note title="Security Consideration" class="warning" >}}
-  There are several query parameters (such as `assigneeExpression`) for specifying an EL expression. These are disabled by default to prevent remote code execution. See the section on <a href="{{< relref "user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide for details.
+  There are several query parameters (such as `assigneeExpression`) for specifying an EL expression. These are disabled by default to prevent remote code execution. See the section on <a href="{{< ref "/user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide for details.
 {{</note>}}
 
 # Method
@@ -39,8 +39,19 @@ GET `/task/count`
     <td>Restrict to tasks that belong to process instances with the given id.</td>
   </tr>
   <tr>
+    <td>processInstanceIdIn</td>
+    <td>Restrict to tasks that belong to process instances with the given ids.</td>
+  </tr>
+  <tr>
     <td>processInstanceBusinessKey</td>
     <td>Restrict to tasks that belong to process instances with the given business key.</td>
+  </tr>
+  <tr>
+    <td>processInstanceBusinessKeyExpression</td>
+    <td>Restrict to tasks that belong to process instances with the given business key which is described by an expression.
+     See the 
+     <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">user guide</a>
+     for more information on available functions.</td>
   </tr>
   <tr>
     <td>processInstanceBusinessKeyIn</td>
@@ -51,6 +62,13 @@ GET `/task/count`
   <tr>
     <td>processInstanceBusinessKeyLike</td>
     <td>Restrict to tasks that have a process instance business key that has the parameter value as a substring.</td>
+  </tr>
+  <tr>
+    <td>processInstanceBusinessKeyLikeExpression</td>
+    <td>Restrict to tasks that have a process instance business key that has the parameter value as a substring and is 
+    described by an expression. See the 
+    <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">user guide</a>
+    for more information on available functions.</td>
   </tr>
   <tr>
     <td>processDefinitionId</td>
@@ -120,7 +138,7 @@ GET `/task/count`
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only include tasks which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include tasks which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>assignee</td>
@@ -129,7 +147,7 @@ GET `/task/count`
   <tr>
     <td>assigneeExpression</td>
     <td>Restrict to tasks that the user described by the given expression is assigned to.
-        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">user
+        See the <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">user
         guide</a> for more information on available functions.
     </td>
   </tr>
@@ -141,9 +159,13 @@ GET `/task/count`
     <td>assigneeLikeExpression</td>
     <td>Restrict to tasks that have an assignee that has the parameter value described by the given
         expression as a substring.
-        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
+        See the <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
     </td>
+  </tr>
+  <tr>
+    <td>assigneeIn</td>
+    <td>Only include tasks which are assigned to one of the passed and comma-separated user ids.</td>
   </tr>
   <tr>
     <td>owner</td>
@@ -152,7 +174,7 @@ GET `/task/count`
   <tr>
     <td>ownerExpression</td>
     <td>Restrict to tasks that the user described by the given expression owns.
-        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
+        See the <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
     </td>
   </tr>
@@ -163,18 +185,18 @@ GET `/task/count`
   <tr>
     <td>candidateGroupExpression</td>
     <td>Only include tasks that are offered to the group described by the given expression.
-        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
+        See the <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
     </td>
   </tr>
   <tr>
     <td>candidateUser</td>
-    <td>Only include tasks that are offered to the given user.</td>
+    <td>Only include tasks that are offered to the given user or to one of his groups.</td>
   </tr>
   <tr>
     <td>candidateUserExpression</td>
     <td>Only include tasks that are offered to the user described by the given expression.
-        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
+        See the <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
     </td>
   </tr>
@@ -194,7 +216,7 @@ GET `/task/count`
     <td>involvedUserExpression</td>
     <td>Only include tasks that the user described by the given expression is involved in.
         A user is involved in a task if an identity link exists between task and user (e.g., the user is the assignee).
-        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">user
+        See the <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">user
         guide</a> for more information on available functions.
     </td>
   </tr>
@@ -226,8 +248,16 @@ GET `/task/count`
     <td>Restrict to tasks that have the given name.</td>
   </tr>
   <tr>
+    <td>nameNotEqual</td>
+    <td>Restrict to tasks that do not have the given name.</td>
+  </tr>
+  <tr>
     <td>nameLike</td>
     <td>Restrict to tasks that have a name with the given parameter value as substring.</td>
+  </tr>
+  <tr>
+    <td>nameNotLike</td>
+    <td>Restrict to tasks that do not have a name with the given parameter value as substring.</td>
   </tr>
   <tr>
     <td>description</td>
@@ -253,87 +283,87 @@ GET `/task/count`
 
   <tr>
     <td>dueDate</td>
-    <td>Restrict to tasks that are due on the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that are due on the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.857+0200</code>.</td>
   </tr>
   <tr>
     <td>dueDateExpression</td>
     <td>Restrict to tasks that are due on the date described by the given expression.
-        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
+        See the <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
   </tr>
   <tr>
     <td>dueAfter</td>
-    <td>Restrict to tasks that are due after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that are due after the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.743+0200</code>.</td>
   </tr>
   <tr>
     <td>dueAfterExpression</td>
     <td>Restrict to tasks that are due after the date described by the given expression.
-        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
+        See the <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
   </tr>
   <tr>
     <td>dueBefore</td>
-    <td>Restrict to tasks that are due before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that are due before the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.754+0200</code>.</td>
   </tr>
   <tr>
     <td>dueBeforeExpression</td>
     <td>Restrict to tasks that are due before the date described by the given expression.
-        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
+        See the <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
   </tr>
   <tr>
     <td>followUpDate</td>
-    <td>Restrict to tasks that have a followUp date on the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that have a followUp date on the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.846+0200</code>.</td>
   </tr>
   <tr>
     <td>followUpDateExpression</td>
     <td>Restrict to tasks that have a followUp date on the date described by the given expression.
-        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
+        See the <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
   </tr>
   <tr>
     <td>followUpAfter</td>
-    <td>Restrict to tasks that have a followUp date after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that have a followUp date after the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.735+0200</code>.</td>
   </tr>
   <tr>
     <td>followUpAfterExpression</td>
     <td>Restrict to tasks that have a followUp date after the date described by the given
         expression.
-        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
+        See the <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
   </tr>
   <tr>
     <td>followUpBefore</td>
-    <td>Restrict to tasks that have a followUp date before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that have a followUp date before the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.736+0200</code>.</td>
   </tr>
   <tr>
     <td>followUpBeforeExpression</td>
     <td>Restrict to tasks that have a followUp date before the date described by the given
         expression.
-        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
+        See the <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
   </tr>
   <tr>
     <td>followUpBeforeOrNotExistent</td>
-    <td>Restrict to tasks that have no followUp date or a followUp date before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that have no followUp date or a followUp date before the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.836+0200</code>.</td>
   </tr>
   <tr>
     <td>followUpBeforeOrNotExistentExpression</td>
     <td>Restrict to tasks that have no followUp date or a followUp date before the date described by the given
         expression.
-        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
+        See the <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
@@ -341,39 +371,37 @@ GET `/task/count`
   <tr>
     <td>createdOn</td>
     <td>
-      Restrict to tasks that were created on the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.
-      <strong>Note:</strong> if the used database saves dates with milliseconds precision this query only will return tasks created on the given timestamp with zero
-      milliseconds.
+      Restrict to tasks that were created on the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.768+0200</code>.
     </td>
   </tr>
   <tr>
     <td>createdOnExpression</td>
     <td>Restrict to tasks that were created on the date described by the given expression.
-        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
+        See the <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
   </tr>
   <tr>
     <td>createdAfter</td>
-    <td>Restrict to tasks that were created after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that were created after the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.384+0200</code>.</td>
   </tr>
   <tr>
     <td>createdAfterExpression</td>
     <td>Restrict to tasks that were created after the date described by the given expression.
-        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
+        See the <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
   </tr>
   <tr>
     <td>createdBefore</td>
-    <td>Restrict to tasks that were created before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that were created before the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.654+0200</code>.</td>
   </tr>
   <tr>
     <td>createdBeforeExpression</td>
     <td>Restrict to tasks that were created before the date described by the given expression.
-        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
+        See the <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
@@ -389,7 +417,7 @@ GET `/task/count`
   <tr>
     <td>candidateGroupsExpression</td>
     <td>Restrict to tasks that are offered to any of the candidate groups described by the given expression.
-        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
+        See the <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
         The expression must evaluate to <code>java.util.List</code> of Strings.
     </td>
@@ -402,6 +430,16 @@ GET `/task/count`
   <tr>
     <td>withoutCandidateGroups</td>
     <td>Only include tasks which have no candidate group. Value may only be <code>true</code>, 
+    as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
+    <td>withCandidateUsers</td>
+    <td>Only include tasks which have a candidate user. Value may only be <code>true</code>, 
+    as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
+    <td>withoutCandidateUsers</td>
+    <td>Only include tasks which have no candidate user. Value may only be <code>true</code>, 
     as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
@@ -434,7 +472,7 @@ GET `/task/count`
     <code>key</code> is the variable name, <code>operator</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
     <strong>Note:</strong> Values are always treated as <code>String</code> objects on server side.<br/>
     <br/>
-    Valid operator values are: <code>eq</code> - equal to; <code>neq</code> - not equal to; <code>gt</code> - greater than;
+   Valid operator values are: <code>eq</code> - equal to; <code>neq</code> - not equal to; <code>gt</code> - greater than;
     <code>gteq</code> - greater than or equal to; <code>lt</code> - lower than; <code>lteq</code> - lower than or equal to;
     <code>like</code>.<br/>
     <code>key</code> and <code>value</code> may not contain underscore or comma characters.
@@ -455,11 +493,21 @@ GET `/task/count`
     </td>
   </tr>
   <tr>
+    <td>variableNamesIgnoreCase</td>
+    <td>Match all variable names in this query case-insensitively. If set <code>variableName</code> and <code>variablename</code> are treated as equal.</td>
+  </tr>
+  <tr>
+    <td>variableValuesIgnoreCase</td>
+    <td>Match all variable values in this query case-insensitively. If set <code>variableValue</code> and <code>variablevalue</code> are treated as equal.</td>
+  </tr>
+  <tr>
+  <tr>
     <td>parentTaskId</td>
     <td>Restrict query to all tasks that are sub tasks of the given task. Takes a task id.</td>
   </tr>
 </table>
 
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Result
 
@@ -495,7 +543,7 @@ A JSON object with a single count property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

@@ -12,8 +12,8 @@ menu:
 
 ---
 
-Query for a list of authorizations using a list of parameters.
-The size of the result set can be retrieved by using the [get authorization count]({{< relref "reference/rest/authorization/get-query-count.md" >}}) method.
+Queries for a list of authorizations using a list of parameters.
+The size of the result set can be retrieved by using the [Get Authorization Count]({{< ref "/reference/rest/authorization/get-query-count.md" >}}) method.
 
 
 # Method
@@ -36,19 +36,19 @@ GET `/authorization`
   </tr>
   <tr>
     <td>type</td>
-    <td>Filter by the type of the authorization.</td>
+    <td>Filter by authorization type. (0=global, 1=grant, 2=revoke). See the <a href="{{< ref "/user-guide/process-engine/authorization-service.md#authorization-type" >}}">User Guide</a> for more information about authorization types.</td>
   </tr>
   <tr>
     <td>userIdIn</td>
-    <td>Filter by a comma-separated list of userIds</td>
+    <td>Filter by a comma-separated list of userIds.</td>
   </tr>
   <tr>
     <td>groupIdIn</td>
-    <td>Filter by a comma-separated list of groupIds</td>
+    <td>Filter by a comma-separated list of groupIds.</td>
   </tr>
   <tr>
     <td>resourceType</td>
-    <td>Filter by resource type</td>
+    <td>Filter by an integer representation of the resource type. See the <a href="{{< ref "/user-guide/process-engine/authorization-service.md#resources" >}}">User Guide</a> for a list of integer representations of resource types.</td>
   </tr>
   <tr>
     <td>resourceId</td>
@@ -105,7 +105,7 @@ Each group object has the following properties:
   <tr>
     <td>userId</td>
     <td>String</td>
-    <td>The id of the user this authorization has been created for. The value "\*" represents a global authorization ranging over all users.</td>
+    <td>The id of the user this authorization has been created for. The value "*" represents a global authorization ranging over all users.</td>
   </tr>
   <tr>
     <td>groupId</td>
@@ -115,12 +115,30 @@ Each group object has the following properties:
   <tr>
     <td>resourceType</td>
     <td>Integer</td>
-    <td>An integer representing the resource type.</td>
+    <td>An integer representing the resource type. See the <a href="{{< ref "/user-guide/process-engine/authorization-service.md#resources" >}}">User Guide</a> for a list of integer representations of resource types.</td>
   </tr>
   <tr>
     <td>resourceId</td>
     <td>String</td>
-    <td>The resource Id. The value "\*" represents an authorization ranging over all instances of a resource.</td>
+    <td>The resource Id. The value "*" represents an authorization ranging over all instances of a resource.</td>
+  </tr>
+  <tr>
+    <td>removalTime</td>
+    <td>String</td>
+    <td>
+        The removal time indicates the date a historic instance authorization is cleaned up. 
+        A removal time can only be assigned to a historic instance authorization. 
+        Can be <code>null</code> when not related to a historic instance resource or when the removal time strategy is end and the root process instance is not finished.
+        Default format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.
+    </td>
+  </tr>
+  <tr>
+    <td>rootProcessInstanceId</td>
+    <td>String</td>
+    <td>
+        The process instance id of the root process instance the historic instance authorization is related to. 
+        Can be <code>null</code> if not related to a historic instance resource.
+    </td>
   </tr>
 </table>
 
@@ -141,7 +159,7 @@ Each group object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code> is specified. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code> is specified. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -169,4 +187,6 @@ Status 200.
      "userId": "jonny2",
      "groupId": null,
      "resourceType": 1,
-     "resourceId": "*"}]
+     "resourceId": "*",
+     "removalTime": "2018-02-10T14:33:19.000+0200",
+     "rootProcessInstanceId": "f8259e5d-ab9d-11e8-8449-e4a7a094a9d6"}]

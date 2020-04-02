@@ -15,7 +15,7 @@ menu:
 ---
 
 
-The `/tenant` resource supports two custom OPTIONS requests, one for the resource as such and one for individual tenant instances. The OPTIONS request allows checking for the set of available operations that the currently authenticated user can perform on the `/tenant` resource. The fact whether the user can perform an operation or not may depend on various things, including the users authorizations to interact with this resource and the internal configuration of the process engine.
+The `/tenant` resource supports two custom OPTIONS requests, one for the resource as such and one for individual tenant instances. The OPTIONS request allows checking for the set of available operations that the currently authenticated user can perform on the `/tenant` resource. If the user can perform an operation or not may depend on various things, including the users authorizations to interact with this resource and the internal configuration of the process engine.
 
 # Method
 
@@ -58,12 +58,12 @@ A JSON object with a single property named `links`, providing a list of resource
   <tr>
     <td>href</td>
     <td>String</td>
-    <td>The interaction URL</td>
+    <td>The interaction URL.</td>
   </tr>
   <tr>
     <td>rel</td>
     <td>String</td>
-    <td>The relation of the interaction (ie. a symbolic name representing the nature of the interaction). Examples: <code>create</code>, <code>delete</code> ...</td>
+    <td>The relation of the interaction (i.e., a symbolic name representing the nature of the interaction). Examples: <code>create</code>, <code>delete</code> ...</td>
   </tr>
 </table>
 

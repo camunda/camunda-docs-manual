@@ -13,9 +13,9 @@ menu:
 ---
 
 
-Query for the executions that fulfill given parameters.
+Queries for the executions that fulfill given parameters.
 Parameters may be static as well as dynamic runtime properties of executions.
-The size of the result set can be retrieved by using the [get executions count]({{< relref "reference/rest/execution/get-query-count.md" >}}) method.
+The size of the result set can be retrieved by using the [Get Execution Count]({{< ref "/reference/rest/execution/get-query-count.md" >}}) method.
 
 
 # Method
@@ -74,7 +74,7 @@ GET `/execution`
   </tr>
   <tr>
     <td>incidentType</td>
-    <td>Filter by the incident type.</td>
+    <td>Filter by the incident type. See the <a href="{{< ref "/user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
   </tr>
   <tr>
     <td>incidentMessage</td>
@@ -113,6 +113,14 @@ GET `/execution`
     Valid operator values are: <code>eq</code> - equal to; <code>neq</code> - not equal to.<br/>
     <code>key</code> and <code>value</code> may not contain underscore or comma characters.
     </td>
+  </tr>
+  <tr>
+    <td>variableNamesIgnoreCase</td>
+    <td>Match all variable names provided in <code>variables</code> and <code>processVariables</code> case-insensitively. If set to <code>true</code> <strong>variableName</strong> and <strong>variablename</strong> are treated as equal.</td>
+  </tr>
+  <tr>
+    <td>variableValuesIgnoreCase</td>
+    <td>Match all variable values provided in <code>variables</code> and <code>processVariables</code> case-insensitively. If set to <code>true</code> <strong>variableValue</strong> and <strong>variablevalue</strong> are treated as equal.</td>
   </tr>
   <tr>
     <td>sortBy</td>
@@ -186,7 +194,7 @@ Each execution object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

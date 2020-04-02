@@ -23,7 +23,7 @@ Evaluates a given decision and returns the result. The input values of the decis
 
 POST `/decision-definition/{id}/evaluate`
 
-POST `/decision-definition/key/{key}/evaluate` (evaluates the latest version of decision definition which belongs to no tenant)
+POST `/decision-definition/key/{key}/evaluate` (evaluates the latest version of the decision definition which belongs to no tenant)
 
 POST `/decision-definition/key/{key}/tenant-id/{tenant-id}/evaluate` (evaluates the latest version of the decision definition for tenant)
 
@@ -70,9 +70,11 @@ A JSON object with the following properties:
 
 # Result
 
-A JSON array representing the result of the newly evaluated decision. The array contains the output values of each matched rule as key-value pairs. Each key is an output name of an output clause and each value an output value object that has the following properties:
+A JSON array representing the result of the newly evaluated decision. The array contains the output values as key-value pairs. Each key is an output name and each value an output value object that has the following properties:
 
 {{< rest-var-response >}}
+
+See the [user guide]({{< ref "/user-guide/dmn-engine/evaluate-decisions.md#interpret-the-decision-result" >}}) for details about the decision result.
 
 ## Response codes
 
@@ -90,17 +92,17 @@ A JSON array representing the result of the newly evaluated decision. The array 
   <tr>
     <td>403</td>
     <td>application/json</td>
-    <td>The authenticated user is unauthorized to evaluate this decision. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>The authenticated user is unauthorized to evaluate this decision. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
-  <td>The decision could not be evaluated due to a nonexistent decision definition. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+  <td>The decision could not be evaluated due to a nonexistent decision definition. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>The decision could not be evaluated successfully. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>The decision could not be evaluated successfully. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

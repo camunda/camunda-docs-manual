@@ -24,8 +24,9 @@ The following provides examples on how Camunda Spin can be used in the process e
 }
 ```
 
-If you want to learn how to use JSON objects inside an embedded form please take a look in the [Embedded Forms Reference]({{< relref "reference/embedded-forms/json-data.md" >}}).
+If you want to learn how to use JSON objects in an embedded form, please take a look at the [Embedded Forms Reference]({{< ref "/reference/embedded-forms/json-data.md" >}}).
 
+Further documentation about the usage of Spin can be found in the [Camunda Spin Dataformat Reference]({{< ref "/reference/spin/_index.md" >}}).
 
 # Expression Language Integration
 
@@ -41,7 +42,7 @@ The Spin entry functions can be used wherever the process engine allows expressi
 ...
 ```
 
-If your variable is already a [JSON variable value]({{< relref "#native-json-variable-value" >}}) and not a string like in the previous example you can omit the `S(...)` call and directly access the variable:
+If your variable is already a [JSON variable value]({{< relref "#native-json-variable-value" >}}), and not a string like in the previous example, you can omit the `S(...)` call and directly access the variable:
 
 ```xml
 ...
@@ -96,7 +97,7 @@ public class MyDelegate implements JavaDelegate {
 
 The call to `SpinValues.jsonValue(...).create()` will transform the string into a Jackson object wrapped by Spin.
 
-If we wanted to retrieve the JSON in another JavaDelegate and e.g. add some more information we could do this easily:
+If we wanted to retrieve the JSON in another JavaDelegate and, e.g., add some more information, we could do this easily:
 
 ```java
 public class AddDataDelegate implements JavaDelegate {
@@ -110,7 +111,7 @@ public class AddDataDelegate implements JavaDelegate {
 ```
 
 When retrieving the JSON value via `execution.getVariableTyped()` there are two options: serialized and deserialized.
-Retrieving the variable deserialized by calling ether `getVariableTyped("name")` or `getVariableTyped("name", true)`  the `JsonValue` contains the wrapped Jackson object to represent the JSON data. Calling `getVariableTyped("name", false)` results in `JsonValue` containing only the raw string, which is advantageous if you only need the string to pass it to another API e.g.
+Retrieving the variable deserialized by calling either `getVariableTyped("name")` or `getVariableTyped("name", true)`, the `JsonValue` contains the wrapped Jackson object to represent the JSON data. Calling `getVariableTyped("name", false)` results in `JsonValue` containing only the raw string, which is advantageous if you only need the string, e.g., to pass it to another API.
 
 
 # Serializing Process Variables
@@ -154,7 +155,7 @@ ObjectValue typedCustomerValue =
   Variables.objectValue(customer).serializationDataFormat("application/json").create();
 ```
 
-This creates a variable value from the `customer` object. The invocation `serializationDataFormat("application/json")` tells the process engine in which format the variable should be serialized. This name **must** match the name of a data format known to Spin. For example, `application/json` is the name of the built-in JSON data format.
+This creates a variable value from the `Customer` object. The invocation `serializationDataFormat("application/json")` tells the process engine in which format the variable should be serialized. This name **must** match the name of a data format known to Spin. For example, `application/json` is the name of the built-in JSON data format.
 
 Once the variable is set, its serialized value can be retrieved using the type variable API. For example:
 
@@ -174,6 +175,10 @@ customerJson matches:
 */
 ```
 
+Retrieving the variable will deserialize the serialized value if it is not cached already. 
+Please bear in mind that this can pose a security risk if untrusted sources are allowed to store serialized values in process variables that can trigger malicious code execution upon deserialization.
+Consult the [Security Instructions]({{< ref "/user-guide/security.md#variable-values-from-untrusted-sources" >}}) for further information on this.
+
 {{< note title="Default Serialization Format" class="info" >}}
-  The engine can be configured to persist all objects for which no explicit data format is specified as JSON. The process engine configuration offers a property `defaultSerializationFormat`. To configure default JSON serialization, set this property to `application/json`. Now, the invocation `runtimeService.setVariable(processInstance.getId(), "customer", new Customer())` directly serializes the Customer object as JSON without explicit declaration of the format.
+  The engine can be configured to persist all objects for which no explicit data format is specified as JSON. The process engine configuration offers a property `defaultSerializationFormat`. To configure default JSON serialization, set this property to `application/json`. Now, the invocation `runtimeService.setVariable(processInstance.getId(), "customer", new Customer())` directly serializes the customer object as JSON without explicit declaration of the format.
 {{< /note >}}

@@ -1,6 +1,6 @@
 ---
 
-title: "Get Filters Count"
+title: "Get Filter Count"
 weight: 20
 
 menu:
@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Get the number of filters that fulfill a provided query. Corresponds to the size of the result set
-when using the [get filters]({{< relref "reference/rest/filter/get-query.md" >}}) method.
+Retrieves the number of filters that fulfill a provided query. Corresponds to the size of the result set
+when using the [Get Filters]({{< ref "/reference/rest/filter/get-query.md" >}}) method.
 
 
 # Method
@@ -91,7 +91,7 @@ A JSON object with a single count property.
     <td>
       Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code>
       parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable
-      comparison is used. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the
+      comparison is used. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the
       error response format.
     </td>
   </tr>

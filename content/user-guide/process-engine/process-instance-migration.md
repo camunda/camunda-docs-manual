@@ -35,7 +35,7 @@ is mostly transparent, so that a task that was started before migration can be c
 The same principle is applied to the other BPMN element types.
 
 For cases in which activities are not semantically equivalent,
-we recommend combining migration with the [process instance modification API]({{< relref "user-guide/process-engine/process-instance-modification.md" >}}), e.g., 
+we recommend combining migration with the [process instance modification API]({{< ref "/user-guide/process-engine/process-instance-modification.md" >}}), e.g.,
 canceling an activity instance before migration and starting a new instance after migration.
 
 In the remainder of this section, the following process models are used to illustrate the API and effects of migration unless otherwise noted:
@@ -82,7 +82,7 @@ In order to migrate this process instance according to the defined migration pla
 MigrationPlan migrationPlan = ...;
 List<String> processInstanceIds = ...;
 
-runtimeSerivce.newMigration(migrationPlan)
+runtimeService.newMigration(migrationPlan)
   .processInstanceIds(processInstanceIds)
   .execute();
 ```
@@ -115,7 +115,7 @@ From the accountant's perspective, migration is completely transparent while wor
 # API
 
 The following gives a structured overview of the Java API for process instance migration. Note that these operations are also available
-via [REST]({{< relref "reference/rest/migration/index.md" >}}).
+via [REST]({{< ref "/reference/rest/migration/_index.md" >}}).
 
 ## Creating a Migration Plan
 
@@ -172,10 +172,15 @@ instance state is preserved when migration is executed.
 When migrating events, it is possible to decide whether the corresponding event
 triggers should be updated or not.  See the [BPMN-specific considerations on
 events]({{< relref "#events" >}}) for details. When generating a migration
-plan, it is possible to define this setting for generated instructions between
-events by using the method `updateEventTrigger`.  For example, the following
-code generates a migration instruction for a boundary event and updates its
-event trigger during migration.
+plan, it is possible to define this setting for generated instructions on 
+[User Tasks]({{< relref "#user-task" >}}) containing `timeout` task listeners and 
+between events by using the method `updateEventTrigger`. For example, 
+the following code generates a migration instruction for a boundary event and 
+updates its event trigger during migration.
+
+{{< note title="Conditional Events" class="info" >}}
+For conditional events the `#updateEventTrigger` is mandatory.
+{{< /note >}}
 
 ```java
 MigrationPlan migrationPlan = processEngine.getRuntimeService()
@@ -185,7 +190,6 @@ MigrationPlan migrationPlan = processEngine.getRuntimeService()
     .updateEventTrigger()
   .build();
 ```
-
 
 ## Generating a migration plan
 
@@ -271,7 +275,7 @@ MigrationPlan migrationPlan = ...;
 
 List<String> processInstanceIds = ...;
 
-runtimeSerivce.newMigration(migrationPlan)
+runtimeService.newMigration(migrationPlan)
   .processInstanceIds(processInstanceIds)
   .execute();
 ```
@@ -284,7 +288,7 @@ MigrationPlan migrationPlan = ...;
 ProcessInstance instance1 = ...;
 ProcessInstance instance2 = ...;
 
-runtimeSerivce.newMigration(migrationPlan)
+runtimeService.newMigration(migrationPlan)
   .processInstanceIds(instance1.getId(), instance2.getId())
   .execute();
 ```
@@ -300,7 +304,7 @@ ProcessInstanceQuery processInstanceQuery = runtimeService
   .createProcessInstanceQuery()
   .processDefinitionId(migrationPlan.getSourceProcessDefinitionId());
 
-runtimeSerivce.newMigration(migrationPlan)
+runtimeService.newMigration(migrationPlan)
   .processInstanceQuery(processInstanceQuery)
   .execute();
 ```
@@ -323,7 +327,7 @@ can be used for this purpose:
 MigrationPlan migrationPlan = ...;
 List<String> processInstanceIds = ...;
 
-runtimeSerivce.newMigration(migrationPlan)
+runtimeService.newMigration(migrationPlan)
   .processInstanceIds(processInstanceIds)
   .skipCustomListeners()
   .skipIoMappings()
@@ -339,7 +343,7 @@ block until the migration is completed.
 MigrationPlan migrationPlan = ...;
 List<String> processInstanceIds = ...;
 
-runtimeSerivce.newMigration(migrationPlan)
+runtimeService.newMigration(migrationPlan)
   .processInstanceIds(processInstanceIds)
   .execute();
 ```
@@ -358,7 +362,7 @@ return immediately with a reference to the batch which executes the migration.
 MigrationPlan migrationPlan = ...;
 List<String> processInstanceIds = ...;
 
-Batch batch = runtimeSerivce.newMigration(migrationPlan)
+Batch batch = runtimeService.newMigration(migrationPlan)
   .processInstanceIds(processInstanceIds)
   .executeAsync();
 ```
@@ -404,6 +408,17 @@ Depending on the type of the activities a process model contains, migration has 
 When a user task is migrated, all properties of the task instance (i.e., `org.camunda.bpm.engine.task.Task`) are preserved apart
 from the process definition id and task definition key. The task is not reinitialized: Attributes like assignee or name do not change.
 
+#### Timeout Task Listeners
+
+User tasks with attached task listeners of event type `timeout` define persistent event triggers that can be updated or preserved during migration.
+For the associated timers, the considerations of [catching events]({{< relref "#events" >}}) apply here as well. On migration of the user task, 
+the following semantics are applied:
+
+* If a timeout task listener is found in the source and target process definition based on its `id`, its persistent event trigger (i.e. timer) is migrated
+* If a timeout task listener in the source process definition is not found in the target definition based on its `id`, then its event trigger is deleted during migration
+* If a timeout task listener of the target definition is not the target of a migration instruction, then a new event trigger is initialized during migration
+
+
 ### Receive Task
 
 A receive task defines a persistent event trigger that can be updated or preserved during migration.
@@ -439,7 +454,7 @@ See the [events section]({{< relref "#events" >}}) for the semantics of instruct
 ## Events
 
 For all kinds of catching events (start, intermediate, boundary), a migration instruction can be supplied if they define a persistent event
-trigger. This is the case for message, timer, and signal events.
+trigger. This is the case for message, conditional, timer, and signal events.
 
 When mapping events, there are two configuration options:
 
@@ -468,12 +483,16 @@ When mapping events, there are two configuration options:
   timer job configuration is preserved. In effect, it is going to trigger five days after the activity was started regardless of when the migration is performed.
 {{< /note >}}
 
+{{< note title="Conditional Events" class="info" >}}
+The usage of `#updateEventTrigger` is mandatory for migrating conditional events. The condition is overriden by the condition of the new conditional event.
+{{< /note >}}
+
 
 ### Boundary Event
 
 Boundary events can be mapped from the source to the target process definition along with the activity that they are attached to. The following applies:
 
-* If a boundary event is mapped, its persistent event trigger (for timers, messages, and signals) is migrated
+* If a boundary event is mapped, its persistent event trigger (for timers, conditionals, messages, and signals) is migrated
 * If a boundary event in the source process definition is not mapped, then its event trigger is deleted during migration
 * If a boundary event of the target definition is not the target of a migration instruction, then a new event trigger is initialized during migration
 
@@ -482,7 +501,7 @@ Boundary events can be mapped from the source to the target process definition a
 
 Start events of event sub processes can be mapped from source to target with similar semantics as boundary events. In particular:
 
-* If a start event is mapped, its persistent event trigger (for timers, messages, and signals) is migrated
+* If a start event is mapped, its persistent event trigger (for timers, conditionals, messages, and signals) is migrated
 * If a start event in the source process definition is not mapped, then its event trigger is deleted during migration
 * If a start event of the target definition is not the target of a migration instruction, then a new event trigger is initialized during migration
 
@@ -715,7 +734,7 @@ An activity must stay a descendant of its closest ancestor scope that migrates (
 
 Consider the following migration plan for the example processes shown at the
 [beginning of this chapter]({{<
-relref "user-guide/process-engine/process-instance-migration.md" >}}):
+ref "/user-guide/process-engine/process-instance-migration.md" >}}):
 
 ```java
 MigrationPlan migrationPlan = processEngine.getRuntimeService()
@@ -750,8 +769,8 @@ that the plan is applicable. In particular, the following aspects are checked:
 * **Instruction Applicability**: For certain activity types, only transition instances but not
   activity instances can be migrated
 
-If validation reports errors, migration fails with a `MigrationInstructionInstanceValidationException`
-providing a `MigrationInstructionInstanceValidationReport` object with details on the
+If validation reports errors, migration fails with a `MigratingProcessInstanceValidationException`
+providing a `MigratingProcessInstanceValidationReport` object with details on the
 validation errors.
 
 #### Completeness
@@ -813,9 +832,9 @@ migrated if they are instances of the following element types:
 
 Transition instances can be migrated for any activity type.
 
-[batch]: {{< relref "user-guide/process-engine/batch.md" >}}
-[job executor]: {{< relref "user-guide/process-engine/the-job-executor.md#job-execution-in-heterogeneous-clusters" >}}
-[execution jobs]: {{< relref "user-guide/process-engine/batch.md#execution-jobs" >}}
+[batch]: {{< ref "/user-guide/process-engine/batch.md" >}}
+[job executor]: {{< ref "/user-guide/process-engine/the-job-executor.md#job-execution-in-heterogeneous-clusters" >}}
+[execution jobs]: {{< ref "/user-guide/process-engine/batch.md#execution-jobs" >}}
 
 
 ### Aspects Not Covered by Validation
@@ -827,7 +846,7 @@ Validation cannot ensure that such data is useful in the context of the target p
 
 #### Deserialization of Object Variables
 
-[Object type variables]({{< relref "user-guide/process-engine/variables.md#supported-variable-values" >}}) represent Java objects. That means they have a serialized value along with a Java type name that is used to deserialize the value into a Java object. When migrating between processes of different process
+[Object type variables]({{< ref "/user-guide/process-engine/variables.md#supported-variable-values" >}}) represent Java objects. That means they have a serialized value along with a Java type name that is used to deserialize the value into a Java object. When migrating between processes of different process
 applications, it may occur that an Object variable refers to a Java class that does not exist in the process
 application of the target process.
 

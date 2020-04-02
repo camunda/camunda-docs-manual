@@ -57,12 +57,15 @@ The following types are supported by the DMN engine:
   </tr>
   <tr>
     <td>date</td>
-    <td>java.util.Date, java.lang.String</td>
+    <td>
+        java.util.Date, java.lang.String, <br>
+        java.time.LocalDateTime, java.time.ZonedDateTime
+    </td>
     <td>DateValue</td>
   </tr>
 </table>
 
-Each data type transformer produces a Typed Value which contains the value and
+Each data type transformer produces a typed value which contains the value and
 additional type informations.
 
 If the given type does not match one of the above types then the value is
@@ -71,15 +74,19 @@ transformed into an untyped value by default.
 ## Working with Dates
 
 The DMN engine supports a `date` type which is a combination of date and time.
-By default, the data type transformer accept objects of the type
-`java.util.Date` and Strings having the format `yyyy-MM-dd'T'HH:mm:ss`.
+By default, the data type transformer accept objects of the types:
+
+* `java.util.Date`
+* Strings having the format `yyyy-MM-dd'T'HH:mm:ss`
+* `java.time.LocalDateTime`
+* `java.time.ZonedDateTime` 
 
 If you prefer another format or different representation of a date,
 implement a custom type and [replace the default transformer][data-type-transformer].
 
 # Setting the Data Type of an Input
 
-The type of an input is specified by the `typeRef` attribute on the
+The type of a decision table input is specified by the `typeRef` attribute on the
 `inputExpression` element.
 
 ```xml
@@ -97,7 +104,7 @@ The type of an input is specified by the `typeRef` attribute on the
 
 # Setting the Data Type of an Output
 
-The type of an output is specified by the `typeRef` attribute on the `output`
+The type of a decision table output is specified by the `typeRef` attribute on the `output`
 element.
 
 ```xml
@@ -110,12 +117,23 @@ element.
 </decision>
 ```
 
-# Implement a custom Data Type
+# Setting the Data Type of a Variable
+
+The type of a decision literal expression result is specified by the `typeRef` attribute on the `variable`
+element.
+
+```xml
+<decision>
+  <variable name="result" typeRef="string" />
+  <!-- ... -->
+</decision>
+```
+
+# Implement a Custom Data Type
 
 {{< note title="Use of Internal API" class="warning" >}}
 
-Please be aware that these APIs are **not** part of the [public API]({{< relref
-"introduction/public-api.md" >}}) and may change in later releases.
+Please be aware that these APIs are **not** part of the [public API]({{< ref "/introduction/public-api.md" >}}) and may change in later releases.
 
 {{< /note >}}
 
@@ -131,7 +149,7 @@ text="DmnDataTypeTransformer" >}}. The transformation is processed in the
 it must throw an `IllegalArgumentException`.
 
 ```java
-public class CustomDataTypeTransformer implements DataTypeTransformer {
+public class CustomDataTypeTransformer implements DmnDataTypeTransformer {
 
   public TypedValue transform(Object value) throws IllegalArgumentException {
     // transform the value into a typed value
@@ -144,4 +162,4 @@ To use this data type transformer in the DMN engine, add it to the
 [DMN engine configuration][data-type-transformer].
 
 
-[data-type-transformer]: {{< relref "user-guide/dmn-engine/embed.md#register-dmn-data-type-transformers" >}}
+[data-type-transformer]: {{< ref "/user-guide/dmn-engine/embed.md#register-dmn-data-type-transformers" >}}

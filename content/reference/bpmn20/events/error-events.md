@@ -15,11 +15,11 @@ Error events are events which are triggered by a defined error.
 <div data-bpmn-diagram="../bpmn/event-error"></div>
 
 
-# Business Errors vs. Techincal Errors
+# Business Errors vs. Technical Errors
 
 A BPMN error is meant for business errors - which are different than technical exceptions. So, this is different than Java exceptions - which are, by default, handled in their own way.
 
-You might also want to check out the basics of [Threading and Transactions]({{< relref "user-guide/process-engine/transactions-in-processes.md#transaction-boundaries" >}}) in the [User Guide]({{< relref "user-guide/index.md" >}}) first.
+You might also want to check out the basics of [Threading and Transactions]({{< ref "/user-guide/process-engine/transactions-in-processes.md#transaction-boundaries" >}}) in the [User Guide]({{< ref "/user-guide/_index.md" >}}) first.
 
 
 # Defining an Error
@@ -40,16 +40,17 @@ An error event definition references an error element. The following is an examp
 ```
 
 You can trigger this error event either with a throwing error event within your process definition or from Delegation Code, see the
-[Throwing BPMN Errors from Delegation Code]({{< relref "user-guide/process-engine/delegation-code.md#throw-bpmn-errors-from-delegation-code" >}}) section of the [User Guide]({{< relref "user-guide/index.md" >}}) for more information.
+[Throwing BPMN Errors from Delegation Code]({{< ref "/user-guide/process-engine/delegation-code.md#throw-bpmn-errors-from-delegation-code" >}}) section of the [User Guide]({{< ref "/user-guide/_index.md" >}}) for more information.
 
 Another possibility to define an error is setting of the type (class name) of any Java Exception as error code. Example:
 
 ```xml
 <definitions>
-  <error id="myException" errorCode="com.company.MyBusinessException" name="myBusinessException"/>
-  ...
+  <error id="myException" errorCode="com.company.MyBusinessException" 
+      name="myBusinessException"/>
+  <!-- ... -->
   <process>
-    ...
+    <!-- ... -->
     <endEvent id="myErrorEndEvent">
       <errorEventDefinition errorRef="myException" />
     </endEvent>
@@ -61,6 +62,23 @@ The exception type should only be used for business exceptions and not for techn
 
 An error event handler references the same error element to declare that it catches the error.
 
+It is also possible to define an error message with the <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#errormessage" >}}">`camunda:errorMessage`</a> extension for an error element to give further information about the error.
+The referencing error event definition must specify <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#errormessagevariable" >}}">`camunda:errorMessageVariable`</a> to receive the error message. The error message can also contain <a href="{{< ref "/user-guide/process-engine/expression-language.md" >}}">expressions</a>.
+
+```xml
+<definitions>
+  <error id="myError" errorCode="ERROR-OCCURED" name="ERROR-OCCURED" 
+      camunda:errorMessage="Something went wrong: ${errorCause}" />
+  <!-- ... -->
+  <process>
+    <!-- ... -->
+    <endEvent id="myErrorEndEvent">
+      <errorEventDefinition errorRef="myError" camunda:errorMessageVariable="err"/>
+    </endEvent>
+  </process>
+</definitions>
+```
+When the error thrown by the error end event is catched a process variable with the name `err` will be created that holds the evaluated message.
 
 # Error Start Event
 
@@ -95,27 +113,48 @@ Three optional attributes can be added to the error start event: <code>errorRef<
 
 # Error End Event
 
-When process execution arrives at an error end event, the current path of execution is ended and an error is thrown. This error can be caught by a matching intermediate boundary error event. In case no matching boundary error event is found, the execution semantics defaults to the none end event semantics.
+When process execution arrives at an error end event, the current path of execution is ended and an error is thrown. This error can be caught by a matching intermediate error boundary event. In case no matching error boundary event is found, the execution semantics defaults to the none end event semantics.
 
 ## Camunda Extensions
+
+### Error Event Definition
 
 <table class="table table-striped">
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncbefore" >}}">camunda:asyncBefore</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}">camunda:asyncAfter</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#errorcodevariable" >}}">camunda:errorCodeVariable</a>,
-	  <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#errormessagevariable" >}}">camunda:errorMessageVariable</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#exclusive" >}}">camunda:exclusive</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#jobpriority" >}}">camunda:jobPriority</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#asyncbefore" >}}">camunda:asyncBefore</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}">camunda:asyncAfter</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#errorcodevariable" >}}">camunda:errorCodeVariable</a>,
+	  <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#errormessagevariable" >}}">camunda:errorMessageVariable</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#exclusive" >}}">camunda:exclusive</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#jobpriority" >}}">camunda:jobPriority</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}">camunda:inputOutput</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}">camunda:inputOutput</a>
     </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>&ndash;</td>
+  </tr>
+</table>
+
+### Error Definition
+
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#errormessage" >}}">camunda:errorMessage</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>&ndash;</td>
   </tr>
   <tr>
     <th>Constraints</th>
@@ -126,15 +165,15 @@ When process execution arrives at an error end event, the current path of execut
 
 # Error Boundary Event
 
-An intermediate catching error event on the boundary of an activity, or boundary error event for short, catches errors that are thrown within the scope of the activity on which it is defined.
+An intermediate catching error event on the boundary of an activity, or error boundary event for short, catches errors that are thrown within the scope of the activity on which it is defined.
 
-Defining a boundary error event makes most sense on an embedded subprocess, or a call activity, as a subprocess creates a scope for all activities inside the subprocess. Errors are thrown by error end events. Such an error will propagate its parent scopes upwards until a scope is found on which a boundary error event is defined that matches the error event definition.
+Defining a error boundary event makes most sense on an embedded subprocess, or a call activity, as a subprocess creates a scope for all activities inside the subprocess. Errors are thrown by error end events. Such an error will propagate its parent scopes upwards until a scope is found on which a error boundary event is defined that matches the error event definition.
 
-When an error event is caught, the activity on which the boundary event is defined is destroyed, also destroying all current executions therein (e.g. concurrent activities, nested subprocesses, etc.). Process execution continues following the outgoing sequence flow of the boundary event.
+When an error event is caught, the activity on which the boundary event is defined is destroyed, also destroying all current executions therein (e.g., concurrent activities, nested subprocesses, etc.). Process execution continues following the outgoing sequence flow of the boundary event.
 
 <div data-bpmn-diagram="../bpmn/event-subprocess-alternative2"></div>
 
-A boundary error event is defined as a typical boundary event. As with the other error events, the errorRef references an error defined outside of the process element:
+A error boundary event is defined as a typical boundary event. As with the other error events, the errorRef references an error defined outside of the process element:
 
 ```xml
 <definitions>
@@ -155,18 +194,26 @@ A boundary error event is defined as a typical boundary event. As with the other
 
 The errorCode is used to match the errors that are caught:
 
-*   If errorRef is omitted, the boundary error event will catch any error event, regardless of the errorCode of the error.
+*   If errorRef is omitted, the error boundary event will catch any error event, regardless of the errorCode of the error.
 *   In case an errorRef is provided and it references an existing error, the boundary event will only catch errors with the defined error code.
 *   If the errorCodeVariable is set, the error code can be retrieved using this variable.
 *   If the errorMessageVariable is set, the error message can be retrieved using this variable.
 
+
+# Unhandled BPMN Error
+
+It can happen that no catching boundary event was defined for an error event. The default behaviour in this case is to log information and end the current execution.
+This behaviour can be changed with <code>enableExceptionsAfterUnhandledBpmnError</code> property set to <code>true</code> 
+(via the process engine configuration or the deployment descriptor) and Process Engine Exception will be thrown if unhandled BPMN Error occurs.
+
+
 # Catch and Re-Throw Pattern
 
-An error can be handled by the error start event in the event sub process and the same error can be thrown from the event sub process to handle the error on the higher level scope (In the below example, error thrown from the Event Subprocess is handled by the boundary error event in the Subprocess). 
+An error can be handled by the error start event in the event sub process and the same error can be thrown from the event sub process to handle the error on the higher level scope (in the example  below, the error thrown from the Event Subprocess is handled by the error boundary event in the Subprocess). 
 
 <div data-bpmn-diagram="../bpmn/catchandthrowpattern"></div>
 
 ## Additional Resources
 
 *   [Error Events](http://camunda.org/bpmn/reference.html#events-error) in the [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html)
-*   [Incidents]({{< relref "user-guide/process-engine/incidents.md" >}}) in the [User Guide](red:/guides/user-guide/)
+*   [Incidents]({{< ref "/user-guide/process-engine/incidents.md" >}}) in the [User Guide]({{< ref "/user-guide/_index.md" >}})

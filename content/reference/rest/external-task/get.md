@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single External Task"
+title: "Get External Task"
 weight: 10
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single external task corresponding to the `ExternalTask` interface in the engine.
+Retrieves an external task by id, corresponding to the `ExternalTask` interface in the engine.
 
 
 # Method
@@ -61,7 +61,14 @@ Its properties are as follows:
   <tr>
     <td>errorMessage</td>
     <td>String</td>
-    <td>The error message that was supplied when the last failure of this task was reported.</td>
+    <td>The full error message submitted with the latest reported failure executing this task;
+    <br/><code>null</code> if no failure was reported previously or if no error message was submitted</td>
+  </tr>
+  <tr>
+    <td>errorDetails</td>
+    <td>String</td>
+    <td>The error details submitted with the latest reported failure executing this task.
+    <br/><code>null</code> if no failure was reported previously or if no error details was submitted</td>
   </tr>
   <tr>
     <td>executionId</td>
@@ -71,7 +78,7 @@ Its properties are as follows:
   <tr>
     <td>id</td>
     <td>String</td>
-    <td>The external task's id.</td>
+    <td>The id of the external task.</td>
   </tr>
   <tr>
     <td>lockExpirationTime</td>
@@ -111,7 +118,7 @@ Its properties are as follows:
   <tr>
     <td>workerId</td>
     <td>String</td>
-    <td>The id of the worker that posesses or posessed the most recent lock.</td>
+    <td>The id of the worker that possesses or possessed the most recent lock.</td>
   </tr>
   <tr>
     <td>priority</td>
@@ -121,7 +128,12 @@ Its properties are as follows:
   <tr>
     <td>topicName</td>
     <td>String</td>
-    <td>The external task's topic name.</td>
+    <td>The topic name of the external task.</td>
+  </tr>
+  <tr>
+    <td>businessKey</td>
+    <td>String</td>
+    <td>The business key of the process instance the external task belongs to.</td>
   </tr>
 </table>
 
@@ -142,7 +154,7 @@ Its properties are as follows:
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>External task with the given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>External task with the given id does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -154,13 +166,15 @@ GET `/external-task/anExternalTaskId`
 
 ## Response
 
+```json
     {
       "activityId": "anActivityId",
       "activityInstanceId": "anActivityInstanceId",
       "errorMessage": "anErrorMessage",
+      "errorDetails": "anErrorDetails",
       "executionId": "anExecutionId",
       "id": "anExternalTaskId",
-      "lockExpirationTime": "2015-10-06T16:34:42",
+      "lockExpirationTime": "2015-10-06T16:34:42.000+0200",
       "processDefinitionId": "aProcessDefinitionId",
       "processDefinitionKey": "aProcessDefinitionKey",
       "processInstanceId": "aProcessInstanceId",
@@ -168,6 +182,8 @@ GET `/external-task/anExternalTaskId`
       "retries": 3,
       "suspended": false,
       "workerId": "aWorkerId",
-	  "priority":0,
-      "topicName": "aTopic"
+      "priority":0,
+      "topicName": "aTopic",
+      "businessKey": "aBusinessKey"
     }
+```

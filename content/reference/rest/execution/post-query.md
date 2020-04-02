@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for executions that fulfill given parameters through a json object.
-This method is slightly more powerful than the [GET query]({{< relref "reference/rest/execution/get-query.md" >}}) because it allows
+Queries for executions that fulfill given parameters through a JSON object.
+This method is slightly more powerful than the [Get Executions]({{< ref "/reference/rest/execution/get-query.md" >}}) method because it allows
 to filter by multiple instance and execution variables of types `String`, `Number` or `Boolean`.
 
 
@@ -93,7 +93,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>incidentType</td>
-    <td>Filter by the incident type.</td>
+    <td>Filter by the incident type. See the <a href="{{< ref "/user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
   </tr>
   <tr>
     <td>incidentMessage</td>
@@ -110,34 +110,43 @@ A JSON object with the following properties:
   <tr>
     <td>variables</td>
     <td>A JSON array to only include executions that have variables with certain values. <br/>
-    The array consists of objects with the three properties <code>key</code>, <code>operator</code> and <code>value</code>.
-    <code>key (String)</code> is the variable name, <code>operator (String)</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
+    The array consists of objects with the three properties <code>name</code>, <code>operator</code> and <code>value</code>.
+    <code>name (String)</code> is the variable name, <code>operator (String)</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
     <code>value</code> may be <code>String</code>, <code>Number</code> or <code>Boolean</code>.
     <br/>
     Valid operator values are: <code>eq</code> - equal to; <code>neq</code> - not equal to; <code>gt</code> - greater than;
     <code>gteq</code> - greater than or equal to; <code>lt</code> - lower than; <code>lteq</code> - lower than or equal to;
-    <code>like</code>.<br/>
-    <code>key</code> and <code>value</code> may not contain underscore characters.
+    <code>like</code>.
     </td>
   </tr>
   <tr>
     <td>processVariables</td>
     <td>A JSON array to only include executions that belong to a process instance with variables with certain values. <br/>
-    A valid parameter value has the form <code>key_operator_value</code>.
-    <code>key</code> is the variable name, <code>operator</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
-    <strong>Note:</strong> Values are always treated as <code>String</code> objects on server side.<br/>
+    The array consists of objects with the three properties <code>name</code>, <code>operator</code> and <code>value</code>.
+    <code>name (String)</code> is the variable name, <code>operator (String)</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
+    <code>value</code> may be <code>String</code>, <code>Number</code> or <code>Boolean</code>.
     <br/>
-    Valid operator values are: <code>eq</code> - equal to; <code>neq</code> - not equal to.<br/>
-    <code>key</code> and <code>value</code> may not contain underscore characters.
+    Valid operator values are: <code>eq</code> - equal to; <code>neq</code> - not equal to.
     </td>
   </tr>
   <tr>
+    <td>variableNamesIgnoreCase</td>
+    <td>Match all variable names provided in <code>variables</code> and <code>processVariables</code> case-insensitively. If set to <code>true</code> <strong>variableName</strong> and <strong>variablename</strong> are treated as equal.</td>
+  </tr>
+  <tr>
+    <td>variableValuesIgnoreCase</td>
+    <td>Match all variable values provided in <code>variables</code> and <code>processVariables</code> case-insensitively. If set to <code>true</code> <strong>variableValue</strong> and <strong>variablevalue</strong> are treated as equal.</td>
+  </tr>  <tr>
     <td>sorting</td>
     <td>
       <p>
-        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e. whether it is primary, secondary, etc. The ordering objects have the following properties:
+        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e., whether it is primary, secondary, etc. The ordering objects have the following properties:
       </p>
-      <table>
+      <table class="table table-striped">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
         <tr>
           <td>sortBy</td>
           <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>instanceId</code>, <code>definitionKey</code>, <code>definitionId</code> and <code>tenantId</code>.</td>
@@ -202,7 +211,7 @@ Each execution object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

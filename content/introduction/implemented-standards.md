@@ -20,7 +20,7 @@ Camunda BPM provides open source implementations of execution and [modeling tool
 Business Process Model and Notation (BPMN) is a standard for Workflow and Process Automation.
 Camunda supports the 2.0 version of BPMN.
 
-* Getting started implementing BPMN Processes: [BPMN Getting Started]
+* Getting started implementing BPMN Processes: [Quick Start (Java / JS)]
 * Getting to Know BPMN as a Modeling Language: [BPMN Modeling Tutorial]
 * Modeling BPMN: [BPMN Modeling Reference]
 * Tool for modeling BPMN: [BPMN Modeler][modelers]
@@ -49,15 +49,15 @@ Camunda supports the 1.1 version of DMN.
 
 
 [OMG]: http://www.omg.org/
-[modelers]: {{< relref "modeler/index.md" >}}
+[modelers]: {{< ref "/modeler/_index.md" >}}
 [BPMN Modeling Tutorial]: https://camunda.org/bpmn/tutorial/
 [BPMN Modeling Reference]: https://camunda.org/bpmn/reference/
-[BPMN Getting Started]: /get-started/bpmn20/
-[BPMN Implementation Reference]: {{< relref "reference/bpmn20/index.md" >}}
-[CMMN Implementation Reference]: {{< relref "reference/cmmn11/index.md" >}}
+[Quick Start (Java / JS)]: /get-started/quick-start/
+[BPMN Implementation Reference]: {{< ref "/reference/bpmn20/_index.md" >}}
+[CMMN Implementation Reference]: {{< ref "/reference/cmmn11/_index.md" >}}
 [CMMN Getting Started]: /get-started/cmmn11/
 [DMN Getting Started]: /get-started/dmn11/
-[DMN Implementation Reference]: {{< relref "reference/dmn11/index.md" >}}
+[DMN Implementation Reference]: {{< ref "/reference/dmn11/_index.md" >}}
 [DMN Modeling Tutorial]: https://camunda.org/dmn/tutorial/
-[Process Engine]: {{< relref "user-guide/process-engine/index.md" >}}
-[DMN Engine]: {{< relref "user-guide/dmn-engine/index.md" >}}
+[Process Engine]: {{< ref "/user-guide/process-engine/_index.md" >}}
+[DMN Engine]: {{< ref "/user-guide/dmn-engine/_index.md" >}}

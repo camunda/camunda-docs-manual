@@ -12,7 +12,8 @@ menu:
 
 ---
 
-Retrieves the form variables for a task. The form variables take form data specified on the task into
+Retrieves the form variables for a task.
+The form variables take form data specified on the task into
 account. If form fields are defined, the variable types and
 default values of the form fields are taken into account.
 
@@ -76,13 +77,13 @@ value is a JSON object with the following properties:
   </tr>
   <tr>
     <td>200</td>
-    <td>application/xhtml+xml</td>
+    <td>application/json</td>
     <td>Request successful.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Task id is null or does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Task id is null or does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

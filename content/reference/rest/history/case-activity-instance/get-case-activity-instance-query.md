@@ -1,6 +1,6 @@
 ---
 
-title: "Get Case Activity Instances (Historic)"
+title: "Get Historic Case Activity Instances"
 weight: 10
 
 menu:
@@ -12,8 +12,8 @@ menu:
 
 ---
 
-Query for historic case activity instances that fulfill the given parameters.  The size of the
-result set can be retrieved by using the [count]({{< relref "reference/rest/history/case-activity-instance/get-case-activity-instance-query-count.md" >}}) method.
+Queries for historic case activity instances that fulfill the given parameters. The size of the
+result set can be retrieved by using the [Get Historic Case Activity Instance Count]({{< ref "/reference/rest/history/case-activity-instance/get-case-activity-instance-query-count.md" >}}) method.
 
 # Method
 
@@ -33,6 +33,10 @@ GET `/history/case-activity-instance`
     <td>Filter by case activity instance id.</td>
   </tr>
   <tr>
+    <td>caseActivityInstanceIdIn</td>
+    <td>Only include case activity instances which belong to one of the passed and comma-separated activity instance ids.</td>
+  </tr>
+  <tr>
     <td>caseInstanceId</td>
     <td>Filter by case instance id.</td>
   </tr>
@@ -49,6 +53,10 @@ GET `/history/case-activity-instance`
     <td>Filter by the case activity id (according to CMMN XML).</td>
   </tr>
   <tr>
+    <td>caseActivityIdIn</td>
+    <td>Only include case activity instances which belong to one of the passed and comma-separated activity ids.</td>
+  </tr>
+  <tr>
     <td>caseActivityName</td>
     <td>Filter by the case activity name (according to CMMN XML).</td>
   </tr>
@@ -58,19 +66,19 @@ GET `/history/case-activity-instance`
   </tr>
   <tr>
     <td>createdBefore</td>
-    <td>Restrict to instances that were created before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to instances that were created before the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>createdAfter</td>
-    <td>Restrict to instances that were created after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to instances that were created after the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>endedBefore</td>
-    <td>Restrict to instances that ended before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to instances that ended before the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>endedAfter</td>
-    <td>Restrict to instances that ended after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to instances that ended after the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>finished</td>
@@ -121,6 +129,11 @@ GET `/history/case-activity-instance`
     <td>Filter by a comma-separated list of tenant ids. A case activity instance must have one of the given tenant ids.</td>
   </tr>
   <tr>
+    <td>withoutTenantId</td>
+    <td>Only include historic case activity instances that belong to no tenant. Value may only be 
+    <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>sortBy</td>
     <td>Sort the results by a given criterion. Valid values are
     <code>caseActivityInstanceID</code>, <code>caseInstanceId</code>, <code>caseExecutionId</code>, <code>caseActivityId</code>, <code>caseActivityName</code>, <code>createTime</code>, <code>endTime</code>, <code>duration</code>, <code>caseDefinitionId</code> and <code>tenantId</code>.
@@ -141,6 +154,7 @@ GET `/history/case-activity-instance`
   </tr>
 </table>
 
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Result
 
@@ -211,12 +225,12 @@ Each historic activity instance object has the following properties:
   <tr>
     <td>createTime</td>
     <td>String</td>
-    <td>The time the instance was created. Has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The time the instance was created. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
     <td>endTime</td>
     <td>String</td>
-    <td>The time the instance ended. Has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The time the instance ended. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
     <td>durationInMillis</td>
@@ -275,6 +289,7 @@ Each historic activity instance object has the following properties:
   </tr>
 </table>
 
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Response Codes
 
@@ -292,7 +307,7 @@ Each historic activity instance object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -318,11 +333,11 @@ GET `/history/case-activity-instance?caseActivityName=aCaseActivityName&complete
     "caseExecutionId": "aCaseExecutionId",
     "caseInstanceId": "aCaseInstId",
     "completed": false,
-    "createTime": "2013-04-23T11:20:43",
+    "createTime": "2013-04-23T11:20:43.000+0200",
     "disabled": false,
     "durationInMillis": 2000,
     "enabled": false,
-    "endTime": "2013-04-23T18:42:43",
+    "endTime": "2013-04-23T18:42:43.000+0200",
     "id": "aCaseActivityInstId",
     "parentCaseActivityInstanceId": "aHistoricParentCaseActivityInstanceId",
     "taskId": "aTaskId",

@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Case Definition"
+title: "Get Case Definition"
 weight: 30
 
 menu:
@@ -17,7 +17,7 @@ menu:
 ---
 
 
-Retrieves a single case definition according to the CaseDefinition interface in the engine.
+Retrieves a case definition according to the `CaseDefinition` interface in the engine.
 
 
 # Method
@@ -54,7 +54,7 @@ GET `/case-definition/key/{key}/tenant-id/{tenant-id}` (returns the latest versi
 
 # Result
 
-A JSON object corresponding to the CaseDefinition interface in the engine.
+A JSON object corresponding to the `CaseDefinition` interface in the engine.
 Its properties are as follows:
 
 <table class="table table-striped">
@@ -71,7 +71,7 @@ Its properties are as follows:
   <tr>
     <td>key</td>
     <td>String</td>
-    <td>The key of the case definition, i.e. the id of the CMMN 2.0 XML case definition.</td>
+    <td>The key of the case definition, i.e., the id of the CMMN 2.0 XML case definition.</td>
   </tr>
   <tr>
     <td>category</td>
@@ -103,6 +103,11 @@ Its properties are as follows:
     <td>String</td>
     <td>The tenant id of the case definition.</td>
   </tr>
+  <tr>
+    <td>historyTimeToLive</td>
+    <td>Number</td>
+    <td>History time to live value of the case definition. Is used within <a href="{{< ref "/user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a>.</td>
+  </tr>
 </table>
 
 
@@ -122,7 +127,7 @@ Its properties are as follows:
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Case definition with given id or key does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Case definition with given id or key does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -146,5 +151,6 @@ GET `/case-definition/key/aCaseDefinitionKey`
       "version":42,
       "resource":"aResourceName",
       "deploymentId":"aDeploymentId",
-      "tenantId":null
+      "tenantId":null,
+      "historyTimeToLive": 5
     }

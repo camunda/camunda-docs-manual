@@ -1,6 +1,6 @@
 ---
 
-title: "Get Case Activity Instances Count"
+title: "Get Historic Case Activity Instance Count"
 weight: 20
 
 menu:
@@ -12,8 +12,8 @@ menu:
 
 ---
 
-Query for the number of historic case activity instances that fulfill the given parameters. Takes
-the same parameters as the [get historic case activity instances]({{< relref "reference/rest/history/case-activity-instance/get-case-activity-instance-query.md" >}}) method.
+Queries for the number of historic case activity instances that fulfill the given parameters. Takes
+the same parameters as the [Get Historic Case Activity Instances]({{< ref "/reference/rest/history/case-activity-instance/get-case-activity-instance-query.md" >}}) method.
 
 
 # Method
@@ -34,6 +34,10 @@ GET `/history/case-activity-instance/count`
     <td>Filter by case activity instance id.</td>
   </tr>
   <tr>
+    <td>caseActivityInstanceIdIn</td>
+    <td>Only include case activity instances which belong to one of the passed and comma-separated activity instance ids.</td>
+  </tr>
+  <tr>
     <td>caseInstanceId</td>
     <td>Filter by case instance id.</td>
   </tr>
@@ -50,6 +54,10 @@ GET `/history/case-activity-instance/count`
     <td>Filter by the case activity id (according to CMMN XML).</td>
   </tr>
   <tr>
+    <td>caseActivityIdIn</td>
+    <td>Only include case activity instances which belong to one of the passed and comma-separated activity ids.</td>
+  </tr>
+  <tr>
     <td>caseActivityName</td>
     <td>Filter by the case activity name (according to CMMN XML).</td>
   </tr>
@@ -59,19 +67,19 @@ GET `/history/case-activity-instance/count`
   </tr>
   <tr>
     <td>createdBefore</td>
-    <td>Restrict to instances that were created before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to instances that were created before the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>createdAfter</td>
-    <td>Restrict to instances that were created after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to instances that were created after the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>endedBefore</td>
-    <td>Restrict to instances that ended before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to instances that ended before the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>endedAfter</td>
-    <td>Restrict to instances that ended after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to instances that ended after the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>finished</td>
@@ -121,8 +129,14 @@ GET `/history/case-activity-instance/count`
     <td>tenantIdIn</td>
     <td>Filter by a list of tenant ids. A case activity instance must have one of the given tenant ids.</td>
   </tr>
+  <tr>
+    <td>withoutTenantId</td>
+    <td>Only include historic case activity instances that belong to no tenant. Value may only be 
+    <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
 </table>
 
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Result
 
@@ -158,7 +172,7 @@ A JSON object that contains the count as the only property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   </tr>
 </table>

@@ -7,7 +7,7 @@ menu:
   main:
     identifier: "bpmn-ref-events-cancel-and-compensation-events"
     parent: "bpmn-ref-events"
-    pre: "Events throwing / catching compensation and cancel transaction event."
+    pre: "Events throwing / catching compensation and cancel transaction events."
 
 ---
 
@@ -16,11 +16,11 @@ menu:
 
 ## Cancel End Event
 
-The cancel end event can only be used in combination with a [transaction subprocess]({{< relref "reference/bpmn20/subprocesses/transaction-subprocess.md" >}}). When the cancel end event is reached, a cancel event is thrown which must be caught by a cancel boundary event. The cancel boundary event then cancels the transaction and triggers compensation.
+The cancel end event can only be used in combination with a [transaction subprocess]({{< ref "/reference/bpmn20/subprocesses/transaction-subprocess.md" >}}). When the cancel end event is reached, a cancel event is thrown which must be caught by a cancel boundary event. The cancel boundary event then cancels the transaction and triggers compensation.
 
 ## Cancel Boundary Event
 
-An attached intermediate catching cancel event on the boundary of a transaction subprocess, or, for short, a cancel boundary event, is triggered when a transaction is canceled. When the cancel boundary event is triggered, it first interrupts all executions active in the current scope. Next, it starts compensation of all active compensation boundary events in the scope of the transaction. Compensation is performed synchronously, i.e. the boundary event waits before compensation is completed before leaving the transaction. When compensation is completed, the transaction subprocess is left using the sequence flow(s) running out of the cancel boundary event.
+An attached intermediate catching cancel event on the boundary of a transaction subprocess, or, for short, a cancel boundary event, is triggered when a transaction is canceled. When the cancel boundary event is triggered, it first interrupts all active executions in the current scope. Next, it starts compensation of all active compensation boundary events in the scope of the transaction. Compensation is performed synchronously, i.e., the boundary event waits before compensation is completed before leaving the transaction. When compensation is completed, the transaction subprocess is left using the sequence flow(s) running out of the cancel boundary event.
 
 {{< bpmn-symbol type="cancel-intermediate-catch-event" >}}
 
@@ -113,16 +113,16 @@ A compensation end event triggers compensation and the current path of execution
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncbefore" >}}">camunda:asyncBefore</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}">camunda:asyncAfter</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#exclusive" >}}">camunda:exclusive</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#jobpriority" >}}">camunda:jobPriority</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#asyncbefore" >}}">camunda:asyncBefore</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}">camunda:asyncAfter</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#exclusive" >}}">camunda:exclusive</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#jobpriority" >}}">camunda:jobPriority</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}">
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}">
         camunda:inputOutput</a>
     </td>
   </tr>
@@ -196,5 +196,5 @@ The XML representation of a compensation start event is the normal start event d
 
 ## Additional Resources
 
-* [Transaction subprocess]({{< relref "reference/bpmn20/subprocesses/transaction-subprocess.md" >}})
+* [Transaction subprocess]({{< ref "/reference/bpmn20/subprocesses/transaction-subprocess.md" >}})
 * [Compensation Events](http://camunda.org/bpmn/reference.html#events-compensation) in the [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html)

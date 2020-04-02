@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Case Execution"
+title: "Get Case Execution"
 weight: 30
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single case execution according to the `CaseExecution` interface in the engine.
+Retrieves a case execution by id, according to the `CaseExecution` interface in the engine.
 
 
 # Method
@@ -39,7 +39,7 @@ GET `/case-execution/{id}`
 
 # Result
 
-A JSON object corresponding to the CaseExecution interface in the engine.
+A JSON object corresponding to the `CaseExecution` interface in the engine.
 Its properties are as follows:
 
 <table class="table table-striped">
@@ -154,7 +154,7 @@ Its properties are as follows:
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Case execution with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Case execution with given id does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

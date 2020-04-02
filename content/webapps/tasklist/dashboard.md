@@ -28,7 +28,7 @@ Tasklist offers you the option of toggling the view options on the dashboard. Yo
 
 To start a process instance via Tasklist, click on *Start process* in the header menu and select a process out of the displayed list of process definitions. If no process definitions are listed here, please verify that your process application is deployed correctly.
 
-Depending on whether you have defined a [start form]({{< relref "user-guide/task-forms/index.md" >}}) for your process it will be displayed now. Otherwise you get a notification that no form has been defined for starting the process. In this case, a [generic start form]({{< relref "user-guide/task-forms/index.md#generic-task-forms" >}}) will be displayed and Tasklist will offer the option of adding variables to the process instance.
+Depending on whether you have defined a [start form]({{< ref "/user-guide/task-forms/_index.md" >}}) for your process it will be displayed now. Otherwise you get a notification that no form has been defined for starting the process. In this case, a [generic start form]({{< ref "/user-guide/task-forms/_index.md#generic-task-forms" >}}) will be displayed and Tasklist will offer the option of adding variables to the process instance.
 
 
 # Create a Standalone Task
@@ -55,10 +55,20 @@ To start working on the task, simply select the task.
 
 {{< img src="../img/tasklist-task-search.png" title="Task Search" >}}
 
-Above the filter results, you have the option of searching for user tasks within the selected filter results. To do so, click in the search box and select the parameters to search for. You can also begin typing to find the required parameter faster. Depending on the selected property, you have to specify the value of the property. Some properties also allow operators other than equal, e.g., 'like', which allows to search for a task where the entered value is a substring of the property value. If you are searching for variables, you also have to enter the variable name you want to search for. If the filter you have selected has defined labels for variables, you can select the label of the variable as variable name. Otherwise (if there is no label definition for a variable), you have to enter the variable name to search for it. If you change the filter selection, the search will be performed on the selected filter and the results will be updated accordingly.
+Above the filter results, you have the option of searching for user tasks within the selected filter results. To do so, click in the search box and select the parameters to search for. You can also begin typing to find the required parameter faster. Depending on the selected property, you have to specify the value of the property. Some properties also allow operators other than equal, e.g., `'like'`, which allows to search for a task where the entered value is a substring of the property value. The `'in'` operator allows you to provide a comma-separated list of possible values.
+
+If you are searching for variables, you also have to enter the variable name you want to search for. If the filter you have selected has defined labels for variables, you can select the label of the variable as variable name. Otherwise (if there is no label definition for a variable), you have to enter the variable name to search for it. If you change the filter selection, the search will be performed on the selected filter and the results will be updated accordingly.
 
 If you are searching for a variable of type string, which has a numeric, boolean or null value, you have to wrap the value in single quotes (e.g `'93288'` or `'NULL'`).
 
+Furthermore, you can copy a link to the current search query to your clipboard by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-link"></i></button> button and you can save search queries to your local browser storage by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and inserting a name in the drop down menu that appears. You can then retrieve the search query by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and selecting the chosen name in the drop down menu.
+
+### Case Insensitive Search
+{{< img src="../img/tasklist-case-insensitive.png" title="Task Search" >}}
+
+Sometimes it is not relevant for your search whether the value is capitalized or not. For search queries for Process-, Task- and Case Variables, you can configure if the search should be performed case sensitive or case insensitive. A case insensitive search for `'Fruits Inc.'` will also return matches for values like `'fruits inc.'` or `'FRUITS Inc.'`.
+
+When your search contains one of the Variables mentioned above, two checkboxes appear. You can choose the case handling for the variable name and variable value independently. The option applies to all variable queries within the same search.
 
 # Task View
 
@@ -91,9 +101,9 @@ In the lower section of the task view there are several tabs which can be select
 * **Task form view** - The *Form* tab, which is selected by default, displays the task form (provided that the task form is an embedded, generated or generic task form). Here you can work on and complete the task.
 * **Task history** - The *History* tab displays the history of this user task. Here you can see detailed information, such as the assignment history, updates to the due date and follow-up dates and claiming and unclaiming of tasks. Comments are also displayed here.
 * **Diagram view** - The *Diagram* tab shows the diagram of the process definition. The current user task is highlighted in this diagram.
-* **Task description** - Open the *Description* tab to inspect the User Task description. Have a look at the [BPMN 2.0 reference]({{< relref "reference/bpmn20/tasks/user-task.md#description" >}}) for more information about descriptions of tasks.
+* **Task description** - Open the *Description* tab to inspect the User Task description. Have a look at the [BPMN 2.0 reference]({{< ref "/reference/bpmn20/tasks/user-task.md#description" >}}) for more information about descriptions of tasks.
 
 
 [task-view]: {{< relref "#task-view" >}}
 [filter-results]: {{< relref "#filter-results" >}}
-[tasklist-filters]: {{< relref "webapps/tasklist/filters.md" >}}
+[tasklist-filters]: {{< ref "/webapps/tasklist/filters.md" >}}

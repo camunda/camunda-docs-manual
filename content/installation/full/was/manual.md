@@ -22,7 +22,7 @@ Throughout this guide we will use a number of variables to denote common path na
 * `$PLATFORM_VERSION` denotes the version of the Camunda BPM platform you want to install or already have installed, e.g., `7.2.0`.
 * `$WAS_DISTRIBUTION` represents the downloaded Camunda BPM distribution for the IBM WebSphere Application Server, e.g., `camunda-ee-ibm-was-$PLATFORM_VERSION.zip`.
 
-The distribution is available at the [Camunda enterprise release page](http://camunda.org/enterprise-release/camunda-bpm/ibm-was/).
+The distribution is available at the [Camunda enterprise release page](https://downloads.camunda.cloud/enterprise-release/camunda-bpm/ibm-was/).
 You will be asked to enter the credentials you received during the trial or subscription process.
 {{< /note >}}
 
@@ -49,7 +49,7 @@ In order to perform the steps listed in this guide, make sure you understand the
 
 ## Create the Database Schema and Tables
 
-In the default configuration of the distribution, the database schema and all required tables are automatically created in an H2 database when the engine starts up for the first time. If you do not want to use the H2 database, you have to 
+In the default configuration of the distribution, the database schema and all required tables are automatically created in an H2 database when the engine starts up for the first time. If you do not want to use the H2 database, you have to
 
 * Create a database schema for the Camunda BPM platform yourself.
 * Execute the SQL DDL scripts which create all required tables and default indices.
@@ -59,7 +59,7 @@ The SQL DDL scripts reside in the `sql/create` folder of the distribution:
 `$WAS_DISTRIBUTION/sql/create/*_engine_$PLATFORM_VERSION.sql`
 `$WAS_DISTRIBUTION/sql/create/*_identity_$PLATFORM_VERSION.sql`
 
-As an alternative, you can also find a collection of the SQL scripts on our [Nexus](https://app.camunda.com/nexus/content/repositories/camunda-bpm/org/camunda/bpm/distro/camunda-sql-scripts/). Select the respective version and download the scripts as a `zip` or `tar.gz` file, then open the `camunda-sql-scripts-$PLATFORM_VERSION/create` folder.
+As an alternative, you can also find a collection of the SQL scripts on our [Nexus](https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/distro/camunda-sql-scripts/). Select the respective version and download the scripts as a `zip` or `tar.gz` file, then open the `camunda-sql-scripts-$PLATFORM_VERSION/create` folder.
 
 There is an individual SQL script for each supported database. Select the appropriate script for your database and run it with your database administration tool (e.g., SqlDeveloper for Oracle).
 
@@ -67,13 +67,19 @@ When you create the tables manually, then you have to configure the engine to **
 
 {{< note title="Heads Up!" class="info" >}}
 If you have defined a specific prefix for the entities of your database, then you will have to manually adjust the `create` scripts accordingly so that the tables are created with the prefix.
+
+Please note further that READ COMMITED is the required isolation level for database systems to run Camunda with. You may have to change the default setting on your database when installing Camunda. For more information see the documentation on [isolation levels]({{< ref "/user-guide/process-engine/database.md#isolation-level-configuration" >}}).
 {{< /note >}}
 
 
 ## JDBC/Datasource Configuration
 
-The Camunda BPM engine uses one or multiple process engines. Use your application server management tooling for the configuration of the datasources.
-The JNDI name of the datasource must be equal to the name used in the datasource-Element of the process engine(s) configured in the bpm-platform.xml file.
+Camunda BPM uses one or multiple process engines which must be connected to a datasource. Use your application server management tooling for the configuration of the datasources. The JNDI name of the datasource must be equal to the name used in the datasource-Element of the process engine(s) configured in the bpm-platform.xml file.
+
+Related resources:
+
+* [WebSphere 8.5: Configuring a JDBC provider and data source](https://www.ibm.com/support/knowledgecenter/en/SSEQTP_8.5.5/com.ibm.websphere.base.iseries.doc/ae/tdat_tccrtprovds.html)
+* [Websphere 9.0: Configuring a JDBC provider and data source](https://www.ibm.com/support/knowledgecenter/en/SSEQTP_9.0.5/com.ibm.websphere.base.doc/ae/tdat_tccrtprovds.html)
 
 ### Default JNDI Name
 
@@ -83,14 +89,14 @@ The following screenshot shows the configuration of an XA datasource:
 
 {{< img src="../img/jdbc.png" title="JDBC Configuration" >}}
 
-Note that you may configure multiple datasources used by different process engine instances. See the [User Guide]({{< relref "user-guide/index.md" >}}) for details.
+Note that you may configure multiple datasources used by different process engine instances. See the [User Guide]({{< ref "/user-guide/_index.md" >}}) for details.
 
 
 ## Configure a WorkManager
 
 This section explains how you can use the WebSphere Integrated Solutions Console to configure a work manager to be used by the Camunda BPM platform jobexecutor. It is recommended to check the [manual of the application server](http://www-01.ibm.com/software/webservers/appserv/was/library/) for additional details.
 
-Go to **Resources / Asynchronous Bean / Work Managers** and select the appropriate scope, for example: `Cell=<some_id>`
+Go to **Resources / Asynchronous Bean / Work Managers** (Websphere 8) or **Resources / Concurrency / Work Managers** (Websphere 9). Select the appropriate scope, for example: `Cell=<some_id>`.
 Create a new work manager in the scope using the Button **New...**.
 Configure the new Work Manager. The following is a selection of sensible default values:
 
@@ -236,7 +242,7 @@ The EAR must be installed to your IBM WebSphere Application Server:
 5. In **Step 1**, enter an application-name, eg. **"camunda-bpm-platform"**, customize other settings and click **"Next"**.
 6. Continue through **Steps 2-4**, customize to your liking and finish the installation in **Step 4** by clicking **"Finish"**.
 7. Save the configuration.
-8. (optional) [Configure location of the bpm-platform.xml file]({{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md#configure-location-of-the-bpm-platform-xml-file" >}})
+8. (optional) [Configure location of the bpm-platform.xml file]({{< ref "/reference/deployment-descriptors/descriptors/bpm-platform-xml.md#configure-location-of-the-bpm-platform-xml-file" >}})
 9. Start the camunda-bpm-platform application. If this initially fails, try to restart the server. Also make sure the EAR does correctly reference the previously created 'Camunda' shared library.
     If it doesn't, make sure you have correctly created the shared library as 'Camunda' or assign the 'Camunda' shared library manually after the EAR installation.
 
@@ -382,7 +388,7 @@ Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION
 Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION/modules/lib/` to the `Camunda` shared library folder:
 
 * `camunda-template-engines-freemarker-$TEMPLATE_VERSION.jar`
-* `freemarker-2.3.20.jar`
+* `freemarker-2.3.29.jar`
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
 
 

@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Get a message event subscription for a specific execution and a message name.
+Retrieves a message event subscription for a given execution by id and a message name.
 
 
 # Method
@@ -80,10 +80,11 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>createdDate</td>
-    <td>The time the subscription was created by the engine. Format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The time the subscription was created by the engine. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
 </table>
 
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Response Codes
 
@@ -103,7 +104,7 @@ A JSON object with the following properties:
     <td>application/json</td>
     <td>A message subscription for the given name and execution does not exist.
     This may either mean that the execution does not exist, or that it is not subscribed on such a message.
-    See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -123,5 +124,5 @@ GET `/execution/anExecutionId/messageSubscriptions/someMessage`
     "processInstanceId": "aProcInstId",
     "activityId": "anActivity",
     "tenantId": null,
-    "createdDate": "2013-01-23T13:59:43"}
+    "createdDate": "2013-01-23T13:59:43.000+0200"}
 

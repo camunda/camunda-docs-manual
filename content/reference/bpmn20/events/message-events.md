@@ -43,22 +43,34 @@ A message event definition is declared by using the `messageEventDefinition` ele
 </definitions>
 ```
 
+## Expressions
+
+You can use expressions for the name in the message event definition (except for the message start event). The name is then resolved as soon as a process reaches the scope of the message. For example when the process instances reaches a Message Intermediate Catching Event, then the expression within the name is resolved.
+
+By using expressions within the message name, you can influence the message name dynamically based on process variables. An example could look as follows:
+
+```xml
+<message id="newInvoice" name="newInvoiceMessage-${execution.processBusinessKey}" />
+```
+
+**Note:** It is not allowed to use expressions in the message name of a start event of the process definition. So using an expression in the message definition and then referencing this definition in a message start event of the process entry point will cause an error. However, it is allowed to use expressions in the message start event of a subprocess. Therefore, using an expression in the message definition and then referencing this definition in the message start event within a subprocess will work just fine.
+
 ## Camunda Extensions
 
 <table class="table table-striped">
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncbefore" >}}">camunda:asyncBefore</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}">camunda:asyncAfter</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#exclusive" >}}">camunda:exclusive</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#jobpriority" >}}">camunda:jobPriority</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#asyncbefore" >}}">camunda:asyncBefore</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}">camunda:asyncAfter</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#exclusive" >}}">camunda:exclusive</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#jobpriority" >}}">camunda:jobPriority</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}">camunda:inputOutput</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}">camunda:inputOutput</a>
     </td>
   </tr>
   <tr>
@@ -66,7 +78,6 @@ A message event definition is declared by using the `messageEventDefinition` ele
     <td>&ndash;</td>
   </tr>
 </table>
-
 
 # Message Api
 
@@ -78,14 +89,14 @@ After you have received a message, you can choose whether you employ the engine'
 
 The engine offers a basic correlation mechanism that will either signal an execution waiting for a specific message or instantiate a process with a matching message start event. The `RuntimeService` provides a fluent message correlation API:
 
-The result of the correlation is an object of type `MessageCorrelatedResult`. It contains the type of the correlation, which is either `execution` or `processDefinition`.
+The result of the correlation is an object of type `MessageCorrelationResult`. It contains the type of the correlation, which is either `execution` or `processDefinition`.
 The first type is set if the message was correlated to an intermediate message catch event. The second is set if the message was correlated to a start event.
 If the type is set to `execution`, then the result contains an `Execution` object which can be accessed via the `result.getExecution()` method. If the type is set to 
 `processDefinition`, the result contains a `ProcessInstance` object which was created through the start event, which is accessible via the `result.getProcessInstance()` method.
 
 ```java
 // correlate the message
-MessageCorrelatedResult result = runtimeService.createMessageCorrelation("messageName")
+MessageCorrelationResult result = runtimeService.createMessageCorrelation("messageName")
   .processInstanceBusinessKey("AB-123")
   .setVariable("payment_type", "creditCard")
   .correlateWithResult();
@@ -116,11 +127,26 @@ List<MessageCorrelationResult> results = runtimeService
 ```
 The result will be a list of `MessageCorrelationResult` objects. Each result corresponds to a correlation.
 
-{{< note title="Current limitation" class="note" >}}
-`correlationKeys` is only matched against process instance variables. These are variables that are globally visible throughout the process instance.
+It is possible to retrieve the process variables on message correlation. By specifying the boolean parameter `shouldDeserializeValues`, you decide whether the variables' values to be serialized or not. Please see the example below:
 
-Accordingly, variables that are defined in the scope of a child execution (e.g., in a subprocess) are not considered for correlation.
-{{< /note >}}
+```java
+MessageCorrelationResultWithVariables result = runtimeService
+  .createMessageCorrelation("aMessageName")
+  .setVariable("name", "value")
+  .correlateWithResultAndVariables(shouldDeserializeValues);
+VariableMap processVariables = result.getVariables();
+```
+
+Additionally, message correlation builder provides the possibility to correlate the message by local execution variables.
+  
+```java
+List<MessageCorrelationResult> results = runtimeService
+  .createMessageCorrelation("aMessageName")
+  .localVariableEquals("localVarName", "localVarValue"))
+  .correlateAllWithResult();
+```
+
+In this case the matching execution will be selected based on variables existing in it's scope (ignoring all parent scopes).
 
 In case of successful correlation, the correlated or newly created process instance is updated with the variables from the `processVariables` map.
 
@@ -132,11 +158,22 @@ Alternatively, you can explicitly deliver a message to start a process instance 
 If the message should trigger the starting of a new process instance then you can use the correlation API:
 
 ```java
-runtimeService
+ProcessInstance startedProcessInstance = runtimeService
   .createMessageCorrelation("messageName")
   .processInstanceBusinessKey("businessKey")
   .setVariable("name", "value")
   .correlateStartMessage();
+
+// or
+
+MessageCorrelationResultWithVariables result = runtimeService
+  .createMessageCorrelation("aMessageName")
+  .processInstanceBusinessKey("businessKey")
+  .startMessageOnly()
+  .setVariable("name", "value")
+  .correlateWithResultAndVariables(shouldDeserializeValues);
+ProcessInstance startedProcessInstance = result.getProcessInstance();
+VariableMap processVariables = result.getVariables();
 ```
 
 Or you can use one of the following methods offered by the runtime service:
@@ -147,9 +184,9 @@ ProcessInstance startProcessInstanceByMessage(String messageName, Map<String, Ob
 ProcessInstance startProcessInstanceByMessage(String messageName, String businessKey, Map<String, Object> processVariables);
 ```
 
-These methods allow the starting of a process instance using the referenced message.
+These methods allow starting a process instance using the referenced message.
 
-If the message needs to be received by an existing process instance, you first have to correlate the message to a specific process instance (see the next section) and then trigger the continuation of the waiting execution. The runtime service offers the following methods for triggering an execution based on a message event subscription:
+If the message needs to be received by an existing process instance, you first have to correlate the message to a specific process instance (see the next section) and then trigger continuation of the waiting execution. The runtime service offers the following methods to trigger an execution based on a message event subscription:
 
 ```java
 void messageEventReceived(String messageName, String executionId);
@@ -172,7 +209,7 @@ ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQ
 
 As there can only be one process definition for a specific message subscription, the query always returns zero or one results. If a process definition is updated, only the newest version of the process definition has a subscription to the message event.
 
-In case of an intermediate catch message event, the message event subscription is associated with a particular execution. Such message event subscriptions can be queried using a ExecutionQuery:
+In case of an intermediate catch message event, the message event subscription is associated with a particular execution. Such message event subscriptions can be queried using an ExecutionQuery:
 
 ```java
 Execution execution = runtimeService.createExecutionQuery()
@@ -181,7 +218,7 @@ Execution execution = runtimeService.createExecutionQuery()
   .singleResult();
 ```
 
-Such queries are called correlation queries and usually require knowledge about the processes (in this case that there will be a maximum of one process instance for a given orderId).
+Such queries are called correlation queries and usually require knowledge about the processes (in this case, there is a maximum of one process instance for a given orderId).
 
 
 # Message Start Event
@@ -199,7 +236,7 @@ When starting a process instance, a message start event can be triggered using t
 ```java
 ProcessInstance startProcessInstanceByMessage(String messageName);
 ProcessInstance startProcessInstanceByMessage(String messageName, Map<String, Object> processVariables);
-ProcessInstance startProcessInstanceByMessage(String messageName, String businessKey, Map<String, Object< processVariables);
+ProcessInstance startProcessInstanceByMessage(String messageName, String businessKey, Map<String, Object> processVariables);
 ```
 
 The messageName is the name given in the name attribute of the message element referenced by the messageRef attribute of the messageEventDefinition. The following considerations apply when starting a process instance:
@@ -251,11 +288,11 @@ The following example shows different message events in a process model:
 
 ```xml
 <intermediateCatchEvent id="message">
-  <messageEventDefinition signalRef="newCustomerMessage" />
+  <messageEventDefinition messageRef="newCustomerMessage" />
 </intermediateCatchEvent>
 ```
 
-Instead of the message intermediate catching event you might want to think about a <a href="{{< relref "reference/bpmn20/tasks/receive-task.md" >}}">Receive Task</a> instead, which can serve similar purposes but is able to be used in combination with boundary events. In combination with the message intermediate catching event you might want to use an <a href="{{< relref "reference/bpmn20/gateways/event-based-gateway.md" >}}">Event-based Gateway</a>.
+Instead of the message intermediate catching event you might want to think about a <a href="{{< ref "/reference/bpmn20/tasks/receive-task.md" >}}">Receive Task</a> instead, which can serve similar purposes but is able to be used in combination with boundary events. In combination with the message intermediate catching event you might want to use an <a href="{{< ref "/reference/bpmn20/gateways/event-based-gateway.md" >}}">Event-based Gateway</a>.
 
 
 # Message Boundary Event
@@ -268,7 +305,7 @@ Boundary events are catching events that are attached to an activity. This means
 
 # Message Intermediate Throwing Event
 
-A Message Intermediate Throwing event sends a message to an external service. This event has the same behavior as a [Service Task]({{< relref "reference/bpmn20/tasks/service-task.md" >}}).
+A Message Intermediate Throwing event sends a message to an external service. This event has the same behavior as a [Service Task]({{< ref "/reference/bpmn20/tasks/service-task.md" >}}).
 
 <div data-bpmn-diagram="../bpmn/event-message-throwing" > </div>
 
@@ -285,20 +322,20 @@ A Message Intermediate Throwing event sends a message to an external service. Th
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#class" >}}">camunda:class</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#delegateexpression" >}}">camunda:delegateExpression</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#expression" >}}">camunda:expression</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#resultvariable" >}}">camunda:resultVariable</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#topic" >}}">camunda:topic</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#type" >}}">camunda:type</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#taskpriority" >}}">camunda:taskPriority</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#class" >}}">camunda:class</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#delegateexpression" >}}">camunda:delegateExpression</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#expression" >}}">camunda:expression</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#resultvariable" >}}">camunda:resultVariable</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#topic" >}}">camunda:topic</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#type" >}}">camunda:type</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#taskpriority" >}}">camunda:taskPriority</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#field" >}}">camunda:field</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#connector" >}}">camunda:connector</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#field" >}}">camunda:field</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#connector" >}}">camunda:connector</a>
     </td>
   </tr>
   <tr>
@@ -336,7 +373,7 @@ A Message Intermediate Throwing event sends a message to an external service. Th
 
 # Message End Event
 
-When process execution arrives at a Message End Event, the current path of execution is ended and a message is sent. The Message End Event has the same behavior as a [Service Task]({{< relref "reference/bpmn20/tasks/service-task.md" >}}).
+When process execution arrives at a Message End Event, the current path of execution is ended and a message is sent. The Message End Event has the same behavior as a [Service Task]({{< ref "/reference/bpmn20/tasks/service-task.md" >}}).
 
 ```xml
 <endEvent id="end">
@@ -351,20 +388,20 @@ When process execution arrives at a Message End Event, the current path of execu
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#class" >}}">camunda:class</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#delegateexpression" >}}">camunda:delegateExpression</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#expression" >}}">camunda:expression</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#resultvariable" >}}">camunda:resultVariable</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#topic" >}}">camunda:topic</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#type" >}}">camunda:type</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#taskpriority" >}}">camunda:taskPriority</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#class" >}}">camunda:class</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#delegateexpression" >}}">camunda:delegateExpression</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#expression" >}}">camunda:expression</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#resultvariable" >}}">camunda:resultVariable</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#topic" >}}">camunda:topic</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#type" >}}">camunda:type</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#taskpriority" >}}">camunda:taskPriority</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#field" >}}">camunda:field</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#connector" >}}">camunda:connector</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#field" >}}">camunda:field</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#connector" >}}">camunda:connector</a>
     </td>
   </tr>
   <tr>

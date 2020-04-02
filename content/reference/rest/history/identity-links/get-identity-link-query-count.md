@@ -1,6 +1,6 @@
 ---
 
-title: "Get Identity-Link-Logs Count"
+title: "Get Identity-Link-Log Count"
 weight: 20
 
 menu:
@@ -12,8 +12,8 @@ menu:
 
 ---
 
-Query for the number of historic identity links log that fulfill the given parameters.
-Takes the same parameters as the [get identity-links-log]({{< relref "reference/rest/history/identity-links/get-identity-link-query.md" >}}) method.
+Queries for the number of historic identity link logs that fulfill the given parameters.
+Takes the same parameters as the [Get Identity-Link-Logs]({{< ref "/reference/rest/history/identity-links/get-identity-link-query.md" >}}) method.
 
 
 # Method
@@ -48,7 +48,7 @@ GET `/history/identity-link-log/count`
   </tr>
   <tr>
     <td>dateAfter</td>
-    <td>Restricts to identity links that have the time after the given time</td>
+    <td>Restricts to identity links that have the time after the given time.</td>
   </tr>
   <tr>
     <td>taskId</td>
@@ -73,6 +73,11 @@ GET `/history/identity-link-log/count`
   <tr>
     <td>tenantIdIn</td>
     <td>Filter by a comma-separated list of tenant ids.</td>
+  </tr>
+  <tr>
+    <td>withoutTenantId</td>
+    <td>Only include historic identity links that belong to no tenant. Value may only be 
+    <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
 </table>
 
@@ -111,7 +116,7 @@ A JSON object that contains the count as the only property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

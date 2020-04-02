@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Generate a migration plan for two process definitions. The generated migration
+Generates a migration plan for two process definitions. The generated migration
 plan contains migration instructions which map equal activities between the
 two process definitions.
 
@@ -121,7 +121,7 @@ Its properties are as follows:
     <td>400</td>
     <td>application/json</td>
     <td>
-      The requested migration was invalid. See <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a>
+      The requested migration was invalid. See <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a>
       for the error response format.
     </td>
   </tr>

@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for case definitions that fulfill given parameters. Parameters may be the properties of case definitions, such as the name, key or version.
-The size of the result set can be retrieved by using the [GET query count]({{< relref "reference/rest/case-definition/get-query-count.md" >}}).
+Queries for case definitions that fulfill given parameters. Parameters may be the properties of case definitions, such as the name, key or version.
+The size of the result set can be retrieved by using the [Get Case Definition Count]({{< ref "/reference/rest/case-definition/get-query-count.md" >}}) method.
 
 
 # Method
@@ -53,7 +53,7 @@ GET `/case-definition`
   </tr>
   <tr>
     <td>key</td>
-    <td>Filter by case definition key, i.e. the id in the CMMN XML. Exact match.</td>
+    <td>Filter by case definition key, i.e., the id in the CMMN XML. Exact match.</td>
   </tr>
   <tr>
     <td>keyLike</td>
@@ -89,11 +89,11 @@ GET `/case-definition`
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only include case definitions which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include case definitions which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>includeCaseDefinitionsWithoutTenantId</td>
-    <td>Include case definitions which belongs to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Include case definitions which belong to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>sortBy</td>
@@ -136,7 +136,7 @@ Each case definition object has the following properties:
   <tr>
     <td>key</td>
     <td>String</td>
-    <td>The key of the case definition, i.e. the id of the CMMN XML case definition.</td>
+    <td>The key of the case definition, i.e., the id of the CMMN XML case definition.</td>
   </tr>
   <tr>
     <td>category</td>
@@ -168,6 +168,11 @@ Each case definition object has the following properties:
     <td>String</td>
     <td>The tenant id of the case definition.</td>
   </tr>
+  <tr>
+    <td>historyTimeToLive</td>
+    <td>Number</td>
+    <td>History time to live value of the case definition. Is used within <a href="{{< ref "/user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a>.</td>
+  </tr>
 </table>
 
 
@@ -187,7 +192,7 @@ Each case definition object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -210,6 +215,7 @@ GET `/case-definition?keyLike=Key&sortBy=category&sortOrder=asc`
         "version":2,
         "resource":"aResourceName",
         "deploymentId":"aDeploymentId",
-        "tenantId":null
+        "tenantId":null,
+        "historyTimeToLive": 5
       }
     ]

@@ -15,7 +15,7 @@ The following examples show example scenarios of custom JavaScript in embedded f
 
 # User name from a cam-script
 
-This example demonstrates how to retrieve the user name and displaying it in a embedded form:
+This example demonstrates how to retrieve the user name and display it in an embedded form:
 
 ```html
 <form role="form">
@@ -39,7 +39,7 @@ This example includes an image, which is located in the contextPath of the form 
   <script cam-script type="text/form-script">
     inject(['$http', 'Uri', function($http, Uri) {
       camForm.on('form-loaded', function() {
-        $http.get(Uri.appUri("engine://engine/:engine/task/" + camForm.taskId + "/form")).success(function(result){
+        $http.get(Uri.appUri("engine://engine/:engine/task/" + camForm.taskId + "/form")).then(function(result){
           $scope.contextPath = result.contextPath;
         });
       });
@@ -51,9 +51,30 @@ This example includes an image, which is located in the contextPath of the form 
 </form>
 ```
 
+# Exclude a variable from submit
+
+When a variable is loaded, it is also sent back to the server when the form is submitted. If you have a variable that you don't want to be submitted when the form is completed, you can use the `destroyVariable` function of the variable manager:
+
+```html
+<script cam-script type="text/form-script">
+  camForm.on('form-loaded', function() {
+    // tell the form SDK to fetch the variable named 'invoiceData'
+    camForm.variableManager.fetchVariable('invoiceData');
+  });
+  camForm.on('variables-fetched', function() {
+    // work with the variable (bind it to the current AngularJS $scope)
+    $scope.invoiceData = camForm.variableManager.variableValue('invoiceData');
+  });
+  camForm.on('submit', function() {
+    // make the variableManager forget about the invoiceData variable
+    camForm.variableManager.destroyVariable('invoiceData');
+  });
+</script>
+```
+
 # Upload Large Files
 
-This example contains a file input element and the script to send it to the server. In contrast to the [file input element of the Forms SDK]({{< relref "reference/embedded-forms/controls/files.md" >}}), this example can handle large files, but it also has some drawbacks:
+This example contains a file input element and the script to send it to the server. In contrast to the [file input element of the Forms SDK]({{< ref "/reference/embedded-forms/controls/files.md" >}}), this example can handle large files, but it also has some drawbacks:
 
 * Can not be used in the start form of a process (no process instance id exists at this time)
 * Does not take part in the form lifecycle (files could be saved even if the form is not submitted)
@@ -70,7 +91,7 @@ This example first retrieves the process instance id of the task for the form. I
   <script cam-script type="text/form-script">
     inject(['$http', 'Uri', function($http, Uri) {
       camForm.on('form-loaded', function() {
-        $http.get(Uri.appUri('engine://engine/:engine/task/' + camForm.taskId)).success(function(result){
+        $http.get(Uri.appUri('engine://engine/:engine/task/' + camForm.taskId)).then(function(result){
           $scope.upload = function() {
             var formData = new FormData();
             formData.append('data', document.getElementById('fileUpload').files[0]);

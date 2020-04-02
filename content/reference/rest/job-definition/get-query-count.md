@@ -1,6 +1,6 @@
 ---
 
-title: "Get Job Definitions Count"
+title: "Get Job Definition Count"
 weight: 20
 
 menu:
@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for the number of job definitions that fulfill given parameters.
-Takes the same parameters as the [get job definitions]({{< relref "reference/rest/job-definition/get-query.md" >}}) method.
+Queries for the number of job definitions that fulfill given parameters.
+Takes the same parameters as the [Get Job Definitions]({{< ref "/reference/rest/job-definition/get-query.md" >}}) method.
 
 
 # Method
@@ -49,11 +49,11 @@ GET `/job-definition/count`
   </tr>
   <tr>
     <td>jobType</td>
-    <td>Only include job definitions which exist for the given job type.</td>
+    <td>Only include job definitions which exist for the given job type. See the <a href="{{< ref "/user-guide/process-engine/the-job-executor.md#job-creation" >}}">User Guide</a> for more information about job types.</td>
   </tr>
   <tr>
     <td>jobConfiguration</td>
-    <td>Only include job definitions which exist for the given job configuration.</td>
+    <td>Only include job definitions which exist for the given job configuration. For example: for timer jobs it is the timer configuration.</td>
   </tr>
   <tr>
     <td>active</td>
@@ -73,11 +73,11 @@ GET `/job-definition/count`
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only include job definitions which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include job definitions which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>includeJobDefinitionsWithoutTenantId</td>
-    <td>Include job definitions which belongs to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Include job definitions which belong to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
 </table>
 
@@ -115,7 +115,7 @@ A JSON object that contains the count as the only property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

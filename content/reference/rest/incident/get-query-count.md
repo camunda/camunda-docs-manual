@@ -1,6 +1,6 @@
 ---
 
-title: "Get Incidents Count"
+title: "Get Incident Count"
 weight: 10
 
 menu:
@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for the number of incidents that fulfill given parameters.
-Takes the same parameters as the [get incidents]({{< relref "reference/rest/incident/get-query.md" >}}) method.
+Queries for the number of incidents that fulfill given parameters.
+Takes the same parameters as the [Get Incidents]({{< ref "/reference/rest/incident/get-query.md" >}}) method.
 
 
 # Method
@@ -37,7 +37,7 @@ GET `/incident/count`
   </tr>
   <tr>
     <td>incidentType</td>
-    <td>Restricts to incidents that belong to the given incident type.</td>
+    <td>Restricts to incidents that belong to the given incident type. See the <a href="{{< ref "/user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
   </tr>
   <tr>
     <td>incidentMessage</td>
@@ -46,6 +46,10 @@ GET `/incident/count`
   <tr>
     <td>processDefinitionId</td>
     <td>Restricts to incidents that belong to a process definition with the given id.</td>
+  </tr>
+  <tr>
+    <td>processDefinitionKeyIn</td>
+    <td>Restricts to incidents that belong to a process definition with the given keys. Must be a comma-separated list.</td>
   </tr>
   <tr>
     <td>processInstanceId</td>
@@ -58,6 +62,10 @@ GET `/incident/count`
   <tr>
     <td>activityId</td>
     <td>Restricts to incidents that belong to an activity with the given id.</td>
+  </tr>
+  <tr>
+    <td>failedActivityId</td>
+    <td>Restricts to incidents that were created due to the failure of an activity with the given id.</td>
   </tr>
   <tr>
     <td>causeIncidentId</td>
@@ -114,7 +122,7 @@ A JSON object that contains the count as the only property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

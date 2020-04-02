@@ -1,6 +1,6 @@
 ---
 
-title: 'Get Single Deployment'
+title: 'Get Deployment'
 weight: 30
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single deployment by id.
+Retrieves a deployment by id, according to the `Deployment` interface of the engine.
 
 
 # Method
@@ -65,7 +65,7 @@ A JSON object corresponding to the `Deployment` interface of the engine. Its pro
   <tr>
     <td>deploymentTime</td>
     <td>Date</td>
-    <td>The date time of the deployment.</td>
+    <td>The date and time of the deployment.</td>
   </tr>
 </table>
 
@@ -86,7 +86,7 @@ A JSON object corresponding to the `Deployment` interface of the engine. Its pro
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Deployment with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Deployment with given id does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -106,6 +106,6 @@ Status 200.
   "id": "someDeploymentId",
   "name": "deploymentName",
   "source": "process application",
-  "deploymentTime": "2013-04-23T13:42:43"
+  "deploymentTime": "2013-04-23T13:42:43.000+0200"
 }
 ```

@@ -36,23 +36,23 @@ GET `/authorization/check`
     <td>Yes</td>
   </tr>
   <tr>
-    <td>permissionValue</td>
-    <td>String representation of an integer value representing the permission value to check for.</td>
-    <td>Yes</td>
-  </tr>
-  <tr>
     <td>resourceName</td>
     <td>String value for the name of the resource to check permissions for.</td>
     <td>Yes</td>
   </tr>
   <tr>
     <td>resourceType</td>
-    <td>String representation of an integer value identifying the resource type to check permissions for.</td>
+    <td>An integer representing the resource type to check permissions for. See the <a href="{{< ref "/user-guide/process-engine/authorization-service.md#resources" >}}">User Guide</a> for a list of integer representations of resource types.</td>
     <td>Yes</td>
   </tr>
   <tr>
     <td>resourceId</td>
     <td>The id of the resource to check permissions for. If left blank, a check for global permissions on the resource is performed.</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <td>userId</td>
+    <td>The id of the user to check permissions for. The currently authenticated user must have a READ permission for the Authorization resource. If <code>userId</code> is blank, a check for the currently authenticated user is performed.</td>
     <td>No</td>
   </tr>
 </table>
@@ -105,9 +105,24 @@ A JSON array with the following properties:
     <td>Request successful.</td>
   </tr>
   <tr>
+    <td>400</td>
+    <td>application/json</td>
+    <td>Returned if some of the query parameters are invalid, for example if a permission parameterName is not valid for the provided resourceType. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+  </tr>
+  <tr>
+    <td>401</td>
+    <td>application/json</td>
+    <td>The user is not authenticated. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+  </tr>
+  <tr>
+    <td>403</td>
+    <td>application/json</td>
+    <td>When a <code>userId</code> is passed and the user does not possess a READ permission for the Authorization resource. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+  </tr>
+  <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Authorization with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Authorization with given id does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -115,13 +130,18 @@ A JSON array with the following properties:
 
 ## Request
 
-GET `/authorization/check?permissionName=READ,permissionValue=2,resourceName=USER,resourceType=1,resourceId=jonny`
+GET `/authorization/check?permissionName=READ,resourceName=USER,resourceType=1,resourceId=jonny`
 
 ## Response
 
 Status 200.
 
-    {"permissionName": "READ",
-     "resourceName": "USER",
-     "resourceId": "jonny",
-     "isAuthorized": true}
+```json
+{
+  "permissionName": "READ",
+  "resourceName": "USER",
+  "resourceId": "jonny",
+  "isAuthorized": true
+ }
+```
+

@@ -1,6 +1,6 @@
 ---
 
-title: "Get Decision Instances Count"
+title: "Get Historic Decision Instance Count"
 weight: 20
 
 menu:
@@ -13,9 +13,8 @@ menu:
 ---
 
 
-Query for the number of historic decision instances that fulfill the given
-parameters.  Takes the same parameters as the [Get Decision Instances][get]
-method.
+Queries for the number of historic decision instances that fulfill the given
+parameters. Takes the same parameters as the [Get Historic Decision Instances]({{< ref "/reference/rest/history/decision-instance/get-decision-instance-query.md" >}}) method.
 
 
 # Method
@@ -43,13 +42,27 @@ GET `/history/decision-instance/count`
     <td>decisionDefinitionId</td>
     <td>Filter by the decision definition the instances belongs to.</td>
   </tr>
+  </tr>
+    <td>decisionDefinitionIdIn</td>
+    <td>
+    Filter by the decision definitions the instances belongs to. Must be a comma-separated list of decision definition ids.
+    </td>
+  </tr>
   <tr>
     <td>decisionDefinitionKey</td>
     <td>Filter by the key of the decision definition the instances belongs to.</td>
   </tr>
   <tr>
+    <td>decisionDefinitionKeyIn</td>
+    <td>Filter by the keys of the decision definition the instances belongs to. Must be a comma-separated list of decision definition keys.</td>
+  </tr>
+  <tr>
     <td>decisionDefinitionName</td>
     <td>Filter by the name of the decision definition the instances belongs to.</td>
+  </tr>
+  <tr>
+    <td>decisionDefinitionNameLike</td>
+    <td>Filter by the name of the decision definition the instances belongs to, that the parameter is a substring of.</td>
   </tr>
   </tr>
     <td>processDefinitionId</td>
@@ -94,17 +107,22 @@ GET `/history/decision-instance/count`
     <td>Filter by a comma-separated list of tenant ids. A historic decision instance must have one of the given tenant ids.</td>
   </tr>
   <tr>
+    <td>withoutTenantId</td>
+    <td>Only include historic decision instances that belong to no tenant. Value may only be 
+    <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>evaluatedBefore</td>
     <td>
       Restrict to instances that were evaluated before the given date.
-      The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.
+      By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.
     </td>
   </tr>
   <tr>
     <td>evaluatedAfter</td>
     <td>
       Restrict to instances that were evaluated after the given date.
-      The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.
+      By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.
     </td>
   </tr>
   <tr>
@@ -114,30 +132,30 @@ GET `/history/decision-instance/count`
     </td>
   </tr>
   <tr>
-    <td>sortBy</td>
+    <td>rootDecisionInstanceId</td>
     <td>
-      Sort the results by a given criterion. Valid values are <code>evaluationTime</code> and <code>tenantId</code>.
-      Must be used in conjunction with the <code>sortOrder</code> parameter.
+      Restrict to instances that have a given root decision instance id.
+      This also includes the decision instance with the given id.
     </td>
   </tr>
   <tr>
-    <td>sortOrder</td>
+    <td>rootDecisionInstancesOnly</td>
     <td>
-      Sort the results in a given order.
-      Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
-      Must be used in conjunction with the <code>sortBy</code> parameter.
+      Restrict to instances those are the root decision instance of an evaluation.
+      Value may only be <code>true</code>, as <code>false</code> is the default behavior.
     </td>
   </tr>
   <tr>
-    <td>firstResult</td>
-    <td>Pagination of results. Specifies the index of the first result to return.</td>
+    <td>decisionRequirementsDefinitionId</td>
+    <td>Filter by the decision requirements definition the instances belongs to.</td>
   </tr>
   <tr>
-    <td>maxResults</td>
-    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results if there are no more results left.</td>
+    <td>decisionRequirementsDefinitionKey</td>
+    <td>Filter by the key of the decision requirements definition the instances belongs to.</td>
   </tr>
 </table>
 
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Result
 
@@ -173,7 +191,7 @@ A JSON object that contains the count as the only property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -191,5 +209,3 @@ GET `/history/decision-instance/count`
   "count": 4
 }
 ```
-
-[get]: {{< relref "reference/rest/history/decision-instance/get-decision-instance-query.md" >}}

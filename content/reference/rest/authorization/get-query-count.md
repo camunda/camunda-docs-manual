@@ -1,6 +1,6 @@
 ---
 
-title: "Get Authorizations Count"
+title: "Get Authorization Count"
 weight: 20
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Query for authorizations using a list of parameters and retrieve the count.
+Queries for authorizations using a list of parameters and retrieves the count.
 
 
 # Method
@@ -36,19 +36,19 @@ GET `/authorization/count`
   </tr>
   <tr>
     <td>type</td>
-    <td>Filter by the type of the authorization.</td>
+    <td>Filter by authorization type. (0=global, 1=grant, 2=revoke). See the <a href="{{< ref "/user-guide/process-engine/authorization-service.md#authorization-type" >}}">User Guide</a> for more information about authorization types.</td>
   </tr>
   <tr>
     <td>userIdIn</td>
-    <td>Filter by a comma-seperated list of userIds</td>
+    <td>Filter by a comma-seperated list of userIds.</td>
   </tr>
   <tr>
     <td>groupIdIn</td>
-    <td>Filter by a comma-seperated list of groupIds</td>
+    <td>Filter by a comma-seperated list of groupIds.</td>
   </tr>
   <tr>
     <td>resourceType</td>
-    <td>Filter by resource type</td>
+    <td>Filter by an integer representation of the resource type. See the <a href="{{< ref "/user-guide/process-engine/authorization-service.md#resources" >}}">User Guide</a> for a list of integer representations of resource types.</td>
   </tr>
   <tr>
     <td>resourceId</td>
@@ -91,7 +91,7 @@ A JSON object that contains the count as the only property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code> is specified. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code> is specified. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

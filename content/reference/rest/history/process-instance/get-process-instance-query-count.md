@@ -1,6 +1,6 @@
 ---
 
-title: "Get Process Instances Count"
+title: "Get Process Instance Count"
 weight: 20
 
 menu:
@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for the number of historic process instances that fulfill the given parameters.
-Takes the same parameters as the [Get Process Instances]({{< relref "reference/rest/history/process-instance/get-process-instance-query.md" >}}) method.
+Queries for the number of historic process instances that fulfill the given parameters.
+Takes the same parameters as the [Get Process Instances]({{< ref "/reference/rest/history/process-instance/get-process-instance-query.md" >}}) method.
 
 
 # Method
@@ -48,6 +48,10 @@ GET `/history/process-instance/count`
     <td>Filter by process instance business key that the parameter is a substring of.</td>
   </tr>
   <tr>
+    <td>rootProcessInstances</td>
+    <td>Restrict the query to all process instances that are top level process instances.</td>
+  </tr>
+  <tr>
     <td>superProcessInstanceId</td>
     <td>Restrict query to all process instances that are sub process instances of the given process instance. Takes a process instance id.</td>
   </tr>
@@ -76,6 +80,10 @@ GET `/history/process-instance/count`
     <td>Filter by the key of the process definition the instances run on.</td>
   </tr>
   <tr>
+    <td>processDefinitionKeyIn</td>
+    <td>Filter by a comma-separated list of process definition keys. A process instance must have one of the given process definition keys.</td>
+  </tr>
+  <tr>
     <td>processDefinitionKeyNotIn</td>
     <td>Exclude instances that belong to a set of process definitions. Must be a comma-separated list of process definition keys.</td>
   </tr>
@@ -96,8 +104,21 @@ GET `/history/process-instance/count`
     <td>Only include unfinished process instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
+    <td>incidentType</td>
+    <td>Filter by the incident type. See the <a href="{{< ref "/user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
+  </tr>
+  <tr>
     <td>withIncidents</td>
     <td>Only include process instances which have an incident. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
+    <td>withRootIncidents</td>
+    <td>Only include process instances which have a root incident. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
+    <td>incidentStatus</td>
+	<td>Only include process instances which have an incident in status either <code>open</code> or <code>resolved</code>. 
+	To get all process instances, use the query parameter <code>withIncidents</code>.</td>
   </tr>
   <tr>
     <td>incidentMessage</td>
@@ -113,23 +134,27 @@ GET `/history/process-instance/count`
   </tr>
   <tr>
     <td>startedBefore</td>
-    <td>Restrict to instances that were started before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to instances that were started before the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>startedAfter</td>
-    <td>Restrict to instances that were started after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to instances that were started after the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>finishedBefore</td>
-    <td>Restrict to instances that were finished before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to instances that were finished before the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>finishedAfter</td>
-    <td>Restrict to instances that were finished after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to instances that were finished after the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>tenantIdIn</td>
     <td>Filter by a comma-separated list of tenant ids. A process instance must have one of the given tenant ids.</td>
+  </tr>
+  <tr>
+    <td>withoutTenantId</td>
+    <td>Only include historic process instances which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>variables</td>
@@ -145,8 +170,61 @@ GET `/history/process-instance/count`
     <code>key</code> and <code>value</code> may not contain underscore or comma characters.
     </td>
   </tr>
+  <tr>
+    <td>variableNamesIgnoreCase</td>
+    <td>Match all variable names provided in <code>variables</code> case-insensitively. If set to <code>true</code> <strong>variableName</strong> and <strong>variablename</strong> are treated as equal.</td>
+  </tr>
+  <tr>
+    <td>variableValuesIgnoreCase</td>
+    <td>Match all variable values provided in <code>variables</code> case-insensitively. If set to <code>true</code> <strong>variableValue</strong> and <strong>variablevalue</strong> are treated as equal.</td>
+  </tr>
+  <tr>
+    <td>executedActivityBefore</td>
+    <td>Restrict to instances that executed an activity before the given date (inclusive). By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
+  </tr>
+  <tr>
+    <td>executedActivityAfter</td>
+    <td>Restrict to instances that executed an activity after the given date (inclusive). By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
+  </tr>
+  <tr>
+    <td>executedActivityIdIn</td>
+    <td>Restrict to instances that executed an activity with one of given ids.</td>
+  </tr>
+  <tr>
+    <td>activeActivityIdIn</td>
+    <td>Restrict to instances that have an active activity with one of given ids.</td>
+  </tr>
+  <tr>
+    <td>executedJobBefore</td>
+    <td>Restrict to instances that executed an job before the given date (inclusive). By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
+  </tr>
+  <tr>
+    <td>executedJobAfter</td>
+    <td>Restrict to instances that executed an job after the given date (inclusive). By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
+  </tr>
+  <tr>
+    <td>active</td>
+    <td>Restrict to instances that are active</td>
+  </tr>
+  <tr>
+    <td>suspended</td>
+    <td>Restrict to instances that are suspended</td>
+  </tr>
+  <tr>
+    <td>completed</td>
+    <td>Restrict to instances that are completed</td>
+  </tr>
+  <tr>
+    <td>externallyTerminated</td>
+    <td>Restrict to instances that are externally terminated</td>
+  </tr>
+  <tr>
+    <td>internallyTerminated</td>
+    <td>Restrict to instances that are internally terminated</td>
+  </tr>
 </table>
 
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Result
 
@@ -182,7 +260,7 @@ A JSON object that contains the count as the only property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

@@ -16,7 +16,7 @@ test the integration for Groovy, JavaScript, JRuby and Jython. To use a scriptin
 it is necessary to add the corresponding jar to the classpath.
 
 {{< note title="" class="info" >}}
-  **JavaScript** is part of the Java Runtime (JRE) and thus available out ot the box.
+  **JavaScript** is part of the Java Runtime (JRE) and thus available out of the box.
 
   We include **Groovy** in the pre-packaged Camunda distributions.
 {{< /note >}}
@@ -71,7 +71,7 @@ scripts.
 # Use Script Tasks
 
 With a BPMN 2.0 script task you can add a script to your BPM process (for more information see the
-[BPMN 2.0 reference]({{< relref "reference/bpmn20/tasks/script-task.md" >}}).
+[BPMN 2.0 reference]({{< ref "/reference/bpmn20/tasks/script-task.md" >}}).
 
 The following process is a simple example with a Groovy script task that sums up the elements of an array.
 
@@ -114,7 +114,7 @@ runtimeService.startProcessInstanceByKey("process", variables);
 
 Besides Java code and expression language, Camunda BPM also supports the execution of a script
 as an execution listener. For general information about execution listeners see the corresponding
-[section]({{< relref "user-guide/process-engine/delegation-code.md#execution-listener" >}}).
+[section]({{< ref "/user-guide/process-engine/delegation-code.md#execution-listener" >}}).
 
 To use a script as an execution listener, a `camunda:script` element has to be added as a child
 element of the `camunda:executionListener` element. During script evaluation, the variable `execution` is
@@ -160,7 +160,7 @@ The following example shows usage of scripts as execution listeners.
 
 Similar to execution listeners, task listeners can also be implemented as scripts. For general
 information about task listeners see the corresponding
-[section]({{< relref "user-guide/process-engine/delegation-code.md#task-listener" >}}).
+[section]({{< ref "/user-guide/process-engine/delegation-code.md#task-listener" >}}).
 
 To use a script as a task listener, a `camunda:script` element has to be added as a child element of
 the `camunda:taskListener` element. Inside the script, the variable `task` is available, which corresponds to
@@ -281,7 +281,7 @@ for [script tasks]({{< relref "#script-source" >}}).
 
 Whenever the process engine reaches a point where a script has to be executed, the process engine looks for a Script Engine by a language name. The default behavior is that if it is the first request, a new Script Engine is created. If the Script Engine declares to be thread safe, it is also cached. The caching prevents the process engine from creating a new Script Engine for each request for the same script language.
 
-By default the caching of Script Engines happens at Process Application level. Each Process Application holds an own instance of a Script Engine for a given language. This behavior can be disabled by setting the process engine configuration flag named `enableFetchScriptEngineFromProcessApplication` to false. Consequently, the Script Engines are cached globally at process engine level and they are shared between each Process Application. For further details about the process engine configuration flag `enableFetchScriptEngineFromProcessApplication`, please read the section about [referencing process application classes]({{< relref "user-guide/process-engine/scripting.md#reference-process-application-provided-classes" >}}).
+By default the caching of Script Engines happens at process application level. Each process application holds an own instance of a Script Engine for a given language. This behavior can be disabled by setting the process engine configuration flag named `enableFetchScriptEngineFromProcessApplication` to false. Consequently, the Script Engines are cached globally at process engine level and they are shared between each process application. For further details about the process engine configuration flag `enableFetchScriptEngineFromProcessApplication`, please read the section about [referencing process application classes]({{< ref "/user-guide/process-engine/scripting.md#reference-process-application-provided-classes" >}}).
 
 If it is not desired to cache Script Engines in general, it can be disabled by setting the process engine configuration flag name `enableScriptEngineCaching` to false.
 
@@ -336,11 +336,13 @@ They can be accessed directly by the name of the variable (i.e., `sum`). This do
 JRuby where you have to access the variable as a ruby global variable (prepend with a dollar sign,
 i.e., `$sum`)
 
-There are also special variables like `execution`, which is always available if the script is
-executed in an execution scope (e.g., in a script task), `task`, which is available if the script is
-executed in a task scope (e.g., a task listener) and `connector`, which is available if the script is
-executed in a connector variable scope (e.g., outputParameter of a camunda:connector). These
-variables correspond to the `DelegateExecution`, `DelegateTask` or resp. `ConnectorVariableScope`
+There are also special variables:
+
+1. `execution`, which is always available if the script is executed in an execution scope (e.g., in a script task) ([`DelegateExecution`](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.7/org/camunda/bpm/engine/delegate/DelegateExecution.html)).
+1. `task`, which is available if the script is executed in a task scope (e.g., a task listener) ([`DelegateTask`](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.7/org/camunda/bpm/engine/delegate/DelegateTask.html)).
+1. `connector`, which is available if the script is executed in a connector variable scope (e.g., outputParameter of a camunda:connector) ([`ConnectorVariableScope`](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.7/org/camunda/connect/plugin/impl/ConnectorVariableScope.html)).
+
+These variables correspond to the `DelegateExecution`, `DelegateTask` or resp. `ConnectorVariableScope`
 interface which means that it can be used to get and set variables or access process engine services.
 
 ```java
@@ -355,6 +357,39 @@ task = execution.getProcessEngineServices().getTaskService()
   .createTaskQuery()
   .taskDefinitionKey("task")
   .singleResult()
+```
+
+# Accessing Process Engine Services using Scripts
+
+Camunda's Java API provides access to Camunda's process engine services; these services can be accessed using Scripts:
+
+[Process Engine Services](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.3/org/camunda/bpm/engine/ProcessEngineServices.html)
+[Public Java API of Camunda BPM Engine](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.7/org/camunda/bpm/engine/package-summary.html)
+
+Example of creating a BPMN Message that correlates with the message key "work":
+
+```javascript
+execution.getProcessEngineServices().getRuntimeService().createMessageCorrelation("work").correlateWithResult();
+```
+
+
+# Printing to Console using Scripts
+
+During the execution of scripts, it might be desired to print to the console due to logging and debugging reasons.
+
+Here are examples on how this can be accomplished in the respective language:
+
+* Goovy:
+
+```groovy
+println 'This prints to the console'
+```
+
+* Javascript:
+
+```javascript
+var system = java.lang.System;
+system.out.println('This prints to the console');
 ```
 
 
@@ -432,5 +467,5 @@ script task.
 ```
 
 For more information, see the
-[camunda:resource]({{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-resource" >}})
-section of the [Custom Extensions]({{< relref "reference/bpmn20/custom-extensions/index.md" >}}) chapter.
+[camunda:resource]({{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#resource" >}})
+section of the [Custom Extensions]({{< ref "/reference/bpmn20/custom-extensions/_index.md" >}}) chapter.

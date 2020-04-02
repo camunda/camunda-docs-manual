@@ -33,13 +33,14 @@ Note that the process definition of the subprocess is resolved at runtime. This 
 # CalledElement Binding
 
 In a call activity the `calledElement` attribute contains the process definition key as reference to the subprocess. This means that the latest process definition version of the subprocess is always called.
-To call another version of the subprocess it is possible to define the attributes `calledElementBinding` and `calledElementVersion` in the call activity. Both attributes are optional.
+To call another version of the subprocess it is possible to define the attributes `calledElementBinding`, `calledElementVersion`, and `calledElementVersionTag` in the call activity. These attributes are optional.
 
-CalledElementBinding has three different values:
+CalledElementBinding has four different values:
 
 * latest: always call the latest process definition version (which is also the default behaviour if the attribute isn't defined)
 * deployment: if called process definition is part of the same deployment as the calling process definition, use the version from deployment
-* version: call a fixed version of the process definition, in this case `calledElementVersion` is required. The version number can either be specified in the BPMN XML or returned by an expression (see [custom extensions]({{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#calledelementversion" >}}))
+* version: call a fixed version of the process definition, in this case `calledElementVersion` is required. The version number can either be specified in the BPMN XML or returned by an expression (see [custom extensions]({{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#calledelementversion" >}}))
+* versionTag: call a fixed version tag of the process definition, in this case `calledElementVersionTag` is required. The version tag can either be specified in the BPMN XML or returned by an expression (see [custom extensions]({{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#calledelementversiontag" >}}))
 
 ```xml
 <callActivity id="callSubProcess" calledElement="checkCreditProcess"
@@ -47,10 +48,17 @@ CalledElementBinding has three different values:
   camunda:calledElementVersion="17">
 </callActivity>
 ```
+or
+```xml
+<callActivity id="callSubProcess" calledElement="checkCreditProcess"
+  camunda:calledElementBinding="versionTag"
+  camunda:calledElementVersionTag="ver-tag-1.0.1">
+</callActivity>
+```
 
 # CalledElement Tenant Id
 
-When the call activity resolves the process definition to be called it must take into account multi tenancy.
+When the call activity resolves the process definition to be called it must take multi tenancy into account.
 
 ## Default Tenant Resolution
 By default, the tenant id of the calling process definition is used to resolve the called process definition.
@@ -135,7 +143,7 @@ When a BPMN error event from a called process instance is caught in the calling 
 
 ## Combination with Input/Output parameters
 
-Call activities can be combined with [Input/Output parameters]({{< relref "user-guide/process-engine/variables.md#input-output-variable-mapping" >}}) as well. This allows for an even more flexible mapping of variables into the called process. In order to only map variables that are declared in the `inputOutput` mapping, the attribute `local` can be used. Consider the following XML:
+Call activities can be combined with [Input/Output parameters]({{< ref "/user-guide/process-engine/variables.md#input-output-variable-mapping" >}}) as well. This allows for an even more flexible mapping of variables into the called process. In order to only map variables that are declared in the `inputOutput` mapping, the attribute `local` can be used. Consider the following XML:
 
 ```xml
 <callActivity id="callSubProcess" calledElement="checkCreditProcess" >
@@ -189,7 +197,7 @@ When the called process instance ends, due to `local="true"` in the `camunda:out
 ## Delegation of Variable Mapping
 
 The mapping of input and output variables can also be delegated. This means the passing of input or/and output variables can be done in Java code.
-For this the [Delegate Variable Mapping]({{< relref "user-guide/process-engine/delegation-code.md#delegate-variable-mapping" >}}) interface must be implemented.
+For this the [Delegate Variable Mapping]({{< ref "/user-guide/process-engine/delegation-code.md#delegate-variable-mapping" >}}) interface must be implemented.
 
 There are two possible ways to use delegation for variable mapping.
 
@@ -242,7 +250,7 @@ This allows to specify an expression that resolves to an object implementing the
 
   </process>
 ```
-See [Delegate Variable Mapping]({{< relref "user-guide/process-engine/delegation-code.md#delegate-variable-mapping" >}}) for further information of implementing the interface.
+See [Delegate Variable Mapping]({{< ref "/user-guide/process-engine/delegation-code.md#delegate-variable-mapping" >}}) for further information of implementing the interface.
 
 # Passing Business Key
 
@@ -303,9 +311,9 @@ CaseBinding has three different values:
 
 ## Case Tenant Id
 
-The call activity must take into account multi tenancy when resolving the case definition to be called.
+The call activity must take multi tenancy into account when resolving the case definition to be called.
 
-The [default behavior](#default-tenant-resolution) is the same as when resolving BPMN Process Definitions (ie. the tenant id of the calling process definition is used to resolve the called case definition.)
+The [default behavior](#default-tenant-resolution) is the same as when resolving BPMN Process Definitions (i.e., the tenant id of the calling process definition is used to resolve the called case definition.)
 
 In order to override the default behavior, the tenant id for resolving the called case definition can be specified explicitly using the `camunda:caseTenantId` attribute:
 
@@ -337,28 +345,29 @@ An expression also allows using the tenant id of the calling process instance in
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncbefore" >}}">camunda:asyncBefore</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}">camunda:asyncAfter</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#calledelementbinding" >}}">camunda:calledElementBinding</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#calledelementversion" >}}">camunda:calledElementVersion</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#calledelementtenantid" >}}">camunda:calledElementTenantId</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#casebinding" >}}">camunda:caseBinding</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#caseref" >}}">camunda:caseRef</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#caseversion" >}}">camunda:caseVersion</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#casetenantid" >}}">camunda:caseTenantId</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#exclusive" >}}">camunda:exclusive</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#jobpriority" >}}">camunda:jobPriority</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#variablemappingclass" >}}">camunda:variableMappingClass</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#variablemappingdelegateexpression" >}}">camunda:variableMappingDelegateExpression</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#asyncbefore" >}}">camunda:asyncBefore</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}">camunda:asyncAfter</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#calledelementbinding" >}}">camunda:calledElementBinding</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#calledelementversion" >}}">camunda:calledElementVersion</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#calledelementversiontag" >}}">camunda:calledElementVersionTag</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#calledelementtenantid" >}}">camunda:calledElementTenantId</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#casebinding" >}}">camunda:caseBinding</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#caseref" >}}">camunda:caseRef</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#caseversion" >}}">camunda:caseVersion</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#casetenantid" >}}">camunda:caseTenantId</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#exclusive" >}}">camunda:exclusive</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#jobpriority" >}}">camunda:jobPriority</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#variablemappingclass" >}}">camunda:variableMappingClass</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#variablemappingdelegateexpression" >}}">camunda:variableMappingDelegateExpression</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#in" >}}">camunda:in</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#out" >}}">camunda:out</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}">camunda:inputOutput</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#failedjobretrytimecycle" >}}">camunda:failedJobRetryTimeCycle</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#in" >}}">camunda:in</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#out" >}}">camunda:out</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}">camunda:inputOutput</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#failedjobretrytimecycle" >}}">camunda:failedJobRetryTimeCycle</a>
     </td>
   </tr>
   <tr>

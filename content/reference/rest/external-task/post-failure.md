@@ -13,7 +13,8 @@ menu:
 ---
 
 
-Report a failure to execute an external task. A number of retries and a timeout until the task can be retried can be specified. If retries are set to 0, an incident for this task is created.
+Reports a failure to execute an external task by id. A number of retries and a timeout until the task can be retried can 
+be specified. If retries are set to 0, an incident for this task is created.
 
 # Method
 
@@ -53,6 +54,10 @@ A JSON object with the following properties:
     <td>An message indicating the reason of the failure.</td>
   </tr>
   <tr>
+    <td>errorDetails</td>
+    <td>A detailed error description.</td>
+  </tr>
+  <tr>
     <td>retries</td>
     <td>A number of how often the task should be retried. Must be >= 0. If this is 0, an incident is created and the task cannot be fetched anymore unless the retries are increased again. The incident's message is set to the <code>errorMessage</code> parameter.</td>
   </tr>
@@ -84,17 +89,17 @@ This method returns no content.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if the task's most recent lock was not acquired by the provided worker. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if the task's most recent lock was not acquired by the provided worker. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Returned if the task does not exist. This could indicate a wrong task id as well as a cancelled task, e.g. due to a caught BPMN boundary event. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if the task does not exist. This could indicate a wrong task id as well as a cancelled task, e.g., due to a caught BPMN boundary event. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>Returned if the corresponding process instance could not be resumed successfully. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if the corresponding process instance could not be resumed successfully. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -106,12 +111,14 @@ POST `/external-task/anId/failure`
 
 Request Body:
 
+```json
     {
       "workerId": "aWorker",
       "errorMessage": "Does not compute",
       "retries": 3,
       "retryTimeout": 60000
     }
+```
 
 ## Response
 

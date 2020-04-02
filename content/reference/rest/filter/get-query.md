@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for a list of filters using a list of parameters. The size of the result set can be retrieved
-by using the [get filters count]({{< relref "reference/rest/filter/get-query-count.md" >}}) method.
+Queries for a list of filters using a list of parameters. The size of the result set can be retrieved
+by using the [Get Filter Count]({{< ref "/reference/rest/filter/get-query-count.md" >}}) method.
 
 
 # Method
@@ -54,7 +54,7 @@ GET `/filter`
   <tr>
     <td>itemCount</td>
     <td>
-      If set to <code>true</code> each filter result will contain an <code>itemCount</code> property
+      If set to <code>true</code>, each filter result will contain an <code>itemCount</code> property
       with the number of items matched by the filter itself.
     </td>
   </tr>
@@ -150,7 +150,7 @@ A JSON array of filter objects. Each filter object has the following properties:
     <td>
       Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code>
       parameter is supplied, but no <code>sortBy</code> is specified. See the
-      <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+      <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
 </table>

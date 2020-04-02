@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Query for jobs that fulfill given parameters. This method is slightly more powerful than the [GET query]({{< relref "reference/rest/job/get-query.md" >}}) because it allows filtering by multiple jobs of types <code>String</code>, <code>Number</code> or <code>Boolean</code>.
+Queries for jobs that fulfill given parameters. This method is slightly more powerful than the [Get Jobs]({{< ref "/reference/rest/job/get-query.md" >}}) method because it allows filtering by multiple jobs of types <code>String</code>, <code>Number</code> or <code>Boolean</code>.
 
 
 # Method
@@ -83,7 +83,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>executable</td>
-    <td>Only select jobs which are executable, ie. retries &gt; 0 and due date is <code>null</code> or due date is in the past. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only select jobs which are executable, i.e., retries &gt; 0 and due date is <code>null</code> or due date is in the past. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>timers</td>
@@ -105,12 +105,27 @@ A JSON object with the following properties:
     </td>
   </tr>
   <tr>
+    <td>createTimes</td>
+    <td>Only select jobs created before or after the given date.
+    Create time expressions are comma-separated and are structured as follows:<br/>
+    A valid condition value has the form <code>operator_value</code>.
+    <code>operator</code> is the comparison operator to be used and <code>value</code> the date value as string.<br/>
+    <br/>
+    Valid operator values are: <code>gt</code> - greater than; <code>lt</code> - lower than.<br/>
+    <code>value</code> may not contain underscore or comma characters.
+    </td>
+  </tr>
+  <tr>
     <td>withException</td>
     <td>Only select jobs that failed due to an exception. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>exceptionMessage</td>
     <td>Only select jobs that failed due to an exception with the given message.</td>
+  </tr>
+  <tr>
+    <td>failedActivityId</td>
+    <td>Only select jobs that failed due to an exception at an activity with the given id.</td>
   </tr>
   <tr>
     <td>noRetriesLeft</td>
@@ -138,17 +153,21 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only include jobs which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include jobs which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>includeJobsWithoutTenantId</td>
-    <td>Include jobs which belongs to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Include jobs which belong to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>sorting</td>
     <td>
-        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e. whether it is primary, secondary, etc. The ordering objects have the following properties:
-      <table>
+        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e., whether it is primary, secondary, etc. The ordering objects have the following properties:
+      <table class="table table-striped">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
         <tr>
           <td>sortBy</td>
           <td><b>Mandatory.</b> Sort the results by a given criterion. Valid values are <code>jobId</code>, <code>executionId</code>, <code>processInstanceId</code>, <code>jobPriority</code>, <code>jobRetries</code>, <code>jobDueDate</code> and <code>tenantId</code>.</td>
@@ -220,6 +239,11 @@ Each job object has the following properties:
     <td>The message of the exception that occurred, the last time the job was executed. Is null when no exception occurred.</td>
   </tr>
   <tr>
+    <td>failedActivityId</td>
+    <td>String</td>
+    <td>The id of the activity on which the last exception occurred, the last time the job was executed. Is null when no exception occurred.</td>
+  </tr>
+  <tr>
     <td>suspended</td>
     <td>Boolean</td>
     <td>A flag indicating whether the job is suspended or not.</td>
@@ -233,6 +257,11 @@ Each job object has the following properties:
     <td>tenantId</td>
     <td>String</td>
     <td>The id of the tenant which this job belongs to.</td>
+  </tr>
+  <tr>
+    <td>createTime</td>
+    <td>String</td>
+    <td>The date on which this job has been created.</td>
   </tr>
 </table>
 
@@ -253,7 +282,7 @@ Each job object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for due date comparison is used. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for due date comparison is used. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -271,14 +300,24 @@ Request Body:
         [
           {
             "operator": "gt",
-            "value": "2012-07-17'T'17:00:00"
+            "value": "2018-07-17T17:00:00.000+0200"
           },
           {
             "operator": "lt",
-            "value": "2012-07-17'T'18:00:00"
+            "value": "2018-07-17T18:00:00.000+0200"
           }
         ],
-      ,
+      "createTimes":
+        [
+          {
+            "operator": "gt",
+            "value": "2012-05-05T10:00:00.000+0200"
+          },
+          {
+            "operator": "lt",
+            "value": "2012-07-16T15:00:00.000+0200"
+          }
+        ],
       "sorting":
         [
           {
@@ -297,24 +336,34 @@ Request Body:
     [
       {
         "id": "aJobId",
-        "dueDate": "2013-07-17'T'17:05:00",
+        "jobDefinitionId": "aJobDefinitionId",
+        "dueDate": "2018-07-17T17:05:00.000+0200",
         "processInstanceId": "aProcessInstanceId",
+        "processDefinitionId": "aProcessDefinitionId",
+        "processDefinitionKey": "aPDKey",
         "executionId": "anExecutionId",
         "retries": 0,
         "exceptionMessage": "An exception Message",
+		"failedActivityId": "anActivityId",
         "suspended": false,
         "priority": 10,
-        "tenantId": null
+        "tenantId": null,
+        "createTime": "2018-05-05T17:00:00+0200"
       },
       {
         "id": "anotherJobId",
-        "dueDate": "2013-07-17'T'17:55:00",
+        "jobDefinitionId": "anotherJobDefinitionId",
+        "dueDate": "2018-07-17T17:55:00.000+0200",
         "processInstanceId": "aProcessInstanceId",
+        "processDefinitionId": "anotherPDId",
+        "processDefinitionKey": "anotherPDKey",
         "executionId": "anotherExecutionId",
         "retries": 0,
         "exceptionMessage": "Another exception Message",
+		"failedActivityId": "anotherActivityId",
         "suspended": true,
         "priority": 8,
-        "tenantId": null
+        "tenantId": null,
+        "createTime": "2018-05-05T17:00:00+0200"
       }
     ]

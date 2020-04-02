@@ -1,6 +1,6 @@
 ---
 
-title: 'Get Variable Instances Count'
+title: 'Get Variable Instance Count'
 weight: 20
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Query for the number of variable instances that fulfill given parameters. Takes the same parameters as the [get variable instances]({{< relref "reference/rest/variable-instance/get-query.md" >}}) method.
+Query for the number of variable instances that fulfill given parameters. Takes the same parameters as the [Get Variable Instances]({{< ref "/reference/rest/variable-instance/get-query.md" >}}) method.
 
 # Method
 
@@ -86,6 +86,14 @@ GET `/variable-instance/count`
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
+    <td>variableNamesIgnoreCase</td>
+    <td>Match all variable names provided in <code>variableValues</code> case-insensitively. If set to <code>true</code> <strong>variableName</strong> and <strong>variablename</strong> are treated as equal.</td>
+  </tr>
+  <tr>
+    <td>variableValuesIgnoreCase</td>
+    <td>Match all variable values provided in <code>variableValues</code> case-insensitively. If set to <code>true</code> <strong>variableValue</strong> and <strong>variablevalue</strong> are treated as equal.</td>
+  </tr>
+  <tr>
     <td>sortOrder</td>
     <td>Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
     Must be used in conjunction with the <code>sortBy</code> parameter.</td>
@@ -135,7 +143,7 @@ A JSON object that contains the count as the only property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

@@ -13,7 +13,7 @@ menu:
 ---
 
 Sets the serialized value for a binary variable or the binary value for a file variable visible from the task.
-A variable is visible from the task if it is a local task variable or declared in a parent scope of the task. See documentation on [visiblity of variables]({{< relref "user-guide/process-engine/variables.md" >}}).
+A variable is visible from the task if it is a local task variable or declared in a parent scope of the task. See documentation on [visiblity of variables]({{< ref "/user-guide/process-engine/variables.md" >}}).
 
 # Method
 
@@ -54,7 +54,7 @@ For binary variables a multipart form submit with the following parts:
     <td>application/octet-stream</td>
     <td>
       <p>The binary data to be set.</p>
-      <p>For <code>File</code> variables, this multipart can contain the filename, binary value and mimetype of the file variable to be set. Only the filename is mandatory.</p>
+      <p>For <code>File</code> variables, this multipart can contain the filename, binary value and MIME type of the file variable to be set. Only the filename is mandatory.</p>
     </td>
   </tr>
   <tr>
@@ -101,12 +101,12 @@ This method returns no content.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The variable value or type is invalid, for example if no filename is set. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>The variable value or type is invalid, for example if no filename is set. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>Variable name is null. Task id is null or does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Variable name is null. Task id is null or does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

@@ -14,7 +14,7 @@ menu:
 
 
 Query for variable instances that fulfill given parameters through a JSON object. This method is slightly more powerful than the
-[GET query]({{< relref "reference/rest/variable-instance/get-query.md" >}}) because it allows filtering by multiple variable instances of types `String`, `Number` or `Boolean`.
+[Get Variable Instances]({{< ref "/reference/rest/variable-instance/get-query.md" >}}) method because it allows filtering by multiple variable instances of types `String`, `Number` or `Boolean`.
 
 
 # Method
@@ -105,12 +105,24 @@ A JSON object with the following properties:
     </td>
   </tr>
   <tr>
+    <td>variableNamesIgnoreCase</td>
+    <td>Match all variable names provided in <code>variableValues</code> case-insensitively. If set to <code>true</code> <strong>variableName</strong> and <strong>variablename</strong> are treated as equal.</td>
+  </tr>
+  <tr>
+    <td>variableValuesIgnoreCase</td>
+    <td>Match all variable values provided in <code>variableValues</code> case-insensitively. If set to <code>true</code> <strong>variableValue</strong> and <strong>variablevalue</strong> are treated as equal.</td>
+  </tr>
+  <tr>
     <td>sorting</td>
     <td>
       <p>
-        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e. whether it is primary, secondary, etc. The ordering objects have the following properties:
+        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e., whether it is primary, secondary, etc. The ordering objects have the following properties:
       </p>
-      <table>
+      <table class="table table-striped">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
         <tr>
           <td>sortBy</td>
           <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>variableName</code>, <code>variableType</code>, <code>activityInstanceId</code> and <code>tenantId</code>.</td>
@@ -153,7 +165,7 @@ A JSON array of variable instance objects. Each variable instance object has the
   <tr>
     <td>value</td>
     <td>String/Number/Boolean/Object</td>
-    <td>{{< rest-var-response deserializationParameter="deserializeValues" >}}</td>
+    <td>{{< rest-var-response-value deserializationParameter="deserializeValues" >}}</td>
   </tr>
   <tr>
     <td>valueInfo</td>
@@ -214,7 +226,7 @@ A JSON array of variable instance objects. Each variable instance object has the
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -227,20 +239,21 @@ POST `/variable-instance`
 
 Request Body:
 
-    {"variableValuess":
+    {"variableValues":
         [{"name": "amount",
          "operator": "gteq",
-         "value": "5"
+         "value": 5
         },
         {"name": "amount",
          "operator": "lteq",
          "value": 200}],
-    "processInstanceIdIn": [ "aProcessInstanceId", "anotherProcessInstanceId" ]},
+    "processInstanceIdIn": [ "aProcessInstanceId", "anotherProcessInstanceId" ],
     "sorting":
         [{"sortBy": "variableType",
         "sortOrder": "asc"
         }]
-    }
+    }   
+
 
 ## Response
 

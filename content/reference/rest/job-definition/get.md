@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Job Definition"
+title: "Get Job Definition"
 weight: 30
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single job definition according to the JobDefinition interface in the engine.
+Retrieves a job definition by id, according to the `JobDefinition` interface in the engine.
 
 
 # Method
@@ -39,7 +39,7 @@ GET `/job-definition/{id}`
 
 # Result
 
-A JSON object corresponding to the JobDefinition interface in the engine.
+A JSON object corresponding to the `JobDefinition` interface in the engine.
 Its properties are as follows:
 
 <table class="table table-striped">
@@ -71,12 +71,12 @@ Its properties are as follows:
   <tr>
     <td>jobType</td>
     <td>String</td>
-    <td>The type of the job which is running for this job definition, for example: asynchronous continuation, timer etc.</td>
+    <td>The type of the job which is running for this job definition. See the <a href="{{< ref "/user-guide/process-engine/the-job-executor.md#job-creation" >}}">User Guide</a> for more information about job types.</td>
   </tr>
   <tr>
     <td>jobConfiguration</td>
     <td>String</td>
-    <td>The configuration of a job definition provides details about the jobs which will be created, for example: for timer jobs it is the timer configuration.</td>
+    <td>The configuration of a job definition provides details about the jobs which will be created. For example: for timer jobs it is the timer configuration.</td>
   </tr>
   <tr>
     <td>overridingJobPriority</td>
@@ -92,6 +92,11 @@ Its properties are as follows:
     <td>tenantId</td>
     <td>String</td>
     <td>The id of the tenant this job definition is associated with.</td>
+  </tr>
+  <tr>
+    <td>deploymentId</td>
+    <td>String</td>
+    <td>The id of the deployment this job definition is related to. In a deployment-aware setup, this leads to all jobs of the same definition being executed on the same node.</td>
   </tr>
 </table>
 
@@ -112,7 +117,7 @@ Its properties are as follows:
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Job definition with given id does not exist.  See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Job definition with given id does not exist.  See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -135,5 +140,6 @@ GET `/job-definition/aJobDefinitionId`
         "jobConfiguration": "",
         "suspended": false,
         "overridingJobPriority": 15,
-        "tenantId": null
+        "tenantId": null,
+		"deploymentId": "aDeploymentId"	
       }

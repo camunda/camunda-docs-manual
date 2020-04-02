@@ -51,19 +51,19 @@ This method returns no content.
     <th>Description</th>
   </tr>
   <tr>
-    <td>200</td>
+    <td>204</td>
     <td>application/json</td>
     <td>Request successful.</td>
   </tr>
   <tr>
     <td>403</td>
     <td>application/json</td>
-    <td>If the authenticated user is unauthorized to delete the resource instance. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>If the authenticated user is unauthorized to delete the resource instance. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Authorization cannot be found. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Authorization cannot be found. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

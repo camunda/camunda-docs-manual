@@ -11,7 +11,7 @@ menu:
 ---
 
 
-To create a new CMMN model from scratch you have to create an empty CMMN model instance with the following method:
+To create a new CMMN model from scratch, you have to create an empty CMMN model instance with the following method:
 
 ```java
 CmmnModelInstance modelInstance = Cmmn.createEmptyModel();
@@ -29,9 +29,9 @@ modelInstance.setDefinitions(definitions);
 Usually you want to add a case to your model. This follows
 the same 3 steps as the creation of the CMMN definitions element:
 
-1. create a new instance of the CMMN element
-2. set attributes and child elements of the element instance
-3. add the newly created element instance to the corresponding parent element
+1. Create a new instance of the CMMN element
+2. Set attributes and child elements of the element instance
+3. Add the newly created element instance to the corresponding parent element
 
 ```java
 Case caseElement = modelInstance.newInstance(Case.class);
@@ -39,7 +39,7 @@ caseElement.setId("a-case");
 definitions.addChildElement(caseElement);
 ```
 
-To simplify this repeating procedure you can use a helper method like this one.
+To simplify this repeating procedure, you can use a helper method like this one.
 
 ```java
 protected <T extends CmmnModelElementInstance> T createElement(CmmnModelElementInstance parentElement, String id, Class<T> elementClass) {
@@ -51,7 +51,7 @@ protected <T extends CmmnModelElementInstance> T createElement(CmmnModelElementI
 ```
 
 Validate the model against the CMMN 1.1 specification and convert it to
-a XML string or save it to a file or stream.
+an XML string or save it to a file or stream.
 
 ```java
 // validate the model

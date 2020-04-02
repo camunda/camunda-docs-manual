@@ -15,8 +15,8 @@ Inside a form script, the following built-in variables and functions are availab
 
 # camForm
 
-The `camForm` variable is an instance of the `CamSDK.Form` class and is the primary access point to
-the form API and allows definition of event handers for participation in the form [lifecycle]({{< relref "reference/embedded-forms/lifecycle.md" >}}):
+The `camForm` variable is an instance of the `CamSDK.Form` class. It is the primary access point to
+the form API and allows definition of event handers for participation in the form [lifecycle]({{< ref "/reference/embedded-forms/lifecycle.md" >}}):
 
 ```html
 <form role="form">
@@ -71,9 +71,12 @@ Only available with AngularJS integration.
 <form role="form">
 
   <script cam-script type="text/form-script">
-    inject([ '$scope', '$http', function($scope, $http) {
+    inject(['$http', 'Uri', function($http, Uri) {
       camForm.on('form-loaded', function() {
-        // use injected $http service for making requests
+        // use injected $http service for making requests, e.g.
+        $http.get(Uri.appUri('engine://engine/:engine/task/' + camForm.taskId)).then(function(task) {
+          $scope.task = task;
+        });
       });
     }]);
   </script>

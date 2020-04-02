@@ -11,7 +11,7 @@ menu:
 
 ---
 
-Retrieves runtime statistics of the process engine grouped by process definitions.
+Retrieves runtime statistics of the process engine, grouped by process definitions.
 These statistics include the number of running process instances, optionally the number of failed jobs and also optionally the number of incidents either grouped by incident types or for a specific incident type.<br/>
 __Note:__ This does not include historic data.
 
@@ -36,11 +36,15 @@ GET `/process-definition/statistics`
   </tr>
   <tr>
     <td>incidents</td>
-    <td>Valid values for this property are <code>true</code> or <code>false</code>. If this property has been set to <code>true</code> the result will include the corresponding number of incidents for each occurred incident type. If it is set to <code>false</code>, the incidents will not be included in the result. Cannot be used in combination with <code>incidentsForType</code>.</td>
+    <td>Valid values for this property are <code>true</code> or <code>false</code>. If this property has been set to <code>true</code> the result will include the corresponding number of incidents for each occurred incident type. If it is set to <code>false</code>, the incidents will not be included in the result. Cannot be used in combination with <code>incidentsForType</code> or <code>rootIncidents</code>.</td>
+  </tr>
+   <tr>
+    <td>rootIncidents</td>
+    <td>Valid values for this property are <code>true</code> or <code>false</code>. If this property has been set to <code>true</code> the result will include the corresponding number of root incidents for each occurred incident type. If it is set to <code>false</code>, the incidents will not be included in the result. Cannot be used in combination with <code>incidentsForType</code> or <code>incidents</code>.</td>
   </tr>
   <tr>
     <td>incidentsForType</td>
-    <td>If this property has been set with any incident type (i.e. a string value) the result will only include the number of incidents for the assigned incident type. Cannot be used in combination with <code>incidents</code>.</td>
+    <td>If this property has been set with any incident type (i.e., a string value) the result will only include the number of incidents for the assigned incident type. Cannot be used in combination with <code>incidents</code> or <code>rootIncidents</code>. See the <a href="{{< ref "/user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
   </tr>
 </table>
 
@@ -74,14 +78,14 @@ Each object has the following properties:
   <tr>
     <td>definition</td>
     <td>Object</td>
-    <td>The process definition with the properties as described in the <a href="{{< relref "reference/rest/process-definition/get.md" >}}">get single definition</a> method.</td>
+    <td>The process definition with the properties as described in the <a href="{{< ref "/reference/rest/process-definition/get.md" >}}">get single definition</a> method.</td>
   </tr>
   <tr>
     <td>incidents</td>
     <td>Array</td>
     <td>Each item in the resulting array is an object which contains the following properties:
         <ul>
-          <li>incidentType: The type of the incident the number of incidents is aggregated for.</li>
+          <li>incidentType: The type of the incident the number of incidents is aggregated for. See the <a href="{{< ref "/user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</li>
           <li>incidentCount: The total number of incidents for the corresponding incident type.</li>
         </ul>
         <strong>Note:</strong> Will be an empty array, if <code>incidents</code> or <code>incidentsForType</code> were excluded. Furthermore, the array will be also empty if no incidents were found.
@@ -106,7 +110,7 @@ Each object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>If both query parameters <code>incidents</code> and <code>incidentsForType</code> were set. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>If both query parameters <code>incidents</code> and <code>incidentsForType</code>, <code>rootIncidents</code> and <code>incidents</code> or <code>rootIncidents</code> and <code>incidentsForType</code> were set. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -256,3 +260,33 @@ GET `/process-definition/statistics?incidentsForType=anIncident`
         "versionTag":null},
       "incidents": []
     }]
+
+## Request with Query Parameter `rootIncidents=true`
+
+<!-- TODO: Insert a 'real' example -->
+GET `/process-definition/statistics?rootIncidents=true`
+
+## Response
+
+    [{"id":"aProcessDefinitionId",
+      "instances":123,
+      "failedJobs":0,
+      "definition":
+        {"id":"aProcessDefinitionId",
+        "key":"aKey",
+        "category":null,
+        "description":null,
+        "name":"aName",
+        "version":0,
+        "resource":null,
+        "deploymentId":null,
+        "diagram":null,
+        "suspended":false,
+        "tenantId":null,
+        "versionTag":"1.0.0"},
+      "incidents":
+      [
+        {"incidentType":"failedJob", "incidentCount": 62 },
+        {"incidentType":"anIncident", "incidentCount": 20 }
+      ]
+     }]

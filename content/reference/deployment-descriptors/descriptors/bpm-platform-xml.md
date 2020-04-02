@@ -14,12 +14,12 @@ menu:
 The `bpm-platform.xml` file is part of the Camunda BPM platform distribution and can be used for configuration of process engines and the job executor.
 It is used to configure the Camunda BPM platform in the following distributions:
 
-*   [Apache Tomcat]({{< relref "installation/full/tomcat/index.md" >}})
-*   [IBM WebSphere Application Server]({{< relref "installation/full/was/index.md" >}})
-*   [Oracle WebLogic Application Server]({{< relref "installation/full/wls/index.md" >}})
+*   [Apache Tomcat]({{< ref "/installation/full/tomcat/_index.md" >}})
+*   [IBM WebSphere Application Server]({{< ref "/installation/full/was/_index.md" >}})
+*   [Oracle WebLogic Application Server]({{< ref "/installation/full/wls/_index.md" >}})
 
-{{< note title="JBoss Application Server 7/Wildfly 8" class="warning">}}
-The <code>bpm-platform.xml</code> file is not used in the Camunda BPM distribution for JBoss Application Server 7 / Wildfly 8. There, the configuration is added to the central application server configuration file (<code>standalone.xml</code> or <code>domain.xml</code>). The XML schema is the same (i.e. the same elements and properties can be used). See the <a href="{{< relref "user-guide/runtime-container-integration/jboss.md" >}}">The Camunda JBoss Subsystem</a> section of the <a href="{{< relref "user-guide/index.md" >}}">User Guide</a> for more details.
+{{< note title="JBoss Application Server 7/Wildfly" class="warning">}}
+The <code>bpm-platform.xml</code> file is not used in the Camunda BPM distribution for JBoss Application Server 7 / Wildfly. There, the configuration is added to the central application server configuration file (<code>standalone.xml</code> or <code>domain.xml</code>). The XML schema is the same (i.e., the same elements and properties can be used). See the <a href="{{< ref "/user-guide/runtime-container-integration/jboss.md" >}}">The Camunda JBoss Subsystem</a> section of the <a href="{{< ref "/user-guide/_index.md" >}}">User Guide</a> for more details.
 {{< /note >}}
 
 
@@ -76,36 +76,36 @@ The namespace for the `bpm-platform.xml` file is `http://www.camunda.org/schema/
     <td><code>&lt;job-executor&gt;</code></td>
     <td><code>&lt;bpm-platform&gt;</code></td>
     <td>true</td>
-    <td>See <a href="{{< relref "reference/deployment-descriptors/tags/job-executor.md" >}}">job-executor Reference</a></td>
+    <td>See <a href="{{< ref "/reference/deployment-descriptors/tags/job-executor.md" >}}">job-executor Reference</a></td>
   </tr>
   <tr>
     <td><code>&lt;process-engine&gt;</code></td>
     <td><code>&lt;bpm-platform&gt;</code></td>
     <td>false</td>
-    <td>See <a href="{{< relref "reference/deployment-descriptors/tags/process-engine.md" >}}">process-engine Reference</a></td>
+    <td>See <a href="{{< ref "/reference/deployment-descriptors/tags/process-engine.md" >}}">process-engine Reference</a></td>
   </tr>
 </table>
 
 
 # Configure Location of the bpm-platform.xml File
 
-You can configure the location of the `bpm-platform.xml`, so the file can be stored externally to allow an easy upgrade path of camunda-bpm-platform.ear. This negates the work of unpacking / repackaging the ear when you need to change the configuration.  
+You can configure the location of the `bpm-platform.xml`, so the file can be stored externally to allow an easy update path of camunda-bpm-platform.ear. This negates the work of unpacking / repackaging the ear when you need to change the configuration.  
 
 This feature is available for:
 
-*   [Apache Tomcat]({{< relref "installation/full/tomcat/index.md" >}})
-*   [IBM WebSphere Application Server]({{< relref "installation/full/was/index.md" >}})
-*   [Oracle WebLogic Application Server]({{< relref "installation/full/wls/index.md" >}})
+*   [Apache Tomcat]({{< ref "/installation/full/tomcat/_index.md" >}})
+*   [IBM WebSphere Application Server]({{< ref "/installation/full/was/_index.md" >}})
+*   [Oracle WebLogic Application Server]({{< ref "/installation/full/wls/_index.md" >}})
 
-It is not available for the JBoss AS 7/Wildfly 8 subsystem implementation, because the subsystem implementation uses the JBoss specific `standalone.xml` to configure the platform.
+It is not available for the JBoss AS 7 / Wildfly subsystem implementation, because the subsystem implementation uses the JBoss specific `standalone.xml` to configure the platform.
 
-To specify the location you have to provide an absolute path or an http/https url pointing to the `bpm-platform.xml` file, e.g `/home/camunda/.camunda/bpm-platform.xml` or `http://camunda.org/bpm-platform.xml`.
+To specify the location, you have to provide an absolute path or an http/https url pointing to the `bpm-platform.xml` file, e.g., `/home/camunda/.camunda/bpm-platform.xml` or `http://camunda.org/bpm-platform.xml`.
 
-During startup of the camunda-bpm-platform, it tries to discover the location of the `bpm-platform.xml` file from the following sources in the listed order:
+During startup of the camunda-bpm-platform, it tries to discover the location of the `bpm-platform.xml` file from the following sources, in the listed order:
 
 1. JNDI entry is available at `java:/comp/env/bpm-platform-xml`
 2. Environment variable `BPM_PLATFORM_XML` is set
-3. System property `bpm.platform.xml` is set, e.g when starting the server JVM it is appended as `-Dbpm.platform.xml` on the command line
+3. System property `bpm.platform.xml` is set, e.g., when starting the server JVM it is appended as `-Dbpm.platform.xml` on the command line
 4. `META-INF/bpm-platform.xml` exists on the classpath
 5. (For Tomcat only): checks if there is a `bpm-platform.xml` inside the folder specified by `${CATALINA_BASE} || ${CATALINA_HOME} + /conf/`
 
@@ -114,8 +114,8 @@ The discovery stops when one of the above mentioned sources is found or, in case
 
 # Using System Properties
 
-In order to externalize environment specific parts of the configuration, it is possible to reference system properties using Ant-style expressions (i.e. `${PROPERTY_KEY}`). Expression resolution is supported within the `property` elements only. System properties may be set via command line (`-D`option) or in an implementation specific manner (Apache Tomcat's `catalina.properties` for example).
-Complex operations are not supported, but you may combine more than one expression in a single `property` element (e.g. `${ldap.host}:${ldap.port}`).
+To externalize environment specific parts of the configuration, it is possible to reference system properties using Ant-style expressions (i.e., `${PROPERTY_KEY}`). Expression resolution is supported within the `property` elements only. System properties may be set via command line (`-D`option) or in an implementation specific manner (Apache Tomcat's `catalina.properties` for example).
+Complex operations are not supported, but you may combine more than one expression in a single `property` element (e.g., `${ldap.host}:${ldap.port}`).
 
 ## Example
 

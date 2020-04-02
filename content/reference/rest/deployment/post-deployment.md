@@ -12,10 +12,10 @@ menu:
 
 ---
 
-Create a deployment.
+Creates a deployment.
 
 {{< note title="Security Consideration" class="warning" >}}
-  Deployments can contain custom code in form of scripts or EL expressions to customize process behavior. This may be abused for remote execution of arbitrary code. See the section on <a href="{{< relref "user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide for details.
+  Deployments can contain custom code in form of scripts or EL expressions to customize process behavior. This may be abused for remote execution of arbitrary code. See the section on <a href="{{< ref "/user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide for details.
 {{</note>}}
 
 # Method
@@ -78,7 +78,7 @@ A multipart form submit with the following parts:
 
 # Result
 
-A JSON object corresponding to the `Deployment` interface in the engine.
+A JSON object corresponding to the `DeploymentWithDefinitions` interface in the engine.
 Its properties are as follows:
 
 <table class="table table-striped">
@@ -117,8 +117,39 @@ Its properties are as follows:
     <td>String</td>
     <td>The time when the deployment was created.</td>
   </tr>
+  <tr>
+    <td>deployedProcessDefinitions</td>
+    <td>Object</td>
+    <td>A JSON Object containing a property for each of the process definitions, which are successfully deployed with that deployment.
+        The key is the process definition id, the value is a JSON Object corresponding to the process definition, which is defined
+        in the <a href="{{< ref "/reference/rest/process-definition/get.md">}}">Process Definition resource</a>.
+    </td>
+  </tr>
+  <tr>
+    <td>deployedCaseDefinitions</td>
+    <td>Object</td>
+    <td>A JSON Object containing a property for each of the case definitions, which are successfully deployed with that deployment.
+        The key is the case definition id, the value is a JSON Object corresponding to the case definition, which is defined
+        in the <a href="{{< ref "/reference/rest/case-definition/get.md">}}">Case Definition resource</a>.
+    </td>
+  </tr>
+  <tr>
+    <td>deployedDecisionDefinitions</td>
+    <td>Object</td>
+    <td>A JSON Object containing a property for each of the decision definitions, which are successfully deployed with that deployment.
+        The key is the decision definition id, the value is a JSON Object corresponding to the decision definition, which is defined
+        in the <a href="{{< ref "/reference/rest/decision-definition/get.md">}}">Decision Definition resource</a>.
+    </td>
+  </tr>
+  <tr>
+    <td>deployedDecisionRequirementsDefinitions</td>
+    <td>Object</td>
+    <td>A JSON Object containing a property for each of the decision requirements definitions, which are successfully deployed with that deployment.
+        The key is the decision requirements definition id, the value is a JSON Object corresponding to the decision requirements definition, which is defined
+        in the <a href="{{< ref "/reference/rest/decision-requirements-definition/get.md">}}">Decision Requirements Definition resource</a>.
+    </td>
+  </tr>
 </table>
-
 
 # Response Codes
 
@@ -132,6 +163,11 @@ Its properties are as follows:
     <td>200</td>
     <td>application/json</td>
     <td>Request successful.</td>
+  </tr>
+  <tr>
+    <td>400</td>
+    <td>application/json</td>
+    <td>In case one of the bpmn resources cannot be parsed.  See the <a href="{{< ref "/reference/rest/overview/_index.md#parse-exceptions" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -173,17 +209,73 @@ Status 200.
 
 ```json
 {
-  "links": [
-    {
-      "method": "GET",
-      "href": "http://localhost:38080/rest-test/deployment/aDeploymentId",
-      "rel": "self"
-    }
-  ],
-  "id": "aDeploymentId",
-  "name": "aName",
-  "source": "process application",
-  "tenantId": null,
-  "deploymentTime": "2013-01-23T13:59:43"  
+    "links": [
+        {
+            "method": "GET",
+            "href": "http://localhost:38080/rest-test/deployment/aDeploymentId",
+            "rel": "self"
+        }
+    ],
+    "id": "aDeploymentId",
+    "name": "aName",
+    "source": "process application",
+    "deploymentTime": "2013-01-23T13:59:43.000+0200",
+    "tenantId": null,
+    "deployedProcessDefinitions": {
+        "aProcDefId": {
+            "id": "aProcDefId",
+            "key": "aKey",
+            "category": "aCategory",
+            "description": "aDescription",
+            "name": "aName",
+            "version": 42,
+            "resource": "aResourceName",
+            "deploymentId": "aDeploymentId",
+            "diagram": "aResourceName.png",
+            "suspended": true,
+            "tenantId": null,
+            "versionTag": null
+        }
+    },
+    "deployedCaseDefinitions": null,
+    "deployedDecisionDefinitions": null,
+    "deployedDecisionRequirementsDefinitions": null
 }
+```
+
+## Response on Parse Errors
+
+Status 400.
+
+```json
+{
+	"type": "ParseException",
+	"message": "ENGINE-09005 Could not parse BPMN process. Errors: Exclusive Gateway 'ExclusiveGateway_1' has outgoing sequence flow 'SequenceFlow_0' without condition which is not the default flow.",
+	"details": {
+		"invoice.bpmn": {
+			"errors": [
+				{
+					"message": "Exclusive Gateway 'ExclusiveGateway_1' has outgoing sequence flow 'SequenceFlow_0' without condition which is not the default flow.",
+					"line": 77,
+					"column": 15,
+					"mainBpmnElementId": "ExclusiveGateway_1",
+					"bpmnElementIds": [
+						"ExclusiveGateway_1",
+						"SequenceFlow_0"
+					]
+				}
+			],
+			"warnings": [
+				{
+					"message": "It is not recommended to use a cancelling boundary timer event with a time cycle.",
+					"line": 87,
+					"column": 20,
+					"mainBpmnElementId": "BoundaryEvent_1",
+					"bpmnElementIds": [
+						"BoundaryEvent_1"
+					]
+				}
+			]
+		}
+	}
 ```

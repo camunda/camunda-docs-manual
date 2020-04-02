@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Create a comment for a task.
+Creates a comment for a task by id.
 
 # Method
 
@@ -91,6 +91,16 @@ Its properties are as follows:
     <td>List</td>
     <td>Link to the newly created task comment with <code>method</code>, <code>href</code> and <code>rel</code>.</td>
   </tr>
+  <tr>
+    <td>removalTime</td>
+    <td>String</td>
+    <td>The time after which the comment should be removed by the History Cleanup job. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+  <tr>
+    <td>rootProcessInstanceId</td>
+    <td>String</td>
+    <td>The process instance id of the root process instance that initiated the process containing the task.</td>
+  </tr>
 </table>
 
 
@@ -110,12 +120,12 @@ Its properties are as follows:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The task does not exist or no comment message was submitted. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>The task does not exist or no comment message was submitted. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>403</td>
     <td>application/json</td>
-    <td>The history of the engine is disabled. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>The history of the engine is disabled. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -146,7 +156,9 @@ Status 200.
   "id": "aTaskCommentId",
   "userId": "userId",
   "taskId": "aTaskId",
-  "time": "2013-01-02T21:37:03",
-  "message": "comment message"
+  "time": "2013-01-02T21:37:03.887+0200",
+  "message": "comment message",
+  "removalTime":"2018-02-10T14:33:19.000+0200",
+  "rootProcessInstanceId": "aRootProcessInstanceId"
 }
 ```

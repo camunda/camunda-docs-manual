@@ -10,14 +10,14 @@ menu:
 
 ---
 
-
 While the process model contains sequence flows that define in which order activities must be executed, sometimes it is desired to flexibly start an activity again or cancel a running activity. For example, this can be useful when the process model contains an error, such as a wrong sequence flow condition, and running process instances need to be corrected. Use cases for this API may be
 
 * Repairing process instances in which some steps have to be repeated or skipped
 * Migrating process instances from one version of a process definition to another
 * Testing: Activities can be skipped or repeated for isolated testing of individual process segments
 
-To perform such an operation, the process engine offers the *process instance modification API* that is entered via `RuntimeService.createProcessInstanceModification(...)`. This API allows to specify multiple *modification instructions* in one call by using a fluent builder. In particular, it is possible to:
+To perform such an operation, the process engine offers the *process instance modification API* that is entered via `RuntimeService.createProcessInstanceModification(...)` or 
+`RuntimeService.createModification(...)`. This API allows to specify multiple *modification instructions* in one call by using a fluent builder. In particular, it is possible to:
 
 * start execution before an activity
 * start execution on a sequence flow leaving an activity
@@ -25,10 +25,14 @@ To perform such an operation, the process engine offers the *process instance mo
 * cancel all running instances of a given activity
 * set variables with each of the instructions
 
-{{< enterprise >}}
-  The Camunda enterprise edition provides a user interface to compose process instance modifications visually on the BPMN diagram in [Camunda Cockpit]({{< relref "webapps/cockpit/bpmn/process-instance-modification.md" >}})
-{{< /enterprise >}}
+{{< note title="Modification of the own process instance" class="warning"  >}}
+ Process instance modification within the same instance is not recommended!
+ An activity which tries to modify its own process instance can cause undefined behavior, which should be avoided.
+{{< /note >}}
 
+{{< enterprise >}}
+  The Camunda enterprise edition provides a user interface to compose process instance modifications visually on the BPMN diagram in [Camunda Cockpit]({{< ref "/webapps/cockpit/bpmn/process-instance-modification.md" >}})
+{{< /enterprise >}}
 
 # Process Instance Modification by Example
 
@@ -116,6 +120,7 @@ runtimeService.createProcessInstanceModification(processInstance.getId())
   .execute();
 ```
 
+
 ## Process Instance Modification in JUnit Tests
 
 Process instance modification can be very useful in JUnit Tests. You can skip the long part to run through the process from the start to the point you want to test and jump directly to the activity or gateway to test.
@@ -162,7 +167,7 @@ ProcessInstanceModificationBuilder#startBeforeActivity(String activityId)
 ProcessInstanceModificationBuilder#startBeforeActivity(String activityId, String ancestorActivityInstanceId)
 ```
 
-Starting before an activity  via `startBeforeActivity` means that execution is started before entering the activity. The instruction respects an `asyncBefore` flag, meaning that a job will be created if the activity is `asyncBefore`. In general, this instruction executes the process model beginning with the specified activity until a wait state is reached. See the documentation on [Transactions in Processes]({{< relref "user-guide/process-engine/transactions-in-processes.md" >}}) for details on wait states.
+Starting before an activity  via `startBeforeActivity` means that execution is started before entering the activity. The instruction respects an `asyncBefore` flag, meaning that a job will be created if the activity is `asyncBefore`. In general, this instruction executes the process model beginning with the specified activity until a wait state is reached. See the documentation on [Transactions in Processes]({{< ref "/user-guide/process-engine/transactions-in-processes.md" >}}) for details on wait states.
 
 
 ### Start After an Activity
@@ -224,7 +229,7 @@ The API offers the methods
 
 Variables are set **after** the [necessary scopes for instantiation are created]({{< relref "#nested-instantiation" >}}) and **before** the actual execution of the specified element begins. That means, in the process engine history these variables do not appear as if they were set during execution of the specified activity for `startBefore` and `startAfter` instructions. Local variables are set on the execution that is about to perform the instruction, i.e., that enters the activity etc.
 
-See the [variables section of this guide]({{< relref "user-guide/process-engine/variables.md" >}}) for details on variables and scopes in general.
+See the [variables section of this guide]({{< ref "/user-guide/process-engine/variables.md" >}}) for details on variables and scopes in general.
 
 
 ## Activity-Instance-based API
@@ -534,11 +539,85 @@ ProcessInstance
     Contact Customer
 ```
 
+## Asynchronous modification of a process instance
+
+It is possible to execute modification of single process instance asynchronous. The [modification]({{< ref "/user-guide/process-engine/process-instance-modification.md#modification-instruction-types" >}}) instructions are the same as the synchronous modification and the syntax of fluent builder is the following:
+
+```java
+Batch modificationBatch = runtimeService.createProcessInstanceModification(processInstanceId)
+        .cancelActivityInstance("exampleActivityId:1")
+        .startBeforeActivity("exampleActivityId:2")
+        .executeAsync();
+```
+This would create a modification [batch]({{< ref "/user-guide/process-engine/batch.md" >}}) which will be executed asynchronously.
+Providing variables is not supported when executing async modification of single process instance. 
+
+## Modification of Multiple Process Instances
+
+When there are multiple process instances which fulfill a specific criteria, it is possible to modify them at once using `RuntimeService.createModification(...)`. This method allows to specify
+the modification instructions and IDs of process instances that should be modified. It is required that the process instances belong to the given process definition. 
+
+The fluent modification builder offers the following instructions to be submitted:
+
+* `startBeforeActivity(String activityId)`
+* `startAfterActivity(String activityId)`
+* `startTransition(String transitionId)`
+* `cancelAllForActivity(String activityId)`
+
+Process instances can be selected for modification by either providing a set of process instance IDs or providing a process instance query. 
+It is also possible to specify both, a list of process instance IDs and a query. The process instances to be modified will then be the union of the resulting sets.
+
+```java
+ProcessInstanceQuery processInstanceQuery = runtimeService.createProcessInstanceQuery();
+
+runtimeService.createModification("exampleProcessDefinitionId")
+  .cancelAllForActivity("exampleActivityId:1")
+  .startBeforeActivity("exampleActivityId:2")
+  .processInstanceIds(processInstanceQuery)
+  .processInstanceIds("processInstanceId:1", "processInstanceId:2")
+  .execute();
+```
+
+The modification of multiple process instances can be executed synchronously or asynchronously.
+For more information about the difference between synchronous and asynchronous execution, please refer to the related
+section of the [user guide]({{< ref "/user-guide/process-engine/process-instance-migration.md#executing-a-migration-plan" >}}).
+
+An example for synchronous execution:
+
+```java
+runtimeService.createModification("exampleProcessDefinitionId")
+  .cancelAllForActivity("exampleActivityId:1")
+  .startBeforeActivity("exampleActivityId:2")
+  .processInstanceIds("processInstanceId:1", "processInstanceId:2")
+  .execute();
+```
+
+An example for asynchronous execution:
+
+```java
+Batch batch = runtimeService.createModification("exampleProcessDefinitionId")
+  .cancelAllForActivity("exampleActivityId:1")
+  .startBeforeActivity("exampleActivityId:2")
+  .processInstanceIds("processInstanceId:1", "processInstanceId:2", "processInstanceId:100")
+  .executeAsync();
+```
 
 ## Skip Listener and Input/Output Invocation
 
 It is possible to skip invocations of execution and task listeners as well as input/output mappings for the transaction that performs the modification. This can be useful when the modification is executed on a system that has no access to the involved process application deployments and their contained classes. Listener and ioMapping invocations can be skipped by using the modification builder's method `execute(boolean skipCustomListeners, boolean skipIoMappings)`.
 
+## Annotation
+
+Use the `annotation` option to pass an arbitrary text annotation for auditing reasons.
+
+```java
+runtimeService.createProcessInstanceModification(processInstanceId)
+  .cancelAllForActivity("declineLoanApplication")
+  .startBeforeActivity("processStartEvent")
+  .annotation("Modified to resolve an error.")
+  .execute();
+```
+It will be visible in [User Operation Log]({{< ref "/user-guide/process-engine/history.md#annotation-of-user-operation-logs" >}}) for the performed modification.
 
 ## Soundness Checks
 

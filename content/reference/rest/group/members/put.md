@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Add a member to a group.
+Adds a member to a group.
 
 # Method
 
@@ -30,11 +30,11 @@ PUT `/group/{id}/members/{userId}`
   </tr>
   <tr>
     <td>id</td>
-    <td>The id of the group</td>
+    <td>The id of the group.</td>
   </tr>
   <tr>
     <td>userId</td>
-    <td>The id of user to add to the group</td>
+    <td>The id of user to add to the group.</td>
   </tr>
 </table>
 
@@ -66,7 +66,7 @@ This method returns no content.
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>In case an internal error occurs. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>In case an internal error occurs. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

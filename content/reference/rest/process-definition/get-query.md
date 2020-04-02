@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for process definitions that fulfill given parameters. Parameters may be the properties of process definitions, such as the name, key or version.
-The size of the result set can be retrieved by using the [GET query count]({{< relref "reference/rest/process-definition/get-query-count.md" >}}).
+Queries for process definitions that fulfill given parameters. Parameters may be the properties of process definitions, such as the name, key or version.
+The size of the result set can be retrieved by using the [Get Definition Count]({{< ref "/reference/rest/process-definition/get-query-count.md" >}}) method.
 
 
 # Method
@@ -53,7 +53,11 @@ GET `/process-definition`
   </tr>
   <tr>
     <td>key</td>
-    <td>Filter by process definition key, i.e. the id in the BPMN 2.0 XML. Exact match.</td>
+    <td>Filter by process definition key, i.e., the id in the BPMN 2.0 XML. Exact match.</td>
+  </tr>
+  <tr>
+    <td>keysIn</td>
+    <td>Filter by process definition keys.</td>
   </tr>
   <tr>
     <td>keyLike</td>
@@ -101,7 +105,7 @@ GET `/process-definition`
   </tr>
   <tr>
     <td>incidentType</td>
-    <td>Filter by the incident type.</td>
+    <td>Filter by the incident type. See the <a href="{{< ref "/user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
   </tr>
   <tr>
     <td>incidentMessage</td>
@@ -117,11 +121,11 @@ GET `/process-definition`
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only include process definitions which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include process definitions which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>includeProcessDefinitionsWithoutTenantId</td>
-    <td>Include process definitions which belongs to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Include process definitions which belong to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>versionTag</td>
@@ -130,6 +134,26 @@ GET `/process-definition`
   <tr>
     <td>versionTagLike</td>
     <td>Filter by the version tag that the parameter is a substring of.</td>
+  </tr>
+  <tr>
+    <td>withoutVersionTag</td>
+    <td>Only include process definitions without a <code>versionTag</code></td>
+  </tr>
+  <tr>
+    <td>startableInTasklist</td>
+    <td>Filter by process definitions which are startable in Tasklist.</td>
+  </tr>
+  <tr>
+    <td>notStartableInTasklist</td>
+    <td>Filter by process definitions which are not startable in Tasklist.</td>
+  </tr>
+  <tr>
+    <td>startablePermissionCheck</td>
+    <td>Filter by process definitions which the user is allowed to start in Tasklist. If the user doesn't have these permissions the result will be empty list.<br/>
+    The permissions are:<br/>
+        * CREATE permission for all Process instances<br/>
+        * CREATE_INSTANCE and READ permission on Process definition level<br/>
+    </td>
   </tr>
   <tr>
     <td>sortBy</td>
@@ -173,7 +197,7 @@ Each process definition object has the following properties:
   <tr>
     <td>key</td>
     <td>String</td>
-    <td>The key of the process definition, i.e. the id of the BPMN 2.0 XML process definition.</td>
+    <td>The key of the process definition, i.e., the id of the BPMN 2.0 XML process definition.</td>
   </tr>
   <tr>
     <td>category</td>
@@ -224,6 +248,17 @@ Each process definition object has the following properties:
     <td>versionTag</td>
     <td>String</td>
     <td>The version tag of the process or <i>null</i> when no version tag is set</td>
+  </tr>
+  <tr>
+      <td>historyTimeToLive</td>
+      <td>Number</td>
+      <td>History time to live value of the process definition. Is used within <a href="{{< ref "/user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a>.</td>
+  </tr>
+  <tr>
+      <td>startableInTasklist</td>
+      <td>Boolean</td>
+      <td>A flag indicating whether the process definition is startable in Tasklist or not.</td>
+  </tr>
 </table>
 
 
@@ -243,7 +278,7 @@ Each process definition object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -252,23 +287,44 @@ Each process definition object has the following properties:
 
 ## Request
 
-<!-- TODO: Insert a 'real' example -->
-GET `/process-definition?keyLike=Key&sortBy=category&sortOrder=asc`
+GET `/process-definition?keyLike=invoice&sortBy=version&sortOrder=asc`
 
 ## Response
 
 ```json
-    [{"id":"aProcessDefinitionId",
-    "key":"aKey",
-    "category":"aCategory",
-    "description":"aDescription",
-    "name":"aName",
-    "version":42,
-    "resource":"aResourceName",
-    "deploymentId":"aDeploymentId",
-    "diagram":"aResourceName",
-    "suspended":true,
-    "tenantId":null,
-    "versionTag":"1.0.0"}]
+  [
+    {
+      "id": "invoice:1:c3a63aaa-2046-11e7-8f94-34f39ab71d4e",
+      "key": "invoice",
+      "category": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+      "description": null,
+      "name": "Invoice Receipt",
+      "version": 1,
+      "resource": "invoice.v1.bpmn",
+      "deploymentId": "c398cd26-2046-11e7-8f94-34f39ab71d4e",
+      "diagram": null,
+      "suspended": false,
+      "tenantId": null,
+      "versionTag": null,
+      "historyTimeToLive": 5,
+      "startableInTasklist": true
+    },
+    {
+      "id": "invoice:2:c3e1bd16-2046-11e7-8f94-34f39ab71d4e",
+      "key": "invoice",
+      "category": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+      "description": null,
+      "name": "Invoice Receipt",
+      "version": 2,
+      "resource": "invoice.v2.bpmn",
+      "deploymentId": "c3d82020-2046-11e7-8f94-34f39ab71d4e",
+      "diagram": null,
+      "suspended": false,
+      "tenantId": null,
+      "versionTag": null,
+      "historyTimeToLive": null,
+      "startableInTasklist": true
+    }
+  ]
 ```
 

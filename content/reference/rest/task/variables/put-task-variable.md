@@ -13,9 +13,11 @@ menu:
 ---
 
 
-Sets a visible from the task.
-A variable is visible from the task if it is a local task variable or declared in a parent scope of the task. See documentation on [visiblity of variables]({{< relref "user-guide/process-engine/variables.md" >}}).
-If a variable visible from the task with the given name already exists, it is overwritten. Otherwise, the variable is created in the top-most scope visible from the task.
+Updates a process variable that is visible from the Task scope. A variable is visible from the task if it is a local 
+task variable, or declared in a parent scope of the task. See the documentation on 
+[variable scopes and visibility]({{< ref "/user-guide/process-engine/variables.md#variable-scopes-and-variable-visibility" >}}).
+
+**Note**: If a variable doesn't exist, the variable is created in the top-most scope visible from the task.
 
 # Method
 
@@ -45,7 +47,7 @@ PUT `/task/{id}/variables/{varName}`
 
 A JSON object with the following properties:
 
-{{< rest-var-request >}}
+{{< rest-var-request transient="true">}}
 
 
 # Result
@@ -69,12 +71,12 @@ This method returns no content.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>The variable name, value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported or a new transient variable has the name that is already persisted. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>The variable name is null. Task id is null or does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>The variable name is null. Task id is null or does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>      
 </table>
 

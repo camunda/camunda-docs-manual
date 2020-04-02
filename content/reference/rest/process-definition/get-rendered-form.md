@@ -15,15 +15,15 @@ menu:
 
 ---
 
-Retrieves the rendered form for a process definition. This method can be used for getting the HTML rendering of a [Generated Task Form]({{< relref "user-guide/task-forms/index.md#generated-task-forms" >}}).
+Retrieves the rendered form for a process definition. This method can be used for getting the HTML rendering of a [Generated Task Form]({{< ref "/user-guide/task-forms/_index.md#generated-task-forms" >}}).
 
 # Method
 
 GET `/process-definition/{id}/rendered-form`
 
-GET `/process-definition/key/{key}/rendered-form` (returns the rendered form for the latest version of process definition which belongs to no tenant)
+GET `/process-definition/key/{key}/rendered-form` (returns the rendered form for the latest version of the process definition which belongs to no tenant)
 
-GET `/process-definition/key/{key}/tenant-id/{tenant-id}/rendered-form` (returns the rendered form for the latest version of process definition for tenant)
+GET `/process-definition/key/{key}/tenant-id/{tenant-id}/rendered-form` (returns the rendered form for the latest version of the process definition for tenant)
 
 # Parameters
 
@@ -69,12 +69,12 @@ An HTML response body providing the rendered (generated) form content.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Process definition has no form field metadata defined. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Process definition has no form field metadata defined. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Process definition with given key does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Process definition with given key does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

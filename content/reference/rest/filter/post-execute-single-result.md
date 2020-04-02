@@ -12,12 +12,12 @@ menu:
 
 ---
 
-Executes the saved query of the filter and returns the single result. This method is slightly more
-powerful then the [GET query]({{< relref "reference/rest/filter/get-execute-single-result.md" >}}) because it allows to extend
+Executes the saved query of the filter by id and returns the single result. This method is slightly more
+powerful then the [Get Execute Filter Single Result]({{< ref "/reference/rest/filter/get-execute-single-result.md" >}}) method because it allows to extend
 the saved query of the filter.
 
 {{< note title="Security Consideration" class="warning" >}}
-  The request body of this method takes a JSON-serialized query. Some query types (e.g. task queries) allow to specify EL expressions in their parameters and may therefore be abused for remote code execution. See the section on <a href="{{< relref "user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide for details.
+  The request body of this method takes a JSON-serialized query. Some query types (e.g., task queries) allow to specify EL expressions in their parameters and may therefore be abused for remote code execution. See the section on <a href="{{< ref "/user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide for details.
 {{</note>}}
 
 # Method
@@ -43,13 +43,13 @@ POST `/filter/{id}/singleResult`
 
 A JSON object which corresponds to the type of the saved query of the filter, i.e., if the
 resource type of the filter is `Task` the body should form a valid task query corresponding to
-the [Task]({{< relref "reference/rest/task/get-query.md" >}}) resource.
+the [Task]({{< ref "/reference/rest/task/get-query.md" >}}) resource.
 
 # Result
 
 A JSON object corresponding to the corresponding entity interface in the engine. This depends
 on the saved query in the filter. Therefore it is not possible specify a generic result format,
-i.e., if the resource type of the filter is `Task` the result will correspond with the Task
+i.e., if the resource type of the filter is `Task` the result will correspond to the `Task`
 interface in the engine.
 
 
@@ -69,7 +69,7 @@ interface in the engine.
   <tr>
     <td>200</td>
     <td>application/hal+json</td>
-    <td>Request successful. In case of an expected <a href="{{< relref "reference/rest/overview/hal.md" >}}">HAL</a> response.</td>
+    <td>Request successful. In case of an expected <a href="{{< ref "/reference/rest/overview/hal.md" >}}">HAL</a> response.</td>
   </tr>
   <tr>
     <td>204</td>
@@ -81,7 +81,7 @@ interface in the engine.
     <td>application/json</td>
     <td>
       The executed filter returned more than one single result or the extending query was invalid.
-      See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+      See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
   <tr>
@@ -89,7 +89,7 @@ interface in the engine.
     <td>application/json</td>
     <td>
        The authenticated user is unauthorized to read this filter.
-      See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+      See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
   <tr>
@@ -97,7 +97,7 @@ interface in the engine.
     <td>application/json</td>
     <td>
       Filter with given id does not exist. See the
-      <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+      <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
 </table>
@@ -112,7 +112,7 @@ POST `filter/aTaskFilterId/singleResult`
 Request Body:
 
 <div class="alert alert-warning" role="alert">
-  <strong>Note:</strong> The examples shows a task filter. So the request body corresponds
+  <strong>Note:</strong> The examples show a task filter. So the request body corresponds
   to a task query. For other resource types the request body will differ.
 </div>
 
@@ -128,7 +128,7 @@ Request Body:
 Status 200.
 
 <div class="alert alert-warning" role="alert">
-  <strong>Note:</strong> The examples shows the result of a task filter. So the response corresponds
+  <strong>Note:</strong> The examples show the result of a task filter. So the response corresponds
   to a task, but for other filters the response format will differ.
 </div>
 
@@ -138,7 +138,7 @@ Status 200.
   "caseDefinitionId": null,
   "caseExecutionId": null,
   "caseInstanceId": null,
-  "created": "2014-09-15T15:45:48",
+  "created": "2014-09-15T15:45:48.000+0200",
   "delegationState": null,
   "description": null,
   "due": null,

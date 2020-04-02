@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Gets the comments for a task.
+Gets the comments for a task by id.
 
 
 # Method
@@ -71,6 +71,16 @@ A JSON object containing a list of task comments.
     <td>String</td>
     <td>The content of the comment.</td>
   </tr>
+  <tr>
+    <td>removalTime</td>
+    <td>String</td>
+    <td>The time after which the comment should be removed by the History Cleanup job. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+  <tr>
+    <td>rootProcessInstanceId</td>
+    <td>String</td>
+    <td>The process instance id of the root process instance that initiated the process containing the task.</td>
+  </tr>
 </table>
 
 
@@ -90,7 +100,7 @@ A JSON object containing a list of task comments.
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>No task exists for the given task id. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>No task exists for the given task id. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -109,22 +119,28 @@ GET `/task/aTaskId/comment`
     "id": "commentId",
     "userId": "userId",
     "taskId": "aTaskId",
-    "time": "2013-01-02T21:37:03",
-    "message": "message"
+    "time": "2013-01-02T21:37:03.764+0200",
+    "message": "message",
+    "removalTime":"2018-02-10T14:33:19.000+0200",
+    "rootProcessInstanceId": "aRootProcessInstanceId"
   },
   {
     "id": "anotherCommentId",
     "userId": "anotherUserId",
     "taskId": "aTaskId",
-    "time": "2013-02-23T20:37:43",
-    "message": "anotherMessage"
+    "time": "2013-02-23T20:37:43.975+0200",
+    "message": "anotherMessage",
+    "removalTime":"2018-02-10T14:33:19.000+0200",
+    "rootProcessInstanceId": "aRootProcessInstanceId"
   },
   {
     "id": "yetAnotherCommentId",
     "userId": "yetAnotherUserId",
     "taskId": "aTaskId",
-    "time": "2013-04-21T10:15:23",
-    "message": "yetAnotherMessage"
+    "time": "2013-04-21T10:15:23.764+0200",
+    "message": "yetAnotherMessage",
+    "removalTime":"2018-02-10T14:33:19.000+0200",
+    "rootProcessInstanceId": "aRootProcessInstanceId"
   }
 ]
 ```

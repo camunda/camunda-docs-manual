@@ -13,9 +13,9 @@ menu:
 ---
 
 
-Query for the number of historic tasks that fulfill the given parameters.
-Takes the same parameters as the [get historic tasks]({{< relref "reference/rest/history/task/get-task-query.md" >}}) method.
-Corresponds to the size of the result set of the [get tasks (POST)]({{< relref "reference/rest/history/task/post-task-query.md" >}}) method and takes the same parameters.
+Queries for the number of historic tasks that fulfill the given parameters.
+Takes the same parameters as the [Get Tasks (Historic)]({{< ref "/reference/rest/history/task/get-task-query.md" >}}) method.
+Corresponds to the size of the result set of the [Get Tasks (Historic) (POST)]({{< ref "/reference/rest/history/task/post-task-query.md" >}}) method and takes the same parameters.
 
 
 # Method
@@ -45,6 +45,20 @@ A JSON object with the following properties:
   <tr>
     <td>processInstanceId</td>
     <td>Filter by process instance id.</td>
+  </tr>
+  <tr>
+    <td>processInstanceBusinessKey</td>
+    <td>Filter by process instance business key.</td>
+  </tr>
+  <tr>
+    <td>processInstanceBusinessKeyIn</td>
+    <td>Filter by process instances with one of the give business keys.
+        The keys need to be in a comma-separated list.
+    </td>
+  </tr>
+  <tr>
+    <td>processInstanceBusinessKeyLike</td>
+    <td>Filter by  process instance business key that has the parameter value as a substring.</td>
   </tr>
   <tr>
     <td>executionId</td>
@@ -107,6 +121,10 @@ A JSON object with the following properties:
     <td>Restrict to tasks that have the given key.</td>
   </tr>
   <tr>
+    <td>taskDefinitionKeyIn</td>
+    <td>Restrict to tasks that have one of the given key.</td>
+  </tr>
+  <tr>
     <td>taskDeleteReason</td>
     <td>Restrict to tasks that have the given delete reason.</td>
   </tr>
@@ -160,31 +178,52 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>taskDueDate</td>
-    <td>Restrict to tasks that are due on the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that are due on the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>taskDueDateBefore</td>
-    <td>Restrict to tasks that are due before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that are due before the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>taskDueDateAfter</td>
-    <td>Restrict to tasks that are due after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that are due after the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>taskFollowUpDate</td>
-    <td>Restrict to tasks that have a followUp date on the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that have a followUp date on the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>taskFollowUpDateBefore</td>
-    <td>Restrict to tasks that have a followUp date before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that have a followUp date before the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>taskFollowUpDateAfter</td>
-    <td>Restrict to tasks that have a followUp date after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that have a followUp date after the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
+  </tr>
+  <tr>
+  <td>startedBefore</td>
+    <td>Restrict to tasks that were started before the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
+  </tr>
+  <tr>
+    <td>startedAfter</td>
+    <td>Restrict to tasks that were started after the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
+  </tr>
+  <tr>
+    <td>finishedBefore</td>
+    <td>Restrict to tasks that were finished before the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
+  </tr>
+  <tr>
+    <td>finishedAfter</td>
+    <td>Restrict to tasks that were finished after the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>tenantIdIn</td>
     <td>Filter by a list of tenant ids. A task instance must have one of the given tenant ids. Must be a JSON array of Strings.</td>
+  </tr>
+  <tr>
+    <td>withoutTenantId</td>
+    <td>Only include historic task instances that belong to no tenant. Value may only be 
+    <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>taskVariables</td>
@@ -211,21 +250,29 @@ A JSON object with the following properties:
     <code>like</code>.<br/>
     </td>
   </tr>
+  <tr>
+    <td>variableNamesIgnoreCase</td>
+    <td>Match the variable name provided in <code>taskVariables</code> and <code>processVariables</code> case-insensitively. If set to <code>true</code> <strong>variableName</strong> and <strong>variablename</strong> are treated as equal.</td>
+  </tr>
+  <tr>
+    <td>variableValuesIgnoreCase</td>
+    <td>Match the variable value provided in <code>taskVariables</code> and <code>processVariables</code> case-insensitively. If set to <code>true</code> <strong>variableValue</strong> and <strong>variablevalue</strong> are treated as equal.</td>
+  </tr>
    <tr>
     <td>taskInvolvedUser</td>
-    <td>Restrict on the historic identity links of any type of user.</td>
+    <td>Restrict to tasks with a historic identity link to the given user.</td>
   </tr>
   <tr>
     <td>taskInvolvedGroup</td>
-    <td>Restrict on the historic identity links of any type of group.</td>
+    <td>Restrict to tasks with a historic identity link to the given group.</td>
   </tr>
   <tr>
     <td>taskHadCandidateUser</td>
-    <td>Restrict on the historic identity links of type candidate user.</td>
+    <td>Restrict to tasks with a historic identity link to the given candidate user.</td>
   </tr>
   <tr>
     <td>taskHadCandidateGroup</td>
-    <td>Restrict on the historic identity links of type candidate group.</td>
+    <td>Restrict to tasks with a historic identity link to the given candidate group.</td>
   </tr>
   <tr>
     <td>withCandidateGroups</td>
@@ -237,8 +284,19 @@ A JSON object with the following properties:
     <td>Only include tasks which have no candidate group. Value may only be <code>true</code>, 
     as <code>false</code> is the default behavior.</td>
   </tr>
+  <tr>
+    <td>orQueries</td>
+    <td>
+    A JSON array which contains at least one OR query JSON Object. All previously listed filter criteria can be used  
+    inside of this JSON object. See the <a href="{{< ref "/user-guide/process-engine/process-engine-api.md#or-queries" >}}">user guide</a> 
+    for more information about OR queries.<br><br>
+    The following properties are not supported: <code>sorting</code>, <code>withCandidateGroups</code>, 
+    <code>withoutCandidateGroups</code>.
+    </td>
+  </tr>
 </table>
 
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Result
 
@@ -274,7 +332,7 @@ A JSON object that contains the count as the only property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
