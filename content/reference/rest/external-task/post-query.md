@@ -103,6 +103,10 @@ A JSON object with the following properties:
     <td>Filter by the id of the process instance that an external task belongs to.</td>
   </tr>
   <tr>
+    <td>processInstanceIdIn</td>
+    <td>Filter by a comma-separated list of process instance ids that an external task may belong to.</td>
+  </tr>
+  <tr>
     <td>processDefinitionId</td>
     <td>Filter by the id of the process definition that an external task belongs to.</td>
   </tr>
@@ -140,7 +144,7 @@ A JSON object with the following properties:
         <tr>
           <td>sortBy</td>
           <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>id</code>, <code>lockExpirationTime</code>, 
-								<code>processInstanceId</code>, <code>processDefinitionId</code>, <code>processDefinitionKey</code>, <code>taskPriority</code> and <code>tenantId</code>.</td>
+              <code>processInstanceId</code>, <code>processDefinitionId</code>, <code>processDefinitionKey</code>, <code>taskPriority</code> and <code>tenantId</code>.</td>
         </tr>
         <tr>
           <td>sortOrder</td>
@@ -164,93 +168,98 @@ Each external task object has the following properties:
     <th>Value</th>
     <th>Description</th>
   </tr>
-  <tr>
-    <td>activityId</td>
-    <td>String</td>
-    <td>The id of the activity that this external task belongs to.</td>
-  </tr>
-  <tr>
-    <td>activityInstanceId</td>
-    <td>String</td>
-    <td>The id of the activity instance that the external task belongs to.</td>
-  </tr>
-  <tr>
-    <td>errorMessage</td>
-    <td>String</td>
-    <td>The full error message submitted with the latest reported failure executing this task;
-    <br/><code>null</code> if no failure was reported previously or if no error message was submitted</td>
-  </tr>
-  <tr>
-    <td>errorDetails</td>
-    <td>String</td>
-    <td>The error details submitted with the latest reported failure executing this task.
-    <br/><code>null</code> if no failure was reported previously or if no error details was submitted</td>
-  </tr>
-  <tr>
-    <td>executionId</td>
-    <td>String</td>
-    <td>The id of the execution that the external task belongs to.</td>
-  </tr>
-  <tr>
-    <td>id</td>
-    <td>String</td>
-    <td>The id of the external task.</td>
-  </tr>
-  <tr>
-    <td>lockExpirationTime</td>
-    <td>String</td>
-    <td>The date that the task's most recent lock expires or has expired.</td>
-  </tr>
-  <tr>
-    <td>processDefinitionId</td>
-    <td>String</td>
-    <td>The id of the process definition the external task is defined in.</td>
-  </tr>
-  <tr>
-    <td>processDefinitionKey</td>
-    <td>String</td>
-    <td>The key of the process definition the external task is defined in.</td>
-  </tr>
-  <tr>
-    <td>processInstanceId</td>
-    <td>String</td>
-    <td>The id of the process instance the external task belongs to.</td>
-  </tr>
-  <tr>
-    <td>tenantId</td>
-    <td>String</td>
-    <td>The id of the tenant the external task belongs to.</td>
-  </tr>
-  <tr>
-    <td>retries</td>
-    <td>Number</td>
-    <td>The number of retries the task currently has left.</td>
-  </tr>
-  <tr>
-    <td>suspended</td>
-    <td>Boolean</td>
-    <td>A flag indicating whether the external task is suspended or not.</td>
-  </tr>
-  <tr>
-    <td>workerId</td>
-    <td>String</td>
-    <td>The id of the worker that posesses or posessed the most recent lock.</td>
-  </tr>
-  <tr>
-    <td>topicName</td>
-    <td>String</td>
-    <td>The topic name of the external task.</td>
-  </tr>
-  <tr>
-    <td>priority</td>
-    <td>Number</td>
-    <td>The priority of the external task.</td>
-  </tr>
-  <tr>
-    <td>businessKey</td>
-    <td>String</td>
-    <td>The business key of the process instance the external task belongs to.</td>
-  </tr>
+      <tr>
+        <td>activityId</td>
+        <td>String</td>
+        <td>The id of the activity that this external task belongs to.</td>
+      </tr>
+      <tr>
+        <td>activityInstanceId</td>
+        <td>String</td>
+        <td>The id of the activity instance that the external task belongs to.</td>
+      </tr>
+      <tr>
+        <td>errorMessage</td>
+        <td>String</td>
+        <td>The full error message submitted with the latest reported failure executing this task;
+        <br/><code>null</code> if no failure was reported previously or if no error message was submitted</td>
+      </tr>
+      <tr>
+        <td>errorDetails</td>
+        <td>String</td>
+        <td>The error details submitted with the latest reported failure executing this task.
+        <br/><code>null</code> if no failure was reported previously or if no error details was submitted</td>
+      </tr>
+      <tr>
+        <td>executionId</td>
+        <td>String</td>
+        <td>The id of the execution that the external task belongs to.</td>
+      </tr>
+      <tr>
+        <td>id</td>
+        <td>String</td>
+        <td>The id of the external task.</td>
+      </tr>
+      <tr>
+        <td>lockExpirationTime</td>
+        <td>String</td>
+        <td>The date that the task's most recent lock expires or has expired.</td>
+      </tr>
+      <tr>
+        <td>processDefinitionId</td>
+        <td>String</td>
+        <td>The id of the process definition the external task is defined in.</td>
+      </tr>
+      <tr>
+        <td>processDefinitionKey</td>
+        <td>String</td>
+        <td>The key of the process definition the external task is defined in.</td>
+      </tr>
+      <tr>
+        <td>processDefinitionVersionTag</td>
+        <td>String</td>
+        <td>The version tag of the process definition the external task is defined in.</td>
+      </tr>
+      <tr>
+        <td>processInstanceId</td>
+        <td>String</td>
+        <td>The id of the process instance the external task belongs to.</td>
+      </tr>
+      <tr>
+        <td>tenantId</td>
+        <td>String</td>
+        <td>The id of the tenant the external task belongs to.</td>
+      </tr>
+      <tr>
+        <td>retries</td>
+        <td>Number</td>
+        <td>The number of retries the task currently has left.</td>
+      </tr>
+      <tr>
+        <td>suspended</td>
+        <td>Boolean</td>
+        <td>A flag indicating whether the external task is suspended or not.</td>
+      </tr>
+      <tr>
+        <td>workerId</td>
+        <td>String</td>
+        <td>The id of the worker that posesses or posessed the most recent lock.</td>
+      </tr>
+      <tr>
+        <td>topicName</td>
+        <td>String</td>
+        <td>The topic name of the external task.</td>
+      </tr>
+      <tr>
+        <td>priority</td>
+        <td>Number</td>
+        <td>The priority of the external task.</td>
+      </tr>
+      <tr>
+        <td>businessKey</td>
+        <td>String</td>
+        <td>The business key of the process instance the external task belongs to.</td>
+      </tr>
 </table>
 
 
@@ -283,6 +292,7 @@ POST `/external-task`
 
 Request Body:
 
+```json
     {
       "processDefinitionId":"aProcessDefinitionId",
       "sorting":
@@ -293,11 +303,13 @@ Request Body:
           "sortOrder": "desc"
           }]
     }
+```
 
 ## Response
 
 Status 200.
 
+```json
     [{
       "activityId": "anActivityId",
       "activityInstanceId": "anActivityInstanceId",
@@ -336,3 +348,4 @@ Status 200.
       "priority": 3,
       "businessKey": "aBusinessKey"
     }]
+```

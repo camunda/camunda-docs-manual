@@ -166,6 +166,7 @@ GET `/external-task/anExternalTaskId`
 
 ## Response
 
+```json
     {
       "activityId": "anActivityId",
       "activityInstanceId": "anActivityInstanceId",
@@ -185,3 +186,4 @@ GET `/external-task/anExternalTaskId`
       "topicName": "aTopic",
       "businessKey": "aBusinessKey"
     }
+```

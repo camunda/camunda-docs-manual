@@ -82,9 +82,11 @@ PUT `/external-task/{anId}/priority`
 
 Request Body:
 
+```json
     {
       "priority": 5
     }
+```
 
 ## Response
 

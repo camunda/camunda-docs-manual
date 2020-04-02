@@ -13,7 +13,8 @@ menu:
 ---
 
 
-Reports a failure to execute an external task by id. A number of retries and a timeout until the task can be retried can be specified. If retries are set to 0, an incident for this task is created.
+Reports a failure to execute an external task by id. A number of retries and a timeout until the task can be retried can 
+be specified. If retries are set to 0, an incident for this task is created.
 
 # Method
 
@@ -110,12 +111,14 @@ POST `/external-task/anId/failure`
 
 Request Body:
 
+```json
     {
       "workerId": "aWorker",
       "errorMessage": "Does not compute",
       "retries": 3,
       "retryTimeout": 60000
     }
+```
 
 ## Response
 

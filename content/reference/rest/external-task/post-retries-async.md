@@ -99,13 +99,15 @@ POST `/external-task/retries-async`
 
 Request Body:
 
+```json
     {
-      "retries": 123
+      "retries": 123,
       "externalTaskIds": [
         "anExternalTask",
         "anotherExternalTask"
       ]
     }
+```
 
 ## Response
 
@@ -121,6 +123,8 @@ Status 200.
   "seedJobDefinitionId": "aSeedJobDefinitionId",
   "monitorJobDefinitionId": "aMonitorJobDefinitionId",
   "batchJobDefinitionId": "aBatchJobDefinitionId",
-  "tenantId": "aTenantId"
+  "tenantId": "aTenantId",
+  "suspended": false,
+  "createUserId": "demo"
 }
 ```
