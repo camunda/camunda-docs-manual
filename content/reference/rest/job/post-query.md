@@ -62,6 +62,10 @@ A JSON object with the following properties:
     <td>Only select jobs which exist for the given process instance.</td>
   </tr>
   <tr>
+    <td>processInstanceIds</td>
+    <td>Only select jobs which exist for the given comma-separated list of process instance ids.</td>
+  </tr>
+  <tr>
     <td>executionId</td>
     <td>Only select jobs which exist for the given execution.</td>
   </tr>
