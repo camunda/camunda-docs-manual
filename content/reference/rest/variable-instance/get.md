@@ -87,6 +87,11 @@ A JSON object with the following properties:
     <td>{{< rest-var-response-valueinfo >}}</td>
   </tr>
   <tr>
+    <td>processDefinitionId</td>
+    <td>String</td>
+    <td>The id of the process definition that this variable instance belongs to.</td>
+  </tr>
+  <tr>
     <td>processInstanceId</td>
     <td>String</td>
     <td>The id of the process instance that this variable instance belongs to.</td>
@@ -164,6 +169,7 @@ Status 200.
       "type": "Integer",
       "variableType": "integer",
       "value": 5,
+      "processDefinitionId": "aProcessDefinitionId",
       "processInstanceId": "aProcessInstanceId",
       "executionId": "b68b71c9-e310-11e2-beb0-f0def1557726",
       "taskId": null,

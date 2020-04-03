@@ -173,6 +173,11 @@ A JSON array of variable instance objects. Each variable instance object has the
     <td>{{< rest-var-response-valueinfo >}}</td>
   </tr>
   <tr>
+    <td>processDefinitionId</td>
+    <td>String</td>
+    <td>The id of the process definition that this variable instance belongs to.</td>
+  </tr>
+  <tr>
     <td>processInstanceId</td>
     <td>String</td>
     <td>The id of the process instance that this variable instance belongs to.</td>
@@ -264,6 +269,7 @@ Request Body:
         "type": "Integer",
         "variableType": "integer",
         "value": 5,
+        "processDefinitionId": "aProcessDefinitionId",
         "processInstanceId": "aProcessInstanceId",
         "executionId": "b68b71c9-e310-11e2-beb0-f0def1557726",
         "taskId": null,
@@ -277,6 +283,7 @@ Request Body:
         "type": "Integer",
         "variableType": "integer",
         "value": 15,
+        "processDefinitionId": "aProcessDefinitionId",
         "processInstanceId": "aProcessInstanceId",
         "executionId": "68b71c9-e310-11e2-beb0-f0def1557726",
         "taskId": null,
@@ -290,6 +297,7 @@ Request Body:
         "type": "Integer",
         "variableType": "integer",
         "value": 150,
+        "processDefinitionId": "aProcessDefinitionId",
         "processInstanceId": "anotherProcessInstanceId",
         "executionId": "68b71c9-e310-11e2-beb0-f0def1557726",
         "taskId": null,

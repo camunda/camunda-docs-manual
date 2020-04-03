@@ -24,7 +24,9 @@ This document guides you through the update from Camunda BPM `7.12.x` to `7.13.0
 1. For developers: [MetricsReporterIdProvider interface Deprecation](#metricsreporteridprovider-interface-deprecation)
 1. For administrators and developers: [New Version of Templating Engines (Freemarker, Velocity)](#new-version-of-templating-engines-freemarker-velocity)
 1. For developers: [Entirely Replaced FEEL Engine](#entirely-replaced-feel-engine)
-1. For Developers: [DMN 1.3 Support in Cockpit](#dmn-1-3-support-in-cockpit)
+1. For developers: [DMN 1.3 Support in Cockpit](#dmn-1-3-support-in-cockpit)
+1. For developers: [Deployment-Aware Batch Operations](#deployment-aware-batch-operations)
+1. For developers: [Historic Process Instance Variables on Asynchronous Instantiation](#historic-process-instance-variables-on-asynchronous-instantiation)
 
 This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new functionality included in Camunda BPM 7.13.
 
@@ -285,7 +287,7 @@ Please also check out the status of the following known issues when migrating yo
 
 # DMN 1.3 Support in Cockpit
 
-With this release, cockpit adds support for DMN 1.3, the next version of the DMN standard. If you edit and deploy DMN diagrams in Cockpit, which use earlier versions of DMN, they will automatically be migrated to DMN 1.3.
+With this release, Cockpit adds support for DMN 1.3, the next version of the DMN standard. If you edit and deploy DMN diagrams in Cockpit, which use earlier versions of DMN, they will automatically be migrated to DMN 1.3.
 
 The Camunda engine already supports the DMN 1.3 namespace by default, so there are no more steps required to migrate.
 Make sure you have the latest version of [Camunda Modeler](https://camunda.com/download/modeler/) installed to edit DMN 1.3 files locally.
@@ -316,3 +318,30 @@ The seed job creation as well as the batch job creation in the seed job will tra
 [set-removal-time-batch]: {{< ref "/user-guide/process-engine/batch-operations.md#historic-batches" >}}
 [job-cluster]: {{< ref "/user-guide/process-engine/the-job-executor.md#job-execution-in-heterogeneous-clusters" >}}
 [Rolling Update scenario]: {{< ref "/update/rolling-update.md" >}}
+
+# Historic Process Instance Variables on Asynchronous Instantiation
+
+This concerns only processes that have a start event with the [asyncBefore]({{< ref "/reference/bpmn20/events/start-events.md#asynchronous-instantiation" >}}) flag set.
+
+{{< img src="./img/asyncBefore-start-event.svg" title="Asynchronous Instantiation" >}}
+
+Let's have a look at the following example:
+
+```java
+// Step 1
+ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("oneTaskProcess",
+        Variables.createVariables().putValue("invoiceId", "I-123"));
+
+// Step 2: execute the asynchronous continuation job of the start event
+executeJob(processInstancJob);
+```
+
+Before this minor release, the historic variable `invoiceId` would have been stored only after the job execution in step 2.
+That behavior differed from the rest of the use cases where variables are set on process instance start or later.
+Now they are stored right away to keep the use cases consistent.
+The approach is more natural to how the historic information is stored into the database and helps to resolve issues during process execution and inconsistent information between runtime and historic data.
+In Cockpit, starting from 7.13, you will notice a different activity instance id in the Details for instances.
+
+{{< img src="./img/variable-log.png" title="Variable Log" >}}
+
+As you can see in the picture above, the variable log shows the process instance id for the activity instead of the start event activity. The same is valid if you are using the Java and/or REST API.
