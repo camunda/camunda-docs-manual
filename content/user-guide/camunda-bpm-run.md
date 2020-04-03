@@ -18,7 +18,7 @@ For a step-by-step installation guide head over to the [installation section]({{
 
 # Starting with Camunda BPM Run
 
-After downloading the [distro](https://app.camunda.com/nexus/repository/public/org/camunda/bpm/run/camunda-bpm-run/7.13.0-alpha2/camunda-bpm-run-7.13.0-alpha2.zip) ([enterprise](https://app.camunda.com/nexus/repository/private/org/camunda/bpm/run/camunda-bpm-run-ee/7.13.0-alpha2-ee/camunda-bpm-run-ee-7.13.0-alpha2-ee.zip)) and unpacking it to a folder, you will find the following structure:
+After downloading the [distro](https://downloads.camunda.cloud/release/camunda-bpm/run/) ([enterprise](https://downloads.camunda.cloud/enterprise-release/camunda-bpm/run/)) and unpacking it to a folder, you will find the following structure:
 
 ```
 camunda-bpm-run
