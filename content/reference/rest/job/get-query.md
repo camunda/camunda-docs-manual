@@ -36,6 +36,10 @@ GET `/job`
     <td>Filter by job id.</td>
   </tr>
   <tr>
+    <td>jobIds</td>
+    <td>Filter by a comma-separated list of job ids.</td>
+  </tr>
+  <tr>
     <td>jobDefinitionId</td>
     <td>Only select jobs which exist for the given job definition.</td>
   </tr>
