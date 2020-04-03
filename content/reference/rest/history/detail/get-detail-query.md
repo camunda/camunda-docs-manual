@@ -266,6 +266,11 @@ Depending on the type of the historic detail it contains further properties. In 
     <td>String</td>
     <td>An error message in case a Java Serialized Object could not be de-serialized.</td>
   </tr>
+  <tr>
+    <td>initial</td>
+    <td>boolean</td>
+    <td>Returns <code>true</code> for variable updates that contains the initial values of the variables</td>
+  </tr>
 </table>
 
 In case of an <code>HistoricFormField</code> the following properties are also provided:
@@ -344,7 +349,8 @@ GET `/history/detail?processInstanceId=3cd597b7-001a-11e7-8c6b-34f39ab71d4e`
     "revision": 0,
     "errorMessage": null,
     "removalTime":"2018-02-10T14:33:19.000+0200",
-    "rootProcessInstanceId": "aRootProcessInstanceId"
+    "rootProcessInstanceId": "aRootProcessInstanceId",
+    "initial": true
   },
   {
     "type": "variableUpdate",
@@ -373,7 +379,8 @@ GET `/history/detail?processInstanceId=3cd597b7-001a-11e7-8c6b-34f39ab71d4e`
     "revision": 0,
     "errorMessage": null,
     "removalTime":"2018-02-10T14:33:19.000+0200",
-    "rootProcessInstanceId": "aRootProcessInstanceId"
+    "rootProcessInstanceId": "aRootProcessInstanceId",
+    "initial": true
   }
 ]
 ```
