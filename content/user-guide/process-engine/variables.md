@@ -353,9 +353,9 @@ com.example.Order order = new com.example.Order();
 
 VariableMap variables =
   Variables.createVariables()
-    .putValueTyped("order", Variables.objectValue(order))
+    .putValueTyped("order", Variables.objectValue(order).create())
     .putValueTyped("string", Variables.stringValue("a string value"))
-    .putValueTyped("stringTransient", Variables.stringValue"foobar", true));
+    .putValueTyped("stringTransient", Variables.stringValue("foobar", true));
 runtimeService.setVariablesLocal(execution.getId(), "order", variables);
 ```
 
