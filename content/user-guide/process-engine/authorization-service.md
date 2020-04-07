@@ -159,6 +159,11 @@ The following resources are available:
     <td>Historic Task Id</td>
   </tr>
   <tr>
+    <td>Historic Process Instance</td>
+    <td>20</td>
+    <td>Historic Process Instance Id</td>
+  </tr>
+  <tr>
     <td>Tenant</td>
     <td>11</td>
     <td>Tenant Id</td>
@@ -350,6 +355,13 @@ The following table gives an overview for which resources they are available:
     </tr>
     <tr>
       <th>Historic Task</th>
+      <td>X</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Historic Process Instance</th>
       <td>X</td>
       <td></td>
       <td></td>
@@ -652,6 +664,18 @@ The feature is disabled by default because of two reasons:
 When permission is granted to a Historic Task, you can use the following queries to retrieve the 
 entities related to the Historic Task:
 
+* Historic Task Instance Query
+* Historic Variable Instance Query
+* Historic Detail Query
+* Identity Link Log Query
+
+### Historic Process Instance Permissions
+
+When permission is granted to a Historic Process Instance, you can use the following queries to 
+retrieve the entities related to the Historic Process Instance:
+
+* Historic Process Instance Query
+* Historic Activity Instance Query
 * Historic Task Instance Query
 * Historic Variable Instance Query
 * Historic Detail Query
