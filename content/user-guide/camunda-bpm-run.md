@@ -45,10 +45,10 @@ By default Camunda BPM Run launches with the webapps and REST API modules. If yo
 ## Choose between default and production configuration
 Camunda BPM Run ships with two different configuration files which are both located in the `configuration` folder. 
 
-* The `default.yml` configuration only contains necessary configuration like the H2 database, a demo user and [CORS](#cross-origin-resource-sharing) for REST calls from a client programm.
+* The `default.yml` configuration only contains necessary configuration like the H2 database, a demo user and [CORS](#cross-origin-resource-sharing) for REST calls from a client application.
 * The `production.yml` configuration is intended to provide the recommended properties according to the [Security Instructions]({{< ref "/user-guide/security.md" >}}). When using Camunda BPM Run in a production environment, make sure to base your custom configuration on this one and carefully read through the security instructions.
 
-By default Run launches with the `default.yml` configuration. To enable the `production.yml` configuration, execute the start script wit a cmmand-line interface with the `--production` property.
+By default Run launches with the `default.yml` configuration. To enable the `production.yml` configuration, execute the start script, through a command-line interface, with the `--production` property.
 
 ## Connect to a Database
 Camunda BPM Run is pre-configured to use a file-based H2 database for testing. The database schema and all required tables are automatically created when the engine starts up for the first time. If you want to use a custom standalone database, follow these steps:
