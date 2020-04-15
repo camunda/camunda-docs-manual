@@ -24,7 +24,7 @@ This document guides you through the update from Camunda BPM `7.12.x` to `7.13.0
 1. For developers: [MetricsReporterIdProvider interface Deprecation](#metricsreporteridprovider-interface-deprecation)
 1. For administrators and developers: [New Version of Templating Engines (Freemarker, Velocity)](#new-version-of-templating-engines-freemarker-velocity)
 1. For developers: [Entirely Replaced FEEL Engine](#entirely-replaced-feel-engine)
-1. For developers: [DMN 1.3 Support in Cockpit](#dmn-1-3-support-in-cockpit)
+1. For Developers: [Changes in Cockpit](#changes-in-cockpit)
 1. For developers: [Deployment-Aware Batch Operations](#deployment-aware-batch-operations)
 1. For developers: [Historic Process Instance Variables on Asynchronous Instantiation](#historic-process-instance-variables-on-asynchronous-instantiation)
 
@@ -285,12 +285,18 @@ Please also check out the status of the following known issues when migrating yo
 [Custom FEEL Functions]: {{< ref "/user-guide/dmn-engine/feel/custom-functions.md" >}}
 [FEEL Engine Spin Integration]: {{< ref "/user-guide/dmn-engine/feel/spin-integration.md" >}}
 
-# DMN 1.3 Support in Cockpit
+# Changes in Cockpit
+
+## DMN 1.3 Support in Cockpit
 
 With this release, Cockpit adds support for DMN 1.3, the next version of the DMN standard. If you edit and deploy DMN diagrams in Cockpit, which use earlier versions of DMN, they will automatically be migrated to DMN 1.3.
 
 The Camunda engine already supports the DMN 1.3 namespace by default, so there are no more steps required to migrate.
 Make sure you have the latest version of [Camunda Modeler](https://camunda.com/download/modeler/) installed to edit DMN 1.3 files locally.
+
+## Removal Time Batches are Hierarchical by Default
+
+The default behavior of the `set removal time` batch operations changed to be hierarchical with this release. It is less likely that the batch operation will lead to deadlocks, transaction timeouts, or full transaction logs with the hierarchical flag enabled.
 
 # Deployment-Aware Batch Operations
 
