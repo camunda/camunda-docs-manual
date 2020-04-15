@@ -31,7 +31,8 @@ camunda-bpm-run
 │   │   └── necessary SQL scripts to prepare your database system
 │   ├── userlib/
 │   │   └── put your database driver jar here
-│   └── application.yml
+│   ├── default.yml
+│   └── production.yml
 ├── internal/
 ├── start.bat
 └── start.sh
@@ -41,6 +42,14 @@ Execute one of the two start scripts (`start.bat` for Windows, `start.sh` for Li
 ## Disable Webapps or REST API
 By default Camunda BPM Run launches with the webapps and REST API modules. If you want only one of them enabled, execute the start script with a command-line interface with a `--webapps` or `--rest` property to enable the specific module.
 
+## Choose between default and production configuration
+Camunda BPM Run ships with two different configuration files which are both located in the `configuration` folder. 
+
+* The `default.yml` configuration only contains necessary configuration like the H2 database, a demo user and [CORS](#cross-origin-resource-sharing) for REST calls from a client application.
+* The `production.yml` configuration is intended to provide the recommended properties according to the [Security Instructions]({{< ref "/user-guide/security.md" >}}). When using Camunda BPM Run in a production environment, make sure to base your custom configuration on this one and carefully read through the security instructions.
+
+By default Run launches with the `default.yml` configuration. To enable the `production.yml` configuration, execute the start script, through a command-line interface, with the `--production` property.
+
 ## Connect to a Database
 Camunda BPM Run is pre-configured to use a file-based H2 database for testing. The database schema and all required tables are automatically created when the engine starts up for the first time. If you want to use a custom standalone database, follow these steps:
 
@@ -48,7 +57,7 @@ Camunda BPM Run is pre-configured to use a file-based H2 database for testing. T
 1. Create a database schema for the Camunda BPM platform yourself.
 1. Execute the SQL DDL scripts which create all required tables and default indices. The scripts can be found in the `configuration/sql/create` folder.
 1. Drop a JDBC driver jar for your database system in the `configuration/userlib` folder.
-1. Add the JDBC URL and login credentials to the `application.yml` like described [below](#database).
+1. Add the JDBC URL and login credentials to the configuration file like described [below](#database).
 1. Restart Camunda BPM Run
 
 ## Deploy BPMN Models
@@ -65,7 +74,7 @@ You can also still enter the license key in the Admin webapp UI.
 
 # Configure Camunda BPM Run
 
-Just like all the other distros, you can tailor Camunda BPM Run to your needs. To do this, you only have to edit the `application.yml` file that you can find in the configuration folder.
+Just like all the other distros, you can tailor Camunda BPM Run to your needs. To do this, you only have to edit one of the [configuration files](#choose-between-default-and-production-configuration) that you can find in the configuration folder.
 
 {{< note title="Note:" class="info" >}}
 Camunda BPM Run is based on the [Camunda Spring Boot Starter](https://github.com/camunda/camunda-bpm-spring-boot-starter). 
@@ -173,7 +182,7 @@ Find all available configuration properties in the [LDAP Plugin Guide]({{< ref "
 
 ## HTTPS
 Camunda BPM Run supports HTTPS over SSL. To enable it, you will need a valid SSL certificate signed by a trusted provider and stored in a key store file (either .jks or .p12).
-For testing, we included a self-signed certificate. You should not use this in production. To enable it, add the following properties to your application.yml.
+For testing, we included a self-signed certificate. You should not use this in production. To enable it, add the following properties to your configuration file.
 
 ```yaml
 server:
@@ -224,7 +233,7 @@ After starting Camunda BPM Run, you can access the webapps via https://localhost
 
 ## Logging
 Camunda BPM provides fine-grained and customizable logging. An overview of the available logging categories can be found in the [Logging User Guide]({{< ref "/user-guide/logging.md#process-engine" >}}).
-To configure the logging behavior in Camunda BPM Run, customize your `application.yml` with the following properties.
+To configure the logging behavior in Camunda BPM Run, customize your configuration file with the following properties.
 
 For more information on logging configuration visit the [Spring Boot Logging Guide](https://howtodoinjava.com/spring-boot2/logging/configure-logging-application-yml/).
 
