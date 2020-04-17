@@ -54,14 +54,6 @@ GET `/decision-definition`
     <td>Filter by the deployment the id belongs to.</td>
   </tr>
   <tr>
-    <td>deployedAfter</td>
-    <td>Filter by the deploy time of the deployment the decision definition belongs to. Only selects decision definitions that have been deployed after (exclusive) a specific time.</td>
-  </tr>
-  <tr>
-    <td>deployedAt</td>
-    <td>Filter by the deploy time of the deployment the decision definition belongs to. Only selects decision definitions that have been deployed at a specific time (exact match).</td>
-  </tr>
-  <tr>
     <td>key</td>
     <td>Filter by decision definition key, i.e., the id in the DMN 1.0 XML. Exact match.</td>
   </tr>
@@ -124,7 +116,7 @@ GET `/decision-definition`
   <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>category</code>, <code>decisionRequirementsDefinitionKey</code>, <code>key</code>, <code>id</code>, <code>name</code>, <code>version</code>, <code>deploymentId</code>, <code>deployTime</code>, <code>tenantId</code> and <code>versionTag</code>.
+    <code>category</code>, <code>decisionRequirementsDefinitionKey</code>, <code>key</code>, <code>id</code>, <code>name</code>, <code>version</code>, <code>deploymentId</code> and <code>tenantId</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>

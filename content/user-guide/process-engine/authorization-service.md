@@ -579,7 +579,7 @@ When the `enforceSpecificVariablePermission` process engine configuration is ena
 
 In case of Tasks
 
-* Read Variable (for process and standalone tasks)
+* Read Variable (for standalone tasks)
 
 In case of Process Definitions
 
