@@ -29,7 +29,7 @@ The following table describes the built-in metrics. The identifiers of all built
   </tr>
   <tr>
     <td></td>
-    <td>activity-instance-end/td>
+    <td>activity-instance-end</td>
     <td>The number of activity instances ended.</td>
   </tr>
   <tr>
