@@ -42,7 +42,7 @@ GET `/event-subscription/count`
   </tr>
   <tr>
     <td>eventType</td>
-    <td>Only select subscriptions for events with the given type. Valid values are <code>message</code>, <code>signal</code>, <code>compensation</code>, <code>conditional</code>.</td>
+    <td>Only select subscriptions for events with the given type. <code>message</code> selects message event subscriptions, <code>signal</code> selects signal event subscriptions, <code>compensation</code> selects compensation event subscriptions, <code>conditional</code> selects conditional event subscriptions.</td>
   </tr>
   <tr>
     <td>executionId</td>
@@ -58,15 +58,15 @@ GET `/event-subscription/count`
   </tr>
   <tr>
     <td>tenantIdIn</td>
-    <td>Filter by a comma-separated list of tenant ids. A process instance must have one of the given tenant ids.</td>
+    <td>Filter by a comma-separated list of tenant ids. Only select subscriptions that belong to one of the given tenant ids.</td>
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only select subscriptions which have no tenant id. Value values are <code>true</code> and <code>false</code></td>
+    <td>Only select subscriptions which have no tenant id. Value values are <code>true</code> and <code>false</code>.</td>
   </tr>
   <tr>
     <td>includeEventSubscriptionsWithoutTenantId</td>
-    <td>Select event subscriptions which have no tenant id. Can be used in combination with <code>tenantIdIn</code>  parameter. Value values are <code>true</code> and <code>false</code></td>
+    <td>Select event subscriptions which have no tenant id. Can be used in combination with <code>tenantIdIn</code>  parameter. Value values are <code>true</code> and <code>false</code>.</td>
   </tr>
 </table>
 
