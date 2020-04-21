@@ -42,7 +42,7 @@ GET `/event-subscription/count`
   </tr>
   <tr>
     <td>eventType</td>
-    <td>Only select subscriptions for events with the given type. <code>message</code> selects message event subscriptions, <code>signal</code> selects signal event subscriptions, <code>compensation</code> selects compensation event subscriptions, <code>conditional</code> selects conditional event subscriptions.</td>
+    <td>Only select subscriptions for events with the given type. <code>message</code> selects message event subscriptions, <code>signal</code> selects signal event subscriptions, <code>compensate</code> selects compensation event subscriptions, <code>conditional</code> selects conditional event subscriptions.</td>
   </tr>
   <tr>
     <td>executionId</td>
