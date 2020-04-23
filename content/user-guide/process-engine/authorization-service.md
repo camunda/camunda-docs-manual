@@ -668,6 +668,7 @@ entities related to the Historic Task:
 * Historic Variable Instance Query
 * Historic Detail Query
 * Identity Link Log Query
+* User Operation Log Query
 
 ### Historic Process Instance Permissions
 
