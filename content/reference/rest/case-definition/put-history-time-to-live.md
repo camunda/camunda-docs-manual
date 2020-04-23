@@ -39,6 +39,14 @@ PUT `/case-definition/key/{key}/tenant-id/{tenant-id}/history-time-to-live` (upd
     <td>id</td>
     <td>The id of the case definition to change history time to live.</td>
   </tr>
+  <tr>
+    <td>key</td>
+    <td>The key of the case definitions to change history time to live.</td>
+  </tr>
+  <tr>
+    <td>tenant-id</td>
+    <td>The id of the tenant the case definitions belong to.</td>
+  </tr>
 </table>
 
 
