@@ -16,7 +16,7 @@ menu:
 
 ---
 
-Evaluates a given decision and returns the result. The input values of the decision have to be supplied in the request body.
+Evaluates a given decision and returns the result. The input values of the decision have to be supplied in the request body. If no input values are passed an exception will be raised
 
 
 # Method
