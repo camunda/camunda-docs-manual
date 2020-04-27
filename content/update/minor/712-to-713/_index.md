@@ -19,6 +19,7 @@ This document guides you through the update from Camunda BPM `7.12.x` to `7.13.0
 1. For administrators and developers: [Full Distribution Update](#full-distribution)
 1. For administrators: [Standalone Web Application](#standalone-web-application)
 1. For developers: [Spring Boot Starter Update](#spring-boot-starter-update)
+   * [REST API: Changed Default Application Path](#rest-api-changed-default-application-path)
 1. For developers: [External Task Client Update](#external-task-client-update)
 1. For developers: [Identity Service Queries](#identity-service-queries)
 1. For developers: [MetricsReporterIdProvider interface Deprecation](#metricsreporteridprovider-interface-deprecation)
@@ -108,6 +109,19 @@ If you are using Camunda Spring Boot Starter within your Spring Boot application
 1. Check [Version Compatibility Matrix]({{< ref "/user-guide/spring-boot-integration/version-compatibility.md" >}})
 2. Update **Spring Boot Starter** and, when required, Spring Boot versions in your `pom.xml`.
 3. Remove the Camunda BPM version from your `pom.xml` in case you overrode it before (e.g. when using the enterprise version or a patch release).
+
+## REST API: Changed Default Application Path
+
+With this release, the context path of the Spring Boot REST API Starter changed. The change aligns 
+the application path with all other Camunda BPM distributions.
+
+Old Application Path: `/rest`\
+New Application Path: `/engine-rest`
+
+If you want to change the application path back to the old one, please see the documentation about the 
+[Spring Boot Starter REST API].
+
+[Spring Boot Starter REST API]: {{< ref "/user-guide/spring-boot-integration/rest-api.md" >}}
 
 # External Task Client Update
 

@@ -37,7 +37,7 @@ camunda-bpm-run
 ├── start.bat
 └── start.sh
 ```
-Execute one of the two start scripts (`start.bat` for Windows, `start.sh` for Linux/Mac). After a few seconds, you will be able to access the Camunda webapps via http://localhost:8080 and the REST API via http://localhost:8080/rest/
+Execute one of the two start scripts (`start.bat` for Windows, `start.sh` for Linux/Mac). After a few seconds, you will be able to access the Camunda webapps via http://localhost:8080 and the REST API via http://localhost:8080/engine-rest/
 
 ## Disable Webapps or REST API
 By default Camunda BPM Run launches with the webapps and REST API modules. If you want only one of them enabled, execute the start script with a command-line interface with a `--webapps` or `--rest` property to enable the specific module.
@@ -194,7 +194,7 @@ server:
     key-password: camunda
   port: 8443
 ```
-After starting Camunda BPM Run, you can access the webapps via https://localhost:8443 and the REST API via https://localhost:8443/rest.
+After starting Camunda BPM Run, you can access the webapps via https://localhost:8443 and the REST API via https://localhost:8443/engine-rest.
 
 <table class="table desc-table">
   <tr>
