@@ -680,6 +680,10 @@ retrieve the entities related to the Historic Process Instance:
 * Historic Variable Instance Query
 * Historic Detail Query
 * Identity Link Log Query
+* Historic Incident Query
+* Job Log Query
+* External Task Log Query
+* User Operation Log Query
 
 # Administrators
 

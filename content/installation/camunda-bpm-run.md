@@ -24,9 +24,9 @@ java -version
 If you need to install Java Runtime Environment, you can [find the download from Oracle here](https://www.oracle.com/java/technologies/javase-downloads.html).
 
 # Installation Procedure
-1. Download the pre-packed distribution from [here](https://downloads.camunda.cloud/release/camunda-bpm/run/) or from [here](https://downloads.camunda.cloud/enterprise-release/camunda-bpm/run/) if you are an enterprise customer.
+1. Download the pre-packed distribution of the [community edition here] (https://downloads.camunda.cloud/release/camunda-bpm/run/) or the [enterprise edition here](https://downloads.camunda.cloud/enterprise-release/camunda-bpm/run/).
 1. Unpack the distro to a directory.
-1. Configure the distro as described in the [user guide]({{< ref "/user-guide/camunda-bpm-run.md" >}}).
+1. Configure the distro as described in the [User Guide]({{< ref "/user-guide/camunda-bpm-run.md" >}}).
 1. Start Camunda BPM Run by executing the start script (start.bat for Windows, start.sh for Linux/Mac).
 1. Access the Camunda webapps (Cockpit, Tasklist, Admin) via http://localhost:8080.
 1. Access the [REST API]({{< ref "/reference/rest/overview/_index.md" >}}) via http://localhost:8080/engine-rest (e.g. http://localhost:8080/engine-rest/engine).
