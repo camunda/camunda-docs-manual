@@ -136,7 +136,7 @@ Please note that this feature is only included in the enterprise edition of the 
 
 {{< img src="../../img/cockpit-documentation.png" title="Set Job Priority" >}}
 
-This feature allows you to inspect documentation added in the Camunda Modeler. To do so, open the Documentation tab. Elements with a documentation are indicated with a {{< glyphicon name="info-sign" >}} in the diagram. The documentation table lists all documented elements. Click on a table row to highlight the element in the diagram.
+This feature allows you to inspect documentation added in the Camunda Modeler. To do so, open the Documentation tab. Elements with a documentation are indicated with a {{< glyphicon name="info-sign" >}} in the diagram. The documentation table lists all documented elements. Click on the table row to highlight the element in the diagram.
 
 To view long documentations, click on the {{< glyphicon name="info-sign" >}} on the element or the documentation link in the table. This opens a modal which displays the formated documentation in a textbox. To copy the documentation to the clipboard, click on {{< glyphicon name="copy" >}} button.
 
