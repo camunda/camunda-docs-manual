@@ -65,8 +65,8 @@ supported by the Camunda DMN engine:
 
 A hit policy specifies how many rules of a decision table can be satisfied and
 which of the satisfied rules are included in the [decision table result]. The
-hit policies [Unique], [Any] and [First] will always return a maximum of one
-satisfied rule. The hit policies [Rule Order] and [Collect] can return
+hit policies [Unique] will always return a maximum of one
+satisfied rule. The hit policies [Any], [First], [Rule Order] and [Collect] can return
 multiple satisfied rules.
 
 ## Unique Hit Policy
