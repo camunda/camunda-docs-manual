@@ -27,7 +27,7 @@ To enable Camunda BPM auto configuration, add the following dependency to your `
 </dependency>
 ```
 
-This will add the Camunda engine v.7.13.0 to your dependencies. For more help on Spring Framework and Camunda dependencies, refer [link](https://start.camunda.com/).
+This will add the Camunda engine v.7.13.0 to your dependencies.
 
 Other starters that can be used are: [`camunda-bpm-spring-boot-starter-rest`](rest-api) and [`camunda-bpm-spring-boot-starter-webapp`](webapps).
 
