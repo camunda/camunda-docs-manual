@@ -56,7 +56,7 @@ Here you see two sections. The option section allows you to specify options rela
 
 *Asynchronous* is recommended to keep ticked when you want to process a large number of instances. Otherwise, unchecking the box allows you to process the batch in a synchronous manner.
 
-*Initial Variables* allows you to set the initial set of variables. By default is is the last set of variables used.  
+*Initial Variables* allows you to set the initial set of variables. By default it is the last set of variables used.  
 
 *Without Business Key* offers the option to avoid taking over the business key of the historic process instance to the new instance. 
 
