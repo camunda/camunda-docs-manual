@@ -30,7 +30,7 @@ Please note that this feature is only included in the enterprise edition of the 
 
 {{< img src="../img/dashboard-metrics.png" title="Cockpit Dashboard Metrics" >}}
 
-At the bottom of the dashboard, the metrics plugin displays graphs with metrics for executed activity instances, evaluated decision instances and executed jobs. 
+At the bottom of the dashboard, the metrics plugin display graphs with metrics for executed activity instances, evaluated decision instances and executed jobs. 
 You can select to display the details for the current day, the current week or the current month. By clicking on the metrics graphs and dragging the cursor 
 in either direction, you can select a specified range of time. You can also modify the range of time by using the mouse wheel. By clicking on the link that
 appears under the graph, you are forwarded to the respective search with preselected query parameters.
