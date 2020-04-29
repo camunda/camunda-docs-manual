@@ -46,6 +46,7 @@ DmnEngine dmnEngine = configuration.buildEngine();
 ```
 
 # Configuration of the DMN Engine
+Please refer to the [DMN Engine Configuration]({{< ref "/user-guide/process-engine/decisions/configuration" >}})  section of the [User Guide]({{< ref "/user-guide/_index.md" >}}) for DMN configuration.
 
 ## Decision Table Evaluation Listeners
 
