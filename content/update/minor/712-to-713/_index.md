@@ -123,6 +123,25 @@ If you want to change the application path back to the old one, please see the d
 
 [Spring Boot Starter REST API]: {{< ref "/user-guide/spring-boot-integration/rest-api.md" >}}
 
+## New license key mechanism
+
+The mechanism for license key pickup (via Spring properties or from the classpath of a Spring Boot application) has been moved with the release of 7.13. It is now only available from the **`camunda-bpm-spring-boot-starter-webapp-ee`** module.
+
+```xml
+<dependency>
+  <groupId>org.camunda.bpm.springboot</groupId>
+  <artifactId>camunda-bpm-spring-boot-starter-webapp-ee</artifactId>
+</dependency>
+```
+
+If you want to set a license key without using the **`camunda-bpm-spring-boot-starter-webapp-ee`** module, you can use the Java API:
+
+```java
+managementService.setLicenseKey(String licenseKey);
+```
+Only Spring Boot applications that use one of the mentioned ways of setting the key are affected by these changes. Other mechanisms included in the engine (e.g. automatic pickup from the users home directory) are not affected. You can find more information about license keys in the [System Management Guide]({{< ref "/webapps/admin/system-management.md#camunda-license-key" >}}).
+
+
 # External Task Client Update
 
 If you are using the **Camunda External Task Client**, please make sure to:
