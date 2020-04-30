@@ -253,7 +253,7 @@ The available properties are as follows:
 
 <tr>
 <td><a name="license-file"></a><code>.license-file</code></td>
-<td>Provides an URL to your Camunda license file and is automatically inserted into the DB when the application starts (but only if no valid license key is found in the DB).</br></br>
+<td>Provides a URL to your Camunda license file and is automatically inserted into the DB when the application starts (but only if no valid license key is found in the DB).</br></br>
 <b>Note:</b> This property is only available when using the <b>camunda-bpm-spring-boot-starter-webapp-ee</b>
 </td>
 <td>By default, the license key will be loaded:
