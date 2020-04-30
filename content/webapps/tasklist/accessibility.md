@@ -13,7 +13,7 @@ menu:
 It is possible to use the Tasklist only with the keyboard. You can use the TAB-key to navigate to the sections of the Tasklist. To interact with an element you have focussed, press ENTER.
 
 
-# Keyboard Shortcuts
+# Keyboard Shortcuts 
 
 To make working with the Tasklist easier, you can use keyboard shortcuts to jump to certain parts of the Tasklist or perform special operations. Per default, we support the following actions via keyboard shortcuts:
 
