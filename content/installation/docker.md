@@ -25,6 +25,8 @@ docker pull camunda/camunda-bpm-platform:latest
 docker run -d --name camunda -p 8080:8080 camunda/camunda-bpm-platform:latest
 ```
 
+Please note that by default the Apache Tomcat distribution is used. For a guide on how to use one of the other distributions, see the [tag schema](https://github.com/camunda/docker-camunda-bpm-platform#supported-tagsreleases).
+
 ## Start Camunda BPM Run using Docker
 
 To start [Camunda BPM Run]({{< ref "/user-guide/camunda-bpm-run.md" >}}) execute the following commands:
@@ -61,3 +63,5 @@ fbf8f17dff48: Pull complete
 Digest: sha256:47598932a4aff210ce91819d3b75adbfde675017b13ce9881c9d7dca682fba96
 Status: Downloaded newer image for registry.camunda.cloud/cambpm-ee/camunda-bpm-platform-ee:7.10.0
 ```
+
+If you want to build an enterprise image yourself, follow the steps described on [GitHub](https://github.com/camunda/docker-camunda-bpm-platform#build-a-enterprise-version).

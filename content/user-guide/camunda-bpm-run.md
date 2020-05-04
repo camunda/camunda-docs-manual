@@ -40,16 +40,7 @@ camunda-bpm-run
 Execute one of the two start scripts (`start.bat` for Windows, `start.sh` for Linux/Mac). After a few seconds, you will be able to access the Camunda webapps via http://localhost:8080 and the REST API via http://localhost:8080/engine-rest/
 
 ## Starting Camunda BPM Run using Docker
-
-Run is also available as Docker image. It can be found on [GitHub](https://github.com/camunda/docker-camunda-bpm-platform) and [Docker Hub](https://hub.docker.com/r/camunda/camunda-bpm-platform/tags?page=1&name=run). To start the latest release of Camunda BPM Run execute the following commands:
-
-```shell
-docker pull camunda/camunda-bpm-platform:run-latest
-docker run -d --name camunda -p 8080:8080 camunda/camunda-bpm-platform:run-latest
-```
-After a few seconds Camunda will be available at `http://localhost:8080`.
-
-If you want to use the enterprise version, you can build it yourself with the steps described on [GitHub](https://github.com/camunda/docker-camunda-bpm-platform#build-a-enterprise-version).
+Camunda BPM Run is also available as a Docker image. Please see the Run section of the Camunda Docker documentation [here]({{< ref "/installation/docker.md#start-camunda-bpm-run-using-docker" >}}) for more details.
 
 ## Disable Webapps or REST API
 By default Camunda BPM Run launches with the webapps and REST API modules. If you want only one of them enabled, execute the start script with a command-line interface with a `--webapps` or `--rest` property to enable the specific module.
