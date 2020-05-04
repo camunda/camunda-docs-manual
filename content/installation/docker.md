@@ -14,7 +14,27 @@ menu:
 
 # Community Edition
 
-The Community Edition docker images can be found on [Github](https://github.com/camunda/docker-camunda-bpm-platform) and [Docker Hub](https://hub.docker.com/r/camunda/camunda-bpm-platform/).
+The Community Edition docker images can be found on [GitHub](https://github.com/camunda/docker-camunda-bpm-platform) and [Docker Hub](https://hub.docker.com/r/camunda/camunda-bpm-platform/).
+
+## Start Camunda BPM using Docker
+
+To start the Camunda BPM platform execute the following commands:
+
+```shell
+docker pull camunda/camunda-bpm-platform:latest
+docker run -d --name camunda -p 8080:8080 camunda/camunda-bpm-platform:latest
+```
+
+Please note that by default the Apache Tomcat distribution is used. For a guide on how to use one of the other distributions, see the [tag schema](https://github.com/camunda/docker-camunda-bpm-platform#supported-tagsreleases).
+
+## Start Camunda BPM Run using Docker
+
+To start [Camunda BPM Run]({{< ref "/user-guide/camunda-bpm-run.md" >}}) execute the following commands:
+
+```shell
+docker pull camunda/camunda-bpm-platform:run-latest
+docker run -d --name camunda -p 8080:8080 camunda/camunda-bpm-platform:run-latest
+```
 
 # Enterprise Edition
 
@@ -26,7 +46,7 @@ Please note that these images are build using the same Dockerfile of the Communi
 
 Make sure to log-in correctly before trying to pull the image:
 
-```
+```shell
 $ docker login registry.camunda.cloud
 Username: my.username
 Password:
@@ -43,3 +63,5 @@ fbf8f17dff48: Pull complete
 Digest: sha256:47598932a4aff210ce91819d3b75adbfde675017b13ce9881c9d7dca682fba96
 Status: Downloaded newer image for registry.camunda.cloud/cambpm-ee/camunda-bpm-platform-ee:7.10.0
 ```
+
+If you want to build an enterprise image yourself, follow the steps described on [GitHub](https://github.com/camunda/docker-camunda-bpm-platform#build-a-enterprise-version).
