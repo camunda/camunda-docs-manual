@@ -34,7 +34,7 @@ GET `/event-subscription`
   </tr>
   <tr>
     <td>eventSubscriptionId</td>
-    <td>selects subscriptions with the given id.</td>
+    <td>Only select subscription with the given id.</td>
   </tr>
   <tr>
     <td>eventName</td>
@@ -42,7 +42,7 @@ GET `/event-subscription`
   </tr>
   <tr>
     <td>eventType</td>
-    <td>Only select subscriptions for events with the given type. <code>message</code> selects message event subscriptions, <code>signal</code> selects signal event subscriptions, <code>compensate</code> selects compensation event subscriptions, <code>conditional</code> selects conditional event subscriptions.</td>
+    <td>Only select subscriptions for events with the given type. Valid values: <code>message</code>, <code>signal</code>, <code>compensate</code>, and <code>conditional</code>.</td>
   </tr>
   <tr>
     <td>executionId</td>
@@ -62,11 +62,11 @@ GET `/event-subscription`
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only select subscriptions which have no tenant id. Value values are <code>true</code> and <code>false</code></td>
+    <td>Only select subscriptions which have no tenant id. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>includeEventSubscriptionsWithoutTenantId</td>
-    <td>Select event subscriptions which have no tenant id. Can be used in combination with <code>tenantIdIn</code>  parameter. Value values are <code>true</code> and <code>false</code>.</td>
+    <td>Select event subscriptions which have no tenant id. Can be used in combination with <code>tenantIdIn</code>  parameter. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>sortBy</td>
@@ -169,7 +169,7 @@ Each event subscription object has the following properties:
 
 ## Request
 
-GET `/event-subscription?eventType=message&sortBy=created&sortOrder=asc`
+GET `/event-subscription?eventType=message&sortBy=created&sortOrder=desc`
 
 ## Response
 
@@ -178,7 +178,7 @@ GET `/event-subscription?eventType=message&sortBy=created&sortOrder=asc`
      "eventType":"message",
      "eventName":"anEventName",
      "executionId":"anExecutionId",
-     "processInstanceId":aProcessInstanceId,
+     "processInstanceId":"aProcessInstanceId",
      "activityId":"anActivityId",
      "createdDate":"2020-04-20T15:23:12.229+0200",
      "tenantId":null
@@ -188,7 +188,7 @@ GET `/event-subscription?eventType=message&sortBy=created&sortOrder=asc`
      "eventType":"message",
      "eventName":"anotherEventName",
      "executionId":"anotherExecutionId",
-     "processInstanceId":anotherProcessInstanceId,
+     "processInstanceId":"anotherProcessInstanceId",
      "activityId":"anotherActivityId",
      "createdDate":"2020-04-20T15:20:12.229+0200",
      "tenantId":null
