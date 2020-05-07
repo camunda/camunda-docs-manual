@@ -128,7 +128,7 @@ information on this please see the [Service Tasks]({{< relref "service-task.md" 
 
 # Implementing as an External Task
 
-In addition to the above, a Business Rule Task can be implemented via the [External Task]({{< ref "/user-guide/process-engine/external-tasks.md" >}}) mechanism where an external system polls the process engine for work to do. See the section on [Service Tasks](({{< relref "service-task.md#external-tasks" >}}) for more information about how to configure an external task.
+In addition to the above, a Business Rule Task can be implemented via the [External Task]({{< ref "/user-guide/process-engine/external-tasks.md" >}}) mechanism where an external system polls the process engine for work to do. See the section on [Service Tasks]({{< relref "service-task.md#external-tasks" >}}) for more information about how to configure an external task.
 
 
 # Camunda Extensions
