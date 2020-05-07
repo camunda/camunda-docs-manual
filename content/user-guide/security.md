@@ -24,7 +24,12 @@ There are different ways of using Camunda BPM and different components are provi
 * Web applications (Cockpit, Tasklist, ...): similar considerations to the REST API apply.
 
 
-Keep in mind that it is not recommended to use the pre-packaged distribution in production environment rather install the full distribution manually (for example [Tomcat manual installation](https://docs.camunda.org/manual/latest/installation/full/tomcat/manual/)). We do not advise to use pre-packaged distribution in production because it is for user who need more getting started experience. In case you still want to use it, you should consider removing the invoice application and the demo user.
+Keep in mind that it is not recommended to use the pre-packaged distribution in production environment rather install the full distribution manually (for example [Tomcat manual installation](https://docs.camunda.org/manual/latest/installation/full/tomcat/manual/)).
+
+{{< note title="Security Consideration" class="warning" >}}
+  The pre-packaged distribution is intended for users who want a getting started experience. In case
+  you still want to use it in production, consider un-deploying the invoice application and removing the demo user.
+{{</note>}}
 
 # Security Configuration inside Camunda
 
