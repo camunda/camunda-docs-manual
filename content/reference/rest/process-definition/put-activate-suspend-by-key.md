@@ -68,6 +68,11 @@ This method returns no content.
     <td>Request successful.</td>
   </tr>
   <tr>
+    <td>404</td>
+    <td>application/json</td>
+    <td>Process definition with given key does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+  </tr>
+  <tr>
     <td>400</td>
     <td>application/json</td>
     <td>Returned if some of the request parameters are invalid, for example if the provided <code>executionDate</code> parameter doesn't have the expected format or if the <code>processDefinitionKey</code> parameter is null. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
