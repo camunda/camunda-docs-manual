@@ -34,6 +34,10 @@ GET `/user/count`
     <td>Filter by the id of the user.</td>
   </tr>
   <tr>
+    <td>idIn</td>
+    <td>Filter by a list of user ids. Must be a JSON array of Strings.</td>
+  </tr>
+  <tr>
     <td>firstName</td>
     <td>Filter by the first name of the user.</td>
   </tr>
@@ -64,7 +68,11 @@ GET `/user/count`
   <tr>
     <td>memberOfTenant</td>
     <td>Filter for users which are members of the given tenant.</td>
-  </tr>  
+  </tr>
+  <tr>
+    <td>potentialStarter</td>
+    <td>Only select Users that are potential starter for the given process definition.</td>
+  </tr>
 </table>
 
 
