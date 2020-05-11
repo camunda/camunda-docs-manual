@@ -494,6 +494,12 @@ With this release, cockpit adds support for DMN 1.3, the next version of the DMN
 
 The Camunda engine already supports the DMN 1.3 namespace by default, so there are no more steps required to migrate.
 Make sure you have the latest version of [Camunda Modeler](https://camunda.com/download/modeler/) installed to edit DMN 1.3 files locally.
+
+## 7.12.5 to 7.12.6
+
+### Oracle JDBC Driver Removed from Camunda Docker Images
+
+The Docker images for Camunda 7.13 no longer provide an Oracle JDBC driver out of the box. If you relied on this, apply the strategy outlined in https://github.com/camunda/docker-camunda-bpm-platform#database-environment-variables: Add the driver to the container and configure the database settings manually by linking the configuration file into the container.
    
 # Full Distribution
 
