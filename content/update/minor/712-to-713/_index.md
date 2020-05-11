@@ -28,6 +28,7 @@ This document guides you through the update from Camunda BPM `7.12.x` to `7.13.0
 1. For Developers: [Changes in Cockpit](#changes-in-cockpit)
 1. For developers: [Deployment-Aware Batch Operations](#deployment-aware-batch-operations)
 1. For developers: [Historic Process Instance Variables on Asynchronous Instantiation](#historic-process-instance-variables-on-asynchronous-instantiation)
+1. For administrators and developers: [Oracle JDBC Driver Removed from Camunda Docker Images](#oracle-jdbc-driver-removed-from-camunda-docker-images)
 
 This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new functionality included in Camunda BPM 7.13.
 
@@ -384,3 +385,7 @@ In Cockpit, starting from 7.13, you will notice a different activity instance id
 {{< img src="./img/variable-log.png" title="Variable Log" >}}
 
 As you can see in the picture above, the variable log shows the process instance id for the activity instead of the start event activity. The same is valid if you are using the Java and/or REST API.
+
+# Oracle JDBC Driver Removed from Camunda Docker Images
+
+The Docker images for Camunda 7.13 no longer provide an Oracle JDBC driver out of the box. If you relied on this, apply the strategy outlined in https://github.com/camunda/docker-camunda-bpm-platform#database-environment-variables: Add the driver to the container and configure the database settings manually by linking the configuration file into the container.
