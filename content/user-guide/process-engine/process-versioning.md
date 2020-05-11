@@ -134,8 +134,9 @@ definition for a version tag:
 ProcessDefinition pd = processEngine.getRepositoryService().createProcessDefinitionQuery()
     .processDefinitionKey("invoice")
     .versionTag("1.5-patch2")
-    .latest()
-    .singleResult();
+    .orderByVersion().
+    .desc()
+    .listPage(0,1);
 
 processEngine.getRuntimeService().startProcessInstanceById(pd.getId());
 ```
@@ -143,6 +144,13 @@ processEngine.getRuntimeService().startProcessInstanceById(pd.getId());
 {{< note title="Version Tag" class="info" >}}
 The version tag is only for tagging and will neither influence the `startProcessInstanceByKey`
 nor the `startProcessInstanceById` behavior.
+{{< /note >}}
+
+{{< note title="Latest Version" class="info" >}}
+The Process Definition `version` and `versionTag` are separate properties. When querying with
+`ProcessDefinitionQuery#latestVersion()`, the Process Definition with the largest `version` number is located for
+a given key. Adding a version tag filter to this query might provide an empty result if the latest Process Definition
+doesn't contain the queried version tag.
 {{< /note >}}
 
 # Process Instance Migration
