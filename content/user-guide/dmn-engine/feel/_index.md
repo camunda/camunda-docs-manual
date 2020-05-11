@@ -33,7 +33,7 @@ please read the documentation about the
 {{< /note >}}
 
 [FEEL Scala Engine]: https://github.com/camunda/feel-scala
-[input entries]: {{< ref "/reference/dmn11/decision-table/rule.md#input-entry-condition" >}}
-[Input Expressions]: {{< ref "/reference/dmn11/decision-table/input.md#input-expression" >}}
-[Output Entries]: {{< ref "/reference/dmn11/decision-table/rule.md#output-entry-conclusion" >}}
-[Literal Expressions]: {{< ref "/reference/dmn11/decision-literal-expression/_index.md" >}}
+[input entries]: {{< ref "/reference/dmn/decision-table/rule.md#input-entry-condition" >}}
+[Input Expressions]: {{< ref "/reference/dmn/decision-table/input.md#input-expression" >}}
+[Output Entries]: {{< ref "/reference/dmn/decision-table/rule.md#output-entry-conclusion" >}}
+[Literal Expressions]: {{< ref "/reference/dmn/decision-literal-expression/_index.md" >}}

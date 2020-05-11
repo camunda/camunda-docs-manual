@@ -10,6 +10,7 @@ menu:
     parent: "dmn-ref-feel"
     pre: ""
 
+aliases: [reference/dmn11/feel/legacy/]
 ---
 
 {{< note title="Heads Up!" class="info" >}}

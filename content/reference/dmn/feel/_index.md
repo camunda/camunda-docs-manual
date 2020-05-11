@@ -10,6 +10,7 @@ menu:
     parent: "dmn-ref"
     pre: "DMN's default Expression Language"
 
+aliases: [reference/dmn11/feel/]
 ---
 
 Decision Model and Notation (DMN) defines a Friendly Enough Expression

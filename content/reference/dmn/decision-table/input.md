@@ -10,6 +10,7 @@ menu:
     parent: "dmn-ref-decision-table"
     pre: "Specify the Inputs of Decision Tables"
 
+aliases: [reference/dmn11/decision-table/input/]
 ---
 
 {{< img src="../img/input.png" title="Input" class="no-lightbox" >}}
@@ -174,5 +175,5 @@ JUEL expression `currentSeason != "Fall"` checks if the season input is not
 [supported EL]: {{< ref "/user-guide/dmn-engine/expressions-and-scripts.md#supported-expression-languages" >}}
 [default EL]: {{< ref "/user-guide/dmn-engine/expressions-and-scripts.md#default-expression-languages" >}}
 [supported DT]: {{< ref "/user-guide/dmn-engine/data-types.md#supported-data-types" >}}
-[inputVariable]: {{< ref "/reference/dmn11/custom-extensions/camunda-attributes.md#inputvariable" >}}
-[input entry]: {{< ref "/reference/dmn11/decision-table/rule.md#input-entry-condition" >}}
+[inputVariable]: {{< ref "/reference/dmn/custom-extensions/camunda-attributes.md#inputvariable" >}}
+[input entry]: {{< ref "/reference/dmn/decision-table/rule.md#input-entry-condition" >}}

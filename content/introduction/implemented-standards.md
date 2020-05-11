@@ -10,7 +10,7 @@ menu:
 
 ---
 
-Camunda implements three different standards in the Business Process Management scope: BPMN 2.0, CMMN 1.1 and DMN 1.1.
+Camunda implements three different standards in the Business Process Management scope: BPMN 2.0, CMMN 1.1 and DMN 1.3.
 These three standards are defined by the [Object Management Group][OMG] with active collaboration of Camunda.
 
 Camunda BPM provides open source implementations of execution and [modeling tools][modelers].
@@ -57,7 +57,7 @@ Camunda supports the 1.1 version of DMN.
 [CMMN Implementation Reference]: {{< ref "/reference/cmmn11/_index.md" >}}
 [CMMN Getting Started]: /get-started/cmmn11/
 [DMN Getting Started]: /get-started/dmn11/
-[DMN Implementation Reference]: {{< ref "/reference/dmn11/_index.md" >}}
+[DMN Implementation Reference]: {{< ref "/reference/dmn/_index.md" >}}
 [DMN Modeling Tutorial]: https://camunda.org/dmn/tutorial/
 [Process Engine]: {{< ref "/user-guide/process-engine/_index.md" >}}
 [DMN Engine]: {{< ref "/user-guide/dmn-engine/_index.md" >}}

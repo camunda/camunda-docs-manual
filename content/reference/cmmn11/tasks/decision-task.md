@@ -7,11 +7,11 @@ menu:
   main:
     identifier: "cmmn-ref-tasks-decision"
     parent: "cmmn-ref-tasks"
-    pre: "Allows invoking a DMN 1.1 Decision."
+    pre: "Allows invoking a DMN 1.3 Decision."
 
 ---
 
-A *decision task* can be used to invoke a [DMN 1.1] decision from a case.
+A *decision task* can be used to invoke a [DMN 1.3] decision from a case.
 
 {{< cmmn-symbol type="decision-task" >}}
 
@@ -135,7 +135,7 @@ The result variable should not have the name `decisionResult` since the decision
 
 # Limitations of the Decision Task
 
-To evaluate a referenced decision, the integration of the Camunda DMN engine is used. As a result, only [DMN 1.1] decisions can be evaluated with a decision task. There is no option to integrate with other rule engines.
+To evaluate a referenced decision, the integration of the Camunda DMN engine is used. As a result, only [DMN 1.3] decisions can be evaluated with a decision task. There is no option to integrate with other rule engines.
 
 
 # Camunda Extensions
@@ -167,4 +167,4 @@ To evaluate a referenced decision, the integration of the Camunda DMN engine is 
   </tr>
 </table>
 
-[DMN 1.1]: {{< ref "/reference/dmn11/_index.md" >}}
+[DMN 1.3]: {{< ref "/reference/dmn/_index.md" >}}

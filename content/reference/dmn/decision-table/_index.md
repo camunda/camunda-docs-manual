@@ -11,13 +11,14 @@ menu:
     parent: "dmn-ref"
     pre: "Specify Decision Logic as a Table"
 
+aliases: [reference/dmn11/decision-table/]
 ---
 
 {{< img src="img/dish-table.png" class="no-lightbox" >}}
 <script type="text/javascript" src="./img/map.js"></script>
 
 A decision table represents decision logic which can be depicted as a table in
-DMN 1.1. It consists of [inputs], [outputs] and [rules].
+DMN 1.3. It consists of [inputs], [outputs] and [rules].
 
 A decision table is represented by a `decisionTable` element inside a
 `decision` XML element.
@@ -67,7 +68,7 @@ platform. The engine uses the id as the decision key of the deployed
 ```
 
 
-[inputs]: {{< ref "/reference/dmn11/decision-table/input.md" >}}
-[outputs]: {{< ref "/reference/dmn11/decision-table/output.md" >}}
-[rules]: {{< ref "/reference/dmn11/decision-table/rule.md" >}}
+[inputs]: {{< ref "/reference/dmn/decision-table/input.md" >}}
+[outputs]: {{< ref "/reference/dmn/decision-table/output.md" >}}
+[rules]: {{< ref "/reference/dmn/decision-table/rule.md" >}}
 [deployed]: {{< ref "/user-guide/process-engine/decisions/repository.md" >}}

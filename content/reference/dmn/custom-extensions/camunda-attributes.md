@@ -9,6 +9,7 @@ menu:
     parent: "dmn-ref-extensions"
     pre: "Reference of Camunda Extension Attributes for DMN."
 
+aliases: [reference/dmn11/custom-extensions/camunda-attributes/]
 ---
 
 The following attributes are extension attributes for the `camunda` namespace `http://camunda.org/schema/1.0/dmn`.
@@ -37,7 +38,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <td>null - means that decision definition history won't ever be removed during history cleanup run</td>
   </tr>
   <tr>
-    <th>DMN 1.1 Elements</th>
+    <th>DMN 1.3 Elements</th>
     <td>
       Decision
     </td>
@@ -69,9 +70,9 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <td><code>cellInput</code></td>
   </tr>
   <tr>
-    <th>DMN 1.1 Elements</th>
+    <th>DMN 1.3 Elements</th>
     <td>
-      <a href="{{< ref "/reference/dmn11/decision-table/input.md" >}}">Input</a>
+      <a href="{{< ref "/reference/dmn/decision-table/input.md" >}}">Input</a>
     </td>
   </tr>
 </table>
@@ -103,7 +104,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <td>&ndash;</td>
   </tr>
   <tr>
-    <th>DMN 1.1 Elements</th>
+    <th>DMN 1.3 Elements</th>
     <td>
       Decision
     </td>

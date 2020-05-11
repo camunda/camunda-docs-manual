@@ -55,7 +55,7 @@ GET `/decision-requirements-definition`
   </tr>
   <tr>
     <td>key</td>
-    <td>Filter by decision requirements definition key, i.e., the id in the DMN 1.1 XML. Exact match.</td>
+    <td>Filter by decision requirements definition key, i.e., the id in the DMN 1.3 XML. Exact match.</td>
   </tr>
   <tr>
     <td>keyLike</td>

@@ -10,6 +10,7 @@ menu:
     parent: "dmn-ref-decision-table"
     pre: "Specify what is part of the result of a Decision Table Evaluation"
 
+aliases: [reference/dmn11/decision-table/hit-policy/]
 ---
 
 {{< img src="../img/hit-policy.png" title="Hit Policy" class="no-lightbox" >}}

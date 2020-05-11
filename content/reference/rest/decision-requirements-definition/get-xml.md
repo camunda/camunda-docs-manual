@@ -54,7 +54,7 @@ GET `/decision-requirements-definition/key/{key}/tenant-id/{tenant-id}/xml` (ret
 
 # Result
 
-A JSON object containing the id of the decision requirements definition and the DMN 1.1 XML.
+A JSON object containing the id of the decision requirements definition and the DMN 1.3 XML.
 
 <table class="table table-striped">
   <tr>
