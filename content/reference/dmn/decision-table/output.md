@@ -10,6 +10,7 @@ menu:
     parent: "dmn-ref-decision-table"
     pre: "Specify the Output of Decision Tables"
 
+aliases: [reference/dmn11/decision-table/output/]
 ---
 
 {{< img src="../img/output.png" title="Output" class="no-lightbox" >}}
@@ -94,5 +95,5 @@ Double using a [custom data type]({{< ref "/user-guide/dmn-engine/data-types.md#
 
 [decision table result]: {{< ref "/user-guide/dmn-engine/evaluate-decisions.md#interpret-the-dmndecisiontableresult" >}}
 [supported DT]: {{< ref "/user-guide/dmn-engine/data-types.md#supported-data-types" >}}
-[output entry]: {{< ref "/reference/dmn11/decision-table/rule.md#output-entry-conclusion" >}}
+[output entry]: {{< ref "/reference/dmn/decision-table/rule.md#output-entry-conclusion" >}}
 [custom data type]: {{< ref "/user-guide/dmn-engine/data-types.md#implement-a-custom-data-type" >}}

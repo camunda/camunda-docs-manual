@@ -22,14 +22,14 @@ To give you an overview of Camunda, the following illustration shows the most im
 
 # Process Engine & Infrastructure
 
-* [Process Engine]({{< ref "/user-guide/process-engine/_index.md" >}}) The process engine is a Java library responsible for executing BPMN 2.0 processes, CMMN 1.1 cases and DMN 1.1 decisions. It has a lightweight POJO core and uses a relational database for persistence. ORM mapping is provided by the MyBatis mapping framework.
+* [Process Engine]({{< ref "/user-guide/process-engine/_index.md" >}}) The process engine is a Java library responsible for executing BPMN 2.0 processes, CMMN 1.1 cases and DMN 1.3 decisions. It has a lightweight POJO core and uses a relational database for persistence. ORM mapping is provided by the MyBatis mapping framework.
 * [Spring Framework Integration]({{< ref "/user-guide/spring-framework-integration/_index.md" >}})
 * [CDI/Java EE Integration]({{< ref "/user-guide/cdi-java-ee-integration/_index.md" >}})
 * [Runtime Container Integration]({{< ref "/user-guide/runtime-container-integration/_index.md" >}}) (Integration with application server infrastructure.)
 
 # Modeler
 
-* [Camunda Modeler]({{< ref "/modeler/_index.md" >}}): Modeling tool for BPMN 2.0 and CMMN 1.1 diagrams as well as DMN 1.1 decision tables.
+* [Camunda Modeler]({{< ref "/modeler/_index.md" >}}): Modeling tool for BPMN 2.0 and CMMN 1.1 diagrams as well as DMN 1.3 decision tables.
 * [bpmn.io](http://bpmn.io/): Open-source project for the modeling framework and toolkits.
 
 # Web Applications

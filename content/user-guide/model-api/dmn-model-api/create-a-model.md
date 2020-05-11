@@ -53,7 +53,7 @@ protected <T extends DmnModelElementInstance> T createElement(DmnModelElementIns
 }
 ```
 
-Validate the model against the DMN 1.1 specification and convert it to
+Validate the model against the DMN 1.3 specification and convert it to
 an XML string or save it to a file or stream.
 
 ```java

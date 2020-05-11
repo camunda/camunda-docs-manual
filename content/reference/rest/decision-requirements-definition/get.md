@@ -71,7 +71,7 @@ Its properties are as follows:
   <tr>
     <td>key</td>
     <td>String</td>
-    <td>The key of the decision requirements definition, i.e., the id of the DMN 1.1 XML decision definition.</td>
+    <td>The key of the decision requirements definition, i.e., the id of the DMN 1.3 XML decision definition.</td>
   </tr>
   <tr>
     <td>category</td>

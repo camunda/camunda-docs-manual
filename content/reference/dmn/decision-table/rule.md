@@ -10,6 +10,7 @@ menu:
     parent: "dmn-ref-decision-table"
     pre: "Specify Conditions and Conclusions"
 
+aliases: [reference/dmn11/decision-table/rule/]
 ---
 
 {{< img src="../img/rule.png" title="Rule" class="no-lightbox" >}}
@@ -180,4 +181,4 @@ information. The description text is set inside the `description` XML element.
 
 [supported EL]: {{< ref "/user-guide/dmn-engine/expressions-and-scripts.md#supported-expression-languages" >}}
 [default EL]: {{< ref "/user-guide/dmn-engine/expressions-and-scripts.md#default-expression-languages" >}}
-[FEEL]: {{< ref "/reference/dmn11/feel/_index.md" >}}
+[FEEL]: {{< ref "/reference/dmn/feel/_index.md" >}}

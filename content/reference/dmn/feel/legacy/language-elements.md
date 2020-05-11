@@ -10,6 +10,7 @@ menu:
     parent: "dmn-ref-feel-legacy"
     pre: "Supported FEEL Language Elements"
 
+aliases: [reference/dmn11/feel/legacy/language-elements/]
 ---
 
 {{< note title="Heads Up!" class="info" >}}
@@ -189,6 +190,6 @@ Examples:
 [ranges]: #range
 [disjunction]: #disjunction
 [negation]: #negation
-[FEEL data types]: {{< ref "/reference/dmn11/feel/legacy/data-types.md" >}}
-[date types]: {{< ref "/reference/dmn11/feel/legacy/data-types.md#date" >}}
-[input entries]: {{< ref "/reference/dmn11/decision-table/rule.md#input-entry-condition" >}}
+[FEEL data types]: {{< ref "/reference/dmn/feel/legacy/data-types.md" >}}
+[date types]: {{< ref "/reference/dmn/feel/legacy/data-types.md#date" >}}
+[input entries]: {{< ref "/reference/dmn/decision-table/rule.md#input-entry-condition" >}}

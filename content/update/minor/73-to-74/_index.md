@@ -28,7 +28,7 @@ Noteworthy new Features and Changes in 7.4:
 * **Logging:** Camunda 7.4 uses SLF4J as a logging API instead of JDK logging as before. This introduces the SLF4J API as a core dependency for the process engine. Please refer to the application server-specific sub-chapters of this document for implications on updating a full distribution installation. Also see the User Guide for [information on how to set up logging]({{< ref "/user-guide/logging.md" >}}).
 * **Changed URL of BPMN Extensions Namespace**: With 7.4 the namespace URL for BPMN extensions is changed. See last section on this page for details.
 
-[dmn-ref]: {{< ref "/reference/dmn11/_index.md" >}}
+[dmn-ref]: {{< ref "/reference/dmn/_index.md" >}}
 [cmmn-ref]: {{< ref "/reference/cmmn11/_index.md" >}}
 [bpmn-ref]: {{< ref "/reference/bpmn20/_index.md" >}}
 

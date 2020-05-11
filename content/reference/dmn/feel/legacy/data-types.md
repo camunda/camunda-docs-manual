@@ -10,6 +10,7 @@ menu:
     parent: "dmn-ref-feel-legacy"
     pre: "Supported Data Types in FEEL"
 
+aliases: [reference/dmn11/feel/legacy/data-types/]
 ---
 
 {{< note title="Heads Up!" class="info" >}}
@@ -63,5 +64,5 @@ the format `yyyy-MM-dd'T'HH:mm:ss`.
 Date types support all [comparison] operators and [ranges].
 
 
-[comparison]: {{< ref "/reference/dmn11/feel/legacy/language-elements.md#comparison" >}}
-[ranges]: {{< ref "/reference/dmn11/feel/legacy/language-elements.md#range" >}}
+[comparison]: {{< ref "/reference/dmn/feel/legacy/language-elements.md#comparison" >}}
+[ranges]: {{< ref "/reference/dmn/feel/legacy/language-elements.md#range" >}}

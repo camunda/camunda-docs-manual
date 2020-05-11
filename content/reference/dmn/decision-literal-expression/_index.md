@@ -11,11 +11,12 @@ menu:
     parent: "dmn-ref"
     pre: "Specify Decision Logic as an Expression"
 
+aliases: [reference/dmn11/decision-literal-expression/]
 ---
 
 {{< img src="img/decision-literal-expression.png" title="Decision Literal Expression" class="no-lightbox" >}}
 
-A decision literal expression represents decision logic which can be depicted as an expression in DMN 1.1. 
+A decision literal expression represents decision logic which can be depicted as an expression in DMN 1.3. 
 It consists of a [literal expression] and a [variable].
 
 A decision literal expression is represented by a `literalExpression` element inside a `decision` XML element.
@@ -137,11 +138,11 @@ are listed in the [User Guide][supported DT].
 Note that the type is not required but recommended since it provides a type
 safety of the expression result.
 
-[literal expression]: {{< ref "/reference/dmn11/decision-literal-expression/_index.md#literal-expression" >}}
-[variable]: {{< ref "/reference/dmn11/decision-literal-expression/_index.md#variable" >}}
+[literal expression]: {{< ref "/reference/dmn/decision-literal-expression/_index.md#literal-expression" >}}
+[variable]: {{< ref "/reference/dmn/decision-literal-expression/_index.md#variable" >}}
 [supported EL]: {{< ref "/user-guide/dmn-engine/expressions-and-scripts.md#supported-expression-languages" >}}
 [default EL]: {{< ref "/user-guide/dmn-engine/expressions-and-scripts.md#default-expression-languages" >}}
 [supported DT]: {{< ref "/user-guide/dmn-engine/data-types.md#supported-data-types" >}}
 [deployed]: {{< ref "/user-guide/process-engine/decisions/repository.md" >}}
-[required decisions]: {{< ref "/reference/dmn11/drg/_index.md#required-decisions" >}}
+[required decisions]: {{< ref "/reference/dmn/drg/_index.md#required-decisions" >}}
 
