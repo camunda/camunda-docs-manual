@@ -475,7 +475,7 @@ See the <a href="{{<ref "/user-guide/spring-boot-integration/the-spring-event-br
 
 <tr><td colspan="4"><b>Webapp</b></td></tr>
 <tr>
-<td rowspan="2"><code>camunda.bpm.webapp</code></td>
+<td rowspan="3"><code>camunda.bpm.webapp</code></td>
 <td><code>.enabled</code></td>
 <td>Switch to disable the Camunda Webapp auto-configuration.</td>
 <td><code>true</code></td>
@@ -489,6 +489,15 @@ If this property is set to <code>false</code>, the
 <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-developing-web-applications.html#boot-features-spring-mvc-welcome-page">default</a>
 Spring Boot behaviour is taken into account.</td>
 <td><code>true</code></td>
+</tr>
+
+<tr>
+<td><code>.application-path</code></td>
+<td>Changes the application path of the webapp.
+<br/>
+When setting to <code>/</code>, the legacy behavior of Camunda Spring Boot Starter <= 3.4.x is restored.
+</td>
+<td><code>/camunda</code></td>
 </tr>
 
 <tr id="csrf">

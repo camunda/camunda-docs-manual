@@ -37,7 +37,7 @@ camunda-bpm-run
 ├── start.bat
 └── start.sh
 ```
-Execute one of the two start scripts (`start.bat` for Windows, `start.sh` for Linux/Mac). After a few seconds, you will be able to access the Camunda webapps via http://localhost:8080 and the REST API via http://localhost:8080/engine-rest/
+Execute one of the two start scripts (`start.bat` for Windows, `start.sh` for Linux/Mac). After a few seconds, you will be able to access the Camunda webapps via http://localhost:8080/camunda/app/ and the REST API via http://localhost:8080/engine-rest/
 
 ## Starting Camunda BPM Run using Docker
 Camunda BPM Run is also available as a Docker image. Please see the Run section of the Camunda Docker documentation [here]({{< ref "/installation/docker.md#start-camunda-bpm-run-using-docker" >}}) for more details.
@@ -197,7 +197,7 @@ server:
     key-password: camunda
   port: 8443
 ```
-After starting Camunda BPM Run, you can access the webapps via https://localhost:8443 and the REST API via https://localhost:8443/engine-rest.
+After starting Camunda BPM Run, you can access the webapps via https://localhost:8443/camunda/app/ and the REST API via https://localhost:8443/engine-rest/.
 
 <table class="table desc-table">
   <tr>
