@@ -19,7 +19,8 @@ This document guides you through the update from Camunda BPM `7.12.x` to `7.13.0
 1. For administrators and developers: [Full Distribution Update](#full-distribution)
 1. For administrators: [Standalone Web Application](#standalone-web-application)
 1. For developers: [Spring Boot Starter Update](#spring-boot-starter-update)
-   * [REST API: Changed Default Application Path](#rest-api-changed-default-application-path)
+   * [Changed Default Application Paths for Webapp & REST API](#changed-default-application-paths)
+   * [New License Key Mechanism](#new-license-key-mechanism)
 1. For developers: [External Task Client Update](#external-task-client-update)
 1. For developers: [Identity Service Queries](#identity-service-queries)
 1. For developers: [MetricsReporterIdProvider interface Deprecation](#metricsreporteridprovider-interface-deprecation)
@@ -111,20 +112,46 @@ If you are using Camunda Spring Boot Starter within your Spring Boot application
 2. Update **Spring Boot Starter** and, when required, Spring Boot versions in your `pom.xml`.
 3. Remove the Camunda BPM version from your `pom.xml` in case you overrode it before (e.g. when using the enterprise version or a patch release).
 
-## REST API: Changed Default Application Path
+## Changed Default Application Paths
 
-With this release, the context path of the Spring Boot REST API Starter changed. The change aligns 
-the application path with all other Camunda BPM distributions.
+With this release, the application path of the Spring Boot Webapp Starter & REST API Starter changed. 
+The change aligns the application path with all other Camunda BPM distributions.
+
+### REST API
 
 Old Application Path: `/rest`\
 New Application Path: `/engine-rest`
 
-If you want to change the application path back to the old one, please see the documentation about the 
-[Spring Boot Starter REST API].
+If you want to change the application path back to the old one, use the following configuration
+property in your `application.yaml` file:
 
-[Spring Boot Starter REST API]: {{< ref "/user-guide/spring-boot-integration/rest-api.md" >}}
+```yaml
+spring.jersey.application-path=/rest
+```
 
-## New license key mechanism
+### Webapp
+
+Old Application Path: `/`\
+New Application Path: `/camunda`
+
+In previous versions, there was a problem when using URL paths like `/api/*` or `/app/*` for your 
+custom resources since these paths were reserved for the Camunda BPM Webapp. For instance, the 
+Camunda BPM Webapp specific CSRF Prevention Filter was applied on these paths and might have 
+interfered with your custom REST endpoints or applications. With the changed application path, you 
+can now use these paths without restrictions and remove any workarounds (e. g. URL whitelisting for 
+the CSRF Prevention Filter).
+
+If you want to change the application path back to the old one, use the following configuration
+property in your `application.yaml` file:
+
+```yaml
+camunda.bpm.webapp.application-path=/
+```
+
+**Please Note:** When changing the application path back to `/`, the `/api/*` and `/app/*` are 
+reserved for the Camunda BPM Webapp again.
+
+## New License Key Mechanism
 
 The mechanism for license key pickup (via Spring properties or from the classpath of a Spring Boot application) has been moved with the release of 7.13. It is now only available from the **`camunda-bpm-spring-boot-starter-webapp-ee`** module.
 
