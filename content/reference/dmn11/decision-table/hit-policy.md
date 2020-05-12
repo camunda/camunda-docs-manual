@@ -76,6 +76,8 @@ output entries of the satisfied rule.
 
 If more than one rule is satisfied, the Unique hit policy is violated.
 
+Exactly one rule or no rules should match for a given input.
+
 See the following decision table.
 {{< img src="../img/hit-policy-unique.png" title="Hit Policy Unique" class="no-lightbox" >}}
 Depending on the current season the dish should be chosen.
