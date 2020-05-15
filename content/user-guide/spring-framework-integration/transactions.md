@@ -12,7 +12,9 @@ menu:
 
 ---
 
-We'll explain the `SpringTransactionIntegrationTest` found in the Spring examples of the distribution step by step. Below is the Spring configuration file that we use in this example (you can find it in `SpringTransactionIntegrationTest-context.xml`). The section shown below contains the `dataSource`, `transactionManager`, `processEngine` and the process engine services.
+# Transaction Integration by Example
+
+The following explains the [SpringTransactionIntegrationTest](https://github.com/camunda/camunda-bpm-platform/blob/7.12.0/engine-spring/core/src/test/java/org/camunda/bpm/engine/spring/test/transaction/SpringTransactionIntegrationTest.java) of the core codebase step by step. Below is the Spring configuration file that we use in this example (you can find it in `SpringTransactionIntegrationTest-context.xml`). The section shown below contains the `dataSource`, `transactionManager`, `processEngine` and the process engine services.
 
 When passing the DataSource to the `SpringProcessEngineConfiguration` (using property "dataSource"), the Camunda engine uses a `org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy` internally, which wraps the passed DataSource. This is done to make sure the SQL connections retrieved from the DataSource and the Spring transactions play well together. This implies that it's no longer needed to proxy the dataSource yourself in Spring configuration, although it's still allowed to pass a `TransactionAwareDataSourceProxy` into the `SpringProcessEngineConfiguration`. In this case no additional wrapping will occur.
 
@@ -56,6 +58,11 @@ Make sure when declaring a `TransactionAwareDataSourceProxy` in Spring configura
   ...
 </beans>
 ```
+  
+{{< note title="" class="warning" >}}
+  The `processEngineConfiguration` attributes `transactionManager` and `dataSource` must be configured consistently, 
+  i.e. the `transactionManager` bean must actually manage the data source. If that is not the case, the process engine will use auto-commit mode for the data source connection, potentially leading to inconsistencies in the database.
+{{< /note >}}
 
 The remainder of that Spring configuration file contains the beans and configuration that we'll use in this particular example:
 
