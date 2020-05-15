@@ -139,7 +139,7 @@ If you start the script from a different location the database is stored there!
 Using H2 as a database is ideal for development purposes but is not recommended for usage in a productive environment.
 These links point you to resources for other databases:
 
-* [How to configure an Oracle database](http://blog.foos-bar.com/2011/08/jboss-as-7-and-oracle-datasource.html)
+* [How to configure an Oracle database](http://www.ironjacamar.org/doc/userguide/1.0/en-US/html_single/#ex_datasources_oracle)
 * [How to configure a MySQL database](http://www.ironjacamar.org/doc/userguide/1.0/en-US/html_single/#ex_datasources_mysql)
 
 
