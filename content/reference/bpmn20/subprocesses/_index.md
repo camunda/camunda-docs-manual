@@ -10,4 +10,4 @@ menu:
 
 ---
 
-A subprocess in Camunda allows modelling based on Reusability and grouping. Below are the different types of subprocesses supported by Camunda.
+A subprocess in Camunda allows modeling based on reusability and grouping. Below are the different types of subprocesses supported by Camunda.
