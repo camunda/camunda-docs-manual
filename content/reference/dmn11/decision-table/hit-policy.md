@@ -71,12 +71,10 @@ multiple satisfied rules.
 
 ## Unique Hit Policy
 
-Only a single rule can be satisfied. The decision table result contains the
+Only a single rule can be satisfied or no rule at all. The decision table result contains the
 output entries of the satisfied rule.
 
 If more than one rule is satisfied, the Unique hit policy is violated.
-
-Exactly one rule or no rules should match for a given input.
 
 See the following decision table.
 {{< img src="../img/hit-policy-unique.png" title="Hit Policy Unique" class="no-lightbox" >}}
