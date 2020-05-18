@@ -119,7 +119,7 @@ All Java types listed in the "Return Types" section of the [FEEL Type Handling] 
 the types listed in the [FEEL Data Types] documentation can be returned by a Custom Function.
 
 [FEEL Type Handling]: {{< ref "/user-guide/dmn-engine/feel/type-handling.md#return-types" >}}
-[FEEL Data Types]: https://camunda.github.io/feel-scala/feel-data-types
+[FEEL Data Types]: https://camunda.github.io/feel-scala/1.11/feel-data-types
 [Process Engine Plugin]: {{< ref "/user-guide/process-engine/process-engine-plugins.md" >}}
 [dmnFeelCustomFunctionProviders]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#dmnFeelCustomFunctionProviders" >}}
 [Register Custom Function Providers]: #register-custom-function-providers
