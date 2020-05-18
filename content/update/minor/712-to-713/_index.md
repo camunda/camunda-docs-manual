@@ -69,10 +69,10 @@ Before starting, make sure that you have downloaded the Camunda BPM 7.13 distrib
 
 Please choose the application server you are working with from the following list:
 
-* [JBoss AS/Wildfly]({{< ref "/update/minor/711-to-712/jboss.md" >}})
-* [Apache Tomcat]({{< ref "/update/minor/711-to-712/tomcat.md" >}})
-* [Oracle WebLogic]({{< ref "/update/minor/711-to-712/wls.md" >}})
-* [IBM WebSphere]({{< ref "/update/minor/711-to-712/was.md" >}})
+* [JBoss AS/Wildfly]({{< ref "/update/minor/712-to-713/jboss.md" >}})
+* [Apache Tomcat]({{< ref "/update/minor/712-to-713/tomcat.md" >}})
+* [Oracle WebLogic]({{< ref "/update/minor/712-to-713/wls.md" >}})
+* [IBM WebSphere]({{< ref "/update/minor/712-to-713/was.md" >}})
 
 ## Custom Process Applications
 

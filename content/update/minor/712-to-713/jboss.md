@@ -18,22 +18,6 @@ or [Camunda BPM 7.13 Wildfly distribution](https://downloads.camunda.cloud/relea
 `$APP_SERVER` should be replaced with either `jboss` or `wildfly`, depending on
 the used application server.
 
-{{< note title="WildFly 8 Modules" class="info" >}}
-From version 7.13, only a single **Camunda BPM WildFly distribution** is provided, packaged with the latest WildFly version. For WildFly 10+ users,
-the update guide remains the same. However, if you are a WildFly 8 user, please download the [Camunda WildFly 8 Modules](https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/wildfly/camunda-wildfly8-modules/) archive
-for updating the Camunda BPM Modules.
-
-Furthermore, the Camunda subsystem extension in the application server's configuration file (in most cases `$WILDFLY_HOME/standalone/configuration/standalone.xml`) needs to be adjusted to:
-
-```xml
-<server xmlns="urn:jboss:domain:2.1">
-  <extensions>
-    ...
-    <extension module="org.camunda.bpm.wildfly.camunda-wildfly8-subsystem"/>
-```
-
-{{< /note >}}
-
 The update procedure takes the following steps:
 
 1. Update the Camunda BPM Modules
