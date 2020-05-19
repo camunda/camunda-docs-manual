@@ -10,7 +10,7 @@ menu:
 
 ---
 
-In Connect a `Connectors` class exists which automatically detects
+In Camunda Connect a `Connectors` class exists which automatically detects
 every connector in the classpath. It can be used to get the HTTP connector
 instance by its connector ID, which is `http-connector`.
 
