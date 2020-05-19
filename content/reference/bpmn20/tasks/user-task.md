@@ -257,6 +257,15 @@ Although the Camunda engine provides an identity management component, which is 
 
 However, note that you can use the identity service in a service / bean or listener to query your user repository if this is useful to you.
 
+Provided user's identity can check with identity services as follows
+
+Example:
+```java
+IdentityService identityService = Context.getProcessEngineConfiguration().getIdentityService();
+List users =identityService.createUserQuery().memberOfGroup("management").list();
+User user = identityService.createUserQuery().userFirstName("kermit").singleResult();
+```
+
 # Forms
 
 It is possible to provide information to render a User Task form by using the `camunda:formKey`
