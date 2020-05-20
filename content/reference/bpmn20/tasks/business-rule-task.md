@@ -11,7 +11,7 @@ menu:
 
 ---
 
-A Business Rule Task is used to synchronously execute one or more rules.
+A Business Rule Task is used to synchronously execute one or more rules. It is also possible to call Java code or providing a work item for an external worker to complete asynchronously or invoking a logic which is implemented in form of webservices.
 
 {{< bpmn-symbol type="business-rule-task" >}}
 
