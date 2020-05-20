@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Signals an execution by id. Can for example be used to explicitly skip user tasks or signal asynchronous continuations.
+Signals an execution by id, can for example be used to explicitly skip user tasks or signal asynchronous continuations.
 
 
 # Method
