@@ -165,7 +165,7 @@ To use Camunda BPM Assert, add the following dependency to your ```pom.xml```:
 <dependency>
   <groupId>org.camunda.bpm.assert</groupId>
   <artifactId>camunda-bpm-assert</artifactId>
-  <version>5.0.0</version>
+  <version>6.0.0</version>
   <scope>test</scope>
 </dependency>
 ```
@@ -245,6 +245,12 @@ All versions prior to 3.0.0 belong to the community extension are not part of th
     <td>3.13.2</td>
     <td>5.0.0</td>
     <td>7.12.0</td>
+  </tr>
+  <tr>
+    <td>camunda-bpm-assert</td>
+    <td>3.13.2</td>
+    <td>6.0.0</td>
+    <td>7.13.0</td>
   </tr>
 </table>
 
