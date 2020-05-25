@@ -29,7 +29,7 @@ First, you need to download the [Camunda JBoss distribution](https://downloads.c
 
 ## Copy Modules
 
-Copy the modules from the `modules/` folder of the Camunda distribution, to the `$JBOSS_HOME/modules/` of your Wildfly application server.
+Copy the modules from the `modules/` folder of the Camunda distribution, to the `$JBOSS_HOME/modules/` of your JBoss EAP application server.
 
 
 ## Adjust the Configuration
