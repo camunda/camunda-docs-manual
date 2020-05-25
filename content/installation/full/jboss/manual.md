@@ -25,7 +25,11 @@ This guide uses a number of variables to denote common path names and constants:
 
 This section explains how to perform the required setup steps for JBoss Application Server.
 
-First, you need to download the [Camunda JBoss distribution](https://downloads.camunda.cloud/release/camunda-bpm/jboss/).
+First, you need to download the [Camunda JBoss distribution](https://downloads.camunda.cloud/enterprise-release/camunda-bpm/jboss/) (Enterprise version only).
+
+## Copy Modules
+
+Copy the modules from the `modules/` folder of the Camunda distribution, to the `$JBOSS_HOME/modules/` of your Wildfly application server.
 
 
 ## Adjust the Configuration
