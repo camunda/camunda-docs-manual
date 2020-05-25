@@ -44,6 +44,13 @@ GET `/incident/count`
     <td>Restricts to incidents that have the given incident message.</td>
   </tr>
   <tr>
+    <td>incidentMessageLike</td>
+    <td>Restricts to incidents that incidents message is a substring of the given value. 
+     The string can include the wildcard character '%' to express 
+     like-strategy: starts with (string%), ends with (%string) or contains (%string%).
+    </td>
+  </tr>
+  <tr>
     <td>processDefinitionId</td>
     <td>Restricts to incidents that belong to a process definition with the given id.</td>
   </tr>
@@ -58,6 +65,18 @@ GET `/incident/count`
   <tr>
     <td>executionId</td>
     <td>Restricts to incidents that belong to an execution with the given id.</td>
+  </tr>
+  <tr>
+    <td>incidentTimestampBefore</td>
+    <td>Restricts to incidents that have an incidentTimestamp date before the given date. 
+     By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., 
+     <code>2013-01-23T14:42:45.000+0200</code>.</td>
+  </tr>
+  <tr>
+    <td>incidentTimestampAfter</td>
+    <td>Restricts to incidents that have an incidentTimestamp date after the given date. 
+     By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., 
+     <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>activityId</td>
