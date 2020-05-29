@@ -84,7 +84,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>Description</th>
     <td>
       <p>
-      The attribute specifies a version tag for the process definition.
+      The attribute specifies a version tag for the decision definition.
       </p>
     </td>
   </tr>
