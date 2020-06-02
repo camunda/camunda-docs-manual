@@ -14,7 +14,7 @@ menu:
 
 # Quickstart
 
-## Create new DMN 1.3 Decision Requirement Diagram
+## Create new DMN Decision Requirement Diagram
 
 {{< img src="img/create-dmn.png" title="New DMN Diagram" >}}
 
@@ -38,7 +38,7 @@ The demo above shows how to model a decision table. After creating a decision an
 
 To save your state of work, click *File / Save File As...* in the top-level menu. Then select a location on your file system to store the diagram in the DMN 1.3 XML format. You can load that file again by clicking *File / Open File...*.
 
-## DMN 1.3 Coverage
+## DMN Coverage
 
 The Camunda Modeler covers the following elements:
 
