@@ -59,7 +59,7 @@ A JSON object with the following properties:
   <tr>
     <td>variables</td>
     <td>A JSON object containing the variables which will be passed to the execution. Each key corresponds to a variable name and each value to a variable value. A variable value is a JSON object with the following properties:
-    {{< rest-var-request transient="true">}}
+    {{< rest-var-request transient="true">}}</td>
   </tr>
 </table>
 
@@ -106,6 +106,7 @@ This method returns no content.
 POST `/external-task/anId/bpmnError`
 
 Request Body:
+
 ```json
     {
       "workerId": "aWorker",
@@ -123,6 +124,7 @@ Request Body:
       }
     }
 ```
+
 ## Response
 
 Status 204. No content.

@@ -56,6 +56,13 @@ GET `/history/activity-instance`
     <td>Filter by the activity name (according to BPMN 2.0 XML).</td>
   </tr>
   <tr>
+    <td>activityNameLike</td>
+    <td>Filter by a substring of the activity name (according to BPMN 2.0 XML).
+     The string can include the wildcard character '%' to express 
+     like-strategy: starts with (string%), ends with (%string) or contains (%string%).
+    </td>
+  </tr>
+  <tr>
     <td>activityType</td>
     <td>Filter by activity type.</td>
   </tr>

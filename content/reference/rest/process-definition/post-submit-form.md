@@ -76,7 +76,56 @@ A JSON object with the following properties:
 
 # Result
 
-This method returns no content.
+A JSON object corresponding to the `ProcessInstance` interface in the engine.
+Its properties are as follows:
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Value</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>String</td>
+    <td>The id of the process instance.</td>
+  </tr>
+  <tr>
+    <td>definitionId</td>
+    <td>String</td>
+    <td>The id of the process definition.</td>
+  </tr>
+  <tr>
+    <td>businessKey</td>
+    <td>String</td>
+    <td>The business key of the process instance.</td>
+  </tr>
+  <tr>
+    <td>caseInstanceId</td>
+    <td>String</td>
+    <td>The case instance id of the process instance.</td>
+  </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the process instance.</td>
+  </tr>
+  <tr>
+    <td>ended</td>
+    <td>Boolean</td>
+    <td>A flag indicating whether the instance is still running or not.</td>
+  </tr>
+  <tr>
+    <td>suspended</td>
+    <td>Boolean</td>
+    <td>A flag indicating whether the instance is suspended or not.</td>
+  </tr>
+  <tr>
+    <td>links</td>
+    <td>Object</td>
+    <td>A JSON array containing links to interact with the instance.</td>
+  </tr>
+</table>
 
 
 # Response Codes
@@ -88,7 +137,7 @@ This method returns no content.
     <th>Description</th>
   </tr>
   <tr>
-    <td>204</td>
+    <td>200</td>
     <td></td>
     <td>Request successful.</td>
   </tr>
@@ -120,6 +169,7 @@ POST `/process-definition/key/aProcessDefinitionKey/submit-form`
 
 Request Body:
 
+```
     {
       "variables": {
         "aVariable" : {
@@ -136,12 +186,26 @@ Request Body:
       },
       "businessKey" : "myBusinessKey"
     }
+```
 
 ## Response
 
-    {"links":[{"method": "GET", "href":"http://localhost:8080/rest-test/process-instance/anId","rel":"self"}],
-    "id":"anId",
-    "definitionId":"aProcessDefinitionId",
-    "businessKey":"myBusinessKey",
-    "ended":false,
-    "suspended":false}
+```
+{
+  "links":[
+    {
+      "method": "GET",
+      "href":"http://localhost:8080/rest-test/process-instance/anId",
+      "rel":"self"
+    }
+  ],
+  "id": "anId",
+  "definitionId": "aProcessDefinitionId",
+  "caseInstanceId": null,
+  "businessKey": "myBusinessKey",
+  "ended": false,
+  "suspended": false,
+  "tenantId": null
+}
+```
+

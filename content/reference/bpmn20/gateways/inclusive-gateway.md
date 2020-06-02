@@ -28,7 +28,7 @@ The functionality of the inclusive gateway is based on the incoming and outgoing
   * it received a number of tokens smaller than the number of incoming sequence flows and there are no more tokens that can arrive at the gateway.
 {{< /note >}}
 
-Note that an inclusive gateway can have _both_ fork _and_ join behavior, if there are multiple incoming and outgoing sequence flows for the same inclusive gateway. In that case, the gateway will first join all incoming sequence flows that have a process token, before splitting into multiple concurrent paths of executions for the outgoing sequence flows that have a condition that evaluates to 'true'.
+Note that an inclusive gateway can have both _fork_ and _join_ behavior, if there are multiple incoming and outgoing sequence flows for the same inclusive gateway. In that case, the gateway will first join all incoming sequence flows that have a process token, before splitting into multiple concurrent paths of executions for the outgoing sequence flows that have a condition that evaluates to 'true'.
 
 <div data-bpmn-diagram="../bpmn/inclusive-gateway"></div>
 

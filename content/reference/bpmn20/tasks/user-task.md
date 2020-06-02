@@ -263,6 +263,21 @@ Although the Camunda engine provides an identity management component, which is 
 
 However, note that you can use the identity service in a service / bean or listener to query your user repository if this is useful to you.
 
+You can query for users with the help of the identity service. See the following example:
+
+```java
+ProcessEngine processEngine = delegateTask.getProcessEngine();
+IdentityService identityService = processEngine.getIdentityService();
+
+List<User> managementUsers = identityService.createUserQuery()
+    .memberOfGroup("management")
+    .list();
+
+User kermit = identityService.createUserQuery()
+    .userFirstName("kermit")
+    .singleResult();
+```
+
 # Reporting Bpmn Error
 
 See the documentation for [Error Boundary Events]({{< ref "/reference/bpmn20/events/error-events.md#error-boundary-event" >}}).

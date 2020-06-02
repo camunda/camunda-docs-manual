@@ -39,6 +39,14 @@ PUT `/process-definition/key/{key}/tenant-id/{tenant-id}/history-time-to-live` (
     <td>id</td>
     <td>The id of the process definition to change history time to live.</td>
   </tr>
+  <tr>
+    <td>key</td>
+    <td>The key of the process definitions to change history time to live.</td>
+  </tr>
+  <tr>
+    <td>tenant-id</td>
+    <td>The id of the tenant the process definitions belong to.</td>
+  </tr>
 </table>
 
 

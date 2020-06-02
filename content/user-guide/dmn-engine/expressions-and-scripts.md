@@ -28,8 +28,8 @@ As shown in the [decision table] and [decision literal expression] reference, fo
   of the decision table
 - *Literal Expression*: used to determine the value of a decision literal expression 
 
-You can read more on this in the [DMN 1.1 reference][decision table]. In
-the DMN 1.1 XML, expressions can be found in the XML
+You can read more on this in the [DMN 1.3 reference][decision table]. In
+the DMN 1.3 XML, expressions can be found in the XML
 elements `inputExpression`, `inputEntry`, `outputEntry` and `literalExpression`:
 
 ```xml
@@ -108,7 +108,7 @@ You can find how to go back to the legacy behavior, where `JUEL` was used for in
 output entries and literal expressions [here]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#dmnFeelEnableLegacyBehavior" >}}).
 {{< /note >}}
 
-The default language can be changed by setting it directly in the DMN 1.1 XML as global expression language with the `expressionLanguage` attribute of
+The default language can be changed by setting it directly in the DMN 1.3 XML as global expression language with the `expressionLanguage` attribute of
 the `definitions` element:
 
 ```xml
@@ -172,8 +172,8 @@ the JSR-223 script engine resolving, for example if you want to configure
 the script engine before using it.
 
 
-[decision table]: {{< ref "/reference/dmn11/decision-table/_index.md" >}}
-[decision literal expression]: {{< ref "/reference/dmn11/decision-literal-expression/_index.md" >}}
+[decision table]: {{< ref "/reference/dmn/decision-table/_index.md" >}}
+[decision literal expression]: {{< ref "/reference/dmn/decision-literal-expression/_index.md" >}}
 [juel]: http://juel.sourceforge.net/
 [EL]: https://jcp.org/aboutJava/communityprocess/final/jsr245/index.html
 [DMN 1.2]: http://www.omg.org/spec/DMN/

@@ -81,7 +81,7 @@ See the [Installation Guide][installation-guide-standalone] for additional detai
 
 # Download Camunda Modeler
 
-Camunda Modeler is a modeling Tool for BPMN 2.0 and DMN 1.1. Camunda Modeler can be downloaded
+Camunda Modeler is a modeling Tool for BPMN 2.0 and DMN 1.3. Camunda Modeler can be downloaded
 from the [community download page][community-download-page].
 
 

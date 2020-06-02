@@ -32,7 +32,6 @@ The following is a list of current (unsupported) community extensions:
 <!-- keep consistent with list in index.html -->
 
 * [Apache Camel Integration](https://github.com/camunda/camunda-bpm-camel)
-* [Camunda Docker Images](https://github.com/camunda/docker-camunda-bpm-platform)
 * [Custom Batch](https://github.com/camunda/camunda-bpm-custom-batch)
 * [DMN Scala Extension](https://github.com/camunda/dmn-scala)
 * [Elastic Search Extension](https://github.com/camunda/camunda-bpm-elasticsearch)
@@ -50,7 +49,6 @@ The following is a list of current (unsupported) community extensions:
 * [REST Client Spring Boot](https://github.com/camunda/camunda-rest-client-spring-boot/)
 * [Scenario Testing Library](https://github.com/camunda/camunda-bpm-assert-scenario/)
 * [Single Sign On for JBoss](https://github.com/camunda/camunda-sso-jboss)
-* [Tasklist Translations](https://github.com/camunda/camunda-tasklist-translations)
 * [Wildfly Swarm](https://github.com/camunda/camunda-bpm-wildfly-swarm)
 
 ## Building a Community Extension

@@ -11,7 +11,7 @@ menu:
 
 ---
 
-A Business Rule Task is used to synchronously execute one or more rules.
+A Business Rule Task is used to synchronously execute one or more rules. It is also possible to call Java code or providing a work item for an external worker to complete asynchronously or invoking a logic which is implemented in form of webservices.
 
 {{< bpmn-symbol type="business-rule-task" >}}
 
@@ -128,7 +128,7 @@ information on this please see the [Service Tasks]({{< relref "service-task.md" 
 
 # Implementing as an External Task
 
-In addition to the above, a Business Rule Task can be implemented via the [External Task]({{< ref "/user-guide/process-engine/external-tasks.md" >}}) mechanism where an external system polls the process engine for work to do. See the section on [Service Tasks](({{< relref "service-task.md#external-tasks" >}}) for more information about how to configure an external task.
+In addition to the above, a Business Rule Task can be implemented via the [External Task]({{< ref "/user-guide/process-engine/external-tasks.md" >}}) mechanism where an external system polls the process engine for work to do. See the section on [Service Tasks]({{< relref "service-task.md#external-tasks" >}}) for more information about how to configure an external task.
 
 
 # Camunda Extensions

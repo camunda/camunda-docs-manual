@@ -32,6 +32,9 @@ Asynchronous operations can be performed based on a list of specific instances a
 resulting list of instances. If both a list of instances and a query are provided, the resulting set of affected instances
 will consist of the union of those two subsets.
 
+All listed batch operations, except [Set a Removal Time to Historic Batches](#historic-batches), are deployment-aware.
+In particular, this means that the seed job and execution jobs will receive a `deploymentId` so [deployment-aware job executors]({{< ref "/user-guide/process-engine/the-job-executor.md#job-execution-in-heterogeneous-clusters" >}}) can pick up those jobs of a batch that need to be executed on their nodes. The deployment id of the seed job is chosen from the list of involved deployments. This list is derived from the resulting set of affected instances. Execution jobs only contain elements of the same deployment and are bound to that deployment's id.
+
 ## Cancellation Of Running Process Instances
 
 Cancellation of running process instances can be performed asynchronously using the following Java API method invocation:

@@ -23,7 +23,9 @@ The System Settings menu is only usable by users which are granted with *All* pe
 
 {{< img src="../img/admin-execution-metrics.png" title="Execution Metrics" >}}
 
-The Execution Metrics menu in Admin displays an approximate number of *Flow Nodes Instances (FNI)* and *Executed Decision Elements (EDE)* that have been processed by the engine within a specified time range.
+The Execution Metrics menu in Admin displays an approximate number of *Root Process Instances (RPI)*,
+*Flow Nodes Instances (FNI)*, *Executed Decision Instances (EDI)* and *Executed Decision Elements (EDE)* that have been
+processed by the engine within a specified time range.
 
 
 # Camunda License Key
@@ -61,6 +63,20 @@ In a clustered scenario, where multiple engines on multiple nodes access a singl
 
 In a multi tenancy scenario, the license check will be performed for each engine with an own database. Thus, you will be prompted to enter the license key separately for each engine.
 
+## License keys in camunda-spring-boot-starter
+Spring Boot applications can provide license keys in two additional ways:
+
+* provide a URL to a license file via [spring property]({{< ref "/user-guide/spring-boot-integration/configuration.md#license-file" >}})
+* provide the license key in a file called `camunda-license.txt` which is on the classpath of the application
+
+**Note:** The application must use the **`camunda-bpm-spring-boot-starter-webapp-ee`** module for these two properties to be available.
+```xml
+<dependency>
+  <groupId>org.camunda.bpm.springboot</groupId>
+  <artifactId>camunda-bpm-spring-boot-starter-webapp-ee</artifactId>
+</dependency>
+```
+
 ## License compatibility
 There are two different types of licenses for Camunda BPM. While the original format is only valid for Camunda BPM, the second format can be valid for multiple Camunda products (like Camunda BPM, Cawemo or Optimize). Such unified licenses are supported from the versions listed below onwards. Since 7.12.0 all versions (including major/minor releases) support unified license keys.
 
@@ -84,5 +100,9 @@ There are two different types of licenses for Camunda BPM. While the original fo
   <tr>
     <td>7.12.x</td>
     <td>3.4.x</td>
+  </tr>
+  <tr>
+    <td>7.13.0+</td>
+    <td>7.13.0+</td>
   </tr>
 </table>

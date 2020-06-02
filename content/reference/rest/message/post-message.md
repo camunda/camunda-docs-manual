@@ -43,15 +43,15 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>tenantId</td>
-    <td>Used to correlate the message for a tenant with the given id. Will only correlate to executions and process definitions which belong to the tenant.</td>
+    <td>Used to correlate the message for a tenant with the given id. Will only correlate to executions and process definitions which belong to the tenant. Must not be supplied in conjunction with a <code>withoutTenantId</code>.</td>
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>A Boolean value that indicates whether the message should only be correlated to executions and process definitions which belong to no tenant or not. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>A Boolean value that indicates whether the message should only be correlated to executions and process definitions which belong to no tenant or not. Value may only be <code>true</code>, as <code>false</code> is the default behavior. Must not be supplied in conjunction with a <code>tenantId</code>.</td>
   </tr>
   <tr>
     <td>processInstanceId</td>
-    <td>Used to correlate the message to the process instance with the given id. Must not be supplied in conjunction with a <code>tenantId</code>. </td>
+    <td>Used to correlate the message to the process instance with the given id.</td>
   </tr>
   <tr>
     <td>correlationKeys</td>

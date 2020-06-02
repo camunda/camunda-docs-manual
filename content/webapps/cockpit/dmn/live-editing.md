@@ -22,9 +22,9 @@ DMN tables can be changed directly in Cockpit. Clicking on the {{< glyphicon nam
 
 Gray cells on the table display technical details like variable names and types. Changing this data might lead to incompatability with existing definitions, especially if the decision table is integrated in a BPMN process.
 
-You can download the changed table with the {{< glyphicon name="save" text=" Download changed version">}} button. The downloaded file contains all changes you made to the table, but does not deploy it. The download feature is not available in Internet Explorer.
+You can download the changed table with the {{< glyphicon name="save" text=" Download changed version">}} button. The downloaded file contains all changes you made to the table, but does not deploy it.
 
-You can use a local DMN file from your computer to overwrite the table. Clicking on the `Choose File` button opens a dialog where you can select a DMN file. The file ending must be `.dmn` or `.dmn11.xml`. After selecting the file, the table gets replaced. You can then perform additional changes to the table before deploying it. Using a local DMN file is not possible in Internet Explorer 9.
+You can use a local DMN file from your computer to overwrite the table. Clicking on the `Choose File` button opens a dialog where you can select a DMN file. The file ending must be `.dmn` or `.dmn11.xml`. After selecting the file, the table gets replaced. You can then perform additional changes to the table before deploying it.
 
 By clicking `Proceed`, a new dialog opens containing the changed table. The changes should be carefully reviewed as confirming the change and clicking `Deploy` will immediately create a new deployment containing the new DMN file as resource. All process and case definitions which use the latest version of the decision definition will then use the new version.
 

@@ -25,7 +25,7 @@ Please note that this feature is only included in the enterprise edition of the 
 
 This report shows the average, minimum and maximum duration for a selected process definition and version for a given timeframe. Monthly and quarterly aggregation of the duration times are supported. You can hover over a bar in the bars chart to see the exact values below the chart. You can also switch to the table view to see the exact values for every month or quarter.
 
-Pressing the download buttons above the chart triggers the export of the results in CSV or JSON format. Please note that CSV export is not available in Internet Explorer.
+Pressing the download buttons above the chart triggers the export of the results in CSV or JSON format.
 
 # Completed Task Instance Report
 

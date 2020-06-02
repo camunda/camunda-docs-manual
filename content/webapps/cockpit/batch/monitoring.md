@@ -18,7 +18,7 @@ The batch page displays the status of running and completed batches. It allows d
 
 # Overview
 
-On the left side of the page, a list of running and finished batches is displayed. You can click on any entry to display details of the batch on the right side of the page.
+On the left side of the page, two lists of running and finished batches are displayed. You can click on any entry to display details of the batch on the right side of the page.
 
 ## In Progress
 

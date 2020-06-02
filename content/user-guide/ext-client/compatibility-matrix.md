@@ -39,6 +39,11 @@ Each version of the Camunda BPM Platform is bound to a specific version of the *
     <td>1.3.x</td>
     <td>1.3.x</td>
   </tr>
+  <tr>
+    <td>7.13.x</td>
+    <td>2.0.x</td>
+    <td>1.3.x</td>
+  </tr>
 </table>
 
 Only these default combinations are recommended (and supported) by Camunda. Nevertheless, each version of the External

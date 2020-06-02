@@ -52,6 +52,14 @@ GET `/process-definition`
     <td>Filter by the deployment the id belongs to.</td>
   </tr>
   <tr>
+    <td>deployedAfter</td>
+    <td>Filter by the deploy time of the deployment the process definition belongs to. Only selects process definitions that have been deployed after (exclusive) a specific time.</td>
+  </tr>
+  <tr>
+    <td>deployedAt</td>
+    <td>Filter by the deploy time of the deployment the process definition belongs to. Only selects process definitions that have been deployed at a specific time (exact match).</td>
+  </tr>
+  <tr>
     <td>key</td>
     <td>Filter by process definition key, i.e., the id in the BPMN 2.0 XML. Exact match.</td>
   </tr>
@@ -158,7 +166,7 @@ GET `/process-definition`
   <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>category</code>, <code>key</code>, <code>id</code>, <code>name</code>, <code>version</code>, <code>deploymentId</code>, <code>tenantId</code> and <code>versionTag</code>.
+    <code>category</code>, <code>key</code>, <code>id</code>, <code>name</code>, <code>version</code>, <code>deploymentId</code>, <code>deployTime</code>, <code>tenantId</code> and <code>versionTag</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.
     <strong>Note:</strong> Sorting by versionTag is string based. The version will not be interpreted. As an example, the sorting could return v0.1.0, v0.10.0, v0.2.0.</td>
   </tr>

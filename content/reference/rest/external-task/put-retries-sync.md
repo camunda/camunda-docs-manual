@@ -8,7 +8,7 @@ menu:
     name: "Set Retries Sync"
     identifier: "rest-api-external-task-post-retries-sync"
     parent: "rest-api-external-task"
-    pre: "PUT `/external-task/retries-sync`"
+    pre: "PUT `/external-task/retries`"
 
 ---
 
@@ -78,14 +78,14 @@ This method returns no content.
     <td>Request successful.</td>
   </tr>
   <tr>
+   <td>400</td>
+   <td>application/json</td>
+   <td>In case the number of retries is negative or null, an exception of type <code>InvalidRequestException</code> is returned. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+  </tr>
+  <tr>
     <td>404</td>
     <td>application/json</td>
     <td>Returned if the task does not exist. This could indicate a wrong task id as well as a cancelled task, e.g., due to a caught BPMN boundary event. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
-  </tr>
-   <tr>
-    <td>400</td>
-    <td>application/json</td>
-    <td>In case the number of retries is negative or null, an exception of type <code>InvalidRequestException</code> is returned. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -93,17 +93,19 @@ This method returns no content.
 
 ## Request
 
-PUT `/external-task/retries-sync`
+PUT `/external-task/retries`
 
 Request Body:
 
+```json
     {
-      "retries": 123
+      "retries": 123,
       "externalTaskIds": [
         "anExternalTask",
         "anotherExternalTask"
       ]
     }
+```
 
 ## Response
 

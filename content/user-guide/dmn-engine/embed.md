@@ -46,6 +46,7 @@ DmnEngine dmnEngine = configuration.buildEngine();
 ```
 
 # Configuration of the DMN Engine
+This section gives more insights of embedded DMN engine configuration. In case you want to use DMN engine as part of the BPMN engine, please refer to the [DMN Engine Configuration]({{< ref "/user-guide/process-engine/decisions/configuration" >}})  section of the [User Guide]({{< ref "/user-guide/_index.md" >}}) for the configuration in that scenario.
 
 ## Decision Table Evaluation Listeners
 
@@ -245,7 +246,7 @@ configuration
 
 ### Register Hit Policy Handlers
 
-The DMN engine supports a subset of the DMN 1.1 [hit policies]. It is possible to implement new hit policies or
+The DMN engine supports a subset of the DMN 1.3 [hit policies]. It is possible to implement new hit policies or
 override an existing hit policy implementation.
 
 ```java
@@ -354,10 +355,10 @@ For more information on how to configure and use SLF4J, please refer to the
 [evaluation listener]: {{< javadocref page="?org/camunda/bpm/dmn/engine/delegate/DmnDecisionTableEvaluationListener.html" text="DmnDecisionTableEvaluationListener Interface" >}}
 [DMN model API]: https://github.com/camunda/camunda-dmn-model
 [data types]: {{< ref "/user-guide/dmn-engine/data-types.md" >}}
-[hit policies]: {{< ref "/reference/dmn11/decision-table/hit-policy.md" >}}
+[hit policies]: {{< ref "/reference/dmn/decision-table/hit-policy.md" >}}
 [SLF4J]: http://www.slf4j.org/
 [LOGBack]: http://logback.qos.ch/
 [user manual]: http://www.slf4j.org/manual.html
-[DMN decision table]: {{< ref "/reference/dmn11/decision-table/_index.md" >}}
-[DMN decision literal expression]: {{< ref "/reference/dmn11/decision-literal-expression/_index.md" >}}
+[DMN decision table]: {{< ref "/reference/dmn/decision-table/_index.md" >}}
+[DMN decision literal expression]: {{< ref "/reference/dmn/decision-literal-expression/_index.md" >}}
 [expressions]: {{< ref "/user-guide/dmn-engine/expressions-and-scripts.md" >}}

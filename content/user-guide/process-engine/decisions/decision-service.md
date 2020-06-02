@@ -53,7 +53,7 @@ referenced in an input expression or an input entry of a decision table. The
 variables are passed to the decision service as key-value pairs. Each pair
 specifies the name and the value of a variable.
 
-For more information on the different expressions see the [DMN 1.1 reference].
+For more information on the different expressions see the [DMN 1.3 reference].
 
 # Authorizations for Evaluating Decisions
 
@@ -125,10 +125,10 @@ List<HistoricDecisionInstance> historicDecisions = processEngine
 
 For more information about this, please refer to the [History for DMN Decisions].
 
-[decision table]: {{< ref "/reference/dmn11/decision-table/_index.md" >}}
-[decision literal expression]: {{< ref "/reference/dmn11/decision-literal-expression/_index.md" >}}
+[decision table]: {{< ref "/reference/dmn/decision-table/_index.md" >}}
+[decision literal expression]: {{< ref "/reference/dmn/decision-literal-expression/_index.md" >}}
 [Services API]: {{< ref "/user-guide/process-engine/process-engine-api.md#services-api" >}}
-[DMN 1.1 reference]: {{< ref "/reference/dmn11/decision-table/_index.md" >}}
+[DMN 1.3 reference]: {{< ref "/reference/dmn/decision-table/_index.md" >}}
 [Versioning of Decisions]: {{< ref "/user-guide/process-engine/decisions/repository.md#versioning-of-decisions" >}}
 [Authorization Service]: {{< ref "/user-guide/process-engine/authorization-service.md" >}}
 [History for DMN Decisions]: {{< ref "/user-guide/process-engine/decisions/history.md" >}}

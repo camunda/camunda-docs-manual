@@ -19,11 +19,17 @@ This document guides you through the update from Camunda BPM `7.12.x` to `7.13.0
 1. For administrators and developers: [Full Distribution Update](#full-distribution)
 1. For administrators: [Standalone Web Application](#standalone-web-application)
 1. For developers: [Spring Boot Starter Update](#spring-boot-starter-update)
+   * [Changed Default Application Paths for Webapp & REST API](#changed-default-application-paths)
+   * [New License Key Mechanism](#new-license-key-mechanism)
 1. For developers: [External Task Client Update](#external-task-client-update)
 1. For developers: [Identity Service Queries](#identity-service-queries)
 1. For developers: [MetricsReporterIdProvider interface Deprecation](#metricsreporteridprovider-interface-deprecation)
 1. For administrators and developers: [New Version of Templating Engines (Freemarker, Velocity)](#new-version-of-templating-engines-freemarker-velocity)
 1. For developers: [Entirely Replaced FEEL Engine](#entirely-replaced-feel-engine)
+1. For Developers: [Changes in Cockpit](#changes-in-cockpit)
+1. For developers: [Deployment-Aware Batch Operations](#deployment-aware-batch-operations)
+1. For developers: [Historic Process Instance Variables on Asynchronous Instantiation](#historic-process-instance-variables-on-asynchronous-instantiation)
+1. For administrators and developers: [Oracle JDBC Driver Removed from Camunda Docker Images](#oracle-jdbc-driver-removed-from-camunda-docker-images)
 
 This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new functionality included in Camunda BPM 7.13.
 
@@ -63,10 +69,10 @@ Before starting, make sure that you have downloaded the Camunda BPM 7.13 distrib
 
 Please choose the application server you are working with from the following list:
 
-* [JBoss AS/Wildfly]({{< ref "/update/minor/711-to-712/jboss.md" >}})
-* [Apache Tomcat]({{< ref "/update/minor/711-to-712/tomcat.md" >}})
-* [Oracle WebLogic]({{< ref "/update/minor/711-to-712/wls.md" >}})
-* [IBM WebSphere]({{< ref "/update/minor/711-to-712/was.md" >}})
+* [JBoss AS/Wildfly]({{< ref "/update/minor/712-to-713/jboss.md" >}})
+* [Apache Tomcat]({{< ref "/update/minor/712-to-713/tomcat.md" >}})
+* [Oracle WebLogic]({{< ref "/update/minor/712-to-713/wls.md" >}})
+* [IBM WebSphere]({{< ref "/update/minor/712-to-713/was.md" >}})
 
 ## Custom Process Applications
 
@@ -105,6 +111,64 @@ If you are using Camunda Spring Boot Starter within your Spring Boot application
 1. Check [Version Compatibility Matrix]({{< ref "/user-guide/spring-boot-integration/version-compatibility.md" >}})
 2. Update **Spring Boot Starter** and, when required, Spring Boot versions in your `pom.xml`.
 3. Remove the Camunda BPM version from your `pom.xml` in case you overrode it before (e.g. when using the enterprise version or a patch release).
+
+## Changed Default Application Paths
+
+With this release, the application path of the Spring Boot Webapp Starter & REST API Starter changed. 
+The change aligns the application path with all other Camunda BPM distributions.
+
+### REST API
+
+Old Application Path: `/rest`\
+New Application Path: `/engine-rest`
+
+If you want to change the application path back to the old one, use the following configuration
+property in your `application.yaml` file:
+
+```yaml
+spring.jersey.application-path=/rest
+```
+
+### Webapp
+
+Old Application Path: `/`\
+New Application Path: `/camunda`
+
+In previous versions, there was a problem when using URL paths like `/api/*` or `/app/*` for your 
+custom resources since these paths were reserved for the Camunda BPM Webapp. For instance, the 
+Camunda BPM Webapp specific CSRF Prevention Filter was applied on these paths and might have 
+interfered with your custom REST endpoints or applications. With the changed application path, you 
+can now use these paths without restrictions and remove any workarounds (e. g. URL whitelisting for 
+the CSRF Prevention Filter).
+
+If you want to change the application path back to the old one, use the following configuration
+property in your `application.yaml` file:
+
+```yaml
+camunda.bpm.webapp.application-path=/
+```
+
+**Please Note:** When changing the application path back to `/`, the `/api/*` and `/app/*` are 
+reserved for the Camunda BPM Webapp again.
+
+## New License Key Mechanism
+
+The mechanism for license key pickup (via Spring properties or from the classpath of a Spring Boot application) has been moved with the release of 7.13. It is now only available from the **`camunda-bpm-spring-boot-starter-webapp-ee`** module.
+
+```xml
+<dependency>
+  <groupId>org.camunda.bpm.springboot</groupId>
+  <artifactId>camunda-bpm-spring-boot-starter-webapp-ee</artifactId>
+</dependency>
+```
+
+If you want to set a license key without using the **`camunda-bpm-spring-boot-starter-webapp-ee`** module, you can use the Java API:
+
+```java
+managementService.setLicenseKey(String licenseKey);
+```
+Only Spring Boot applications that use one of the mentioned ways of setting the key are affected by these changes. Other mechanisms included in the engine (e.g. automatic pickup from the users home directory) are not affected. You can find more information about license keys in the [System Management Guide]({{< ref "/webapps/admin/system-management.md#camunda-license-key" >}}).
+
 
 # External Task Client Update
 
@@ -281,3 +345,74 @@ Please also check out the status of the following known issues when migrating yo
 [feel-legacy-prop]: {{< ref "/user-guide/dmn-engine/feel/legacy-behavior.md" >}}
 [Custom FEEL Functions]: {{< ref "/user-guide/dmn-engine/feel/custom-functions.md" >}}
 [FEEL Engine Spin Integration]: {{< ref "/user-guide/dmn-engine/feel/spin-integration.md" >}}
+
+# Changes in Cockpit
+
+## DMN 1.3 Support in Cockpit
+
+With this release, Cockpit adds support for DMN 1.3, the next version of the DMN standard. If you edit and deploy DMN diagrams in Cockpit, which use earlier versions of DMN, they will automatically be migrated to DMN 1.3.
+
+The Camunda engine already supports the DMN 1.3 namespace by default, so there are no more steps required to migrate.
+Make sure you have the latest version of [Camunda Modeler](https://camunda.com/download/modeler/) installed to edit DMN 1.3 files locally.
+
+## Removal Time Batches are Hierarchical by Default
+
+The default behavior of the `set removal time` batch operations changed to be hierarchical with this release. It is less likely that the batch operation will lead to deadlocks, transaction timeouts, or full transaction logs with the hierarchical flag enabled.
+
+# Deployment-Aware Batch Operations
+
+With this release, all [batch operations][] that work on process-related elements, e.g. process instances, are deployment-aware.
+From the list of currently available batch operations, only [Set a Removal Time to Historic Batches][set-removal-time-batch] is not deployment-aware. 
+This is because only the *jobs* of a batch might need deployment-related resources, the batch itself does not and is therefore not bound to a deployment.
+
+Since [Monitor Jobs][] do not need any deployment-related resources anymore with this release as well,
+only [Seed Jobs][] and [Execution Jobs][] are affected by this. Technically, seed jobs and execution jobs will receive a `deploymentId` so [deployment-aware job executors][job-cluster] can pick up those jobs of a batch that need to be executed on their nodes.
+
+The deployment id of the seed job is chosen from a list of involved deployments. The list of deployments involved in a batch is derived from the elements of the batch operation, e.g. for chosen process instances the deployments their process definitions belong to are fetched. Execution jobs only contain elements of the same deployment and are bound to it as well.
+
+This feature also works in a [Rolling Update scenario][]. All batches created in versions prior to 7.13.0 will be executed with the same behavior they had before.
+Only batches created and run on nodes that run on version 7.13.0 or later will be able to create deployment-aware batch jobs for all process-related batch operations.
+
+For custom batch operations the new mechanism also means that deployment-aware batch jobs can be created in a more transparent way.
+The `BatchConfiguration` now has a new attribute `idMappings` that comprises a list of deployment-to-ids mappings.
+The routine creating the batch entity with the custom batch type handler simply needs to provide such a list of mappings to the configuration.
+The seed job creation as well as the batch job creation in the seed job will transparently take care of producing deployment-aware jobs afterwards.
+
+[batch operations]: {{< ref "/user-guide/process-engine/batch-operations.md" >}}
+[Monitor Jobs]: {{< ref "/user-guide/process-engine/batch.md#monitor-job" >}}
+[Seed Jobs]: {{< ref "/user-guide/process-engine/batch.md#seed-job" >}}
+[Execution Jobs]: {{< ref "/user-guide/process-engine/batch.md#execution-jobs" >}}
+[set-removal-time-batch]: {{< ref "/user-guide/process-engine/batch-operations.md#historic-batches" >}}
+[job-cluster]: {{< ref "/user-guide/process-engine/the-job-executor.md#job-execution-in-heterogeneous-clusters" >}}
+[Rolling Update scenario]: {{< ref "/update/rolling-update.md" >}}
+
+# Historic Process Instance Variables on Asynchronous Instantiation
+
+This concerns only processes that have a start event with the [asyncBefore]({{< ref "/reference/bpmn20/events/start-events.md#asynchronous-instantiation" >}}) flag set.
+
+{{< img src="./img/asyncBefore-start-event.svg" title="Asynchronous Instantiation" >}}
+
+Let's have a look at the following example:
+
+```java
+// Step 1
+ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("oneTaskProcess",
+        Variables.createVariables().putValue("invoiceId", "I-123"));
+
+// Step 2: execute the asynchronous continuation job of the start event
+executeJob(processInstancJob);
+```
+
+Before this minor release, the historic variable `invoiceId` would have been stored only after the job execution in step 2.
+That behavior differed from the rest of the use cases where variables are set on process instance start or later.
+Now they are stored right away to keep the use cases consistent.
+The approach is more natural to how the historic information is stored into the database and helps to resolve issues during process execution and inconsistent information between runtime and historic data.
+In Cockpit, starting from 7.13, you will notice a different activity instance id in the Details for instances.
+
+{{< img src="./img/variable-log.png" title="Variable Log" >}}
+
+As you can see in the picture above, the variable log shows the process instance id for the activity instead of the start event activity. The same is valid if you are using the Java and/or REST API.
+
+# Oracle JDBC Driver Removed from Camunda Docker Images
+
+The Docker images for Camunda 7.13 no longer provide an Oracle JDBC driver out of the box. If you relied on this, apply the strategy outlined in https://github.com/camunda/docker-camunda-bpm-platform#database-environment-variables: Add the driver to the container and configure the database settings manually by linking the configuration file into the container.

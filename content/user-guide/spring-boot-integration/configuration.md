@@ -36,9 +36,10 @@ Sets the process engine name and automatically adds all `ProcessEnginePlugin` be
 
 ### `DefaultDatasourceConfiguration`
 
-Applies the datasource and transaction management configurations to the process engine.
+Configures the Camunda data source and enables [transaction integration]({{< ref "/user-guide/spring-framework-integration/transactions.md" >}}). By default, the primary `DataSource` and `PlatformTransactionManager` beans are wired with the process engine configuration.
+
 If you want to [configure more than one datasource](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-two-datasources) and don't want to use the
-`@Primary` one for the process engine, then name the one you want to use as `camundaBpmDataSource`.
+`@Primary` one for the process engine, then you can create a separate data source with name `camundaBpmDataSource` that will be automatically wired with Camunda instead.
 
 ```java
 @Bean
@@ -54,6 +55,19 @@ public DataSource secondaryDataSource() {
   return DataSourceBuilder.create().build();
 }
 ```
+
+Make sure to provide a corresponding transaction manager in that case: 
+
+```java
+@Bean
+public PlatformTransactionManager transactionManager(@Qualifier("camundaBpmDataSource") DataSource dataSource) {
+  return new DataSourceTransactionManager(dataSource);
+}
+```
+
+{{< note title="" class="warning" >}}
+  The wired data source and transaction manager beans must match, i.e. make sure that the transaction manager actually manages the Camunda data source. If that is not the case, the process engine will use auto-commit mode for the data source connection, potentially leading to inconsistencies in the database.
+{{< /note >}}
 
 ### `DefaultHistoryConfiguration`
 
@@ -253,10 +267,13 @@ The available properties are as follows:
 
 <tr>
 <td><a name="license-file"></a><code>.license-file</code></td>
-<td>Provides an URL to your Camunda license file and is automatically inserted into the DB when the application starts (but only if no license key is found in the DB).</td>
+<td>Provides a URL to your Camunda license file and is automatically inserted into the DB when the application starts (but only if no valid license key is found in the DB).</br></br>
+<b>Note:</b> This property is only available when using the <b>camunda-bpm-spring-boot-starter-webapp-ee</b>
+</td>
 <td>By default, the license key will be loaded:
  <ol>
-  <li>from the file with the name <code>camunda-license.txt</code> from classpath (if present)</li>
+  <li>from the URL provided via the this property (if present)</li>
+  <li>from the file with the name <code>camunda-license.txt</code> from the classpath (if present)</li>
   <li>from path <i>${user.home}/.camunda/license.txt</i> (if present)</li>
  </ol>
  The license must be exactly in the format as we sent it to you including the header and footer line. Bear in mind that for some licenses there is a minimum <a href="{{<ref "/webapps/admin/system-management.md#license-compatibility" >}}">version requirement</a>.
@@ -472,7 +489,7 @@ See the <a href="{{<ref "/user-guide/spring-boot-integration/the-spring-event-br
 
 <tr><td colspan="4"><b>Webapp</b></td></tr>
 <tr>
-<td rowspan="2"><code>camunda.bpm.webapp</code></td>
+<td rowspan="3"><code>camunda.bpm.webapp</code></td>
 <td><code>.enabled</code></td>
 <td>Switch to disable the Camunda Webapp auto-configuration.</td>
 <td><code>true</code></td>
@@ -486,6 +503,15 @@ If this property is set to <code>false</code>, the
 <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-developing-web-applications.html#boot-features-spring-mvc-welcome-page">default</a>
 Spring Boot behaviour is taken into account.</td>
 <td><code>true</code></td>
+</tr>
+
+<tr>
+<td><code>.application-path</code></td>
+<td>Changes the application path of the webapp.
+<br/>
+When setting to <code>/</code>, the legacy behavior of Camunda Spring Boot Starter <= 3.4.x is restored.
+</td>
+<td><code>/camunda</code></td>
 </tr>
 
 <tr id="csrf">

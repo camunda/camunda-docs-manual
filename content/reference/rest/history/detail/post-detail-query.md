@@ -120,6 +120,10 @@ A JSON object with the following properties:
     <td>Restrict to historic details that occured after the given date (including the date). By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
+    <td>initial</td>
+    <td>Restrict to historic variable updates that contain only initial variable values. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>sorting</td>
     <td>
         A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e., whether it is primary, secondary, etc. The ordering objects have the following properties:
@@ -285,6 +289,11 @@ Depending on the type of the historic detail it contains further properties. In 
     <td>String</td>
     <td>An error message in case a Java Serialized Object could not be de-serialized.</td>
   </tr>
+  <tr>
+    <td>initial</td>
+    <td>boolean</td>
+    <td>Returns <code>true</code> for variable updates that contains the initial values of the variables</td>
+  </tr>
 </table>
 
 In case of an <code>HistoricFormField</code> the following properties are also provided:
@@ -376,7 +385,8 @@ Response Body:
     "revision": 0,
     "errorMessage": null,
     "removalTime":"2018-02-10T14:33:19.000+0200",
-    "rootProcessInstanceId": "aRootProcessInstanceId"
+    "rootProcessInstanceId": "aRootProcessInstanceId",
+    "initial": true
   },
   {
     "type": "variableUpdate",
@@ -405,7 +415,8 @@ Response Body:
     "revision": 0,
     "errorMessage": null,
     "removalTime":"2018-02-10T14:33:19.000+0200",
-    "rootProcessInstanceId": "aRootProcessInstanceId"
+    "rootProcessInstanceId": "aRootProcessInstanceId",
+    "initial": true
   }
 ]
 ```

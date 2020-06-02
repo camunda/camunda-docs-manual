@@ -30,9 +30,9 @@ and [Deployment scenarios]({{< ref "/user-guide/spring-boot-integration/_index.m
 
 * Apache Tomcat 7.0 / 8.0 / 9.0
 * JBoss EAP 6.4 / 7.0 / 7.1 / 7.2
-* Wildfly Application Server 10.1 / 11.0 / 12.0 / 13.0 / 14.0 / 15.0 / 16.0 / 17.0 / 18.0
+* Wildfly Application Server 10.1 / 11.0 / 12.0 / 13.0 / 14.0 / 15.0 / 16.0 / 17.0 / 18.0 / 19.0
 * IBM WebSphere Application Server 8.5 / 9.0 ([Enterprise Edition only](http://camunda.com/bpm/enterprise/))
-*	Oracle WebLogic Server 12c (12R1,12R2) ([Enterprise Edition only](http://camunda.com/bpm/enterprise/))
+*	Oracle WebLogic Server 12c (12R2) ([Enterprise Edition only](http://camunda.com/bpm/enterprise/))
 and [Deployment scenarios]({{< ref "/user-guide/spring-boot-integration/_index.md#supported-deployment-scenarios" >}})).
 
 
@@ -59,20 +59,19 @@ Clustered or replicated databases are supported given the following conditions. 
 
 * Google Chrome latest
 * Mozilla Firefox latest
-* Internet Explorer 11
 * Microsoft Edge
 
 
 # Java
 
-* Java 8 / 9 / 10 / 11 / 12 / 13 (if supported by your application server/container)
+* Java 8 / 9 / 10 / 11 / 12 / 13 / 14 (if supported by your application server/container)
 
 
 # Java Runtime
 
-* Oracle JDK 8 / 9 / 10 / 11 / 12 / 13
+* Oracle JDK 8 / 9 / 10 / 11 / 12 / 13 / 14
 * IBM JDK 8 (with J9 JVM)
-* OpenJDK 8 / 9 / 10 / 11 / 12 / 13, including builds of the following products:
+* OpenJDK 8 / 9 / 10 / 11 / 12 / 13 / 14, including builds of the following products:
   * Oracle OpenJDK
   * AdoptOpenJDK (with HotSpot JVM)
   * Amazon Corretto

@@ -1566,7 +1566,7 @@ When used intensively, the process engine can produce a huge amount of historic 
 
 It deletes:
 
-* Historic process instances plus all related historic data (e.g., historic variable instances, historic task instances, all comments and attachments related to them, etc.)
+* Historic process instances plus all related historic data (e.g., historic variable instances, historic task instances, historic instance permissions, all comments and attachments related to them, etc.)
 * Historic decision instances plus all related historic data (i.e., historic decision input and output instances)
 * Historic case instances plus all related historic data (e.g., historic variable instances, historic task instances, etc.)
 * Historic batches plus all related historic data (historic incidents and job logs)
@@ -1663,6 +1663,7 @@ Limitations:
 
 * End time is only stored in the instances tables (`ACT_HI_PROCINST`, `ACT_HI_CASEINST`, `ACT_HI_DECINST` and `ACT_HI_BATCH`). To delete data from all history tables, the cleanable instances are first fetched via a `SELECT` statement. Based on that, `DELETE` statements are made for each history table. These statements can involve joins. This is less efficient than removal-time-based history cleanup.
 * Instance hierarchies are not cleaned up atomically. Since the individual instances have different end times, they are going to be cleaned up at different times. In consequence, hierarchies can appear partially removed.
+* [Historic Instance Permissions] are not cleaned up.
 
 ## Cleanup Internals
 
@@ -1861,3 +1862,4 @@ time to live, removal time strategy) still need to be defined among all nodes.
 [op-log-set-annotation-rest]: {{< ref "/reference/rest/history/user-operation-log/set-annotation.md" >}}
 [op-log-clear-annotation-rest]: {{< ref "/reference/rest/history/user-operation-log/clear-annotation.md" >}}
 [op-log-set-annotation-instance-mod]: {{< ref "/user-guide/process-engine/process-instance-modification.md#annotation" >}}
+[Historic Instance Permissions]: {{< ref "/user-guide/process-engine/authorization-service.md#historic-instance-permissions" >}}

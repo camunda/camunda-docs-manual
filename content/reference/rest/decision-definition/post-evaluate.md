@@ -102,7 +102,7 @@ See the [user guide]({{< ref "/user-guide/dmn-engine/evaluate-decisions.md#inter
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>The decision could not be evaluated successfully. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>The decision could not be evaluated successfully, e.g. some of the input values are not provided but they are required. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

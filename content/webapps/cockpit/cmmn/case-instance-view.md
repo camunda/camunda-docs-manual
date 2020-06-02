@@ -36,7 +36,7 @@ In the User Tasks tab you find an overview of all the user tasks related to this
 In the Called Process Instances tab you find an overview of all process instances which were called in this case instance. Clicking on the ID of the process instance will take you to the process instance view page of the respective instance. Clicking on the process definition key will take you to the process definition page of the definition for the respective process instance.
 
 **Called Case Instances**  
-In the Called Case Instances tab you find an overview of all case instances which were called in this case instance. Clicking on the ID of the case instance will take you to the case instance view page of the respective instance. Clicking on the case definition key will take you to the case definition page of the definition for the respective case instance.
+In the Called Case Instances tab you find an overview of all the case instances which were called in this case instance. Clicking on the ID of the case instance will take you to the case instance view page of the respective instance. Clicking on the case definition key will take you to the case definition page of the definition for the respective case instance.
 
 **Executed Decision Instances**  
 In the Executed Decision Instances tab you find an overview of all decision instances which were evaluated in this case instance. Clicking on the ID of the decision instance will take you to the decision instance view page of the respective instance. Clicking on the decision definition key will take you to the decision definition page of the definition for the respective decision instance.

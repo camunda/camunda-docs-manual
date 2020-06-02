@@ -393,12 +393,30 @@ The following is a list with the most commonly used process engine configuration
     </td>
   </tr>
 
+  <tr id="enable-historic-instance-permissions">
+    <td><code>enableHistoricInstancePermissions</code></td>
+    <td>Boolean</td>
+    <td>
+        If the value of this flag is set to <code>true</code>, 
+        <a href="{{< ref "/user-guide/process-engine/authorization-service.md#historic-instance-permissions" >}}">Historic Instance Permissions</a>
+        are enabled. Default value is <code>false</code>.
+        <p>
+            <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
+        </p>
+    </td>
+  </tr>
+
   <tr id="enforceSpecificVariablePermission">
     <td><code>enforceSpecificVariablePermission</code></td>
     <td>Boolean</td>
     <td>
         If the value of this flag is set to <code>true</code>, the <a href="{{< ref "/user-guide/process-engine/authorization-service.md#default-read-variable-permissions" >}}">default permissions</a> to see/read variables are:
-        READ_INSTANCE_VARIABLE, READ_HISTORY_VARIABLE, and READ_TASK_VARIABLE on Process Definition resource, and READ_VARIABLE on Task resource. Default value is <code>false</code>.
+        <ul>
+          <li>READ_INSTANCE_VARIABLE, READ_HISTORY_VARIABLE, and READ_TASK_VARIABLE on Process Definition resource, and READ_VARIABLE on Task resource</li>
+          <li>READ_VARIABLE on Historic Task resource</li>
+        </ul>
+        
+        Default value is <code>false</code>.
         <p>
             <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
         </p>

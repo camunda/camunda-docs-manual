@@ -43,6 +43,13 @@ GET `/history/incident/count`
     <td>Restricts to incidents that have the given incident message.</td>
   </tr>
   <tr>
+    <td>incidentMessageLike</td>
+    <td>Restricts to incidents that incidents message is a substring of the given value. 
+     The string can include the wildcard character '%' to express 
+     like-strategy: starts with (string%), ends with (%string) or contains (%string%).
+    </td>
+  </tr>
+  <tr>
     <td>processDefinitionId</td>
     <td>Restricts to incidents that belong to a process definition with the given id.</td>
   </tr>
@@ -51,8 +58,40 @@ GET `/history/incident/count`
     <td>Restricts to incidents that belong to a process instance with the given id.</td>
   </tr>
   <tr>
+    <td>processDefinitionKey</td>
+    <td>Restricts to incidents that have the given processDefinitionKey.</td>
+  </tr>
+  <tr>
+    <td>processDefinitionKeyIn</td>
+    <td>Restricts to incidents that have one of the given process definition keys.</td>
+  </tr>
+  <tr>
     <td>executionId</td>
     <td>Restricts to incidents that belong to an execution with the given id.</td>
+  </tr>
+  <tr>
+    <td>createTimeBefore</td>
+    <td>Restricts to incidents that have a createTime date before the given date.
+     By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., 
+     <code>2013-01-23T14:42:45.000+0200</code>.</td>
+  </tr>
+  <tr>
+    <td>createTimeAfter</td>
+    <td>Restricts to incidents that have a createTime date after the given date. 
+     By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., 
+     <code>2013-01-23T14:42:45.000+0200</code>.</td>
+  </tr>
+  <tr>
+    <td>endTimeBefore</td>
+    <td>Restricts to incidents that have an endTimeBefore date before the given date. 
+     By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., 
+     <code>2013-01-23T14:42:45.000+0200</code>.</td>
+  </tr>
+  <tr>
+    <td>endTimeAfter</td>
+    <td>Restricts to incidents that have an endTimeAfter date after the given date. 
+     By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., 
+     <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
   <tr>
     <td>activityId</td>
@@ -102,7 +141,7 @@ GET `/history/incident/count`
   <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>incidentId</code>, <code>createTime</code>, <code>endTime</code>, <code>incidentType</code>, <code>executionId</code>, <code>activityId</code>, <code>processInstanceId</code>, <code>processDefinitionId</code>, <code>causeIncidentId</code>, <code>rootCauseIncidentId</code>, <code>configuration</code> and <code>tenantId</code>.
+    <code>incidentId</code>, <code>createTime</code>, <code>endTime</code>, <code>incidentType</code>, <code>executionId</code>, <code>activityId</code>, <code>processInstanceId</code>, <code>processDefinitionId</code>, <code>processDefinitionKey</code>, <code>causeIncidentId</code>, <code>rootCauseIncidentId</code>, <code>configuration</code> and <code>tenantId</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>

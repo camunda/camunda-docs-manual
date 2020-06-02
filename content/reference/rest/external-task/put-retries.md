@@ -89,9 +89,11 @@ PUT `/external-task/anId/retries`
 
 Request Body:
 
+```json
     {
       "retries": 123
     }
+```
 
 ## Response
 
