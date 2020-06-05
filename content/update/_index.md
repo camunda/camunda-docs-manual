@@ -12,4 +12,4 @@ menu:
 
 These documents provide instructions to update a Java Project or a Camunda BPM Platform installation to a new version.
 
-Depending on which update you want to perform, choose one of the follwing guides:
+Depending on which update you want to perform, choose one of the following guides:
