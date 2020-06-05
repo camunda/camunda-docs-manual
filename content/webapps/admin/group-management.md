@@ -15,4 +15,4 @@ menu:
 
 {{< img src="../img/admin-groups.png" title="Groups Menu" >}}
 
-The Groups menu allows you to add, edit and delete user groups. Beside that you can view the members of groups
+The Groups menu allows you to add, edit and delete user groups. Besides that you can view the members of groups
