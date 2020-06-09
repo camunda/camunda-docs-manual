@@ -100,6 +100,6 @@ Code which uses a self-closing HTML Tag as a parent for generated DOM-nodes will
 </div>
 ```
 
-You can enable the old behavior by overriding the JQuery `htmlPrefilter` function using a custom script. We provide an example for Tasklist [here](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/jquery-34-behaviour). Please keep in mind that this will reintroduce a security vulnerability that was fixed by this update.
+You can enable the old behavior by overriding the JQuery `htmlPrefilter` function using a custom script. We provide an example for Tasklist [here](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/jquery-34-behavior). Please keep in mind that this will reintroduce a security vulnerability that was fixed by this update.
 
 You can read more about the update in the [JQuery release blog](https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/)
