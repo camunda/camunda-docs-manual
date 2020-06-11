@@ -20,7 +20,7 @@ Out of the box, the process engine provides two Id generator implementations.
 
 # The Database Id Generator
 
-The Database Id Generator is implemented using a sequence Generator on top of the `ACT_RU_PROPERTY`
+The Database Id Generator is implemented using a sequence Generator on top of the `ACT_GE_PROPERTY`
 table.
 
 This id generator is good for debugging and testing since it generates human readable ids.
