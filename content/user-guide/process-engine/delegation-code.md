@@ -289,7 +289,7 @@ doesn't define an event, since only take events are fired on transitions. Values
 attribute are ignored when a listener is defined on a transition. Also it contains a
 [camunda:script][camunda-script] child element which defines a script which
 will be executed as execution listener. Alternatively it is possible to specify the script source
-code as external resources (see the documenation about [script sources][script-sources] of script
+code as external resources (see the documentation about [script sources][script-sources] of script
 tasks).
 
 The last execution listener is called when activity secondTask ends. Instead of using the class on the listener declaration, a expression is defined instead which is evaluated/invoked when the event is fired.
@@ -426,7 +426,7 @@ A task listener supports the following attributes:
 Besides the `class`, `expression` and `delegateExpression` attributes, a
 [camunda:script][camunda-script] child element can be used to specify a script as task listener.
 An external script resource can also be declared with the resource attribute of the
-`camunda:script` element (see the documenation about [script sources][script-sources] of script
+`camunda:script` element (see the documentation about [script sources][script-sources] of script
 tasks).
 
 ```xml
