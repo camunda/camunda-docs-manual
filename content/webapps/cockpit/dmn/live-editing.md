@@ -20,7 +20,7 @@ DMN tables can be changed directly in Cockpit. Clicking on the {{< glyphicon nam
 
 {{< img src="../../img/cockpit-edit-dmn-dialog.png" title="Cockpit Edit DMN Dialog" >}}
 
-Gray cells on the table display technical details like variable names and types. Changing this data might lead to incompatability with existing definitions, especially if the decision table is integrated in a BPMN process.
+Gray cells on the table display technical details like variable names and types. Changing this data might lead to incompatibility with existing definitions, especially if the decision table is integrated in a BPMN process.
 
 You can download the changed table with the {{< glyphicon name="save" text=" Download changed version">}} button. The downloaded file contains all changes you made to the table, but does not deploy it.
 
