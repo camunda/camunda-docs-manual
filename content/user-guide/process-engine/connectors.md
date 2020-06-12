@@ -29,6 +29,8 @@ connectors. Currently the following connector implementations exist:
   </tr>
 </table>
 
+It is also possible to implement your own custom connector in camunda. For more information about extending connectors please visit the [Connector reference]({{< ref "/reference/connect/extending-connect/" >}}). 
+
 
 # Configure Camunda Connect
 
