@@ -316,7 +316,7 @@ var ViewConfig = [ 'ViewsProvider', function(ViewsProvider) {
 
 {{< img src="../../img/plugin-points/plugin-point-decision-definition-table.png" title="Decision Definition Table" >}}
 
-This plugin should contain an initialize function recieving a data object with the following fields:
+This plugin should contain an initialize function receiving a data object with the following fields:
 
 * `decisionDefinition`: The data about the decision definition corresponding to the [REST response]({{< ref "/reference/rest/decision-definition/get.md#result" >}})
 * `decisionData`: The data-depend object for the decision definition
