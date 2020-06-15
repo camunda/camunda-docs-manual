@@ -407,7 +407,7 @@ By default it is not possible anymore to pass arbitrary expressions as parameter
 
 Reason: Passing EL expressions in a task query enables execution of arbitrary code when the query is evaluated.
 
-The process engine no longer evaluates these expressions by default and throws an exception instead. The pevious behavior can be re-enabled by setting the process configuration `enableExpressionsInAdhocQueries` to true.
+The process engine no longer evaluates these expressions by default and throws an exception instead. The previous behavior can be re-enabled by setting the process configuration `enableExpressionsInAdhocQueries` to true.
 
 See the user guide on [security considerations for custom code]({{< ref "/user-guide/process-engine/securing-custom-code.md" >}}) for details.
 
