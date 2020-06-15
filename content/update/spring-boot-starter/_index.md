@@ -12,4 +12,4 @@ menu:
 
 ---
 
-These document guides you through the process of updating the Spring Boot Starter from version to version.
+These documents guide you through the process of updating the Spring Boot Starter from version to version.
