@@ -587,7 +587,7 @@ When setting to <code>/</code>, the legacy behavior of Camunda Spring Boot Start
 </tr>
 
 <tr id="header-security">
-  <td rowspan="8"><code>camunda.bpm.webapp.header-security</code></td>
+  <td rowspan="12"><code>camunda.bpm.webapp.header-security</code></td>
 </tr>
 <tr>
   <td><code>.xss-protection-disabled</code></td>
@@ -650,12 +650,59 @@ When setting to <code>/</code>, the legacy behavior of Camunda Spring Boot Start
   <td><code>false</code></td>
 </tr>
 <tr>
-  <td><code>content-type-options-value</code></td>
+  <td><code>.content-type-options-value</code></td>
   <td>
     A custom value for the header can be specified.<br><br>
     <strong>Note:</strong> Property is ignored when <code>.content-security-policy-disabled</code> is set to <code>true</code>
   </td>
   <td><code>nosniff</code></td>
+</tr>
+<tr>
+  <td><code>.hsts-disabled</code></td>
+  <td>
+      Set to <code>false</code> to enable the header. The header is disabled by default.<br>
+      Allowed set of values is <code>true</code> and <code>false</code>. 
+  </td>
+  <td><code>true</code></td>
+</tr>
+<tr>
+  <td><code>.hsts-max-age</code></td>
+  <td>
+      Amount of seconds, the browser should remember to access the webapp via HTTPS.<br><br>
+      <strong>Note:</strong>
+      <ul>
+        <li>Corresponds by default to one year</li>
+        <li>Is ignored when <code>hstsDisabled</code> is <code>true</code></li>
+        <li>Cannot be set in conjunction with <code>hstsValue</code></li>
+        <li>Allows a maximum value of 2<sup>31</sup>-1</li>
+      </ul>
+  </td>
+  <td><code>31536000</code></td>
+</tr>
+<tr>
+  <td><code>.hsts-include-subdomains-disabled</code></td>
+  <td>
+      HSTS is additionally to the domain of the webapp enabled for all its subdomains.<br><br>
+      <strong>Note:</strong>
+      <ul>
+        <li>Is ignored when <code>hstsDisabled</code> is <code>true</code></li>
+        <li>Cannot be set in conjunction with <code>hstsValue</code></li>
+      </ul>
+  </td>
+  <td><code>true</code></td>
+</tr>
+<tr>
+  <td><code>.hsts-value</code></td>
+  <td>
+      A custom value for the header can be specified.<br><br>
+      <strong>Note:</strong>
+      <ul>
+        <li>Is ignored when <code>hstsDisabled</code> is <code>true</code></li>
+        <li>Cannot be set in conjunction with <code>hstsMaxAge</code> or 
+        <code>hstsIncludeSubdomainsDisabled</code></li>
+      </ul>
+  </td>
+  <td><code>max-age=31536000</code></td>
 </tr>
 
 <tr><td colspan="4"><b>Authorization</b></td></tr>

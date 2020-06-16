@@ -158,11 +158,12 @@ Since BPMN schema validation requires external XSD documents, the property `http
 
 ## HTTP Header Security in Webapps
 
-Out-of-the-box the web applications provide the following security-related HTTP headers:
+Out-of-the-box the web applications support the following security-related HTTP headers:
 
 * XSS Protection
 * Content Security Policy
 * Content-Type Options
+* Strict Transport Security (needs to be enabled explicitly)
 
 These headers enable browser-side security mechanisms which help to improve the protection against several attacking scenarios.
 
