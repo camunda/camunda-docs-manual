@@ -17,8 +17,9 @@ The HTTP Header Security mechanism allows you to add security-related response h
 
 This section briefly describes the purpose of the headers. You can find more information about the 
 [XSS Protection](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection), 
-[Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) 
-as well as [Content-Type Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options) 
+[Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy),
+[Content-Type Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options)  
+as well as [Strict Transport Security](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) 
 header in Mozilla’s Developer Guide.
 
 ### XSS Protection
@@ -95,6 +96,54 @@ Please keep in mind that a configuration which is more strict than the one intro
 
 If the **Content-Type Options** header is enabled, the browser uses the mime type declared in the <code>Content-Type</code> 
 header to render a resource and prevents trying to guess the mime type by inspecting the actual content of the byte stream (sniffing).
+
+### Strict Transport Security
+
+When enabled, the browser remembers that the Webapps must be accessed via HTTPS. After the initial
+HTTPS request, all subsequent requests will be redirected to HTTPS on the client-level — even though
+the user tries to access the Webapps via HTTP.
+
+{{< note title="Heads-up!" class="info" >}}
+* The **Strict Transport Security** header is disabled by default. When going into production, it is highly
+  recommended to enable **Strict Transport Security** and [Strengthen the Base Configuration](#strengthen-the-base-configuration) 
+  to protect the Webapps against man-in-the-middle attacks.
+* When accessing the Webapps via HTTP, the **Strict Transport Security** header is ignored. Therefore, 
+  make sure to redirect HTTP requests to HTTPS.
+{{< /note >}}
+
+#### Base Configuration
+
+After enabling the **Strict Transport Security** header, the base configuration is relatively lax:
+
+```
+max-age=31536000
+```
+
+#### Strengthen the Base Configuration
+
+We encourage you to use a stricter configuration. Here you can find hints on how to strengthen 
+the Base Configuration. Please also see the section on [How to Configure?](#hsts-config)
+
+**Max Age**
+
+The higher the value, the better: after expiration, the Webapps can be accessed via HTTP, which is 
+prone to be exploited by attackers.
+  
+**Include Subdomains**
+
+If you can answer the questions below with **yes**, you should consider enabling the `includeSubdomains` flag:
+
+* Are the Webapps the only web services provided under your domain? 
+* Additionally to the main domain, are there any subdomains pointing to the Webapps 
+  (e.g., `www.example.com` is a subdomain of `example.com`)?
+
+**Preload**
+
+To even avoid the initial HTTP request (redirected to HTTPS), you can submit your domain to the 
+[Preload List Service](https://hstspreload.org/) maintained by Google and set the 
+**Strict Transport Security** header according to the 
+[Submission Requirements](https://hstspreload.org/#submission-requirements) with the help of 
+the config property <code>hstsValue</code>.
 
 ## Where to Configure?
 
@@ -191,5 +240,56 @@ The following table shows the possible configuration settings and the default be
       <strong>Note:</strong> Property is ignored when <code>contentSecurityPolicyDisabled</code> is set to <code>true</code>
     </td>
     <td><code>nosniff</code></td>
+  </tr>
+  <tr>
+    <td id="hsts-config"><code>Strict-Transport-Security</code></td>
+    <td><code>hstsDisabled</code></td>
+    <td>
+      Set to <code>false</code> to enable the header. The header is disabled by default. <br>
+      Allowed set of values is <code>true</code> and <code>false</code>. 
+    </td>
+    <td><code>true</code></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><code>hstsMaxAge</code></td>
+    <td>
+      Amount of seconds, the browser should remember to access the webapp via HTTPS.<br><br>
+      <strong>Note:</strong>
+      <ul>
+        <li>Corresponds by default to one year</li>
+        <li>Is ignored when <code>hstsDisabled</code> is <code>true</code></li>
+        <li>Cannot be set in conjunction with <code>hstsValue</code></li>
+        <li>Allows a maximum value of 2<sup>31</sup>-1</li>
+      </ul>
+    </td>
+    <td><code>31536000</code></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><code>hstsIncludeSubdomainsDisabled</code></td>
+    <td>
+      HSTS is additionally to the domain of the webapp enabled for all its subdomains.<br><br>
+      <strong>Note:</strong>
+      <ul>
+        <li>Is ignored when <code>hstsDisabled</code> is <code>true</code></li>
+        <li>Cannot be set in conjunction with <code>hstsValue</code></li>
+      </ul>
+    </td>
+    <td><code>true</code></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><code>hstsValue</code></td>
+    <td>
+      A custom value for the header can be specified.<br><br>
+      <strong>Note:</strong>
+      <ul>
+        <li>Is ignored when <code>hstsDisabled</code> is <code>true</code></li>
+        <li>Cannot be set in conjunction with <code>hstsMaxAge</code> or 
+        <code>hstsIncludeSubdomainsDisabled</code></li>
+      </ul>
+    </td>
+    <td><code>max-age=31536000</code></td>
   </tr>
 </table>
