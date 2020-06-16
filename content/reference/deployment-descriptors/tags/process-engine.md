@@ -761,6 +761,15 @@ The following is a list with the most commonly used process engine configuration
     </td>
   </tr>
 
+  <tr id="telemetryEnabled">
+    <td><code>telemetryEnabled</code></td>
+    <td>boolean</td>
+    <td>
+        If enabled, information about the setup and usage of the process engine is sent to remote Camunda servers for the sake of analytical evaluation. <strong>Note:</strong> This feature is incomplete and under development. Right now, no data will be sent.
+        Default value: <code>false</code>
+    </td>
+  </tr>
+
 </table>
 
 ## History cleanup configuration parameters
