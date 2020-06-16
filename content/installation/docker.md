@@ -42,7 +42,7 @@ Since version 7.9 we offer to our customers a Docker image for the Enterprise ed
 
 These images are hosted on our dedicated Docker registry and are available to Enterprise customers only. You can browse the available images in our [Docker registry](https://registry.camunda.cloud) after logging-in with your credentials.
 
-Please note that these images are build using the same Dockerfile of the Community image, but including the Enterprise version of the platform. For this reason, the same [documentation](https://github.com/camunda/docker-camunda-bpm-platform/tree/master#environment-variables) applies.
+Please note that these images are built using the same Dockerfile of the Community image, but including the Enterprise version of the platform. For this reason, the same [documentation](https://github.com/camunda/docker-camunda-bpm-platform/tree/master#environment-variables) applies.
 
 Make sure to log-in correctly before trying to pull the image:
 
