@@ -340,7 +340,7 @@ To narrow down the report query, one can use the following methods from ``Histor
 * ``processDefinitionIdIn``: Only takes historic process instances into account for given process definition ids.
 * ``processDefinitionKeyIn``: Only takes historic process instances into account for given process definition keys.
 
-where `startedBefore` and `startedAfter` use `java.util.Date` (depricated) or `java.util.Calendar` objects for the input.
+where `startedBefore` and `startedAfter` use `java.util.Date` (deprecated) or `java.util.Calendar` objects for the input.
 
 For instance, one could query for all historic process instances which were started before now and get their duration:
 
