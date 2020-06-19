@@ -43,7 +43,7 @@ Note that you do not need to install the Process Engine if you do not want to ex
 
 Get the latest release from the [Camunda Modeler download page](https://camunda.com/download/modeler/).
 
-Find older versions of the modeler in our [release archive](https://camunda.org/download/modeler/).
+Find older versions of the modeler in our [release archive](https://downloads.camunda.cloud/release/camunda-modeler/).
 
 # Install
 
