@@ -603,7 +603,7 @@ When running the Camunda platform in a cluster, there is a distinction between *
 
 {{< img src="../img/homogeneous-cluster.png" title="Homogeneous Cluster" >}}
 
-In the *heterogeneous* case, this is not given, meaning that some process applications areonly  deployed to a part of the nodes.
+In the *heterogeneous* case, this is not given, meaning that some process applications are only  deployed to a part of the nodes.
 
 {{< img src="../img/heterogeneous-cluster.png" title="Heterogenous Cluster" >}}
 
