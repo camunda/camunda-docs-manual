@@ -8,7 +8,7 @@ menu:
     name: "Configure Telemetry"
     identifier: "rest-api-telemetry-configure"
     parent: "rest-api-telemetry"
-    pre: "POST `/telemetry`"
+    pre: "POST `/telemetry/configuration`"
 
 ---
 
@@ -68,7 +68,7 @@ response format.
 
 ## Request
 
-POST `/telemetry`
+POST `/telemetry/configuration`
 
 Request Body:
 
