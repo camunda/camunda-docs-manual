@@ -18,7 +18,7 @@ Configures whether Camunda receives data collection of the process engine setup 
 
 # Method
 
-POST `/telemetry`
+POST `/telemetry/configuration`
 
 # Parameters
 
@@ -32,7 +32,7 @@ A JSON object with the following properties:
     <th>Description</th>
   </tr>
   <tr>
-    <td>telemetryEnable</td>
+    <td>enableTelemetry</td>
     <td>Specifies if the data collection should be sent or not.</td>
   </tr>
 </table>
@@ -74,7 +74,7 @@ Request Body:
 
 ```json
 {
-  "telemetryEnabled":true
+  "enableTelemetry":true
 }
 ```
 
