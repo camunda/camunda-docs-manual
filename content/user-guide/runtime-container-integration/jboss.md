@@ -210,7 +210,7 @@ A declarative mechanism like `@Resource` could be
     @Resource(mappedName = "java:global/camunda-bpm-platform/process-engine/$PROCESS_ENGINE_NAME"
 
 {{< note title="Look Up a Process Engine From JNDI Using Spring" class="warning" >}}
-  On JBoss AS 7 / Wildfly, Spring users should always [create a resource-ref for the process engine in web.xml]({{< relref "#manage-service-dependencies" >}})</a> and then lookup the local name in the `java:comp/env/` namespace.[For an example, see this Quickstart](https://github.com/camunda/camunda-bpm-examples/tree/master/deployment/spring-jboss-non-pa)</a>
+  On JBoss AS 7 / Wildfly, Spring users should always [create a resource-ref for the process engine in web.xml]({{< relref "#manage-service-dependencies" >}})</a> and then lookup the local name in the `java:comp/env/` namespace. [For an example, see this Quickstart](https://github.com/camunda/camunda-bpm-examples/tree/master/deployment/spring-wildfly-non-pa)</a>
 {{< /note >}}
 
 
