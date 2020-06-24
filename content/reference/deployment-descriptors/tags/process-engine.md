@@ -761,7 +761,7 @@ The following is a list with the most commonly used process engine configuration
     </td>
   </tr>
 
-  <tr id="telemetryInitialized">
+  <tr id="initializeTelemetry">
     <td><code>initializeTelemetry</code></td>
     <td>boolean</td>
     <td>
