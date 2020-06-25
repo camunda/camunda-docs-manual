@@ -761,11 +761,11 @@ The following is a list with the most commonly used process engine configuration
     </td>
   </tr>
 
-  <tr id="telemetryEnabled">
-    <td><code>telemetryEnabled</code></td>
+  <tr id="initializeTelemetry">
+    <td><code>initializeTelemetry</code></td>
     <td>boolean</td>
     <td>
-        If enabled, information about the setup and usage of the process engine is sent to remote Camunda servers for the sake of analytical evaluation. <strong>Note:</strong> This feature is incomplete and under development. Right now, no data will be sent.
+        Sets the initial property value of telemetry configuration only once when it has never been enabled/disabled before. If enabled, information about the setup and usage of the process engine is sent to remote Camunda servers for the sake of analytical evaluation. It can be enabled/disabled later via Java/<a href="{{< ref "/reference/rest/telemetry/port-telemetry.md" >}}">REST</a> API. <strong>Note:</strong> This feature is incomplete and under development. Right now, no data will be sent.
         Default value: <code>false</code>
     </td>
   </tr>
