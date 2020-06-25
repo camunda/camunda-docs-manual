@@ -134,8 +134,8 @@ prone to be exploited by attackers.
 If you can answer the questions below with **yes**, you should consider enabling the `includeSubdomains` flag:
 
 * Are the Webapps the only web services provided under your domain? 
-* Additionally to the main domain, are there any subdomains pointing to the Webapps 
-  (e.g., `www.example.com` is a subdomain of `example.com`)?
+* Additionally to the main domain, are there any subdomains redirected to the Webapps 
+  (e.g., `www.example.com` is redirected to `example.com`)?
 
 **Preload**
 
