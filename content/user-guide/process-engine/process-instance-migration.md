@@ -484,7 +484,7 @@ When mapping events, there are two configuration options:
 {{< /note >}}
 
 {{< note title="Conditional Events" class="info" >}}
-The usage of `#updateEventTrigger` is mandatory for migrating conditional events. The condition is overriden by the condition of the new conditional event.
+The usage of `#updateEventTrigger` is mandatory for migrating conditional events. The condition is overridden by the condition of the new conditional event.
 {{< /note >}}
 
 
