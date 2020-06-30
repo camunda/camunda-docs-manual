@@ -120,6 +120,10 @@ A JSON object with the following properties:
             <p>If set to <code>false</code>, a serializable variable will be returned in its serialized format. For example, a variable that is serialized as XML will be returned as a JSON string containing XML.</p>
           </td>
         </tr>
+        <tr>
+          <td>includeExtensionProperties</td>
+          <td>Determines whether custom extension properties defined in the BPMN activity of the external task (e.g. via the Extensions tab in the Camunda modeler) should be included in the response. Default: <code>false</code></td>
+        </tr>
       </table>
     </td>
   </tr>
@@ -414,4 +418,71 @@ Status 200.
         }
       }
     }]
+```
+
+# Example with Extension Properties
+
+Given the external task definition contains extension properties:
+
+```xml
+    <bpmn:serviceTask id="anActivityId" name="Some External Task" camunda:type="external" camunda:topic="createOrder">
+      <bpmn:extensionElements>
+        <camunda:properties>
+          <camunda:property name="property1" value="value1" />
+          <camunda:property name="property2" value="value2" />
+        </camunda:properties>
+      </bpmn:extensionElements>
+    </bpmn:serviceTask>
+```
+
+## Request
+
+POST `/external-task/fetchAndLock`
+
+Request Body:
+
+```json
+    {
+      "workerId":"aWorkerId",
+      "maxTasks":1,
+      "usePriority":true,
+      "topics":
+          [{"topicName": "createOrder",
+          "lockDuration": 10000,
+          "includeExtensionProperties": true
+          }]
+    }
+
+```
+
+## Response
+
+Status 200.
+
+```json
+  [{
+      "activityId": "anActivityId",
+      "activityInstanceId": "anActivityInstanceId",
+      "errorMessage": "anErrorMessage",
+      "errorDetails": "anErrorDetails",
+      "executionId": "anExecutionId",
+      "id": "anExternalTaskId",
+      "lockExpirationTime": "2015-10-06T16:34:42.000+0200",
+      "processDefinitionId": "aProcessDefinitionId",
+      "processDefinitionKey": "aProcessDefinitionKey",
+      "processInstanceId": "aProcessInstanceId",
+      "retries": null,
+      "suspended": false,
+      "workerId": "aWorkerId",
+      "topicName": "createOrder",
+      "tenantId": null,
+      "variables": {},
+      "priority": 0,
+      "businessKey": "default",
+      "extensionProperties": {
+          "property2": "value2",
+          "property1": "value1"
+      }
+    }
+]
 ```
