@@ -19,9 +19,36 @@ More information on password policies in Camunda can be found in the password po
 
 POST `/identity/password-policy`
 
+# Parameters
+
+## Request Body
+
+A JSON object with the following properties:
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>password</td>
+    <td>String</td>
+    <td>The candidate password to be check against the password policy.</td>
+  </tr>
+  <tr>
+    <td>profile</td>
+    <td>Object</td>
+    <td>
+        A JSON object containing variable key-value pairs. <br>
+        The object contains the following properties: 
+        id (String), firstName (String), lastName (String) and email (String).</td>
+  </tr>
+</table>
+
 # Result
 
-The response contains a JSON object corresponding to the `CheckPasswordAgainstPolicyResult` interface in the engine.
+The response contains a JSON object corresponding to the `PasswordPolicyResult` interface in the engine.
 Its properties are as follows:
 
 <table class="table table-striped">
@@ -86,7 +113,7 @@ Its properties are as follows:
 
 # Example
 
-This example uses the default password policy that enforces a minimum password length and some complexity rules. The checked password is `myPassword` which is not complex enough to match all of the policy rules.
+This example uses the built-in password policy that enforces a minimum password length, and some complexity rules. The checked password is `myPassword` which is not complex enough to match all of the policy rules.
 
 ## Request
 
@@ -95,7 +122,13 @@ POST `/identity/password-policy`
 Request Body:
 ```
 {
-  "password": "myPassword"
+   "password": "myPassword",
+   "profile": {
+      "id": "jonny1",
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "jonny@camunda.org"
+   }
 }
 ```
 
@@ -104,28 +137,33 @@ Request Body:
 {
     "rules": [
         {
+           "placeholder": "PASSWORD_POLICY_USER_DATA",
+           "parameter": null,
+           "valid": true
+        },
+        {
             "placeholder": "PASSWORD_POLICY_LOWERCASE",
-            "parameters": {"minLowerCase": "1"},
+            "parameter": {"minLowerCase": "1"},
             "valid": true
         },
         {
             "placeholder": "PASSWORD_POLICY_LENGTH",
-            "parameters": {"minLength": "10"},
+            "parameter": {"minLength": "10"},
             "valid": false
         },
         {
             "placeholder": PASSWORD_POLICY_UPPERCASE",
-            "parameters": {"minUpperCase": "1"},
+            "parameter": {"minUpperCase": "1"},
             "valid": false
         },
         {
             "placeholder": "PASSWORD_POLICY_DIGIT",
-            "parameters": {"minDigit": "1"},
+            "parameter": {"minDigit": "1"},
             "valid": false
         },
         {
             "placeholder": "PASSWORD_POLICY_SPECIAL",
-            "parameters": {"minSpecial": "1"},
+            "parameter": {"minSpecial": "1"},
             "valid": false
         }
     ],

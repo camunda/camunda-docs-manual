@@ -15,10 +15,11 @@ Since version 7.11.0, the engine comes with a standard password policy that is d
 
 **Note:** This only applies to users that are managed within the Camunda engine. If you use LDAP for your user management a password policy has no effect on these users.
 
-# Default Password Policy
+# Built-In Password Policy
 
-The default password policy that comes with the Camunda engine requires all passwords to meet the following criteria:
+The built-in password policy requires all passwords to meet the following criteria:
 
+* user data (i.e., user id, first name, last name, email) must not be contained
 * minimum length of 10 characters
 * at least 1 upper case character
 * at least 1 lower case character
@@ -57,8 +58,9 @@ public class MyPasswordPolicyRule implements PasswordPolicyRule {
   }
 
   @Override
-  public boolean execute(String password) {
-    // validate the password, return true if valid or false if invalid
+  public boolean execute(String candidatePassword, User user) {
+    // validate the candidate password
+    // return true if valid or false if invalid
   }
 }
 ```
