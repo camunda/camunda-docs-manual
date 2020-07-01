@@ -771,7 +771,6 @@ The following is a list with the most commonly used process engine configuration
 	        <ul>
 	          <li>process engine version and edition (community or enterprise)</li>
 	          <li>process engine installation id</li>
-	          <li>process engine version and edition (community or enterprise)</li>
 	          <li>database vendor and version</li>
 	        </ul>
 	        Default value: <code>false</code>
