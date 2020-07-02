@@ -765,8 +765,26 @@ The following is a list with the most commonly used process engine configuration
     <td><code>initializeTelemetry</code></td>
     <td>boolean</td>
     <td>
-        Sets the initial property value of telemetry configuration only once when it has never been enabled/disabled before. If enabled, information about the setup and usage of the process engine is sent to remote Camunda servers for the sake of analytical evaluation. It can be enabled/disabled later via Java/<a href="{{< ref "/reference/rest/telemetry/port-telemetry.md" >}}">REST</a> API. <strong>Note:</strong> This feature is incomplete and under development. Right now, no data will be sent.
-        Default value: <code>false</code>
+        <p>Sets the initial property value of telemetry configuration only once when it has never been enabled/disabled before. If enabled, information about the setup and usage of the process engine is sent to remote Camunda servers for the sake of analytical evaluation. It can be enabled/disabled later via Java/<a href="{{< ref "/reference/rest/telemetry/port-telemetry.md" >}}">REST</a> API.
+        <p>
+          When enabled the following data is sent every 24 hours:
+	        <ul>
+	          <li>process engine version and edition (community or enterprise)</li>
+	          <li>process engine installation id</li>
+	          <li>database vendor and version</li>
+	        </ul>
+	        Default value: <code>false</code>
+        </p>
+        <h6>
+          <strong>Legal note:</strong>
+        </h6>
+        <p>
+          Before you install a Camunda BPM Runtime version >= 7.14.0-alpha1 or activate the telemetric functionality, please make sure that you are authorized to take this step, and that the installation or activation of the telemetric functionality is not in conflict with any internal company policies, compliance guidelines, any contractual or other provisions or obligations of your company.
+        </p>
+        <p>
+          Camunda can not be held responsible in the event of unauthorized installation or activation of this function.
+        </p>
+        
     </td>
   </tr>
 
