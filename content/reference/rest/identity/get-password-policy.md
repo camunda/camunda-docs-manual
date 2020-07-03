@@ -78,7 +78,7 @@ Its properties are as follows:
 
 # Example
 
-This example uses the default password policy that enforces a minimum password length and some complexity rules.
+This example uses the built-in password policy that enforces a minimum password length, and some complexity rules.
 
 ## Request
 
@@ -89,24 +89,28 @@ GET `/identity/password-policy`
 {
     "rules": [
         {
+           "placeholder": "PASSWORD_POLICY_USER_DATA",
+           "parameter": null
+        },
+        {
             "placeholder": "PASSWORD_POLICY_LENGTH",
-            "parameters": {"minLength": "10"}
+            "parameter": {"minLength": "10"}
         },
         {
             "placeholder": "PASSWORD_POLICY_LOWERCASE",
-            "parameters": {"minLowerCase": "1"}
+            "parameter": {"minLowerCase": "1"}
         },
         {
             "placeholder": "PASSWORD_POLICY_UPPERCASE",
-            "parameters": {"minUpperCase": "1"}
+            "parameter": {"minUpperCase": "1"}
         },
         {
             "placeholder": "PASSWORD_POLICY_DIGIT",
-            "parameters": {"minDigit": "1"}
+            "parameter": {"minDigit": "1"}
         },
         {
             "placeholder": "PASSWORD_POLICY_SPECIAL",
-            "parameters": {"minSpecial": "1"}
+            "parameter": {"minSpecial": "1"}
         }
     ]
 }
