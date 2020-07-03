@@ -10,7 +10,7 @@ menu:
 
 ---
 
-For users to be able to work on the tasks they should work on, they must be able to find these tasks. Enabling users to find _"their"_ tasks requires the correct interaction between the inital assignment of the task and the filters configured in Tasklist.
+For users to be able to work on the tasks they should work on, they must be able to find these tasks. Enabling users to find _"their"_ tasks requires the correct interaction between the initial assignment of the task and the filters configured in Tasklist.
 
 This works as follows:
 
