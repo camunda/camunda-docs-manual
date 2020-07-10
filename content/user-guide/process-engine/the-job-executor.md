@@ -11,7 +11,7 @@ menu:
 ---
 
 
-A job is an explicit representation of a task to trigger process execution. A job is created whenever a wait state is reached during process execution that has to be triggered internally. This is the case when a timer event or a task marked for asynchronous execution (see [transaction boundaries]({{< ref "/user-guide/process-engine/transactions-in-processes.md" >}})) is approached. Job processing can therefore be separated into three phases:
+A job is an explicit representation of a task to trigger process execution. A job is created when a timer event or a task marked for asynchronous execution (see [transaction boundaries]({{< ref "/user-guide/process-engine/transactions-in-processes.md" >}})) is approached. Job processing can therefore be separated into three phases:
 
 * [Job Creation]({{< relref "#job-creation" >}})
 * [Job Acquisition]({{< relref "#job-acquisition" >}})
