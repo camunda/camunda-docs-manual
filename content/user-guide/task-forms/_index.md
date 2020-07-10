@@ -270,6 +270,11 @@ Camunda BPM supports custom validators. Custom validators are referenced using t
     </camunda:validation>
 </camunda:formField>
 ```
+
+{{< note title="" class="info" >}}
+  The name attribute must be set to "validator" in order to use custom form field validator.
+{{< /note >}}
+
 A custom validator implements the `org.camunda.bpm.engine.impl.form.validator.FormFieldValidator` interface:
 
 ```java
