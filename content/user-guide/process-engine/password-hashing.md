@@ -69,7 +69,7 @@ public class MyCustomSaltGenerator implements SaltGenerator {
 }
 ```
 
-Once this is done, you can use the process engine configuration to plug in the custom implementation by the setting the `saltGenerator` property to your custom implmentation, e.g., `MyCustomSaltGenerator`. See [Process Engine Bootstrapping](../process-engine-bootstrapping) on where you have to set the property for your Camunda environment.
+Once this is done, you can use the process engine configuration to plug in the custom implementation by the setting the `saltGenerator` property to your custom implementation, e.g., `MyCustomSaltGenerator`. See [Process Engine Bootstrapping](../process-engine-bootstrapping) on where you have to set the property for your Camunda environment.
 
 
 
