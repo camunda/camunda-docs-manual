@@ -271,7 +271,7 @@ Process Engine Context of the outer Command.
 The `ProcessEngineContext` utility class can be used to declare to
 the Process Engine that a new Process Engine Context needs to be created
 in order for the database operations in a nested Process Engine Command
-to be separated in a new transaction. The folowing `Java` code example 
+to be separated in a new transaction. The following `Java` code example 
 shows how the class can be used:
 
 ```java
