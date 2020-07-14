@@ -96,5 +96,5 @@ public class Customer {
 }
 ```
 
-Assuming that `Car` is an interface with various implementations, such as `StationWagon` or `Van`, Jackson cannot tell which implementation to use based solely on the static structure of `Customer`. In these cases, Jackson relies on type information that is part of the JSON. See the [Jackson documentation](http://wiki.fasterxml.com/JacksonPolymorphicDeserialization) for the various options Jackson offers to configure type serialization and deserialization. You can configure these options in Spin as described in the [configuration section]({{< ref "/reference/spin/json/05-configuring-json.md" >}}).
+Assuming that `Car` is an interface with various implementations, such as `StationWagon` or `Van`, Jackson cannot tell which implementation to use based solely on the static structure of `Customer`. In these cases, Jackson relies on type information that is part of the JSON. See the [Jackson documentation](https://github.com/FasterXML/jackson-docs/wiki/JacksonPolymorphicDeserialization) for the various options Jackson offers to configure type serialization and deserialization. You can configure these options in Spin as described in the [configuration section]({{< ref "/reference/spin/json/05-configuring-json.md" >}}).
 
