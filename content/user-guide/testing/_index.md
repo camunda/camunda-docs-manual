@@ -165,18 +165,18 @@ To use Camunda BPM Assert, add the following dependency to your ```pom.xml```:
 <dependency>
   <groupId>org.camunda.bpm.assert</groupId>
   <artifactId>camunda-bpm-assert</artifactId>
-  <version>6.0.0</version>
+  <version>7.0.0</version>
   <scope>test</scope>
 </dependency>
 ```
 
-Also, you will have to add the AssertJ library v3.13.2 to your dependencies with
+Also, you will have to add the AssertJ library v3.16.1 to your dependencies with
 
 ```xml
 <dependency>
   <groupId>org.assertj</groupId>
   <artifactId>assertj-core</artifactId>
-  <version>3.13.2</version>
+  <version>3.16.1</version>
   <scope>test</scope>
 </dependency>
 ```
@@ -250,6 +250,12 @@ All versions prior to 3.0.0 belong to the community extension are not part of th
     <td>camunda-bpm-assert</td>
     <td>3.13.2</td>
     <td>6.0.0</td>
+    <td>7.13.0</td>
+  </tr>
+  <tr>
+    <td>camunda-bpm-assert</td>
+    <td>3.16.1</td>
+    <td>7.0.0</td>
     <td>7.13.0</td>
   </tr>
 </table>
