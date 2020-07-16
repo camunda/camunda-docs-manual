@@ -98,9 +98,14 @@ Other combinations must be thoroughly tested before being used in production.
     <td>2.2.x.RELEASE</td>
   </tr>
   <tr>
-    <td>7.13.x</td>
-    <td>7.13.x</td>
-    <td>2.2.x.RELEASE</td>
+    <td>7.13.x<br/>7.13.3+&#42;&#42;&#42;</td>
+    <td>7.13.x<br/>7.13.3+</td>
+    <td>2.2.x.RELEASE<br/>2.3.x.RELEASE</td>
+  </tr>
+  <tr>
+    <td>7.14.x</td>
+    <td>7.14.x</td>
+    <td>2.3.x.RELEASE</td>
   </tr>
 </table>
 
@@ -120,4 +125,23 @@ Other combinations must be thoroughly tested before being used in production.
   <artifactId>camunda-bpm-spring-boot-starter</artifactId>
   <version>2.x</version> <!-- set correct version here -->
 </dependency>
+```
+
+\*\*\* For these versions, all listed Spring Boot versions are supported 
+while the oldest one is used by default. If you want to use a newer supported version,
+configure `dependencyManagement` in your application, e.g. add the following when using Maven:
+```
+<dependencyManagement>
+  <dependencies>
+  ...
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-dependencies</artifactId>
+      <version>2.x.y.RELEASE</version> <!-- set correct version here -->
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+  ...
+  </dependencies>
+</dependencyManagement>
 ```
