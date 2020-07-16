@@ -277,7 +277,7 @@ finally {
 ### Getting a user's Tenant Ids from the Identity Service
 
 The process engine's Identity Service can be used to manage users, groups and tenants as well as their relationships.
-The following example shows how to retreive the lists of groups and tenants for a given user and then use these lists when setting the authentication:
+The following example shows how to retrieve the lists of groups and tenants for a given user and then use these lists when setting the authentication:
 
 ```java
 List<Tenant> groups = identityService.createGroupQuery()
