@@ -102,6 +102,11 @@ Other combinations must be thoroughly tested before being used in production.
     <td>7.13.x<br/>7.13.3+</td>
     <td>2.2.x.RELEASE<br/>2.3.x.RELEASE</td>
   </tr>
+  <tr>
+    <td>7.14.x</td>
+    <td>7.14.x</td>
+    <td>2.3.x.RELEASE</td>
+  </tr>
 </table>
 
 \* For these versions, use the following Maven coordinates:
