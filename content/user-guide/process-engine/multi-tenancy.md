@@ -230,7 +230,7 @@ finally {
 }
 ```
 
-In the above example, all API calls executed between `setAuthentication(...)` and `clearAuthentication()` are transparenty executed with the list
+In the above example, all API calls executed between `setAuthentication(...)` and `clearAuthentication()` are transparently executed with the list
 of provided tenant Ids.
 
 ### Query Example
