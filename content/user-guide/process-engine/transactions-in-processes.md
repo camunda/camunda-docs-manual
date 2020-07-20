@@ -362,7 +362,7 @@ However, since pessimistic locks are exclusive, concurrency is reduced, degradin
 
 ## Optimistic Locking in Camunda
 
-Camunda uses Optimistic Locking for concurrency control. If a concurency conflict is detected, 
+Camunda uses Optimistic Locking for concurrency control. If a concurrency conflict is detected, 
 an exception is thrown and the transaction is rolled back. Conflicts are detected when _UPDATE_ or _DELETE_ statements are executed. 
 The execution of delete or update statements return an affected rows count. 
 If this count is equal to zero, it indicates that the row was previously updated or deleted.
