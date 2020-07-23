@@ -64,18 +64,20 @@ Copy the following library from `$WLS_DISTRIBUTION/modules/lib` to the folder `$
 Copy the following library from `$WLS_DISTRIBUTION/modules/lib` to the folder `$WLS_DOMAIN_HOME/lib`, if present:
 
 * `camunda-connect-core-$CONNECT_VERSION.jar`
+
 --- 
-camunda-connect-connectors-all and camunda-engine-plugin-connect are part of the .ear
----
+`camunda-connect-connectors-all` and `camunda-engine-plugin-connect` are part of the .ear
+
 
 ## Camunda Spin
 
 Copy the following library from `$WLS_DISTRIBUTION/modules/lib` to the folder `$WLS_DOMAIN_HOME/lib`, if present:
 
 * `camunda-spin-core-$SPIN_VERSION.jar`
+
 --- 
-camunda-spin-dataformat-all and camunda-engine-plugin-spin are part of the .ear
----
+`camunda-spin-dataformat-all` and `camunda-engine-plugin-spin` are part of the .ear
+
 # 4. Maintain the BPM Platform Configuration
 
 If you have previously replaced the default BPM platform configuration by a custom configuration following any of the ways outlined in the [deployment descriptor reference][configuration-location], it may be necessary to restore this configuration. This can be done by repeating the configuration replacement steps for the updated platform.
