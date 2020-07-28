@@ -880,6 +880,6 @@ To provide additional configurations, the following actions need to be performed
 
 1. Provide a custom implementation of `org.camunda.spin.spi.DataFormatConfigurator`;
 1. Add the appropriate key-value pair of the fully qualified classnames of the interface and the
-   implementaion to the `META-INF/spring.factories` file;
+   implementation to the `META-INF/spring.factories` file;
 1. Ensure that the artifact containing the configurator is reachable from Spin’s classloader.
  
