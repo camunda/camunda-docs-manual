@@ -35,7 +35,7 @@ A context switch is guaranteed in the following cases:
 
 # Declare Process Application Context
 
-Process application context must be declared whenevever custom code uses the engine API that is not part of delegation code and when a context switch is needed for proper function.
+Process application context must be declared whenever custom code uses the engine API that is not part of delegation code and when a context switch is needed for proper function.
 
 ## Example
 
