@@ -103,3 +103,28 @@ Code which uses a self-closing HTML Tag as a parent for generated DOM-nodes will
 You can enable the old behavior by overriding the JQuery `htmlPrefilter` function using a custom script. We provide an example for Tasklist [here](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/jquery-34-behavior). Please keep in mind that this will reintroduce a security vulnerability that was fixed by this update.
 
 You can read more about the update in the [JQuery release blog](https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/)
+
+# Changes to Task Query and Historic Task Query behavior
+
+As of version `7.14.0`, when using the `TaskService`, or the `HistoryService` to execute a Task query or 
+a Historic Task Instance query (or use the  appropriate Rest API endpoints), the following methods now 
+perform a case-insensitive comparison:
+
+* `TaskQuery#taskDescription(String description);`
+* `TaskQuery#taskDescriptionLike(String descriptionLike);`
+* `HistoricTaskInstanceQuery#taskName(String taskName);`
+* `HistoricTaskInstanceQuery#taskNameLike(String taskNameLike);`
+* `HistoricTaskInstanceQuery#taskDescription(String taskDescription);`
+* `HistoricTaskInstanceQuery#taskDescriptionLike(String taskDescriptionLike);`
+
+This was done to make the remaining methods consistent with the behavior in: 
+
+* `TaskQuery#taskName(String name)` 
+* `TaskQuery#taskNameLike(String nameLike)`
+* `TaskQuery#taskNameNotLike(String nameNotLike)`
+* `TaskQuery#taskNameNotEqual(String nameNotEqual)`
+ 
+where the behavior was already present.
+
+Users that expect a case-sensitive result, will need to adjust their logic, or Task names and descriptions, 
+for this change of behavior.
