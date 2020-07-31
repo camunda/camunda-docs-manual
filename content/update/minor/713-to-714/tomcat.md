@@ -38,6 +38,8 @@ Replace the following libraries in the folder `$TOMCAT_HOME/lib/` with their new
 * `camunda-commons-logging-$COMMONS_VERSION.jar`
 * `camunda-commons-typed-values-$COMMONS_VERSION.jar`
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
+* `camunda-connect-connectors-all-$CONNECT_VERSION.jar`
+* `camunda-connect-core-$CONNECT_VERSION.jar`
 * `camunda-template-engines-freemarker-$TEMPLATE_ENGINES_VERSION.jar`
 * `freemarker-$FREEMARKER_VERSION.jar`
 * `mybatis-$MYBATIS_VERSION.jar`
@@ -52,12 +54,10 @@ Copy the following library from `$TOMCAT_DISTRIBUTION/lib` to the folder `$TOMCA
 
 * `camunda-identity-ldap-$PLATFORM_VERSION.jar`
 
-## Camunda Connect
+## Camunda Connect Plugin
 
 Copy the following libraries from `$TOMCAT_DISTRIBUTION/lib` to the folder `$TOMCAT_HOME/lib/`, if present:
 
-* `camunda-connect-connectors-all-$CONNECT_VERSION.jar`
-* `camunda-connect-core-$CONNECT_VERSION.jar`
 * `camunda-engine-plugin-connect-$PLATFORM_VERSION.jar`
 
 ## Camunda Spin

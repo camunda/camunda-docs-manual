@@ -314,19 +314,12 @@ The following steps are required to deploy the REST API:
    provided that you deployed the application in the context `/engine-rest`.
 
 
-## Camunda Connect
+## Camunda Connect Plugin
 
 Add the following modules (if not existing) from the folder `$JBOSS_DISTRIBUTION/modules/` to the folder `$JBOSS_HOME/modules/`:
 
-* `org/camunda/connect/camunda-connect-core`
-* `org/camunda/connect/camunda-connect-http-client`
-* `org/camunda/connect/camunda-connect-soap-http-client`
 * `org/camunda/bpm/camunda-engine-plugin-connect`
 * `org/camunda/commons/camunda-commons-utils`
-* `org/apache/httpcomponents/httpclient`
-* `org/apache/httpcomponents/httpcore`
-* `commons-codec/commons-codec`
-* `commons-logging/commons-logging`
 
 To activate Camunda Connect functionality for a process engine, a process engine plugin has to be registered in `$JBOSS_HOME/standalone/configuration/standalone.xml` as follows:
 

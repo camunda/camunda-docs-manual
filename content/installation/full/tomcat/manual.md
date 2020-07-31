@@ -203,12 +203,10 @@ The following steps are required to deploy the REST API:
 5. Enable authentication as described in the [REST API documentation]({{< ref "/reference/rest/overview/authentication.md" >}})
 
 
-## Camunda Connect
+## Camunda Connect Plugin
 
 Add the following artifacts (if not existing) from the folder `$TOMCAT_DISTRIBUTION/lib/` to the folder `$TOMCAT_HOME/lib/`:
 
-* `camunda-connect-connectors-all-$CONNECT_VERSION.jar`
-* `camunda-connect-core-$CONNECT_VERSION.jar`
 * `camunda-engine-plugin-connect-$CAMUNDA_VERSION.jar`
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
 

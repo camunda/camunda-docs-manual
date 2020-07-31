@@ -19,6 +19,8 @@ This document guides you through the update from Camunda BPM `7.13.x` to `7.14.0
 1. For administrators and developers: [Full Distribution Update](#full-distribution)
 1. For administrators: [Standalone Web Application](#standalone-web-application)
 1. For developers: [Update to JQuery 3.5](#update-to-jquery-3-5)
+1. For developers: [Changes to Task Query and Historic Task Query behavior](#changes-to-task-query-and-historic-task-query-behavior)
+1. For developers: [Connect Version in Existing Dependencies](#connect-version-in-existing-dependencies)
 
 This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new functionality included in Camunda BPM 7.14.
 
@@ -104,6 +106,7 @@ You can enable the old behavior by overriding the JQuery `htmlPrefilter` functio
 
 You can read more about the update in the [JQuery release blog](https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/)
 
+
 # Changes to Task Query and Historic Task Query behavior
 
 As of version `7.14.0`, when using the `TaskService`, or the `HistoryService` to execute a Task query or 
@@ -128,3 +131,19 @@ where the behavior was already present.
 
 Users that expect a case-sensitive result, will need to adjust their logic, or Task names and descriptions, 
 for this change of behavior.
+
+
+# Connect Version in Existing Dependencies
+
+Camunda Connect dependency has been added to the process engine (`camunda-engine`) artifact. That changes the status of the dependency from optional to required. The respective upgrade guides of the application server installation have been updated accordingly to reflect the change.
+In case you already have a [Connect]({{< ref "/reference/connect/_index.md#maven-coordinates" >}}) dependencies (see the list below) to some of your projects, please consider consolidating the version of them with one that comes as dependency with the engine.
+
+List of the connect artifacts:
+
+* `camunda-connect-core`
+* `camunda-connect-connectors-all`
+* `camunda-connect-http-client`
+* `camunda-connect-soap-client`
+
+
+That will prevent inconsistencies on the system. Please note that Connect plugin component is still an optional dependency.
