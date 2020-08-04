@@ -42,3 +42,7 @@ The source code of the Camunda Modeler is licensed under the MIT license as stat
 ## Third-Party Libraries
 
 The application builds upon a number of third party libraries. You find an up-to-date list of third party libraries used and their license terms in the [`THIRD_PARTY_NOTICES` file](https://github.com/camunda/camunda-modeler/blob/master/THIRD_PARTY_NOTICES), located in the root of the source code repository. This file is also shipped with the application distribution as `THIRD_PARTY_NOTICES.camunda-modeler.txt`.
+
+# Contact
+
+If you have a question specifically about the licensing or distribution of Camunda’s software and it has not been answered by this page, please contact the Open Source Compliance team at [foss@camunda.com](foss@camunda.com).
