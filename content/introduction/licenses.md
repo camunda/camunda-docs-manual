@@ -45,4 +45,4 @@ The application builds upon a number of third party libraries. You find an up-to
 
 # Contact
 
-If you have a question specifically about the licensing or distribution of Camunda’s software and it has not been answered by this page, please contact the Open Source Compliance team at [foss@camunda.com](foss@camunda.com).
+If you have a question specifically about the licensing or distribution of Camunda’s software and it has not been answered by this page, please contact the Open Source Compliance team at [foss@camunda.com](mailto:foss@camunda.com).
