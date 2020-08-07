@@ -78,7 +78,7 @@ As runtime relevant resource it defines
 9. a css file that contains the style definitions for the client-side plugin. This file must be named `plugin.css` and be located in the `app` directory of the plugin asset directory
 
 {{< note title="Related Example" class="info">}}
-  [How to develop a Cockpit plugin](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/cockpit-sample-plugin)
+  [How to develop a Cockpit plugin](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/cockpit-fullstack-count-processes)
 {{< /note >}}
 
 ## Structure of a Frontend Module
@@ -152,7 +152,7 @@ To configure where you place your plugin, enter the ID into the `pluginPoint` at
 
 Plugin Points also describe where a Plugin will be rendered. Plugin Points also define which additional data is passed into the second argument of the render function. 
 
-For more information on creating and configuring your own plugin, please see [How to develop a Cockpit plugin](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/cockpit-sample-plugin).
+For more information on creating and configuring your own plugin, please see [How to develop a Cockpit plugin](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/cockpit-fullstack-count-processes).
 
 
 ## Route
