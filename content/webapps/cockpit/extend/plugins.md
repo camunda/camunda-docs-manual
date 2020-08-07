@@ -12,8 +12,8 @@ menu:
 ---
 
 {{< note title="Plugin Compatibility" class="info" >}}
-  Please note that we updated the frontend interface with Camunda 7.14. Plugins written for Camunda 7.13 and earlier might no longer work with Camunda 7.14.  
-  This page is currently a work in progress. Details can change as the development of the new interface is still ongoing.
+Please note that we updated the frontend plugin interface with Camunda BPM Runtime 7.14. Plugins written for Camunda BPM Runtime 7.13 and earlier might no longer work with Camunda BPM Runtime 7.14  
+This page is currently a work in progress. Details can change as the development of the new interface is still ongoing.
 {{< /note >}}
 
 Cockpit defines a plugin concept to add own functionality without being forced to extend or hack the Cockpit web application. You can add plugins at various plugin points, e.g., the processes dashboard as shown in the following example:
@@ -108,7 +108,7 @@ This file can also be included standalone as a [custom script]({{< ref "/webapps
 
 `priority`: Number, describes in which order the plugins at the same pluginPoint will be mounted. For certain Plugin points (like `cockpit.navigation`), a negative priority hides the entry in a dropdown. How this is handled depends on the Plugin Point.
 
-`render`: Function, the heart of your Plugin. Arguments are (`DOMNode`|`BPMNioViewerInstance`, additionalData (`Object`)). Using the DOM node, render your plugin into the DOM.
+`render`: Function, the heart of your Plugin. Arguments are (`DOMNode`|`BPMNioViewerInstance`, additionalData (`Object`)). Using the DOM node, you can render your plugin into the DOM.
 The second argument contains constants like a processDefinitionId. The details of which data is passed into the plugin can be found at the [plugin point reference](#plugin-points).
 
 `unmount`: Optional function which is called when the Plugin is unmounted. Use this to cleanup any listeners you or your Framework might have registered.
@@ -150,7 +150,7 @@ In this example we deactivate the cancel action in the Cockpit process instance 
 In this section you will find all Cockpit plugin points.
 To configure where you place your plugin, enter the ID into the `pluginPoint` attribute of you frontend module.
 
-Plugin Points also describe where a Plugin will be rendered. Plugin Points also define which additional data is passed into the second argument of the render function. 
+Plugin Points describe where a Plugin will be rendered and define which additional data is passed into the second argument of the render function.
 
 For more information on creating and configuring your own plugin, please see [How to develop a Cockpit plugin](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/cockpit-fullstack-count-processes).
 
@@ -164,7 +164,7 @@ This plugin point has a unique property, `path`, which stands for the hashRoute 
 export default {
   id: "myNewSite",
   pluginPoint: "cockpit.route",
-  path: "/my-path"
+  path: "/my-path",
   priority: 0,
   render: container => {
     container.innerHTML = "Look at this page!";
@@ -314,20 +314,8 @@ This additional data is passed into the render function:
 {{< img src="../../img/plugin-points/plugin-point-instance-diagram-overlay.png" title="Instance Diagram Overlay" >}}
 
 Diagram overlay plugins are a little different from other plugins.
-This plugin point does not receive a DOM node to render into but an instance of the Diagram viewer to create an overlay.
+This plugin point does not receive a DOM node to render into but an instance of the Diagram viewer to create an overlay. See [Process Definition Diagram Overlay](#process-definition-diagram-overlay) for an example.
 
-```Javascript
-export default {
-  id: "myOverlay",
-  pluginPoint: "cockpit.processInstance.diagram.plugin",
-  priority: 0,
-  render: (viewer, {processInstanceId}) => {
-    viewer.get("overlays").add(
-      // ...
-    )
-  }
-};
-```
 
 This additional data is passed into the render function:
   - `processInstanceId`
@@ -368,6 +356,7 @@ This additional data is passed into the render function:
 
 {{< img src="../../img/plugin-points/plugin-point-decision-definition-table.png" title="Decision Definition Table" >}}
 
+Diagram overlay plugins are a little different from other plugins.
 This plugin point does not receive a DOM node to render into but an instance of the Diagram viewer to create an overlay. See [Process Definition Diagram Overlay](#process-definition-diagram-overlay) for an example.
 
 This additional data is passed into the render function:
@@ -402,6 +391,7 @@ This additional data is passed into the render function:
 
 {{< img src="../../img/plugin-points/plugin-point-decision-instance-table.png" title="Decision Instance Table" >}}
 
+Diagram overlay plugins are a little different from other plugins.
 This plugin point does not receive a DOM node to render into but an instance of the Diagram viewer to create an overlay. See [Process Definition Diagram Overlay](#process-definition-diagram-overlay) for an example.
 
 This additional data is passed into the render function:
@@ -444,6 +434,7 @@ This additional data is passed into the render function:
 
 {{< img src="../../img/plugin-points/plugin-point-case-definition-diagram-overlay.png" title="Case Definition Diagram Overlay" >}}
 
+Diagram overlay plugins are a little different from other plugins.
 This plugin point does not receive a DOM node to render into but an instance of the Diagram viewer to create an overlay. See [Process Definition Diagram Overlay](#process-definition-diagram-overlay) for an example.
 
 This additional data is passed into the render function:
@@ -481,6 +472,7 @@ This additional data is passed into the render function:
 
 {{< img src="../../img/plugin-points/plugin-point-case-instance-diagram-overlay.png" title="Case Instance Diagram Overlay" >}}
 
+Diagram overlay plugins are a little different from other plugins.
 This plugin point does not receive a DOM node to render into but an instance of the Diagram viewer to create an overlay. See [Process Definition Diagram Overlay](#process-definition-diagram-overlay) for an example.
 
 This additional data is passed into the render function:
