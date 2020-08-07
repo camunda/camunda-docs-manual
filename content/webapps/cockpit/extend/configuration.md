@@ -72,7 +72,7 @@ export default {
 ```
 This includes a `custom-module/module.js` file. The path is relative to the `app/cockpit` folder in the Camunda webapp .war file.
 
-You can find a complete example about how to use `customScripts` to develop a Cockpit Plugin in the [Camunda BPM examples repository](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/cats-plugin).
+You can find a complete example about how to use `customScripts` to develop a Cockpit Plugin in the [Camunda BPM examples repository](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/cockpit-cats).
 
 # BPMN Diagram Viewer (bpmn.js)
 
