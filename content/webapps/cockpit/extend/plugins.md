@@ -23,16 +23,16 @@ Cockpit defines a plugin concept to add own functionality without being forced t
 
 # The Nature of a Cockpit Plugin
 
-A cockpit plugin is a maven jar project that is included in the cockpit webapplication as a library dependency. It provides a server-side and a client-side extension to cockpit.
+A Cockpit plugin is a maven jar project that is included in the Cockpit webapplication as a library dependency. It provides a server-side and a client-side extension to Cockpit.
 
-On the server-side, it can extend cockpit with custom SQL queries and JAX-RS resource classes. Queries (defined via [MyBatis](http://www.mybatis.org/)) may be used to squeeze additional intel out of an engine database or to execute custom engine operations. JAX-RS resources on the other hand extend the cockpit API and expose data to the client-side part of the plugin.
+On the server-side, it can extend Cockpit with custom SQL queries and JAX-RS resource classes. Queries (defined via [MyBatis](http://www.mybatis.org/)) may be used to squeeze additional intel out of an engine database or to execute custom engine operations. JAX-RS resources on the other hand extend the Cockpit API and expose data to the client-side part of the plugin.
 
-On the client-side a plugin may include JavaScript modules to extend the cockpit webapplication. Via those modules a plugin provides custom views.
+On the client-side a plugin may include Javascript modules to extend the Cockpit webapplication. Via those modules a plugin provides custom views.
 
 
 ## File structure
 
-The basic skeleton of a cockpit plugin looks as follows:
+The basic skeleton of a Cockpit plugin looks as follows:
 
     cockpit-plugin/
     ├── src/
@@ -72,13 +72,13 @@ As runtime relevant resource it defines
 3. a plugin root [JAX-RS](https://jax-rs-spec.java.net/) resource that wires the server-side API
 4. other resources that are part of the server-side API
 5. data transfer objects used by the resources
-6. mapping files that provide additional cockpit queries as [MyBatis](http://www.mybatis.org/) mappings
+6. mapping files that provide additional Cockpit queries as [MyBatis](http://www.mybatis.org/) mappings
 7. resource directory from which client-side plugin assets are served as static files
 8. a js file that exports a frontend module. This file must be named `plugin.js` and be located in the `app` directory of the plugin asset directory
 9. a css file that contains the style definitions for the client-side plugin. This file must be named `plugin.css` and be located in the `app` directory of the plugin asset directory
 
 {{< note title="Related Example" class="info">}}
-  [How to develop a cockpit plugin](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/cockpit-sample-plugin)
+  [How to develop a Cockpit plugin](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/cockpit-sample-plugin)
 {{< /note >}}
 
 ## Structure of a Frontend Module
@@ -136,7 +136,7 @@ This example will completely deactivate the action buttons on the right side of 
 
 ## Excluding a Plugin Feature
 
-In this example we deactivate the cancel action in the cockpit process instance view and disable the job retry action button:
+In this example we deactivate the cancel action in the Cockpit process instance view and disable the job retry action button:
 
 ```html
 <base href="/"
@@ -160,7 +160,7 @@ For more information on creating and configuring your own plugin, please see [Ho
 
 This plugin point has a unique property, `path`, which stands for the hashRoute for this page. This will be rendered when the user navigates in the browser to the url, e.g. `#/my-path`.
 
-```JavaScript
+```Javascript
 export default {
   id: "myNewSite",
   pluginPoint: "cockpit.route",
@@ -182,7 +182,7 @@ This plugin point can be used in conjunction with a `cockpit.route` plugin or fo
 
 This plugin point has a unique property, `path`, which matches the location to highlight the active menu entry when the user is on a certain page. The value can be a regex. If no `path` is set, the menu entry will never be highlighted.
 
-```JavaScript
+```Javascript
 export default {
   id: "myNewNavigation",
   pluginPoint: "cockpit.navigation",
@@ -279,7 +279,7 @@ This additional data is passed into the render function:
 Diagram overlay plugins are a little different from other plugins.
 This plugin point does not receive a DOM node to render into but an instance of the Diagram viewer to create an overlay.
 
-```JavaScript
+```Javascript
 export default {
   id: "myOverlay",
   pluginPoint: "cockpit.processDefinition.diagram.plugin",
@@ -305,7 +305,7 @@ This additional data is passed into the render function:
 Diagram overlay plugins are a little different from other plugins.
 This plugin point does not receive a DOM node to render into but an instance of the Diagram viewer to create an overlay.
 
-```JavaScript
+```Javascript
 export default {
   id: "myOverlay",
   pluginPoint: "cockpit.processInstance.diagram.plugin",
