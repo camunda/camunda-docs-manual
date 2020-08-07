@@ -268,7 +268,18 @@ This additional data is passed into the render function:
 This additional data is passed into the render function:
   - `processInstanceId`
 
-<!-- Process Definition View and Process Instance View is removed, because it is broken -->
+## Process Definition View
+
+**Name:** `cockpit.processDefinition.view`
+
+{{< img src="../../img/plugin-points/plugin-point-cockpit-process-definition-view.png" title="Process Definition View" >}}
+
+
+## Process Instance View
+
+**Name:** `cockpit.processInstance.view`
+
+{{< img src="../../img/plugin-points/plugin-point-cockpit-process-instance-view.png" title="Process Instance View" >}}
 
 ## Process Definition Diagram Overlay
 
@@ -422,6 +433,13 @@ This additional data is passed into the render function:
 
 ## Case Definition Diagram Overlay
 
+**Name:** `cockpit.caseDefinition.diagram.overlay`
+
+{{< img src="../../img/plugin-points/plugin-point-case-definition-diagram-overlay.png" title="Case Definition Diagram Overlay" >}}
+
+
+## Case Definition Diagram Plugin
+
 **Name:** `cockpit.caseDefinition.diagram.plugin`
 
 {{< img src="../../img/plugin-points/plugin-point-case-definition-diagram-overlay.png" title="Case Definition Diagram Overlay" >}}
@@ -452,6 +470,12 @@ This additional data is passed into the render function:
   - `caseInstanceId`
 
 ## Case Instance Diagram Overlay
+
+**Name:** `cockpit.caseInstance.diagram.overlay`
+
+{{< img src="../../img/plugin-points/plugin-point-case-instance-diagram-overlay.png" title="Case Instance Diagram Overlay" >}}
+
+## Case Instance Diagram Plugin
 
 **Name:** `cockpit.caseInstance.diagram.plugin`
 
