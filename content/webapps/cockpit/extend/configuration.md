@@ -63,35 +63,15 @@ If you want to add your own scripts to the Cockpit application, you should add a
 file with something like this:
 
 ```javascript
-var camCockpitConf = {
+export default {
   // …
-  customScripts: {
-    // names of angular modules defined in your custom script files.
-    // will be added to the 'cam.cockpit.custom' as dependencies
-    ngDeps: ['my.custom.module'],
-
-    // RequireJS modules to load.
-    deps: ['custom-ng-module'],
-
-    // RequreJS path definitions
-    paths: {
-      'custom-ng-module': '../custom-ng-module/script'
-    }
-  }
+  customScripts: 
+    ['custom-module/module.js']
 };
 ```
-This includes a `custom-ng-module/script.js` file. The path is relative to the
-`app/cockpit` folder in the Camunda webapp .war file.
+This includes a `custom-module/module.js` file. The path is relative to the `app/cockpit` folder in the Camunda webapp .war file.
 
-**Note:** The content of the `customScripts` property will be treated as a
-[RequireJS configuration](http://requirejs.org/docs/api.html#config) except for the
-`nodeIdCompat` and `skipDataMain` which are irrelevant and `deps` which will be used like:
-
-```javascript
-require(config.deps, callback);
-```
-
-You can find a complete example about how to use `customScripts` to develop a Cockpit Plugin in the [Camunda BPM examples repository](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/js-only-plugin).
+You can find a complete example about how to use `customScripts` to develop a Cockpit Plugin in the [Camunda BPM examples repository](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/cockpit-cats).
 
 # BPMN Diagram Viewer (bpmn.js)
 
@@ -100,16 +80,14 @@ The diagram viewer (bpmn.js) can be either customized by moddle extensions or
 of Cockpit, a `bpmnJs` property must be added to the `app/cockpit/scripts/config.js` file.
 
 ## Additional Modules
-To add modules, the `additionalModules` property needs to be specified, where each module has a unique name (key) and a
-path (value) to the JavaScript file of the module. The path is relative to the `app/cockpit` folder in the .war file of
-the Camunda Webapp. The suffix `.js` of the file is added automatically and must not be specified.
+To add modules, the `additionalModules` property needs to be specified, where each module is registered with its path. The path is relative to the `app/cockpit` folder in the .war file of the Camunda Webapp.
 
 ```json
 ...
 bpmnJs: {
-  additionalModules: {
-    myCustomModule: 'my-custom-module/module'
-  }
+  additionalModules: [
+     'my-custom-module/module'
+  ]
 }
 ...
 ```
@@ -135,7 +113,7 @@ bpmnJs: {
 You can configure the skipCustomListeners and the skipIoMappings flag globally for cockpit by adding a `skipCustomListeners` or `skipIoMappings` property in `app/cockpit/scripts/config.js`:
 
 ```javascript
-   window.camCockpitConf = {
+   export default {
      skipCustomListeners: {
        default: true, // default value for skipCustomListeners is true
        hidden: false  // skipCustomListeners checkbox is not hidden
@@ -156,7 +134,7 @@ will be hidden everywhere in Cockpit.
 # Runtime Activity Instance Metrics (Process Definition)
 
  ```javascript
-    window.camCockpitConf = {
+    export default {
        runtimeActivityInstanceMetrics: {
           display: true
        }
@@ -169,7 +147,7 @@ In any case does the toggle button allow to display/remove the statistics on dem
 # Historic Activity Instance Metrics
 
  ```javascript
-    window.camCockpitConf = {
+    export default {
        historicActivityInstanceMetrics: {
          adjustablePeriod: true,
          //select from the default time period: day, week, month, complete
@@ -186,7 +164,7 @@ In any case does the toggle button allow to display/remove the statistics on dem
 # Default Filter for the Historic Process Instances Search
 
 ```javascript
-    window.camCockpitConf = {
+    export default {
       defaultFilter: {
         historicProcessDefinitionInstancesSearch: {
           lastDays: 5,
@@ -210,7 +188,7 @@ The default name of the CSRF Cookie is `XSRF-TOKEN`. When using other applicatio
 same-origin, the CSRF mechanisms could interfere with each other. To avoid the name conflict, you
 can change the name of the CSRF cookie in the `config.js` file as follows:
 ```javascript
-var camCockpitConf = {
+export default = {
   // …
   csrfCookieName: 'MY-XSRF-TOKEN'
 };
@@ -223,7 +201,7 @@ var camCockpitConf = {
 First-time visitors are shown a message directing them to the camunda welcome page. If you do
 not want this message to be shown, you can disable it by adjusting the `config.js` as follows:
 ```javascript
-var camCockpitConf = {
+export default = {
   // …
   disableWelcomeMessage: true
 };
@@ -235,7 +213,7 @@ var camCockpitConf = {
 The default maximum length of a User Operation Log annotation is 4000 characters. Some databases have smaller limits. You can change the maximum allowed input length in the `config.js` file as follows:
 
 ```javascript
-var camCockpitConf = {
+export default = {
   // …
   userOperationLogAnnotationLength: 4000
 };

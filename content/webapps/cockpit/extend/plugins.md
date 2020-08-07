@@ -12,7 +12,8 @@ menu:
 ---
 
 {{< note title="Plugin Compatibility" class="info" >}}
-  Please note that the code of Cockpit plugins might need to be migrated when updating Camunda BPM to a higher version (e.g. CSS styles).
+Please note that we updated the frontend plugin interface with Camunda BPM Runtime 7.14. Plugins written for Camunda BPM Runtime 7.13 and earlier might no longer work with Camunda BPM Runtime 7.14  
+This page is currently a work in progress. Details can change as the development of the new interface is still ongoing.
 {{< /note >}}
 
 Cockpit defines a plugin concept to add own functionality without being forced to extend or hack the Cockpit web application. You can add plugins at various plugin points, e.g., the processes dashboard as shown in the following example:
@@ -22,20 +23,16 @@ Cockpit defines a plugin concept to add own functionality without being forced t
 
 # The Nature of a Cockpit Plugin
 
-A cockpit plugin is a maven jar project that is included in the cockpit webapplication as a library dependency. It provides a server-side and a client-side extension to cockpit.
+A Cockpit plugin is a maven jar project that is included in the Cockpit webapplication as a library dependency. It provides a server-side and a client-side extension to Cockpit.
 
-The integration of a plugin into the overall cockpit architecture is depicted in the following figure.
+On the server-side, it can extend Cockpit with custom SQL queries and JAX-RS resource classes. Queries (defined via [MyBatis](http://www.mybatis.org/)) may be used to squeeze additional intel out of an engine database or to execute custom engine operations. JAX-RS resources on the other hand extend the Cockpit API and expose data to the client-side part of the plugin.
 
-{{< img src="../../img/cockpit-plugins/architecture.png" title="Plugin Architecture" >}}
-
-On the server-side, it can extend cockpit with custom SQL queries and JAX-RS resource classes. Queries (defined via [MyBatis](http://www.mybatis.org/)) may be used to squeeze additional intel out of an engine database or to execute custom engine operations. JAX-RS resources on the other hand extend the cockpit API and expose data to the client-side part of the plugin.
-
-On the client-side a plugin may include [AngularJS](http://angularjs.org/) modules to extend the cockpit webapplication. Via those modules a plugin provides custom views and services.
+On the client-side a plugin may include Javascript modules to extend the Cockpit webapplication. Via those modules a plugin provides custom views.
 
 
 ## File structure
 
-The basic skeleton of a cockpit plugin looks as follows:
+The basic skeleton of a Cockpit plugin looks as follows:
 
     cockpit-plugin/
     ├── src/
@@ -75,14 +72,48 @@ As runtime relevant resource it defines
 3. a plugin root [JAX-RS](https://jax-rs-spec.java.net/) resource that wires the server-side API
 4. other resources that are part of the server-side API
 5. data transfer objects used by the resources
-6. mapping files that provide additional cockpit queries as [MyBatis](http://www.mybatis.org/) mappings
+6. mapping files that provide additional Cockpit queries as [MyBatis](http://www.mybatis.org/) mappings
 7. resource directory from which client-side plugin assets are served as static files
-8. a js file that bootstraps the client-side plugin in a [AngularJS](http://angularjs.org/) / [RequireJS](http://requirejs.org) environment. This file must be named `plugin.js` and be located in the `app` directory of the plugin asset directory
+8. a js file that exports a frontend module. This file must be named `plugin.js` and be located in the `app` directory of the plugin asset directory
 9. a css file that contains the style definitions for the client-side plugin. This file must be named `plugin.css` and be located in the `app` directory of the plugin asset directory
 
 {{< note title="Related Example" class="info">}}
-  [How to develop a cockpit plugin](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/cockpit-sample-plugin)
+  [How to develop a Cockpit plugin](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/cockpit-fullstack-count-processes)
 {{< /note >}}
+
+## Structure of a Frontend Module
+A frontend module always follows the same structure. This is how a sample `plugin.js` could look like:
+
+```Javascript
+export default {
+  id: "customPlugin",
+  pluginPoint: "cockpit.dashboard",
+  priority: 5,
+  render: container => {
+    container.innerHTML = "Hello World!";
+  }
+};
+```
+This file can also be included standalone as a [custom script]({{< ref "/webapps/cockpit/extend/configuration.md#custom-scripts" >}}).
+
+{{< note title="Important notes about the structure" class="info" >}}
+ 1. The default export is either one plugin or an array of plugins. Only the default export will be considered in Cockpit.
+ 2. The render function must not have a return value.
+{{< /note >}}
+
+### Attributes in Detail
+`id`: A string which defines this plugin. Should be unique across the application. This can be used to exclude plugins, see [Plugin exclusion](#plugin-exclusion-client-side).
+
+`pluginPoint`: A string which describes where the plugin is rendered. This also defines which parameters are passed into the render function, see the [plugin point reference](#plugin-points)
+
+`priority`: Number, describes in which order the plugins at the same pluginPoint will be mounted. For certain Plugin points (like `cockpit.navigation`), a negative priority hides the entry in a dropdown. How this is handled depends on the Plugin Point.
+
+`render`: Function, the heart of your Plugin. Arguments are (`DOMNode`|`BPMNioViewerInstance`, additionalData (`Object`)). Using the DOM node, you can render your plugin into the DOM.
+The second argument contains constants like a processDefinitionId. The details of which data is passed into the plugin can be found at the [plugin point reference](#plugin-points).
+
+`unmount`: Optional function which is called when the Plugin is unmounted. Use this to cleanup any listeners you or your Framework might have registered.
+
+`label`: Optional, String. Displayed as heading for a tab or menu entry.
 
 
 # Plugin Exclusion (Client Side)
@@ -105,7 +136,7 @@ This example will completely deactivate the action buttons on the right side of 
 
 ## Excluding a Plugin Feature
 
-In this example we deactivate the cancel action in the cockpit process instance view and disable the job retry action button:
+In this example we deactivate the cancel action in the Cockpit process instance view and disable the job retry action button:
 
 ```html
 <base href="/"
@@ -117,20 +148,29 @@ In this example we deactivate the cancel action in the cockpit process instance 
 # Plugin points
 
 In this section you will find all Cockpit plugin points.
-To configure where you place your plugin have look at the following exampe:
+To configure where you place your plugin, enter the ID into the `pluginPoint` attribute of you frontend module.
 
-```javascript
-var ViewConfig = [ 'ViewsProvider', function(ViewsProvider) {
-  ViewsProvider.registerDefaultView('cockpit.processDefinition.view', {
-    id: 'runtime',
-    priority: 20,
-    label: 'Runtime'
-  });
-}];
+Plugin Points describe where a Plugin will be rendered and define which additional data is passed into the second argument of the render function.
+
+For more information on creating and configuring your own plugin, please see [How to develop a Cockpit plugin](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/cockpit-fullstack-count-processes).
+
+
+## Route
+`cockpit.route`
+
+This plugin point has a unique property, `path`, which stands for the hashRoute for this page. This will be rendered when the user navigates in the browser to the url, e.g. `#/my-path`.
+
+```Javascript
+export default {
+  id: "myNewSite",
+  pluginPoint: "cockpit.route",
+  path: "/my-path",
+  priority: 0,
+  render: container => {
+    container.innerHTML = "Look at this page!";
+  }
+};
 ```
-
-For more information on creating and configuring your own plugin, please see [How to develop a Cockpit plugin](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/cockpit-sample-plugin).
-
 
 ## Navigation
 
@@ -138,48 +178,21 @@ For more information on creating and configuring your own plugin, please see [Ho
 
 **Name:** `cockpit.navigation`
 
+This plugin point can be used in conjunction with a `cockpit.route` plugin or for shortcuts to existing pages. Negative priority will hide the entry in a drop-down.
 
-### Setup
+This plugin point has a unique property, `path`, which matches the location to highlight the active menu entry when the user is on a certain page. The value can be a regex. If no `path` is set, the menu entry will never be highlighted.
 
-The dashboard navigation plugins can be used to define custom menu entries.
-
-#### `weight`
-
-Takes a number and will defined where the plugin should be placed.  
-The bigger the value is the most left it will be placed.  
-A value smaller than 0 will put the menu point within the dropdown.
-
-#### `pagePath`
-
-A menu link will be shown in the header of the Cockpit if you set this property.
-The `label` property of the plugin is used as the "text".
-
-#### `checkActive`
-
-This property can be used to control when the menu link is set to be _active_.
-You can set a function in order to set the `active` CSS class properly.
-
-#### `noDashboardSection`
-
-You can set this property to `true` on your plugin if you do not want it to be shown
-on the dashboard (but still want a menu point in the header).
-
-#### `access`
-
-You can dynamically determine if a section is accessible using the following notation
-
-```js
-// …
-access: ['angularDependency', function (angularDependency) {
-  return function (callback) {
-    var bool = angularDependency.something; // would hide the menu point if `bool` is false
-    cb(null, bool);
-  };
-}]
-// …
+```Javascript
+export default {
+  id: "myNewNavigation",
+  pluginPoint: "cockpit.navigation",
+  path: "/my-path",
+  priority: 0,
+  render: container => {
+    container.innerHTML = "<a href='#/my-path'>My custom Page</a>";
+  }
+};
 ```
-You can see a [working example](https://github.com/camunda/camunda-bpm-webapp/blob/f270dee14046448ad0d2afb44eef75aabc82e15b/ui/cockpit/plugins/base/app/views/dashboard/reports.js#L21-L32) in which the plugin is hidden when no report types are found.
-
 
 
 ## Dashboard
@@ -187,9 +200,6 @@ You can see a [working example](https://github.com/camunda/camunda-bpm-webapp/bl
 **Name:** `cockpit.dashboard`
 
 {{< img src="../../img/plugin-points/plugin-point-dashboard-custom.png" title="Dashboard" >}}
-
-With Camunda BPM 7.6, the dashboard plugins of Cockpit have been re-organized and new names have been
-given to the plugin points.
 
 The `cockpit.dashboard` plugin point will allow to add your custom views at the bottom of the dashboard.
 
@@ -223,11 +233,22 @@ The `cockpit.dashboard` plugin point will allow to add your custom views at the 
 
 {{< img src="../../img/plugin-points/plugin-point-process-definition-details.png" title="Process Definition Runtime Tab" >}}
 
+At this plugin point, the `label` attribute can be used.
+
+This additional data is passed into the render function:
+  - `processDefinitionId`
+
 ## Process Instance Runtime Tab
 
 **Name:** `cockpit.processInstance.runtime.tab`
 
 {{< img src="../../img/plugin-points/plugin-point-process-instance-details.png" title="Process Instance Runtime Tab" >}}
+
+At this plugin point, the `label` attribute can be used.
+
+This additional data is passed into the render function:
+  - `processInstanceId`
+
 
 ## Process Definition Runtime Action
 
@@ -235,12 +256,17 @@ The `cockpit.dashboard` plugin point will allow to add your custom views at the 
 
 {{< img src="../../img/plugin-points/plugin-point-process-definition-runtime-action.png" title="Process Definition Runtime Action" >}}
 
+This additional data is passed into the render function:
+  - `processDefinitionId`
+
 ## Process Instance Runtime Action
 
 **Name:** `cockpit.processInstance.runtime.action`
 
 {{< img src="../../img/plugin-points/plugin-point-process-instance-runtime-action.png" title="Process Instance Runtime Action" >}}
 
+This additional data is passed into the render function:
+  - `processInstanceId`
 
 ## Process Definition View
 
@@ -255,7 +281,6 @@ The `cockpit.dashboard` plugin point will allow to add your custom views at the 
 
 {{< img src="../../img/plugin-points/plugin-point-cockpit-process-instance-view.png" title="Process Instance View" >}}
 
-
 ## Process Definition Diagram Overlay
 
 **Name:** `cockpit.processDefinition.diagram.plugin`
@@ -263,24 +288,24 @@ The `cockpit.dashboard` plugin point will allow to add your custom views at the 
 {{< img src="../../img/plugin-points/plugin-point-definition-diagram-overlay.png" title="Definition Diagram Overlay" >}}
 
 Diagram overlay plugins are a little different from other plugins.
-Overlay function needs to be provided, that uses bpmn-js diagram control object to to new overlays to diagram.
-For example look at [instance count plugin](https://github.com/camunda/camunda-bpm-webapp/blob/master/ui/cockpit/plugins/base/app/views/processDefinition/diagramPlugins/instanceCount.js#L10).
+This plugin point does not receive a DOM node to render into but an instance of the Diagram viewer to create an overlay.
 
-```javascript
-var ViewConfig = [ 'ViewsProvider', function(ViewsProvider) {
-  ViewsProvider.registerDefaultView('cockpit.processDefinition.view', {
-    id: 'runtime',
-    priority: 20,
-    label: 'Runtime',
-    overlay: [
-      'control', 'processData', 'pageData', 'processDiagram',
-      function(control, processData, pageData, processDiagram) {
-        // Plugin code here
-      }
-    ]
-  });
-}];
+```Javascript
+export default {
+  id: "myOverlay",
+  pluginPoint: "cockpit.processDefinition.diagram.plugin",
+  priority: 0,
+  render: (viewer, {processDefinitionId}) => {
+    viewer.get("overlays").add(
+      // ...
+    )
+  }
+};
 ```
+
+This additional data is passed into the render function:
+  - `processDefinitionId`
+
 
 ## Process Instance Diagram Overlay
 
@@ -288,6 +313,12 @@ var ViewConfig = [ 'ViewsProvider', function(ViewsProvider) {
 
 {{< img src="../../img/plugin-points/plugin-point-instance-diagram-overlay.png" title="Instance Diagram Overlay" >}}
 
+Diagram overlay plugins are a little different from other plugins.
+This plugin point does not receive a DOM node to render into but an instance of the Diagram viewer to create an overlay. See [Process Definition Diagram Overlay](#process-definition-diagram-overlay) for an example.
+
+
+This additional data is passed into the render function:
+  - `processInstanceId`
 
 ## Job Definition Action
 
@@ -295,6 +326,8 @@ var ViewConfig = [ 'ViewsProvider', function(ViewsProvider) {
 
 {{< img src="../../img/plugin-points/plugin-point-job-definition-action.png" title="Job Definition Action" >}}
 
+This additional data is passed into the render function:
+  - `jobDefinitionId`
 
 ## Decision Definition Tab
 
@@ -302,12 +335,19 @@ var ViewConfig = [ 'ViewsProvider', function(ViewsProvider) {
 
 {{< img src="../../img/plugin-points/plugin-point-decision-definition-tab.png" title="Decision Definition Tab" >}}
 
+At this plugin point, the `label` attribute can be used.
+
+This additional data is passed into the render function:
+  - `decisionDefinitionId`
 
 ## Decision Definition Action
 
 **Name:** `cockpit.decisionDefinition.action`
 
 {{< img src="../../img/plugin-points/plugin-point-decision-definition-action.png" title="Decision Definition Action" >}}
+
+This additional data is passed into the render function:
+  - `decisionDefinitionId`
 
 
 ## Decision Definition Table
@@ -316,29 +356,23 @@ var ViewConfig = [ 'ViewsProvider', function(ViewsProvider) {
 
 {{< img src="../../img/plugin-points/plugin-point-decision-definition-table.png" title="Decision Definition Table" >}}
 
-This plugin should contain an initialize function receiving a data object with the following fields:
+Diagram overlay plugins are a little different from other plugins.
+This plugin point does not receive a DOM node to render into but an instance of the Diagram viewer to create an overlay. See [Process Definition Diagram Overlay](#process-definition-diagram-overlay) for an example.
 
-* `decisionDefinition`: The data about the decision definition corresponding to the [REST response]({{< ref "/reference/rest/decision-definition/get.md#result" >}})
-* `decisionData`: The data-depend object for the decision definition
-* `tableControl`: Control object for the rendered dmn-table corresponding to the [dmn-table widget](http://camunda.github.io/camunda-commons-ui/cam-widget-dmn-viewer.html)
+This additional data is passed into the render function:
+  - `decisionDefinitionId`
 
-Example:
-
-```
-ViewsProvider.registerDefaultView('cockpit.decisionDefinition.table', {
-  id: 'my-plugin',
-  initialize: function(data) {
-    var viewer = data.tableControl.getViewer();
-    // ...
-  }
-});
-```
 
 ## Decision Instance Tab
 
 **Name:** `cockpit.decisionInstance.tab`
 
 {{< img src="../../img/plugin-points/plugin-point-decision-instance-tab.png" title="Decision Instance Tab" >}}
+
+At this plugin point, the `label` attribute can be used.
+
+This additional data is passed into the render function:
+  - `decisionInstanceId`
 
 
 ## Decision Instance Action
@@ -347,12 +381,21 @@ ViewsProvider.registerDefaultView('cockpit.decisionDefinition.table', {
 
 {{< img src="../../img/plugin-points/plugin-point-decision-instance-action.png" title="Decision Instance Action" >}}
 
+This additional data is passed into the render function:
+  - `decisionInstanceId`
+
 
 ## Decision Instance Table
 
 **Name:** `cockpit.decisionInstance.table`
 
 {{< img src="../../img/plugin-points/plugin-point-decision-instance-table.png" title="Decision Instance Table" >}}
+
+Diagram overlay plugins are a little different from other plugins.
+This plugin point does not receive a DOM node to render into but an instance of the Diagram viewer to create an overlay. See [Process Definition Diagram Overlay](#process-definition-diagram-overlay) for an example.
+
+This additional data is passed into the render function:
+  - `decisionInstanceId`
 
 
 ## Case Definition Tab
@@ -361,6 +404,11 @@ ViewsProvider.registerDefaultView('cockpit.decisionDefinition.table', {
 
 {{< img src="../../img/plugin-points/plugin-point-case-definition-tab.png" title="Case Definition Tab" >}}
 
+At this plugin point, the `label` attribute can be used.S
+
+This additional data is passed into the render function:
+  - `decisionInstanceId`
+
 
 ## Case Definition Action
 
@@ -368,6 +416,10 @@ ViewsProvider.registerDefaultView('cockpit.decisionDefinition.table', {
 
 {{< img src="../../img/plugin-points/plugin-point-case-definition-action.png" title="Case Definition Action" >}}
 
+At this plugin point, the `label` attribute can be used.
+
+This additional data is passed into the render function:
+  - `caseDefinitionId`
 
 ## Case Definition Diagram Overlay
 
@@ -376,12 +428,28 @@ ViewsProvider.registerDefaultView('cockpit.decisionDefinition.table', {
 {{< img src="../../img/plugin-points/plugin-point-case-definition-diagram-overlay.png" title="Case Definition Diagram Overlay" >}}
 
 
+## Case Definition Diagram Plugin
+
+**Name:** `cockpit.caseDefinition.diagram.plugin`
+
+{{< img src="../../img/plugin-points/plugin-point-case-definition-diagram-overlay.png" title="Case Definition Diagram Overlay" >}}
+
+Diagram overlay plugins are a little different from other plugins.
+This plugin point does not receive a DOM node to render into but an instance of the Diagram viewer to create an overlay. See [Process Definition Diagram Overlay](#process-definition-diagram-overlay) for an example.
+
+This additional data is passed into the render function:
+  - `caseDefinitionId`
+  
 ## Case Instance Tab
 
 **Name:** `cockpit.caseInstance.tab`
 
 {{< img src="../../img/plugin-points/plugin-point-case-instance-tab.png" title="Case Instance Tab" >}}
 
+At this plugin point, the `label` attribute can be used.
+
+This additional data is passed into the render function:
+  - `caseInstanceId`
 
 ## Case Instance Action
 
@@ -389,12 +457,27 @@ ViewsProvider.registerDefaultView('cockpit.decisionDefinition.table', {
 
 {{< img src="../../img/plugin-points/plugin-point-case-instance-action.png" title="Case Instance Action" >}}
 
+This additional data is passed into the render function:
+  - `caseInstanceId`
 
 ## Case Instance Diagram Overlay
 
 **Name:** `cockpit.caseInstance.diagram.overlay`
 
 {{< img src="../../img/plugin-points/plugin-point-case-instance-diagram-overlay.png" title="Case Instance Diagram Overlay" >}}
+
+## Case Instance Diagram Plugin
+
+**Name:** `cockpit.caseInstance.diagram.plugin`
+
+{{< img src="../../img/plugin-points/plugin-point-case-instance-diagram-overlay.png" title="Case Instance Diagram Overlay" >}}
+
+Diagram overlay plugins are a little different from other plugins.
+This plugin point does not receive a DOM node to render into but an instance of the Diagram viewer to create an overlay. See [Process Definition Diagram Overlay](#process-definition-diagram-overlay) for an example.
+
+This additional data is passed into the render function:
+  - `caseDefinitionId`
+  - `caseInstanceId`
 
 
 ## Repository Resource Action
@@ -403,12 +486,19 @@ ViewsProvider.registerDefaultView('cockpit.decisionDefinition.table', {
 
 {{< img src="../../img/plugin-points/plugin-point-repository-resource-action.png" title="Repository Resource Action" >}}
 
+This additional data is passed into the render function:
+  - `deploymentId`
+  - `resourceId`
 
 ## Repository Resource Detail
 
 **Name:** `cockpit.repository.resource.detail`
 
 {{< img src="../../img/plugin-points/plugin-point-repository-resource-detail.png" title="Repository Resource Detail" >}}
+
+This additional data is passed into the render function:
+  - `deploymentId`
+  - `resourceId`
 
 
 ## Open Task Dashboard
@@ -417,9 +507,6 @@ ViewsProvider.registerDefaultView('cockpit.decisionDefinition.table', {
 
 {{< img src="../../img/plugin-points/plugin-point-task-dashboard.png" title="Open Task Dashboard" >}}
 
-See the [Open Tasks Dashboard]({{< ref "/webapps/cockpit/tasks-dashboard.md" >}}) section for an example open task
-dashboard plugin.
-
 
 ## Report View
 
@@ -427,8 +514,13 @@ dashboard plugin.
 
 See the [Reports]({{< ref "/webapps/cockpit/reporting.md" >}}) section for an example report plugin.
 
+At this plugin point, the `label` attribute can be used.
+
 ## Incident Action
 
 **Name:** `cockpit.incident.action`
 
 {{< img src="../../img/plugin-points/plugin-point-incident-action.png" title="Incident Action" >}}
+
+This additional data is passed into the render function:
+  - `incidentId`
