@@ -230,4 +230,9 @@ try {
 }
 ```
 
+# Using Spring Transactions with CockroachDB
+
+Please see the documentation section on [external transaction management with CockroachDB]({{< ref "/user-guide/process-engine/database/cockroachdb-configuration.md#using-external-transaction-management-with-the-spring-java-ee-integrations" >}})
+to understand how to use the Spring Transaction integration with CockroachDB.
+
 [transactions-and-engine-context]: {{< ref "/user-guide/process-engine/transactions-in-processes.md#transactions-and-the-process-engine-context" >}}

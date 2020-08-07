@@ -30,4 +30,8 @@ The process engine requires access to an implementation of `javax.transaction.Tr
 # Shared Process Engine
 
 The shared process engine distributions for Java EE Application Servers (Wildfly, JBoss, IBM WebSphere Application Server, Oracle WebLogic Application Server) provide JTA integration out of the box.
-  
+
+# Using JTA Transaction Integration with CockroachDB
+
+Please see the documentation section on [external transaction management with CockroachDB]({{< ref "/user-guide/process-engine/database/cockroachdb-configuration.md#using-external-transaction-management-with-the-spring-java-ee-integrations" >}})
+to understand how to use the JTA Transaction Integration with CockroachDB.
