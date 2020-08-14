@@ -5,6 +5,10 @@ This repository contains the sources of the Camunda BPM Documentation.
 **Important:** _do NOT change the content of `themes/camunda` directory directly!_
 Instead, change the [theme](//github.com/camunda/camunda-docs-theme).
 
+## Contributing
+
+Have a look at our [contribution guide](https://github.com/camunda/camunda-bpm-platform/blob/master/CONTRIBUTING.md) for our general contribution guidelines. See the following sections for how to work with the docs.
+
 ## Installing Hugo
 
 In order to build this documentation, you first need to install [hugo][hugo] v0.54 (newer versions _may_ work, please note that some issues have been reported on v61.0+).
