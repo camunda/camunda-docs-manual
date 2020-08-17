@@ -101,7 +101,7 @@ FEEL context:
 Variables of type `SpinXmlElement` are transformed into context applying the following rules:
 
 * every XML element is a context entry
-* every XML attritute is a context entry with prefix `@` under the element's entry
+* every XML attribute is a context entry with prefix `@` under the element's entry
 * multiple XML elements with the same are grouped in the context as list 
 * the inner content of an XML element is set as context entry `$content`   
 * if the element or the attribute has a namespace then the context entry has the prefix `<NAMESPACE>$`
