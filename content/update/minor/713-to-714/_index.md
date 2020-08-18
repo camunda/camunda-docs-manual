@@ -135,7 +135,7 @@ for this change of behavior.
 
 # New Engine Dependency - Connect
 
-Camunda Connect dependency has been added to the process engine (`camunda-engine`) artifact. That changes the status of the dependency from optional to required. See below the details:
+Camunda Connect dependency has been added to the process engine (`camunda-engine`) artifact, allowing usage of simple [connectors]({{< ref "/user-guide/process-engine/connectors.md" >}}) in the context of the new [telemetry]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#initializeTelemetry" >}}) feature. And changes the status of the dependency from optional to required. See below the details:
 
 -- In a case of **Embedded engine** scenario (includes **Spring Boot Starter** setups), there are two new dependencies added to the `camunda-engine`:
 
