@@ -19,6 +19,8 @@ This document guides you through the update from Camunda BPM `7.13.x` to `7.14.0
 1. For administrators and developers: [Full Distribution Update](#full-distribution)
 1. For administrators: [Standalone Web Application](#standalone-web-application)
 1. For developers: [Update to JQuery 3.5](#update-to-jquery-3-5)
+1. For developers: [Changes to Task Query and Historic Task Query behavior](#changes-to-task-query-and-historic-task-query-behavior)
+1. For developers: [New Engine Dependency - Connect](#new-engine-dependency-connect)
 
 This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new functionality included in Camunda BPM 7.14.
 
@@ -104,6 +106,7 @@ You can enable the old behavior by overriding the JQuery `htmlPrefilter` functio
 
 You can read more about the update in the [JQuery release blog](https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/)
 
+
 # Changes to Task Query and Historic Task Query behavior
 
 As of version `7.14.0`, when using the `TaskService`, or the `HistoryService` to execute a Task query or 
@@ -128,3 +131,35 @@ where the behavior was already present.
 
 Users that expect a case-sensitive result, will need to adjust their logic, or Task names and descriptions, 
 for this change of behavior.
+
+
+# New Engine Dependency - Connect
+
+Camunda Connect dependency has been added to the process engine (`camunda-engine`) artifact, allowing usage of simple [connectors]({{< ref "/user-guide/process-engine/connectors.md" >}}) in the context of the new [telemetry]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#initializeTelemetry" >}}) feature. And changes the status of the dependency from optional to required. See below the details:
+
+-- In a case of **Embedded engine** scenario (includes **Spring Boot Starter** setups), there are two new dependencies added to the `camunda-engine`:
+
+* `camunda-connect-core` dependency is required from 7.14.0 version and on.
+* `camunda-connect-connectors-all` dependency also comes by default. It can be replaced by the `camunda-connect-http-client`. The difference is that `camunda-connect-connectors-all` doesn't have dependencies and contains the HTTP and SOAP connectors, as long as `camunda-connect-http-client` brings a `http-client` dependency. You can see an example below how to exchange the dependencies.
+
+```
+<dependency>
+  <groupId>org.camunda.bpm</groupId>
+  <artifactId>camunda-engine</artifactId>
+  <exclusions>
+    <exclusion>
+      <groupId>org.camunda.connect</groupId>
+      <artifactId>camunda-connect-connectors-all</artifactId>
+    </exclusion>
+  </exclusions>
+</dependency>
+<dependency>
+  <groupId>org.camunda.connect</groupId>
+  <artifactId>camunda-connect-http-client</artifactId>
+  <scope>runtime</scope>
+</dependency>
+```
+
+-- In a case of **Shared engine** scenario, you will need to add the connect modules if they are not present yet to the setup. The respective update guides for the application servers contain the necessary steps to do this.
+
+In case you already have a [Connect]({{< ref "/reference/connect/_index.md#maven-coordinates" >}}) dependencies to some of your projects, please consider consolidating the version of them with one that comes as dependency with the engine. That will prevent inconsistencies on the system. Please note that the Connect process engine plugin is still an optional dependency.

@@ -48,6 +48,7 @@ After shutting down the server, replace the following libraries in `$SHARED_LIBR
 * `camunda-commons-logging-$COMMONS_VERSION.jar`
 * `camunda-commons-typed-values-$COMMONS_VERSION.jar`
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
+* `camunda-connect-core-$CONNECT_VERSION.jar`
 * `camunda-template-engines-freemarker-$TEMPLATE_ENGINES_VERSION.jar`
 * `freemarker-$FREEMARKER_VERSION.jar`
 * `mybatis-$MYBATIS_VERSION.jar`
@@ -62,11 +63,9 @@ Copy the following library from `$WAS_DISTRIBUTION/modules/lib` to the folder `$
 
 * `camunda-identity-ldap-$PLATFORM_VERSION.jar`
 
-## Camunda Connect
+## Camunda Connect Plugin
 
-Copy the following library from `$WAS_DISTRIBUTION/modules/lib` to the folder `$SHARED_LIBRARY_PATH`, if present:
-
-* `camunda-connect-core-$CONNECT_VERSION.jar`
+`camunda-connect-connectors-all` and `camunda-engine-plugin-connect` are part of the .ear
 
 ## Camunda Spin
 

@@ -11,7 +11,7 @@ menu:
 ---
 
 
-With the optional dependency [camunda-connect](https://github.com/camunda/camunda-connect), the process engine supports simple
+With the dependency [camunda-connect](https://github.com/camunda/camunda-connect), the process engine supports simple
 connectors. Currently the following connector implementations exist:
 
 <table class="table">
@@ -34,11 +34,11 @@ It is also possible to implement your own custom connector in camunda. For more 
 
 # Configure Camunda Connect
 
-As Camunda Connect is an optional dependency, it is not immediately available when using the process engine. With a pre-built distribution, Camunda Connect is already preconfigured.
+As Camunda Connect is available only partially when using the process engine (check the list below). With a pre-built distribution, Camunda Connect is already preconfigured.
 
 The following `connect` artifacts exist:
 
-* `camunda-connect-core`: a jar that contains only the core Connect classes. In addition to `camunda-connect-core`, single connector implementations like `camunda-connect-http-client` and `camunda-connect-soap-http-client` exist. These dependencies should be used when the default connectors have to be reconfigured or when custom connector implementations are used.
+* `camunda-connect-core`: a jar that contains only the core Connect classes. The artifact already is available as dependency to the process engine. In addition to `camunda-connect-core`, single connector implementations like `camunda-connect-http-client` and `camunda-connect-soap-http-client` exist. These dependencies should be used when the default connectors have to be reconfigured or when custom connector implementations are used.
 * `camunda-connect-connectors-all`: a single jar without dependencies that contains the HTTP and SOAP connectors.
 * `camunda-engine-plugin-connect`: a process engine plugin to add Connect to the Camunda BPM platform.
 

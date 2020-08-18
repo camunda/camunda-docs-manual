@@ -317,11 +317,10 @@ The final step is to reference the shared libraries. To do so, follow these step
 In some situations, you have to start the web application manually from the **Applications / Application Types / WebSphere enterprise applications** page.
 
 
-## Camunda Connect
+## Camunda Connect Plugin
 
 Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION/modules/lib` to the `Camunda` shared library folder:
 
-* `camunda-connect-core-$CONNECT_VERSION.jar`
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
 
 In order to activate Camunda Connect functionality for a process engine, a process engine plugin has to be registered in the BPM platform configuration as follows:

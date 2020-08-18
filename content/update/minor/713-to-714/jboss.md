@@ -44,8 +44,14 @@ Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with t
 * `org/camunda/commons/camunda-commons-logging`
 * `org/camunda/commons/camunda-commons-typed-values`
 * `org/camunda/commons/camunda-commons-utils`
+* `org/camunda/connect/camunda-connect-core`
+* `org/camunda/connect/camunda-connect-http-client`
+* `org/camunda/connect/camunda-connect-soap-http-client`
+* `org/apache/httpcomponents/httpclient`
+* `org/apache/httpcomponents/httpcore`
 * `org/freemarker/freemarker`
 * `org/mybatis/mybatis`
+* `commons-codec/commons-codec`
 
 # 2. Update Optional Camunda BPM Modules
 
@@ -58,20 +64,11 @@ Replace the following module from the folder `$APP_SERVER_HOME/modules/` with it
 
 * `org/camunda/bpm/identity/camunda-identity-ldap`
 
-## Camunda Connect
+## Camunda Connect Plugin
 
 Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with their new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/`, if present:
 
-* `org/camunda/connect/camunda-connect-core`
-* `org/camunda/connect/camunda-connect-http`
-* `org/camunda/connect/camunda-connect-soap-http-client`
 * `org/camunda/bpm/camunda-engine-plugin-connect`
-
-Additionally, also replace the following dependent modules:
-
-* `org/apache/httpcomponents/httpclient`
-* `org/apache/httpcomponents/httpcore`
-* `commons-codec/commons-codec`
 
 ## Camunda Spin
 
