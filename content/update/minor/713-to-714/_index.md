@@ -162,4 +162,4 @@ Camunda Connect dependency has been added to the process engine (`camunda-engine
 
 -- In a case of **Shared engine** scenario, you will need to add the connect modules if they are not present yet to the setup. The respective upgrade guides of the application server installation have been updated accordingly to reflect the change.
 
-In case you already have a [Connect]({{< ref "/reference/connect/_index.md#maven-coordinates" >}}) dependencies to some of your projects, please consider consolidating the version of them with one that comes as dependency with the engine. That will prevent inconsistencies on the system. Please note that Connect plugin component is still an optional dependency.
+In case you already have a [Connect]({{< ref "/reference/connect/_index.md#maven-coordinates" >}}) dependencies to some of your projects, please consider consolidating the version of them with one that comes as dependency with the engine. That will prevent inconsistencies on the system. Please note that the Connect process engine plugin is still an optional dependency.
