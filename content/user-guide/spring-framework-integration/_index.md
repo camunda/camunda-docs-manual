@@ -24,7 +24,7 @@ The camunda-engine Spring framework integration is located inside the `camunda-e
 ```
 
 The `camunda-engine-spring` artifact should be added as a library to the process application.
-It can be used with Spring 3, 4 or 5. The following minimal set of Spring dependencies must be added in the desired version:
+It can be used with Spring 4 or 5. The following minimal set of Spring dependencies must be added in the desired version:
 
 ```xml
 <properties>
