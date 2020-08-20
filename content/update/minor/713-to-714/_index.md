@@ -163,3 +163,8 @@ Camunda Connect dependency has been added to the process engine (`camunda-engine
 -- In a case of **Shared engine** scenario, you will need to add the connect modules if they are not present yet to the setup. The respective update guides for the application servers contain the necessary steps to do this.
 
 In case you already have a [Connect]({{< ref "/reference/connect/_index.md#maven-coordinates" >}}) dependencies to some of your projects, please consider consolidating the version of them with one that comes as dependency with the engine. That will prevent inconsistencies on the system. Please note that the Connect process engine plugin is still an optional dependency.
+
+
+# End of Spring 3 Support
+
+Spring Framework version 3 has been end of life as of December 31st, 2016. The [official guide](https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-Versions#supported-versions) recommends to upgrade to versions 4 or 5 of the framework respectively. With version `7.14.0`, official support for Spring 3 ends as well. Applications using this version of Spring might still work as expected but are recommended to be upgraded to versions 4 or 5, which the engine is tested against and can be safely used with.
