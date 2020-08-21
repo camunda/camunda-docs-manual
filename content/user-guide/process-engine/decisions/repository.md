@@ -86,7 +86,7 @@ decision in the DMN XML.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
   <decision id="my-decision" name="My Decision">
     <decisionTable>
       <output id="output1"/>
@@ -144,7 +144,7 @@ The decision requirements definition key is equivalent to the `id` attribute of 
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" 
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" 
              id="my-drg" 
              name="My DRG" 
              namespace="http://camunda.org/schema/1.0/dmn">
