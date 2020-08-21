@@ -22,7 +22,7 @@ It consists of a [literal expression] and a [variable].
 A decision literal expression is represented by a `literalExpression` element inside a `decision` XML element.
 
 ```xml
-<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
   <decision id="season" name="Season">
     <variable name="season" typeRef="string" />
     <literalExpression>
@@ -93,7 +93,7 @@ which is set on the `definitions` XML element.
 ```xml
 <definitions id="definitions"
              name="definitions"
-             xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd"
+             xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/"
              expressionLanguage="groovy"
              namespace="http://camunda.org/schema/1.0/dmn">
   <!-- ... -->
