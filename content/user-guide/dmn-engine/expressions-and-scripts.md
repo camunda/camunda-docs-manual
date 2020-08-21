@@ -33,7 +33,7 @@ the DMN 1.3 XML, expressions can be found in the XML
 elements `inputExpression`, `inputEntry`, `outputEntry` and `literalExpression`:
 
 ```xml
-<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
   
   <decision id="decision" name="Decision">
     <decisionTable>
@@ -114,7 +114,7 @@ the `definitions` element:
 ```xml
 <!-- this sets the default expression language for all expressions -->
 <!-- in this file to javascript -->
-<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn" expressionLanguage="javascript">
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn" expressionLanguage="javascript">
   <decision  id="decision" name="Decision">
     <decisionTable>
       <!-- ... -->
@@ -131,7 +131,7 @@ Additionally, it is possible to change the default expression language in the de
 It is also possible to set the language for each expression individually using the `expressionLanguage` attribute:
 
 ```xml
-<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
   
   <decision id="decision" name="Decision">
     <decisionTable>

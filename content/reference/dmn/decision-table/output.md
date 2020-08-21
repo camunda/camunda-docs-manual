@@ -22,7 +22,7 @@ An output clause is represented by an `output` element inside a `decisionTable`
 XML element.
 
 ```xml
-<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
   <decision id="dish" name="Dish">
     <decisionTable id="decisionTable">
       <!-- ... -->

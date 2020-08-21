@@ -22,7 +22,7 @@ The hit policy is set in the `hitPolicy` attribute on the `decisionTable` XML
 element. If no hit policy is set, then the default hit policy `UNIQUE` is used.
 
 ```xml
-<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
   <decision id="dish" name="Dish">
     <decisionTable id="decisionTable" hitPolicy="RULE ORDER">
       <!-- .. -->
