@@ -70,7 +70,7 @@ Consider the following simple DMN model:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" 
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" 
              id="dish" name="Dish" namespace="test-drd-2">
 
   <decision id="dish-decision" name="Dish Decision">

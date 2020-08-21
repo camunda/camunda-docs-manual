@@ -24,7 +24,7 @@ The visual representation of a DRG is called Decision Requirements Diagram (DRD)
 In the XML a DRG is represented by the `definitions` element.
 
 ```xml
-<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="dinnerDecisions" name="Dinner Decisions" namespace="http://camunda.org/schema/1.0/dmn">
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" id="dinnerDecisions" name="Dinner Decisions" namespace="http://camunda.org/schema/1.0/dmn">
   <decision id="dish" name="Dish">
     <!-- ... -->
   </decision>
@@ -41,7 +41,7 @@ In the XML a DRG is represented by the `definitions` element.
 The name describes the DRG. It is set as the `name` attribute on the `definitions` element.
 
 ```xml
-<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" 
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" 
              id="dinnerDecisions" 
              name="Dinner Decisions" 
              namespace="http://camunda.org/schema/1.0/dmn">
@@ -60,7 +60,7 @@ platform. The engine uses the id as the decision requirements definition key of 
 `DecisionRequirementsDefinition`.
 
 ```xml
-<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" 
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" 
              id="dinnerDecisions" 
              name="Dinner Decisions" 
              namespace="http://camunda.org/schema/1.0/dmn">
@@ -77,7 +77,7 @@ A decision requirements graph can have one or more decisions. A decision has a [
 A decision is represented by a `decision` element inside the `definitions` XML element.
 
 ```xml
-<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="dish" name="Desired Dish" namespace="party">
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" id="dish" name="Desired Dish" namespace="party">
   <decision id="beverages" name="Beverages">
     <decisionTable id="decisionTable">
     <!-- ... -->
@@ -113,7 +113,7 @@ An input data denotes information used as an input by one or more decisions.
 It is represented by an `inputData` element inside the `definitions` element. 
 
 ```xml
-<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="dinnerDecisions" name="Dinner Decisions" namespace="http://camunda.org/schema/1.0/dmn">
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" id="dinnerDecisions" name="Dinner Decisions" namespace="http://camunda.org/schema/1.0/dmn">
   <inputData id="guestsWithChildren" name="Guests with children?" />
   
   <decision id="beverages" name="Beverages">
@@ -135,7 +135,7 @@ A knowledge source denotes an authority for a Decision.
 It is represented by a `knowledgeSource` element inside the `definitions` element. 
 
 ```xml
-<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="dinnerDecisions" name="Dinner Decisions" namespace="http://camunda.org/schema/1.0/dmn">
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" id="dinnerDecisions" name="Dinner Decisions" namespace="http://camunda.org/schema/1.0/dmn">
   <knowledgeSource id="cookbook" name="Men's Cookbook" />
   
   <decision id="dish" name="Dish">
