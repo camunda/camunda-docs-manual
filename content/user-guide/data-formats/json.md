@@ -48,7 +48,7 @@ If your variable is already a [JSON variable value]({{< relref "#native-json-var
 ...
 <sequenceFlow>
   <conditionExpression xsi:type="tFormalExpression">
-    ${customer.jsonPath("$.adress.post code").numberValue() == 1234}
+    ${customer.jsonPath("$.address.post code").numberValue() == 1234}
   </conditionExpression>
 </sequenceFlow>
 ...
