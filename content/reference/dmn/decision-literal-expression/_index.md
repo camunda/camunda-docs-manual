@@ -118,7 +118,8 @@ A variable is represented by a `variable` element inside a `decision` XML elemen
 
 ## Variable Name
 
-The name of the variable is used to reference the value of the literal expression in the decision result. It is specified by the `name` attribute on the `variable` XML element.
+The name of the variable is used to reference the value of the literal expression in the decision result. 
+It is specified by the `name` attribute on the `variable` XML element.
 
 ```xml
 <variable name="season" />
