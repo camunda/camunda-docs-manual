@@ -39,6 +39,8 @@ A decision table is represented by a `decisionTable` element inside a
 
 The name describes the decision for which the decision table provides the
 decision logic. It is set as the `name` attribute on the `decision` element.
+It can be changed via the Properties Panel after selecting the respective 
+"Decision" in the [Decision Requirements Diagram] view.
 
 ```xml
 <decision id="dish" name="Dish">
@@ -54,6 +56,8 @@ decision logic. It is set as the `name` attribute on the `decision` element.
 
 The id is the technical identifier of the decision. It is set in the `id`
 attribute on the `decision` element.
+Just as the `name`, the `id` can be changed via the Properties Panel after selecting 
+the respective "Decision" in the [Decision Requirements Diagram] view.
 
 Each decision should have an unique id when it is [deployed] to the Camunda BPM
 platform. The engine uses the id as the decision key of the deployed
@@ -72,3 +76,4 @@ platform. The engine uses the id as the decision key of the deployed
 [outputs]: {{< ref "/reference/dmn/decision-table/output.md" >}}
 [rules]: {{< ref "/reference/dmn/decision-table/rule.md" >}}
 [deployed]: {{< ref "/user-guide/process-engine/decisions/repository.md" >}}
+[Decision Requirements Diagram]: {{< ref "/reference/dmn/drg/_index.md" >}}

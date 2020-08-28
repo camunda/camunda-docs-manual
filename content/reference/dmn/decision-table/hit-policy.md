@@ -31,33 +31,32 @@ element. If no hit policy is set, then the default hit policy `UNIQUE` is used.
 </definitions>
 ```
 
-In the visual representation of the decision table, the hit policy is specified
-by the initial letter of the hit policy. The following hit policies are
+The following hit policies are
 supported by the Camunda DMN engine:
 
 <table class="table table-striped">
   <tr>
-    <th>Visual representation</th>
+    <th>Hit Policy</th>
     <th>XML representation</th>
   </tr>
   <tr>
-    <td>U</td>
+    <td>Unique</td>
     <td>UNIQUE</td>
   </tr>
   <tr>
-    <td>A</td>
+    <td>Any</td>
     <td>ANY</td>
   </tr>
   <tr>
-    <td>F</td>
+    <td>First</td>
     <td>FIRST</td>
   </tr>
   <tr>
-    <td>R</td>
+    <td>Rule order</td>
     <td>RULE ORDER</td>
   </tr>
   <tr>
-    <td>C</td>
+    <td>Collect</td>
     <td>COLLECT</td>
   </tr>
 </table>
@@ -143,10 +142,7 @@ XML element.
 
 ### Aggregators for Collect Hit Policy
 
-{{< img src="../img/collect-aggregator.png" title="Hit Policy Collect with Aggregation" class="no-lightbox" >}}
-
-In the visual representation of the decision table the aggregator is specified
-by a marker after the hit policy. The following aggregators are supported by
+In the visual representation of the decision table an aggregator can be selected in addition to the `COLLECT` hit policy. The following aggregators are supported by
 the Camunda DMN engine:
 
 <table class="table table-striped">
@@ -156,22 +152,22 @@ the Camunda DMN engine:
     <th>Result of the aggregation</th>
   </tr>
   <tr>
-    <td>+</td>
+    <td>Collect (Sum)</td>
     <td>SUM</td>
     <td>the sum of all output values</td>
   </tr>
   <tr>
-    <td><</td>
+    <td>Collect (Min)</td>
     <td>MIN</td>
     <td>the smallest value of all output values</td>
   </tr>
   <tr>
-    <td>></td>
+    <td>Collect (Max)</td>
     <td>MAX</td>
     <td>the largest value of all output values</td>
   </tr>
   <tr>
-    <td>#</td>
+    <td>Collect (Count)</td>
     <td>COUNT</td>
     <td>the number of output values</td>
   </tr>

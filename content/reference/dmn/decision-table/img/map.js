@@ -1,3 +1,19 @@
+/* Use this as helper to determine the overlay % / regions
+const img = document.querySelector(".no-lightbox img");
+
+function offset(element) {
+    const rect = element.getBoundingClientRect(),
+    const left = window.pageXOffset || document.documentElement.scrollLeft,
+    const top = window.pageYOffset || document.documentElement.scrollTop;
+    return { top: rect.top + top, left: rect.left + left }
+}
+
+img.addEventListener("click", (e) => {
+  console.log(`top: ${(e.pageY - offset(img).top) / img.height * 100}`);
+  console.log(`left: ${(e.pageX - offset(img).left) / img.width * 100}`);
+}); */
+
+
 (function () {
 'use strict';
 var keys = Object.keys;
@@ -24,20 +40,20 @@ function mkEl(tagName, attrs) {
 
 var regions = {
   name: {
-    title: 'Decision Name & ID',
+    title: 'Decision Name',
     href: '#decision-name',
     coords: [
       {
         top: 0,
-        left: 9.5,
-        width: 23,
-        height: 4
+        left: 0.5,
+        width: 13.5,
+        height: 5.5
       },
       {
-        top: 13,
-        left: 0,
-        width: 14,
-        height: 15
+        top: 7,
+        left: 0.7,
+        width: 12,
+        height: 14.5
       }
     ]
   },
@@ -47,54 +63,16 @@ var regions = {
     href: 'hit-policy/',
     coords: [
       {
-        top: 7,
-        left: 12,
-        width: 11,
-        height: 4
-      },
-      {
-        top: 28,
-        left: 0,
-        width: 7,
-        height: 20
-      }
-    ]
-  },
-
-  inputExpression: {
-    title: 'Input Expression',
-    href: 'input/#input-expression',
-    coords: [
-      {
-        top: 14,
-        left: 22,
-        width: 19,
-        height: 4
-      },
-      {
-        top: 38.5,
-        left: 7,
-        width: 23,
+        top: 3.6,
+        left: 19,
+        width: 8,
         height: 5
-      }
-    ]
-  },
-
-  inputTypeDefinition: {
-    title: 'Input Type Definition',
-    href: 'input/#input-type-definition',
-    coords: [
-      {
-        top: 20,
-        left: 30,
-        width: 24,
-        height: 4
       },
       {
-        top: 43,
-        left: 30,
-        width: 23,
-        height: 5
+        top: 10,
+        left: 13,
+        width: 20,
+        height: 9.5
       }
     ]
   },
@@ -104,16 +82,16 @@ var regions = {
     href: 'rule',
     coords: [
       {
-        top: 96,
-        left: 46,
-        width: 5,
-        height: 4
+        top: 95,
+        left: 30,
+        width: 4,
+        height: 5.5
       },
       {
-        top: 53,
+        top: 52,
         left: 0,
         width: 100,
-        height: 5
+        height: 7.5
       }
     ]
   },
@@ -123,16 +101,16 @@ var regions = {
     href: 'rule/#input-entry-condition',
     coords: [
       {
-        top: 96,
-        left: 1,
-        width: 27,
-        height: 4
+        top: 95,
+        left: 6,
+        width: 20.5,
+        height: 5.5
       },
       {
-        top: 66,
+        top: 65,
         left: 6,
-        width: 24,
-        height: 5
+        width: 18,
+        height: 7.5
       }
     ]
   },
@@ -142,54 +120,16 @@ var regions = {
     href: 'rule/#output-entry-conclusion',
     coords: [
       {
-        top: 96,
-        left: 64,
-        width: 30,
-        height: 4
+        top: 95,
+        left: 41.5,
+        width: 23,
+        height: 5.5
       },
       {
         top: 66,
-        left: 53,
-        width: 24,
-        height: 5
-      }
-    ]
-  },
-
-  outputName: {
-    title: 'Output Name',
-    href: 'output/#output-name',
-    coords: [
-      {
-        top: 14,
-        left: 59,
-        width: 16,
-        height: 4
-      },
-      {
-        top: 38,
-        left: 53,
-        width: 24,
-        height: 5
-      }
-    ]
-  },
-
-  outputTypeDefinition: {
-    title: 'Output Type Definition',
-    href: 'output/#output-type-definition',
-    coords: [
-      {
-        top: 20,
-        left: 67,
-        width: 26,
-        height: 4
-      },
-      {
-        top: 43,
-        left: 53,
-        width: 24,
-        height: 5
+        left: 43,
+        width: 19.0,
+        height: 6.5
       }
     ]
   }

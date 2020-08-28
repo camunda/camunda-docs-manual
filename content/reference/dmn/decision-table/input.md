@@ -19,6 +19,9 @@ A decision table can have one or more inputs, also called input clauses. An
 input clause defines the id, label, expression and type of a decision table
 input.
 
+An input can be edited by double-clicking on the
+respective colum header in the decision table.
+
 An input clause is represented by an `input` element inside a `decisionTable`
 XML element.
 
