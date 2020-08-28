@@ -56,7 +56,7 @@ It can be changed via the Properties Panel after selecting the respective
 
 The id is the technical identifier of the decision. It is set in the `id`
 attribute on the `decision` element.
-Just as the `name`, the `id` be changed via the Properties Panel after selecting 
+Just as the `name`, the `id` can be changed via the Properties Panel after selecting 
 the respective "Decision" in the [Decision Requirements Diagram] view.
 
 Each decision should have an unique id when it is [deployed] to the Camunda BPM
