@@ -66,6 +66,7 @@ Currently supported batch types:
 - [Deletion of Historic Process Instances][process-instance-deletion]
 - [Update Process Instance Suspend State][process-instance-suspend]
 - [Setting retries of jobs associated with Process Instances][set-job-retries]
+- [Set Variables to Process Instances][set-variables]
 - [Process Instance Modification][process-instance-modification]
 - [Process Instance Restart][process-instance-restart]
 - [Setting retries of external tasks][set-external-tasks-retries]
@@ -335,6 +336,7 @@ You can configure the property in three ways:
 [process-instance-cancellation]: {{< ref "/user-guide/process-engine/batch-operations.md#cancellation-of-running-process-instances">}}
 [process-instance-deletion]: {{< ref "/user-guide/process-engine/batch-operations.md#deletion-of-historic-process-instances">}}
 [set-job-retries]: {{< ref "/user-guide/process-engine/batch-operations.md#setting-retries-of-jobs-associated-with-process-instances">}}
+[set-variables]: {< ref "/user-guide/process-engine/batch-operations.md#setting-variables-to-process-instances">}}
 [migration]: {{< ref "/user-guide/process-engine/process-instance-migration.md" >}}
 [batch-migration]: {{< ref "/user-guide/process-engine/process-instance-migration.md#asynchronous-batch-migration-execution" >}}
 [job executor]: {{< ref "/user-guide/process-engine/the-job-executor.md" >}}

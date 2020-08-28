@@ -748,6 +748,18 @@ The following describes the operations logged in the user operation log and the 
     </td>
   </tr>
   <tr>
+    <td></td>
+    <td>SetVariables</td>
+	  <td>Operator</td>
+    <td>
+      <ul>
+        <li><strong>async</strong>: <code>true</code> if operation was performed asynchronously as a batch</li>
+        <li><strong>nrOfInstances</strong>: The amount of affected instances</li>
+        <li><strong>nrOfVariables</strong>: The amount of set variables</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
     <td>IdentityLink</td>
     <td>AddUserLink</td>
 	<td>TaskWorker</td>
@@ -1750,6 +1762,7 @@ The `batchOperationsForHistoryCleanup` property can be configured in Spring base
     <entry key="process-set-removal-time" value="P0D" />
     <entry key="decision-set-removal-time" value="P0D" />
     <entry key="batch-set-removal-time" value="P0D" />
+    <entry key="set-variables" value="P1D" />
     <!-- in case of custom batch jobs -->
     <entry key="custom-operation" value="P3D" />
   </map>
