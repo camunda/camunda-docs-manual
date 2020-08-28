@@ -59,7 +59,7 @@ Clustered or replicated databases are supported given the following conditions. 
 
 * Google Chrome latest
 * Mozilla Firefox latest
-* Microsoft Edge
+* Microsoft Edge latest
 
 
 # Java
