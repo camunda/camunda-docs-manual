@@ -40,7 +40,7 @@ A JSON object with the following properties:
       A process instance query like the request body for the
       <a href="{{< ref "/reference/rest/process-instance/post-query.md#request-body" >}}">
         <code>Get Instances (POST)</code>
-      </a> method.
+      </a> method to select process instances the operation will set variables to.
     </td>
   </tr>
   <tr>
@@ -49,12 +49,13 @@ A JSON object with the following properties:
       A historic process instance query like the request body for the
       <a href="{{< ref "/reference/rest/history/process-instance/post-process-instance-query.md#request-body" >}}">
         <code>Get Instances (POST)</code>
-      </a> method.
+      </a> method to select process instances the operation will set variables to.
     </td>
   </tr>
   <tr>
     <td>variables</td>
-    <td>A JSON object containing variable key-value pairs. Each key is a variable name and each value a JSON variable value object. {{< rest-var-request >}}</td>
+    <td>A JSON object containing variable key-value pairs the operation will set in the root scope of the process instances. 
+    Each key is a variable name and each value a JSON variable value object. {{< rest-var-request >}}</td>
   </tr>
 </table>
 
