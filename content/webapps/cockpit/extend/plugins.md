@@ -516,6 +516,47 @@ See the [Reports]({{< ref "/webapps/cockpit/reporting.md" >}}) section for an ex
 
 At this plugin point, the `label` attribute can be used.
 
+
+## Batch Operation
+
+**Name:** `cockpit.batch.operation`
+
+{{< img src="../../img/plugin-points/plugin-point-batch-operation.png" title="Custom Plugin" >}}
+
+The render function can be used to create a form for custom payloads to your batch operation.
+
+The arguments field is structured as follows:
+
+```javascript
+export default {
+  pluginPoint: 'cockpit.batch.operation'
+  // ...
+
+  arguments: {
+    // Defines which instances the search field will be showing
+    searchType: 'process' || 'decision' || 'batch',
+    
+    // A function which returns the endpoint and the payload of the batch operation. The argument contains either the search query or the selected IDs.
+    onSubmit: function({query, ids}) {
+
+      // The return value must contain the endpoint and the payload object.
+      return {
+        endpoint: '/my/custom/batch/endpoint'
+        payload: {}
+      }
+    },
+
+    // These labels are required
+    labels: {
+      dropdownLabel: 'Title in the Dropdown menu',
+      sentenceLabel: 'e.g. "modify"',
+      passiveLabel: 'e.g. "modified"',
+      searchHtml: 'an <b>HTML</b> string to be displayed over the search bar'
+    }
+  }
+}
+```
+
 ## Incident Action
 
 **Name:** `cockpit.incident.action`
