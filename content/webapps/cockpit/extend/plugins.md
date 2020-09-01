@@ -113,7 +113,7 @@ The second argument contains constants like a processDefinitionId. The details o
 
 `unmount`: Optional function which is called when the Plugin is unmounted. Use this to cleanup any listeners you or your Framework might have registered.
 
-`label`: Optional, String. Displayed as heading for a tab or menu entry.
+`properties`: Optional object which contains all additional configuration for the plugin point, such as labels.
 
 
 # Plugin Exclusion (Client Side)
@@ -158,18 +158,12 @@ For more information on creating and configuring your own plugin, please see [Ho
 ## Route
 `cockpit.route`
 
-This plugin point has a unique property, `path`, which stands for the hashRoute for this page. This will be rendered when the user navigates in the browser to the url, e.g. `#/my-path`.
+This plugin points properties contain the attribute `path`, which stands for the hashRoute for this page. This will be rendered when the user navigates in the browser to the url, e.g. `#/my-path`.
 
 ```Javascript
-export default {
-  id: "myNewSite",
-  pluginPoint: "cockpit.route",
-  path: "/my-path",
-  priority: 0,
-  render: container => {
-    container.innerHTML = "Look at this page!";
-  }
-};
+properties: {
+  path: "/my-path"
+}
 ```
 
 ## Navigation
@@ -180,18 +174,12 @@ export default {
 
 This plugin point can be used in conjunction with a `cockpit.route` plugin or for shortcuts to existing pages. Negative priority will hide the entry in a drop-down.
 
-This plugin point has a unique property, `path`, which matches the location to highlight the active menu entry when the user is on a certain page. The value can be a regex. If no `path` is set, the menu entry will never be highlighted.
+This plugin points properties contain the attribute `path`, which matches the location to highlight the active menu entry when the user is on a certain page. The value can be a regex. If no `path` is set, the menu entry will never be highlighted.
 
 ```Javascript
-export default {
-  id: "myNewNavigation",
-  pluginPoint: "cockpit.navigation",
-  path: "/my-path",
-  priority: 0,
-  render: container => {
-    container.innerHTML = "<a href='#/my-path'>My custom Page</a>";
-  }
-};
+properties: {
+  path: "/my-path"
+}
 ```
 
 
@@ -233,7 +221,22 @@ The `cockpit.dashboard` plugin point will allow to add your custom views at the 
 
 {{< img src="../../img/plugin-points/plugin-point-process-definition-details.png" title="Process Definition Runtime Tab" >}}
 
-At this plugin point, the `label` attribute can be used.
+This plugin points properties contain the attribute `label`, which will be rendered in the navigation even when the plugin is not selected.
+
+```Javascript
+properties: {
+  label: "My Plugin"
+}
+```
+
+This plugin points properties contain the attribute `label`, which will be rendered in the navigation even when the plugin is not selected.
+
+```Javascript
+properties: {
+  label: "My Plugin"
+}
+```
+
 
 This additional data is passed into the render function:
   - `processDefinitionId`
@@ -244,7 +247,13 @@ This additional data is passed into the render function:
 
 {{< img src="../../img/plugin-points/plugin-point-process-instance-details.png" title="Process Instance Runtime Tab" >}}
 
-At this plugin point, the `label` attribute can be used.
+This plugin points properties contain the attribute `label`, which will be rendered in the navigation even when the plugin is not selected.
+
+```Javascript
+properties: {
+  label: "My Plugin"
+}
+```
 
 This additional data is passed into the render function:
   - `processInstanceId`
@@ -335,7 +344,13 @@ This additional data is passed into the render function:
 
 {{< img src="../../img/plugin-points/plugin-point-decision-definition-tab.png" title="Decision Definition Tab" >}}
 
-At this plugin point, the `label` attribute can be used.
+This plugin points properties contain the attribute `label`, which will be rendered in the navigation even when the plugin is not selected.
+
+```Javascript
+properties: {
+  label: "My Plugin"
+}
+```
 
 This additional data is passed into the render function:
   - `decisionDefinitionId`
@@ -369,7 +384,13 @@ This additional data is passed into the render function:
 
 {{< img src="../../img/plugin-points/plugin-point-decision-instance-tab.png" title="Decision Instance Tab" >}}
 
-At this plugin point, the `label` attribute can be used.
+This plugin points properties contain the attribute `label`, which will be rendered in the navigation even when the plugin is not selected.
+
+```Javascript
+properties: {
+  label: "My Plugin"
+}
+```
 
 This additional data is passed into the render function:
   - `decisionInstanceId`
@@ -404,7 +425,13 @@ This additional data is passed into the render function:
 
 {{< img src="../../img/plugin-points/plugin-point-case-definition-tab.png" title="Case Definition Tab" >}}
 
-At this plugin point, the `label` attribute can be used.S
+This plugin points properties contain the attribute `label`, which will be rendered in the navigation even when the plugin is not selected.
+
+```Javascript
+properties: {
+  label: "My Plugin"
+}
+```
 
 This additional data is passed into the render function:
   - `decisionInstanceId`
@@ -416,7 +443,13 @@ This additional data is passed into the render function:
 
 {{< img src="../../img/plugin-points/plugin-point-case-definition-action.png" title="Case Definition Action" >}}
 
-At this plugin point, the `label` attribute can be used.
+This plugin points properties contain the attribute `label`, which will be rendered in the navigation even when the plugin is not selected.
+
+```Javascript
+properties: {
+  label: "My Plugin"
+}
+```
 
 This additional data is passed into the render function:
   - `caseDefinitionId`
@@ -446,7 +479,13 @@ This additional data is passed into the render function:
 
 {{< img src="../../img/plugin-points/plugin-point-case-instance-tab.png" title="Case Instance Tab" >}}
 
-At this plugin point, the `label` attribute can be used.
+This plugin points properties contain the attribute `label`, which will be rendered in the navigation even when the plugin is not selected.
+
+```Javascript
+properties: {
+  label: "My Plugin"
+}
+```
 
 This additional data is passed into the render function:
   - `caseInstanceId`
@@ -514,7 +553,13 @@ This additional data is passed into the render function:
 
 See the [Reports]({{< ref "/webapps/cockpit/reporting.md" >}}) section for an example report plugin.
 
-At this plugin point, the `label` attribute can be used.
+This plugin points properties contain the attribute `label`, which will be rendered in the navigation even when the plugin is not selected.
+
+```Javascript
+properties: {
+  label: "My Plugin"
+}
+```
 
 
 ## Batch Operation
@@ -532,7 +577,7 @@ export default {
   pluginPoint: 'cockpit.batch.operation'
   // ...
 
-  arguments: {
+  properties: {
     // Defines which instances the search field will be showing
     searchType: 'process' || 'decision' || 'batch',
     
