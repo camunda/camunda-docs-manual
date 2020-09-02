@@ -25,6 +25,7 @@ It is possible to execute the following batch operations:
 - Delete finished process instances.
 - Set retries of Jobs belonging to process instances.
 - Set retries of external tasks belonging to process instances.
+- Set variables to process instances.
 - Suspend running process instances.
 - Activate suspended process instances.
 - Delete decision instances.
