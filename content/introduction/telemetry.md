@@ -65,6 +65,10 @@ Contains entries that give insights into which features and components are used 
 }
 ```
 
+### Logger
+
+A telemetry logger exists that logs details for the information that is sent or problems when the data is sent when the telemetry is enabled. For further informaion check the [Logging]({{< ref "/user-guide/logging.md" >}}) page in the User Guide.
+
 ### Limitations in Collected Information
 
 In certain scenarios, some of the information will not be retrieved due to limitations of the implementation.
