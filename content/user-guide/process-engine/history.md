@@ -1758,15 +1758,14 @@ The `batchOperationsForHistoryCleanup` property can be configured in Spring base
 
 If the specific TTL is not set for a batch operation type, then the option `batchOperationHistoryTimeToLive` applies.
 
-#### HistoryCleanupJobs in the historic job log
+#### Job Logs
 
-A history cleanup is always performed by running a a HistoryCleanupJob. As with all other jobs the HistoryCleanupJob
-will produce events that are logged in the historic job log. By default those entries will stay in the log indefinitely 
-and cleanup must be configured explicitly. Note that this only works in for [removal-time based history cleanup]({{< ref "/user-guide/process-engine/history.md#removal-time-strategy">}}).
+A history cleanup is always performed by executing a history cleanup job. As with all other jobs, the history cleanup job 
+will produce events that are logged in the historic job log. By default, those entries will stay in the log indefinitely 
+and cleanup must be configured explicitly. Please note that this only works for the [removal-time based history cleanup strategy]({{< ref "/user-guide/process-engine/history.md#removal-time-strategy">}}).
 
-The `historyCleanupJobLogTimeToLive` property can be used to define a TTL for historic job log entries produced by
-HistoryCleanupJobs. The property accepts values in the ISO-8601 date format. Note that only the notation to define a
-number of days is allowed.
+The `historyCleanupJobLogTimeToLive` property can be used to define a TTL for historic job log entries produced by 
+history cleanup jobs. The property accepts values in the ISO-8601 date format. Note that only the notation to define a number of days is allowed.
 
 ```xml
 <property name="historyCleanupJobLogTimeToLive">P5D</property>
