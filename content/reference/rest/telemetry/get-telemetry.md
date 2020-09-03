@@ -38,9 +38,9 @@ A JSON object containing configuration properties of the telemetry of the Rest A
     <td>Boolean</td>
     <td>Specifies if the telemetry is configured or not. Values:
         <ul>
-          <li><code>null<code> - sending telemetry is not configured, no data will be send</li>
-          <li><code>true<code> - sending telemetry is enabled</li>
-          <li><code>false<code> - sending telemetry is disabled</li>
+          <li><code>null</code> - sending telemetry is not configured, no data will be send</li>
+          <li><code>true</code> - sending telemetry is enabled</li>
+          <li><code>false</code> - sending telemetry is disabled</li>
         </ul>
     </td>
   </tr>
@@ -59,6 +59,11 @@ A JSON object containing configuration properties of the telemetry of the Rest A
     <td>200</td>
     <td>application/json</td>
     <td>Request successful.</td>
+  </tr>
+  <tr>
+    <td>404</td>
+    <td>application/json</td>
+    <td>If the user who perform the operation is not a <b>camunda-admin</b> user.</td>
   </tr>
 </table>
 
