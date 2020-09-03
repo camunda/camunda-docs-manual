@@ -525,36 +525,37 @@ At this plugin point, the `label` attribute can be used.
 
 The render function can be used to create a form for custom payloads to your batch operation.
 
-The arguments field is structured as follows:
+A simple batch operation without a payload could look like this:
 
 ```javascript
 export default {
-  pluginPoint: 'cockpit.batch.operation'
-  // ...
+  id: "my-batch-plugin",
+  pluginPoint: "cockpit.batch.operation",
+  priority: 0,
+  render: () => {},
 
   arguments: {
     // Defines which instances the search field will be showing
-    searchType: 'process' || 'decision' || 'batch',
-    
-    // A function which returns the endpoint and the payload of the batch operation. The argument contains either the search query or the selected IDs.
-    onSubmit: function({query, ids}) {
+    searchType: "process" || "decision" || "batch",
 
+    // A function which returns the endpoint and the payload of the batch operation. The argument contains either the search query or the selected IDs.
+    onSubmit: function({ query, ids }) {
       // The return value must contain the endpoint and the payload object.
       return {
-        endpoint: '/my/custom/batch/endpoint'
+        endpoint: "/my/custom/batch/endpoint",
         payload: {}
-      }
+      };
     },
 
     // These labels are required
     labels: {
-      dropdownLabel: 'Title in the Dropdown menu',
-      sentenceLabel: 'e.g. "modify"',
-      passiveLabel: 'e.g. "modified"',
-      searchHtml: 'an <b>HTML</b> string to be displayed over the search bar'
+      dropdownLabel: "Title in the Dropdown menu",
+      sentenceLabel: "e.g. 'modify'",
+      passiveLabel: "e.g. 'modified'",
+      searchHtml: "an <b>HTML</b> string to be displayed over the search bar"
     }
   }
-}
+};
 ```
 
 ## Incident Action
