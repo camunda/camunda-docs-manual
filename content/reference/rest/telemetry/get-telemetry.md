@@ -61,7 +61,7 @@ A JSON object containing configuration properties of the telemetry of the Rest A
     <td>Request successful.</td>
   </tr>
   <tr>
-    <td>404</td>
+    <td>401</td>
     <td>application/json</td>
     <td>If the user who perform the operation is not a <b>camunda-admin</b> user.</td>
   </tr>
