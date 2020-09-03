@@ -1676,6 +1676,7 @@ Limitations:
 * End time is only stored in the instances tables (`ACT_HI_PROCINST`, `ACT_HI_CASEINST`, `ACT_HI_DECINST` and `ACT_HI_BATCH`). To delete data from all history tables, the cleanable instances are first fetched via a `SELECT` statement. Based on that, `DELETE` statements are made for each history table. These statements can involve joins. This is less efficient than removal-time-based history cleanup.
 * Instance hierarchies are not cleaned up atomically. Since the individual instances have different end times, they are going to be cleaned up at different times. In consequence, hierarchies can appear partially removed.
 * [Historic Instance Permissions] are not cleaned up.
+* [History Cleanup Jobs]({{< ref "/user-guide/process-engine/history.md#historycleanupjobs-in-the-historic-job-log">}}) are not removed from the historic job log.
 
 ## Cleanup Internals
 
@@ -1770,6 +1771,19 @@ The `batchOperationsForHistoryCleanup` property can be configured in Spring base
 ```
 
 If the specific TTL is not set for a batch operation type, then the option `batchOperationHistoryTimeToLive` applies.
+
+#### Job Logs
+
+A history cleanup is always performed by executing a history cleanup job. As with all other jobs, the history cleanup job 
+will produce events that are logged in the historic job log. By default, those entries will stay in the log indefinitely 
+and cleanup must be configured explicitly. Please note that this only works for the [removal-time based history cleanup strategy]({{< ref "/user-guide/process-engine/history.md#removal-time-strategy">}}).
+
+The `historyCleanupJobLogTimeToLive` property can be used to define a TTL for historic job log entries produced by 
+history cleanup jobs. The property accepts values in the ISO-8601 date format. Note that only the notation to define a number of days is allowed.
+
+```xml
+<property name="historyCleanupJobLogTimeToLive">P5D</property>
+```
 
 ### Cleanup Window
 

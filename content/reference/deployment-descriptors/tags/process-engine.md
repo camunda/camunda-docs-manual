@@ -954,6 +954,13 @@ The history time to live defines the number of days using a time specified by th
 The history time to live defines the number of days using a time specified by the ISO-8601 date format. The function only accepts the notation to define a number of days.
     </td>
   </tr>
+  <tr>
+    <td>historyCleanupJobLogTimeToLive</td>
+    <td>String</td>
+    <td>Defines history time to live for history job log entries produced by history cleanup jobs. This works with the <code>removalTimeBased</code> history cleanup strategy.
+    The history time to live defines the number of days using a time specified by the ISO-8601 date format. The function only accepts the notation to define a number of days.
+    </td>
+  </tr>
 </table>
 
 ## Login parameters
