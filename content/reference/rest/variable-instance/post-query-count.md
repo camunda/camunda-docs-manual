@@ -61,6 +61,10 @@ A JSON object with the following properties:
     <td>Only include variable instances which belong to one of the passed task ids.</td>
   </tr>
   <tr>
+    <td>batchIdIn</td>
+    <td>Only include variable instances which belong to one of the passed batch ids.</td>
+  </tr>
+  <tr>
     <td>activityInstanceIdIn</td>
     <td>Only include variable instances which belong to one of the passed activity instance ids.</td>
   </tr>
