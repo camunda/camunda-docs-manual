@@ -11,30 +11,33 @@ menu:
 ---
 
 
-By collecting environment and usage data, we will be able to offer a great and stable user experience when using Camunda. The insights into common environment setups and product usage patterns we can gather will help us to make product development decisions to your benefit. Data collection will be performed only after explicitly enabling a [process engine configuration][engine-config] property which by default is not applied. The configuration can be changed during runtime at any time via Java API or [Rest API][telemetry-config-rest].
+With the Camunda BPM Runtime, we strive to offer excellent user experience at a high and stable level. Collecting environment and usage data helps us to keep the level up. The insights into typical environment setups and product usage patterns will allow us to make product improvement decisions to your benefit.
 
-The collected data will be sent only once in 24 hours and upon closing of the process engine by scheduling a Java timer task that sends the data via an HTTP request. The process engine work will not be affected in case of a problem during the processing of the data.
+The Telemetry Reporter only collects and sends data after you explicitly enable a [process engine configuration][engine-config] flag, which is by default disabled. The configuration can be changed at any time during runtime via Java API or [REST API][telemetry-config-rest].
+
+The collected data will be sent once in 24 hours via HTTP, which is scheduled by a Java timer task. We took good care that your process automation will not be negatively affected in case the Telemetry Reporter suddenly faces an unexpected error. Furthermore, no data will be collected and sent when you stop the process engine.
 
 ## Collected Data
 
-The full list of the collected data can be found below, followed by a real case example. The data can be separated into three groups: general data, meta/environment data, and usage data.
+You can find below the full list of the collected data, followed by a real-world example. The data can be categorized into three groups: general data, meta/environment data, and usage data.
 
-### General data
-Contains information about the process engine.
+### General Data
 
-* installation - id that is stored as process engine property
-* product name - identifying the usage of the process engine
-* product version - identifying the process engine version
-* product edition - identifying whether `community` or `enterprise` version is used
+The "General Data" category contains information about the process engine:
+
+* Installation - an id that is stored as process engine configuration property
+* Product name - the name of the product (i.e., `Camunda BPM Runtime`)
+* Product version - the version of the process engine (i.e., `7.X.Y`)
+* Product edition - the edition of the product (i.e., either `community` or `enterprise`)
 
 ### Meta/Environment Data
-Contains information about the environmental setup.
+The "Meta/Environment Data" category contains information about the environmental setup:
 
-* database vendor and version
-* application server vendor and version
+* Database vendor and version
+* Application server vendor and version
 
-### Usage data
-Contains entries that give insights into which features and components are used in the process engine.
+### Usage Data
+The "Usage Data" category contains information about the used features and components of the process engine:
 
 * commands count - the count of executed commands after the last retrieved data
 
@@ -67,30 +70,30 @@ Contains entries that give insights into which features and components are used 
 
 ### Logger
 
-A telemetry logger exists that logs details for the information that is sent or problems when the data is sent when the telemetry is enabled. For further informaion check the [Logging]({{< ref "/user-guide/logging.md" >}}) page in the User Guide.
+A telemetry logger exists to log details about the sent information and error details in case the data couldn't be collected or sent. For further information check the [Logging]({{< ref "/user-guide/logging.md" >}}) page in the User Guide.
 
 ### Limitations in Collected Information
 
 In certain scenarios, some of the information will not be retrieved due to limitations of the implementation.
 
-The application server information cannot be obtained in an embedded process engine setup where no web applications (e.g. Tasklist, Cockpit, Rest application) are not deployed and used.
+The application server information cannot be obtained in an embedded process engine setup where no web applications (e.g. Tasklist, Cockpit, REST application) are not deployed and used.
 
 
 ## Toggle telemetry
 
 ### Process Engine Configuration
 
-Use the `initializeTelemetry` configuration [property][engine-config] to enable the telemetry before starting the process engine. Just add it to you process engine configuration:
+Use the `initializeTelemetry` configuration [flag][engine-config] to enable the telemetry before starting the process engine. You can simply add it to your process engine configuration:
 
 ```
   <property name="initializeTelemetry">true</property>
 ```
 
-Later on the telemetry can be enabled/disabled via the engine API.
+Later on, the telemetry can be enabled/disabled via the engine API.
 
 ### Java/Rest API
 
-The configuration of the telemetry can be changed via our API.
+You can change the telemetry configuration via our API.
 
 To enable/disable telemetry via Java API:
 
@@ -98,7 +101,7 @@ To enable/disable telemetry via Java API:
   managementService.toggleTelemetry(true);
 ```
 
-To achieve the same, you can also use the respective Rest API request. For more information, have a look at the [telemetry][telemetry-config-rest] page in the Rest API documentation.
+To achieve the same, you can also use the respective REST API request. For more information, have a look at the [telemetry][telemetry-config-rest] page in the REST API documentation.
 
 ## Legal Note
 

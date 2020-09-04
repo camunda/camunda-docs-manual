@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Fetches the telemetry configuration. For more information on telemetry topic, visit the [Telemetry]({{< ref "/introduction/telemetry.md" >}}) page.
+Fetches the telemetry configuration. For more information on the telemetry topic, visit the [Telemetry]({{< ref "/introduction/telemetry.md" >}}) page.
 
 # Method
 

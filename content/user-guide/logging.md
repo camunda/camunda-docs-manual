@@ -250,7 +250,7 @@ The process engine logs on the following categories
   </tr>
   <tr>
     <td><code>org.camunda.bpm.engine.telemetry</code></td>
-    <td>logs details for data that is sent and the problems with telemetry configuration</td>
+    <td>logs details about the sent information and error details in case the data couldn't be collected or sent</td>
   </tr>
   <tr>
     <td><code>org.camunda.bpm.engine.test</code></td>
@@ -385,11 +385,11 @@ The snippet contains the start and of `RemoveExecutionVariablesCmd`, the flush s
 
 #### Telemetry Data
 
-In order to inspect what data is sent when [Telemetry]({{< ref "/introduction/telemetry.md" >}}) is enabled, please enable the Telemetry logger. The logger will help for troubleshooting if no data is sent.
+In order to inspect what data is sent when [Telemetry]({{< ref "/introduction/telemetry.md" >}}) is enabled, please enable the Telemetry logger. The logger will help with troubleshooting if no data is sent.
 
 * `org.camunda.bpm.engine.telemetry`
 
-Find below an example of the log entries when the data is sent.
+Please find below an example of the log entries when the data is sent:
 
 ```
 ...
