@@ -90,7 +90,16 @@ externalTaskService.setRetriesAsync(
 
 ## Set Variables to Process Instances
 
-Variables can be set asynchronously using the following Java API method invocation:
+Sometimes it is necessary to add or update data of an already running process instance. 
+For example, when a user entered incorrect data at the beginning of a process, 
+the data needs to be corrected on-the-fly. 
+
+This batch operation helps you to set variables to the root scope of process instances asynchronously.
+
+You can either (1) filter for process instances using a `HistoricProcessInstanceQuery` or a `ProcessInstanceQuery`
+or (2) pass a set of process instance ids directly.
+
+Please see below how to call the Java API:
 
 ```java
 List<String> procssInstanceIds = ...;
