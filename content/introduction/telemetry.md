@@ -39,7 +39,8 @@ The "Meta/Environment Data" category contains information about the environmenta
 ### Usage Data
 The "Usage Data" category contains information about the used features and components of the process engine:
 
-* Commands count - the count of executed commands after the last retrieved data
+* Commands count - the count of executed commands after the last retrieved data. It could be from the last 24 hours if the data have been reported then and the process engine has not been close during that time. Or it could be the count of the executed commands for the 3 hours when the process engine has been closed. 
+* Metrics count - the collected metrics are number of root process instance executions started, number of activity instances started or also known as flow node instances, number of executed decision instances, and unique task workers. The counts are collected from the start of the engine or the last reported time if the engine is already running for more than 24 hours.
 
 ### Example
 
@@ -62,6 +63,12 @@ The "Usage Data" category contains information about the used features and compo
         "commands": {
           "StartProcessInstanceCmd": {"count": 40},
           "FetchExternalTasksCmd":  {"count": 100}
+        },
+        "metrics": {
+          "root-process-instances": { "count": 936 },
+          "flow-node-instances": { "count": 6125 },
+          "executed-decision-instances": { "count": 732 },
+          "unique-task-workers": { "count": 50 }
         }
       }
     }
