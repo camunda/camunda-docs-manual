@@ -39,7 +39,7 @@ The "Meta/Environment Data" category contains information about the environmenta
 ### Usage Data
 The "Usage Data" category contains information about the used features and components of the process engine:
 
-* commands count - the count of executed commands after the last retrieved data
+* Commands count - the count of executed commands after the last retrieved data
 
 ### Example
 
@@ -111,7 +111,7 @@ Camunda cannot be held responsible in the event of unauthorized installation or 
 
 ## Implementation 
 
-In case you want further details, you can have a look at the implementation of the telemetry topic in [our code](https://github.com/camunda/camunda-bpm-platform/blob/2015f4902853bf688216c9f75e846256d100fe95/engine/src/main/java/org/camunda/bpm/engine/impl/telemetry/reporter/TelemetrySendingTask.java#L69-L98).
+In case you want further details, you can have a look at the implementation of the telemetry topic in [our codebase](https://github.com/camunda/camunda-bpm-platform/blob/master/engine/src/main/java/org/camunda/bpm/engine/impl/telemetry/reporter/TelemetrySendingTask.java). The link leads you to the current `master` version of the feature. In case you would like to check the implementation of an old version, adjust the `master` branch to a released tag version, e.g. `7.14.0`.
 
 [engine-config]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#initializeTelemetry" >}}
 [telemetry-config-rest]: {{< ref "/reference/rest/telemetry/port-telemetry.md" >}}
