@@ -249,6 +249,10 @@ The process engine logs on the following categories
     <td>logs exceptions that occur during password hashing</td>
   </tr>
   <tr>
+    <td><code>org.camunda.bpm.engine.telemetry</code></td>
+    <td>logs details about the sent information and error details in case the data couldn't be collected or sent</td>
+  </tr>
+  <tr>
     <td><code>org.camunda.bpm.engine.test</code></td>
     <td>logger used in the engine tests</td>
   </tr>
@@ -378,6 +382,20 @@ Here is a sample of what traces the server log file will contain when increasing
 ```
 
 The snippet contains the start and of `RemoveExecutionVariablesCmd`, the flush summary of the operation, and the database statements of the variable instance.
+
+#### Telemetry Data
+
+In order to inspect what data is sent when [Telemetry]({{< ref "/introduction/telemetry.md" >}}) is enabled, please enable the Telemetry logger. The logger will help with troubleshooting if no data is sent.
+
+* `org.camunda.bpm.engine.telemetry`
+
+Please find below an example of the log entries when the data is sent:
+
+```
+...
+02-Sep-2020 15:12:33.562 FINE [Thread-7] org.camunda.commons.logging.BaseLogger.logDebug ENGINE-28001 Start telemetry sending task.
+02-Sep-2020 15:12:33.814 FINE [Thread-7] org.camunda.commons.logging.BaseLogger.logDebug ENGINE-28005 Telemetry data sent: {"installation":"8da16f97-6c0a-4370-aa41-5594847fe448","product":{"name":"Camunda BPM Runtime","version":"7.14.0-SNAPSHOT","edition":"community","internals":{"database":{"vendor":"H2","version":"1.4.190 (2015-10-11)"},"application-server":{"vendor":"Apache Tomcat","version":"Apache Tomcat/9.0.36"},"commands":{"DbMetricsReporter$1":{"count":6},"AcquireJobsCmd":{"count":9},"AuthorizationQueryImpl":{"count":21},"CreateGroupCmd":{"count":4},"IsTelemetryEnabledCmd":{"count":2},"DbGroupQueryImpl":{"count":1},"CreateAuthorizationCommand":{"count":16},"CreateGroupQueryCmd":{"count":1},"ProcessInstanceQueryImpl":{"count":2},"HistoryLevelSetupCommand":{"count":1},"BootstrapEngineCommand":{"count":1},"SaveFilterCmd":{"count":7},"CreateFilterCmd":{"count":7},"AddCommentCmd":{"count":2},"ProcessDefinitionQueryImpl":{"count":3},"TaskQueryImpl":{"count":4},"CreateUserQueryCmd":{"count":1},"DbUserQueryImpl":{"count":1},"SaveGroupCmd":{"count":4},"ExecuteJobsCmd":{"count":2},"SaveUserCmd":{"count":4},"StartProcessInstanceCmd":{"count":6},"SuccessfulJobListener":{"count":2},"IsIdentityServiceReadOnlyCmd":{"count":1},"CompleteTaskCmd":{"count":4},"TelemetryConfigureCmd":{"count":1},"DeployCmd":{"count":2},"SaveAuthorizationCmd":{"count":37},"CreateMembershipCmd":{"count":7},"ClaimTaskCmd":{"count":2},"GetTableMetaDataCmd":{"count":1},"CreateUserCmd":{"count":4},"MetricsCollectionTask$1":{"count":11},"HistoryCleanupCmd":{"count":1},"HistoryCleanupHandler$1":{"count":2},"UnregisterProcessApplicationCmd":{"count":1},"SchemaOperationsProcessEngineBuild":{"count":1}}}}}
+```
 
 # Legacy: Java Util Logging
 

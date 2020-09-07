@@ -14,7 +14,7 @@ menu:
 
 
 Configures whether Camunda receives data collection of the process engine setup and usage.
-For more information check the [telemetry]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#initializeTelemetry" >}}) options in the process engine configuration.
+For more information, please check the [Telemetry]({{< ref "/introduction/telemetry.md" >}}) page.
 
 
 # Method
