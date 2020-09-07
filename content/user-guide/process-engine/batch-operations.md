@@ -102,9 +102,9 @@ or (2) pass a set of process instance ids directly.
 Please see below how to call the Java API:
 
 ```java
-List<String> procssInstanceIds = ...;
+List<String> processInstanceIds = ...;
 Map<String, Object> variables = Variables.putValue("my-variable", "my-value");
-runtimeService.setVariablesAsync(procssInstanceIds, variables);
+runtimeService.setVariablesAsync(processInstanceIds, variables);
 ```
 
 ### Known Limitation
