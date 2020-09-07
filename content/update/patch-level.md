@@ -393,6 +393,16 @@ The following list is an overview of all currently available patch scripts:
         <a href="https://app.camunda.com/jira/browse/CAM-11117">CAM-11117</a>
       </td>
     </tr>
+    <tr>
+      <td>7.13</td>
+      <td>engine_7.13_patch_7.13.4_to_7.13.5.sql</td>
+      <td>Add index to improve Task query performance.
+      </td>
+      <td>All databases</td>
+      <td>
+        <a href="https://jira.camunda.com/browse/CAM-4441">CAM-4441</a>
+      </td>
+    </tr>
   </tbody>
 </table>
 
