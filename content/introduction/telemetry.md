@@ -11,16 +11,15 @@ menu:
 ---
 
 
-With the Camunda BPM Runtime, we strive to offer excellent user experience at a high and stable level. Collecting environment and usage data helps us to keep the level up. The insights into typical environment setups and product usage patterns will allow us to make product improvement decisions to your benefit.
+At Camunda, we strive to offer excellent user experience at a high and stable level. On a strict opt-in basis, we are looking to collect environment and usage data to further improve the user experience for you. These insights help us to understand typical environment setups and product usage patterns and will be used data informed product improvement decisions to your benefit.
 
-The Telemetry Reporter only collects and sends data after you explicitly enable a [process engine configuration][engine-config] flag, which is by default disabled. The configuration can be changed at any time during runtime via Java API or [REST API][telemetry-config-rest].
+The Telemetry Reporter is disabled by default and only collects and sends data after you explicitly enable a [process engine configuration][engine-config] flag. The configuration can be changed at any time during runtime via Java API or [REST API][telemetry-config-rest].
 
 The collected data will be sent once in 24 hours via HTTP, which is scheduled by a Java timer task. We took good care that your process automation will not be negatively affected in case the Telemetry Reporter suddenly faces an unexpected error. Furthermore, no data will be collected and sent when you stop the process engine.
 
 ## Collected Data
 
-You can find below the full list of the collected data, followed by a real-world example. The data can be categorized into three groups: general data, meta/environment data, and usage data.
-
+Below you find the full list of data we want to collect, followed by a real-world example. On a conceptual level, they can be categorized into general data, meta/environment data, and usage data.
 ### General Data
 
 The "General Data" category contains information about the process engine:
@@ -81,12 +80,12 @@ A telemetry logger exists to log details about the sent information and error de
 
 ### Limitations in Collected Information
 
-In certain scenarios, some of the information will not be retrieved due to limitations of the implementation.
+In certain scenarios, some of the information will not be retrieved due to the limitations of the implementation.
 
-The application server information cannot be obtained in an embedded process engine setup where no web applications (e.g. Tasklist, Cockpit, REST application) are not deployed and used.
+The application server information cannot be obtained in an embedded process engine setup where no web application (e.g. Tasklist, Cockpit, REST application) is deployed and used.
 
 
-## Toggle telemetry
+## How to enable telemetry
 
 ### Process Engine Configuration
 
