@@ -15,7 +15,7 @@ At Camunda, we strive to offer excellent user experience at a high and stable le
 
 The Telemetry Reporter is disabled by default and only collects and sends data after you explicitly enable a [process engine configuration][engine-config] flag. The configuration can be changed at any time during runtime via Java API or [REST API][telemetry-config-rest].
 
-The collected data will be sent once in 24 hours via HTTP, which is scheduled by a Java timer task. We took good care that your process automation will not be negatively affected in case the Telemetry Reporter suddenly faces an unexpected error. Furthermore, no data will be collected and sent when you stop the process engine.
+The collected data will be sent once in 24 hours via HTTPS, which is scheduled by a Java timer task. We took good care that your process automation will not be negatively affected in case the Telemetry Reporter suddenly faces an unexpected error. Furthermore, no data will be collected and sent when you stop the process engine.
 
 ## Collected Data
 
