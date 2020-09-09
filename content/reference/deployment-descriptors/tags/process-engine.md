@@ -251,6 +251,24 @@ The following is a list with the most commonly used process engine configuration
   </tr>
 
   <tr>
+    <td><code>cmmnEnabled</code></td>
+    <td>Boolean</td>
+    <td>
+        When set to <code>false</code>, the following behavior changes:
+        <ul>
+         <li>The automated schema maintenance (creating and dropping tables, see property <code>databaseSchemaUpdate</code>)
+           does not cover the tables required for CMMN execution.</li>
+         <li>CMMN resources are not deployed as case definitions to the engine.</li>
+         <li>Tasks from CMMN cases are not returned by the {@link TaskQuery}.</li>
+       </ul>
+        Default value is <code>true</code>.
+      <p>
+        <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
+      </p>
+    </td>
+  </tr>
+
+  <tr>
     <td><code>databaseSchemaUpdate</code></td>
     <td>String</td>
     <td>
@@ -289,6 +307,24 @@ The following is a list with the most commonly used process engine configuration
     <td><a name="disabledPermissions"></a><code>disabledPermissions</code></td>
     <td>List</td>
     <td>Define a list of Permissions' names. These permissions will be not taken into account whenever authorization check is performed.
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>dmnEnabled</code></td>
+    <td>Boolean</td>
+    <td>
+        When set to <code>false</code>, the following behavior changes:
+        <ul>
+         <li>The automated schema maintenance (creating and dropping tables, see property <code>databaseSchemaUpdate</code>)
+           does not cover the tables required for DMN execution.</li>
+         <li>DMN resources are not deployed as decision definitions or
+           decision requirements definitions to the engine.</li>
+       </ul>
+        Default value is <code>true</code>.
+      <p>
+        <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
+      </p>
     </td>
   </tr>
 
