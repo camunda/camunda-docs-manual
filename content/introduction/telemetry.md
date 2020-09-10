@@ -49,6 +49,7 @@ The "Usage Data" category contains information about the used features and compo
 The counts are collected from the start of the engine or the last reported time if the engine is already running for more than 24 hours.
 The only exception is the unique task workers metric, where the count is calculated for the past 24 hours fixed.
 In case the [history level][] of the process engine is set to `NONE`, the unique task workers count cannot be calculated and will be sent as `0`.
+* Camunda integration - a flag that shows if any of the Camunda ingegrations are used: Spring boot starter, Camunda BPM Run, WildFly/JBoss subsystem or Camunda ejb service (e.g. WebSphere/WebLogic Application servers).
 
 ### Example
 
@@ -81,6 +82,10 @@ In case the [history level][] of the process engine is set to `NONE`, the unique
           "activity-instance-start": { "count": 6125 },
           "executed-decision-instances": { "count": 732 },
           "unique-task-workers": { "count": 50 }
+        },
+        "camunda-integration": {
+          "spring-boot-starter": true,
+          "camunda-bpm-run": true
         }
       }
     }
