@@ -58,6 +58,10 @@ GET `/variable-instance/count`
     <td>Only include variable instances which belong to one of the passed and comma-separated task ids.</td>
   </tr>
   <tr>
+    <td>batchIdIn</td>
+    <td>Only include variable instances which belong to one of the passed and comma-separated batch ids.</td>
+  </tr>
+  <tr>
     <td>activityInstanceIdIn</td>
     <td>Only include variable instances which belong to one of the passed and comma-separated activity instance ids.</td>
   </tr>
