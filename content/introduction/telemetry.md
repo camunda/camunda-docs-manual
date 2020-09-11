@@ -34,8 +34,10 @@ The "Meta/Environment Data" category contains information about the environmenta
 
 * Database vendor and version
 * Application server vendor and version
+* JDK vendor and version
 
-Note: The application server information cannot be obtained in an embedded process engine setup where no web application (e.g. Tasklist, Cockpit, REST application) is deployed and used.
+The application server information cannot be obtained in an embedded process engine setup where no web application (e.g. Tasklist, Cockpit, REST application) is deployed and used.
+In case of Azul Zulu JDK, the vendor will be send as "Oracle Corporation" as it cannot be distinguished programmatically from an Oracle JDK.
 
 
 ### Usage Data
@@ -65,6 +67,10 @@ In case the [history level][] of the process engine is set to `NONE`, the unique
           "vendor": "Wildfly",
           "version": "WildFly Full 19.0.0.Final (WildFly Core 11.0.0.Final) - 2.0.30.Final"
         },
+        "jdk": {
+          "version": "14.0.2",
+          "vendor": "Oracle Corporation"
+        }
         "commands": {
           "StartProcessInstanceCmd": {"count": 40},
           "FetchExternalTasksCmd":  {"count": 100}
