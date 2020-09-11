@@ -252,10 +252,55 @@ The container provides the session cookie. Please consult the documentation abou
 
 ### Error handling
 
-The Webapps have a default error page which is displayed in case of unhandled exceptions raised within the scope of the webapps. The REST API displays the type and short error message when an error is thrown. This practice prevents attackers from obtaining technical details about the system, which for example a stacktrace could reveal (see OWASP's [Improper Error Handling article](https://www.owasp.org/index.php/Improper_Error_Handling) for details).
+When it comes to error handling, from a security perspective, the top goal is to prevent attackers 
+from obtaining technical details about the system, which for example, a stack trace could reveal 
+(see OWASP's [Improper Error Handling article] for more information).
 
-On top of that, it is recommended to configure the application server in the same way for any exceptions raised within the scope of the server. The configuration is server-specific.
+[Improper Error Handling article]: https://www.owasp.org/index.php/Improper_Error_Handling
 
-Related resources:
+In this section, we describe what we do to prevent disclosing technical details about the system.
 
-* [OWASP Securing Tomcat Guide](https://www.owasp.org/index.php/Securing_tomcat)
+#### Webapps
+
+In the Webapps, a generic default error page is provided when an error occurs. This error page does 
+not include any technical details like stack traces.
+
+#### REST API
+
+The REST API only displays the type and a short error message when an error is thrown.
+
+### Prevent Disclosure of Application Server Internals
+
+In the [Error handling](#error-handling) paragraph, we explain our technical measures not to disclose 
+any technical details about the Camunda BPM Runtime.
+
+However, technical details cannot only be disclosed on the application level, but also by the application 
+server itself. Therefore, it is recommended to configure the application server in a way that no 
+technical details are disclosed when an error occurs on the application server level.
+
+The exact configuration and the defaults differ among application servers. 
+
+Please find below external documentation on how to configure your application server correctly:
+
+* Tomcat 7.0+
+    * Official Documentation
+        * [Security Considerations](https://tomcat.apache.org/tomcat-7.0-doc/security-howto.html#Valves)
+        * [Error Reporter Valve](https://tomcat.apache.org/tomcat-7.0-doc/config/valve.html#Error_Report_Valve)
+    * Alternative Resources
+        * [Securing Tomcat](https://wiki.owasp.org/index.php/Securing_tomcat)
+* Wildfly 8.2+: Official Documentation
+    * [Servlet Container Configuration](https://docs.jboss.org/author/display/WFLY8/Undertow%20subsystem%20configuration.html#66322701_Undertowsubsystemconfiguration-Servletcontainerconfiguration)
+    * [Model Reference](https://wildscribe.github.io/WildFly/8.2/subsystem/undertow/servlet-container/index.html#attr-stack-trace-on-error)
+* JBoss EAP 7.0+: Official Documentation
+    * [Servlet Container Configuration](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html/configuration_guide/reference_material#idm139812627222560)
+    * [Model Refernce](https://wildscribe.github.io/JBoss%20EAP/7.0/subsystem/undertow/servlet-container/index.html#attr-stack-trace-on-error)
+* JBoss EAP 6.1+: Official Documentation
+    * [Model Reference](https://wildscribe.github.io/JBoss%20EAP/6.4/subsystem/web/configuration/jsp-configuration/index.html#attr-display-source-fragment)
+* JBoss AS 7.1: Official Documentation
+    * [Web Subsystem: Disable stacktrace in response body](https://docs.jboss.org/author/display/AS72/Hardening%20Guidelines.html#76154434_HardeningGuidelines-Disablestacktraceinresponsebody)
+    * [Model Refernce](https://wildscribe.github.io/JBoss%20AS7/7.1.1/subsystem/web/configuration/jsp-configuration/index.html#attr-display-source-fragment)
+* Camunda Run/Spring Boot 2.1+
+    * Official Documentation
+        * [Javadocs about ErrorProperties.IncludeStacktrace](https://docs.spring.io/spring-boot/docs/2.1.0.RELEASE/api/org/springframework/boot/autoconfigure/web/ErrorProperties.IncludeStacktrace.html)
+    * Alternative Resources
+        * [Error Handling on Baeldung](https://www.baeldung.com/spring-boot-configure-tomcat#2-error-handling)
