@@ -781,6 +781,24 @@ The following is a list with the most commonly used process engine configuration
         
     </td>
   </tr>
+  
+  <tr>
+    <td><code>telemetryReportingPeriod</code></td>
+    <td>Long</td>
+    <td>
+        Sets the period in which telemetry requests are sent. Value must be in seconds.
+        Default value: <code>86400</code> (one day)
+    </td>
+  </tr>
+  
+  <tr>
+    <td><code>telemetryRequestRetries</code></td>
+    <td>Integer</td>
+    <td>
+        Sets the number of retries that are performed when a telemetry request fails.
+        Default value: <code>2</code>
+    </td>
+  </tr>
 
 </table>
 
