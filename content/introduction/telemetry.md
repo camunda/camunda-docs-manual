@@ -70,8 +70,8 @@ In case the [history level][] of the process engine is set to `NONE`, the unique
           "FetchExternalTasksCmd":  {"count": 100}
         },
         "metrics": {
-          "root-process-instances": { "count": 936 },
-          "flow-node-instances": { "count": 6125 },
+          "root-process-instance-start": { "count": 936 },
+          "activity-instance-start": { "count": 6125 },
           "executed-decision-instances": { "count": 732 },
           "unique-task-workers": { "count": 50 }
         }
