@@ -21,6 +21,7 @@ This document guides you through the update from Camunda BPM `7.13.x` to `7.14.0
 1. For developers: [Update to JQuery 3.5](#update-to-jquery-3-5)
 1. For developers: [Changes to Task Query and Historic Task Query behavior](#changes-to-task-query-and-historic-task-query-behavior)
 1. For developers: [New Engine Dependency - Connect](#new-engine-dependency-connect)
+1. For developers: [New Frontend Plugin System for Cockpit](#new-frontend-plugin-system-for-cockpit)
 
 This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new functionality included in Camunda BPM 7.14.
 
@@ -163,6 +164,58 @@ Camunda Connect dependency has been added to the process engine (`camunda-engine
 -- In a case of **Shared engine** scenario, you will need to add the connect modules if they are not present yet to the setup. The respective update guides for the application servers contain the necessary steps to do this.
 
 In case you already have a [Connect]({{< ref "/reference/connect/_index.md#maven-coordinates" >}}) dependencies to some of your projects, please consider consolidating the version of them with one that comes as dependency with the engine. That will prevent inconsistencies on the system. Please note that the Connect process engine plugin is still an optional dependency.
+
+
+# New Frontend Plugin System for Cockpit
+With the 7.14.0 release, we updated the Cockpit frontend plugin system. If you have modified the `config.js` or have custom plugins, you need to migrate.
+
+## The config.js File
+The structure of the `config.js`, located in the `app/cockpit/scripts/` directory of the webapps, changed slightly. It is now an Javascript module. If you have customized the config file, simply replace the line 
+```javascript
+window.camCockpitConf = {
+  // ...
+}
+```
+with
+```javascript
+export default {
+  // ...
+}
+```
+
+The `customScripts` attribute changed as well, it is now an array of paths to your Javascript files. If you do not have customScripts or Cockpit plugins, you are good to go. Otherwise, continue reading to find out how to migrate your plugins.
+
+## Frontend Plugins
+We overhauled our Plugin System to allow you to use the Frontend technologies of your choice. This also means that plugins written for 7.13 or earlier no longer work.
+
+Only Cockpit plugins are affected by this update, Admin and Tasklist Plugins will work like before.
+
+A 7.13 Cockpit plugin usually contains Java classes, custom queries and a frontend in form of an AngularJS component. Only the frontend files changed, Java classes and queries are not affected.
+
+### Keeping angularJS as a Library
+The basic structure of a frontend module is described in the [Cockpit plugin documentation]({{< ref "/webapps/cockpit/extend/plugins.md#structure-of-a-frontend-module" >}}). If you want to continue to use AngularJS for your plugins, you can bootstrap an AngularJS application in the render function. 
+
+```javascript
+render: node => {
+  var ngModule = angular.module("my-cockpit-module", []);
+  // Define your custom logic using ngModule.controller or other Angular functions.
+  var template = ``; // Your AngularApp Template
+
+  node.innerHTML = template;
+
+  angular.bootstrap(node, [ngModule.name]);
+}
+```
+
+Please note that services and directives previously provided to Angular by Camunda are no longer available. Only the services documented in the [angularJS API](https://docs.angularjs.org/api) can be used without adjustments.
+
+### New Routes
+
+If you used the `routeProvider` to register new subroutes, you can use the new [`Route` plugin point]({{< ref "/webapps/cockpit/extend/plugins.md#route" >}}).
+
+### Diagram interaction
+
+Diagram interaction should now be handled by your plugins instead of a `dataDepend` object. Diagram overlays such as [process definition diagram overlay]({{< ref "/webapps/cockpit/extend/plugins.md#process-definition-diagram-overlay" >}}) expose the [bpmn.io viewer](https://bpmn.io/toolkit/bpmn-js/walkthrough/) and its eventBus. [This example](https://github.com/camunda/camunda-bpm-examples/tree/7.14/cockpit/cockpit-diagram-interactions) shows you how you can use `click` events in a process definition tab.
 
 
 # End of Spring 3 Support
