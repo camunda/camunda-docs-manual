@@ -37,6 +37,7 @@ The "Meta/Environment Data" category contains information about the environmenta
 * JDK vendor and version
 
 The application server information cannot be obtained in an embedded process engine setup where no web application (e.g. Tasklist, Cockpit, REST application) is deployed and used.
+
 In case of Azul Zulu JDK, the vendor will be send as "Oracle Corporation" as it cannot be distinguished programmatically from an Oracle JDK.
 
 
