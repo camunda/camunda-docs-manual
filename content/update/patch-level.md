@@ -394,13 +394,34 @@ The following list is an overview of all currently available patch scripts:
       </td>
     </tr>
     <tr>
+      <td>7.12</td>
+      <td>engine_7.12_patch_7.12.10_to_7.12.11.sql</td>
+      <td>Add support for Optimize 3.2.
+      </td>
+      <td>All databases</td>
+      <td>
+        <a href="https://jira.camunda.com/browse/CAM-12383">CAM-12383</a>
+      </td>
+    </tr>
+    <tr>
       <td>7.13</td>
-      <td>engine_7.13_patch_7.13.4_to_7.13.5.sql</td>
+      <td>engine_7.13_patch_7.13.4_to_7.13.5_1.sql</td>
       <td>Add index to improve Task query performance.
       </td>
       <td>All databases</td>
       <td>
         <a href="https://jira.camunda.com/browse/CAM-4441">CAM-4441</a>
+      </td>
+    </tr>
+    <tr>
+      <td>7.13</td>
+      <td>engine_7.13_patch_7.13.4_to_7.13.5_2.sql</td>
+      <td>Add support for Optimize 3.2.
+      <strong>This is the same patch as engine_7.12_patch_7.12.10_to_7.12.11.sql.</strong>
+      </td>
+      <td>All databases</td>
+      <td>
+        <a href="https://jira.camunda.com/browse/CAM-12383">CAM-12383</a>
       </td>
     </tr>
   </tbody>
