@@ -783,6 +783,16 @@ The following is a list with the most commonly used process engine configuration
   </tr>
   
   <tr>
+    <td><code>telemetryReporterActivate</code></td>
+    <td>Boolean</td>
+    <td>
+        <p>Activates the thread that periodically reports telemetry. Note that the thread only sends telemetry if telemetry is in addition enabled via API or by the <code>initializeTelemetry</code> property.</p>
+        <p>The reporter can for example be deactivated in unit testing setups to avoid any threads running besides the test thread.</p>
+        Default value: <code>true</code>
+    </td>
+  </tr>
+  
+  <tr>
     <td><code>telemetryReportingPeriod</code></td>
     <td>Long</td>
     <td>
