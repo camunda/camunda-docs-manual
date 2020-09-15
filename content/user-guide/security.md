@@ -78,6 +78,32 @@ Similar considerations as for authentication apply. For an in-depth discussion, 
 
 Authorizations can be used to restrict a user from accessing a data object (such as a process or a task) and can be used to restrict how the user can interact with such data objects (read-only vs. modifications). Authorizations in Camunda are very powerful and it is recommended to read the corresponding [documentation entry on authorizations]({{< ref "/user-guide/process-engine/authorization-service.md" >}}).
 
+### Prevent enumerating user accounts by brute-force creating new users
+
+Under certain circumstances, an attacker can enumerate user accounts by brute-force creating new users:
+
+You don't centrally manage user accounts (e.g., with the help of LDAP or a custom implementation of `WritableIdentityProvider`) but instead ...
+
+*  ... use an account "self-service" approach: Unauthenticated users are allowed to create accounts; 
+       i.e., you have implemented a custom REST endpoint which can create users without authentication
+*  ... an authenticated user has `CREATE` permission on `ANY` `USER` resource to create new user accounts
+       and an untrusted person has access to this account (please see the [Authorization Service] docs 
+       to learn how permissions are granted to resources)
+
+[Authorization Service]: {{< ref "/user-guide/process-engine/authorization-service.md" >}})
+
+As soon as the attacker has obtained information about existing user ids, they can put all their 
+efforts on cracking passwords.
+
+{{< note title="Heads-up!" class="warning" >}}
+We strongly recommend you to use the product with centrally managed user accounts. It is certainly not 
+advisable to manage accounts via the ways mentioned above.
+{{< /note >}}
+
+We think that the before mentioned scenarios are uncommon for organizations using the Camunda BPM Runtime. 
+However, we want to inform you about the options to prevent unrecommended usage, which makes the product
+vulnerable to attacks.
+
 ## Throttle login attempts
 
 The engine gives option to throttle login attempts. The mechanism behind this is enabled by default. You can read more about it under [Identity Service]({{< ref "/user-guide/process-engine/identity-service.md#throttle-login-attempts" >}}) in User Guide.
