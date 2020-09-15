@@ -83,7 +83,7 @@ Similar considerations as for authentication apply. For an in-depth discussion, 
 
 Authorizations can be used to restrict a user from accessing a data object (such as a process or a task) and can be used to restrict how the user can interact with such data objects (read-only vs. modifications). Authorizations in Camunda are very powerful and it is recommended to read the corresponding [documentation entry on authorizations]({{< ref "/user-guide/process-engine/authorization-service.md" >}}).
 
-### Possibility to enumerate user accounts by brute-force creating new users
+### Prevent enumerating user accounts by brute-force creating new users
 
 Under certain circumstances, an attacker can enumerate user accounts by brute-force creating new users:
 
@@ -106,7 +106,8 @@ advisable to manage accounts via the ways mentioned above.
 {{< /note >}}
 
 We think that the before mentioned scenarios are uncommon for organizations using the Camunda BPM Runtime. 
-However, we want to inform you about the potential attacking scenario for transparency reasons.
+However, we want to inform you about the options to prevent unrecommended usage, which makes the product
+vulnerable to attacks.
 
 ## Throttle login attempts
 
