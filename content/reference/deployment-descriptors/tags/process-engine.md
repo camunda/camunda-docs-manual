@@ -782,7 +782,7 @@ The following is a list with the most commonly used process engine configuration
     </td>
   </tr>
   
-  <tr>
+  <tr id="telemetryReporterActivate">
     <td><code>telemetryReporterActivate</code></td>
     <td>Boolean</td>
     <td>
