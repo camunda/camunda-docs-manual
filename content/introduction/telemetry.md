@@ -83,10 +83,10 @@ In case the [history level][] of the process engine is set to `NONE`, the unique
           "executed-decision-instances": { "count": 732 },
           "unique-task-workers": { "count": 50 }
         },
-        "camunda-integration": {
+        "camunda-integration": [
           "spring-boot-starter",
           "camunda-bpm-run"
-        }
+        ]
       }
     }
 }
