@@ -84,8 +84,8 @@ In case the [history level][] of the process engine is set to `NONE`, the unique
           "unique-task-workers": { "count": 50 }
         },
         "camunda-integration": {
-          "spring-boot-starter": true,
-          "camunda-bpm-run": true
+          "spring-boot-starter",
+          "camunda-bpm-run"
         }
       }
     }
