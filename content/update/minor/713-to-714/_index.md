@@ -103,7 +103,7 @@ Code which uses a self-closing HTML Tag as a parent for generated DOM-nodes will
 </div>
 ```
 
-You can enable the old behavior by overriding the JQuery `htmlPrefilter` function using a custom script. We provide an example for Tasklist [here](https://github.com/camunda/camunda-bpm-examples/tree/master/tasklist/jquery-34-behavior). Please keep in mind that this will reintroduce a security vulnerability that was fixed by this update.
+You can enable the old behavior by overriding the JQuery `htmlPrefilter` function using a custom script. We provide an example for Tasklist [here](https://github.com/camunda/camunda-bpm-examples/tree/7.14/tasklist/jquery-34-behavior). Please keep in mind that this will reintroduce a security vulnerability that was fixed by this update.
 
 You can read more about the update in the [JQuery release blog](https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/)
 
@@ -166,10 +166,7 @@ Camunda Connect dependency has been added to the process engine (`camunda-engine
 In case you already have a [Connect]({{< ref "/reference/connect/_index.md#maven-coordinates" >}}) dependencies to some of your projects, please consider consolidating the version of them with one that comes as dependency with the engine. That will prevent inconsistencies on the system. Please note that the Connect process engine plugin is still an optional dependency.
 
 
-# New Frontend Plugin System for Cockpit
-With the 7.14.0 release, we updated the Cockpit frontend plugin system. If you have modified the `config.js` or have custom plugins, you need to migrate.
-
-## The config.js File
+# Cockpit ConfigJS File
 The structure of the `config.js`, located in the `app/cockpit/scripts/` directory of the webapps, changed slightly. It is now an Javascript module. If you have customized the config file, simply replace the line 
 ```javascript
 window.camCockpitConf = {
@@ -185,38 +182,99 @@ export default {
 
 The `customScripts` attribute changed as well, it is now an array of paths to your Javascript files. If you do not have customScripts or Cockpit plugins, you are good to go. Otherwise, continue reading to find out how to migrate your plugins.
 
-## Frontend Plugins
-We overhauled our Plugin System to allow you to use the Frontend technologies of your choice. This also means that plugins written for 7.13 or earlier no longer work.
+ 
+# Cockpit Plugins
+With the 7.14.0 release, we updated the Cockpit frontend plugin system. If you have deployed custom scripts or Cockpit plugins, you need to migrate them if you want to use them in future releases. Cockpit Plugins from 7.13 will no longer work in 7.14.
 
-Only Cockpit plugins are affected by this update, Admin and Tasklist Plugins will work like before.
+Only Cockpit plugins are affected by this update, Admin and Tasklist Plugins will work like before. Changes apply only to the frontend part of your plugins that utilise Camunda directives that rely on AngularJS. Custom Rest API, myBatis and Java classes do not require changes.
 
-A 7.13 Cockpit plugin usually contains Java classes, custom queries and a frontend in form of an AngularJS component. Only the frontend files changed, Java classes and queries are not affected.
+The new plugin system is framework agnostic, so you are free to use any frontend Framework you want. In this guide, we will focus on changes you will have to make in your AngularJS plugins. Keep in mind that AngularJS is currently in Long Term Support and will not be receiving security updates after December 31, 2021.
 
-### Keeping angularJS as a Library
-The basic structure of a frontend module is described in the [Cockpit plugin documentation]({{< ref "/webapps/cockpit/extend/plugins.md#structure-of-a-frontend-module" >}}). If you want to continue to use AngularJS for your plugins, you can bootstrap an AngularJS application in the render function. 
+
+## Bootstrapping AngularJS and registering a Plugin
+In this Section, we will cover how to create an AngularJS App in the new Plugin System. Keep in mind that you have to include any library you want to use in your bundle. In our [examples](https://github.com/camunda/camunda-bpm-examples/tree/7.14/cockpit/cockpit-angularjs-search-processes) we use rollup to create the bundles. Check them out to get an Idea of the configuration. 
+
+In 7.13, you used the requireJS and the `ViewsProvider` to register your plugins. Both have been replaced. Have a look at this **7.13** Plugin:
 
 ```javascript
-render: node => {
-  var ngModule = angular.module("my-cockpit-module", []);
-  // Define your custom logic using ngModule.controller or other Angular functions.
-  var template = ``; // Your AngularApp Template
+// plugin.js
 
-  node.innerHTML = template;
+define(["angular"], function(angular) {
+  var myController = []; // Your custom Controller
+  var myTemplate = ''; // Your custom Template
 
-  angular.bootstrap(node, [ngModule.name]);
-}
+  var ngModule = angular.module("my.id", []);
+
+  ngModule.config([
+    "ViewsProvider",
+    function(ViewsProvider) {
+      ViewsProvider.registerDefaultView("cockpit.processes.dashboard" /* Or another Plugin Point */, {
+        id: "my.id",
+        priority: 9001,
+        label: 'my custom label',
+        template: myTemplate,
+        controller: myController
+      });
+    }
+  ]);
+
+  return ngModule;
+});
 ```
 
-Please note that services and directives previously provided to Angular by Camunda are no longer available. Only the services documented in the [angularJS API](https://docs.angularjs.org/api) can be used without adjustments.
+In the new Plugin system, you will have to bootstrap your plugin in it's own angularJS Application. This can look like this:
+
+```javascript
+// plugin.js
+import angular from "angular"; // Will be included in the bundle
+
+export default {
+  id: "my.id", 
+  pluginPoint: "cockpit.processes.dashboard", /* Or another Plugin Point */
+  priority: 9001,
+  render: node => {
+    var myController = []; // Your custom Controller
+    var template = '<div ng-controller="myController></div>'; // Make sure your previous template has the correct controller
+    var ngModule = angular.module("my.id", []);
+    ngModule.controller(
+      "myController",
+      myController
+    );
+
+    node.innerHTML = template;
+
+    angular.bootstrap(node, [ngModule.name]);
+  },
+  properties: {
+    label: "my custom label"
+  }
+};
+```
+Notice that you will have to modify the template in order to expose the controller and use angular to bootstrap you application into an DOM node. If you want to learn more about the Interface, you can read about it in the [frontend module documentation]({{< ref "/webapps/cockpit/extend/plugins.md#structure-of-a-frontend-module" >}}).
+
+To define multiple plugins in a single file, export an array of Plugin definitions instead of just one.
+
+
+## Required Changes
+As your Plugin is now displayed in your own AngularJS App and is decoupled from the Cockpit application, Camunda Services and Directives are no longer available.
+
+### Directives 
+<!-- If you used directives prefixed with CAM- -->
+Camunda directives, such as search widgets (`cam-widget-search`) or variable tables (`cam-variable-table`) can no longer be used. You can still include and use UI frameworks such as [UI Bootstrap](https://angular-ui.github.io/bootstrap/), if you also bundle them with your plugin. As a rule of thumb, all widgets prefixed with `cam-` will be unavailable.
+
+### Services
+<!-- If you used Angular services or services provided by thrid partys and also used by Camunda -->
+As with directives, services you could inject into your AngularJS component are no longer available. Only the services included in documented in the [AngularJS documentation](https://docs.angularjs.org/api) are available by default. Services such as `camAPI` and `Uri` can no longer be injected. You can still make request against the REST api using the [$http service](https://docs.angularjs.org/api/ng/service/$http) using the API urls that get passed into the render function. Check out the [documentation]({{< ref "/webapps/cockpit/extend/plugins.md#attributes-in-detail" >}}) for more details.
+
+### Diagram Interaction
+<!-- If you used `DataDepend` for your diagramm Interactions -->
+Previously, there was no documented way to create interactions with the Diagram. We recommend to use 2 Plugins to achieve diagram interaction - one [diagram overlay]({{< ref "/webapps/cockpit/extend/plugins.md#process-definition-diagram-overlay" >}}) to capture click events and highlight tasks and one [tab plugin]({{< ref "/webapps/cockpit/extend/plugins.md#process-definition-runtime-tab" >}}) which can which displays information related to the selection.
+
+Diagram plugin points are available for all Views with an BPMN.io viewer. We created an [example](https://github.com/camunda/camunda-bpm-examples/tree/7.14/cockpit/cockpit-diagram-interactions) to show you how the interaction can look like.
 
 ### New Routes
-
-If you used the `routeProvider` to register new subroutes, you can use the new [`Route` plugin point]({{< ref "/webapps/cockpit/extend/plugins.md#route" >}}).
-
-### Diagram interaction
-
-Diagram interaction should now be handled by your plugins instead of a `dataDepend` object. Diagram overlays such as [process definition diagram overlay]({{< ref "/webapps/cockpit/extend/plugins.md#process-definition-diagram-overlay" >}}) expose the [bpmn.io viewer](https://bpmn.io/toolkit/bpmn-js/walkthrough/) and its eventBus. [This example](https://github.com/camunda/camunda-bpm-examples/tree/7.14/cockpit/cockpit-diagram-interactions) shows you how you can use `click` events in a process definition tab.
-
+<!-- If you used the `routeProvider` -->
+If you used the `routeProvider` to create new routes, you can simply use the new [`Route` plugin point]({{< ref "/webapps/cockpit/extend/plugins.md#route" >}}). The same principles for migrating plugins also apply to migrating routes.
 
 # End of Spring 3 Support
 
