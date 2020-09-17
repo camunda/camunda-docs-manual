@@ -95,7 +95,7 @@ You don't centrally manage user accounts (e.g., with the help of LDAP or a custo
        and an untrusted person has access to this account (please see the [Authorization Service] docs 
        to learn how permissions are granted to resources)
 
-[Authorization Service]: {{< ref "/user-guide/process-engine/authorization-service.md" >}})
+[Authorization Service]: {{< ref "/user-guide/process-engine/authorization-service.md" >}}
 
 As soon as the attacker has obtained information about existing user ids, they can put all their 
 efforts on cracking passwords.
