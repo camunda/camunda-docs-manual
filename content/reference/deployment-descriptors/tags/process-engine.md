@@ -259,7 +259,7 @@ The following is a list with the most commonly used process engine configuration
          <li>The automated schema maintenance (creating and dropping tables, see property <code>databaseSchemaUpdate</code>)
            does not cover the tables required for CMMN execution.</li>
          <li>CMMN resources are not deployed as case definitions to the engine.</li>
-         <li>Tasks from CMMN cases are not returned by the {@link TaskQuery}.</li>
+         <li>Tasks from CMMN cases are not returned by the task query.</li>
        </ul>
         Default value is <code>true</code>.
       <p>
@@ -618,6 +618,23 @@ The following is a list with the most commonly used process engine configuration
         <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
     </td>
   </tr>
+  
+  <tr>
+    <td><code>standaloneTasksEnabled</code></td>
+    <td>Boolean</td>
+    <td>
+        When set to <code>false</code>, the following behavior changes:
+        <ul>
+         <li>Standalone tasks can no longer be created via API.</li>
+         <li>Standalone tasks are not returned by the TaskQuery.</li>
+       </ul>
+        Default value is <code>true</code>.
+      <p>
+        <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
+      </p>
+    </td>
+  </tr>
+  
   <tr>
     <td><code>tenantCheckEnabled</code></td>
     <td>Boolean</td>
