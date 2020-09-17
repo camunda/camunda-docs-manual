@@ -285,7 +285,7 @@ Please find below external documentation on how to configure your application se
         * [Securing Tomcat](https://wiki.owasp.org/index.php/Securing_tomcat)
 * Wildfly 10.1+: Official Documentation
     * [Servlet Container Configuration](https://docs.jboss.org/author/display/WFLY10/Undertow%20subsystem%20configuration.html#91947134_Undertowsubsystemconfiguration-Servletcontainerconfiguration)
-    * [Model Reference](https://wildscribe.github.io/WildFly/8.2/subsystem/undertow/servlet-container/index.html#attr-stack-trace-on-error)
+    * [Model Reference](https://wildscribe.github.io/WildFly/10.1/subsystem/undertow/servlet-container/index.html#attr-stack-trace-on-error)
 * JBoss EAP 7.0+: Official Documentation
     * [Servlet Container Configuration](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html/configuration_guide/reference_material#idm139812627222560)
     * [Model Refernce](https://wildscribe.github.io/JBoss%20EAP/7.0/subsystem/undertow/servlet-container/index.html#attr-stack-trace-on-error)
