@@ -283,7 +283,7 @@ Please find below external documentation on how to configure your application se
         * [Error Reporter Valve](https://tomcat.apache.org/tomcat-7.0-doc/config/valve.html#Error_Report_Valve)
     * Alternative Resources
         * [Securing Tomcat](https://wiki.owasp.org/index.php/Securing_tomcat)
-* Wildfly 8.2+: Official Documentation
+* Wildfly 10.1+: Official Documentation
     * [Servlet Container Configuration](https://docs.jboss.org/author/display/WFLY8/Undertow%20subsystem%20configuration.html#66322701_Undertowsubsystemconfiguration-Servletcontainerconfiguration)
     * [Model Reference](https://wildscribe.github.io/WildFly/8.2/subsystem/undertow/servlet-container/index.html#attr-stack-trace-on-error)
 * JBoss EAP 7.0+: Official Documentation
