@@ -21,7 +21,8 @@ This document guides you through the update from Camunda BPM `7.13.x` to `7.14.0
 1. For developers: [Update to JQuery 3.5](#update-to-jquery-3-5)
 1. For developers: [Changes to Task Query and Historic Task Query behavior](#changes-to-task-query-and-historic-task-query-behavior)
 1. For developers: [New Engine Dependency - Connect](#new-engine-dependency-connect)
-1. For developers: [New Frontend Plugin System for Cockpit](#new-frontend-plugin-system-for-cockpit)
+1. For developers: [Changes to the Cockpit Config File](#cockpit-config-file)
+1. For developers: [New Frontend Plugin System for Cockpit](#cockpit-plugins)
 
 This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new functionality included in Camunda BPM 7.14.
 
