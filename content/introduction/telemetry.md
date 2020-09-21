@@ -106,7 +106,7 @@ In case the [history level][] of the process engine is set to `NONE`, the unique
           "features": {
             "camundaBPM": "true"
           },
-          "raw": "customer=customer name;expiryDate=YYYY-mm-DD;camundaBPM=true;optimize=true;cawemo=true"
+          "raw": "customer=customer name;expiryDate=2022-09-30;camundaBPM=true;optimize=false;cawemo=false"
         }
       }
     }
