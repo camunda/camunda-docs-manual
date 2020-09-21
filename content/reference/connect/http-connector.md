@@ -118,7 +118,7 @@ available.
 ```java
 HttpResponse response = http.createRequest()
   .get()
-  .configOption(HttpBaseRequest.CONFIG_NAME_CONNECTION_TIMEOUT, "30000")
+  .configOption(RequestConfigOption.CONNECTION_TIMEOUT.getName(), "30000")
   .configOption("socket-timeout", "30000")
   .url("http://camunda.org")
   .execute();
