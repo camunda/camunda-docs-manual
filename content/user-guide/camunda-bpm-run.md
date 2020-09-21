@@ -16,6 +16,7 @@ The idea behind Run is to provide a full Camunda BPM distro with a simple but po
 
 For a step-by-step installation guide head over to the [installation section]({{< ref "/installation/camunda-bpm-run.md" >}}) and get started in minutes.
 
+
 # Starting with Camunda BPM Run
 
 After downloading the [distro](https://downloads.camunda.cloud/release/camunda-bpm/run/) ([enterprise](https://downloads.camunda.cloud/enterprise-release/camunda-bpm/run/)) and unpacking it to a folder, you will find the following structure:
@@ -39,13 +40,19 @@ camunda-bpm-run
 ```
 Execute one of the two start scripts (`start.bat` for Windows, `start.sh` for Linux/Mac). After a few seconds, you will be able to access the Camunda webapps via http://localhost:8080/camunda/app/ and the REST API via http://localhost:8080/engine-rest/
 
+
 ## Starting Camunda BPM Run using Docker
+
 Camunda BPM Run is also available as a Docker image. Please see the Run section of the Camunda Docker documentation [here]({{< ref "/installation/docker.md#start-camunda-bpm-run-using-docker" >}}) for more details.
 
+
 ## Disable Webapps or REST API
+
 By default Camunda BPM Run launches with the webapps and REST API modules. If you want only one of them enabled, execute the start script with a command-line interface with a `--webapps` or `--rest` property to enable the specific module.
 
+
 ## Choose between default and production configuration
+
 Camunda BPM Run ships with two different configuration files which are both located in the `configuration` folder. 
 
 * The `default.yml` configuration only contains necessary configuration like the H2 database, a demo user and [CORS](#cross-origin-resource-sharing) for REST calls from a client application.
@@ -53,7 +60,9 @@ Camunda BPM Run ships with two different configuration files which are both loca
 
 By default Run launches with the `default.yml` configuration. To enable the `production.yml` configuration, execute the start script, through a command-line interface, with the `--production` property.
 
+
 ## Connect to a Database
+
 Camunda BPM Run is pre-configured to use a file-based H2 database for testing. The database schema and all required tables are automatically created when the engine starts up for the first time. If you want to use a custom standalone database, follow these steps:
 
 1. Make sure your database is among the [supported database systems]({{< ref "/introduction/supported-environments.md#supported-database-products" >}}).
@@ -63,17 +72,20 @@ Camunda BPM Run is pre-configured to use a file-based H2 database for testing. T
 1. Add the JDBC URL and login credentials to the configuration file like described [below](#database).
 1. Restart Camunda BPM Run
 
+
 ## Deploy BPMN Models
+
 In the unpacked distro, you will find a `resources` folder. All files (including BPMN, DMN, CMMN, form, and script files) will be deployed when you start Camunda BPM Run.
 
 Deployments via the [REST API]({{< ref "/reference/rest/deployment/post-deployment.md" >}}) are still possible.
 
+
 ## Automatic License Pickup
-If you downloaded the enterprise version of Camunda BPM Run, you will need a license key to enable the enterprise features.
 
-Provided a valid license file under `${user.home}/.camunda/license.txt`, Camunda BPM Run will automatically pick it up and use it to unlock the enterprise features.
+If you downloaded the enterprise version of Camunda BPM Run, you will need a license key to enable the enterprise 
+features. Please see the [dedicated License section]({{< ref "/user-guide/license-use.md#with-the-camunda-spring-boot-starter-camunda-run" >}}) 
+of the docs, to learn more.
 
-You can also still enter the license key in the Admin webapp UI.
 
 # Configure Camunda BPM Run
 
@@ -84,7 +96,9 @@ Camunda BPM Run is based on the [Camunda Spring Boot Starter](https://github.com
 All [configuration properties]({{< ref "/user-guide/spring-boot-integration/configuration.md#camunda-engine-properties" >}}) from the camunda-spring-boot-starter are available to customize Camunda BPM Run.
 {{< /note >}}
 
+
 ## Database
+
 The distro comes with a file-based h2 database for testing. It is recommended to connect to a standalone database system for use in production.
 
 <table class="table desc-table">
@@ -117,7 +131,9 @@ The distro comes with a file-based h2 database for testing. It is recommended to
   </tr>
 </table>
 
+
 ## Authentication
+
 To add authentication to requests against the [REST API]({{< ref "/reference/rest/overview/_index.md" >}}), you can enable basic authentication.
 
 <table class="table desc-table">
@@ -140,7 +156,9 @@ To add authentication to requests against the [REST API]({{< ref "/reference/res
   </tr>
 </table>
 
+
 ## Cross-Origin Resource Sharing
+
 If you want to allow cross-origin requests to the [REST API]({{< ref "/reference/rest/overview/_index.md" >}}), you need to enable CORS.
 <table class="table desc-table">
   <tr>
@@ -162,7 +180,9 @@ If you want to allow cross-origin requests to the [REST API]({{< ref "/reference
   </tr>
 </table>
 
+
 ## LDAP Identity Service
+
 Camunda BPM can manage users and authorizations on its own, but if you want to use an existing LDAP authentication database you can enable the [LDAP Identity Service Plugin]({{< ref "/user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}})
 which provides read-only access to the LDAP repository.
 
@@ -183,7 +203,9 @@ Find all available configuration properties in the [LDAP Plugin Guide]({{< ref "
   </tr>
 </table>
 
+
 ## HTTPS
+
 Camunda BPM Run supports HTTPS over SSL. To enable it, you will need a valid SSL certificate signed by a trusted provider and stored in a key store file (either .jks or .p12).
 For testing, we included a self-signed certificate. You should not use this in production. To enable it, add the following properties to your configuration file.
 
@@ -234,7 +256,9 @@ After starting Camunda BPM Run, you can access the webapps via https://localhost
   </tr>
 </table>
 
+
 ## Logging
+
 Camunda BPM provides fine-grained and customizable logging. An overview of the available logging categories can be found in the [Logging User Guide]({{< ref "/user-guide/logging.md#process-engine" >}}).
 To configure the logging behavior in Camunda BPM Run, customize your configuration file with the following properties.
 
