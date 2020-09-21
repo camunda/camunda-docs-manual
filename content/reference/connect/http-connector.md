@@ -110,6 +110,20 @@ HttpResponse response = http.createRequest()
   .execute();
 ```
 
+## Adding Configuration Option to a Request
+
+To add own headers to the HTTP request the method `header` is
+available.
+
+```java
+HttpResponse response = http.createRequest()
+  .get()
+  .configOption(RequestConfigOption.CONNECTION_TIMEOUT.getName(), "30000")
+  .configOption("socket-timeout", "30000")
+  .url("http://camunda.org")
+  .execute();
+```
+
 ## Using the Generic API
 
 Besides the configuration methods also a generic API exists to
@@ -134,6 +148,10 @@ available:
     <td>Contains a map of the configured HTTP headers of the request</td>
   </tr>
   <tr>
+    <td>request-config</td>
+    <td>Contains a map of the passed request configuration options</td>
+  </tr>
+  <tr>
     <td>payload</td>
     <td>Sets the payload of the request</td>
   </tr>
@@ -146,6 +164,12 @@ HttpRequest request = http.createRequest();
 request.setRequestParameter("method", "GET");
 request.setRequestParameter("url", "http://camunda.org");
 request.setRequestParameter("payload", "hello world!");
+
+Map<String, Object> config = new HashMap<>();
+config.put("max-redirects", 25);
+config.put("socket-timeout", 30000);
+HashMap<String, Object> parameters = new HashMap<>();
+request.setRequestParameter("request-config", config);
 ```
 
 # Response
