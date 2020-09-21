@@ -854,12 +854,21 @@ The following is a list with the most commonly used process engine configuration
     </td>
   </tr>
   
-  <tr>
+  <tr id="telemetryRequestRetries">
     <td><code>telemetryRequestRetries</code></td>
     <td>Integer</td>
     <td>
         Sets the number of retries that are performed when a telemetry request fails.
         Default value: <code>2</code>
+    </td>
+  </tr>
+  
+  <tr id="telemetryRequestTimeout">
+    <td><code>telemetryRequestTimeout</code></td>
+    <td>Integer</td>
+    <td>
+        Sets the request timeout configuration in millisecodns of the telemetry request.
+        Default value: <code>15000</code> (15 s)
     </td>
   </tr>
 
