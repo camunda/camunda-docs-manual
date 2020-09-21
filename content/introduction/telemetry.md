@@ -31,6 +31,14 @@ The "General Data" category contains information about the process engine:
 * Product name - the name of the product (i.e., `Camunda BPM Runtime`)
 * Product version - the version of the process engine (i.e., `7.X.Y`)
 * Product edition - the edition of the product (i.e., either `community` or `enterprise`)
+* License key - the customer name, expiry date and enabled features as well as the raw license info
+
+License key data does not contain any proteced data like the signature. License data is only transmitted if any of the following holds true
+* it is present in the database on engine startup
+* it is set to the engine via  [ManagementService#setLicenseKey ](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.14/org/camunda/bpm/engine/ManagementService.html#setLicenseKey-java.lang.String-)
+* it is set to the engine via [Admin Webapp](https://docs.camunda.org/manual/latest/webapps/admin/system-management/#camunda-license-key)
+
+Please note that only in case of setting the license key through the Admin Webapp the telemetry data will contain structured metadata from the license key. In all other cases, unstructed raw data will be sent. If the license key is removed from the engine, it is removed from telemetry data as well.
 
 ### Meta/Environment Data
 The "Meta/Environment Data" category contains information about the environmental setup:
@@ -62,7 +70,7 @@ In case the [history level][] of the process engine is set to `NONE`, the unique
     "product": {
       "name": "Camunda BPM Runtime",
       "version": "7.14.0",
-      "edition": "community",
+      "edition": "enterprise",
       "internals": {
         "database": {  
           "vendor": "h2",
@@ -75,7 +83,7 @@ In case the [history level][] of the process engine is set to `NONE`, the unique
         "jdk": {
           "version": "14.0.2",
           "vendor": "Oracle Corporation"
-        }
+        },
         "commands": {
           "StartProcessInstanceCmd": {"count": 40},
           "FetchExternalTasksCmd":  {"count": 100}
@@ -89,7 +97,17 @@ In case the [history level][] of the process engine is set to `NONE`, the unique
         "camunda-integration": [
           "spring-boot-starter",
           "camunda-bpm-run"
-        ]
+        ],
+        "license-key": {
+          "customer": "customer name",
+          "type": "UNIFIED",
+          "valid-until": "2022-09-30",
+          "unlimited": false,
+          "features": {
+            "camundaBPM": "true"
+          },
+          "raw": "customer=customer name;expiryDate=2022-09-30;camundaBPM=true;optimize=false;cawemo=false"
+        }
       }
     }
 }
