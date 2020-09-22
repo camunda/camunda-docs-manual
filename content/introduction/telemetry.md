@@ -57,7 +57,7 @@ In case of Azul Zulu JDK, the vendor will be send as "Oracle Corporation" as it 
 The "Usage Data" category contains information about the used features and components of the process engine:
 
 * Commands count - the count of executed commands after the last retrieved data. It could be from the previous 24 hours if the data have been reported then, and the process engine has not been closed during that time. Whenever the process engine is shutdown, the currently collected data is reported immediately.
-* Metrics count - the collected metrics are number of root process instance executions started, number of activity instances started or also known as flow node instances, number of executed decision instances, and unique task workers.
+* Metrics count - the collected metrics are number of root process instance executions started, number of activity instances started or also known as flow node instances, number of executed decision instances and elements, and unique task workers.
 The counts are collected from the start of the engine or the last reported time if the engine is already running for more than 24 hours.
 The only exception is the unique task workers metric, where the count is calculated for the past 24 hours fixed.
 In case the [history level][] of the process engine is set to `NONE`, the unique task workers count cannot be calculated and will be sent as `0`.
@@ -92,7 +92,8 @@ In case the [history level][] of the process engine is set to `NONE`, the unique
         "metrics": {
           "root-process-instance-start": { "count": 936 },
           "activity-instance-start": { "count": 6125 },
-          "executed-decision-instances": { "count": 732 },
+          "executed-decision-instances": { "count": 140 },
+          "executed-decision-elements": { "count": 732 },
           "unique-task-workers": { "count": 50 }
         },
         "camunda-integration": [
@@ -147,7 +148,7 @@ To achieve the same, you can also use the respective REST API request. For more 
 
 ## Legal Note
 
-Before you install a Camunda BPM Runtime version >= 7.14.0-alpha1 or activate the telemetry functionality, please make sure that you are authorized to take this step, and that the installation or activation of the [telemetry functionality][engine-config] is not in conflict with any company-internal policies, compliance guidelines, any contractual or other provisions or obligations of your company.
+Before you install a Camunda BPM Runtime version >= 7.14.0-alpha1 or activate the telemetry functionality, please make sure that you are authorized to take this step, and that the installation or activation of the [telemetry functionality][engine-config-initializeTelemetry] is not in conflict with any company-internal policies, compliance guidelines, any contractual or other provisions or obligations of your company.
 
 Camunda cannot be held responsible in the event of unauthorized installation or activation of this function.
 
