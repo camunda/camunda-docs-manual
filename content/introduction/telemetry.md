@@ -119,6 +119,27 @@ In case the [history level][] of the process engine is set to `NONE`, the unique
 
 The logger with name `org.camunda.bpm.engine.telemetry` logs details about the sent information and errors in case the data couldn't be collected or sent. For further information check the [Logging]({{< ref "/user-guide/logging.md#telemetry-data" >}}) page in the User Guide.
 
+## Initial Data Report
+
+In order to support the understanding of typical use cases and the overall distribution of our products, the installation sends an anonymized one-time initial report to Camunda via HTTPS. This report contains no specifics that would allow any direct link to an outside entity and is limited to exactly the following data
+
+```
+{
+  "installation": "b647de4d-e557-455a-a64f-feaecd55f53c",
+  "product": {
+    "name": "Camunda BPM Runtime",
+    "version": "7.14.0",
+    "edition": "community".
+    "internals": { "telemetry-enabled": false}
+  }
+}
+```
+
+No other information will be included in that report. Furthermore, this report will be sent exactly once on the first run of your installation.
+In case you disabled telemetry explicitly or did not configure it at all, this is the only report that will ever be sent to Camunda.
+
+If there is the necessity to also prevent this anonymized report from being sent to us, you can set the `telemetryReporterActivate` configuration [flag][engine-config-telemetryReporterActivate] to `false`.
+With this, the reporter thread will not be started and no request will ever be sent to Camunda. See the [How to Enable Telemetry]({{< ref "#how-to-enable-telemetry" >}}) section for how to do this.
 
 ## How to Enable Telemetry
 
