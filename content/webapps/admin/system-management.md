@@ -23,9 +23,7 @@ The System Settings menu is only usable by users which are granted with *All* pe
 
 {{< img src="../img/admin-execution-metrics.png" title="Execution Metrics" >}}
 
-The Execution Metrics menu in Admin displays an approximate number of *Root Process Instances (RPI)*,
-*Flow Nodes Instances (FNI)*, *Executed Decision Instances (EDI)* and *Executed Decision Elements (EDE)* that have been
-processed by the engine within a specified time range.
+The Execution Metrics menu in Admin displays an approximate number of *Flow Nodes Instances (FNI)*, *Executed Decision Elements (EDE)*, *Root Process Instances (RPI)* and *Executed Decision Instances (EDI)* processed by the engine and *Unique Task Workers (UTW)* that were assigned to a user task in the selected time range.
 
 
 # Camunda License Key
