@@ -15,7 +15,7 @@ At Camunda, we strive to offer excellent user experience at a high and stable le
 
 ## Design
 
-The process engine has a dedicated thread called the *Telemetry Reporter* to periodically report telemetry data to Camunda. This thread is by default always running, however only reports data if telemetry is explicitly enabled. See the [How to Enable Telemetry]({{< ref "#how-to-enable-telemetry" >}}) section for how to do this. 
+The process engine has a dedicated thread called the *Telemetry Reporter* to periodically report telemetry data to Camunda. This thread is by default always running, however only collects and reports data if telemetry is explicitly enabled. See the [How to Enable Telemetry]({{< ref "#how-to-enable-telemetry" >}}) section for how to do this. 
 
 When enabled, the collected data is sent once in 24 hours via HTTPS. The telemetry reporter is designed so that your implemented processes are not negatively affected in case the reporter suddenly faces an unexpected error. The telemetry reporter stops in any case when the process engine is stopped.
 
