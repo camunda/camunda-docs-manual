@@ -15,6 +15,7 @@ menu:
 
 This document guides you through the update from Camunda BPM `7.13.x` to `7.14.0`. It covers these use cases:
 
+1. For administrators: [Legal Note](#legal-note)
 1. For administrators and developers: [Database Updates](#database-updates)
 1. For administrators and developers: [Full Distribution Update](#full-distribution)
 1. For administrators: [Standalone Web Application](#standalone-web-application)
@@ -25,8 +26,21 @@ This document guides you through the update from Camunda BPM `7.13.x` to `7.14.0
 1. For developers: [Changes to the Cockpit Config File](#changes-to-the-cockpit-config-file)
 1. For developers: [New Frontend Plugin System for Cockpit](#new-frontend-plugin-system-for-cockpit)
 1. For developers: [End of Spring 3 Support](#end-of-spring-3-support)
+1. For developers: [New Process Engine Property](#new-process-engine-property)
+1. For developers: [Disable Telemetry Reporter in Tests](#disable-telemetry-reporter-in-tests)
 
 This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new functionality included in Camunda BPM 7.14.
+
+
+# Legal Note
+
+Before you upgrade to a Camunda BPM Runtime version >= 7.14.0-alpha1 or activate the telemetry functionality, please make sure that you are authorized to take this step, and that the installation or activation of the [telemetry functionality][engine-config-initializeTelemetry] is not in conflict with any company-internal policies, compliance guidelines, any contractual or other provisions or obligations of your company.
+
+Camunda cannot be held responsible in the event of unauthorized installation or activation of this function.
+
+You can find more details on the telemetry topic in the [general introduction][telemetry].
+
+[engine-config-initializeTelemetry]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#initializeTelemetry" >}}
 
 
 # Database Updates
@@ -139,7 +153,7 @@ for this change of behavior.
 
 # New Engine Dependency - Connect
 
-Camunda Connect dependency has been added to the process engine (`camunda-engine`) artifact, allowing usage of simple [connectors]({{< ref "/user-guide/process-engine/connectors.md" >}}) in the context of the new [telemetry]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#initializeTelemetry" >}}) feature. And changes the status of the dependency from optional to required. See below the details:
+Camunda Connect dependency has been added to the process engine (`camunda-engine`) artifact, allowing usage of simple [connectors]({{< ref "/user-guide/process-engine/connectors.md" >}}) in the context of the new [telemetry][] feature. And changes the status of the dependency from optional to required. See below the details:
 
 -- In a case of **Embedded engine** scenario (includes **Spring Boot Starter** setups), there are two new dependencies added to the `camunda-engine`:
 
@@ -262,3 +276,31 @@ If you used the `routeProvider` to create new routes, you can simply use the new
 # End of Spring 3 Support
 
 Spring Framework version 3 has been end of life as of December 31st, 2016. The [official guide](https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-Versions#supported-versions) recommends to upgrade to versions 4 or 5 of the framework respectively. With version `7.14.0`, official support for Spring 3 ends as well. Applications using this version of Spring might still work as expected but are recommended to be upgraded to versions 4 or 5, which the engine is tested against and can be safely used with.
+
+# New Process Engine Property
+
+This minor release introduces a new process engine property - `camunda.installation.id`. In case you already created a property with the same name, please consider renaming it to prevent collisions with the process engine code. So far, the property will be used for the [telemetry][] feature, however, in the future that might change and cause issues with implemented features. To perform the renaming of an existing property, please delete the property first, store your property with a different name and restart the engine. The new `camunda.installation.id` property will be created during the start of the process engine and stored into the database. Here is an example how the change can be performed:
+
+```java
+managementService.deleteProperty("camunda.installation.id");
+managementService.setProperty(customCamundaInstallatioId, customCamundaInstallatioIdValue);
+// keep in mind to restart the engine afterward
+```
+
+In case the custom installation id property is not adjusted, the telemetry feature most probably will not be functioning correctly.
+
+# Disable Telemetry Reporter in Tests
+
+With the new [telemetry][] feature and on a strict opt-in basis, we are looking to collect environment and usage data to further improve the user experience for you. However, for certain scenarios it will be better to completely disable the telemetry functionality. One of those scenarios is testing, if that includes process engine usage. Therefore we highly recommend to disable the telemetry reporter to prevent sending any requests from your tests:
+
+* via XML-based configuration file: [example]({{<ref "/user-guide/testing/_index.md#disabling-telemetry">}})
+* via YAML-based configuration file in Spring Boot: [example]({{<ref "/user-guide/spring-boot-integration/testing.md#disabling-telemetry">}})
+* via Java:
+
+```java
+processEngineConfiguration = new StandaloneInMemProcessEngineConfiguration();
+processEngineConfiguration.setTelemetryReporterActivate(false);
+processEngineConfiguration.buildProcessEngine();
+```
+
+[telemetry]: {{< ref "/introduction/telemetry.md" >}}
