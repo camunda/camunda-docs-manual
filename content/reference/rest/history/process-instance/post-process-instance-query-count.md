@@ -99,7 +99,10 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>finished</td>
-    <td>Only include finished process instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include finished process instances. This flag includes all process instances 
+        that are completed or terminated. Value may only be <code>true</code>, as <code>false</code> 
+        is the default behavior.
+    </td>
   </tr>
   <tr>
     <td>unfinished</td>
