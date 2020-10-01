@@ -167,6 +167,31 @@ Camunda Connect dependency has been added to the process engine (`camunda-engine
 In case you already have a [Connect]({{< ref "/reference/connect/_index.md#maven-coordinates" >}}) dependencies to some of your projects, please consider consolidating the version of them with one that comes as dependency with the engine. That will prevent inconsistencies on the system. Please note that the Connect process engine plugin is still an optional dependency.
 
 
+# Style Customizations
+Some of the CSS classes in Cockpit changed. If you customized the header, you need to adjust your `user-styles.css` file.
+
+```css
+/* hides the Camunda logo */
+.app-banner svg {
+  display: none;
+}
+.app-banner {
+  /* hides the "Camunda Cockpit" text */
+  text-indent: 200vw;;
+  /* put your logo */
+  background-image: url(./path/to/the/logo.png);
+  /* sets the width to match the logo's width */
+  width: 80px;
+}
+
+/* changes the header top border color  */
+.Header {
+  border-top-color: blue !important;
+}
+```
+
+Going forward, all style customizations should be made in the `user-styles.css`. Building the webapps from source with grunt will no longer include cockpit specific styles. You can still use `less` to write your adjustments and use the output in the `user-styles.css`.
+
 # Cockpit Config File
 The structure of the `config.js` file, located in the `app/cockpit/scripts/` directory of the webapps, changed slightly. It is now a Javascript module. If you have customized the config file, replace the line 
 ```javascript
@@ -181,7 +206,24 @@ export default {
 }
 ```
 
-The `customScripts` attribute changed as well. It is now an array of paths to your Javascript files. If you do not have custom scripts or Cockpit plugins, you are good to go. Otherwise, continue reading to find out how to migrate your plugins.
+The `customScripts` and `bpmnJs.additionalModules` attributes changed as well. Both are now arrays of paths to your Javascript files. You can check the default config.js for an example structure:
+```Javascript
+export default {
+  customScripts: [
+    // If you have a folder called 'my-custom-script' (in the 'cockpit' folder)
+    // with a file called 'customScript.js' in it
+    'my-custom-script/customScript'
+  ],
+  bpmnJs: {
+    additionalModules: [
+      // If you have a folder called 'my-custom-module' (in the 'cockpit' folder)
+      // with a file called 'module.js' in it
+      'my-custom-module/module'
+    ],
+  }
+}
+```
+If you do not have custom scripts or Cockpit plugins, you are good to go. Otherwise, continue reading to find out how to migrate your plugins.
  
 # Cockpit Plugins
 With the 7.14.0 release, we updated the Cockpit frontend plugin system. If you have deployed custom scripts or Cockpit plugins, you need to migrate them if you want to use them in future releases. Cockpit plugins from 7.13 will no longer work in 7.14.
@@ -201,7 +243,9 @@ Camunda directives, such as search widgets (`cam-widget-search`) or variable tab
 
 ### Services
 <!-- If you used Angular services -->
-As with directives, services you could inject into your AngularJS component are no longer available. Only the services included in documented in the [AngularJS documentation](https://docs.angularjs.org/api) are available by default. Services such as `camAPI` and `Uri` can no longer be injected. You can still make request against the Rest Api using the [$http service](https://docs.angularjs.org/api/ng/service/$http) and the Api Urls that get passed into the render function. Check out the [documentation]({{< ref "/webapps/cockpit/extend/plugins.md#attributes-in-detail" >}}) for more details.
+As with directives, services you could inject into your AngularJS component are no longer available. Only the services included in documented in the [AngularJS documentation](https://docs.angularjs.org/api) are available by default. Services such as `camAPI` and `Uri` can no longer be injected. You can still make requests against the REST API using the [$http service](https://docs.angularjs.org/api/ng/service/$http) and the API Urls that get passed into the render function. 
+
+If you changed the CSRF-cookie name or use other HTTP-clients such as the `fetch` API, you'll also need to set the headers appropriately. The current CSRF token is always passed into the render function in the second argument as `api.CSRFToken`. The `api.engineApi` corresponds to the root of our [REST API](https://docs.camunda.org/manual/develop/reference/rest/). Check out the [documentation]({{< ref "/webapps/cockpit/extend/plugins.md#attributes-in-detail" >}}) for more details on the render function.
 
 ### Diagram Interaction
 <!-- If you used `DataDepend` for your diagram Interactions -->
