@@ -21,6 +21,9 @@ This document guides you through the update from Camunda BPM `7.13.x` to `7.14.0
 1. For developers: [Update to JQuery 3.5](#update-to-jquery-3-5)
 1. For developers: [Changes to Task Query and Historic Task Query behavior](#changes-to-task-query-and-historic-task-query-behavior)
 1. For developers: [New Engine Dependency - Connect](#new-engine-dependency-connect)
+1. For developers: [Cockpit Style Customizations](#style-customizations)
+1. For developers: [Changes to the Cockpit Config File](#cockpit-config-file)
+1. For developers: [New Frontend Plugin System for Cockpit](#cockpit-plugins)
 
 This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new functionality included in Camunda BPM 7.14.
 
@@ -102,7 +105,7 @@ Code which uses a self-closing HTML Tag as a parent for generated DOM-nodes will
 </div>
 ```
 
-You can enable the old behavior by overriding the JQuery `htmlPrefilter` function using a custom script. We provide an example for Tasklist [here](https://github.com/camunda/camunda-bpm-examples/tree/master/tasklist/jquery-34-behavior). Please keep in mind that this will reintroduce a security vulnerability that was fixed by this update.
+You can enable the old behavior by overriding the JQuery `htmlPrefilter` function using a custom script. We provide an example for Tasklist [here](https://github.com/camunda/camunda-bpm-examples/tree/7.14/tasklist/jquery-34-behavior). Please keep in mind that this will reintroduce a security vulnerability that was fixed by this update.
 
 You can read more about the update in the [JQuery release blog](https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/)
 
@@ -164,6 +167,96 @@ Camunda Connect dependency has been added to the process engine (`camunda-engine
 
 In case you already have a [Connect]({{< ref "/reference/connect/_index.md#maven-coordinates" >}}) dependencies to some of your projects, please consider consolidating the version of them with one that comes as dependency with the engine. That will prevent inconsistencies on the system. Please note that the Connect process engine plugin is still an optional dependency.
 
+
+# Cockpit Style Customizations
+Some of the CSS classes in Cockpit changed. If you customized the header, you need to adjust your `user-styles.css` file.
+
+```css
+/* hides the Camunda logo */
+.app-banner svg {
+  display: none;
+}
+.app-banner {
+  /* hides the "Camunda Cockpit" text */
+  text-indent: 200vw;;
+  /* put your logo */
+  background-image: url(./path/to/the/logo.png);
+  /* sets the width to match the logo's width */
+  width: 80px;
+}
+
+/* changes the header top border color  */
+.Header {
+  border-top-color: blue !important;
+}
+```
+
+Going forward, all style customizations should be made in the `user-styles.css`. Building the webapps from source with grunt will no longer include cockpit specific styles. You can still use `less` to write your adjustments and use the output in the `user-styles.css`.
+
+# Cockpit Config File
+The structure of the `config.js` file, located in the `app/cockpit/scripts/` directory of the webapps, changed slightly. It is now a Javascript module. If you have customized the config file, replace the line 
+```javascript
+window.camCockpitConf = {
+  // ...
+}
+```
+with
+```javascript
+export default {
+  // ...
+}
+```
+
+The `customScripts` and `bpmnJs.additionalModules` attributes changed as well. Both are now arrays of paths to your Javascript files. You can check the default config.js for an example structure:
+```Javascript
+export default {
+  customScripts: [
+    // If you have a folder called 'my-custom-script' (in the 'cockpit' folder)
+    // with a file called 'customScript.js' in it
+    'my-custom-script/customScript'
+  ],
+  bpmnJs: {
+    additionalModules: [
+      // If you have a folder called 'my-custom-module' (in the 'cockpit' folder)
+      // with a file called 'module.js' in it
+      'my-custom-module/module'
+    ],
+  }
+}
+```
+If you do not have custom scripts or Cockpit plugins, you are good to go. Otherwise, continue reading to find out how to migrate your plugins.
+ 
+# Cockpit Plugins
+With the 7.14.0 release, we updated the Cockpit frontend plugin system. If you have deployed custom scripts or Cockpit plugins, you need to migrate them if you want to use them in future releases. Cockpit plugins from 7.13 will no longer work in 7.14.
+
+Only Cockpit plugins are affected by this update; Admin and Tasklist plugins will work like before. Changes apply only to the frontend part of your plugins that rely on AngularJS. Custom Rest API, myBatis, and Java classes do not require changes.
+
+## Migrate existing AngularJS plugins
+The new plugin system is framework agnostic, so you are free to use any frontend framework you want. In this guide, we will focus on changes you will have to make in your AngularJS plugins. Keep in mind that AngularJS is currently in [long term support](https://docs.angularjs.org/misc/version-support-status) and will not be receiving security updates after December 31, 2021.
+
+To continue using AngularJS plugins, you have to change your plugin to use the new interface and bootstrap an AngularJS application. You will also have to bundle AngularJS into your plugins. This is explained in detail in more detail in the [AngularJS example plugin](https://github.com/camunda/camunda-bpm-examples/tree/7.14/cockpit/cockpit-angularjs-search-processes).
+
+As your plugin is now displayed in your own AngularJS app and is decoupled from the Cockpit application, Camunda directives and services are no longer available. If you use one of the following in your plugin, you will have to migrate it.
+
+### Directives 
+<!-- If you used directives prefixed with CAM- -->
+Camunda directives, such as search widgets (`cam-widget-search`) or variable tables (`cam-variable-table`) can no longer be used. You can still include and use UI frameworks such as [UI Bootstrap](https://angular-ui.github.io/bootstrap/), if you also bundle them with your plugin. As a rule of thumb, all widgets prefixed with `cam-` will be unavailable.
+
+### Services
+<!-- If you used Angular services -->
+As with directives, services you could inject into your AngularJS component are no longer available. Only the services included in documented in the [AngularJS documentation](https://docs.angularjs.org/api) are available by default. Services such as `camAPI` and `Uri` can no longer be injected. You can still make requests against the REST API using the [$http service](https://docs.angularjs.org/api/ng/service/$http) and the API Urls that get passed into the render function. 
+
+If you changed the CSRF-cookie name or use other HTTP-clients such as the `fetch` API, you'll also need to set the headers appropriately. The current CSRF token is always passed into the render function in the second argument as `api.CSRFToken`. The `api.engineApi` corresponds to the root of our [REST API](https://docs.camunda.org/manual/develop/reference/rest/). Check out the [documentation]({{< ref "/webapps/cockpit/extend/plugins.md#attributes-in-detail" >}}) for more details on the render function.
+
+### Diagram Interaction
+<!-- If you used `DataDepend` for your diagram Interactions -->
+Previously, there was no documented way to create interactions with the diagram. We recommend to use 2 plugins to achieve diagram interaction - one [diagram overlay]({{< ref "/webapps/cockpit/extend/plugins.md#process-definition-diagram-overlay" >}}) to capture click events and highlight tasks and one [tab plugin]({{< ref "/webapps/cockpit/extend/plugins.md#process-definition-runtime-tab" >}}) which displays information related to the selection.
+
+Diagram plugin points are available for all views with a BPMN viewer. We created an [example](https://github.com/camunda/camunda-bpm-examples/tree/7.14/cockpit/cockpit-diagram-interactions) to show you how the interaction can look like.
+
+### New Routes
+<!-- If you used the `routeProvider` -->
+If you used the `routeProvider` to create new routes, you can simply use the new [`Route` plugin point]({{< ref "/webapps/cockpit/extend/plugins.md#route" >}}). The same principles for migrating plugins also apply to migrating routes.
 
 # End of Spring 3 Support
 

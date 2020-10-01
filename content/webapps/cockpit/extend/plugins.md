@@ -12,8 +12,7 @@ menu:
 ---
 
 {{< note title="Plugin Compatibility" class="info" >}}
-Please note that we updated the frontend plugin interface with Camunda BPM Runtime 7.14. Plugins written for Camunda BPM Runtime 7.13 and earlier might no longer work with Camunda BPM Runtime 7.14  
-This page is currently a work in progress. Details can change as the development of the new interface is still ongoing.
+Please note that we updated the frontend plugin interface with Camunda BPM Runtime 7.14. Plugins written for Camunda BPM Runtime 7.13 and earlier might no longer work with Camunda BPM Runtime 7.14. Checkout the [update guide]({{< ref "/update/minor/713-to-714" >}}) for more details.
 {{< /note >}}
 
 Cockpit defines a plugin concept to add own functionality without being forced to extend or hack the Cockpit web application. You can add plugins at various plugin points, e.g., the processes dashboard as shown in the following example:
@@ -102,18 +101,23 @@ This file can also be included standalone as a [custom script]({{< ref "/webapps
 {{< /note >}}
 
 ### Attributes in Detail
-`id`: A string which defines this plugin. Should be unique across the application. This can be used to exclude plugins, see [Plugin exclusion](#plugin-exclusion-client-side).
 
-`pluginPoint`: A string which describes where the plugin is rendered. This also defines which parameters are passed into the render function, see the [plugin point reference](#plugin-points)
+* `id`: A string which defines this plugin. Should be unique across the application. This can be used to exclude plugins, see [Plugin exclusion](#plugin-exclusion-client-side).
 
-`priority`: Number, describes in which order the plugins at the same pluginPoint will be mounted. For certain Plugin points (like `cockpit.navigation`), a negative priority hides the entry in a dropdown. How this is handled depends on the Plugin Point.
+* `pluginPoint`: A string which describes where the plugin is rendered. This also defines which parameters are passed into the render function, see the [plugin point reference](#plugin-points)
 
-`render`: Function, the heart of your Plugin. Arguments are (`DOMNode`|`BPMNioViewerInstance`, additionalData (`Object`)). Using the DOM node, you can render your plugin into the DOM.
-The second argument contains constants like a processDefinitionId. The details of which data is passed into the plugin can be found at the [plugin point reference](#plugin-points).
+* `priority`: Number, describes in which order the plugins at the same pluginPoint will be mounted. For certain Plugin points (like `cockpit.navigation`), a negative priority hides the entry in a dropdown. How this is handled depends on the Plugin Point.
 
-`unmount`: Optional function which is called when the Plugin is unmounted. Use this to cleanup any listeners you or your Framework might have registered.
+* `render`: Function, the heart of your Plugin. Arguments are (`DOMNode`|`BPMNioViewerInstance`, additionalData (`Object`)). Using the DOM node, you can render your plugin into the DOM.  
+The second argument contains API endpoints and CSRF cookie information, as well as constants like a `processDefinitionId`. The `api` key is always present and contains  
+  * `engine`: the engine name
+  * `CSRFToken`: the current CSRF token for your requests
+  * `baseApi`, `adminApi`, `cockpitApi`, `engineApi`: The paths to different API endpoints. The engineApi corresponds to the [Rest Api]({{< ref "/reference/rest" >}})
+The details of which data is passed into the plugin can be found at the [plugin point reference](#plugin-points).
 
-`properties`: Optional object which contains all additional configuration for the plugin point, such as labels.
+* `unmount`: Optional function which is called when the Plugin is unmounted. Use this to cleanup any listeners you or your Framework might have registered.
+
+* `properties`: Optional object which contains all additional configuration for the plugin point, such as labels.
 
 
 # Plugin Exclusion (Client Side)
