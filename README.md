@@ -13,7 +13,7 @@ Have a look at our [contribution guide](https://github.com/camunda/camunda-bpm-p
 
 In order to build this documentation, you first need to install [hugo][hugo] v0.54 (newer versions _may_ work, please note that some issues have been reported on v61.0+).
 
-See the [hugo installation guide][hugo-installation] for more details on howto install Hugo.
+See the [hugo installation guide][hugo-installation] for more details on how to install Hugo.
 
 ## Building the Documentation
 
@@ -182,7 +182,7 @@ By using the `code` which can highlight 1 line or a range of lines (and you can 
 * Don't constantly repeat context: On a Page named *Updating Camunda* not every headline needs to start with *"Updating this"*, *"Updating that"*. Instead just write *"This"* or *"That"*. It is clear to the reader that things are being updated. Other example: if the page is named *"Installing the Full Distribution for JBoss Application Server"* not every section needs to mention the application server: Instead of *"The following steps are necessary in order to install the REST Api on JBoss"* write: *"The following steps are necessary in order to install the REST Api:"*
 * Don't overuse notes and warning. Not everything that comes to mind while writing a paragraph is a note or a warning. Maybe it is just content. There should not be more notes and warnings than content.
 * Yes, you programmed the stuff but you don't need to write the docs in a super self-conscious way: instead of *"We use Slf4j for logging"* write: *"Slf4j is used for logging"*.
-* Don't use the future form: instead of *"This document will guide you through he steps of..."* write *"This document guides you through the steps"*
+* Don't use the future form: instead of *"This document will guide you through the steps of..."* write *"This document guides you through the steps"*
 * Nice combination of the previous two points: *"Throughout this guide, we will use a number of variables to denote common path names and constants:"* => *"This guide uses the following variables to denote common path names and constants:"*
 * Use this tool to convert titles into title case: [title converter][title converter]
 

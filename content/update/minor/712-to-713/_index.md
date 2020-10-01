@@ -167,7 +167,7 @@ If you want to set a license key without using the **`camunda-bpm-spring-boot-st
 ```java
 managementService.setLicenseKey(String licenseKey);
 ```
-Only Spring Boot applications that use one of the mentioned ways of setting the key are affected by these changes. Other mechanisms included in the engine (e.g. automatic pickup from the users home directory) are not affected. You can find more information about license keys in the [System Management Guide]({{< ref "/webapps/admin/system-management.md#camunda-license-key" >}}).
+Only Spring Boot applications that use one of the mentioned ways of setting the key are affected by these changes. Other mechanisms included in the engine (e.g. automatic pickup from the users home directory) are not affected. You can find more information about license keys in the [dedicated License use section]({{< ref "/user-guide/license-use.md" >}}).
 
 
 # External Task Client Update

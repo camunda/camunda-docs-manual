@@ -29,7 +29,7 @@ and [Deployment scenarios]({{< ref "/user-guide/spring-boot-integration/_index.m
 ## Container-Managed Process Engine and Camunda Cockpit, Tasklist, Admin
 
 * Apache Tomcat 7.0 / 8.0 / 9.0
-* JBoss EAP 6.4 / 7.0 / 7.1 / 7.2
+* JBoss EAP 6.4 / 7.0 / 7.1 / 7.2 / 7.3
 * Wildfly Application Server 10.1 / 11.0 / 12.0 / 13.0 / 14.0 / 15.0 / 16.0 / 17.0 / 18.0 / 19.0 / 20.0
 * IBM WebSphere Application Server 8.5 / 9.0 ([Enterprise Edition only](http://camunda.com/bpm/enterprise/))
 *	Oracle WebLogic Server 12c (12R2) ([Enterprise Edition only](http://camunda.com/bpm/enterprise/))
@@ -46,14 +46,15 @@ and [Deployment scenarios]({{< ref "/user-guide/spring-boot-integration/_index.m
 * IBM DB2 10.5 / 11.1 (excluding IBM z/OS for all versions)
 * PostgreSQL 9.4 / 9.6 / 10.4 / 10.7 / 11.1 / 11.2 / 12.2
 * Amazon Aurora PostgreSQL compatible with PostgreSQL 9.6 / 10.4 / 10.7
-* Microsoft SQL Server 2012/2014/2016/2017/2019 (see [Configuration Note]({{< ref "/user-guide/process-engine/database.md#configuration-for-microsoft-sql-server" >}}))
+* Microsoft SQL Server 2012/2014/2016/2017/2019 (see [Configuration Note]({{< ref "/user-guide/process-engine/database/mssql-configuration.md" >}}))
 * H2 1.4 (not recommended for [Cluster Mode]({{< ref "/introduction/architecture.md#clustering-model" >}}) - see [Deployment Note]({{< ref "/user-guide/process-engine/deployments.md" >}}))
+* CockroachDB v20.1.3 (see [Configuration guide]({{< ref "/user-guide/process-engine/database/cockroachdb-configuration.md" >}}) for more details)
 
 ## Database Clustering & Replication
 
 Clustered or replicated databases are supported given the following conditions. The communication between Camunda BPM and the database cluster has to match with the corresponding non-clustered / non-replicated configuration. It is especially important that the configuration of the database cluster guarantees the equivalent behavior of READ-COMMITTED isolation level.
 
-* MariaDB Galera Cluster: Galera Cluster for MariaDB is supported with specific configuration settings and some known limitations. See [Details]({{< ref "/user-guide/process-engine/database.md#configuration-for-mariadb-galera-cluster" >}}).
+* MariaDB Galera Cluster: Galera Cluster for MariaDB is supported with specific configuration settings and some known limitations. See [Details]({{< ref "/user-guide/process-engine/database/mariadb-galera-configuration.md" >}}).
 
 # Web Browser
 

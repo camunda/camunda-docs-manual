@@ -276,7 +276,8 @@ The available properties are as follows:
   <li>from the file with the name <code>camunda-license.txt</code> from the classpath (if present)</li>
   <li>from path <i>${user.home}/.camunda/license.txt</i> (if present)</li>
  </ol>
- The license must be exactly in the format as we sent it to you including the header and footer line. Bear in mind that for some licenses there is a minimum <a href="{{<ref "/webapps/admin/system-management.md#license-compatibility" >}}">version requirement</a>.
+ The license must be exactly in the format as we sent it to you including the header and footer line. Bear in mind 
+ that for some licenses there is a minimum <a href="{{<ref "/user-guide/license-use.md#license-compatibility" >}}">version requirement</a>.
 </td>
 </tr>
 
@@ -410,7 +411,7 @@ The available properties are as follows:
 <td><code>.jdbc-batch-processing</code></td>
 <td>Controls if the engine executes the jdbc statements as Batch or not.
 It has to be disabled for some databases.
-See the <a href="{{<ref "/user-guide/process-engine/database.md#jdbc-batch-processing" >}}">user guide</a> for further details.</td>
+See the <a href="{{<ref "/user-guide/process-engine/database/database-configuration.md#jdbc-batch-processing" >}}">user guide</a> for further details.</td>
 <td><i>Camunda default value: true</i></td>
 </tr>
 

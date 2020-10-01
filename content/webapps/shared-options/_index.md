@@ -7,7 +7,7 @@ menu:
   main:
     identifier: "webapps-shared-options"
     parent: "webapps"
-    pre: "Shared options for Web Application configuraion"
+    pre: "Shared options for Web Application configuration"
 ---
 
 

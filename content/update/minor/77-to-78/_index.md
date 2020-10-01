@@ -34,7 +34,7 @@ Noteworthy new Features and Changes in 7.8:
 * [Extending of Locks on External Tasks]({{< ref "/user-guide/process-engine/external-tasks.md#extending-of-locks-on-external-tasks" >}})
 * [Full Timezone Support for Webapps]({{< ref "/user-guide/process-engine/time-zones.md" >}})
 * [Default Retry Time Cycle Configuration]({{< ref "/user-guide/process-engine/the-job-executor.md#retry-time-cycle-configuration" >}}) and [Retry Intervals]({{< ref "/user-guide/process-engine/the-job-executor.md#retry-intervals" >}})
-* [Improved performance for database operations]({{< ref "/user-guide/process-engine/database.md#jdbc-batch-processing" >}})
+* [Improved performance for database operations]({{< ref "/user-guide/process-engine/database/database-configuration.md#jdbc-batch-processing" >}})
 
 # Database Updates
 
