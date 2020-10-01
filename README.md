@@ -2,7 +2,7 @@
 
 This repository contains the sources of the Camunda BPM Documentation.
 
-**Important:** _do NOT change the content of `themes/camunda` directory directly!_
+**Important:** _Do NOT change the content of `themes/camunda` directory directly!_
 Instead, change the [theme](//github.com/camunda/camunda-docs-theme).
 
 ## Contributing
@@ -154,7 +154,7 @@ By using the `code` which can highlight 1 line or a range of lines (and you can 
 * Hover over the drawing with your browser and adjust the browser screen size to fit the drawing (do not include the footer)
 * Take screenshot
 * Paste screenshot into the drawing
-* Right click on the image and select 'Original Size'
+* Right-click on the image and select 'Original Size'
 
 ### Add annotations
 
@@ -178,8 +178,8 @@ By using the `code` which can highlight 1 line or a range of lines (and you can 
 
 ## Writing Guidelines
 
-* Use short sentences. Full stop is better than comma.
-* Don't constantly repeat context: On a Page named *Updating Camunda* not every headline needs to start with *"Updating this"*, *"Updating that"*. Instead just write *"This"* or *"That"*. It is clear to the reader that things are being updated. Other example: if the page is named *"Installing the Full Distribution for JBoss Application Server"* not every section needs to mention the application server: Instead of *"The following steps are necessary in order to install the REST Api on JBoss"* write: *"The following steps are necessary in order to install the REST Api:"*
+* Use short sentences. The full stop is better than the comma.
+* Don't constantly repeat context: On a Page named *Updating Camunda* not every headline needs to start with *"Updating this"*, *"Updating that"*. Instead, just write *"This"* or *"That"*. It is clear to the reader that things are being updated. Another example: if the page is named *"Installing the Full Distribution for JBoss Application Server"* not every section needs to mention the application server: Instead of *"The following steps are necessary in order to install the REST API on JBoss"* write: *"The following steps are necessary in order to install the REST API:"*
 * Don't overuse notes and warning. Not everything that comes to mind while writing a paragraph is a note or a warning. Maybe it is just content. There should not be more notes and warnings than content.
 * Yes, you programmed the stuff but you don't need to write the docs in a super self-conscious way: instead of *"We use Slf4j for logging"* write: *"Slf4j is used for logging"*.
 * Don't use the future form: instead of *"This document will guide you through the steps of..."* write *"This document guides you through the steps"*
