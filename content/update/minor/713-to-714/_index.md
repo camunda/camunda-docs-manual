@@ -21,6 +21,7 @@ This document guides you through the update from Camunda BPM `7.13.x` to `7.14.0
 1. For developers: [Update to JQuery 3.5](#update-to-jquery-3-5)
 1. For developers: [Changes to Task Query and Historic Task Query behavior](#changes-to-task-query-and-historic-task-query-behavior)
 1. For developers: [New Engine Dependency - Connect](#new-engine-dependency-connect)
+1. For developers: [Cockpit Style Customizations](#style-customizations)
 1. For developers: [Changes to the Cockpit Config File](#cockpit-config-file)
 1. For developers: [New Frontend Plugin System for Cockpit](#cockpit-plugins)
 
@@ -167,7 +168,7 @@ Camunda Connect dependency has been added to the process engine (`camunda-engine
 In case you already have a [Connect]({{< ref "/reference/connect/_index.md#maven-coordinates" >}}) dependencies to some of your projects, please consider consolidating the version of them with one that comes as dependency with the engine. That will prevent inconsistencies on the system. Please note that the Connect process engine plugin is still an optional dependency.
 
 
-# Style Customizations
+# Cockpit Style Customizations
 Some of the CSS classes in Cockpit changed. If you customized the header, you need to adjust your `user-styles.css` file.
 
 ```css
