@@ -98,7 +98,7 @@ The FOO Feature is only available in the Enterprise Edition.
 {{< /enterprise >}}
 ```
 
-### How can I highlight code lines
+### How can I highlight code lines?
 
 By using the `code` which can highlight 1 line or a range of lines (and you can set that multiple times).
 
@@ -124,12 +124,12 @@ By using the `code` which can highlight 1 line or a range of lines (and you can 
 </cmmn:definitions>{{< /code >}}
 ```
 
-## How do I make screenshots for documentation
+## How do I make screenshots for documentation?
 
 ### Setup
 
-* Download and install [OpenOffice][openoffice]
-* Download and install [Open Sans font][opensans]
+* Download and install [OpenOffice](http://www.openoffice.org/download/)
+* Download and install [Open Sans font](https://fonts.google.com/specimen/Open+Sans#standard-styles)
 * Create a new drawing in OpenOffice Draw
 
 ![Setup](https://raw.githubusercontent.com/camunda/camunda-docs-manual/master/develop/drawings/ReadMe-images/page-setup.png)
