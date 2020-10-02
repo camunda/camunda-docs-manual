@@ -25,7 +25,7 @@ If you are using the Enterprise Platform, the software is provided under a licen
 
 ## Third-Party Libraries
 
-The Camunda BPM platform (Community and Enterprise Edition) includes third-party libraries developed by third parties (please see the documentation section [Third-Party Libraries][third-party-libraries])). See the following resources:
+The Camunda BPM platform (Community and Enterprise Edition) includes third-party libraries developed by third parties (please see the documentation section [Third-Party Libraries][third-party-libraries]). See the following resources:
 
 * [HTML License Book Camunda BPM Platform]({{< ref "/introduction/third-party-libraries/camunda-bpm-platform-license-book.md" >}})
 * [Plain text license book Camunda BPM Platform][license-book]
