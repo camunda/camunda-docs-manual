@@ -17,7 +17,7 @@ See the [Hugo installation guide][Hugo Installation] for more details on how to 
 
 ## Building the Documentation
 
-After you have installed Hugo, you can build the docs by typing the following command:
+After you have installed Hugo, you can build the docs by running the following command:
 
 ```bash
 hugo
