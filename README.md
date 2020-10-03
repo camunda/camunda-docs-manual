@@ -73,11 +73,9 @@ Use the `note` shorthand:
 ```html
 {{< note title="Heads Up!" class="info" >}}
 The content of the note.
-
-* Full markdown is supported.
-
 {{< /note >}}
 ```
+* Full markdown is supported.
 
 Supported classes:
 
