@@ -42,7 +42,7 @@ Hugo will automatically detect when you change a file and refresh the page in th
 
 Some guidelines for writing docs
 
-### How can I add an image?
+## How can I add an image?
 
 #### Where should I put the image?
 
@@ -126,7 +126,7 @@ By using the `code` which can highlight 1 line or a range of lines (and you can 
 
 #### How do I make screenshots for documentation?
 
-### Setup
+## Setup
 
 * Download and install [OpenOffice][OpenOffice]
 * Download and install [Open Sans font][OpenSans]
@@ -149,14 +149,14 @@ By using the `code` which can highlight 1 line or a range of lines (and you can 
 ![Set Zoom Level](https://raw.githubusercontent.com/camunda/camunda-docs-manual/master/develop/drawings/ReadMe-images/page-setup-modal.png)
 
 
-### Take the screenshots
+## Take the screenshots
 
 * Hover over the drawing with your browser and adjust the browser screen size to fit the drawing (do not include the footer)
 * Take screenshot
 * Paste screenshot into the drawing
 * Right click on the image and select 'Original Size'
 
-### Add annotations
+## Add annotations
 
 * Add rectangle shapes for text boxes
 * Use the Open Sans font for text
@@ -168,7 +168,7 @@ By using the `code` which can highlight 1 line or a range of lines (and you can 
 
 ![Set Shadows](https://raw.githubusercontent.com/camunda/camunda-docs-manual/master/develop/drawings/ReadMe-images/shadow.png)
 
-### Export the image
+## Export the image
 * Export (File menu -> Export)
 * Select PNG format and name the file
 * Compression: 1
