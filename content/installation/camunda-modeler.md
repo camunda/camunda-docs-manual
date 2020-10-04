@@ -20,7 +20,7 @@ This page explains how to install the Camunda Modeler for modeling BPMN 2.0 diag
 
 Officially supported on the following operating systems:
 
-* Windows 7/10
+* Windows 7 / 10
 * Mac OS X 10.11 and later
 * Ubuntu LTS (latest)
 
