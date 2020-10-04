@@ -58,7 +58,7 @@ Use the `img` shorthand:
 {{< img src="architecture-overview.png" title="History Architecture" >}}
 ```
 
-### How can I reference to the Javadocs?
+### How can I reference the Javadocs?
 
 Use the 'javadocref' shorthand:
 
@@ -180,7 +180,7 @@ By using the `code` which can highlight 1 line or a range of lines (and you can 
 
 * Use short sentences. Full stop is better than comma.
 * Don't constantly repeat context: On a Page named *Updating Camunda* not every headline needs to start with *"Updating this"*, *"Updating that"*. Instead just write *"This"* or *"That"*. It is clear to the reader that things are being updated. Other example: if the page is named *"Installing the Full Distribution for JBoss Application Server"* not every section needs to mention the application server: Instead of *"The following steps are necessary in order to install the REST Api on JBoss"* write: *"The following steps are necessary in order to install the REST Api:"*
-* Don't overuse notes and warning. Not everything that comes to mind while writing a paragraph is a note or a warning. Maybe it is just content. There should not be more notes and warnings than content.
+* Don't overuse notes and warnings. Not everything that comes to mind while writing a paragraph is a note or a warning. Maybe it is just content. There should not be more notes and warnings than content.
 * Yes, you programmed the stuff but you don't need to write the docs in a super self-conscious way: instead of *"We use Slf4j for logging"* write: *"Slf4j is used for logging"*.
 * Don't use the future form: instead of *"This document will guide you through the steps of..."* write *"This document guides you through the steps"*
 * Nice combination of the previous two points: *"Throughout this guide, we will use a number of variables to denote common path names and constants:"* => *"This guide uses the following variables to denote common path names and constants:"*
