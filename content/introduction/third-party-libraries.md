@@ -16,7 +16,7 @@ Required dependencies are libraries Camunda depends on to provide core functiona
 
 Optional dependencies are libraries Camunda can be integrated with. In the list below marked as {{< OD >}}.
 
-For legal reference please refer to [Licences][licenses].
+For legal reference please refer to [Licenses][licenses].
 
 # Process Engine
 
