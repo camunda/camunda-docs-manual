@@ -21,9 +21,10 @@ This document guides you through the update from Camunda BPM `7.13.x` to `7.14.0
 1. For developers: [Update to JQuery 3.5](#update-to-jquery-3-5)
 1. For developers: [Changes to Task Query and Historic Task Query behavior](#changes-to-task-query-and-historic-task-query-behavior)
 1. For developers: [New Engine Dependency - Connect](#new-engine-dependency-connect)
-1. For developers: [Cockpit Style Customizations](#style-customizations)
-1. For developers: [Changes to the Cockpit Config File](#cockpit-config-file)
-1. For developers: [New Frontend Plugin System for Cockpit](#cockpit-plugins)
+1. For developers: [Cockpit Style Customizations](#cockpit-style-customizations)
+1. For developers: [Changes to the Cockpit Config File](#changes-to-the-cockpit-config-file)
+1. For developers: [New Frontend Plugin System for Cockpit](#new-frontend-plugin-system-for-cockpit)
+1. For developers: [End of Spring 3 Support](#end-of-spring-3-support)
 
 This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new functionality included in Camunda BPM 7.14.
 
@@ -113,7 +114,7 @@ You can read more about the update in the [JQuery release blog](https://blog.jqu
 # Changes to Task Query and Historic Task Query behavior
 
 As of version `7.14.0`, when using the `TaskService`, or the `HistoryService` to execute a Task query or 
-a Historic Task Instance query (or use the  appropriate Rest API endpoints), the following methods now 
+a Historic Task Instance query (or use the  appropriate REST API endpoints), the following methods now 
 perform a case-insensitive comparison:
 
 * `TaskQuery#taskDescription(String description);`
@@ -193,7 +194,7 @@ Some of the CSS classes in Cockpit changed. If you customized the header, you ne
 
 Going forward, all style customizations should be made in the `user-styles.css`. Building the webapps from source with grunt will no longer include cockpit specific styles. You can still use `less` to write your adjustments and use the output in the `user-styles.css`.
 
-# Cockpit Config File
+# Changes to the Cockpit Config File
 The structure of the `config.js` file, located in the `app/cockpit/scripts/` directory of the webapps, changed slightly. It is now a Javascript module. If you have customized the config file, replace the line 
 ```javascript
 window.camCockpitConf = {
@@ -226,10 +227,10 @@ export default {
 ```
 If you do not have custom scripts or Cockpit plugins, you are good to go. Otherwise, continue reading to find out how to migrate your plugins.
  
-# Cockpit Plugins
+# New Frontend Plugin System for Cockpit
 With the 7.14.0 release, we updated the Cockpit frontend plugin system. If you have deployed custom scripts or Cockpit plugins, you need to migrate them if you want to use them in future releases. Cockpit plugins from 7.13 will no longer work in 7.14.
 
-Only Cockpit plugins are affected by this update; Admin and Tasklist plugins will work like before. Changes apply only to the frontend part of your plugins that rely on AngularJS. Custom Rest API, myBatis, and Java classes do not require changes.
+Only Cockpit plugins are affected by this update; Admin and Tasklist plugins will work like before. Changes apply only to the frontend part of your plugins that rely on AngularJS. Custom REST API, myBatis, and Java classes do not require changes.
 
 ## Migrate existing AngularJS plugins
 The new plugin system is framework agnostic, so you are free to use any frontend framework you want. In this guide, we will focus on changes you will have to make in your AngularJS plugins. Keep in mind that AngularJS is currently in [long term support](https://docs.angularjs.org/misc/version-support-status) and will not be receiving security updates after December 31, 2021.
