@@ -364,7 +364,9 @@ For example:
   </tr>
 </table>
 
-
+## Backoff Strategy
+The Job Executor uses a backoff strategy to avoid acquisition conflicts in clusters and to reduce the database load when no jobs are due. The second point may result in a delay between job creation and job execution as the job acquisition by default doubles the delay to the next acquisition run. 
+The default maximum wait time is 60 seconds. You can decrease the delay by setting the configuration parameter `maxWait` to a value lower than 60000 milliseconds.
 
 # Job Execution
 
