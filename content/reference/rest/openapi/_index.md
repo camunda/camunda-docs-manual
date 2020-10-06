@@ -74,7 +74,9 @@ The description currently covers all endpoints of the following resources:
 * Condition
 * Deployment
 * Engine
+* Event Subscription
 * External Task
+* Incident
 * Message
 * Metrics
 * Process Instance
@@ -82,4 +84,8 @@ The description currently covers all endpoints of the following resources:
 * Signal
 * Schema Log
 * Task
+* Telemetry
+* User
 * Version
+* Historic Activity Instance
+* Historic Process Instance
