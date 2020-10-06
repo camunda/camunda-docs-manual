@@ -52,8 +52,8 @@ Username: my.username
 Password:
 Login Succeeded
 
-$ docker pull registry.camunda.cloud/cambpm-ee/camunda-bpm-platform-ee:{{< minor-version >}}.0
-{{< minor-version >}}.0: Pulling from camunda-bpm-platform-ee
+$ docker pull registry.camunda.cloud/cambpm-ee/camunda-bpm-platform-ee:{{< minor-version >}}
+{{< minor-version >}}: Pulling from camunda-bpm-platform-ee
 ff3a5c916c92: Already exists
 5de5f69f42d7: Already exists
 fa7536dd895a: Pull complete
@@ -61,7 +61,7 @@ fa7536dd895a: Pull complete
 6fa1782e4a59: Pull complete
 fbf8f17dff48: Pull complete
 Digest: sha256:47598932a4aff210ce91819d3b75adbfde675017b13ce9881c9d7dca682fba96
-Status: Downloaded newer image for registry.camunda.cloud/cambpm-ee/camunda-bpm-platform-ee:{{< minor-version >}}.0
+Status: Downloaded newer image for registry.camunda.cloud/cambpm-ee/camunda-bpm-platform-ee:{{< minor-version >}}
 ```
 
 If you want to build an enterprise image yourself, follow the steps described on [GitHub](https://github.com/camunda/docker-camunda-bpm-platform#build-a-enterprise-version).
