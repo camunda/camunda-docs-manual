@@ -36,7 +36,7 @@ You will need a running Camunda BPM Enterprise Edition with Camunda 7.14 or late
 The easiest way to create a BPMN model that connects to an RPA bot is by using Cawemo to create a worker catalog that you can apply to your process model using the Camunda Modeler. Make sure to use Cawemo 1.4 (or later) and Camunda Modeler 4.2 (or later).
 
 # Installation Procedure
-1. Download the Camunda RPA Bridge distro from [here](https://downloads.camunda.cloud/enterprise-release/camunda-bpm/rpa/camunda-bpm-rpa-bridge).
+1. Download the Camunda RPA Bridge distro from [here](https://downloads.camunda.cloud/enterprise-release/camunda-bpm/rpa/).
 1. Extract the downloaded archive
 1. Configure the bridge with the shipped `application.yml` file (see the [user guide]({{< ref "/user-guide/camunda-bpm-rpa-bridge.md#camunda-bpm-rpa-bridge-configuration" >}}) for a full list of configuration options).
 1. Start the Bridge by executing the jar file: `java -jar camunda-bpm-rpa-bridge.jar`
