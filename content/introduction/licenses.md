@@ -32,7 +32,7 @@ The Camunda BPM platform (Community and Enterprise Edition) includes third-party
 * [HTML License Book Camunda BPM RPA Bridge]({{< ref "/introduction/third-party-libraries/camunda-bpm-rpa-bridge-license-book.md" >}})
 
 [third-party-libraries]: {{< ref "/introduction/third-party-libraries/_index.md" >}}
-[license-book]: https://app.camunda.com/nexus/content/repositories/camunda-bpm/org/camunda/bpm/license-book/7.14.0/license-book-7.14.0.txt
+[license-book]: https://app.camunda.com/nexus/content/repositories/camunda-bpm/org/camunda/bpm/license-book/{{< minor-version >}}/license-book-{{< minor-version >}}.txt
 
 
 # Camunda Modeler
