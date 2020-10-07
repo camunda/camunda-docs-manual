@@ -167,6 +167,10 @@ To enable/disable telemetry via Java API:
 
 To achieve the same, you can also use the respective REST API request. For more information, have a look at the [telemetry][telemetry-config-rest] page in the REST API documentation.
 
+### Admin Webapp
+
+Configuration adjustment could be performed in the [Admin][system-management] web application. There a user member of camunda-admin group could enable/disable the telemetry.
+
 ## Legal Note
 
 Before you install a Camunda BPM Runtime version >= 7.14.0-alpha1 or activate the telemetry functionality, please make sure that you are authorized to take this step, and that the installation or activation of the [telemetry functionality][engine-config-initializeTelemetry] is not in conflict with any company-internal policies, compliance guidelines, any contractual or other provisions or obligations of your company.
@@ -181,3 +185,4 @@ In case you want further details, you can have a look at the implementation of t
 [engine-config-telemetryReporterActivate]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#telemetryReporterActivate" >}}
 [telemetry-config-rest]: {{< ref "/reference/rest/telemetry/port-telemetry.md" >}}
 [history level]: {{<ref "/user-guide/process-engine/history.md#set-the-history-level" >}}
+[system-management]: {{< ref "/webapps/admin/system-management.md" >}}
