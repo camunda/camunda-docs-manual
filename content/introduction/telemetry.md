@@ -169,7 +169,7 @@ To achieve the same, you can also use the respective REST API request. For more 
 
 ### Admin Webapp
 
-Configuration adjustment could be performed in the [Admin][system-management] web application. There a user member of camunda-admin group could enable/disable the telemetry.
+Configuration adjustment can be performed in the [Admin][system-management] web application. There, a user member of camunda-admin group can enable/disable the telemetry.
 
 ## Legal Note
 
