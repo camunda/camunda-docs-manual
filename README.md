@@ -42,7 +42,7 @@ Hugo will automatically detect when you change a file and refresh the page in th
 
 Some guidelines for writing docs.
 
-## How can I add an image?
+### How can I add an image?
 
 #### Where should I put the image?
 
@@ -50,7 +50,7 @@ Images should be put next to the content page which references them.
 
 So, if you have a file named `user-guide/process-engine/history/overview.md` and you want to add an image named `architecture-overview.png` then it should be placed in the same folder.
 
-#### How can I reference the image?
+### How can I reference the image?
 
 Use the `img` shorthand:
 
@@ -58,7 +58,7 @@ Use the `img` shorthand:
 {{< img src="architecture-overview.png" title="History Architecture" >}}
 ```
 
-#### How can I reference to the Javadocs?
+### How can I reference to the Javadocs?
 
 Use the 'javadocref' shorthand:
 
@@ -66,16 +66,18 @@ Use the 'javadocref' shorthand:
 {{< javadocref page="?org/camunda/bpm/engine/impl/TaskServiceImpl.html" text="Java-API Task Service" >}}.
 ```
 
-#### How can I add a note?
+### How can I add a note?
 
 Use the `note` shorthand:
 
 ```html
 {{< note title="Heads Up!" class="info" >}}
 The content of the note.
+        
+* full
+* markdown is supported
 {{< /note >}}
 ```
-* Full markdown is supported.
 
 Supported classes:
 
@@ -83,7 +85,7 @@ Supported classes:
 * `warning`
 
 
-#### How can I add an "EE only note"?
+### How can I add an "EE only note"?
 
 Sometimes you want to flag a feature as an Enterprise Feature.
 
@@ -95,7 +97,7 @@ The FOO Feature is only available in the Enterprise Edition.
 {{< /enterprise >}}
 ```
 
-#### How can I highlight code lines?
+### How can I highlight code lines?
 
 You can use the `code` markdown to highlight single or multiple lines.
 
