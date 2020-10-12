@@ -388,7 +388,7 @@ The following list is an overview of all currently available patch scripts:
       <td>Introducing new engine lock properties</td>
       <td>All databases</td>
       <td>
-        <a href="https://jira.camunda.com/browse/CAM-12049">CAM-12049</a>
+        <a href="https://jira.camunda.com/browse/CAM-12590">CAM-12590</a>
       </td>
     </tr>
     <tr>
@@ -420,7 +420,7 @@ The following list is an overview of all currently available patch scripts:
       </td>
       <td>All databases</td>
       <td>
-        <a href="https://jira.camunda.com/browse/CAM-12049">CAM-12049</a>
+        <a href="https://jira.camunda.com/browse/CAM-12590">CAM-12590</a>
       </td>
     </tr>
     <tr>
@@ -452,7 +452,7 @@ The following list is an overview of all currently available patch scripts:
       </td>
       <td>All databases</td>
       <td>
-        <a href="https://jira.camunda.com/browse/CAM-12049">CAM-12049</a>
+        <a href="https://jira.camunda.com/browse/CAM-12590">CAM-12590</a>
       </td>
     </tr>
   </tbody>
