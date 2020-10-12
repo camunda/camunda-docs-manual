@@ -173,7 +173,7 @@ Configuration adjustment can be performed in the [Admin][system-management] web 
 
 ## Legal Note
 
-Before you install a Camunda BPM Runtime version >= 7.14.0-alpha1 or activate the telemetry functionality, please make sure that you are authorized to take this step, and that the installation or activation of the [telemetry functionality][engine-config-initializeTelemetry] is not in conflict with any company-internal policies, compliance guidelines, any contractual or other provisions or obligations of your company.
+Before you install a Camunda BPM Runtime version >= 7.13.6 or activate the telemetry functionality, please make sure that you are authorized to take this step, and that the installation or activation of the [telemetry functionality][engine-config-initializeTelemetry] is not in conflict with any company-internal policies, compliance guidelines, any contractual or other provisions or obligations of your company.
 
 Camunda cannot be held responsible in the event of unauthorized installation or activation of this function.
 
