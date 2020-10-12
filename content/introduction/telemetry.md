@@ -21,7 +21,7 @@ When enabled, the collected data is sent once in 24 hours via HTTPS (please also
 
 ## Initial Data Report
 
-In order to support the understanding of typical use cases and the overall distribution of our products, the installation sends an anonymized one-time initial report to Camunda via HTTPS. This report contains no specifics that would allow any direct link to an outside entity and is limited to exactly the following data:
+In order to support the understanding of typical use cases and the overall distribution of our products, the installation sends an anonymized one-time initial report to Camunda via HTTPS. This report contains no specifics that would allow any direct link to an outside entity and is limited to the following data:
 
 ```
 {
@@ -34,7 +34,7 @@ In order to support the understanding of typical use cases and the overall distr
   }
 }
 ```
-
+The received data also includes a hashed IP address from which the data is received. That data is processed to filter duplicated data and detect malicious access.
 No other information will be included in that report. Furthermore, this report will be sent exactly once on the first run of your installation.
 In case you disabled telemetry explicitly or did not configure it at all, this is the only report that will ever be sent to Camunda.
 
@@ -49,7 +49,7 @@ Below you find the full list of data the reporter collects, followed by a real-w
 
 The "General Data" category contains information about the process engine:
 
-* Hashed IP address - a hashed IP address from which the data is received is process along with the collected data to filter duplicated data and detect malicious access
+* Hashed IP address - a hashed IP address from which the data is received, used to filter duplicated data and detect malicious access
 * Installation - an id that is stored as process engine configuration property
 * Product name - the name of the product (i.e., `Camunda BPM Runtime`)
 * Product version - the version of the process engine (i.e., `7.X.Y`)
