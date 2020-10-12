@@ -56,6 +56,14 @@ A JSON object with the following properties:
     <th>Description</th>
   </tr>
   <tr>
+    <td>taskId</td>
+    <td>Restrict to task with the given id.</td>
+  </tr>
+  <tr>
+    <td>taskIdIn</td>
+    <td>Restrict to tasks with any of the given ids.</td>
+  </tr>
+  <tr>
     <td>processInstanceId</td>
     <td>Restrict to tasks that belong to process instances with the given id.</td>
   </tr>
