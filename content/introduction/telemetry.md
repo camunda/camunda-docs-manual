@@ -34,7 +34,7 @@ In order to support the understanding of typical use cases and the overall distr
   }
 }
 ```
-The received data also includes a hashed IP address from which the data is received. That data is processed to filter duplicated data and detect malicious access.
+The received data also includes a hashed IP address from which the data is sent. That data is processed to filter duplicated data and detect malicious access.
 No other information will be included in that report. Furthermore, this report will be sent exactly once on the first run of your installation.
 In case you disabled telemetry explicitly or did not configure it at all, this is the only report that will ever be sent to Camunda.
 
@@ -49,7 +49,7 @@ Below you find the full list of data the reporter collects, followed by a real-w
 
 The "General Data" category contains information about the process engine:
 
-* Hashed IP address - a hashed IP address from which the data is received, used to filter duplicated data and detect malicious access
+* Hashed IP address - a hashed IP address from which the data is sent, used to filter duplicated data and detect malicious access
 * Installation - an id that is stored as process engine configuration property
 * Product name - the name of the product (i.e., `Camunda BPM Runtime`)
 * Product version - the version of the process engine (i.e., `7.X.Y`)
