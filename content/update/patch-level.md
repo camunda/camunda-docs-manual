@@ -383,6 +383,15 @@ The following list is an overview of all currently available patch scripts:
       </td>
     </tr>
     <tr>
+      <td>7.11</td>
+      <td>engine_7.11_patch_7.11.18_to_7.11.19.sql</td>
+      <td>Introducing new engine lock properties</td>
+      <td>All databases</td>
+      <td>
+        <a href="https://jira.camunda.com/browse/CAM-12590">CAM-12590</a>
+      </td>
+    </tr>
+    <tr>
       <td>7.12</td>
       <td>engine_7.12_patch_7.12.0_to_7.12.1.sql</td>
       <td>Add index to improve Historic Activity Instance query performance.
@@ -404,6 +413,17 @@ The following list is an overview of all currently available patch scripts:
       </td>
     </tr>
     <tr>
+      <td>7.12</td>
+      <td>engine_7.12_patch_7.12.11_to_7.12.12.sql</td>
+      <td>Introducing new engine lock properties
+      <strong>This is the same patch as engine_7.11_patch_7.11.18_to_7.11.19.sql.</strong>
+      </td>
+      <td>All databases</td>
+      <td>
+        <a href="https://jira.camunda.com/browse/CAM-12590">CAM-12590</a>
+      </td>
+    </tr>
+    <tr>
       <td>7.13</td>
       <td>engine_7.13_patch_7.13.4_to_7.13.5_1.sql</td>
       <td>Add index to improve Task query performance.
@@ -422,6 +442,17 @@ The following list is an overview of all currently available patch scripts:
       <td>All databases</td>
       <td>
         <a href="https://jira.camunda.com/browse/CAM-12383">CAM-12383</a>
+      </td>
+    </tr>
+    <tr>
+      <td>7.13</td>
+      <td>engine_7.13_patch_7.13.5_to_7.13.6.sql</td>
+      <td>Introducing new engine lock properties
+      <strong>This is the same patch as engine_7.12_patch_7.12.11_to_7.12.12.sql.</strong>
+      </td>
+      <td>All databases</td>
+      <td>
+        <a href="https://jira.camunda.com/browse/CAM-12590">CAM-12590</a>
       </td>
     </tr>
   </tbody>
