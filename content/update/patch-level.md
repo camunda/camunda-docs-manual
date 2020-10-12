@@ -382,6 +382,15 @@ The following list is an overview of all currently available patch scripts:
         <a href="https://app.camunda.com/jira/browse/CAM-11117">CAM-11117</a>
       </td>
     </tr>
+    <tr>
+      <td>7.11</td>
+      <td>engine_7.11_patch_7.11.18_to_7.11.19.sql</td>
+      <td>Introducing new engine lock properties</td>
+      <td>All databases</td>
+      <td>
+        <a href="https://jira.camunda.com/browse/CAM-12590">CAM-12590</a>
+      </td>
+    </tr>
   </tbody>
 </table>
 
