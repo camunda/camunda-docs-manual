@@ -38,8 +38,9 @@ Sets the process engine name and automatically adds all `ProcessEnginePlugin` be
 
 Configures the Camunda data source and enables [transaction integration]({{< ref "/user-guide/spring-framework-integration/transactions.md" >}}). By default, the primary `DataSource` and `PlatformTransactionManager` beans are wired with the process engine configuration.
 
-If you want to [configure more than one datasource](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-two-datasources) and don't want to use the
-`@Primary` one for the process engine, then you can create a separate data source with name `camundaBpmDataSource` that will be automatically wired with Camunda instead.
+If you want to [configure more than one datasource](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-two-datasources) 
+and don't want to use the `@Primary` one for the process engine, then you can create a separate 
+data source with name `camundaBpmDataSource` that will be automatically wired with Camunda instead.
 
 ```java
 @Bean
@@ -56,11 +57,19 @@ public DataSource secondaryDataSource() {
 }
 ```
 
-Make sure to provide a corresponding transaction manager in that case: 
+If you don't want to use the `@Primary` transaction manager, it is possible to create a separate
+transaction manager with the name `camundaBpmTransactionManager` that will be wired with the data
+source used for Camunda (either `@Primary` or `camundaBpmDataSource`): 
 
 ```java
 @Bean
-public PlatformTransactionManager transactionManager(@Qualifier("camundaBpmDataSource") DataSource dataSource) {
+@Primary
+public PlatformTransactionManager primaryTransactionManager() {
+  return new JpaTransactionManager();
+}
+
+@Bean(name="camundaBpmTransactionManager")
+public PlatformTransactionManager camundaTransactionManager(@Qualifier("camundaBpmDataSource") DataSource dataSource) {
   return new DataSourceTransactionManager(dataSource);
 }
 ```
