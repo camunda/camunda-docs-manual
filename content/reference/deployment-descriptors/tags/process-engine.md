@@ -773,7 +773,7 @@ The following is a list with the most commonly used process engine configuration
           <strong>Legal note:</strong>
         </h6>
         <p>
-          Before you install a Camunda BPM Runtime version >= 7.14.0-alpha1 or activate the telemetric functionality, please make sure that you are authorized to take this step, and that the installation or activation of the telemetric functionality is not in conflict with any internal company policies, compliance guidelines, any contractual or other provisions or obligations of your company.
+          Before you install a Camunda BPM Runtime version >= 7.14.0-alpha1 (and 7.13.7+, 7.12.12+, 7.11.19+) or activate the telemetric functionality, please make sure that you are authorized to take this step, and that the installation or activation of the telemetric functionality is not in conflict with any internal company policies, compliance guidelines, any contractual or other provisions or obligations of your company.
         </p>
         <p>
           Camunda can not be held responsible in the event of unauthorized installation or activation of this function.
