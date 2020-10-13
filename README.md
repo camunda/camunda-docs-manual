@@ -11,13 +11,13 @@ Have a look at our [contribution guide](https://github.com/camunda/camunda-bpm-p
 
 ## Installing Hugo
 
-In order to build this documentation, you first need to install [hugo][hugo] v0.54 (newer versions _may_ work, please note that some issues have been reported on v61.0+).
+In order to build this documentation, you first need to install [Hugo][Hugo] v0.54 (newer versions _may_ work, please note that some issues have been reported on v61.0+).
 
-See the [hugo installation guide][hugo-installation] for more details on how to install Hugo.
+See the [Hugo installation guide][Hugo Installation] for more details on how to install Hugo.
 
 ## Building the Documentation
 
-After you have installed hugo, you can build the docs by typing the following command:
+After you have installed Hugo, you can build the docs by running the following command:
 
 ```bash
 hugo
@@ -25,7 +25,7 @@ hugo
 
 A static build of the documentation will be placed in the `public/` folder.
 
-While editing the docs, you probably want to start the hugo server (defaults to "watch mode"):
+While editing the docs, you probably want to start the Hugo server (defaults to "watch mode"):
 
 ```bash
 hugo server --baseUrl="http://localhost"
@@ -40,7 +40,7 @@ Hugo will automatically detect when you change a file and refresh the page in th
 
 ## Writing Docs
 
-Some guidelines for writing docs
+Some guidelines for writing docs.
 
 ### How can I add an image?
 
@@ -73,10 +73,9 @@ Use the `note` shorthand:
 ```html
 {{< note title="Heads Up!" class="info" >}}
 The content of the note.
-
+        
 * full
 * markdown is supported
-
 {{< /note >}}
 ```
 
@@ -88,9 +87,9 @@ Supported classes:
 
 ### How can I add an "EE only note"?
 
-Sometimes you want to flag a Feature as an Enterprise Feature.
+Sometimes you want to flag a feature as an Enterprise Feature.
 
-This can be achieved using the `enterprise` shortcode:
+You can achieve this by using the `enterprise` shortcode:
 
 ```html
 {{< enterprise >}}
@@ -98,9 +97,9 @@ The FOO Feature is only available in the Enterprise Edition.
 {{< /enterprise >}}
 ```
 
-### How can I highlight code lines
+### How can I highlight code lines?
 
-By using the `code` which can highlight 1 line or a range of lines (and you can set that multiple times).
+You can use the `code` markdown to highlight single or multiple lines.
 
 ```html
 {{< code language="xml" line="3-5,13" >}}<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -124,12 +123,12 @@ By using the `code` which can highlight 1 line or a range of lines (and you can 
 </cmmn:definitions>{{< /code >}}
 ```
 
-## How do I make screenshots for documentation
+## How do I make screenshots for documentation?
 
 ### Setup
 
-* Download and install [OpenOffice][openoffice]
-* Download and install [Open Sans font][opensans]
+* Download and install [OpenOffice][OpenOffice]
+* Download and install [Open Sans font][OpenSans]
 * Create a new drawing in OpenOffice Draw
 
 ![Setup](https://raw.githubusercontent.com/camunda/camunda-docs-manual/master/develop/drawings/ReadMe-images/page-setup.png)
@@ -166,7 +165,7 @@ By using the `code` which can highlight 1 line or a range of lines (and you can 
 * If possible, utilize the whitespaces within the image
 * Use shadows
 
-![Set shadows](https://raw.githubusercontent.com/camunda/camunda-docs-manual/master/develop/drawings/ReadMe-images/shadow.png)
+![Set Shadows](https://raw.githubusercontent.com/camunda/camunda-docs-manual/master/develop/drawings/ReadMe-images/shadow.png)
 
 ### Export the image
 * Export (File menu -> Export)
@@ -184,11 +183,11 @@ By using the `code` which can highlight 1 line or a range of lines (and you can 
 * Yes, you programmed the stuff but you don't need to write the docs in a super self-conscious way: instead of *"We use Slf4j for logging"* write: *"Slf4j is used for logging"*.
 * Don't use the future form: instead of *"This document will guide you through the steps of..."* write *"This document guides you through the steps"*
 * Nice combination of the previous two points: *"Throughout this guide, we will use a number of variables to denote common path names and constants:"* => *"This guide uses the following variables to denote common path names and constants:"*
-* Use this tool to convert titles into title case: [title converter][title converter]
+* Use this tool to convert titles into title case: [Title Converter][Title Converter]
 
-[hugo]: http://gohugo.io/
-[hugo-installation]: http://gohugo.io/overview/installing/
+[Hugo]: http://gohugo.io/
+[Hugo Installation]: http://gohugo.io/overview/installing/
 [Camunda Nexus]: https://app.camunda.com/nexus/service/rest/repository/browse/public/hugo/
-[title converter]: http://individed.com/code/to-title-case/
-[openoffice]: https://www.openoffice.org/download/index.html
-[opensans]: https://www.google.com/fonts#UsePlace:use/Collection:Open+Sans
+[Title Converter]: http://individed.com/code/to-title-case/
+[OpenOffice]: https://www.openoffice.org/download/index.html
+[OpenSans]: https://www.google.com/fonts#UsePlace:use/Collection:Open+Sans
