@@ -50,7 +50,7 @@ Images should be put next to the content page which references them.
 
 So, if you have a file named `user-guide/process-engine/history/overview.md` and you want to add an image named `architecture-overview.png` then it should be placed in the same folder.
 
-### How can I reference the image?
+#### How can I reference the image?
 
 Use the `img` shorthand:
 
