@@ -71,7 +71,7 @@ The "Meta/Environment Data" category contains information about the environmenta
 * Application server vendor and version
 * JDK vendor and version
 
-The application server information cannot be obtained in an embedded process engine setup where no web application (e.g. Tasklist, Cockpit, REST application) is deployed and used.
+The application server information cannot be obtained in an embedded process engine setup where no web application (e.g. Tasklist, Cockpit, REST application) is deployed and used. In case of Spring boot starter setup, the application server information will be cannot be obtained as well.
 
 In case of Azul Zulu JDK, the vendor will be send as "Oracle Corporation" as it cannot be distinguished programmatically from an Oracle JDK.
 
@@ -84,7 +84,7 @@ The "Usage Data" category contains information about the used features and compo
 The counts are collected from the start of the engine or the last reported time if the engine is already running for more than 24 hours.
 The only exception is the unique task workers metric, where the count is calculated for the past 24 hours fixed.
 In case the [history level][] of the process engine is set to `NONE`, the unique task workers count cannot be calculated and will be sent as `0`.
-* Camunda integration - a flag that shows if any of the Camunda integrations are used: Spring boot starter, Camunda BPM Run, WildFly/JBoss subsystem or Camunda ejb service (e.g. WebSphere/WebLogic Application servers).
+* Camunda integration - a flag that shows if any of the Camunda integrations are used: WildFly/JBoss subsystem or Camunda ejb service (e.g. WebSphere/WebLogic Application servers).
 
 ### Example
 
@@ -118,8 +118,7 @@ In case the [history level][] of the process engine is set to `NONE`, the unique
           "unique-task-workers": { "count": 50 }
         },
         "camunda-integration": [
-          "spring-boot-starter",
-          "camunda-bpm-run"
+          "wildfly-subsystem"
         ],
         "license-key": {
           "customer": "customer name",
