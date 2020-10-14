@@ -56,7 +56,7 @@ The "General Data" category contains information about the process engine:
 * Product edition - the edition of the product (i.e., either `community` or `enterprise`)
 * License key - the customer name, expiry date and enabled features as well as the raw license info
 
-License key data does not contain any proteced data like the signature. License data is only transmitted if any of the following holds true
+License key data does not contain any protected data like the signature. License data is only transmitted if any of the following holds true
 
 * it is present in the database on engine startup
 * it is set to the engine via  [ManagementService#setLicenseKey ](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.14/org/camunda/bpm/engine/ManagementService.html#setLicenseKey-java.lang.String-)
