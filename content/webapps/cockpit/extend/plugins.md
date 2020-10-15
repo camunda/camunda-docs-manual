@@ -28,7 +28,6 @@ On the server-side, it can extend Cockpit with custom SQL queries and JAX-RS res
 
 On the client-side a plugin may include Javascript modules to extend the Cockpit webapplication. Via those modules a plugin provides custom views.
 
-
 ## File structure
 
 The basic skeleton of a Cockpit plugin looks as follows:
@@ -119,14 +118,12 @@ The details of which data is passed into the plugin can be found at the [plugin 
 
 * `properties`: Optional object which contains all additional configuration for the plugin point, such as labels.
 
-
 # Plugin Exclusion (Client Side)
 
 You can exclude some plugins from the interface by adding a `cam-exclude-plugins`
 attribute to the HTML `base` tag of the page loading the interface.
 The content of the attribute is a comma separated list formatted like: `<plugin.key>:<feature.id>`.
 If the feature ID is not provided, the whole plugin will be excluded.
-
 
 ## Excluding a Complete Plugin
 
@@ -136,7 +133,6 @@ This example will completely deactivate the action buttons on the right side of 
 <base href="/"
       cam-exclude-plugins="cockpit.processInstance.runtime.action" />
 ```
-
 
 ## Excluding a Plugin Feature
 
@@ -148,7 +144,6 @@ In this example we deactivate the cancel action in the Cockpit process instance 
                            cockpit.processInstance.runtime.action:job-retry-action" />
 ```
 
-
 # Plugin points
 
 In this section you will find all Cockpit plugin points.
@@ -157,7 +152,6 @@ To configure where you place your plugin, enter the ID into the `pluginPoint` at
 Plugin Points describe where a Plugin will be rendered and define which additional data is passed into the second argument of the render function.
 
 For more information on creating and configuring your own plugin, please see [How to develop a Cockpit plugin](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/cockpit-fullstack-count-processes).
-
 
 ## Route
 `cockpit.route`
@@ -185,7 +179,6 @@ properties: {
   path: "/my-path"
 }
 ```
-
 
 ## Dashboard
 
@@ -233,17 +226,9 @@ properties: {
 }
 ```
 
-This plugin points properties contain the attribute `label`, which will be rendered in the navigation even when the plugin is not selected.
-
-```Javascript
-properties: {
-  label: "My Plugin"
-}
-```
-
-
 This additional data is passed into the render function:
-  - `processDefinitionId`
+
+  * `processDefinitionId`
 
 ## Process Instance Runtime Tab
 
@@ -260,8 +245,8 @@ properties: {
 ```
 
 This additional data is passed into the render function:
-  - `processInstanceId`
 
+  * `processInstanceId`
 
 ## Process Definition Runtime Action
 
@@ -270,7 +255,8 @@ This additional data is passed into the render function:
 {{< img src="../../img/plugin-points/plugin-point-process-definition-runtime-action.png" title="Process Definition Runtime Action" >}}
 
 This additional data is passed into the render function:
-  - `processDefinitionId`
+
+  * `processDefinitionId`
 
 ## Process Instance Runtime Action
 
@@ -279,14 +265,14 @@ This additional data is passed into the render function:
 {{< img src="../../img/plugin-points/plugin-point-process-instance-runtime-action.png" title="Process Instance Runtime Action" >}}
 
 This additional data is passed into the render function:
-  - `processInstanceId`
+
+  * `processInstanceId`
 
 ## Process Definition View
 
 **Name:** `cockpit.processDefinition.view`
 
 {{< img src="../../img/plugin-points/plugin-point-cockpit-process-definition-view.png" title="Process Definition View" >}}
-
 
 ## Process Instance View
 
@@ -317,8 +303,8 @@ export default {
 ```
 
 This additional data is passed into the render function:
-  - `processDefinitionId`
 
+  * `processDefinitionId`
 
 ## Process Instance Diagram Overlay
 
@@ -331,7 +317,8 @@ This plugin point does not receive a DOM node to render into but an instance of 
 
 
 This additional data is passed into the render function:
-  - `processInstanceId`
+
+  * `processInstanceId`
 
 ## Job Definition Action
 
@@ -340,7 +327,8 @@ This additional data is passed into the render function:
 {{< img src="../../img/plugin-points/plugin-point-job-definition-action.png" title="Job Definition Action" >}}
 
 This additional data is passed into the render function:
-  - `jobDefinitionId`
+
+  * `jobDefinitionId`
 
 ## Decision Definition Tab
 
@@ -357,7 +345,8 @@ properties: {
 ```
 
 This additional data is passed into the render function:
-  - `decisionDefinitionId`
+
+  * `decisionDefinitionId`
 
 ## Decision Definition Action
 
@@ -366,8 +355,8 @@ This additional data is passed into the render function:
 {{< img src="../../img/plugin-points/plugin-point-decision-definition-action.png" title="Decision Definition Action" >}}
 
 This additional data is passed into the render function:
-  - `decisionDefinitionId`
 
+  * `decisionDefinitionId`
 
 ## Decision Definition Table
 
@@ -379,8 +368,8 @@ Diagram overlay plugins are a little different from other plugins.
 This plugin point does not receive a DOM node to render into but an instance of the Diagram viewer to create an overlay. See [Process Definition Diagram Overlay](#process-definition-diagram-overlay) for an example.
 
 This additional data is passed into the render function:
-  - `decisionDefinitionId`
 
+  * `decisionDefinitionId`
 
 ## Decision Instance Tab
 
@@ -397,8 +386,8 @@ properties: {
 ```
 
 This additional data is passed into the render function:
-  - `decisionInstanceId`
 
+  * `decisionInstanceId`
 
 ## Decision Instance Action
 
@@ -407,8 +396,8 @@ This additional data is passed into the render function:
 {{< img src="../../img/plugin-points/plugin-point-decision-instance-action.png" title="Decision Instance Action" >}}
 
 This additional data is passed into the render function:
-  - `decisionInstanceId`
 
+  * `decisionInstanceId`
 
 ## Decision Instance Table
 
@@ -420,8 +409,8 @@ Diagram overlay plugins are a little different from other plugins.
 This plugin point does not receive a DOM node to render into but an instance of the Diagram viewer to create an overlay. See [Process Definition Diagram Overlay](#process-definition-diagram-overlay) for an example.
 
 This additional data is passed into the render function:
-  - `decisionInstanceId`
 
+  * `decisionInstanceId`
 
 ## Case Definition Tab
 
@@ -438,8 +427,8 @@ properties: {
 ```
 
 This additional data is passed into the render function:
-  - `decisionInstanceId`
 
+  * `decisionInstanceId`
 
 ## Case Definition Action
 
@@ -456,14 +445,14 @@ properties: {
 ```
 
 This additional data is passed into the render function:
-  - `caseDefinitionId`
+
+  * `caseDefinitionId`
 
 ## Case Definition Diagram Overlay
 
 **Name:** `cockpit.caseDefinition.diagram.overlay`
 
 {{< img src="../../img/plugin-points/plugin-point-case-definition-diagram-overlay.png" title="Case Definition Diagram Overlay" >}}
-
 
 ## Case Definition Diagram Plugin
 
@@ -475,8 +464,9 @@ Diagram overlay plugins are a little different from other plugins.
 This plugin point does not receive a DOM node to render into but an instance of the Diagram viewer to create an overlay. See [Process Definition Diagram Overlay](#process-definition-diagram-overlay) for an example.
 
 This additional data is passed into the render function:
-  - `caseDefinitionId`
-  
+
+  * `caseDefinitionId`
+
 ## Case Instance Tab
 
 **Name:** `cockpit.caseInstance.tab`
@@ -492,7 +482,8 @@ properties: {
 ```
 
 This additional data is passed into the render function:
-  - `caseInstanceId`
+
+  * `caseInstanceId`
 
 ## Case Instance Action
 
@@ -501,7 +492,8 @@ This additional data is passed into the render function:
 {{< img src="../../img/plugin-points/plugin-point-case-instance-action.png" title="Case Instance Action" >}}
 
 This additional data is passed into the render function:
-  - `caseInstanceId`
+
+  * `caseInstanceId`
 
 ## Case Instance Diagram Overlay
 
@@ -519,9 +511,9 @@ Diagram overlay plugins are a little different from other plugins.
 This plugin point does not receive a DOM node to render into but an instance of the Diagram viewer to create an overlay. See [Process Definition Diagram Overlay](#process-definition-diagram-overlay) for an example.
 
 This additional data is passed into the render function:
-  - `caseDefinitionId`
-  - `caseInstanceId`
 
+  * `caseDefinitionId`
+  * `caseInstanceId`
 
 ## Repository Resource Action
 
@@ -530,8 +522,9 @@ This additional data is passed into the render function:
 {{< img src="../../img/plugin-points/plugin-point-repository-resource-action.png" title="Repository Resource Action" >}}
 
 This additional data is passed into the render function:
-  - `deploymentId`
-  - `resourceId`
+
+  * `deploymentId`
+  * `resourceId`
 
 ## Repository Resource Detail
 
@@ -540,16 +533,15 @@ This additional data is passed into the render function:
 {{< img src="../../img/plugin-points/plugin-point-repository-resource-detail.png" title="Repository Resource Detail" >}}
 
 This additional data is passed into the render function:
-  - `deploymentId`
-  - `resourceId`
 
+  * `deploymentId`
+  * `resourceId`
 
 ## Open Task Dashboard
 
 **Name:** `cockpit.tasks.dashboard`
 
 {{< img src="../../img/plugin-points/plugin-point-task-dashboard.png" title="Open Task Dashboard" >}}
-
 
 ## Report View
 
@@ -564,7 +556,6 @@ properties: {
   label: "My Plugin"
 }
 ```
-
 
 ## Batch Operation
 
@@ -614,4 +605,5 @@ export default {
 {{< img src="../../img/plugin-points/plugin-point-incident-action.png" title="Incident Action" >}}
 
 This additional data is passed into the render function:
-  - `incidentId`
+
+  * `incidentId`
