@@ -2,7 +2,7 @@
 
 This repository contains the sources of the Camunda BPM Documentation.
 
-**Important:** _do NOT change the content of `themes/camunda` directory directly!_
+**Important:** _Do NOT change the content of `themes/camunda` directory directly!_
 Instead, change the [theme](//github.com/camunda/camunda-docs-theme).
 
 ## Contributing
