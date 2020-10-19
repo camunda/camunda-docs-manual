@@ -30,7 +30,7 @@ java -version
 If you need to install a Java Runtime Environment, you can [find the download from Oracle here](https://www.oracle.com/java/technologies/javase-downloads.html).
 
 ## Camunda BPM
-You will need a running Camunda BPM Enterprise Edition with Camunda 7.14 or later. You can find all downloadable distros [here](https://downloads.camunda.cloud/enterprise-release/camunda-bpm/).
+You will need a running Camunda BPM Enterprise Edition with Camunda 7.14 or later. You can find all downloadable distros [here](https://downloads.camunda.cloud/enterprise-release/camunda-bpm/camunda-bpm-rpa-bridge).
 
 ## Cawemo and Camunda Modeler
 The easiest way to create a BPMN model that connects to an RPA bot is by using Cawemo to create a worker catalog that you can apply to your process model using the Camunda Modeler. Make sure to use Cawemo 1.4 (or later) and Camunda Modeler 4.2 (or later).
