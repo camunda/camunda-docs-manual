@@ -44,6 +44,7 @@ Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with t
 * `org/camunda/commons/camunda-commons-logging`
 * `org/camunda/commons/camunda-commons-typed-values`
 * `org/camunda/commons/camunda-commons-utils`
+* `org/camunda/feel/feel-engine`
 * `org/freemarker/freemarker`
 * `org/mybatis/mybatis`
 
