@@ -47,6 +47,7 @@ Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with t
 * `org/camunda/connect/camunda-connect-core`
 * `org/camunda/connect/camunda-connect-http-client`
 * `org/camunda/connect/camunda-connect-soap-http-client`
+* `org/camunda/feel/feel-engine`
 * `org/apache/httpcomponents/httpclient`
 * `org/apache/httpcomponents/httpcore`
 * `org/freemarker/freemarker`

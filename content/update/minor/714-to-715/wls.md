@@ -1,16 +1,16 @@
 ---
 
-title: "Update an Oracle WebLogic Installation from 7.12 to 7.13"
+title: "Update an Oracle WebLogic Installation from 7.14 to 7.15"
 
 menu:
   main:
     name: "WebLogic"
-    identifier: "migration-guide-713-weblogic"
-    parent: "migration-guide-713"
+    identifier: "migration-guide-715-weblogic"
+    parent: "migration-guide-715"
 
 ---
 
-The following steps describe how to update the Camunda artifacts on an Oracle WebLogic application server in a shared process engine setting. For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the [Camunda BPM 7.13 Oracle WebLogic distribution](https://app.camunda.com/nexus/#browse/browse:camunda-bpm-ee:org%2Fcamunda%2Fbpm%2Fweblogic%2Fcamunda-bpm-weblogic%2F7.13.0-ee).
+The following steps describe how to update the Camunda artifacts on an Oracle WebLogic application server in a shared process engine setting. For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the [Camunda BPM 7.15 Oracle WebLogic distribution](https://app.camunda.com/nexus/#browse/browse:camunda-bpm-ee:org%2Fcamunda%2Fbpm%2Fweblogic%2Fcamunda-bpm-weblogic%2F7.15.0-ee).
 
 The update procedure takes the following steps:
 
@@ -45,6 +45,8 @@ After shutting down the server, replace the following libraries in `$WLS_DOMAIN_
 * `camunda-commons-logging-$COMMONS_VERSION.jar`
 * `camunda-commons-typed-values-$COMMONS_VERSION.jar`
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
+* `camunda-connect-connectors-all-$CONNECT_VERSION.jar`
+* `camunda-connect-core-$CONNECT_VERSION.jar`
 * `camunda-template-engines-freemarker-$TEMPLATE_ENGINES_VERSION.jar`
 * `feel-engine-$FEEL_ENGINE_VERSION-scala-shaded.jar`
 * `freemarker-$FREEMARKER_VERSION.jar`
@@ -60,15 +62,10 @@ Copy the following library from `$WLS_DISTRIBUTION/modules/lib` to the folder `$
 
 * `camunda-identity-ldap-$PLATFORM_VERSION.jar`
 
-## Camunda Connect
+## Camunda Connect Plugin
 
-Copy the following library from `$WLS_DISTRIBUTION/modules/lib` to the folder `$WLS_DOMAIN_HOME/lib`, if present:
 
-* `camunda-connect-core-$CONNECT_VERSION.jar`
-
---- 
 `camunda-connect-connectors-all` and `camunda-engine-plugin-connect` are part of the .ear
-
 
 
 ## Camunda Spin
@@ -79,7 +76,6 @@ Copy the following library from `$WLS_DISTRIBUTION/modules/lib` to the folder `$
 
 --- 
 `camunda-spin-dataformat-all` and `camunda-engine-plugin-spin` are part of the .ear
-
 
 # 4. Maintain the BPM Platform Configuration
 
@@ -100,4 +96,4 @@ Deploy the web application `$WLS_DISTRIBUTION/webapps/camunda-engine-rest-$PLATF
 Deploy the web application `$WLS_DISTRIBUTION/webapps/camunda-webapp-ee-wls-$PLATFORM_VERSION.war` to your Oracle WebLogic instance.
 
 [configuration-location]: {{< ref "/reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}
-[update-guide]: {{< ref "/update/minor/712-to-713/_index.md" >}}
+[update-guide]: {{< ref "/update/minor/714-to-715/_index.md" >}}
