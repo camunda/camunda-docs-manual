@@ -579,7 +579,7 @@ Camunda cannot be held responsible in the event of unauthorized installation or 
 
 ## FEEL Engine: Changed Module Structure
 
-With the above-mentioned patch releases, the module structure has changed in conjunction with the [FEEL Engine]. 
+With the above-mentioned patch release, the module structure has changed in conjunction with the [FEEL Engine]. 
 From now on, the FEEL Engine will be delivered as a dedicated module `feel-engine`. It is no longer part of 
 the `camunda-engine-feel-scala` module. The FEEL Engine module follows its own versioning.
 
