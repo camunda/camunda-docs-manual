@@ -56,7 +56,7 @@ The "General Data" category contains information about the process engine:
 * Product edition - the edition of the product (i.e., either `community` or `enterprise`)
 * License key - the customer name, expiry date and enabled features as well as the raw license info
 
-License key data does not contain any proteced data like the signature. License data is only transmitted if any of the following holds true
+License key data does not contain any protected data like the signature. License data is only transmitted if any of the following holds true
 
 * it is present in the database on engine startup
 * it is set to the engine via  [ManagementService#setLicenseKey ](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.14/org/camunda/bpm/engine/ManagementService.html#setLicenseKey-java.lang.String-)
@@ -84,7 +84,7 @@ The "Usage Data" category contains information about the used features and compo
 The counts are collected from the start of the engine or the last reported time if the engine is already running for more than 24 hours.
 The only exception is the unique task workers metric, where the count is calculated for the past 24 hours fixed.
 In case the [history level][] of the process engine is set to `NONE`, the unique task workers count cannot be calculated and will be sent as `0`.
-* Camunda integration - a flag that shows if any of the Camunda ingegrations are used: Spring boot starter, Camunda BPM Run, WildFly/JBoss subsystem or Camunda ejb service (e.g. WebSphere/WebLogic Application servers).
+* Camunda integration - a flag that shows if any of the Camunda integrations are used: Spring boot starter, Camunda BPM Run, WildFly/JBoss subsystem or Camunda ejb service (e.g. WebSphere/WebLogic Application servers).
 
 ### Example
 
@@ -176,7 +176,7 @@ Configuration adjustment can be performed in the [Admin][system-management] web 
 
 ## Legal Note
 
-Before you install a Camunda BPM Runtime version >= 7.14.0-alpha1 or activate the telemetry functionality, please make sure that you are authorized to take this step, and that the installation or activation of the [telemetry functionality][engine-config-initializeTelemetry] is not in conflict with any company-internal policies, compliance guidelines, any contractual or other provisions or obligations of your company.
+Before you install a Camunda BPM Runtime version >= 7.14.0-alpha1 (and 7.13.7+, 7.12.12+, 7.11.19+) or activate the telemetry functionality, please make sure that you are authorized to take this step, and that the installation or activation of the [telemetry functionality][engine-config-initializeTelemetry] is not in conflict with any company-internal policies, compliance guidelines, any contractual or other provisions or obligations of your company.
 
 Camunda cannot be held responsible in the event of unauthorized installation or activation of this function.
 
