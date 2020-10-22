@@ -1,20 +1,20 @@
 ---
 
-title: "Update a JBoss/Wildfly Installation from 7.12 to 7.13"
+title: "Update a JBoss/Wildfly Installation from 7.14 to 7.15"
 
 menu:
   main:
     name: "JBoss AS/Wildfly"
-    identifier: "migration-guide-713-jboss"
-    parent: "migration-guide-713"
+    identifier: "migration-guide-715-jboss"
+    parent: "migration-guide-715"
 
 ---
 
 The following steps describe how to update the Camunda artifacts on a JBoss AS
 7 and Wildfly server in a shared process engine scenario. For the entire
 procedure, refer to the [update guide][update-guide]. If not
-already done, make sure to download the [Camunda BPM 7.13 JBoss distribution](https://downloads.camunda.cloud/release/camunda-bpm/jboss/7.13/)
-or [Camunda BPM 7.13 Wildfly distribution](https://downloads.camunda.cloud/release/camunda-bpm/wildfly/7.13/). In the following instructions
+already done, make sure to download the [Camunda BPM 7.15 JBoss distribution](https://downloads.camunda.cloud/release/camunda-bpm/jboss/7.15/)
+or [Camunda BPM 7.15 Wildfly distribution](https://downloads.camunda.cloud/release/camunda-bpm/wildfly/7.15/). In the following instructions
 `$APP_SERVER` should be replaced with either `jboss` or `wildfly`, depending on
 the used application server.
 
@@ -44,9 +44,15 @@ Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with t
 * `org/camunda/commons/camunda-commons-logging`
 * `org/camunda/commons/camunda-commons-typed-values`
 * `org/camunda/commons/camunda-commons-utils`
+* `org/camunda/connect/camunda-connect-core`
+* `org/camunda/connect/camunda-connect-http-client`
+* `org/camunda/connect/camunda-connect-soap-http-client`
 * `org/camunda/feel/feel-engine`
+* `org/apache/httpcomponents/httpclient`
+* `org/apache/httpcomponents/httpcore`
 * `org/freemarker/freemarker`
 * `org/mybatis/mybatis`
+* `commons-codec/commons-codec`
 
 # 2. Update Optional Camunda BPM Modules
 
@@ -59,20 +65,11 @@ Replace the following module from the folder `$APP_SERVER_HOME/modules/` with it
 
 * `org/camunda/bpm/identity/camunda-identity-ldap`
 
-## Camunda Connect
+## Camunda Connect Plugin
 
 Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with their new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/`, if present:
 
-* `org/camunda/connect/camunda-connect-core`
-* `org/camunda/connect/camunda-connect-http`
-* `org/camunda/connect/camunda-connect-soap-http-client`
 * `org/camunda/bpm/camunda-engine-plugin-connect`
-
-Additionally, also replace the following dependent modules:
-
-* `org/apache/httpcomponents/httpclient`
-* `org/apache/httpcomponents/httpcore`
-* `commons-codec/commons-codec`
 
 ## Camunda Spin
 
@@ -112,7 +109,7 @@ The following steps are required to update the Camunda web applications Cockpit,
 3. Deploy the web application archive to your JBoss/Wildfly instance.
 
 
-[update-guide]: {{< ref "/update/minor/712-to-713/_index.md" >}}
-[engine-rest]: https://app.camunda.com/nexus/#browse/browse:camunda-bpm:org%2Fcamunda%2Fbpm%2Fcamunda-engine-rest%2F7.13.0
-[webapp-jboss]: https://app.camunda.com/nexus/#browse/browse:camunda-bpm:org%2Fcamunda%2Fbpm%2Fwebapp%2Fcamunda-webapp-jboss%2F7.13.0%2Fcamunda-webapp-jboss-7.13.0.war
-[jackson-update]: {{< ref "/update/minor/712-to-713/_index.md#jackson-version-update" >}}
+[update-guide]: {{< ref "/update/minor/714-to-715/_index.md" >}}
+[engine-rest]: https://app.camunda.com/nexus/#browse/browse:camunda-bpm:org%2Fcamunda%2Fbpm%2Fcamunda-engine-rest%2F7.15.0
+[webapp-jboss]: https://app.camunda.com/nexus/#browse/browse:camunda-bpm:org%2Fcamunda%2Fbpm%2Fwebapp%2Fcamunda-webapp-jboss%2F7.15.0%2Fcamunda-webapp-jboss-7.15.0.war
+[jackson-update]: {{< ref "/update/minor/714-to-715/_index.md#jackson-version-update" >}}

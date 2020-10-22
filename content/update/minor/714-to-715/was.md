@@ -1,17 +1,17 @@
 ---
 
-title: "Update an IBM Websphere Installation from 7.12 to 7.13"
+title: "Update an IBM Websphere Installation from 7.14 to 7.15"
 
 menu:
   main:
     name: "WebSphere"
-    identifier: "migration-guide-713-was"
-    parent: "migration-guide-713"
+    identifier: "migration-guide-715-was"
+    parent: "migration-guide-715"
 
 ---
 
 
-The following steps describe how to update the Camunda artifacts on an IBM WebSphere application server in a shared process engine setting. For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the [Camunda BPM 7.13 IBM WebSphere distribution](https://app.camunda.com/nexus/#browse/browse:camunda-bpm-ee:org%2Fcamunda%2Fbpm%2Fwebsphere%2Fcamunda-bpm-websphere%2F7.13.0-ee).
+The following steps describe how to update the Camunda artifacts on an IBM WebSphere application server in a shared process engine setting. For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the [Camunda BPM 7.15 IBM WebSphere distribution](https://app.camunda.com/nexus/#browse/browse:camunda-bpm-ee:org%2Fcamunda%2Fbpm%2Fwebsphere%2Fcamunda-bpm-websphere%2F7.15.0-ee).
 
 The update procedure takes the following steps:
 
@@ -48,6 +48,8 @@ After shutting down the server, replace the following libraries in `$SHARED_LIBR
 * `camunda-commons-logging-$COMMONS_VERSION.jar`
 * `camunda-commons-typed-values-$COMMONS_VERSION.jar`
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
+* `camunda-connect-connectors-all-$CONNECT_VERSION.jar`
+* `camunda-connect-core-$CONNECT_VERSION.jar`
 * `camunda-template-engines-freemarker-$TEMPLATE_ENGINES_VERSION.jar`
 * `feel-engine-$FEEL_ENGINE_VERSION-scala-shaded.jar`
 * `freemarker-$FREEMARKER_VERSION.jar`
@@ -63,11 +65,9 @@ Copy the following library from `$WAS_DISTRIBUTION/modules/lib` to the folder `$
 
 * `camunda-identity-ldap-$PLATFORM_VERSION.jar`
 
-## Camunda Connect
+## Camunda Connect Plugin
 
-Copy the following library from `$WAS_DISTRIBUTION/modules/lib` to the folder `$SHARED_LIBRARY_PATH`, if present:
-
-* `camunda-connect-core-$CONNECT_VERSION.jar`
+`camunda-connect-connectors-all` and `camunda-engine-plugin-connect` are part of the .ear
 
 ## Camunda Spin
 
@@ -101,4 +101,4 @@ The following steps are required to update the Camunda web applications Cockpit,
 2. Associate the web application with the `Camunda` shared library.
 
 [configuration-location]: {{< ref "/reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}
-[update-guide]: {{< ref "/update/minor/712-to-713/_index.md" >}}
+[update-guide]: {{< ref "/update/minor/714-to-715/_index.md" >}}

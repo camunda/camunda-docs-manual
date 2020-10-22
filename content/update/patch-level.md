@@ -575,6 +575,21 @@ Camunda cannot be held responsible in the event of unauthorized installation or 
 [engine-config-initializeTelemetry]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#initializeTelemetry" >}}
 [telemetry]: {{< ref "/introduction/telemetry.md" >}}
 
+## 7.14.0 to 7.14.1 / 7.13.6 to 7.13.7
+
+## FEEL Engine: Changed Module Structure
+
+With the above-mentioned patch releases, the module structure has changed in conjunction with the [FEEL Engine]. 
+From now on, the FEEL Engine will be delivered as a dedicated module `feel-engine`. It is no longer part of 
+the `camunda-engine-feel-scale` module. The FEEL Engine module follows its own versioning.
+
+The following modules are dependent on the newly introduced `feel-engine` module:
+
+* `camunda-engine-plugin-spin`
+* `camunda-engine-feel-scala`
+
+[FEEL Engine]: {{<ref "/user-guide/dmn-engine/feel/_index.md" >}}
+
 # Full Distribution
 
 This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.

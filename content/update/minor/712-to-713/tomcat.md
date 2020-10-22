@@ -39,6 +39,7 @@ Replace the following libraries in the folder `$TOMCAT_HOME/lib/` with their new
 * `camunda-commons-typed-values-$COMMONS_VERSION.jar`
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
 * `camunda-template-engines-freemarker-$TEMPLATE_ENGINES_VERSION.jar`
+* `feel-engine-$FEEL_ENGINE_VERSION-scala-shaded.jar`
 * `freemarker-$FREEMARKER_VERSION.jar`
 * `mybatis-$MYBATIS_VERSION.jar`
 

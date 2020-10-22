@@ -1,18 +1,18 @@
 ---
 
-title: "Update a Tomcat Installation from 7.13 to 7.14"
+title: "Update a Tomcat Installation from 7.14 to 7.15"
 
 menu:
   main:
     name: "Tomcat"
-    identifier: "migration-guide-714-tomcat"
-    parent: "migration-guide-714"
+    identifier: "migration-guide-715-tomcat"
+    parent: "migration-guide-715"
 
 ---
 
 The following steps describe how to update the Camunda artifacts on a Tomcat server in a shared process engine setting.
 For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the
-[Camunda BPM 7.14 Tomcat distribution][tomcat-distribution].
+[Camunda BPM 7.15 Tomcat distribution][tomcat-distribution].
 
 The update procedure takes the following steps:
 
@@ -88,7 +88,7 @@ The following steps are required to update the Camunda web applications Cockpit,
 2. Download the Camunda web application archive from our [Maven Nexus Server][nexus-webapp]. Alternatively, switch to the private repository for the enterprise version (credentials from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-tomcat-$PLATFORM_VERSION.war`.
 3. Deploy the web application archive to your Tomcat instance.
 
-[update-guide]: {{< ref "/update/minor/713-to-714/_index.md" >}}
-[nexus-restapi]: https://app.camunda.com/nexus/#browse/browse:camunda-bpm:org%2Fcamunda%2Fbpm%2Fcamunda-engine-rest%2F7.13.0%2Fcamunda-engine-rest-7.13.0-tomcat.war
-[nexus-webapp]: https://app.camunda.com/nexus/#browse/browse:camunda-bpm:org%2Fcamunda%2Fbpm%2Fwebapp%2Fcamunda-webapp-tomcat%2F7.13.0%2Fcamunda-webapp-tomcat-7.13.0.war
-[tomcat-distribution]: https://downloads.camunda.cloud/release/camunda-bpm/tomcat/7.13/
+[update-guide]: {{< ref "/update/minor/714-to-715/_index.md" >}}
+[nexus-restapi]: https://app.camunda.com/nexus/#browse/browse:camunda-bpm:org%2Fcamunda%2Fbpm%2Fcamunda-engine-rest%2F7.15.0%2Fcamunda-engine-rest-7.15.0-tomcat.war
+[nexus-webapp]: https://app.camunda.com/nexus/#browse/browse:camunda-bpm:org%2Fcamunda%2Fbpm%2Fwebapp%2Fcamunda-webapp-tomcat%2F7.15.0%2Fcamunda-webapp-tomcat-7.15.0.war
+[tomcat-distribution]: https://downloads.camunda.cloud/release/camunda-bpm/tomcat/7.15/
