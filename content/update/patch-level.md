@@ -531,7 +531,7 @@ Make sure you have the latest version of [Camunda Modeler](https://camunda.com/d
 
 The Docker images for Camunda 7.13 no longer provide an Oracle JDBC driver out of the box. If you relied on this, apply the strategy outlined in https://github.com/camunda/docker-camunda-bpm-platform#database-environment-variables: Add the driver to the container and configure the database settings manually by linking the configuration file into the container.
 
-## 7.13.6 to 7.13.7 / 7.12.11 to 7.12.12 / 7.11.18 to 7.11.19
+## 7.12.11 to 7.12.12 / 7.11.18 to 7.11.19
 
 ### [Legal Note] Telemetry 
 
@@ -542,6 +542,22 @@ Camunda cannot be held responsible in the event of unauthorized installation or 
 
 [engine-config-initializeTelemetry]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#initializeTelemetry" >}}
 [telemetry]: {{< ref "/introduction/telemetry.md" >}}
+
+### Custom REST API
+
+In case you are deploying a custom REST API that builds upon the one provided by Camunda, please make sure to add the following listener to the `web.xml`:
+
+```xml
+<web-app ...>
+  ...
+  <listener>
+    <listener-class>org.camunda.bpm.engine.rest.impl.web.bootstrap.RestContainerBootstrap</listener-class>
+  </listener>
+  ...
+</web-app>
+```
+
+This servlet context listener is used for bootstrapping the REST API and should therefore be included in your custom application setup.
 
 # Full Distribution
 
