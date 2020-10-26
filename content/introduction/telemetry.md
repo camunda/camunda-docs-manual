@@ -70,6 +70,7 @@ The "Meta/Environment Data" category contains information about the environmenta
 * Database vendor and version
 * Application server vendor and version
 * JDK vendor and version
+* Used Camunda Web Applications
 
 The application server information cannot be obtained in an embedded process engine setup where no web application (e.g. Tasklist, Cockpit, REST application) is deployed and used. In case of Spring boot starter setup, the application server information cannot be obtained as well.
 
@@ -129,7 +130,11 @@ In case the [history level][] of the process engine is set to `NONE`, the unique
             "camundaBPM": "true"
           },
           "raw": "customer=customer name;expiryDate=2022-09-30;camundaBPM=true;optimize=false;cawemo=false"
-        }
+        },
+        "webapps": [
+          "cockpit",
+          "admin"
+        ]
       }
     }
 }
