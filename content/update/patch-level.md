@@ -575,9 +575,25 @@ Camunda cannot be held responsible in the event of unauthorized installation or 
 [engine-config-initializeTelemetry]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#initializeTelemetry" >}}
 [telemetry]: {{< ref "/introduction/telemetry.md" >}}
 
+### Custom REST API
+
+In case you are deploying a custom REST API that builds upon the one provided by Camunda, please make sure to add the following listener to the `web.xml`:
+
+```xml
+<web-app ...>
+  ...
+  <listener>
+    <listener-class>org.camunda.bpm.engine.rest.impl.web.bootstrap.RestContainerBootstrap</listener-class>
+  </listener>
+  ...
+</web-app>
+```
+
+This servlet context listener is used for bootstrapping the REST API and should therefore be included in your custom application setup.
+
 ## 7.13.6 to 7.13.7
 
-## FEEL Engine: Changed Module Structure
+### FEEL Engine: Changed Module Structure
 
 With the above-mentioned patch release, the module structure has changed in conjunction with the [FEEL Engine]. 
 From now on, the FEEL Engine will be delivered as a dedicated module `feel-engine`. It is no longer part of 
