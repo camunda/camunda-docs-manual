@@ -68,9 +68,9 @@ This method returns no content.
     <td>Request successful.</td>
   </tr>
   <tr>
-    <td>404</td>
+    <td>400</td>
     <td>application/json</td>
-    <td>Deployment with id 'aDeploymentId' does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Batch with given id does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
