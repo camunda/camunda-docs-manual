@@ -57,24 +57,6 @@ The following archetypes are currently provided. They are distributed via our Ma
   </tbody>
 </table>
 
-# Version compatibility
-
-Up until Camunda BPM 7.11, the archetypes were provided in a version corresponding directly to a Camunda BPM version. Starting with Camunda 7.14, we are providing the archetypes in their own semantic versioning. This allows for faster release cycles for the archetypes themselves within one minor version of Camunda BPM. The following compatibility matrix will help you determine which version of the archetypes to pick for your use case:
-
-<table class="table table-striped">
-  <tr>
-    <th>Camunda archetype version</th>
-    <th>Camunda BPM version</th>
-  </tr>
-  <tr>
-    <td>7.0.0 - 7.11.1</td>
-    <td>7.0.0 - 7.11.1</td>
-  </tr>
-  <tr>
-    <td>1.x</td>
-    <td>7.14.x</td>
-  </tr>
-</table>
 
 # Usage in Eclipse IDE
 
