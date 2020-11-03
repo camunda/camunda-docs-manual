@@ -53,6 +53,14 @@ GET `/decision-definition/count`
     <td>Filter by the deployment the id belongs to.</td>
   </tr>
   <tr>
+    <td>deployedAfter</td>
+    <td>Filter by the deploy time of the deployment the decision definition belongs to. Only selects decision definitions that have been deployed after (exclusive) a specific time.</td>
+  </tr>
+  <tr>
+    <td>deployedAt</td>
+    <td>Filter by the deploy time of the deployment the decision definition belongs to. Only selects decision definitions that have been deployed at a specific time (exact match).</td>
+  </tr>
+  <tr>
     <td>key</td>
     <td>Filter by decision definition key, i.e., the id in the DMN 1.0 XML. Exact match.</td>
   </tr>
@@ -108,9 +116,13 @@ GET `/decision-definition/count`
     <td>includeDecisionDefinitionsWithoutTenantId</td>
     <td>Include decision definitions which belong to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
-    <tr>
+  <tr>
     <td>versionTag</td>
-    <td>Filter by the version tag.</td>
+    <td>Filter by the version tag. Exact match.</td>
+  </tr>
+  <tr>
+    <td>versionTagLike</td>
+    <td>Filter by the version tags of those decision definition resources that the parameter is a substring of.</td>
   </tr>
 </table>
 
@@ -150,7 +162,7 @@ A JSON object that contains the count as the only property.
     <td>400</td>
     <td>application/json</td>
     <td>
-      Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>.
+      Returned if some of the query parameters are invalid.
       See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>

@@ -119,7 +119,11 @@ GET `/decision-definition`
   </tr>
   <tr>
     <td>versionTag</td>
-    <td>Filter by the version tag.</td>
+    <td>Filter by the version tag. Exact match.</td>
+  </tr>
+  <tr>
+    <td>versionTagLike</td>
+    <td>Filter by the version tags of those decision definition resources that the parameter is a substring of.</td>
   </tr>
   <tr>
     <td>sortBy</td>
