@@ -95,7 +95,7 @@ This example first retrieves the process instance id of the task for the form. I
           $scope.upload = function() {
             var formData = new FormData();
             formData.append('data', document.getElementById('fileUpload').files[0]);
-            $http.post(Uri.appUri('engine://engine/:engine/process-instance/' + result.processInstanceId + '/variables/uploadedFile/data'), formData, {
+            $http.post(Uri.appUri('engine://engine/:engine/process-instance/' + result.data.processInstanceId + '/variables/uploadedFile/data'), formData, {
                 transformRequest: angular.identity,
                 headers: {'Content-Type': undefined}
             });
