@@ -18,6 +18,7 @@ This document guides you through the update from Camunda BPM `7.14.x` to `7.15.0
 1. For administrators and developers: [Database Updates](#database-updates)
 1. For administrators and developers: [Full Distribution Update](#full-distribution)
 1. For administrators: [Standalone Web Application](#standalone-web-application)
+1. For developers: [Exception Handling in Task API](#exception-handling-in-task-api)
 
 This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new functionality included in Camunda BPM 7.15.
 
@@ -83,3 +84,9 @@ If a database other than the default H2 database is used, the following steps mu
 3. Reconfigure the database as described in the [installation]({{< ref "/installation/standalone-webapplication.md#database-configuration" >}})
    section
 4. Deploy the new and configured standalone web application to the server
+
+# Exception Handling in Task API
+With this release, the implementation of <code>[TaskService#handleBpmnError][javadocs-taskservice-handleBpmnError]</code> now throws a `NotFoundException` instead of a `NullValueException` in case no task with the given id exists. If the provided task id or error code were null or empty, a `BadUserRequestException` is thrown. Code that consumes this API might need to adapt its error handling. For more information about the reporting Bpmn Error in Task, please check the [User Task][user-task-reference] documentation.
+
+[javadocs-taskservice-handleBpmnError]:https://docs.camunda.org/javadoc/camunda-bpm-platform/7.15/org/camunda/bpm/engine/TaskService.html#handleBpmnError-java.lang.String-java.lang.String-
+[user-task-reference]: {{< ref "/reference/bpmn20/tasks/user-task.md#reporting-bpmn-error" >}}
