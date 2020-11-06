@@ -8,11 +8,11 @@ menu:
     name: "Extension Elements"
     identifier: "bpmn-extensions-elements"
     parent: "bpmn-extensions"
-    pre: "Reference of Camunda Extension Attributes for BPMN."
+    pre: "Reference of Camunda Extension Elements for BPMN."
 
 ---
 
-The following attributes are extension attributes for the `camunda` namespace `http://camunda.org/schema/1.0/bpmn`.
+The following elements are extension elements for the `camunda` namespace `http://camunda.org/schema/1.0/bpmn`.
 
 
 # connector
