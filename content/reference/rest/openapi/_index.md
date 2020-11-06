@@ -71,7 +71,9 @@ For example, [Postman][postman-site] users can [import the OpenAPI documentation
 
 The description currently covers all endpoints of the following resources:
 
+* Batch
 * Condition
+* Decision Definition
 * Deployment
 * Engine
 * Event Subscription

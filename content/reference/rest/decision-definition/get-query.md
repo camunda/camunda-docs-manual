@@ -119,7 +119,11 @@ GET `/decision-definition`
   </tr>
   <tr>
     <td>versionTag</td>
-    <td>Filter by the version tag.</td>
+    <td>Filter by the version tag. Exact match.</td>
+  </tr>
+  <tr>
+    <td>versionTagLike</td>
+    <td>Filter by the version tags of those decision definition resources that the parameter is a substring of.</td>
   </tr>
   <tr>
     <td>sortBy</td>
@@ -208,11 +212,6 @@ Each decision definition object has the following properties:
     <td>versionTag</td>
     <td>String</td>
     <td>The version tag of the decision or <i>null</i> when no version tag is set</td>
-  </tr>
-  <tr>
-    <td>versionTagLike</td>
-    <td>String</td>
-    <td>Filter by the version tag that the parameter is a substring of.</td>
   </tr>
   <tr>
     <td>historyTimeToLive</td>
