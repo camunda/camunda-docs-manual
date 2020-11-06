@@ -13,6 +13,8 @@ menu:
 ---
 
 Lock an external task by a given id for a specified worker and amount of time.
+**Note:** Attempting to lock an already locked external task with the same worker
+will succeed and a new lock duration will be set, starting from the current moment.
 
 # Method
 
