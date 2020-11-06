@@ -214,11 +214,6 @@ Each decision definition object has the following properties:
     <td>The version tag of the decision or <i>null</i> when no version tag is set</td>
   </tr>
   <tr>
-    <td>versionTagLike</td>
-    <td>String</td>
-    <td>Filter by the version tag that the parameter is a substring of.</td>
-  </tr>
-  <tr>
     <td>historyTimeToLive</td>
     <td>Number</td>
     <td>History time to live value of the decision definition. Is used within <a href="{{< ref "/user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a>.</td>
