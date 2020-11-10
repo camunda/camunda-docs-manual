@@ -21,6 +21,7 @@ This document guides you through the update from Camunda BPM `7.12.x` to `7.13.0
 1. For developers: [Spring Boot Starter Update](#spring-boot-starter-update)
    * [Changed Default Application Paths for Webapp & REST API](#changed-default-application-paths)
    * [New License Key Mechanism](#new-license-key-mechanism)
+   * [Changed Behavior for Custom HistoryEventHandler](#changed-behavior-for-custom-historyeventhandler)
 1. For developers: [External Task Client Update](#external-task-client-update)
 1. For developers: [Identity Service Queries](#identity-service-queries)
 1. For developers: [MetricsReporterIdProvider interface Deprecation](#metricsreporteridprovider-interface-deprecation)
@@ -169,6 +170,9 @@ managementService.setLicenseKey(String licenseKey);
 ```
 Only Spring Boot applications that use one of the mentioned ways of setting the key are affected by these changes. Other mechanisms included in the engine (e.g. automatic pickup from the users home directory) are not affected. You can find more information about license keys in the [dedicated License use section]({{< ref "/user-guide/license-use.md" >}}).
 
+## Changed Behavior for Custom HistoryEventHandler
+
+Camunda Spring Boot projects now use an instance of `CompositeHistoryEventHandler` by default, which is backed by a list of `HistoryEventHandler`, that you can configure via an engine configuration property called `customHistoryEventHandlers`. To add your custom implementation, simply add it to the list. This list also contains the default handler (`DbHistoryEventHandler`), which writes to the history database tables. If you want to disable it, use the new `enableDefaultDbHistoryEventHandler` engine configuration flag. Setting the flag to false will ensure the `DbHistoryEventHandler` is not included in the `CompositeHistoryEventHandler`.
 
 # External Task Client Update
 
