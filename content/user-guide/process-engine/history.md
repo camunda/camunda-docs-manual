@@ -1481,6 +1481,10 @@ Exchanging the History Event Handler with a custom implementation allows users t
 {{< note title="Composite History Handling" class="info" >}}
   Note that if you provide a custom implementation of the HistoryEventHandler and wire it to the process engine, you override the default DbHistoryEventHandler. The consequence is that the process engine will stop writing to the history database and you will not be able to use the history service for querying the audit log. If you do not want to replace the default behavior but only provide an additional event handler, you can use the class `org.camunda.bpm.engine.impl.history.handler.CompositeHistoryEventHandler` that dispatches events to a collection of handlers.
 {{< /note >}}
+{{< note title="Spring Boot" class="info" >}}
+
+Note that providing your custom `HistoryEventHandler` in a Spring Boot Starter environment works slightly differently. By default, the Camunda Spring Boot starter uses a `CompositeHistoryEventHandler` which wraps a list of HistoryEventHandler implementations that you can provide via the `customHistoryEventHandlers` engine configuration property. If you want to override the default `DbHistoryEventHandler`, you have to explicitly set the `enableDefaultDbHistoryEventHandler` engine configuration property to `false`.
+{{< /note >}}
 
 
 # Implement a Custom History Level
