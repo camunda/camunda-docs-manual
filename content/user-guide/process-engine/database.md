@@ -80,6 +80,18 @@ used:
 List<SchemaLogEntry> entries = managementService.createSchemaLogQuery().list();
 ```
 
+## Metrics Log (ACT_RU_METER_LOG)
+
+The `ACT_RU_METER_LOG` table contains a collection of runtime metrics that can help draw conclusions about usage, load
+and performance of the BPM platform. Metrics are reported as numbers in the Java `long` range and count the occurrence of
+specific events. Please find detailed information about how metrics are collected in the [Metrics User Guide]({{< ref "user-guide/process-engine/metrics.md">}}).
+
+The default configuration of the [MetricsReporter]({{< ref "user-guide/process-engine/metrics.md#metrics-reporter">}}) will create one row per [metric]({{< ref "user-guide/process-engine/metrics.md#built-in-metrics">}}) in `ACT_RU_METER_LOG` every 15 minutes.
+
+{{< note title="Heads Up!" class="warning" >}}
+If you are an enterprise customer, your license agreement might require you to report some metrics annually. Please store `activity-instance-start` and `executed-decision-elements` metrics for at least 15 months until they were reported.
+{{< /note >}}
+
 # Entity Relationship Diagrams
 
 {{< note title="" class="info" >}}
