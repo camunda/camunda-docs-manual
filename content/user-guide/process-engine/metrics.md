@@ -15,6 +15,9 @@ The process engine reports runtime metrics to the database that can help draw co
 # Built-in Metrics
 
 The following table describes the built-in metrics. The identifiers of all built-in metrics are available as constants of the class {{< javadocref page="?org/camunda/bpm/engine/management/Metrics.html" text="org.camunda.bpm.engine.management.Metrics" >}}.
+{{< note title="Heads Up!" class="warning" >}}
+If you are an enterprise customer, your license agreement might require you to report some metrics annually. Please store `root-process-instance-start`, `activity-instance-start`, `executed-decision-instances` and `executed-decision-elements` metrics for at least 15 months until they were reported.
+{{< /note >}}
 
 <table class="table table-striped">
   <tr>
@@ -24,14 +27,14 @@ The following table describes the built-in metrics. The identifiers of all built
   </tr>
   <tr>
     <td><b>BPMN Execution</b></td>
-    <td>root-process-instance-start</td>
+    <td>root-process-instance-start*</td>
     <td>The number of root process instance executions started. This is also known as <b>Root Process Instances (RPI)</b>.
     A root process instance has no parent process instance, i.e. it is a top-level execution.
     </td>
   </tr>
   <tr>
     <td></td>
-    <td>activity-instance-start</td>
+    <td>activity-instance-start*</td>
     <td>The number of activity instances started. This is also known as <b>flow node instances (FNI)</b>.</td>
   </tr>
   <tr>
@@ -41,12 +44,12 @@ The following table describes the built-in metrics. The identifiers of all built
   </tr>
   <tr>
     <td><b>DMN Execution</b></td>
-    <td>executed-decision-instances</td>
+    <td>executed-decision-instances*</td>
     <td>The number of evaluated decision instances (EDI). A decision instance is a DMN decision table or a DMN Literal Expression.</td>
   </tr>
   <tr>
     <td></td>
-    <td>executed-decision-elements</td>
+    <td>executed-decision-elements*</td>
     <td>The number of decision elements executed during evaluation of DMN decision tables. For one table, this is calculated as the number of clauses multiplied by the number of rules.</td>
   </tr>
   <tr>
@@ -105,6 +108,8 @@ The following table describes the built-in metrics. The identifiers of all built
     <td>The number of batch operations removed by history clean up.</td>
   </tr>
 </table>
+
+*Some enterprise agreements require annual reports of some metrics. Please store those metrics for at least 15 months.
 
 # Querying
 
