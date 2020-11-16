@@ -103,9 +103,9 @@ Other combinations must be thoroughly tested before being used in production.
     <td>2.2.x.RELEASE<br/>2.3.x.RELEASE</td>
   </tr>
   <tr>
-    <td>7.14.x</td>
-    <td>7.14.x</td>
-    <td>2.3.x.RELEASE</td>
+    <td>7.14.x<br/>7.14.2+&#42;&#42;&#42;</td>
+    <td>7.14.x<br/>7.14.2+</td>
+    <td>2.3.x.RELEASE<br/>2.4.x</td>
   </tr>
 </table>
 
