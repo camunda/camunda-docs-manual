@@ -11,8 +11,11 @@ menu:
 ---
 
 We provide several project templates for Maven, which are also called Archetypes.
-They enable a quickstart for developing process applications using the Camunda BPM platform.
+They enable a quickstart for developing production-ready process applications using the Camunda BPM platform.
+We incorporated best practices for different application types into the templates to help you start off with a solid base.
 
+The Archetypes can be used to generate projects as detailed in the different usage sections.
+In case generating a project from an Archetype on your own is not feasible, we also provide a template GitHub repository for every Archetype.
 
 # Overview of Available Maven Archetypes
 
@@ -57,6 +60,16 @@ The following archetypes are currently provided. They are distributed via our Ma
   </tbody>
 </table>
 
+# Template repositories
+
+We provide a template repository for every Camunda Archetype. 
+Every repository contains a project generated from one specific template.
+You can find the whole list on [GitHub](https://github.com/camunda?q=%22camunda-bpm-archetype-%22).
+
+With every new release of the Archetypes, we will update those repositories with a new version as well.
+This allows to investigate possible update paths from one Camunda version to another and also enables you to simply update your existing project by pulling in the latest changes.
+
+In case you need more flexibility and customization for your project, you can generate a project on your own using one of the methods detailed in the next sections.
 
 # Usage in Eclipse IDE
 
