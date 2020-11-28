@@ -284,7 +284,7 @@ For more information on logging configuration visit the [Spring Boot Logging Gui
       <td><code>-</code></td>
   </tr>
   <tr>
-      <td><code>.file</code></td>
+      <td><code>.file.name</code></td>
       <td>Specify a log file location. (e.g. <code>logs/camunda-bpm-run-log.txt</code>)</td>
       <td><code>-</code></td>
   </tr>
