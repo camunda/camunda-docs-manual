@@ -78,6 +78,8 @@ The description currently covers all endpoints of the following resources:
 * Engine
 * Event Subscription
 * External Task
+* Group
+* Identity
 * Incident
 * Message
 * Metrics
@@ -87,6 +89,7 @@ The description currently covers all endpoints of the following resources:
 * Schema Log
 * Task
 * Telemetry
+* Tenant
 * User
 * Version
 * Historic Activity Instance

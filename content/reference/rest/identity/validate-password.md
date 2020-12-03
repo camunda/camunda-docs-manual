@@ -41,7 +41,7 @@ A JSON object with the following properties:
     <td>Object</td>
     <td>
         A JSON object containing variable key-value pairs. <br>
-        The object contains the following properties: 
+        The object can contain the following properties: 
         id (String), firstName (String), lastName (String) and email (String).</td>
   </tr>
 </table>
