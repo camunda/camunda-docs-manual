@@ -44,12 +44,12 @@ Its properties are as follows:
       <tr>
         <td>placeholder</td>
         <td>String</td>
-        <td>A placeholder string that can be used to display an internationalized message to the user.</td>
+        <td>A placeholder string that contains the name of a password policy rule.</td>
       </tr>
       <tr>
         <td>parameter</td>
         <td>Object</td>
-        <td>A map of parameters that can be used to display a parameterized message to the user.</td>
+        <td>A map that describes the characteristics of a password policy rule, such as the minimum number of digits.</td>
       </tr>
     </table>
     </td>
