@@ -38,7 +38,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>jobIds</td>
-    <td>Filter by a comma-separated list of job ids.</td>
+    <td>Filter by list of job ids. Must be a JSON array of Strings.</td>
   </tr>
   <tr>
     <td>jobDefinitionId</td>
@@ -50,7 +50,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>processInstanceIds</td>
-    <td>Only select jobs which exist for the given comma-separated list of process instance ids.</td>
+    <td>Only select jobs which exist for the given list of process instance ids. Must be a JSON array of Strings.</td>
   </tr>
   <tr>
     <td>executionId</td>
@@ -87,7 +87,7 @@ A JSON object with the following properties:
   <tr>
     <td>dueDates</td>
     <td>Only select jobs where the due date is lower or higher than the given date.
-    Due date expressions are comma-separated and are structured as follows:<br/>
+    Due date expressions are given in an array and are structured as follows:<br/>
     A valid condition value has the form <code>operator_value</code>.
     <code>operator</code> is the comparison operator to be used and <code>value</code> the date value as string.<br/>
     <br/>
@@ -98,7 +98,7 @@ A JSON object with the following properties:
   <tr>
     <td>createTimes</td>
     <td>Only select jobs created before or after the given date.
-    Create time expressions are comma-separated and are structured as follows:<br/>
+    Create time expressions are given in an array and are structured as follows:<br/>
     A valid condition value has the form <code>operator_value</code>.
     <code>operator</code> is the comparison operator to be used and <code>value</code> the date value as string.<br/>
     <br/>
@@ -140,7 +140,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>tenantIdIn</td>
-    <td>Only include jobs which belong to one of the passed and comma-separated tenant ids.</td>
+    <td>Only include jobs which belong to one of the given list of tenant ids. Must be a JSON array of Strings.</td>
   </tr>
   <tr>
     <td>withoutTenantId</td>
