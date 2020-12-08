@@ -50,7 +50,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>processInstanceIds</td>
-    <td>Only select jobs which exist for the given list of process instance ids. Must be a JSON array of Strings.</td>
+    <td>Only select jobs which exist for the given a JSON array of process instance ids.</td>
   </tr>
   <tr>
     <td>executionId</td>
