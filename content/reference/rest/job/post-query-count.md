@@ -38,7 +38,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>jobIds</td>
-    <td>Filter by list of job ids. Must be a JSON array of Strings.</td>
+    <td>Filter by a JSON array of job ids.</td>
   </tr>
   <tr>
     <td>jobDefinitionId</td>
