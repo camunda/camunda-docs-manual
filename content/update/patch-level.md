@@ -8,11 +8,11 @@ menu:
     name: "Patch Level Update"
     identifier: "migration-guide-patch"
     parent: "migration-guide"
-    pre: "Guides you through a patch level update (Example: `7.3.2` to `7.3.3`)."
+    pre: "Guides you through a patch level update (Example: `7.14.2` to `7.14.3`)."
 
 ---
 
-This guide explains how to perform a patch level update. The *patch level* is the version number "after the second dot". Example: update from `7.3.2` to `7.3.3`.
+This guide explains how to perform a patch level update. The *patch level* is the version number "after the second dot". Example: update from `7.14.2` to `7.14.3`.
 
 {{< enterprise >}}
 Please note that Patch Level Updates are only provided to enterprise customers, they are not available in the community edition.
@@ -454,6 +454,13 @@ The following list is an overview of all currently available patch scripts:
       <td>
         <a href="https://jira.camunda.com/browse/CAM-12590">CAM-12590</a>
       </td>
+    </tr>
+    <tr>
+      <td>7.14</td>
+      <td>engine_7.14_patch_7.14.2_to_7.14.3.sql</td>
+      <td>Re-define ACT_IDX_JOB_HANDLER index to make it work with <a href="https://docs.oracle.com/en/database/oracle/oracle-database/18/spuss/enabling-the-new-extended-data-type-capability.html">extended data types</a> on Oracle.</td>
+      <td>Oracle</td>
+      <td><a href="https://jira.camunda.com/browse/CAM-12832">CAM-12832</a></td>
     </tr>
   </tbody>
 </table>
