@@ -262,7 +262,7 @@ After starting Camunda BPM Run, you can access the webapps via https://localhost
 Camunda BPM provides fine-grained and customizable logging. An overview of the available logging categories can be found in the [Logging User Guide]({{< ref "/user-guide/logging.md#process-engine" >}}).
 To configure the logging behavior in Camunda BPM Run, customize your configuration file with the following properties.
 
-For more information on logging configuration visit the [Spring Boot Logging Guide](https://howtodoinjava.com/spring-boot2/logging/configure-logging-application-yml/).
+For more information on logging configuration visit the [Spring Boot Logging Guide](https://docs.spring.io/spring-boot/docs/2.4.0/reference/html/spring-boot-features.html#boot-features-logging).
 
 <table class="table desc-table">
   <tr>
