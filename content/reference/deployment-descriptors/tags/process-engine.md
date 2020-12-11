@@ -875,7 +875,7 @@ The following is a list with the most commonly used process engine configuration
     <td><code>telemetryRequestTimeout</code></td>
     <td>Integer</td>
     <td>
-        Sets the request timeout configuration in millisecodns of the telemetry request.
+        Sets the request timeout configuration in milliseconds of the telemetry request.
         Default value: <code>15000</code> (15 s)
     </td>
   </tr>
