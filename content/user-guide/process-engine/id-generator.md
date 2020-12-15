@@ -32,7 +32,7 @@ This id generator is good for debugging and testing since it generates human rea
 
 # The UUID Generator
 
-The StrongUuidGenerator uses a UUID generator which uses the  [Java UUID Generator (JUG)][1] library
+The StrongUuidGenerator uses a UUID generator which uses the [Java UUID Generator (JUG)][1] library
 internally.
 
 {{< note title="" class="warning" >}}
