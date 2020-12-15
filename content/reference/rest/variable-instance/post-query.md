@@ -94,7 +94,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>tenantIdIn</td>
-    <td>Only include variable instances which belong to one of the passed and comma-separated tenant ids.</td>
+    <td>Only include variable instances which belong to one of the passed  tenant ids.</td>
   </tr>
   <tr>
     <td>variableValues</td>
@@ -220,6 +220,11 @@ A JSON array of variable instance objects. Each variable instance object has the
     <td>tenantId</td>
     <td>String</td>
     <td>The id of the tenant that this variable instance belongs to.</td>
+  </tr>
+  <tr>
+    <td>errorMessage</td>
+    <td>String</td>
+    <td>An error message in case a Java Serialized Object could not be de-serialized.</td>
   </tr>
 </table>
 

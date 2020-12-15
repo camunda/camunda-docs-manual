@@ -47,11 +47,11 @@ GET `/variable-instance/count`
   </tr>
   <tr>
     <td>caseInstanceIdIn</td>
-    <td>Only include variable instances which belong to one of the passed case instance ids.</td>
+    <td>Only include variable instances which belong to one of the passed and comma-separated case instance ids.</td>
   </tr>
   <tr>
     <td>caseExecutionIdIn</td>
-    <td>Only include variable instances which belong to one of the passed case execution ids.</td>
+    <td>Only include variable instances which belong to one of the passed and comma-separated case execution ids.</td>
   </tr>
   <tr>
     <td>taskIdIn</td>

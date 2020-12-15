@@ -48,11 +48,11 @@ GET `/variable-instance`
   </tr>
   <tr>
     <td>caseInstanceIdIn</td>
-    <td>Only include variable instances which belong to one of the passed case instance ids.</td>
+    <td>Only include variable instances which belong to one of the passed and comma-separated case instance ids.</td>
   </tr>
   <tr>
     <td>caseExecutionIdIn</td>
-    <td>Only include variable instances which belong to one of the passed case execution ids.</td>
+    <td>Only include variable instances which belong to one of the passed and comma-separated case execution ids.</td>
   </tr>
   <tr>
     <td>taskIdIn</td>
@@ -200,6 +200,11 @@ A JSON array of variable instance objects. Each variable instance object has the
     <td>tenantId</td>
     <td>String</td>
     <td>The id of the tenant that this variable instance belongs to.</td>
+  </tr>
+  <tr>
+    <td>errorMessage</td>
+    <td>String</td>
+    <td>An error message in case a Java Serialized Object could not be de-serialized.</td>
   </tr>
 </table>
 
