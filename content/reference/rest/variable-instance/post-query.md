@@ -94,7 +94,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>tenantIdIn</td>
-    <td>Only include variable instances which belong to one of the passed  tenant ids.</td>
+    <td>Only include variable instances which belong to one of the passed tenant ids.</td>
   </tr>
   <tr>
     <td>variableValues</td>
