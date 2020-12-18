@@ -288,7 +288,8 @@ Request Body:
         "taskId": null,
         "batchId": null,
         "activityInstanceId": "Task_1:b68b71ca-e310-11e2-beb0-f0def1557726",
-        "tenantId": null
+        "tenantId": null,
+        "errorMessage": null
       },
       {
         "id": "someOtherId",
@@ -301,7 +302,8 @@ Request Body:
         "taskId": null,
         "batchId": null,
         "activityInstanceId": "Task_1:b68b71ca-e310-11e2-beb0-f0def1557726",
-        "tenantId": null
+        "tenantId": null,
+        "errorMessage": null
       },
       {
         "id": "yetAnotherId",
@@ -314,6 +316,7 @@ Request Body:
         "taskId": null,
         "batchId": null,
         "activityInstanceId": "Task_2:b68b71ca-e310-11e2-beb0-f0def1557726",
-        "tenantId": null
+        "tenantId": null,
+        "errorMessage": null
       }
     ]

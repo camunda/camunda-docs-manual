@@ -252,7 +252,8 @@ GET `/variable-instance?processInstanceIdIn=aProcessInstanceId,anotherProcessIns
         "activityInstanceId": "Task_1:b68b71ca-e310-11e2-beb0-f0def1557726",
         "caseExecutionId": null,
         "caseInstanceId": null,
-        "tenantId": null
+        "tenantId": null,
+        "errorMessage": null
       },
       {
         "id": "someOtherId",
@@ -267,7 +268,8 @@ GET `/variable-instance?processInstanceIdIn=aProcessInstanceId,anotherProcessIns
         "activityInstanceId": "Task_1:b68b71ca-e310-11e2-beb0-f0def1557726",
         "caseExecutionId": null,
         "caseInstanceId": null,
-        "tenantId": null
+        "tenantId": null,
+        "errorMessage": null
       },
       {
         "id": "yetAnotherId",
@@ -282,6 +284,7 @@ GET `/variable-instance?processInstanceIdIn=aProcessInstanceId,anotherProcessIns
         "activityInstanceId": "Task_2:b68b71ca-e310-11e2-beb0-f0def1557726",
         "caseExecutionId": null,
         "caseInstanceId": null,
-        "tenantId": null
+        "tenantId": null,
+        "errorMessage": null
       }      
     ]
