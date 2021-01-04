@@ -69,5 +69,5 @@ Additionally, you need the following maven dependency:
 </dependency>
 ```
 
-[1]: http://wiki.fasterxml.com/JugHome
+[1]: https://mvnrepository.com/artifact/com.fasterxml.uuid/java-uuid-generator
 [2]: {{< ref "/introduction/downloading-camunda.md#full-distribution" >}}
