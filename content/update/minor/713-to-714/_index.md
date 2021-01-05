@@ -22,7 +22,6 @@ This document guides you through the update from Camunda BPM `7.13.x` to `7.14.0
 1. For developers: [Update to JQuery 3.5](#update-to-jquery-3-5)
 1. For developers: [Changes to Task Query and Historic Task Query behavior](#changes-to-task-query-and-historic-task-query-behavior)
 1. For developers: [New Engine Dependency - Connect](#new-engine-dependency-connect)
-1. For developers: [Cockpit Style Customizations](#cockpit-style-customizations)
 1. For developers: [Changes to the Cockpit Config File](#changes-to-the-cockpit-config-file)
 1. For developers: [New Frontend Plugin System for Cockpit](#new-frontend-plugin-system-for-cockpit)
 1. For developers: [End of Spring 3 Support](#end-of-spring-3-support)
@@ -182,31 +181,6 @@ Camunda Connect dependency has been added to the process engine (`camunda-engine
 
 In case you already have a [Connect]({{< ref "/reference/connect/_index.md#maven-coordinates" >}}) dependencies to some of your projects, please consider consolidating the version of them with one that comes as dependency with the engine. That will prevent inconsistencies on the system. Please note that the Connect process engine plugin is still an optional dependency.
 
-
-# Cockpit Style Customizations
-Some of the CSS classes in Cockpit changed. If you customized the header, you need to adjust your `user-styles.css` file.
-
-```css
-/* hides the Camunda logo */
-.app-banner svg {
-  display: none;
-}
-.app-banner {
-  /* hides the "Camunda Cockpit" text */
-  text-indent: 200vw;;
-  /* put your logo */
-  background-image: url(./path/to/the/logo.png);
-  /* sets the width to match the logo's width */
-  width: 80px;
-}
-
-/* changes the header top border color  */
-.Header {
-  border-top-color: blue !important;
-}
-```
-
-Going forward, all style customizations should be made in the `user-styles.css`. Building the webapps from source with grunt will no longer include cockpit specific styles. You can still use `less` to write your adjustments and use the output in the `user-styles.css`.
 
 # Changes to the Cockpit Config File
 The structure of the `config.js` file, located in the `app/cockpit/scripts/` directory of the webapps, changed slightly. It is now a Javascript module. If you have customized the config file, replace the line 
