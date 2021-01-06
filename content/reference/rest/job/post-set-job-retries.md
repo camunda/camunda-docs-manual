@@ -89,7 +89,7 @@ POST `/job/retries`
 Request Body:
 
     {
-      "retries" : numberOfRetries,
+      "retries" : 5,
       "jobIds": ["aJob","secondJob"],
       "jobQuery": {
         "dueDates":
