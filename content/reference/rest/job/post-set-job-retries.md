@@ -122,6 +122,7 @@ Status 200 OK
   "monitorJobDefinitionId": "aMonitorJobDefinitionId",
   "batchJobDefinitionId": "aBatchJobDefinitionId",
   "suspened": false,
-  "tenantId": "aTenantId"
+  "tenantId": "aTenantId",
+  "createUserId": "userId"
 }
 ```

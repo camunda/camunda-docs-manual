@@ -176,7 +176,7 @@ A JSON object with the following properties:
         </tr>
         <tr>
           <td>sortBy</td>
-          <td><b>Mandatory.</b> Sort the results by a given criterion. Valid values are <code>jobId</code>, <code>executionId</code>, <code>processInstanceId</code>, <code>jobPriority</code>, <code>jobRetries</code>, <code>jobDueDate</code> and <code>tenantId</code>.</td>
+          <td><b>Mandatory.</b> Sort the results by a given criterion. Valid values are <code>jobId</code>, <code>executionId</code>, <code>processInstanceId</code>, <code>processDefinitionId</code>, <code>processDefinitionKey</code>, <code>jobPriority</code>, <code>jobRetries</code>, <code>jobDueDate</code> and <code>tenantId</code>.</td>
         </tr>
         <tr>
           <td>sortOrder</td>
