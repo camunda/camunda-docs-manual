@@ -104,8 +104,7 @@ A JSON object with the following properties:
   <tr>
     <td>dueDates</td>
     <td>Only select jobs where the due date is lower or higher than the given date.
-    Due date expressions are given in an array and are structured as follows:<br/>
-    A valid condition value has the form <code>operator_value</code>.
+    Due date expressions are given in an array of objects that have two properties `operator` and `value`.<br/>
     <code>operator</code> is the comparison operator to be used and <code>value</code> the date value as string.<br/>
     <br/>
     Valid operator values are: <code>gt</code> - greater than; <code>lt</code> - lower than.<br/>
@@ -115,8 +114,7 @@ A JSON object with the following properties:
   <tr>
     <td>createTimes</td>
     <td>Only select jobs created before or after the given date.
-    Create time expressions are given in an array and are structured as follows:<br/>
-    A valid condition value has the form <code>operator_value</code>.
+    Create time expressions are given in an array of objects that have two properties `operator` and `value`.<br/>
     <code>operator</code> is the comparison operator to be used and <code>value</code> the date value as string.<br/>
     <br/>
     Valid operator values are: <code>gt</code> - greater than; <code>lt</code> - lower than.<br/>
@@ -178,7 +176,7 @@ A JSON object with the following properties:
         </tr>
         <tr>
           <td>sortBy</td>
-          <td><b>Mandatory.</b> Sort the results by a given criterion. Valid values are <code>jobId</code>, <code>executionId</code>, <code>processInstanceId</code>, <code>jobPriority</code>, <code>jobRetries</code>, <code>jobDueDate</code> and <code>tenantId</code>.</td>
+          <td><b>Mandatory.</b> Sort the results by a given criterion. Valid values are <code>jobId</code>, <code>executionId</code>, <code>processInstanceId</code>, <code>processDefinitionId</code>, <code>processDefinitionKey</code>, <code>jobPriority</code>, <code>jobRetries</code>, <code>jobDueDate</code> and <code>tenantId</code>.</td>
         </tr>
         <tr>
           <td>sortOrder</td>

@@ -87,8 +87,7 @@ A JSON object with the following properties:
   <tr>
     <td>dueDates</td>
     <td>Only select jobs where the due date is lower or higher than the given date.
-    Due date expressions are given in an array and are structured as follows:<br/>
-    A valid condition value has the form <code>operator_value</code>.
+    Due date expressions are given in an array of objects that have two properties `operator` and `value`.<br/>
     <code>operator</code> is the comparison operator to be used and <code>value</code> the date value as string.<br/>
     <br/>
     Valid operator values are: <code>gt</code> - greater than; <code>lt</code> - lower than.<br/>
@@ -98,8 +97,7 @@ A JSON object with the following properties:
   <tr>
     <td>createTimes</td>
     <td>Only select jobs created before or after the given date.
-    Create time expressions are given in an array and are structured as follows:<br/>
-    A valid condition value has the form <code>operator_value</code>.
+    Create time expressions are given in an array of objects that have two properties `operator` and `value`.<br/>
     <code>operator</code> is the comparison operator to be used and <code>value</code> the date value as string.<br/>
     <br/>
     Valid operator values are: <code>gt</code> - greater than; <code>lt</code> - lower than.<br/>
@@ -187,7 +185,7 @@ A JSON object that contains the count as the only property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for due date comparison is used. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example, if an invalid operator for due date comparison is used. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

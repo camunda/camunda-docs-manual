@@ -89,7 +89,7 @@ POST `/job/retries`
 Request Body:
 
     {
-      "retries" : numberOfRetries,
+      "retries" : 5,
       "jobIds": ["aJob","secondJob"],
       "jobQuery": {
         "dueDates":
@@ -122,6 +122,7 @@ Status 200 OK
   "monitorJobDefinitionId": "aMonitorJobDefinitionId",
   "batchJobDefinitionId": "aBatchJobDefinitionId",
   "suspened": false,
-  "tenantId": "aTenantId"
+  "tenantId": "aTenantId",
+  "createUserId": "userId"
 }
 ```
