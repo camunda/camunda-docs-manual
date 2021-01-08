@@ -606,6 +606,54 @@ The following modules are dependent on the newly introduced `feel-engine` module
 
 [FEEL Engine]: {{<ref "/user-guide/dmn-engine/feel/_index.md" >}}
 
+## 7.13.9 to 7.13.10 / 7.12.15 to 7.12.16
+
+### Update of MySQL JDBC Driver in Camunda Docker Images
+
+With this release, the docker images contain a new version of the MySQL JDBC Driver.
+
+Old Version: 5.1.21\
+New Version: 8.0.22
+
+#### Behavior Changes
+
+The driver's new version has two significant behavioral changes you should take care of when migrating 
+your Docker-based Camunda Runtime installation.
+
+You don't want to migrate to the new version? You can replace the new MySQL JDBC Driver with the old one
+to restore the previous behavior. To do so, you can create a new `Dockerfile` based on one of our official 
+docker images and add your custom commands to replace the MySQL JDBC Driver.
+
+##### Milliseconds Precision for Date/Time values
+
+The new version of the Driver changes how a date/time value is handled. Please make sure to configure 
+the Driver as described in [MySQL Database Configuration]({{< ref "/user-guide/process-engine/database.md#configuration-for-mysql" >}})
+to avoid breaking behavior.
+
+##### Changed Time Zone Handling
+
+In case the process engine and the MySQL Server operate in different time zones, and you use the 
+MySQL JDBC Driver's default configuration, migrating to the new release leads to a wrong conversion of 
+date values (e.g., the due date of a task can change).
+
+You can configure the driver to convert date values from and to the MySQL Server into the time zone 
+in which the process engine/JVM operates. This ensures that values that were stored before the migration 
+are returned correctly after the migration and date values are stored correctly after the migration. 
+You can achieve this by specifying the correct time zone via the property [`serverTimeZone`](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-connp-props-datetime-types-processing.html#cj-conn-prop_serverTimezone) in your JDBC connection URL.\
+For instance, if your process engine operates in CET but your MySQL Server does not, set the property to `serverTimeZone=CET`.
+
+{{< note title="Heads-up!" class="info" >}}
+Changing the time zone of the MySQL Server to the one the process engine operates in can have unwanted side-effects 
+to date values that are stored in columns of type `TIMESTAMP`: MySQL converts `TIMESTAMP` values from the server time zone 
+to UTC for storage, and back from UTC to the current time zone for retrieval. Read more about it in the 
+[MySQL Docs](https://dev.mysql.com/doc/refman/5.6/en/datetime.html).
+{{< /note >}}
+
+#### Further Reading
+
+* [Change Docker Environment Variables](https://github.com/camunda/docker-camunda-bpm-platform/tree/7.15#database-environment-variables)
+* [MySQL Connector/J 8.0 Migration Guide](https://dev.mysql.com/doc/connectors/en/connector-j-upgrading-to-8.0.html)
+
 # Full Distribution
 
 This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.
