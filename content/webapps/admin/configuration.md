@@ -38,6 +38,18 @@ and can override the standard styles.
 }
 ```
 
+**Note:** you can also change the app name (*Admin*) and vendor (*Camunda*)
+by changing the `app/admin/scripts/config.js` configuration file as follow:
+
+```js
+// …
+app: {
+  name: 'Admin',
+  vendor: 'Company'
+},
+// …
+```
+
 # Localization
 
 The localization of Admin is contained in the `app/admin/locales/` directory. This
