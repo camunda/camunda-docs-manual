@@ -24,7 +24,7 @@ and can override the standard styles.
 }
 .app-banner {
   /* hides the "Camunda Cockpit" text */
-  text-indent: 200vw;;
+  text-indent: 200vw;
   /* put your logo */
   background-image: url(./path/to/the/logo.png);
   /* sets the width to match the logo's width */
@@ -36,6 +36,19 @@ and can override the standard styles.
   border-top-color: blue !important;
 }
 ```
+
+**Note:** you can also change the app name (*Cockpit*) and vendor (*Camunda*)
+by changing the `app/cockpit/scripts/config.js` configuration file as follow:
+
+```js
+// …
+app: {
+  name: 'Operations',
+  vendor: 'Company'
+},
+// …
+```
+
 # Localization
 
 The localization of Cockpit is contained in the `app/cockpit/locales/` directory. This

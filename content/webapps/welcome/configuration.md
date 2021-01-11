@@ -35,6 +35,40 @@ window.camWelcomeConf = {
 };
 ```
 
+# Logo and Header Color
+
+To change visual aspects of Welcome, you can edit the user stylesheet file located in
+`app/welcome/styles/user-styles.css`. This file contains CSS which is loaded into Welcome
+and can override the standard styles.
+
+```css
+.navbar-brand {
+  /* hides the "Camunda Welcome" text */
+  text-indent: -999em;
+  /* put your logo */
+  background-image: url(./path/to/the/logo.png);
+  /* sets the width to match the logo's width */
+  width: 80px;
+}
+
+/* changes the header bottom border color  */
+[cam-widget-header] {
+  border-bottom-color: blue;
+}
+```
+
+**Note:** you can also change the app name (*Welcome*) and vendor (*Camunda*)
+by changing the `app/welcome/scripts/config.js` configuration file as follow:
+
+```js
+// …
+app: {
+  name: 'Welcome',
+  vendor: 'Company'
+},
+// …
+```
+
 # Localization
 
 The localization of the Welcome application is contained in the `app/welcome/locales/` directory. This
