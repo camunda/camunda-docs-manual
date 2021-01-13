@@ -114,6 +114,7 @@ To declare a Service Task to be handled externally, the attribute `camunda:type`
   <tr>
     <th>Extension Elements</th>
     <td>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#erroreventdefinition" >}}">camunda:errorEventDefinition</a>,
       <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#failedjobretrytimecycle" >}}">camunda:failedJobRetryTimeCycle</a>,
       <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#field" >}}">camunda:field</a>,
       <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#connector" >}}">camunda:connector</a>,
@@ -151,6 +152,12 @@ To declare a Service Task to be handled externally, the attribute `camunda:type`
     <td></td>
     <td>
       The attribute <code>camunda:taskPriority</code> can only be used when the <code>camunda:type</code> attribute is set to <code>external</code>.
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      The element <code>camunda:errorEventDefinition</code> can only be used as a child of <code>serviceTask</code> when the <code>camunda:type</code> attribute is set to <code>external</code>.
     </td>
   </tr>
 </table>
