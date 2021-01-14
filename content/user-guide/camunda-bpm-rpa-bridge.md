@@ -318,6 +318,26 @@ The bot might return more variables which will be ignored in this case.
 </bpmn:serviceTask>
 ```
 
+## Error Handling
+
+In the case that not everything works as expected and an RPA bot fails for any reason, you might want to react to the failure by throwing a BPMN error.
+You can do that by adding the [camunda:errorEventDefinition]({{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#erroreventdefinition" >}}) extension element.
+Note that compared to the `bpmn:errorEventDefinition`, `camunda:errorEventDefinition` elements accept an additional `expression` attribute which supports any JUEL expression. Additionally, within the expression you have access to the externalTaskEntity object like shown in the example below.
+
+You can use this feature regardless of the outcome of the RPA bot. Even if the bot was executed successfully, you can still decide to throw a BPMN error. Also note, that
+the RPA bots variables are available for mapping and error handling via `camunda:errorEventDefinition` as well even if the bot failed.
+
+```xml
+<bpmn:serviceTask id="myRPAtask" name="GenerateReceipt" camunda:type="external" camunda:topic="RPA">
+  <bpmn:extensionElements>
+    <camunda:errorEventDefinition id="myErrorEventDefinition" errorRef="myError" expression="${externalTask.getErrorMessage() == 'myErrorMessage'}" />
+    <camunda:properties>
+      <camunda:property name="bot" value="PrintReceipt" />
+    </camunda:properties>
+  </bpmn:extensionElements>
+</bpmn:serviceTask>
+```
+
 # API Usage
 
 When connected to UiPath, the bridge will use the following API endpoints:

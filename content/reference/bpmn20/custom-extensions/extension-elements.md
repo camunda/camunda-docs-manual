@@ -177,6 +177,44 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
+# errorEventDefinition
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td colspan="2">
+      Definition of an error event that can be triggered by an expression.
+      This element extends the
+      <a href="{{< ref "/reference/bpmn20/events/error-events.md#defining-an-error" >}}">errorEventDefinition</a>
+      element from the bpmn namespace inheriting all of its attributes: <code>id</code>, <code>errorRef</code>
+    </td>
+  </tr>
+  <tr>
+    <th>Attributes</th>
+    <td><code>expression</code></td>
+    <td>
+      An expression that will trigger the error if it evaluates to <code>true</code>.
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td colspan="2">
+      The <code>errorRef</code> attribute is required
+    </td>
+  </tr>
+  <tr>
+    <th>Parent elements</th>
+    <td colspan="2">
+      <a href="{{< ref "/reference/bpmn20/tasks/service-task.md" >}}">Service Task</a> of type <code>external</code>
+    </td>
+  </tr>
+  <tr>
+    <th>Child elements</th>
+    <td colspan="2">
+      &ndash;
+    </td>
+  </tr>
+</table>
 
 # executionListener
 

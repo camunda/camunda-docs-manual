@@ -65,6 +65,17 @@ A JSON object with the following properties:
     <td>retryTimeout</td>
     <td>A timeout in milliseconds before the external task becomes available again for fetching. Must be >= 0.</td>
   </tr>
+    <tr>
+    <td>variables</td>
+    <td><p>A JSON object containing variable key-value pairs. Each key is a variable name and each value a JSON variable value object with the following properties:</p>
+    {{< rest-var-request transient="true" >}}</td>
+  </tr>
+  <tr>
+    <td>localVariables</td>
+    <td><p>A JSON object containing variable key-value pairs. Each key is a variable name and each value a JSON variable value object with the following properties:</p>
+    <p>Local variables are set only in the scope of external task.</p>
+    {{< rest-var-request transient="true" >}}</td>
+  </tr>
 </table>
 
 
