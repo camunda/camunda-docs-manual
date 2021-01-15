@@ -40,7 +40,7 @@ To ensure correct behavior of the process engine when sending date/time values, 
 You can avoid sending milliseconds to the MySQL Server in these versions by setting [`sendFractionalSeconds=false`][mysql-fract-secs] 
 in your JDBC connection URL.
 
-Please find below examples of unwanted behavior that occurs when deciding against setting the flag `sendFractionalSeconds=false`:
+Please find below examples of unwanted behavior that occurs, in case the flag `sendFractionalSeconds=false` is not provided:
 
 * When a user performs a task query with `due date == 2021-01-01 15:00:46.731`, the query returns 
   results equal to `2021-01-01 15:00:46.731`. However, since the engine's [database schema does not store
