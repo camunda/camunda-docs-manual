@@ -620,24 +620,38 @@ The following modules are dependent on the newly introduced `feel-engine` module
 With this release, the docker images contain a new version of the MySQL JDBC Driver.
 
 Old Version: 5.1.21\
-New Version: 8.0.22
+New Version: 8.0.23
 
 #### Behavior Changes
 
 The driver's new version has two significant behavioral changes you should take care of when migrating 
 your Docker-based Camunda Runtime installation.
 
+##### Downgrade to 5.1.21
+
 You don't want to migrate to the new version? You can replace the new MySQL JDBC Driver with the old one
 to restore the previous behavior. To do so, you can create a new `Dockerfile` based on one of our official 
 docker images and add your custom commands to replace the MySQL JDBC Driver.
 
-##### Milliseconds Precision for Date/Time values
+For the Wildfly image, additionally make sure to adjust the data source class in the `standalone.xml` 
+file located under `/camunda/standalone/configuration/` from `com.mysql.cj.jdbc.MysqlXADataSource` back to 
+`com.mysql.jdbc.jdbc2.optional.MysqlXADataSource`:
+
+```xml
+<!-- ... -->
+<driver name="mysql" module="mysql.mysql-connector-java">
+    <xa-datasource-class>com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</xa-datasource-class>
+</driver>
+<!-- ... -->
+```
+
+##### 1) Milliseconds Precision for Date/Time values
 
 The new version of the Driver changes how a date/time value is handled. Please make sure to configure 
 the Driver as described in [MySQL Database Configuration]({{< ref "/user-guide/process-engine/database/mysql-configuration.md" >}})
 to avoid breaking behavior.
 
-##### Changed Time Zone Handling
+##### 2) Changed Time Zone Handling
 
 In case the process engine and the MySQL Server operate in different time zones, and you use the 
 MySQL JDBC Driver's default configuration, migrating to the new release leads to a wrong conversion of 
