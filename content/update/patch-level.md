@@ -672,7 +672,7 @@ to UTC for storage, and back from UTC to the current time zone for retrieval. Re
 
 #### Further Reading
 
-* [Change Docker Environment Variables](https://github.com/camunda/docker-camunda-bpm-platform/tree/7.15#database-environment-variables)
+* [Change Docker Environment Variables](https://github.com/camunda/docker-camunda-bpm-platform/tree/7.14#database-environment-variables)
 * [MySQL Connector/J 8.0 Migration Guide](https://dev.mysql.com/doc/connectors/en/connector-j-upgrading-to-8.0.html)
 
 # Full Distribution
