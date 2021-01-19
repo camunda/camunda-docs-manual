@@ -53,10 +53,11 @@ A JSON object with the following properties:
     <td>configuration</td>
     <td>A configuration for the new incident.</td>
   </tr>
+  <tr>
     <td>message</td>
     <td>A message for the new incident.</td>
   </tr>
-  <tr>
+  
 </table>
 
 
@@ -104,6 +105,11 @@ A JSON object that represents an incident object with the following properties:
     <td>activityId</td>
     <td>String</td>
     <td>The id of the activity this incident is associated with.</td>
+  </tr>
+  <tr>
+    <td>failedActivityId</td>
+    <td>String</td>
+    <td>The id of the activity on which the last exception occurred.</td>
   </tr>
   <tr>
     <td>causeIncidentId</td>
