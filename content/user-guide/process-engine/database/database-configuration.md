@@ -52,7 +52,7 @@ Alternatively, a `javax.sql.DataSource` implementation can be used (e.g., DBCP f
 ```xml
 <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" >
   <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-  <property name="url" value="jdbc:mysql://localhost:3306/camunda" />
+  <property name="url" value="jdbc:mysql://localhost:3306/camunda?sendFractionalSeconds=false" />
   <property name="username" value="camunda" />
   <property name="password" value="camunda" />
   <property name="defaultAutoCommit" value="false" />
@@ -81,7 +81,7 @@ The following properties can be set, regardless of whether you are using the JDB
 Here are some sample JDBC urls:
 
 * H2: `jdbc:h2:tcp://localhost/camunda`
-* MySQL: `jdbc:mysql://localhost:3306/camunda?autoReconnect=true`
+* MySQL: `jdbc:mysql://localhost:3306/camunda?autoReconnect=true&sendFractionalSeconds=false`
 * Oracle: `jdbc:oracle:thin:@localhost:1521:xe`
 * PostgreSQL: `jdbc:postgresql://localhost:5432/camunda`
 * DB2: `jdbc:db2://localhost:50000/camunda`
