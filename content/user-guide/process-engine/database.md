@@ -178,7 +178,7 @@ Alternatively, a `javax.sql.DataSource` implementation can be used (e.g., DBCP f
 ```xml
 <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" >
   <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-  <property name="url" value="jdbc:mysql://localhost:3306/camunda" />
+  <property name="url" value="jdbc:mysql://localhost:3306/camunda?sendFractionalSeconds=false" />
   <property name="username" value="camunda" />
   <property name="password" value="camunda" />
   <property name="defaultAutoCommit" value="false" />
@@ -207,7 +207,7 @@ The following properties can be set, regardless of whether you are using the JDB
 Here are some sample JDBC urls:
 
 * H2: `jdbc:h2:tcp://localhost/camunda`
-* MySQL: `jdbc:mysql://localhost:3306/camunda?autoReconnect=true`
+* MySQL: `jdbc:mysql://localhost:3306/camunda?autoReconnect=true&sendFractionalSeconds=false`
 * Oracle: `jdbc:oracle:thin:@localhost:1521:xe`
 * PostgreSQL: `jdbc:postgresql://localhost:5432/camunda`
 * DB2: `jdbc:db2://localhost:50000/camunda`
@@ -375,3 +375,48 @@ Another possible negative effects:
  * duplication of history cleanup job when calling `HistoryService#cleanUpHistoryAsync` from two threads simultaneously
 2. Duplicate checking during deployment does not work if resources are deployed in a cluster concurrently. Concrete impact: suppose there is a Camunda process engine cluster which connects to the same Galera cluster. On deployment of a new process application the process engine nodes will check if the BPMN processes provided by the process application are already deployed, to avoid duplicate deployments. If the deployment is done simultaneously on multiple process engine nodes an exclusive read lock is acquired on the the database (technically, this means that each node performs an SQL `select for update` query.), to do the duplicate checking reliably under concurrency. This does not work on Galera Cluster and may lead to multiple versions of the same process being deployed.
 3. The `jdbcStatementTimeout` configuration setting does not work and cannot be used.
+
+## Configuration for MySQL 
+
+This section documents the supported MySQL configuration. 
+
+### Database Schema
+
+The engine's MySQL database schema does not support milliseconds precision for the column types `TIMESTAMP` and `DATETIME`: 
+I.e., a to be stored value is rounded to the next or previous second, e.g., `2021-01-01 15:00:46.731` is rounded to `2021-01-01 15:00:47`.
+
+{{< note title="Heads Up!" class="info" >}}
+The missing millisecond’s precision for date/time values impacts the process engine's behavior. 
+Please read [how to configure the MySQL JDBC Driver]({{< ref "#jdbc-driver-configuration" >}}) 
+to ensure that date/time values are handled correctly.
+{{< /note >}}
+
+### JDBC Driver Configuration
+
+Here you can find the MySQL JDBC Driver’s configuration prerequisites to ensure a frictionless behavior
+of the process engine.
+
+#### Disable sending milliseconds for date/time values
+
+{{< note title="Heads Up!" class="info" >}}
+This configuration flag is mandatory to avoid unexpected behavior when operating the process engine with MySQL.
+{{< /note >}}
+
+When sending a date/time value as part of any SQL statement to the database, the MySQL JDBC Driver >= 5.1.23 sends milliseconds. 
+This behavior is problematic since the engine's MySQL database [schema does not support milliseconds precision for date/time values][mysql-schema-milliseconds].
+
+To ensure correct behavior of the process engine when sending date/time values, make sure to update your MySQL JDBC Driver to a version >= 5.1.37.
+You can avoid sending milliseconds to the MySQL Server in these versions by setting [`sendFractionalSeconds=false`][mysql-fract-secs] 
+in your JDBC connection URL.
+
+Please find below examples of unwanted behavior that occurs, in case the flag `sendFractionalSeconds=false` is not provided:
+
+* When a user performs a task query with `due date == 2021-01-01 15:00:46.731`, the query returns 
+  results equal to `2021-01-01 15:00:46.731`. However, since the engine's [database schema does not store
+  milliseconds][mysql-schema-milliseconds], no result is returned.
+* When a user sets a due date to a task, the value is rounded to the next or previous second, 
+  e.g., `2021-01-01 15:00:46.731` is rounded to `2021-01-01 15:00:47`. Please also see the official [MySQL documentation](https://dev.mysql.com/doc/refman/5.6/en/fractional-seconds.html).
+
+[mysql-schema-milliseconds]: {{< ref "#database-schema-1" >}}
+[mysql-fract-secs]: https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-connp-props-datetime-types-processing.html#cj-conn-prop_sendFractionalSeconds
+
