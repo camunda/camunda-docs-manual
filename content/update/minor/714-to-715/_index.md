@@ -90,3 +90,63 @@ With this release, the implementation of <code>[TaskService#handleBpmnError][jav
 
 [javadocs-taskservice-handleBpmnError]:https://docs.camunda.org/javadoc/camunda-bpm-platform/7.15/org/camunda/bpm/engine/TaskService.html#handleBpmnError-java.lang.String-java.lang.String-
 [user-task-reference]: {{< ref "/reference/bpmn20/tasks/user-task.md#reporting-bpmn-error" >}}
+
+# Update of MySQL JDBC Driver in Camunda Docker Images
+
+With this release, the docker images contain a new version of the MySQL JDBC Driver.
+
+Old Version: 5.1.21\
+New Version: 8.0.23
+
+## Behavior Changes
+
+The driver's new version has two significant behavioral changes you should take care of when migrating 
+your Docker-based Camunda Runtime installation.
+
+### Downgrade to 5.1.21
+
+You don't want to migrate to the new version? You can replace the new MySQL JDBC Driver with the old one
+to restore the previous behavior. To do so, you can create a new `Dockerfile` based on one of our official 
+docker images and add your custom commands to replace the MySQL JDBC Driver.
+
+For the Wildfly image, additionally make sure to adjust the data source class in the `standalone.xml` 
+file located under `/camunda/standalone/configuration/` from `com.mysql.cj.jdbc.MysqlXADataSource` back to 
+`com.mysql.jdbc.jdbc2.optional.MysqlXADataSource`:
+
+```xml
+<!-- ... -->
+<driver name="mysql" module="mysql.mysql-connector-java">
+    <xa-datasource-class>com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</xa-datasource-class>
+</driver>
+<!-- ... -->
+```
+
+### 1) Milliseconds Precision for Date/Time values
+
+The new version of the Driver changes how a date/time value is handled. Please make sure to configure 
+the Driver as described in [MySQL Database Configuration]({{< ref "/user-guide/process-engine/database/mysql-configuration.md" >}})
+to avoid breaking behavior.
+
+### 2) Changed Time Zone Handling
+
+In case the process engine and the MySQL Server operate in different time zones, and you use the 
+MySQL JDBC Driver's default configuration, migrating to the new release leads to a wrong conversion of 
+date values (e.g., the due date of a task can change).
+
+You can configure the driver to convert date values from and to the MySQL Server into the time zone 
+in which the process engine/JVM operates. This ensures that values that were stored before the migration 
+are returned correctly after the migration and date values are stored correctly after the migration. 
+You can achieve this by specifying the correct time zone via the property [`serverTimeZone`](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-connp-props-datetime-types-processing.html#cj-conn-prop_serverTimezone) in your JDBC connection URL.\
+For instance, if your process engine operates in CET but your MySQL Server does not, set the property to `serverTimeZone=CET`.
+
+{{< note title="Heads-up!" class="info" >}}
+Changing the time zone of the MySQL Server to the one the process engine operates in can have unwanted side-effects 
+to date values that are stored in columns of type `TIMESTAMP`: MySQL converts `TIMESTAMP` values from the server time zone 
+to UTC for storage, and back from UTC to the current time zone for retrieval. Read more about it in the 
+[MySQL Docs](https://dev.mysql.com/doc/refman/5.6/en/datetime.html).
+{{< /note >}}
+
+## Further Reading
+
+* [Change Docker Environment Variables](https://github.com/camunda/docker-camunda-bpm-platform/tree/7.15#database-environment-variables)
+* [MySQL Connector/J 8.0 Migration Guide](https://dev.mysql.com/doc/connectors/en/connector-j-upgrading-to-8.0.html)
