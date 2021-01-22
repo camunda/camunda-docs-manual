@@ -11,11 +11,11 @@ menu:
 
 ---
 
-Each version of the Camunda BPM Platform is bound to a specific version of the **External Task Clients**.
+Each version of the Camunda Platform is bound to a specific version of the **External Task Clients**.
 
 <table class="table table-striped">
   <tr>
-    <th>Camunda BPM version</th>
+    <th>Camunda Platform version</th>
     <th>NodeJs</th>
     <th>Java</th>
   </tr>
@@ -52,4 +52,4 @@ Each version of the Camunda BPM Platform is bound to a specific version of the *
 </table>
 
 Only these default combinations are recommended (and supported) by Camunda. Nevertheless, each version of the External
-Task Clients can be combined with newer patch versions of the Camunda BPM Workflow Engine.
+Task Clients can be combined with newer patch versions of the Camunda Platform Workflow Engine.

@@ -51,7 +51,7 @@ An Authorization assigns a set of Permissions to an identity to interact with a 
 
 ## Identities
 
-Camunda BPM distinguishes between two types of identities: users and groups. Authorizations can either range over all users (userId = ANY), an individual user or a group of users.
+Camunda Platform distinguishes between two types of identities: users and groups. Authorizations can either range over all users (userId = ANY), an individual user or a group of users.
 
 
 ## Permissions
@@ -658,7 +658,7 @@ The feature is disabled by default because of two reasons:
    More complex queries may degrade the performance.
 2. When enabled and an Identity Link is added to a Task, the respective User or Group is authorized
    to read the associated history (e. g. for the Task, Variable, or Identity Link History).
-   For Camunda BPM versions <= 7.12, the history is not readable in this case.
+   For Camunda Platform versions <= 7.12, the history is not readable in this case.
 
 ### Historic Task Permissions
 
@@ -689,11 +689,11 @@ retrieve the entities related to the Historic Process Instance:
 
 # Administrators
 
-Camunda BPM has no explicit concept of "administrator" beyond it being a user who has been granted all authorizations on all resources.
+Camunda Platform has no explicit concept of "administrator" beyond it being a user who has been granted all authorizations on all resources.
 
 ## The "camunda-admin" Group
 
-When downloading the Camunda BPM distribution, the invoice example application creates a group with id `camunda-admin` and grants all authorizations on all resources to this group.
+When downloading the Camunda Platform distribution, the invoice example application creates a group with id `camunda-admin` and grants all authorizations on all resources to this group.
 
 In absense of the demo application, this task is performed by the [Camunda Admin Web Application]({{< ref "/webapps/admin/user-management.md#initial-user-setup" >}}). If the Camunda webapplication is started for the first time and no user exists in the database, it asks you to perform the "initial setup". In this process, the `camunda-admin` group is created and granted all permissions on all resources. 
 

@@ -1,6 +1,6 @@
 ---
 
-title: 'Camunda BPM RPA Bridge License Book'
+title: 'Camunda Platform RPA Bridge License Book'
 weight: 70
 
 menu:
@@ -10,7 +10,7 @@ menu:
 
 ---
 
-This page contains all the third-party libraries distributed with the Camunda BPM RPA Bridge.
+This page contains all the third-party libraries distributed with the Camunda Platform RPA Bridge.
 
 # Backend Dependencies
 

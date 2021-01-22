@@ -1,6 +1,6 @@
 ---
 
-title: 'Camunda BPM RPA Bridge'
+title: 'Camunda Platform RPA Bridge'
 weight: 300
 
 menu:
@@ -30,7 +30,7 @@ To execute RPA bots from Camunda you will need:
 * A [UiPath Orchestrator](https://www.uipath.com/product/orchestrator) instance, either
    * On-Premises v2019 or v2020.4 or 
    * Automation Cloud
-* Camunda BPM 7.14 Enterprise Edition or later
+* Camunda Platform 7.14 Enterprise Edition or later
 * Java 8 or later installed on the machine that runs the Camunda RPA bridge
 
 To design a BPMN model that connects to one or more RPA bots through the bridge, the following tools are very helpful (but not required):
@@ -38,7 +38,7 @@ To design a BPMN model that connects to one or more RPA bots through the bridge,
 * Cawemo 1.4 or later (to create and distribute worker catalogs)
 * Camunda Modeler 4.2 or later (to apply the worker catalog to your process model)
 
-# Camunda BPM RPA Bridge configuration
+# Camunda Platform RPA Bridge configuration
 The bridge is configurable through the `application.yml` file that is included in the provided archive.
 Properties marked with a `'*'` are required to be filled before starting the bridge.
 
@@ -229,11 +229,11 @@ logging.level.<Logger>: DEBUG
   </tr>
   <tr>
     <td><code>org.camunda.bpm.rpa.bridge</code></td>
-    <td>Logs details for all interactions with all external systems (i.e. RPA vendor and Camunda BPM Runtime).</td>
+    <td>Logs details for all interactions with all external systems (i.e. RPA vendor and Camunda Platform Runtime).</td>
   </tr>
   <tr>
     <td><code>org.camunda.bpm.rpa.bridge.externaltask</code></td>
-    <td>Logs details for all interactions with the Camunda BPM Runtime, specifically the locking, unlocking, completing and failing of External Tasks.</td>
+    <td>Logs details for all interactions with the Camunda Platform Runtime, specifically the locking, unlocking, completing and failing of External Tasks.</td>
   </tr>
   <tr>
     <td><code>org.camunda.bpm.rpa.bridge.rpa</code></td>
@@ -388,7 +388,7 @@ When enabled via including `org.camunda.bpm.rpa.enable-telemetry=true` in the [c
 ## General Data
 
 * A generated unique ID for every bridge instance
-* The name of the product (i.e., Camunda BPM RPA Bridge)
+* The name of the product (i.e., Camunda Platform RPA Bridge)
 * The version of the bridge (e.g., 1.0.0)
 * The edition of the product (i.e., enterprise)
 * The customer name, expiry date and enabled features as well as the raw license info
@@ -403,6 +403,6 @@ License key data does not contain any protected data like the signature.
 
 ## Legal Note
 
-Before you install a Camunda BPM Runtime version >= 7.14.0-alpha1 or activate the telemetry functionality, please make sure that you are authorized to take this step, and that the installation or activation of the [telemetry functionality]({{< ref "/user-guide/camunda-bpm-rpa-bridge.md#enable-telemetry" >}}) is not in conflict with any company-internal policies, compliance guidelines, any contractual or other provisions or obligations of your company.
+Before you install a Camunda Platform Runtime version >= 7.14.0-alpha1 or activate the telemetry functionality, please make sure that you are authorized to take this step, and that the installation or activation of the [telemetry functionality]({{< ref "/user-guide/camunda-bpm-rpa-bridge.md#enable-telemetry" >}}) is not in conflict with any company-internal policies, compliance guidelines, any contractual or other provisions or obligations of your company.
 
 Camunda cannot be held responsible in the event of unauthorized installation or activation of this function.

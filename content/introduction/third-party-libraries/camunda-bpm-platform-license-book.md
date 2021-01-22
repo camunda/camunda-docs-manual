@@ -1,6 +1,6 @@
 ---
 
-title: 'Camunda BPM Platform License Book'
+title: 'Camunda Platform License Book'
 weight: 20
 
 menu:
@@ -10,7 +10,7 @@ menu:
 
 ---
 
-This page contains all the third-party libraries distributed with the Camunda BPM Platform artifacts.
+This page contains all the third-party libraries distributed with the Camunda Platform artifacts.
 
 # Backend Dependencies
 

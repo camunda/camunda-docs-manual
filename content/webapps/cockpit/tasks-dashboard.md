@@ -30,7 +30,7 @@ This category provides you an overview which shows how all open tasks which are 
 
 ## Search Tasks
 {{< enterprise >}}
-  Please note that this feature is only included in the enterprise edition of the Camunda BPM platform, it is not 
+  Please note that this feature is only included in the enterprise edition of the Camunda Platform, it is not 
   available in the community edition.
 {{< /enterprise >}}
 

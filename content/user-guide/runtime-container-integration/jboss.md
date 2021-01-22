@@ -17,7 +17,7 @@ menu:
   [Read the installation guide]({{< ref "/installation/full/jboss/_index.md" >}}) to learn how to install the Camunda JBoss/Wildfly subsystem into your JBoss AS 7 or Wildfly Server.
 {{< /note >}}
 
-Camunda BPM provides advanced integration for JBoss AS 7 and Wildfly in the form of a custom [JBoss/Wildfly Subsystem](https://docs.jboss.org/author/display/AS71/Extending+JBoss+AS+7).
+Camunda Platform provides advanced integration for JBoss AS 7 and Wildfly in the form of a custom [JBoss/Wildfly Subsystem](https://docs.jboss.org/author/display/AS71/Extending+JBoss+AS+7).
 
 The most prominent features are:
 
@@ -26,7 +26,7 @@ The most prominent features are:
 * Process Engines are native JBoss Services with service lifecycles and dependencies.
 * Automatic deployment of BPMN 2.0 processes (through the Process Application API).
 * (JBoss AS 7 only) - Use a managed Thread Pool provided by JBoss Threads in combination with the Job Executor.
-* (Wildfly only) - Use a managed Thread Pool for the Job Executor configured through the Camunda BPM Subsystem.
+* (Wildfly only) - Use a managed Thread Pool for the Job Executor configured through the Camunda Platform Subsystem.
 
 # Configure the Job Executor in standalone.xml/domain.xml
 
@@ -34,7 +34,7 @@ The most prominent features are:
 On JBoss AS 7, the thread pool is configured through the JBoss Threads subsystem. See [Manual Installation]({{<ref "/installation/full/jboss/manual.md" >}}).
 {{< /note >}}
 
-Since Camunda BPM 7.5, the configuration of the thread pool used by the Job Executor is done in the Camunda subsystem, not in the JBoss Threads subsystem, as it was done before 7.5.  
+Since Camunda Platform 7.5, the configuration of the thread pool used by the Job Executor is done in the Camunda subsystem, not in the JBoss Threads subsystem, as it was done before 7.5.  
 The thread pool creation and shutdown is now controlled through the Camunda subsystem.  
 You are able to configure it through the following new configuration elements below the `job-executor` element of the subsystem XML configuration.
 

@@ -13,15 +13,15 @@ menu:
 The following steps describe how to update the Camunda artifacts on a JBoss AS
 7 and Wildfly 8 server in a shared process engine setting. For the entire
 migration procedure, refer to the [migration guide][migration-guide]. If not
-already done, make sure to download the [Camunda BPM 7.3 JBoss distribution][jboss-distro]
-or [Camunda BPM 7.3 Wildfly distribution][wildfly-distro]. In the following instructions
+already done, make sure to download the [Camunda Platform 7.3 JBoss distribution][jboss-distro]
+or [Camunda Platform 7.3 Wildfly distribution][wildfly-distro]. In the following instructions
 `$APP_SERVER` should be replaced with either `jboss` or `wildfly` depending on
 the used application server.
 
 The update procedure takes the following steps:
 
-1. Update the Camunda BPM modules
-2. Update optional Camunda BPM modules
+1. Update the Camunda Platform modules
+2. Update optional Camunda Platform modules
 3. Update Camunda web applications
 4. Configure Process Engines
 
@@ -41,7 +41,7 @@ See the [Wildfly 8.2.0.Final release notes](http://wildfly.org/news/2014/11/20/W
 {{< /note >}}
 
 
-# 1. Update the Camunda BPM Modules
+# 1. Update the Camunda Platform Modules
 
 Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with their new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/`:
 
@@ -52,7 +52,7 @@ Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with t
 * `org/camunda/bpm/model/camunda-xml-model`
 
 
-# 2. Update Optional Camunda BPM Modules
+# 2. Update Optional Camunda Platform Modules
 
 In addition to the core modules, there may be optional artifacts in `$APP_SERVER_HOME/modules/` for LDAP integration, Camunda Connect, and Camunda Spin.
 If you use any of these extensions, the following update steps apply:
@@ -115,7 +115,7 @@ It is possible to enable entity caching for Hypertext Application Language (HAL)
 ## Task Query Expressions
 
 As of 7.3.3, the default handling of expressions submitted as parameters of task queries has changed. Passing EL expressions in a task query enables execution of arbitrary code when the query is evaluated. The process engine no longer evaluates these expressions by default and throws an exception instead. This behavior can be toggled in the process engine configuration using the properties `enableExpressionsInAdhocQueries` (default `false`) and `enableExpressionsInStoredQueries` (default `true`). To restore the engine's previous behavior, set both flags to `true`. See the user guide on [security considerations for custom code]({{< ref "/user-guide/process-engine/securing-custom-code.md" >}}) for details.
-This is already the default for Camunda BPM versions after and including 7.2.8.
+This is already the default for Camunda Platform versions after and including 7.2.8.
 
 [migration-guide]: {{< ref "/update/minor/72-to-73/_index.md" >}}
 [jboss-distro]: https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/jboss/camunda-bpm-jboss/

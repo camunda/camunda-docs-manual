@@ -13,7 +13,7 @@ menu:
 
 ---
 
-This document guides you through the update from Camunda BPM `7.14.x` to `7.15.0`. It covers these use cases:
+This document guides you through the update from Camunda Platform `7.14.x` to `7.15.0`. It covers these use cases:
 
 1. For administrators and developers: [Database Updates](#database-updates)
 1. For administrators and developers: [Full Distribution Update](#full-distribution)
@@ -24,7 +24,7 @@ This document guides you through the update from Camunda BPM `7.14.x` to `7.15.0
 1. For developers: [Adjustments in Metrics](#adjustments-in-metrics)
 1. For developers: [DMN Model API generates DMN 1.3 diagrams](#dmn-model-api-generates-dmn-1-3-diagrams)
 
-This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new functionality included in Camunda BPM 7.15.
+This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new functionality included in Camunda Platform 7.15.
 
 # Database Updates
 
@@ -43,7 +43,7 @@ Every Camunda installation requires a database schema update.
 
     The scripts update the database from one minor version to the next, and change the underlying database structure. So make sure to backup your database in case there are any failures during the update process.
 
-3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda BPM platform, e.g., `7.15.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
+3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda Platform, e.g., `7.15.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
 
 
 # Full Distribution
@@ -55,7 +55,7 @@ The following steps are required:
 1. Update the Camunda libraries and applications inside the application server
 2. Migrate custom process applications
 
-Before starting, make sure that you have downloaded the Camunda BPM 7.15 distribution for the application server you use. It contains the SQL scripts and libraries required for the update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
+Before starting, make sure that you have downloaded the Camunda Platform 7.15 distribution for the application server you use. It contains the SQL scripts and libraries required for the update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
 
 ## Camunda Libraries and Applications
 

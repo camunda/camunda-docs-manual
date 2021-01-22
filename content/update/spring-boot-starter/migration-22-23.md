@@ -35,7 +35,7 @@ For Enterprise users, the way to use the Spring Boot Starter has changed. Instea
 </dependency>
 ```
 
-The same as before, you will also need to define the appropriate Camunda BPM version with the `-ee` suffix. See the documentation [here](https://docs.camunda.org/manual/latest/user-guide/spring-boot-integration/#overriding-camunda-version).
+The same as before, you will also need to define the appropriate Camunda Platform version with the `-ee` suffix. See the documentation [here](https://docs.camunda.org/manual/latest/user-guide/spring-boot-integration/#overriding-camunda-version).
  
 # Default configuration values changed
 

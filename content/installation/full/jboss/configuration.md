@@ -134,7 +134,7 @@ configuration to the `web.xml` file of Camunda webapplication
     </module>
       ```
       
-    The `module.xml` file is included in the Camunda BPM Platform distribution. If you install Camunda BPM Platform on a vanilla JBoss/Wildfly container, this file needs to be created manually.
+    The `module.xml` file is included in the Camunda Platform distribution. If you install Camunda Platform on a vanilla JBoss/Wildfly container, this file needs to be created manually.
 3. [Configure the process engine plugin]({{< ref "/user-guide/runtime-container-integration/jboss.md#extend-a-process-engine-using-process-engine-plugins" >}}) in the standalone.xml/domain.xml configuration file
 
 ## Session Cookie in Webapps
