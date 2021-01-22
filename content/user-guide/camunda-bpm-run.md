@@ -1,6 +1,6 @@
 ---
 
-title: 'Camunda BPM Run'
+title: 'Camunda Platform Run'
 weight: 50
 
 menu:
@@ -10,14 +10,14 @@ menu:
 
 ---
 
-Camunda BPM Run is a pre-packaged distro of the Camunda BPM platform, including the Camunda webapps (Cockpit, Tasklist, Admin) and the [REST API]({{< ref "/reference/rest/overview/_index.md" >}}).
+Camunda Platform Run is a pre-packaged distro of the Camunda Platform, including the Camunda webapps (Cockpit, Tasklist, Admin) and the [REST API]({{< ref "/reference/rest/overview/_index.md" >}}).
 
-The idea behind Run is to provide a full Camunda BPM distro with a simple but powerful configuration mechanism that can be operated by everyone, regardless of their knowledge about Java or application server configuration.
+The idea behind Run is to provide a full Camunda Platform distro with a simple but powerful configuration mechanism that can be operated by everyone, regardless of their knowledge about Java or application server configuration.
 
 For a step-by-step installation guide head over to the [installation section]({{< ref "/installation/camunda-bpm-run.md" >}}) and get started in minutes.
 
 
-# Starting with Camunda BPM Run
+# Starting with Camunda Platform Run
 
 After downloading the [distro](https://downloads.camunda.cloud/release/camunda-bpm/run/) ([enterprise](https://downloads.camunda.cloud/enterprise-release/camunda-bpm/run/)) and unpacking it to a folder, you will find the following structure:
 
@@ -41,59 +41,59 @@ camunda-bpm-run
 Execute one of the two start scripts (`start.bat` for Windows, `start.sh` for Linux/Mac). After a few seconds, you will be able to access the Camunda webapps via http://localhost:8080/camunda/app/ and the REST API via http://localhost:8080/engine-rest/
 
 
-## Starting Camunda BPM Run using Docker
+## Starting Camunda Platform Run using Docker
 
-Camunda BPM Run is also available as a Docker image. Please see the Run section of the Camunda Docker documentation [here]({{< ref "/installation/docker.md#start-camunda-bpm-run-using-docker" >}}) for more details.
+Camunda Platform Run is also available as a Docker image. Please see the Run section of the Camunda Docker documentation [here]({{< ref "/installation/docker.md#start-camunda-bpm-run-using-docker" >}}) for more details.
 
 
 ## Disable Webapps or REST API
 
-By default Camunda BPM Run launches with the webapps and REST API modules. If you want only one of them enabled, execute the start script with a command-line interface with a `--webapps` or `--rest` property to enable the specific module.
+By default Camunda Platform Run launches with the webapps and REST API modules. If you want only one of them enabled, execute the start script with a command-line interface with a `--webapps` or `--rest` property to enable the specific module.
 
 
 ## Choose between default and production configuration
 
-Camunda BPM Run ships with two different configuration files which are both located in the `configuration` folder. 
+Camunda Platform Run ships with two different configuration files which are both located in the `configuration` folder. 
 
 * The `default.yml` configuration only contains necessary configuration like the H2 database, a demo user and [CORS](#cross-origin-resource-sharing) for REST calls from a client application.
-* The `production.yml` configuration is intended to provide the recommended properties according to the [Security Instructions]({{< ref "/user-guide/security.md" >}}). When using Camunda BPM Run in a production environment, make sure to base your custom configuration on this one and carefully read through the security instructions.
+* The `production.yml` configuration is intended to provide the recommended properties according to the [Security Instructions]({{< ref "/user-guide/security.md" >}}). When using Camunda Platform Run in a production environment, make sure to base your custom configuration on this one and carefully read through the security instructions.
 
 By default Run launches with the `default.yml` configuration. To enable the `production.yml` configuration, execute the start script, through a command-line interface, with the `--production` property.
 
 
 ## Connect to a Database
 
-Camunda BPM Run is pre-configured to use a file-based H2 database for testing. The database schema and all required tables are automatically created when the engine starts up for the first time. If you want to use a custom standalone database, follow these steps:
+Camunda Platform Run is pre-configured to use a file-based H2 database for testing. The database schema and all required tables are automatically created when the engine starts up for the first time. If you want to use a custom standalone database, follow these steps:
 
 1. Make sure your database is among the [supported database systems]({{< ref "/introduction/supported-environments.md#supported-database-products" >}}).
-1. Create a database schema for the Camunda BPM platform yourself.
+1. Create a database schema for the Camunda Platform yourself.
 1. Execute the SQL DDL scripts which create all required tables and default indices. The scripts can be found in the `configuration/sql/create` folder.
 1. Drop a JDBC driver jar for your database system in the `configuration/userlib` folder.
 1. Add the JDBC URL and login credentials to the configuration file like described [below](#database).
-1. Restart Camunda BPM Run
+1. Restart Camunda Platform Run
 
 
 ## Deploy BPMN Models
 
-In the unpacked distro, you will find a `resources` folder. All files (including BPMN, DMN, CMMN, form, and script files) will be deployed when you start Camunda BPM Run.
+In the unpacked distro, you will find a `resources` folder. All files (including BPMN, DMN, CMMN, form, and script files) will be deployed when you start Camunda Platform Run.
 
 Deployments via the [REST API]({{< ref "/reference/rest/deployment/post-deployment.md" >}}) are still possible.
 
 
 ## Automatic License Pickup
 
-If you downloaded the enterprise version of Camunda BPM Run, you will need a license key to enable the enterprise 
+If you downloaded the enterprise version of Camunda Platform Run, you will need a license key to enable the enterprise 
 features. Please see the [dedicated License section]({{< ref "/user-guide/license-use.md#with-the-camunda-spring-boot-starter-camunda-run" >}}) 
 of the docs, to learn more.
 
 
-# Configure Camunda BPM Run
+# Configure Camunda Platform Run
 
-Just like all the other distros, you can tailor Camunda BPM Run to your needs. To do this, you only have to edit one of the [configuration files](#choose-between-default-and-production-configuration) that you can find in the configuration folder.
+Just like all the other distros, you can tailor Camunda Platform Run to your needs. To do this, you only have to edit one of the [configuration files](#choose-between-default-and-production-configuration) that you can find in the configuration folder.
 
 {{< note title="Note:" class="info" >}}
-Camunda BPM Run is based on the [Camunda Spring Boot Starter](https://github.com/camunda/camunda-bpm-spring-boot-starter). 
-All [configuration properties]({{< ref "/user-guide/spring-boot-integration/configuration.md#camunda-engine-properties" >}}) from the camunda-spring-boot-starter are available to customize Camunda BPM Run.
+Camunda Platform Run is based on the [Camunda Spring Boot Starter](https://github.com/camunda/camunda-bpm-spring-boot-starter). 
+All [configuration properties]({{< ref "/user-guide/spring-boot-integration/configuration.md#camunda-engine-properties" >}}) from the camunda-spring-boot-starter are available to customize Camunda Platform Run.
 {{< /note >}}
 
 
@@ -183,7 +183,7 @@ If you want to allow cross-origin requests to the [REST API]({{< ref "/reference
 
 ## LDAP Identity Service
 
-Camunda BPM can manage users and authorizations on its own, but if you want to use an existing LDAP authentication database you can enable the [LDAP Identity Service Plugin]({{< ref "/user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}})
+Camunda Platform can manage users and authorizations on its own, but if you want to use an existing LDAP authentication database you can enable the [LDAP Identity Service Plugin]({{< ref "/user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}})
 which provides read-only access to the LDAP repository.
 
 Find all available configuration properties in the [LDAP Plugin Guide]({{< ref "/user-guide/process-engine/identity-service.md#configuration-properties-of-the-ldap-plugin" >}})
@@ -206,7 +206,7 @@ Find all available configuration properties in the [LDAP Plugin Guide]({{< ref "
 
 ## HTTPS
 
-Camunda BPM Run supports HTTPS over SSL. To enable it, you will need a valid SSL certificate signed by a trusted provider and stored in a key store file (either .jks or .p12).
+Camunda Platform Run supports HTTPS over SSL. To enable it, you will need a valid SSL certificate signed by a trusted provider and stored in a key store file (either .jks or .p12).
 For testing, we included a self-signed certificate. You should not use this in production. To enable it, add the following properties to your configuration file.
 
 ```yaml
@@ -219,7 +219,7 @@ server:
     key-password: camunda
   port: 8443
 ```
-After starting Camunda BPM Run, you can access the webapps via https://localhost:8443/camunda/app/ and the REST API via https://localhost:8443/engine-rest/.
+After starting Camunda Platform Run, you can access the webapps via https://localhost:8443/camunda/app/ and the REST API via https://localhost:8443/engine-rest/.
 
 <table class="table desc-table">
   <tr>
@@ -259,8 +259,8 @@ After starting Camunda BPM Run, you can access the webapps via https://localhost
 
 ## Logging
 
-Camunda BPM provides fine-grained and customizable logging. An overview of the available logging categories can be found in the [Logging User Guide]({{< ref "/user-guide/logging.md#process-engine" >}}).
-To configure the logging behavior in Camunda BPM Run, customize your configuration file with the following properties.
+Camunda Platform provides fine-grained and customizable logging. An overview of the available logging categories can be found in the [Logging User Guide]({{< ref "/user-guide/logging.md#process-engine" >}}).
+To configure the logging behavior in Camunda Platform Run, customize your configuration file with the following properties.
 
 For more information on logging configuration visit the [Spring Boot Logging Guide](https://docs.spring.io/spring-boot/docs/2.4.0/reference/html/spring-boot-features.html#boot-features-logging).
 

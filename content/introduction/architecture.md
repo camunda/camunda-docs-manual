@@ -11,9 +11,9 @@ menu:
 ---
 
 
-Camunda BPM is a Java-based framework. The main components are written in Java and we have a general focus on providing Java developers with the tools they need for designing, implementing and running business processes and workflows on the JVM. Nevertheless, we also want to make the process engine technology available to non-Java developers. This is why Camunda BPM also provides a REST API which allows you to build applications connecting to a remote process engine.
+Camunda Platform is a Java-based framework. The main components are written in Java and we have a general focus on providing Java developers with the tools they need for designing, implementing and running business processes and workflows on the JVM. Nevertheless, we also want to make the process engine technology available to non-Java developers. This is why Camunda Platform also provides a REST API which allows you to build applications connecting to a remote process engine.
 
-Camunda BPM can be used both as a standalone process engine server or embedded inside custom Java applications. The embeddability requirement is at the heart of many architectural decisions within Camunda BPM. For instance, we work hard to make the process engine component a lightweight component with as little dependencies on [third-party libraries]({{< ref "/introduction/third-party-libraries/_index.md" >}}) as possible. Furthermore, the embeddability motivates programming model choices such as the capabilities of the process engine to participate in Spring Managed or JTA [transactions and the threading model]({{< ref "/user-guide/process-engine/transactions-in-processes.md" >}}).
+Camunda Platform can be used both as a standalone process engine server or embedded inside custom Java applications. The embeddability requirement is at the heart of many architectural decisions within Camunda Platform. For instance, we work hard to make the process engine component a lightweight component with as little dependencies on [third-party libraries]({{< ref "/introduction/third-party-libraries/_index.md" >}}) as possible. Furthermore, the embeddability motivates programming model choices such as the capabilities of the process engine to participate in Spring Managed or JTA [transactions and the threading model]({{< ref "/user-guide/process-engine/transactions-in-processes.md" >}}).
 
 
 # Process Engine Architecture
@@ -31,9 +31,9 @@ Camunda BPM can be used both as a standalone process engine server or embedded i
 See the section on [third-party libraries]({{< ref "/introduction/third-party-libraries/_index.md" >}}).
 
 
-# Camunda BPM Platform Architecture
+# Camunda Platform Architecture
 
-Camunda BPM platform is a flexible framework which can be deployed in different scenarios. This section provides an overview of the most common deployment scenarios.
+Camunda Platform is a flexible framework which can be deployed in different scenarios. This section provides an overview of the most common deployment scenarios.
 
 
 ## Embedded Process Engine
@@ -67,7 +67,7 @@ The individual process engine instances do not maintain session state across tra
 
 ## Session State in a Clustered Environment
 
-Camunda BPM doesn't provide load-balancing capabilities or session replication capabilities out of the box. The load-balancing function would need to be provided by a third-party system, and session replication would need to be provided by the host application server.
+Camunda Platform doesn't provide load-balancing capabilities or session replication capabilities out of the box. The load-balancing function would need to be provided by a third-party system, and session replication would need to be provided by the host application server.
 
 In a clustered setup, if users are going to login to the web applications, an extra step will need to be taken to ensure that users aren't asked to login multiple times. Two options exist:
 
@@ -100,7 +100,7 @@ More details can be found in the [multi-tenancy section]({{< ref "/user-guide/pr
 
 # Web Application Architecture
 
-The Camunda BPM web applications are based on a RESTful architecture.
+The Camunda Platform web applications are based on a RESTful architecture.
 
 Frameworks used:
 

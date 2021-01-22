@@ -11,7 +11,7 @@ menu:
 ---
 
 
-Camunda BPM supports scripting with JSR-223 compatible script engine implementations. Currently we
+Camunda Platform supports scripting with JSR-223 compatible script engine implementations. Currently we
 test the integration for Groovy, JavaScript, JRuby and Jython. To use a scripting engine
 it is necessary to add the corresponding jar to the classpath.
 
@@ -112,7 +112,7 @@ runtimeService.startProcessInstanceByKey("process", variables);
 
 # Use Scripts as Execution Listeners
 
-Besides Java code and expression language, Camunda BPM also supports the execution of a script
+Besides Java code and expression language, Camunda Platform also supports the execution of a script
 as an execution listener. For general information about execution listeners see the corresponding
 [section]({{< ref "/user-guide/process-engine/delegation-code.md#execution-listener" >}}).
 
@@ -183,7 +183,7 @@ The following example shows usage of scripts as task listeners.
 
 # Use Scripts as Conditions
 
-As an alternative to expression language, Camunda BPM allows you to use scripts as
+As an alternative to expression language, Camunda Platform allows you to use scripts as
 `conditionExpression` of conditional sequence flows. To do that, the `language` attribute of the
 `conditionExpression` element has to be set to the desired scripting language. The script source code
 is the text content of the element, as with expression language. Another way to specify the script
@@ -364,7 +364,7 @@ task = execution.getProcessEngineServices().getTaskService()
 Camunda's Java API provides access to Camunda's process engine services; these services can be accessed using Scripts:
 
 [Process Engine Services](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.3/org/camunda/bpm/engine/ProcessEngineServices.html)
-[Public Java API of Camunda BPM Engine](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.7/org/camunda/bpm/engine/package-summary.html)
+[Public Java API of Camunda Platform Engine](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.7/org/camunda/bpm/engine/package-summary.html)
 
 Example of creating a BPMN Message that correlates with the message key "work":
 
@@ -396,7 +396,7 @@ system.out.println('This prints to the console');
 # Script Source
 
 The standard way to specify the script source code in the BPMN XML model is to add it directly to
-the XML file. Nonetheless, Camunda BPM provides additional ways to specify the script source.
+the XML file. Nonetheless, Camunda Platform provides additional ways to specify the script source.
 
 If you use another scripting language than Expression Language, you can also specify the script
 source as an expression which returns the source code to be executed. This way, the source code can,

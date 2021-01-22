@@ -16,17 +16,17 @@ This section explains some core process engine concepts that are used in both th
 
 # Process Definitions
 
-A process definition defines the structure of a process. You could say that the process definition *is* the process. Camunda BPM uses [BPMN 2.0](http://camunda.org/bpmn/tutorial.html) as its primary modeling language for modeling process definitions.
+A process definition defines the structure of a process. You could say that the process definition *is* the process. Camunda Platform uses [BPMN 2.0](http://camunda.org/bpmn/tutorial.html) as its primary modeling language for modeling process definitions.
 
 {{< note title="BPMN 2.0 Reference" class="info" >}}
-  Camunda BPM comes with two BPMN 2.0 References:
+  Camunda Platform comes with two BPMN 2.0 References:
 
 * The [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html#!/reference) introduces the fundamentals of BPMN 2.0 and helps you to get started modeling processes. (Make sure to read the [Tutorial](http://camunda.org/bpmn/tutorial.html) as well.)
-* The [BPMN 2.0 Implementation Reference]({{< ref "/reference/bpmn20/_index.md" >}}) covers the implementation of the individual BPMN 2.0 constructs in Camunda BPM. You should consult this reference if you want to implement and execute BPMN processes.
+* The [BPMN 2.0 Implementation Reference]({{< ref "/reference/bpmn20/_index.md" >}}) covers the implementation of the individual BPMN 2.0 constructs in Camunda Platform. You should consult this reference if you want to implement and execute BPMN processes.
 {{< /note >}}
 
 
-In Camunda BPM you can deploy processes to the process engine in BPMN 2.0 XML format. The XML files are parsed and transformed into a process definition graph structure. This graph structure is executed by the process engine.
+In Camunda Platform you can deploy processes to the process engine in BPMN 2.0 XML format. The XML files are parsed and transformed into a process definition graph structure. This graph structure is executed by the process engine.
 
 
 ## Query for Process Definitions

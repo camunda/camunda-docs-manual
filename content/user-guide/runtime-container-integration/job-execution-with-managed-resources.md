@@ -10,7 +10,7 @@ menu:
 
 ---
 
-For [supported environments]({{<relref "../../../introduction/supported-environments.md#container-managed-process-engine-and-camunda-cockpit-tasklist-admin">}}), Camunda BPM provides server modules that integrate the Job Execution with the application server's managed threadpools. If you are using one of those environments, it is recommended to use the integration provided with it. 
+For [supported environments]({{<relref "../../../introduction/supported-environments.md#container-managed-process-engine-and-camunda-cockpit-tasklist-admin">}}), Camunda Platform provides server modules that integrate the Job Execution with the application server's managed threadpools. If you are using one of those environments, it is recommended to use the integration provided with it. 
 
 The descriptions on this page apply to the use case where there is *no* existing resource-aware implementation provided. In those cases, using managed resources provided by the application server is recommended over using unmanaged resources. In order for the integration to work, a JEE 7+ compliant application server is required. 
 

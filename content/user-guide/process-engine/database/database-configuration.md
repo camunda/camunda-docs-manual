@@ -93,7 +93,7 @@ Here are some sample JDBC urls:
 
 ### Business Key
 
-Since the release of Camunda BPM 7.0.0-alpha9, the unique constraint for the business key is removed in the runtime and history tables and the database schema create and drop scripts.
+Since the release of Camunda Platform 7.0.0-alpha9, the unique constraint for the business key is removed in the runtime and history tables and the database schema create and drop scripts.
 If you rely on the constraint, you can add it manually to your schema by issuing following sql statements:
 
 DB2

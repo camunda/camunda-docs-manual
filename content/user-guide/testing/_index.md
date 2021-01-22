@@ -121,7 +121,7 @@ The annotation is supported for [JUnit 3]({{< relref "#junit-3" >}}) and [JUnit 
 
 ## Disabling Telemetry
 
-Telemetry reports are introduced with Camunda BPM 7.14.0. To prevent sending data generated during testing, we encourage you to disable the [telemetry reporter][engine-config-telemetryReporterActivate]. Please read more about the topic in the dedicated page for [Telemetry][telemetry-initial-report].
+Telemetry reports are introduced with Camunda Platform 7.14.0. To prevent sending data generated during testing, we encourage you to disable the [telemetry reporter][engine-config-telemetryReporterActivate]. Please read more about the topic in the dedicated page for [Telemetry][telemetry-initial-report].
 
 Example of disabling the reporter in XML-based configuration:
 
@@ -163,7 +163,7 @@ You can now see the engine database and use it to understand how and why your un
 
 # Camunda Assertions
 
-Additional to normal JUnit assertions, [Camunda BPM Assert](https://github.com/camunda/camunda-bpm-assert) adds a fluent API for asserting typical scenarios in a process integrating with [AssertJ](https://joel-costigliola.github.io/assertj/).
+Additional to normal JUnit assertions, [Camunda Platform Assert](https://github.com/camunda/camunda-bpm-assert) adds a fluent API for asserting typical scenarios in a process integrating with [AssertJ](https://joel-costigliola.github.io/assertj/).
 
 ```java
 assertThat(processInstance).isWaitingAt("UserTask_InformCustomer");
@@ -172,7 +172,7 @@ assertThat(task()).hasCandidateGroup("Sales").isNotAssigned();
 
 A more extensive guide with examples can also be found [in the repository](https://github.com/camunda/camunda-bpm-assert/blob/master/README.md).
 
-To use Camunda BPM Assert, add the following dependency to your ```pom.xml```:
+To use Camunda Platform Assert, add the following dependency to your ```pom.xml```:
 
 ```xml
 <dependency>
@@ -194,22 +194,22 @@ Also, you will have to add the AssertJ library v3.16.1 to your dependencies with
 </dependency>
 ```
 
-If Camunda BPM Assert is used in combination with [Spring Boot](https://spring.io/projects/spring-boot) or the 
+If Camunda Platform Assert is used in combination with [Spring Boot](https://spring.io/projects/spring-boot) or the 
 [Camunda Spring Boot Starter](https://docs.camunda.org/manual/latest/user-guide/spring-boot-integration/), 
 the AssertJ dependency will be present in your project already.
 
 ## Assertions Version Compatibility
 
-Each version of Camunda BPM Assert is bound to a specific version of Camunda BPM and AssertJ. Only these default combinations are recommended (and supported) by Camunda.
-Nevertheless, each version of Camunda BPM Assert can be combined with newer patch versions of the Camunda BPM engine, though such combinations must be thoroughly tested before being used in production.
-All versions prior to 3.0.0 belong to the community extension are not part of the official Camunda BPM product support.
+Each version of Camunda Platform Assert is bound to a specific version of Camunda Platform and AssertJ. Only these default combinations are recommended (and supported) by Camunda.
+Nevertheless, each version of Camunda Platform Assert can be combined with newer patch versions of the Camunda Platform engine, though such combinations must be thoroughly tested before being used in production.
+All versions prior to 3.0.0 belong to the community extension are not part of the official Camunda Platform product support.
 
 <table class="table table-striped">
   <tr>
-    <th>Camunda BPM Assert artifact</th>
+    <th>Camunda Platform Assert artifact</th>
     <th>AssertJ version</th>
-    <th>Camunda BPM Assert version</th>
-    <th>Camunda BPM version</th>
+    <th>Camunda Platform Assert version</th>
+    <th>Camunda Platform version</th>
   </tr>
   <tr>
     <td>camunda-bpm-assert</td>
@@ -314,7 +314,7 @@ For these versions, use the following Maven coordinates:
 
 ## Migration from community versions
 
-In order to migrate from a Camunda BPM Assert version 1.x / 2.x to a version 3.x or higher, the following points have to be considered:
+In order to migrate from a Camunda Platform Assert version 1.x / 2.x to a version 3.x or higher, the following points have to be considered:
 
 * The groupId for Maven dependencies has changed, it is now `org.camunda.bpm.assert`. Project dependencies have to be adjusted accordingly.
 * There might be multiple artifacts available for a specific version as shown in the compatibility overview above. The artifact that matches the other project dependencies has to be chosen by `artifactId` and `version`.

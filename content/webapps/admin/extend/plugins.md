@@ -12,7 +12,7 @@ menu:
 ---
 
 {{< note title="Plugin Compatibility" class="info" >}}
-  Please note that the code of Admin plugins might need to be migrated when updating Camunda BPM to a higher version (e.g. CSS styles).
+  Please note that the code of Admin plugins might need to be migrated when updating Camunda Platform to a higher version (e.g. CSS styles).
 {{< /note >}}
 
 Admin uses the concept of plugins to add own functionality without having to extend or hack the Admin web application.
@@ -35,7 +35,7 @@ Here you can see the various points at which you are able to add your own plugin
 
 {{< img src="../../img/admin-start-page-view.png" title="Dashboard" >}}
 
-With Camunda BPM 7.5, the Admin webapp gets a dashboard based on plugins similar to the [Cockpit dashboard ones]({{< ref "/webapps/cockpit/extend/plugins.md" >}}#dashboard).
+With Camunda Platform 7.5, the Admin webapp gets a dashboard based on plugins similar to the [Cockpit dashboard ones]({{< ref "/webapps/cockpit/extend/plugins.md" >}}#dashboard).
 
 
 You can find examples of [Admin dashboard plugins here](https://github.com/camunda/camunda-bpm-platform/tree/master/webapps/ui/admin/plugins/base/app/views/dashboard).

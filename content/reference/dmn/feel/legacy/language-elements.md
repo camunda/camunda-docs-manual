@@ -16,7 +16,7 @@ aliases: [reference/dmn11/feel/legacy/language-elements/]
 {{< note title="Heads Up!" class="info" >}}
 This page provides information on the legacy FEEL Engine, that was used before the 
 current <a href="{{< ref "/user-guide/dmn-engine/feel/_index.md" >}}">Scala-based FEEL Engine</a>
-was integrated into the Camunda BPM Platform.
+was integrated into the Camunda Platform.
 {{< /note >}}
 
 The Camunda DMN engine supports FEEL for [input entries]. The FEEL term for

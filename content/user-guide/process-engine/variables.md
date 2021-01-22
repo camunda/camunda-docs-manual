@@ -197,7 +197,7 @@ Whenever a variable is set in its Java representation, the process engine automa
 
 In cases in which it is important to access a variable's serialized representation or in which the engine has to be hinted to serialize a value in a certain format, the typed-value-based API can be used. In comparison to the Java-Object-based API, it wraps a variable value in a so-called *Typed Value*. Such a typed value allows richer representation of variable values.
 
-In order to easily construct typed values, Camunda BPM offers the class `org.camunda.bpm.engine.variable.Variables`. This class contains static methods that allow creation of single typed values as well as creation of a map of typed values in a fluent way.
+In order to easily construct typed values, Camunda Platform offers the class `org.camunda.bpm.engine.variable.Variables`. This class contains static methods that allow creation of single typed values as well as creation of a map of typed values in a fluent way.
 
 
 ## Primitive Values
@@ -369,7 +369,7 @@ Which API should you use? The one that fits your purpose best. When you are cert
 
 # Input/Output Variable Mapping
 
-To improve the reusability of source code and business logic, Camunda BPM offers input/output
+To improve the reusability of source code and business logic, Camunda Platform offers input/output
 mapping of process variables. This can be used for tasks, events and subprocesses.
 
 In order to use the variable mapping, the Camunda extension element [inputOutput][] has to be added
