@@ -42,8 +42,9 @@ GET `/metrics/{metrics-name}/sum`
       <code>executed-decision-elements</code>,
       <code>history-cleanup-removed-process-instances</code>,
       <code>history-cleanup-removed-case-instances</code>,
-      <code>history-cleanup-removed-decision-instances</code>
-      <code>history-cleanup-removed-batch-operations</code>
+      <code>history-cleanup-removed-decision-instances</code>,
+      <code>history-cleanup-removed-batch-operations</code>,
+      <code>unique-task-workers</code>
     </td>
   </tr>
 </table>
