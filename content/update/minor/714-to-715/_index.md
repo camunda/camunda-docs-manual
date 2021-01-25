@@ -19,6 +19,8 @@ This document guides you through the update from Camunda BPM `7.14.x` to `7.15.0
 1. For administrators and developers: [Full Distribution Update](#full-distribution)
 1. For administrators: [Standalone Web Application](#standalone-web-application)
 1. For developers: [Exception Handling in Task API](#exception-handling-in-task-api)
+1. For administrators and developers: [Update of MySQL JDBC Driver in Camunda Docker Images](#update-of-mysql-jdbc-driver-in-camunda-docker-images)
+1. For administrators and developers: [Changed filter criterion label in Cockpit](#changed-filter-criterion-label-in-cockpit)
 
 This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new functionality included in Camunda BPM 7.15.
 
@@ -150,3 +152,9 @@ to UTC for storage, and back from UTC to the current time zone for retrieval. Re
 
 * [Change Docker Environment Variables](https://github.com/camunda/docker-camunda-bpm-platform/tree/7.15#database-environment-variables)
 * [MySQL Connector/J 8.0 Migration Guide](https://dev.mysql.com/doc/connectors/en/connector-j-upgrading-to-8.0.html)
+
+# Changed filter criterion label in Cockpit
+
+On th process definition history view in the process instances tab, the filter criterion `Completed` changed to `Finished`.
+Only the wording changed – the behavior is still the same: the criterion filters for all historical process instances where the
+end time is not null. This includes regularly completed as well as internally and externally canceled process instances.
