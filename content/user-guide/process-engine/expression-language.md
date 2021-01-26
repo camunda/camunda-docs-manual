@@ -179,6 +179,39 @@ a bean.
   </serviceTask>
 ```
 
+## External Task Error Handling
+
+For External Tasks (including tasks handled by [Camunda Platform RPA Bridge]({{< ref "/user-guide/camunda-bpm-rpa-bridge.md" >}})) it is possible to define
+[camunda:errorEventDefinition]({{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#erroreventdefinition" >}})
+elements which can be provided with a JUEL expression. The expression is evaluated on `externalTask.complete()` and
+`externalTask.failed()`. If the expression evaluates to true a BPMN error is thrown which can be caught by an
+[Error Boundary Event]({{< ref "/reference/bpmn20/events/error-events.md#error-boundary-event" >}}).
+
+Within the scope of an External Task expressions have access to the ExternalTaskEntity object via the key `externalTask` which provides getter methods
+for `errorMessage`, `errorDetails`, `workerId`, `retries` and more.
+
+**Examples:**
+
+How to access the External Task object:
+
+```xml
+<bpmn:serviceTask id="myExternalTaskId" name="myExternalTask" camunda:type="external" camunda:topic="myTopic">
+  <bpmn:extensionElements>
+    <camunda:errorEventDefinition id="myErrorEventDefinition" errorRef="myError" expression="${externalTask.getWorkerId() == 'myWorkerId'}" />
+  </bpmn:extensionElements>
+</bpmn:serviceTask>
+```
+
+How to match an error message:
+
+```xml
+<bpmn:serviceTask id="myExternalTaskId" name="myExternalTask" camunda:type="external" camunda:topic="myTopic">
+  <bpmn:extensionElements>
+    <camunda:errorEventDefinition id="myErrorEventDefinition" errorRef="myError" expression="${externalTask.getErrorDetails().contains('myErrorMessage')}" />
+  </bpmn:extensionElements>
+</bpmn:serviceTask>
+```
+
 
 ## Value
 
@@ -229,6 +262,11 @@ evaluating expressions:
       <td><code>task</code></td>
       <td><code>DelegateTask</code></td>
       <td>Available in a task context like a task listener.</td>
+    </tr>
+    <tr>
+      <td><code>externalTask</code></td>
+      <td><code>ExternalTaskEntity</code></td>
+      <td>Available during an external task context activity (e.g. in <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#erroreventdefinition" >}}">camunda:errorEventDefinition</a> expressions).</td>
     </tr>
     <tr>
       <td><code>caseExecution</code></td>

@@ -322,18 +322,36 @@ The bot might return more variables which will be ignored in this case.
 
 In the case that not everything works as expected and an RPA bot fails for any reason, you might want to react to the failure by throwing a BPMN error.
 You can do that by adding the [camunda:errorEventDefinition]({{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#erroreventdefinition" >}}) extension element.
-Note that compared to the `bpmn:errorEventDefinition`, `camunda:errorEventDefinition` elements accept an additional `expression` attribute which supports any JUEL expression. Additionally, within the expression you have access to the externalTaskEntity object like shown in the example below.
+Note that compared to the `bpmn:errorEventDefinition`, `camunda:errorEventDefinition` elements accept an additional `expression` attribute which supports any JUEL expression. Additionally, within the expression you have access to the externalTaskEntity object like shown in the example below. For more information about External Task error handling via `camunda:errorEventDefinition` have a look into the [expression language user guide]({{< ref "/user-guide/process-engine/expression-language.md#external-task-error-handling" >}})
 
 You can use this feature regardless of the outcome of the RPA bot. Even if the bot was executed successfully, you can still decide to throw a BPMN error. Also note, that
 the RPA bots variables are available for mapping and error handling via `camunda:errorEventDefinition` as well even if the bot failed.
 
+### Examples:
+
+**How do I access the External Task object and match an error message coming from my bot?**
+
 ```xml
 <bpmn:serviceTask id="myRPAtask" name="GenerateReceipt" camunda:type="external" camunda:topic="RPA">
   <bpmn:extensionElements>
-    <camunda:errorEventDefinition id="myErrorEventDefinition" errorRef="myError" expression="${externalTask.getErrorMessage() == 'myErrorMessage'}" />
+    <camunda:errorEventDefinition id="myErrorEventDefinition" errorRef="myError" expression="${externalTask.getErrorDetails() == 'myErrorMessage'}" />
     <camunda:properties>
       <camunda:property name="bot" value="PrintReceipt" />
     </camunda:properties>
+  </bpmn:extensionElements>
+</bpmn:serviceTask>
+```
+
+**How can I match a substring?**
+
+Note that multiple errorEventDefinitions are provided. The first that evaluates to true will trigger the referenced error. In this example `myErrorEventDefinition1` and `myErrorEventDefinition2` will trigger the same error while `myErrorEventDefinition1` will trigger a different error:
+
+```xml
+<bpmn:serviceTask id="myRPAtask" name="GenerateReceipt" camunda:type="external" camunda:topic="RPA">
+  <bpmn:extensionElements>
+    <camunda:errorEventDefinition id="myErrorEventDefinition1" errorRef="myError" expression="${myStringVar.startsWith('foo'}" />
+    <camunda:errorEventDefinition id="myErrorEventDefinition2" errorRef="myError" expression="${myStringVar.endsWith('bar'}" />
+    <camunda:errorEventDefinition id="myErrorEventDefinition3" errorRef="myError2" expression="${myStringVar.contains('baz'}" />
   </bpmn:extensionElements>
 </bpmn:serviceTask>
 ```
