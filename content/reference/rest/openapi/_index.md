@@ -78,9 +78,11 @@ The description currently covers all endpoints of the following resources:
 * Engine
 * Event Subscription
 * External Task
+* Execution  
 * Group
 * Identity
 * Incident
+* Job  
 * Message
 * Metrics
 * Process Instance
@@ -94,3 +96,4 @@ The description currently covers all endpoints of the following resources:
 * Version
 * Historic Activity Instance
 * Historic Process Instance
+* Variable Instance

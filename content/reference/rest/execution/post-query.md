@@ -136,7 +136,8 @@ A JSON object with the following properties:
   <tr>
     <td>variableValuesIgnoreCase</td>
     <td>Match all variable values provided in <code>variables</code> and <code>processVariables</code> case-insensitively. If set to <code>true</code> <strong>variableValue</strong> and <strong>variablevalue</strong> are treated as equal.</td>
-  </tr>  <tr>
+  </tr>  
+  <tr>
     <td>sorting</td>
     <td>
       <p>
