@@ -192,6 +192,7 @@ Status 200.
     "incidentTimestamp": "2014-03-01T08:00:00.000+0200",
     "incidentType": "failedJob",
     "activityId": "serviceTask",
+    "failedActivityId": "serviceTask",
     "causeIncidentId": "aCauseIncidentId",
     "rootCauseIncidentId": "aRootCauseIncidentId",
     "configuration": "aConfiguration",
