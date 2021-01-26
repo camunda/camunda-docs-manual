@@ -19,6 +19,7 @@ This document guides you through the update from Camunda BPM `7.14.x` to `7.15.0
 1. For administrators and developers: [Full Distribution Update](#full-distribution)
 1. For administrators: [Standalone Web Application](#standalone-web-application)
 1. For developers: [Exception Handling in Task API](#exception-handling-in-task-api)
+1. For administrators and developers: [Update of MySQL JDBC Driver in Camunda Docker Images](#update-of-mysql-jdbc-driver-in-camunda-docker-images)
 
 This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new functionality included in Camunda BPM 7.15.
 
