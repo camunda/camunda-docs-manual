@@ -187,7 +187,7 @@ elements which can be provided with a JUEL expression. The expression is evaluat
 `externalTask.failed()`. If the expression evaluates to true a BPMN error is thrown which can be caught by an
 [Error Boundary Event]({{< ref "/reference/bpmn20/events/error-events.md#error-boundary-event" >}}).
 
-Within the scope of an External Task expressions have access to the ExternalTaskEntity object via the key `externalTask` which provides getter methods
+In the scope of an External Task, expressions have access to the `ExternalTaskEntity` object via the key `externalTask` which provides getter methods
 for `errorMessage`, `errorDetails`, `workerId`, `retries` and more.
 
 **Examples:**

@@ -344,7 +344,7 @@ the RPA bots variables are available for mapping and error handling via `camunda
 
 **How can I match a substring?**
 
-Note that multiple errorEventDefinitions are provided. The first that evaluates to true will trigger the referenced error. In this example `myErrorEventDefinition1` and `myErrorEventDefinition2` will trigger the same error while `myErrorEventDefinition1` will trigger a different error:
+Note that if multiple errorEventDefinitions are provided, the first one that evaluates to true will trigger the referenced error. In this example `myErrorEventDefinition1` and `myErrorEventDefinition2` will trigger the same error while `myErrorEventDefinition3` will trigger a different one:
 
 ```xml
 <bpmn:serviceTask id="myRPAtask" name="GenerateReceipt" camunda:type="external" camunda:topic="RPA">
