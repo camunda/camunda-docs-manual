@@ -155,6 +155,6 @@ to UTC for storage, and back from UTC to the current time zone for retrieval. Re
 
 # Changed filter criterion label in Cockpit
 
-On th process definition history view in the process instances tab, the filter criterion `Completed` changed to `Finished`.
+On the process definition history view in the process instances tab, the filter criterion `Completed` changed to `Finished`.
 Only the wording changed – the behavior is still the same: the criterion filters for all historical process instances where the
 end time is not null. This includes regularly completed as well as internally and externally canceled process instances.
