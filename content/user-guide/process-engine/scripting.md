@@ -385,9 +385,9 @@ Here are examples on how this can be accomplished in the respective language:
 println 'This prints to the console'
 ```
 
-* Javascript:
+* Java:
 
-```javascript
+```java
 var system = java.lang.System;
 system.out.println('This prints to the console');
 ```
