@@ -1,0 +1,80 @@
+---
+
+title: "Delete Task Worker Metrics"
+weight: 30
+
+menu:
+  main:
+    identifier: "rest-api-metrics-delete-task-worker"
+    parent: "rest-api-metrics"
+    pre: "DELETE `/metrics/task-worker`"
+
+---
+
+Deletes all task worker metrics prior to the given date or all if no date is provided.
+
+# Method
+
+DELETE `/metrics/task-worker`
+
+
+# Parameters
+
+## Request Body
+
+A JSON object with the following properties:
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>date</td>
+    <td>The date prior to which all task worker metrics should be deleted.</td>
+  </tr>
+</table>
+
+
+# Result
+
+This method returns no content.
+
+
+# Response Codes
+
+
+<table class="table table-striped">
+  <tr>
+    <th>Code</th>
+    <th>Media type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>204</td>
+    <td></td>
+    <td>Request successful.</td>
+  </tr>
+  <tr>
+    <td>403</td>
+    <td>application/json</td>
+    <td>If the user who performs the operation is not a <b>camunda-admin</b> user.</td>
+  </tr>
+</table>
+
+
+# Example
+
+## Request
+
+DELETE `/metrics/task-worker`
+
+Request Body:
+
+    {
+      "date": "2020-01-13T18:43:28.000+0200"
+    }
+
+## Response
+
+Status 204. No content.
