@@ -20,9 +20,7 @@ DELETE `/metrics/task-worker`
 
 # Parameters
 
-## Request Body
-
-A JSON object with the following properties:
+## Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -31,7 +29,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>date</td>
-    <td>The date prior to which all task worker metrics should be deleted.</td>
+    <td>The date value as string prior to which all task worker metrics should be deleted.</td>
   </tr>
 </table>
 
@@ -67,13 +65,8 @@ This method returns no content.
 
 ## Request
 
-DELETE `/metrics/task-worker`
+DELETE `/metrics/task-worker?date=2020-01-01T00:00:00.000+0200`
 
-Request Body:
-
-    {
-      "date": "2020-01-13T18:43:28.000+0200"
-    }
 
 ## Response
 
