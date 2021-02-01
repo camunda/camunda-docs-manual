@@ -10,13 +10,13 @@ menu:
 
 ---
 
-The process engine reports runtime metrics to the database that can help draw conclusions about usage, load, and performance of the BPM platform. Metrics are reported in the database table `ACT_RU_METER_LOG` as natural numbers in the Java `long` range and count the occurrence of specific events. Single metric entries consist of a metric identifier, a value that the metric took in a certain timespan and a name identifying the metric reporter. There is a set of built-in metrics that are reported by default.
+The process engine reports runtime metrics to the database that can help draw conclusions about usage, load, and performance of the BPM platform. Metrics are reported in the database tables `ACT_RU_METER_LOG` and `ACT_RU_TASK_METER_LOG`. Single metric entries in `ACT_RU_METER_LOG` consist of a metric identifier, a value as natural number in the Java `long` range that the metric took in a certain timespan and a name identifying the metric reporter. Task metric entries in `ACT_RU_TASK_METER_LOG` comprise a fixed-length, pseudonymized assignee value and the point in time it was assigned at. There is a set of built-in metrics that are reported by default.
 
 # Built-in Metrics
 
 The following table describes the built-in metrics. The identifiers of all built-in metrics are available as constants of the class {{< javadocref page="?org/camunda/bpm/engine/management/Metrics.html" text="org.camunda.bpm.engine.management.Metrics" >}}.
 {{< note title="Heads Up!" class="warning" >}}
-If you are an enterprise customer, your license agreement might require you to report some metrics annually. Please store `root-process-instance-start`, `activity-instance-start`, `executed-decision-instances` and `executed-decision-elements` metrics for at least 15 months until they were reported.
+If you are an enterprise customer, your license agreement might require you to report some metrics annually. Please store `root-process-instance-start`, `activity-instance-start`, `executed-decision-instances` and `executed-decision-elements` metrics from `ACT_RU_METER_LOG` as well as task metrics from `ACT_RU_TASK_METER_LOG` for at least 18 months until they were reported.
 {{< /note >}}
 
 <table class="table table-striped">
@@ -88,6 +88,11 @@ If you are an enterprise customer, your license agreement might require you to r
     <td>The number of exclusive jobs that are immediately locked and executed.</td>
   </tr>
   <tr>
+    <td><b>Task Metrics</b></td>
+    <td>unique-task-workers*</td>
+    <td>The number of unique task workers that have served as assignees.</td>
+  </tr>
+  <tr>
     <td><b>History Clean up</b></td>
     <td>history-cleanup-removed-process-instances</td>
     <td>The number of process instances removed by history clean up.</td>
@@ -107,9 +112,14 @@ If you are an enterprise customer, your license agreement might require you to r
     <td>history-cleanup-removed-batch-operations</td>
     <td>The number of batch operations removed by history clean up.</td>
   </tr>
+  <tr>
+    <td></td>
+    <td>history-cleanup-removed-task-metrics</td>
+    <td>The number of task metrics removed by history clean up.</td>
+  </tr>
 </table>
 
-*Some enterprise agreements require annual reports of some metrics. Please store those metrics for at least 15 months.
+*Some enterprise agreements require annual reports of some metrics. Please store those metrics for at least 18 months.
 
 # Querying
 
@@ -123,6 +133,12 @@ long numCompletedActivityInstances = managementService
 ```
 
 The metrics query offers filters `#startDate(Date date)` and `#endDate(Date date)` to restrict the collected metrics to a certain timespan. In addition, by using the filter `#reporter(String reporterId)` the results can be restricted to metrics collected by a specific reporter. This option can be useful when configuring more than one engine against the same database, for example in a cluster setup.
+
+Task metrics can be queried by using the `getUniqueTaskWorkerCount` method offered by the `ManagementService`. This method accepts optional `Date` values for `startTime` and `endTime` to restrict the metric to a certain timespan. For example, the following statement retrieves the number of all unique task workers until now:
+
+```java
+long numUniqueTaskWorkers = managementService.getUniqueTaskWorkerCount(null, null);
+```
 
 # Configuration
 
@@ -150,6 +166,10 @@ public class MetricsConfigurationPlugin implements ProcessEnginePlugin {
 }
 ```
 
+{{< note title="Note" class="info" >}}
+Task metric entries are created on every assignment of a user task. This behavior cannot be modified and is not in the responsibility of the metrics reporter.
+{{< /note >}}
+
 ## Reporter Identifier
 
 Metrics are reported with an identifier of the reporting party. This identifier allows to attribute 
@@ -167,9 +187,10 @@ interface and the corresponding `metricsReporterIdProvider` engine property have
 
 ## Disable Reporting
 
-By default, all built-in metrics are reported. For the configuration via XML file (e.g. standalone.xml or bpm-platform.xml) you can disable reporting by adding the property:
+By default, all built-in metrics are reported. For the configuration via XML file (e.g. standalone.xml or bpm-platform.xml) you can disable reporting by adding the properties:
 ```xml
 <property name="metricsEnabled">false</property>
+<property name="taskMetricsEnabled">false</property>
 ```
 
-If you are directly accessing the Java API, you can disable the metrics reporting by using the engine configuration flag `isMetricsEnabled` and set it to `false`.
+If you are directly accessing the Java API, you can disable the metrics reporting by using the engine configuration flags `isMetricsEnabled` and `isTaskMetricsEnabled` and set them to `false`.
