@@ -21,6 +21,7 @@ This document guides you through the update from Camunda BPM `7.14.x` to `7.15.0
 1. For developers: [Exception Handling in Task API](#exception-handling-in-task-api)
 1. For administrators and developers: [Update of MySQL JDBC Driver in Camunda Docker Images](#update-of-mysql-jdbc-driver-in-camunda-docker-images)
 1. For administrators and developers: [Changed filter criterion label in Cockpit](#changed-filter-criterion-label-in-cockpit)
+1. For developers: [Adjustments in Metrics](#adjustments-in-metrics)
 
 This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new functionality included in Camunda BPM 7.15.
 
@@ -158,3 +159,30 @@ to UTC for storage, and back from UTC to the current time zone for retrieval. Re
 On the process definition history view in the process instances tab, the filter criterion `Completed` changed to `Finished`.
 Only the wording changed – the behavior is still the same: the criterion filters for all historical process instances where the
 end time is not null. This includes regularly completed as well as internally and externally canceled process instances.
+
+
+# Adjustments in Metrics
+
+There are two major changes with regards to metrics:
+
+* Task Metrics are now tracked in a separate table
+* The manual deletion of metrics through the Java API can only be executed by users of the `camunda-admin` group
+
+## Task Metrics
+
+Previously, the number of unique task workers has been aggregated from historic task instance data.
+Starting with this release, the data necessary to track this metric will be kept in a separate table `ACT_RU_TASK_METER_LOG`.
+This will make the metric independent from engine history data, allowing you to handle history and its cleanup as implied by your use case, 
+regardless of the metrics you might be required to report as an enterprise customer.
+
+You can read more about the metrics in our [Metrics Guide]({{< ref "/user-guide/process-engine/metrics.md" >}}).
+
+Since the metrics data accumulated over time can become substantial, it is possible to
+
+* configure a history time live for the task metrics data so it is picked up by [History Cleanup]({{< ref "/user-guide/process-engine/history.md#task-metrics" >}})
+* manually clean up the task metrics data through API
+
+Manually deleting task metrics data can be done via [REST API]({{< ref "/reference/rest/metrics/delete-metrics-task-worker" >}}) or Java API by using the `deleteTaskMetrics` method provided by the `ManagementService`.
+Both APIs allow to provide a date, prior to which all task metrics data will be deleted. Please note that only users of the `camunda-admin` group can manually delete task metrics.
+
+Reporting task metrics can also be explicitly disabled via engine configuration by either adding a `taskMetricsEnabled` property with value `false` to the configuration or by setting the flag`isTaskMetricsEnabled` to `false` via Java API.

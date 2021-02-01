@@ -1051,6 +1051,13 @@ The history time to live defines the number of days using a time specified by th
     The history time to live defines the number of days using a time specified by the ISO-8601 date format. The function only accepts the notation to define a number of days.
     </td>
   </tr>
+  <tr>
+    <td>taskMetricsTimeToLive</td>
+    <td>String</td>
+    <td>Defines time to live for task metrics entries produced by user task assignments.
+    The history time to live defines the number of days using a time specified by the ISO-8601 date format. The function only accepts the notation to define a number of days.
+    </td>
+  </tr>
 </table>
 
 ## Login parameters

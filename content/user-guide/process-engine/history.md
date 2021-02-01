@@ -1197,6 +1197,16 @@ The following describes the operations logged in the user operation log and the 
     </td>
   </tr>
   <tr>
+    <td>TaskMetrics</td>
+    <td>Delete</td>
+    <td>Operator</td>
+    <td>
+      <ul>
+        <li><strong>timestamp</strong>: The date for which all task metrics older than that have been deleted. Only present if specified by the user.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
     <td>OperationLog</td>
     <td>SetAnnotation</td>
 	  <td>Operator</td>
@@ -1788,6 +1798,23 @@ history cleanup jobs. The property accepts values in the ISO-8601 date format. N
 ```xml
 <property name="historyCleanupJobLogTimeToLive">P5D</property>
 ```
+
+#### Task Metrics
+
+The process engine reports [runtime metrics]({{< ref "/user-guide/process-engine/metrics.md">}}) to the database that can help draw conclusions about usage, load, and performance of the BPM platform.
+With every assignment of a user task, the related task worker is stored as a pseudonymized, fixed-length value in the `ACT_RU_TASK_METER_LOG` table together with a timestamp. Cleanup for this data needs to
+be configured explicitly if needed.
+
+The `taskMetricsTimeToLive` property can be used to define a TTL for task metrics entries produced by user task assignments. 
+The property accepts values in the ISO-8601 date format. Note that only the notation to define a number of days is allowed.
+
+```xml
+<property name="taskMetricsTimeToLive">P540D</property>
+```
+
+{{< note title="Heads Up!" class="warning" >}}
+If you are an enterprise customer, your license agreement might require you to report some metrics annually. Please store task metrics from `ACT_RU_TASK_METER_LOG` for at least 18 months until they were reported.
+{{< /note >}}
 
 ### Cleanup Window
 
