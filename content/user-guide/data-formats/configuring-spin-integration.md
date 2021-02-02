@@ -64,7 +64,7 @@ Add the dependencies to `camunda-engine-plugin-spin` and `camunda-spin-core` (al
 
 ## Shared Process Engine
 
-If you use a shared process engine, Spin is usually installed as a shared library in the application server. Check the [installation guide]({{< ref "/installation/full/_index.md" >}}) for your application server for how to set up Spin with a shared engine. When using a pre-built distribution of Camunda BPM, Spin is already pre-configured.
+If you use a shared process engine, Spin is usually installed as a shared library in the application server. Check the [installation guide]({{< ref "/installation/full/_index.md" >}}) for your application server for how to set up Spin with a shared engine. When using a pre-built distribution of Camunda Platform, Spin is already pre-configured.
 
 Depending on the type of application server, `camunda-engine-plugin-spin` should be used with either `camunda-spin-core` or `camunda-spin-dataformat-all`. In the pre-packaged distributions, the following artifacts are used:
 

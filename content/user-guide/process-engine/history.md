@@ -68,7 +68,7 @@ It can also be set using Spring XML or a deployment descriptor (bpm-platform.xml
 Note that when using the default history backend, the history level is stored in the database and cannot be changed later.
 
 {{< note title="History levels and Cockpit" class="info" >}}
-[The Camunda BPM Cockpit]({{< ref "/webapps/cockpit/_index.md" >}}) web application works best with History Level set to `FULL`. "Lower" History Levels will disable certain history-related features.
+[The Camunda Platform Cockpit]({{< ref "/webapps/cockpit/_index.md" >}}) web application works best with History Level set to `FULL`. "Lower" History Levels will disable certain history-related features.
 {{< /note >}}
 
 # The Default History Implementation

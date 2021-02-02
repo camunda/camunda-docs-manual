@@ -88,12 +88,12 @@ an `unlock` method can be called. The External Task can only be unlocked, if the
 ### Reporting Failures
 If the client faces a problem that makes it impossible to complete the External Task successfully, this problem can be reported to
 the Workflow Engine. A failure can only be reported, if the External Task is currently locked by the client.
-You can find a detailed documentation about this action in the Camunda BPM [User Guide]({{<ref "/user-guide/process-engine/external-tasks.md#reporting-task-failure">}}).
+You can find a detailed documentation about this action in the Camunda Platform [User Guide]({{<ref "/user-guide/process-engine/external-tasks.md#reporting-task-failure">}}).
 
 ### Reporting BPMN Errors
 [Error boundary events]({{<ref "/reference/bpmn20/events/error-events.md#error-boundary-event">}})
 are triggered by BPMN errors. A BPMN error can only be reported, if the External Task is currently locked by the client.
-You can find a detailed documentation about this action in the Camunda BPM [User Guide]({{<ref "/user-guide/process-engine/external-tasks.md#reporting-bpmn-error">}}).
+You can find a detailed documentation about this action in the Camunda Platform [User Guide]({{<ref "/user-guide/process-engine/external-tasks.md#reporting-bpmn-error">}}).
 
 ### Variables
 Both external tasks clients are compatible with all data types the Camunda Engine [supports]({{<ref "/user-guide/process-engine/variables.md#supported-variable-values">}}).

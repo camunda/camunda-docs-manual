@@ -28,7 +28,7 @@ User demoUser = processEngine.getIdentityService()
   .singleResult();
 ```
 
-Camunda BPM distinguishes between read-only and writable user repositories. A read-only user repository provides read-only access to the underlying user/group database. A writable user repository allows write access to the user database which includes creating, updating and deleting users and groups.
+Camunda Platform distinguishes between read-only and writable user repositories. A read-only user repository provides read-only access to the underlying user/group database. A writable user repository allows write access to the user database which includes creating, updating and deleting users and groups.
 
 To provide a custom identity provider implementation, the following interfaces can be implemented:
 

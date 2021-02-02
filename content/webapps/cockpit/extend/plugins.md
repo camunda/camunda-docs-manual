@@ -12,7 +12,7 @@ menu:
 ---
 
 {{< note title="Plugin Compatibility" class="info" >}}
-  Please note that the code of Cockpit plugins might need to be migrated when updating Camunda BPM to a higher version (e.g. CSS styles).
+  Please note that the code of Cockpit plugins might need to be migrated when updating Camunda Platform to a higher version (e.g. CSS styles).
 {{< /note >}}
 
 Cockpit defines a plugin concept to add own functionality without being forced to extend or hack the Cockpit web application. You can add plugins at various plugin points, e.g., the processes dashboard as shown in the following example:
@@ -188,7 +188,7 @@ You can see a [working example](https://github.com/camunda/camunda-bpm-webapp/bl
 
 {{< img src="../../img/plugin-points/plugin-point-dashboard-custom.png" title="Dashboard" >}}
 
-With Camunda BPM 7.6, the dashboard plugins of Cockpit have been re-organized and new names have been
+With Camunda Platform 7.6, the dashboard plugins of Cockpit have been re-organized and new names have been
 given to the plugin points.
 
 The `cockpit.dashboard` plugin point will allow to add your custom views at the bottom of the dashboard.

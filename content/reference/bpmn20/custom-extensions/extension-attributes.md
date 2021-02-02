@@ -1,6 +1,6 @@
 ---
 
-title: ' Camunda BPMN Extension Attributes'
+title: 'Camunda BPMN Extension Attributes'
 weight: 20
 
 menu:

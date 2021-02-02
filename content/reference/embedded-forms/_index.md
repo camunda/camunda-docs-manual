@@ -12,7 +12,7 @@ menu:
 
 ---
 
-This reference covers the features of the Camunda BPM Forms SDK. The Forms SDK simplifies the
+This reference covers the features of the Camunda Platform Forms SDK. The Forms SDK simplifies the
 implementation of user task forms in HTML5 / JavaScript based Applications. The Forms SDK itself is
 written in JavaScript and can be added to any  JavaScript based Application.
 

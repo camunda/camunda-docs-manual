@@ -20,7 +20,7 @@ A plugin must provide an implementation of the {{< javadocref page="?org/camunda
 
 Process engine plugins can be configured
 
-* in the [BPM Platform Deployment Descriptors]({{< ref "/reference/deployment-descriptors/_index.md" >}}) (bpm-platform.xml/processes.xml),
+* in the [Camunda Platform Deployment Descriptors]({{< ref "/reference/deployment-descriptors/_index.md" >}}) (bpm-platform.xml/processes.xml),
 * in the [JBoss Application Server 7/Wildfly configuration file]({{< ref "/user-guide/runtime-container-integration/jboss.md" >}}) (standalone.xml/domain.xml),
 * using [Spring Beans XML]({{< ref "/user-guide/spring-framework-integration/_index.md#configure-a-process-engine-plugin-in-spring" >}}),
 * programatically.

@@ -23,7 +23,7 @@ The Spin engine plugin registers the Spin API entry functions in the context use
 
 # Scripting Integration
 
-Similar to the EL integration, the Spin functions can be accessed from custom scripts in the supported languages JavaScript, Groovy, Python and Ruby. See the [scripting section]({{< ref "/user-guide/process-engine/scripting.md" >}}) on how scripting is configured in general in Camunda BPM.
+Similar to the EL integration, the Spin functions can be accessed from custom scripts in the supported languages JavaScript, Groovy, Python and Ruby. See the [scripting section]({{< ref "/user-guide/process-engine/scripting.md" >}}) on how scripting is configured in general in Camunda Platform.
 
 
 # Native JSON and XML Variable Values
@@ -40,7 +40,7 @@ Whenever custom Java objects are set as process variables, they have to be persi
 
 # Extending Serialization
 
-Spin offers two interfaces that can be implemented to [provide custom data formats]({{< ref "/reference/spin/extending-spin.md#custom-dataformats" >}}) and to [configure serialization]({{< ref "/reference/spin/extending-spin.md#configuring-data-formats" >}}). Every process application may provide a different set of data format providers and configurators. The BPM platform then instantiates process-application-specific data formats and ensures that they are only accessible when code is executed within the process application's context. See the section on [process application resource access]({{< ref "/user-guide/process-applications/process-application-resources.md" >}}) to understand when the process engine operates in the context of a process application and how a context switch can be enforced.
+Spin offers two interfaces that can be implemented to [provide custom data formats]({{< ref "/reference/spin/extending-spin.md#custom-dataformats" >}}) and to [configure serialization]({{< ref "/reference/spin/extending-spin.md#configuring-data-formats" >}}). Every process application may provide a different set of data format providers and configurators. The Camunda Platform then instantiates process-application-specific data formats and ensures that they are only accessible when code is executed within the process application's context. See the section on [process application resource access]({{< ref "/user-guide/process-applications/process-application-resources.md" >}}) to understand when the process engine operates in the context of a process application and how a context switch can be enforced.
 
 {{< note title="Limitation" class="info" >}}
 Data formats provided or configured on process application level currently only apply to the serialization of Object-type variables. Native Spin variables and the Spin standalone API (e.g. `S("{...}").prop("...")`) only use globally configured data formats.

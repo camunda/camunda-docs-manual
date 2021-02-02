@@ -1,6 +1,6 @@
 ---
 
-title: "Run Camunda BPM using Docker"
+title: "Run Camunda Platform using Docker"
 weight: 20
 
 menu:
@@ -18,7 +18,7 @@ The Community Edition docker images can be found on [Github](https://github.com/
 
 # Enterprise Edition
 
-Since version 7.9 we offer to our customers a Docker image for the Enterprise edition of Camunda BPM platform.
+Since version 7.9 we offer to our customers a Docker image for the Enterprise edition of Camunda Platform.
 
 These images are hosted on our dedicated Docker registry and are available to Enterprise customers only. You can browse the available images in our [Docker registry](https://registry.camunda.cloud) after logging-in with your credentials.
 
