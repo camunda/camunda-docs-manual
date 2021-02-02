@@ -61,7 +61,7 @@ The empty processes.xml will scan for process definitions and perform a single d
 
 # Location of the processes.xml File
 
-The default location of the processes.xml file is `META-INF/processes.xml`. The Camunda BPM platform will parse and process all processes.xml files on the classpath of a process application. Composite process applications (WAR / EAR) may carry multiple subdeployments providing a META-INF/processes.xml file.
+The default location of the processes.xml file is `META-INF/processes.xml`. The Camunda Platform will parse and process all processes.xml files on the classpath of a process application. Composite process applications (WAR / EAR) may carry multiple subdeployments providing a META-INF/processes.xml file.
 
 In an apache maven based project, add the the processes.xml file to the `src/main/resources/META-INF` folder.
 

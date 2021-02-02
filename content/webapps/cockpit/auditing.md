@@ -12,10 +12,10 @@ menu:
 
 ---
 {{< enterprise >}}
-Please note that this feature is only included in the enterprise edition of the Camunda BPM platform, it is not available in the community edition.
+Please note that this feature is only included in the enterprise edition of the Camunda Platform, it is not available in the community edition.
 {{< /enterprise >}}
 
-Since Cockpit is a very powerful tool, it is often desired to inspect which user performed which operation for auditing purposes. Cockpit operations that change state are logged in the BPM platform's [user operation log]({{< ref "/user-guide/process-engine/history.md#user-operation-log" >}}) that is part of the process engine history. The log allows to understand
+Since Cockpit is a very powerful tool, it is often desired to inspect which user performed which operation for auditing purposes. Cockpit operations that change state are logged in the Camunda Platform's [user operation log]({{< ref "/user-guide/process-engine/history.md#user-operation-log" >}}) that is part of the process engine history. The log allows to understand
 
 * which user performed an operation
 * which operation was performed

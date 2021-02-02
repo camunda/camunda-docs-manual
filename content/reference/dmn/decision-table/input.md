@@ -43,7 +43,7 @@ XML element.
 # Input Id
 
 The input id is a unique identifier of the decision table input. It is used by
-the Camunda BPMN platform to reference the input in the history of evaluated
+the Camunda Platform to reference the input in the history of evaluated
 decisions. Therefore, it is required by the Camunda DMN engine. It is set as
 the `id` attribute of the `input` XML element.
 

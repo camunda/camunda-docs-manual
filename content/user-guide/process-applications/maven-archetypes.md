@@ -11,7 +11,7 @@ menu:
 ---
 
 We provide several project templates for Maven, which are also called Archetypes.
-They enable a quickstart for developing production-ready process applications using the Camunda BPM platform.
+They enable a quickstart for developing production-ready process applications using the Camunda Platform.
 We incorporated best practices for different application types into the templates to help you start off with a solid base.
 
 The Archetypes can be used to generate projects as detailed in the different usage sections.
@@ -32,13 +32,13 @@ The following archetypes are currently provided. They are distributed via our Ma
     </tr>
     <tr>
       <td><a href="https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-ejb-war/">Process Application (EJB, WAR)</a></td>
-      <td>Process application that uses a shared Camunda BPM engine in a Java EE Container, e.g., JBoss Wildfly.
+      <td>Process application that uses a shared Camunda Platform engine in a Java EE Container, e.g., JBoss Wildfly.
           Contains: Camunda EJB Client, Camunda CDI Integration, BPMN Process, Java Delegate as CDI bean, HTML5- & JSF-based start and task forms,
           configuration for JPA (Hibernate), JUnit Test with in-memory engine and visual process test coverage, Arquillian Test for JBoss AS7 & Wildfly, Maven Plugins or Ant build script for one-click deployment in Eclipse</td>
     </tr>
     <tr>
       <td><a href="https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-servlet-war/">Process Application (Servlet, WAR)</a></td>
-      <td>Process application that uses a shared Camunda BPM engine in a Servlet Container, e.g., Apache Tomcat.
+      <td>Process application that uses a shared Camunda Platform engine in a Servlet Container, e.g., Apache Tomcat.
           Contains: Servlet process application, BPMN Process, Java Delegate, HTML5-based start and task forms,
           JUnit Test with in-memory engine, Maven Plugins or Ant build script for one-click deployment in Eclipse</td>
     </tr>
@@ -88,7 +88,7 @@ In case you need more flexibility and customization for your project, you can ge
 
     Catalog File: **https://app.camunda.com/nexus/content/repositories/camunda-bpm/**
 
-    Description: **camunda BPM platform**
+    Description: **Camunda Platform**
 {{< img src="../img/eclipse-01-add-remote-archetype-catalog.png" title="Eclipse Preferences: Add Maven Archetype Catalog" >}}
 
 Now you should be able to use the archetypes when creating a new Maven project in Eclipse:

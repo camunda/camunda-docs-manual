@@ -11,10 +11,10 @@ menu:
 ---
 
 
-Run the Camunda BPM platform in every Java-runnable environment. Camunda BPM is supported with our QA infrastructure in the following environments. Here you can find more information about our [enterprise support](http://camunda.com/bpm/enterprise/).
+Run the Camunda Platform in every Java-runnable environment. Camunda Platform is supported with our QA infrastructure in the following environments. Here you can find more information about our [enterprise support](http://camunda.com/bpm/enterprise/).
 
 {{< note title="Supported Environments" class="info" >}}
-  Please note that the environments listed in this section depend on the version of the Camunda BPM platform. Please select the corresponding version of this documentation to see the environment that fits to your version of the Camunda BPM platform. e.g., [supported environments for version 7.3](http://docs.camunda.org/7.3/guides/user-guide/#introduction-supported-environments)
+  Please note that the environments listed in this section depend on the version of the Camunda Platform. Please select the corresponding version of this documentation to see the environment that fits to your version of the Camunda Platform. e.g., [supported environments for version 7.3](http://docs.camunda.org/7.3/guides/user-guide/#introduction-supported-environments)
 {{< /note >}}
 
 
@@ -52,7 +52,7 @@ and [Deployment scenarios]({{< ref "/user-guide/spring-boot-integration/_index.m
 
 ## Database Clustering & Replication
 
-Clustered or replicated databases are supported given the following conditions. The communication between Camunda BPM and the database cluster has to match with the corresponding non-clustered / non-replicated configuration. It is especially important that the configuration of the database cluster guarantees the equivalent behavior of READ-COMMITTED isolation level.
+Clustered or replicated databases are supported given the following conditions. The communication between Camunda Platform and the database cluster has to match with the corresponding non-clustered / non-replicated configuration. It is especially important that the configuration of the database cluster guarantees the equivalent behavior of READ-COMMITTED isolation level.
 
 * MariaDB Galera Cluster: Galera Cluster for MariaDB is supported with specific configuration settings and some known limitations. See [Details]({{< ref "/user-guide/process-engine/database/mariadb-galera-configuration.md" >}}).
 
@@ -98,7 +98,7 @@ Check our [Enterprise Announcements page](/enterprise/announcement/) for confirm
 
 ## Adding Environments
 
-Whenever a new version of one of the following environments is released, we target support of that new version with the next minor release of Camunda BPM:
+Whenever a new version of one of the following environments is released, we target support of that new version with the next minor release of Camunda Platform:
 
 * Java Language
 * Wildfly Application Server

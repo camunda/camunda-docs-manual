@@ -13,7 +13,7 @@ menu:
 
 ---
 
-This document guides you through the update from Camunda BPM `7.6.x` to `7.7.0`. It covers these use cases:
+This document guides you through the update from Camunda Platform `7.6.x` to `7.7.0`. It covers these use cases:
 
 1. For administrators and developers: [Database Updates](#database-updates)
 2. For administrators and developers: [Rolling Update](#rolling-update)
@@ -23,7 +23,7 @@ This document guides you through the update from Camunda BPM `7.6.x` to `7.7.0`.
 5. For administrators and developers: [Application with Embedded Process Engine Update](#application-with-embedded-process-engine)
 
 
-This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda BPM 7.7.
+This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda Platform 7.7.
 
 Noteworthy new Features and Changes in 7.7:
 
@@ -51,7 +51,7 @@ Every Camunda installation requires a database schema update.
 
     The scripts update the database from one minor version to the next, and change the underlying database structure. So make sure to backup your database in case there are any failures during the update process.
 
-3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda BPM platform, e.g., `7.7.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
+3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda Platform, e.g., `7.7.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
 
 
 # Rolling Update
@@ -71,7 +71,7 @@ The following steps are required:
 1. Update the Camunda libraries and applications inside the application server
 2. Migrate custom process applications
 
-Before starting, make sure that you have downloaded the Camunda BPM 7.7 distribution for the application server you use. It contains the SQL scripts and libraries required for update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
+Before starting, make sure that you have downloaded the Camunda Platform 7.7 distribution for the application server you use. It contains the SQL scripts and libraries required for update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
 
 
 ## Camunda Libraries and Applications

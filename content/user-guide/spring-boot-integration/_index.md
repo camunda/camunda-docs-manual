@@ -15,9 +15,9 @@ Spring boot starters allow to enable behavior of your spring-boot application by
 
 These starters will pre-configure the Camunda process engine, REST API and Web applications, so they can easily be used in a standalone process application.
 
-If you are not familiar with [Spring Boot](http://projects.spring.io/spring-boot/), read the [getting started](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#getting-started) guide or use the [Camunda BPM Initializr](https://start.camunda.com/).
+If you are not familiar with [Spring Boot](http://projects.spring.io/spring-boot/), read the [getting started](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#getting-started) guide or use the [Camunda Platform Initializr](https://start.camunda.com/).
 
-To enable Camunda BPM auto configuration, add the following dependency to your ```pom.xml```:
+To enable Camunda Platform auto configuration, add the following dependency to your ```pom.xml```:
 
 ```xml
 <dependency>

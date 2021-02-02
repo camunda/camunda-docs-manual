@@ -13,7 +13,7 @@ menu:
 
 ---
 
-This document guides you through the update from Camunda BPM `7.10.x` to `7.11.0`. It covers these use cases:
+This document guides you through the update from Camunda Platform `7.10.x` to `7.11.0`. It covers these use cases:
 
 1. For administrators and developers: [Database Updates](#database-updates)
 1. For administrators and developers: [Full Distribution Update](#full-distribution)
@@ -28,7 +28,7 @@ This document guides you through the update from Camunda BPM `7.10.x` to `7.11.0
 1. For developers: [Updated Front End Libraries](#updated-front-end-libraries)
 1. For developers: [HTTP Header Security in Webapps](#http-header-security-in-webapps)
 
-This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda BPM 7.11.
+This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda Platform 7.11.
 
 
 # Database Updates
@@ -48,7 +48,7 @@ Every Camunda installation requires a database schema update.
 
     The scripts update the database from one minor version to the next, and change the underlying database structure. So make sure to backup your database in case there are any failures during the update process.
 
-3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda BPM platform, e.g., `7.11.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
+3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda Platform, e.g., `7.11.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
 
 ### MySQL/MariaDB Specifics
 
@@ -67,7 +67,7 @@ The following steps are required:
 1. Update the Camunda libraries and applications inside the application server
 2. Migrate custom process applications
 
-Before starting, make sure that you have downloaded the Camunda BPM 7.11 distribution for the application server you use. It contains the SQL scripts and libraries required for update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
+Before starting, make sure that you have downloaded the Camunda Platform 7.11 distribution for the application server you use. It contains the SQL scripts and libraries required for update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
 
 ## Camunda Libraries and Applications
 
@@ -107,7 +107,7 @@ If you are using Camunda Spring Boot Starter within you Spring Boot application,
 
 1. Check [Version Compatibility Matrix]({{< ref "/user-guide/spring-boot-integration/version-compatibility.md" >}})
 2. Update **Spring Boot Starter** and, when required, Spring Boot versions in your `pom.xml`.
-3. Update the Camunda BPM version in your `pom.xml` in case you override it before (e.g. when using the enterprise version or a patch releases)
+3. Update the Camunda Platform version in your `pom.xml` in case you override it before (e.g. when using the enterprise version or a patch releases)
 
 # camunda-engine-spring Update
 
@@ -277,7 +277,7 @@ With this release, we updated all front end libraries. Changes introduced with n
 Please find below a complete table of the updated front end libraries.
 
 If you make use of these packages in your **Embedded Task Forms** as well as your **Custom Scripts**, please make sure that your
-customizations still work as expected with the new versions used in Camunda BPM 7.11.
+customizations still work as expected with the new versions used in Camunda Platform 7.11.
 
 <table class="table desc-table">
   <thead>
@@ -414,7 +414,7 @@ customizations still work as expected with the new versions used in Camunda BPM 
 
 # HTTP Header Security in Webapps
 
-Starting with this release, a HTTP Header Security Servlet Filter is introduced for the Webapps. With Camunda BPM 7.11.0 
+Starting with this release, a HTTP Header Security Servlet Filter is introduced for the Webapps. With Camunda Platform 7.11.0 
 we have added the XSS Protection Header to all server responses in conjunction with the Webapps.
 
 ## XSS Protection in Webapps

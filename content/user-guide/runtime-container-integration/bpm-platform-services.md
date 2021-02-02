@@ -1,6 +1,6 @@
 ---
 
-title: 'BPM Platform Services'
+title: 'Camunda Platform Services'
 weight: 10
 
 menu:

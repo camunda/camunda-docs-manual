@@ -30,7 +30,7 @@ If the **XSS Protection** header is enabled some cross-site scripting (XSS) atta
 
 The **Content Security Policy** is a mighty tool to prevent cross-site scripting and code injection attacks.
 
-It is a common practice to extend the Camunda BPM web applications by custom scripts & forms. To ensure that these user 
+It is a common practice to extend the Camunda Platform web applications by custom scripts & forms. To ensure that these user 
 customizations work without any problems, by default, the **Content Security Policy** is configured very lax. It is highly 
 recommended to strengthen the default policy based on your requirements.
 

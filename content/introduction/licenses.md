@@ -11,9 +11,9 @@ menu:
 ---
 
 
-# Camunda BPM Platform
+# Camunda Platform
 
-The Camunda BPM platform is a Java-based framework.
+The Camunda Platform is a Java-based framework.
 
 ## Community Edition
 
@@ -31,7 +31,7 @@ The Camunda BPM platform (Community and Enterprise Edition) includes third-party
 * [Plain text license book Camunda BPM Platform][license-book]
 * [HTML License Book Camunda BPM RPA Bridge]({{< ref "/introduction/third-party-libraries/camunda-bpm-rpa-bridge-license-book.md" >}})
 
-[third-party-libraries]: {{< ref "/introduction/third-party-libraries/_index.md" >}}
+[third-party-libraries]: {{< ref "/introduction/third-party-libraries.md" >}}
 [license-book]: https://app.camunda.com/nexus/content/repositories/camunda-bpm/org/camunda/bpm/license-book/{{< minor-version >}}/license-book-{{< minor-version >}}.txt
 
 

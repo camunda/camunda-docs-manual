@@ -14,7 +14,7 @@ menu:
 
 Camunda Connect provides a simple API for connecting HTTP services and other
 things. It aims at two usage scenarios: usage in a generic system such as the
-Camunda BPM process engine and standalone usage via API.
+Camunda Platform process engine and standalone usage via API.
 
 # Connectors
 
@@ -37,7 +37,7 @@ Connect can be used in any Java-based application by adding the following maven
 dependency to your `pom.xml` file:
 
 {{< note title="Camunda BOM" >}}
-If you use other Camunda BPM projects please import the
+If you use other Camunda Platform projects please import the
 [Camunda BOM](/get-started/apache-maven/)
 to ensure correct versions for every Camunda project.
 {{< /note >}}

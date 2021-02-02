@@ -13,7 +13,7 @@ menu:
 
 {{< img src="../img/admin-system-management.png" title="System Management" >}}
 
-The System Settings menu gives you some general information about the process engine and allows you to access the *Execution Metrics* and, provided that you are using the Enterprise Edition of the Camunda BPM platform, you can insert your *License Key*
+The System Settings menu gives you some general information about the process engine and allows you to access the *Execution Metrics* and, provided that you are using the Enterprise Edition of the Camunda Platform, you can insert your *License Key*
 
 {{< note title="Accessing the System Settings menu" class="info" >}}
 The System Settings menu is only usable by users which are granted with *All* permission for authorizations.
@@ -28,7 +28,7 @@ The Execution Metrics menu in Admin displays an approximate number of *Flow Node
 # Camunda License Key
 
 {{< enterprise >}}
-  Please note that this feature is only included in the enterprise edition of the Camunda BPM platform, it is not 
+  Please note that this feature is only included in the enterprise edition of the Camunda Platform, it is not 
   available in the community edition.
 {{< /enterprise >}}
 
@@ -41,14 +41,14 @@ Whenever you see one of the following messages, a valid license key must be ente
 {{< img src="../img/admin-license-prompt.png" title="License Prompt for Admins" >}}
 {{< img src="../img/admin-license-prompt-noAdmin.png" title="License Prompt for Non-Admins" >}}
 
-If you have administrator authorizations, insert your company's license key for the Camunda BPM platform and view 
+If you have administrator authorizations, insert your company's license key for the Camunda Platform and view 
 some License Key details such as the Company Id and the validity of the license key. The Admin system setting menu 
 offers the possibility to enter additional licenses, for instance when your existing license is expiring and you want 
 to enter a new license key.
 
 If you do not have administrator authorizations, please contact your administrator so that they can enter the license.
 
-In case you are running Camunda BPM locally, you can use this URL to enter the license key:
+In case you are running Camunda Platform locally, you can use this URL to enter the license key:
 http://localhost:8080/camunda/app/admin/default/#/system?section=system-settings-license
 
 {{< img src="../img/admin-license-key.png" title="License Key" >}}

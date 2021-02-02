@@ -40,7 +40,7 @@ The following `connect` artifacts exist:
 
 * `camunda-connect-core`: a jar that contains only the core Connect classes. The artifact already is available as dependency to the process engine. In addition to `camunda-connect-core`, single connector implementations like `camunda-connect-http-client` and `camunda-connect-soap-http-client` exist. These dependencies should be used when the default connectors have to be reconfigured or when custom connector implementations are used.
 * `camunda-connect-connectors-all`: a single jar without dependencies that contains the HTTP and SOAP connectors.
-* `camunda-engine-plugin-connect`: a process engine plugin to add Connect to the Camunda BPM platform.
+* `camunda-engine-plugin-connect`: a process engine plugin to add Connect to the Camunda Platform.
 
 
 # Maven Coordinates
@@ -118,7 +118,7 @@ This artifact contains the HTTP and SOAP connectors as well as their dependencie
 ```
 
 {{< note title="" class="info" >}}
-  When using a pre-built distribution of Camunda BPM, the plugin is already pre-configured.
+  When using a pre-built distribution of Camunda Platform, the plugin is already pre-configured.
 {{< /note >}}
 
 

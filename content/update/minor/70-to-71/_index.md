@@ -17,15 +17,15 @@ menu:
 This guide uses a number of variables to denote common path names and constants:
 
 *`$DATABASE` expresses the target database platform, e.g., DB2, MySql, etc.
-*`$DISTRIBUTION_PATH` represents the path of the downloaded pre-packaged Camunda BPM distribution, e.g., `camunda-bpm-tomcat-$PLATFORM_VERSION.zip` or `camunda-bpm-tomcat-$PLATFORM_VERSION.tar.gz` for Tomcat etc.
-*`$PLATFORM_VERSION` denotes the version of the Camunda BPM platform you want to install, e.g., `7.1.0`.
+*`$DISTRIBUTION_PATH` represents the path of the downloaded pre-packaged Camunda Platform distribution, e.g., `camunda-bpm-tomcat-$PLATFORM_VERSION.zip` or `camunda-bpm-tomcat-$PLATFORM_VERSION.tar.gz` for Tomcat etc.
+*`$PLATFORM_VERSION` denotes the version of the Camunda Platform you want to install, e.g., `7.1.0`.
 
 {{< /note >}}
 
 
 # Migrate Your Database
 
-For migration from **Camunda BPM 7.0** to **Camunda BPM 7.1**, the provided update scripts that match your database have to be executed.
+For migration from **Camunda Platform 7.0** to **Camunda Platform 7.1**, the provided update scripts that match your database have to be executed.
 With a pre-packaged distribution, the update scripts are located in the folder `$DISTRIBUTION_PATH/sql/upgrade`.
 
 Check for [available database patch scripts]({{< ref "/update/patch-level.md#database-patches" >}}) for an overview of available sql patch scripts  to see if there are any for your current version.
@@ -35,7 +35,7 @@ Regardless of the version you are migrating from, the main update script is `$DA
 
 # Migrate Your Process Application
 
-To migrate your process application from Camunda BPM 7.0 to Camunda BPM 7.1, you need to follow these steps:
+To migrate your process application from Camunda Platform 7.0 to Camunda Platform 7.1, you need to follow these steps:
 
 * If you use `@Inject` with TaskForm, you have to add a `@Named("...")` annotation to the `@Inject` annotation due to backward-compatibility of `camunda.taskForm`.
   There you have two choices: If you are using `camunda.taskForm` in your process application and don't want to update all your jsf pages and beans you should use `@Named("camunda.taskForm")`,
@@ -48,7 +48,7 @@ To migrate your process application from Camunda BPM 7.0 to Camunda BPM 7.1, you
 
 ### Update the JBoss Application Server
 
-Camunda BPM 7.1 ships with a new version of the JBoss AS 7, namely, 7.2.0.
+Camunda Platform 7.1 ships with a new version of the JBoss AS 7, namely, 7.2.0.
 The preferred update steps are:
 
 * copy all your custom modules / subsystems to the new JBoss server directory
