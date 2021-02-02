@@ -12,11 +12,11 @@ menu:
 
 This page provides an overview of how to secure a Camunda installation. For Camunda's security policy, a list of security notices and a guide how to report vulnerabilities, please visit the [general security documentation](/security).
 
-In order to secure a Camunda installation, Camunda itself must be configured correctly and it must be integrated correctly into its environment. This section also identifies areas where we consider security issues to be relevant for the specific Camunda BPM product and listed those in the subsequent sections. Compliance for those areas is ensured based on common industry best practices and influenced by security requirements of standards like OWASP Top 10 and others
+In order to secure a Camunda installation, Camunda itself must be configured correctly and it must be integrated correctly into its environment. This section also identifies areas where we consider security issues to be relevant for the specific Camunda Platform product and listed those in the subsequent sections. Compliance for those areas is ensured based on common industry best practices and influenced by security requirements of standards like OWASP Top 10 and others
 
 # Deployment Options and Components
 
-There are different ways of using Camunda BPM and different components are provided: the process engine itself, the REST API, the web applications. Depending on how Camunda is deployed and which components are used, different security considerations apply. The following list gives a general overview over deployment options and components outlining the main differences from a security point of view. The remainder of this chapter elaborates on the different configuration options.
+There are different ways of using Camunda Platform and different components are provided: the process engine itself, the REST API, the web applications. Depending on how Camunda is deployed and which components are used, different security considerations apply. The following list gives a general overview over deployment options and components outlining the main differences from a security point of view. The remainder of this chapter elaborates on the different configuration options.
 
 * Embedded Java library inside an application: in this case, the Camunda engine is embedded inside a custom Java Application. Usually the application takes care of securing access to Camunda's APIs and the APIs are not directly exposed to an end user. In this case, the application typically takes care of ensuring authentication and preventing access by unauthorized users.
 * Shared Process Engine: in this scenario, the Process Engine is deployed as a container service into an application server such that it can be used by the applications deployed into the same container / server. This case is similar to the embedded Java library case.
@@ -105,7 +105,7 @@ We strongly recommend you to use the product with centrally managed user account
 advisable to manage accounts via the ways mentioned above.
 {{< /note >}}
 
-We think that the before mentioned scenarios are uncommon for organizations using the Camunda BPM Runtime. 
+We think that the before mentioned scenarios are uncommon for organizations using the Camunda Platform Runtime. 
 However, we want to inform you about the options to prevent unrecommended usage, which makes the product
 vulnerable to attacks.
 
@@ -282,7 +282,7 @@ The REST API only displays the type and a short error message when an error is t
 ### Prevent Disclosure of Application Server Internals
 
 In the [Error handling](#error-handling) paragraph, we explain our technical measures not to disclose 
-any technical details about the Camunda BPM Runtime.
+any technical details about the Camunda Platform Runtime.
 
 However, technical details cannot only be disclosed on the application level, but also by the application 
 server itself. Therefore, it is recommended to configure the application server in a way that no 

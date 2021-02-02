@@ -14,7 +14,7 @@ This page describes the changes in web application plugins.
 
 # Cockpit Dashboard
 
-With Camunda BPM 7.6, the dashboard and sections of Cockpit have been re-organized and new names have been
+With Camunda Platform 7.6, the dashboard and sections of Cockpit have been re-organized and new names have been
 given to the plugin points.
 
 The `cockpit.dashboard` plugin point will allow to add your custom views at the bottom of the dashboard.

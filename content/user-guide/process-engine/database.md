@@ -83,7 +83,7 @@ List<SchemaLogEntry> entries = managementService.createSchemaLogQuery().list();
 ## Metrics Log (ACT_RU_METER_LOG)
 
 The `ACT_RU_METER_LOG` table contains a collection of runtime metrics that can help draw conclusions about usage, load
-and performance of the BPM platform. Metrics are reported as numbers in the Java `long` range and count the occurrence of
+and performance of the Camunda Platform. Metrics are reported as numbers in the Java `long` range and count the occurrence of
 specific events. Please find detailed information about how metrics are collected in the [Metrics User Guide]({{< ref "/user-guide/process-engine/metrics.md">}}).
 
 The default configuration of the [MetricsReporter]({{< ref "/user-guide/process-engine/metrics.md#metrics-reporter">}}) will create one row per [metric]({{< ref "/user-guide/process-engine/metrics.md#built-in-metrics">}}) in `ACT_RU_METER_LOG` every 15 minutes.
@@ -219,7 +219,7 @@ Here are some sample JDBC urls:
 
 ### Business Key
 
-Since the release of Camunda BPM 7.0.0-alpha9, the unique constraint for the business key is removed in the runtime and history tables and the database schema create and drop scripts.
+Since the release of Camunda Platform 7.0.0-alpha9, the unique constraint for the business key is removed in the runtime and history tables and the database schema create and drop scripts.
 If you rely on the constraint, you can add it manually to your schema by issuing following sql statements:
 
 DB2

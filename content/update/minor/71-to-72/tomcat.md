@@ -10,19 +10,19 @@ menu:
 
 ---
 
-The following steps describe how to update the Camunda artifacts on a Tomcat server in a shared process engine setting. For the entire migration procedure, refer to the [migration guide][migration-guide]. If not already done, make sure to download the [Camunda BPM 7.2 Tomcat distribution](https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/tomcat/camunda-bpm-tomcat/).
+The following steps describe how to update the Camunda artifacts on a Tomcat server in a shared process engine setting. For the entire migration procedure, refer to the [migration guide][migration-guide]. If not already done, make sure to download the [Camunda Platform 7.2 Tomcat distribution](https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/tomcat/camunda-bpm-tomcat/).
 
 The update procedure takes the following steps:
 
-1. Update the Camunda BPM core libraries
-2. Update and configure optional Camunda BPM libraries (*optional*)
+1. Update the Camunda Platform core libraries
+2. Update and configure optional Camunda Platform libraries (*optional*)
 3. Configure process engines
 4. Update Camunda web applications
 
 In each of the following steps, the identifiers `$*_VERSION` refer to the current version and the new versions of the artifacts.
 
 
-# 1. Update the Camunda BPM Core Libraries
+# 1. Update the Camunda Platform Core Libraries
 
 Replace the following libraries in the folder `$TOMCAT_HOME/lib/` with their new versions from the folder `$TOMCAT_DISTRIBUTION/lib/`:
 
@@ -48,7 +48,7 @@ If present, remove the following artifacts:
 **Note:** The libraries `camunda-engine-spring-$PLATFORM_VERSION.jar` and `camunda-engine-spring-$PLATFORM_VERSION.jar` should be part of application deployments and therefore not in the global library folder. Make sure your process applications bundle these libraries when you remove them from the global folder.
 
 
-# 2. Update and Configure Optional Camunda BPM Libraries
+# 2. Update and Configure Optional Camunda Platform Libraries
 
 In addition, there are artifacts for Camunda Connect, Camunda Spin, the Freemarker template language and Groovy scripting that may optionally be added to the folder `$TOMCAT_HOME/lib/`. Since all these artifacts add new functionality, the following steps are not required for migration.
 

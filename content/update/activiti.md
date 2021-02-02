@@ -11,7 +11,7 @@ menu:
 
 ---
 
-Migrating an existing application from Activiti <= 5.11 (or Camunda fox 6.x - see below) to Camunda BPM 7.0 is straightforward.
+Migrating an existing application from Activiti <= 5.11 (or Camunda fox 6.x - see below) to Camunda Platform 7.0 is straightforward.
 This page describes the necessary steps.
 Once done with the migration, the [minor version update guides]({{< ref "/update/minor/_index.md" >}}) show how to update from 7.0 to the latest Camunda version.
 
@@ -30,7 +30,7 @@ There are some things which have not changed yet:
 
 *   Database schema and table names. Note that we based our fork on Activiti 5.11 and the tables existent in that version.
 *   The `activiti:` [Custom Extensions]({{< ref "/reference/bpmn20/custom-extensions/_index.md" >}}) are kept.
-    A Camunda BPM namespace will be introduced soon but backwards compatibility will be ensured.
+    A Camunda Platform namespace will be introduced soon but backwards compatibility will be ensured.
 
 We based our fork on the database schema of Activiti 5.11. So please [update](http://www.activiti.org/userguide/index.html#databaseUpgrade) your project to this database using the update scripts provided by Activiti. If you are using a newer version, best ask for assistance in the [Forum](http://camunda.org/community/forum.html).
 

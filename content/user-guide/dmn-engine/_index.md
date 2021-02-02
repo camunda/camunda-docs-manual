@@ -17,9 +17,9 @@ It implements the following versions of the OMG standard:
 * [DMN 1.2] limited to the implemented feature set of DMN 1.3, i.e. features that are new in DMN 1.2 are not implemented yet
 
 The DMN engine can be used as library embedded in an
-application or in combination with the Camunda BPM platform. This section
+application or in combination with the Camunda Platform. This section
 covers how to embed the library and use it to evaluate decisions. For more
-information on the integration in the Camunda BPM platform, please see the
+information on the integration in the Camunda Platform, please see the
 [corresponding section][platform]. You can read more about the DMN 1.3 standard
 in the [DMN reference].
 

@@ -13,7 +13,7 @@ menu:
 Camunda implements three different standards in the Business Process Management scope: BPMN 2.0, CMMN 1.1 and DMN 1.3.
 These three standards are defined by the [Object Management Group][OMG] with active collaboration of Camunda.
 
-Camunda BPM provides open source implementations of execution and [modeling tools][modelers].
+Camunda Platform provides open source implementations of execution and [modeling tools][modelers].
 
 # BPMN
 

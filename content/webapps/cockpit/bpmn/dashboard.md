@@ -34,7 +34,7 @@ You can also switch to the preview tab which displays the rendered process model
 # Search
 
 {{< enterprise >}}
-Please note that this feature is only included in the enterprise edition of the Camunda BPM platform, it is not available in the community edition.
+Please note that this feature is only included in the enterprise edition of the Camunda Platform, it is not available in the community edition.
 {{< /enterprise >}}
 
 {{< img src="../../img/cockpit-search.png" title="cockpit Search" >}}
@@ -55,7 +55,7 @@ You can perform batch operation on process instances matching search criteria by
 
 # Delete Process Definitions
 {{< enterprise >}}
-Please note that this feature is only included in the enterprise edition of the Camunda BPM platform, it is not available in the community edition.
+Please note that this feature is only included in the enterprise edition of the Camunda Platform, it is not available in the community edition.
 {{< /enterprise >}}
 
 {{< img src="../../img/cockpit-delete-process-definition.png" title="Delete Process Definition" >}}

@@ -126,7 +126,7 @@ All these `ProcessEngineConfiguration.createXXX()` methods return a `ProcessEngi
 
 ## Configure Process Engine in the bpm-platform.xml
 
-The `bpm-platform.xml` file is used to configure the Camunda BPM platform in the following distributions:
+The `bpm-platform.xml` file is used to configure the Camunda Platform in the following distributions:
 
 * Apache Tomcat
 * IBM WebSphere Application Server

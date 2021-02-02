@@ -1,6 +1,6 @@
 ---
 
-title: "Install Camunda BPM"
+title: "Install Camunda Platform"
 weight: 40
 
 menu:

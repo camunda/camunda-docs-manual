@@ -1,6 +1,6 @@
 ---
 
-title: "Run Camunda BPM using Karaf / OSGi"
+title: "Run Camunda Platform using Karaf / OSGi"
 weight: 39
 
 menu:
@@ -14,4 +14,4 @@ menu:
 
 # Community Edition
 
-If you want to run Camunda BPM with Karaf / OSGi, you can find the corresponding distributions on [GitHub](https://github.com/camunda/camunda-bpm-platform-osgi/releases).
+If you want to run Camunda Platform with Karaf / OSGi, you can find the corresponding distributions on [GitHub](https://github.com/camunda/camunda-bpm-platform-osgi/releases).

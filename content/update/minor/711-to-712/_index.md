@@ -13,7 +13,7 @@ menu:
 
 ---
 
-This document guides you through the update from Camunda BPM `7.11.x` to `7.12.0`. It covers these use cases:
+This document guides you through the update from Camunda Platform `7.11.x` to `7.12.0`. It covers these use cases:
 
 1. For administrators and developers: [Database Updates](#database-updates)
 1. For administrators and developers: [Full Distribution Update](#full-distribution)
@@ -25,7 +25,7 @@ This document guides you through the update from Camunda BPM `7.11.x` to `7.12.0
 1. For developers: [Camunda DMN Engine Migration](#camunda-dmn-engine-migration)
 1. For developers: [Task Lifecycle State and Task Events](#task-lifecycle-state-and-task-events)
 
-This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new functionality included in Camunda BPM 7.12.
+This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new functionality included in Camunda Platform 7.12.
 
 
 # Database Updates
@@ -45,7 +45,7 @@ Every Camunda installation requires a database schema update.
 
     The scripts update the database from one minor version to the next, and change the underlying database structure. So make sure to backup your database in case there are any failures during the update process.
 
-3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda BPM platform, e.g., `7.12.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
+3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda Platform, e.g., `7.12.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
 
 
 # Full Distribution
@@ -57,7 +57,7 @@ The following steps are required:
 1. Update the Camunda libraries and applications inside the application server
 2. Migrate custom process applications
 
-Before starting, make sure that you have downloaded the Camunda BPM 7.12 distribution for the application server you use. It contains the SQL scripts and libraries required for the update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
+Before starting, make sure that you have downloaded the Camunda Platform 7.12 distribution for the application server you use. It contains the SQL scripts and libraries required for the update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
 
 ## Camunda Libraries and Applications
 
@@ -97,7 +97,7 @@ If you are using Camunda Spring Boot Starter within you Spring Boot application,
 
 1. Check [Version Compatibility Matrix]({{< ref "/user-guide/spring-boot-integration/version-compatibility.md" >}})
 2. Update **Spring Boot Starter** and, when required, Spring Boot versions in your `pom.xml`.
-3. Update the Camunda BPM version in your `pom.xml` in case you override it before (e.g., when using the enterprise version or a patch releases)
+3. Update the Camunda Platform version in your `pom.xml` in case you override it before (e.g., when using the enterprise version or a patch releases)
 
 # External Task Client Update
 
@@ -122,7 +122,7 @@ Starting with version 7.12, the **`camunda-commons-typed-values`** library has b
 
 The changes include:
 
-  * The library version has changed from Camunda Commons (currently at 1.8.0) to the Camunda BPM Platform version (7.12.0). You can find the new Maven coordinates below:
+  * The library version has changed from Camunda Commons (currently at 1.8.0) to the Camunda Platform version (7.12.0). You can find the new Maven coordinates below:
   
 ```xml
 <dependency>
@@ -132,7 +132,7 @@ The changes include:
 </dependency>
 ```
   * The library isn't part of the `camunda-commons-bom` anymore. Now, it is directly part of the `camunda-bom`. Users that are importing the `camunda-commons-bom` now need to either replace the import with the `camunda-bom`, or, explicitly declare the library version as described above.
-  * When updating the `camunda-commons-typed-values` library on a Container-Managed Process Engine, the new `camunda-commons-typed-values` artifact name contains the Camunda BPM Platform version.
+  * When updating the `camunda-commons-typed-values` library on a Container-Managed Process Engine, the new `camunda-commons-typed-values` artifact name contains the Camunda Platform version.
   
 # Camunda DMN Engine Migration
 
