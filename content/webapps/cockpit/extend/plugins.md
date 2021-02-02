@@ -141,6 +141,13 @@ In this example we deactivate the cancel action in the Cockpit process instance 
                            cockpit.processInstance.runtime.action:job-retry-action" />
 ```
 
+# Legacy Plugins
+Plugins created for Camunda Platform 7.13 or earlier can be included for compatibility. To achieve this, simply prefix your Plugin ID with `legacy-`. The AngularJS module name for the entry module will be `cockpit.plugin.legacy-*`.
+
+Please note that all Plugins with this prefix will be included using the 7.13 plugin mechanism. You cannot create new Plugins with IDs starting with `legacy`.
+
+For more details about legacy Plugins, check out the legacy [Plugin documentation](https://docs.camunda.org/manual/7.13/webapps/cockpit/extend/plugins/). Please note that this link will take you to the documentation of Camunda Platform **7.13** .
+
 # Plugin points
 
 In this section you will find all Cockpit plugin points.

@@ -75,13 +75,32 @@ export default {
 ```
 This includes a `custom-module/module.js` file. The path is relative to the `app/cockpit` folder in the Camunda webapp .war file.
 
-You can find a complete example about how to use `customScripts` to develop a Cockpit Plugin in the [Camunda BPM examples repository](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/cockpit-cats).
+You can find a complete example about how to use `customScripts` to develop a Cockpit Plugin in the [Camunda Platform examples repository](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/js-only-plugin).
 
-```javascript
-require(config.deps, callback);
+## Legacy Custom Scripts
+
+Custom Scripts created for Camunda Platform 7.13 or earlier can be included using the `requireJsConfig` property to the `app/cockpit/scripts/config.js`. You can include these custom scripts using the custom [requireJS configuration](https://requirejs.org/docs/api.html#config).
+
+```Javascript
+export default {
+  // …
+  requireJsConfig: {
+    // names of angular modules defined in your custom script files.
+    // will be added to the 'cam.cockpit.custom' as dependencies
+    ngDeps: ['my.custom.module'],
+
+    // RequireJS modules to load.
+    deps: ['custom-ng-module'],
+
+    // RequreJS path definitions
+    paths: {
+      'custom-ng-module': '../custom-ng-module/script'
+    }
+  }
+}
 ```
 
-You can find a complete example about how to use `customScripts` to develop a Cockpit Plugin in the [Camunda Platform examples repository](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/js-only-plugin).
+For more details about legacy Plugins, check out the legacy [Plugin documentation](https://docs.camunda.org/manual/7.13/webapps/cockpit/extend/plugins/). Please note that this link will take you to the documentation of Camunda Platform **7.13** .
 
 # BPMN Diagram Viewer (bpmn.js)
 
