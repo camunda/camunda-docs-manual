@@ -12,7 +12,7 @@ menu:
 ---
 
 {{< note title="Plugin Compatibility" class="info" >}}
-Please note that we updated the frontend plugin interface with Camunda BPM Runtime 7.14. Plugins written for Camunda BPM Runtime 7.13 and earlier might no longer work with Camunda BPM Runtime 7.14. Checkout the [update guide]({{< ref "/update/minor/713-to-714" >}}) for more details.
+Please note that we updated the frontend plugin interface with Camunda Platform Runtime 7.14. Plugins written for Camunda Platform Runtime 7.13 and earlier might no longer work with Camunda Platform Runtime 7.14. Checkout the [update guide]({{< ref "/update/minor/713-to-714" >}}) for more details.
 {{< /note >}}
 
 Cockpit defines a plugin concept to add own functionality without being forced to extend or hack the Cockpit web application. You can add plugins at various plugin points, e.g., the processes dashboard as shown in the following example:
@@ -24,7 +24,6 @@ Cockpit defines a plugin concept to add own functionality without being forced t
 
 A Cockpit plugin is a maven jar project that is included in the Cockpit webapplication as a library dependency. It provides a server-side and a client-side extension to Cockpit.
 
-On the server-side, it can extend Cockpit with custom SQL queries and JAX-RS resource classes. Queries (defined via [MyBatis](http://www.mybatis.org/)) may be used to squeeze additional intel out of an engine database or to execute custom engine operations. JAX-RS resources on the other hand extend the Cockpit API and expose data to the client-side part of the plugin.
 
 On the client-side a plugin may include Javascript modules to extend the Cockpit webapplication. Via those modules a plugin provides custom views.
 
@@ -49,10 +48,10 @@ The basic skeleton of a Cockpit plugin looks as follows:
     |   |       ├── org/my/plugin/queries/                                (6)
     |   |       |   └── sample.xml
     |   |       └── plugin-webapp/MyPlugin/                               (7)
-    |   |           └── app/
-    |   |               ├── plugin.js                                     (8)
-    |   |               ├── plugin.css                                    (9)
-    |   |               └── ...
+    |   |               └── app/
+    |   |                   ├── plugin.js                                 (8)
+    |   |                   ├── plugin.css                                (9)
+    |   |                   └── ...
     |   └── test/
     |       ├── java/
     |       |   └── org/my/plugin/
@@ -296,7 +295,7 @@ export default {
     viewer.get("overlays").add(
       // ...
     )
-  }
+      }
 };
 ```
 

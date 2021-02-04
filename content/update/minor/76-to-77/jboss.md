@@ -13,15 +13,15 @@ menu:
 The following steps describe how to update the Camunda artifacts on a JBoss AS
 7, Wildfly 8 and Wildfly 10 server in a shared process engine scenario. For the entire
 procedure, refer to the [update guide][update-guide]. If not
-already done, make sure to download the [Camunda BPM 7.7 JBoss distribution](https://downloads.camunda.cloud/release/camunda-bpm/jboss/7.7/), [Camunda BPM 7.7 Wildfly 8](https://downloads.camunda.cloud/release/camunda-bpm/wildfly8/7.7/)
-or [Camunda BPM 7.7 Wildfly 10 distribution](https://downloads.camunda.cloud/release/camunda-bpm/wildfly10/7.7/). In the following instructions
+already done, make sure to download the [Camunda Platform 7.7 JBoss distribution](https://downloads.camunda.cloud/release/camunda-bpm/jboss/7.7/), [Camunda Platform 7.7 Wildfly 8](https://downloads.camunda.cloud/release/camunda-bpm/wildfly8/7.7/)
+or [Camunda Platform 7.7 Wildfly 10 distribution](https://downloads.camunda.cloud/release/camunda-bpm/wildfly10/7.7/). In the following instructions
 `$APP_SERVER` should be replaced with either `jboss` or `wildfly`, depending on
 the used application server.
 
 The update procedure takes the following steps:
 
-1. Update the Camunda BPM Modules
-2. Update Optional Camunda BPM Modules
+1. Update the Camunda Platform Modules
+2. Update Optional Camunda Platform Modules
 3. Update Camunda Web Applications
 
 Whenever the instructions are to *replace* a module, make sure to delete the previous version of the module first to avoid orphan jars.
@@ -32,7 +32,7 @@ The pre-built Camunda 7.7 distribution ships with Wildfly 8, alternatively with 
 See the [Wildfly migration guide](https://docs.jboss.org/author/display/CMTOOL/WildFly+8+to+10) for any Wildfly-specific migration notes and procedures.
 {{< /note >}}
 
-# 1. Update the Camunda BPM Modules
+# 1. Update the Camunda Platform Modules
 
 Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with their new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/`:
 
@@ -49,7 +49,7 @@ Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with t
 * `org/camunda/commons/camunda-commons-typed-values`
 * `org/camunda/commons/camunda-commons-utils`
 
-# 2. Update Optional Camunda BPM Modules
+# 2. Update Optional Camunda Platform Modules
 
 In addition to the core modules, there may be optional artifacts in `$APP_SERVER_HOME/modules/` for LDAP integration, Camunda Connect, Camunda Spin, and Groovy scripting.
 If you use any of these extensions, the following update steps apply:

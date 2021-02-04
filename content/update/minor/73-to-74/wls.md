@@ -10,14 +10,14 @@ menu:
 
 ---
 
-The following steps describe how to update the Camunda artifacts on an Oracle WebLogic application server in a shared process engine setting. For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the [Camunda BPM 7.4 Oracle WebLogic distribution](https://app.camunda.com/nexus/service/rest/repository/browse/internal/org/camunda/bpm/weblogic/camunda-bpm-weblogic/).
+The following steps describe how to update the Camunda artifacts on an Oracle WebLogic application server in a shared process engine setting. For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the [Camunda Platform 7.4 Oracle WebLogic distribution](https://app.camunda.com/nexus/service/rest/repository/browse/internal/org/camunda/bpm/weblogic/camunda-bpm-weblogic/).
 
 The update procedure takes the following steps:
 
 1. Uninstall the Camunda Applications and Archives
 2. Replace Camunda Core Libraries
 3. Replace Optional Camunda Dependencies
-4. Maintain the BPM Platform Configuration
+4. Maintain the Camunda Platform Configuration
 5. Maintain Process Engine Configuration
 6. Maintain Process Applications
 7. Install the Camunda Archive
@@ -72,9 +72,9 @@ Copy the following libraries from `$WLS_DISTRIBUTION/modules/lib` to the folder 
 
 * `groovy-all-$GROOVY_VERSION.jar`
 
-# 4. Maintain the BPM Platform Configuration
+# 4. Maintain the Camunda Platform Configuration
 
-If you have previously replaced the default BPM platform configuration by a custom configuration following any of the ways outlined in the [deployment descriptor reference][configuration-location], it may be necessary to restore this configuration. This can be done by repeating the configuration replacement steps for the updated platform.
+If you have previously replaced the default Camunda Platform configuration by a custom configuration following any of the ways outlined in the [deployment descriptor reference][configuration-location], it may be necessary to restore this configuration. This can be done by repeating the configuration replacement steps for the updated platform.
 
 # 5. Maintain Process Engine Configuration
 
@@ -83,7 +83,7 @@ This section describes changes in the engine’s default behavior. While the cha
 ## Task Query Expressions
 
 As of 7.4, the default handling of expressions submitted as parameters of task queries has changed. Passing EL expressions in a task query enables execution of arbitrary code when the query is evaluated. The process engine no longer evaluates these expressions by default and throws an exception instead. This behavior can be toggled in the process engine configuration using the properties `enableExpressionsInAdhocQueries` (default `false`) and `enableExpressionsInStoredQueries` (default `true`). To restore the engine's previous behavior, set both flags to `true`. See the user guide on [security considerations for custom code]({{< ref "/user-guide/process-engine/securing-custom-code.md" >}}) for details.
-This is already the default for Camunda BPM versions after and including 7.3.3 and 7.2.8.
+This is already the default for Camunda Platform versions after and including 7.3.3 and 7.2.8.
 
 ## User Operation Log
 

@@ -28,7 +28,7 @@ window.camWelcomeConf = {
     {
       label: 'Camunda Forum',
       href: 'https://forum.camunda.org',
-      description: 'Forum for Camnuda BPM users and developers'
+      description: 'Forum for Camunda Platform users and developers'
     },
     // ...
   ]

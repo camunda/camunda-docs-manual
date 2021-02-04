@@ -25,7 +25,7 @@ To resolve a failed job you can use the {{< glyphicon name="repeat" >}} button o
 # Batch Retry
 
 {{< enterprise >}}
-  Please note that this feature is only included in the enterprise edition of the Camunda BPM platform, it is not available in the community edition.
+  Please note that this feature is only included in the enterprise edition of the Camunda Platform, it is not available in the community edition.
 {{< /enterprise >}}
 
 {{< img src="../../img/cockpit-bulk-retry.png" title="Batch Retry" >}}

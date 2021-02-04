@@ -12,18 +12,18 @@ menu:
 
 The following steps describe how to update the Camunda artifacts on a Tomcat server in a shared process engine setting.
 For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the
-[Camunda BPM 7.11 Tomcat distribution][tomcat-distribution].
+[Camunda Platform 7.11 Tomcat distribution][tomcat-distribution].
 
 The update procedure takes the following steps:
 
-1. Update the Camunda BPM Core Libraries
-2. Update Optional Camunda BPM Libraries
+1. Update the Camunda Platform Core Libraries
+2. Update Optional Camunda Platform Libraries
 3. Maintain Process Applications
 4. Update Web Applications
 
 In each of the following steps, the identifier `$*_VERSION` refers to the current versions and the new versions of the artifacts.
 
-# 1. Update the Camunda BPM Core Libraries
+# 1. Update the Camunda Platform Core Libraries
 
 Replace the following libraries in the folder `$TOMCAT_HOME/lib/` with their new versions from the folder `$TOMCAT_DISTRIBUTION/lib/`:
 
@@ -45,7 +45,7 @@ Unless you otherwise require it, remove the following library:
 
 * `mail-1.4.1.jar`
 
-# 2. Update Optional Camunda BPM Libraries
+# 2. Update Optional Camunda Platform Libraries
 
 In addition to the core libraries, there may be optional artifacts in `$TOMCAT_HOME/lib/` for LDAP integration, Camunda Connect, Camunda Spin, and Groovy scripting. If you use any of these extensions, the following update steps apply:
 

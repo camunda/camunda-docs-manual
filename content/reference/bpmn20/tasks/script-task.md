@@ -41,7 +41,7 @@ For general information about scripting in the process engine, please see the [S
 
 {{< note title="Supported Script Languages" class="info" >}}
 
-Camunda BPM should work with most of the JSR-223 compatible script engine implementations. We test integration for Groovy, JavaScript, JRuby and Jython. See the <a href="{{< ref "/introduction/third-party-libraries/_index.md#process-engine" >}}">Third Party Dependencies</a> section of the <a href="{{< ref "/user-guide/_index.md" >}}">User Guide</a> for more details.
+Camunda Platform should work with most of the JSR-223 compatible script engine implementations. We test integration for Groovy, JavaScript, JRuby and Jython. See the <a href="{{< ref "/introduction/third-party-libraries/_index.md#process-engine" >}}">Third Party Dependencies</a> section of the <a href="{{< ref "/user-guide/_index.md" >}}">User Guide</a> for more details.
 
 {{< /note >}}
 
@@ -73,7 +73,7 @@ It's also possible to set process variables in a script. Variables can be set by
 
 ## Enabling auto-storing of Script Variables
 
-By setting the property `autoStoreScriptVariables` to `true` in the process engine configuration, the process engine will automatically store all _global_ script variables as process variables. This was the default behavior in Camunda BPM 7.0 and 7.1 but it only reliably works for the Groovy scripting language (see the [Set autoStoreScriptVariables][autostore-variables] section of the [Migration Guide]({{< ref "/update/_index.md" >}}) for more information).
+By setting the property `autoStoreScriptVariables` to `true` in the process engine configuration, the process engine will automatically store all _global_ script variables as process variables. This was the default behavior in Camunda Platform 7.0 and 7.1 but it only reliably works for the Groovy scripting language (see the [Set autoStoreScriptVariables][autostore-variables] section of the [Migration Guide]({{< ref "/update/_index.md" >}}) for more information).
 
 To use this feature, you have to
 

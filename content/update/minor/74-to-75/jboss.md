@@ -13,15 +13,15 @@ menu:
 The following steps describe how to update the Camunda artifacts on a JBoss AS
 7, Wildfly 8 and Wildfly 10 server in a shared process engine scenario. For the entire
 procedure, refer to the [update guide][update-guide]. If not
-already done, make sure to download the [Camunda BPM 7.5 JBoss distribution](https://downloads.camunda.cloud/release/camunda-bpm/jboss/7.5/), [Camunda BPM 7.5 Wildfly 8](https://downloads.camunda.cloud/release/camunda-bpm/wildfly8/7.5/)
-or [Camunda BPM 7.5 Wildfly 10 distribution](https://downloads.camunda.cloud/release/camunda-bpm/wildfly10/7.5/). In the following instructions
+already done, make sure to download the [Camunda Platform 7.5 JBoss distribution](https://downloads.camunda.cloud/release/camunda-bpm/jboss/7.5/), [Camunda Platform 7.5 Wildfly 8](https://downloads.camunda.cloud/release/camunda-bpm/wildfly8/7.5/)
+or [Camunda Platform 7.5 Wildfly 10 distribution](https://downloads.camunda.cloud/release/camunda-bpm/wildfly10/7.5/). In the following instructions
 `$APP_SERVER` should be replaced with either `jboss` or `wildfly`, depending on
 the used application server.
 
 The update procedure takes the following steps:
 
-1. Update the Camunda BPM Modules
-2. Update Optional Camunda BPM Modules
+1. Update the Camunda Platform Modules
+2. Update Optional Camunda Platform Modules
 3. Maintain Process Engine Configuration
 4. Maintain Process Applications
 5. Update Camunda Web Applications
@@ -34,7 +34,7 @@ The pre-built Camunda 7.5 distribution ships with Wildfly 8 and in addition with
 See the [Wildfly migration guide](https://docs.jboss.org/author/display/CMTOOL/WildFly+8+to+10) for any Wildfly-specific migration notes and procedures.
 {{< /note >}}
 
-# 1. Update the Camunda BPM Modules
+# 1. Update the Camunda Platform Modules
 
 Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with their new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/`:
 
@@ -51,7 +51,7 @@ Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with t
 * `org/camunda/commons/camunda-commons-typed-values`
 * `org/camunda/commons/camunda-commons-utils`
 
-# 2. Update Optional Camunda BPM Modules
+# 2. Update Optional Camunda Platform Modules
 
 In addition to the core modules, there may be optional artifacts in `$APP_SERVER_HOME/modules/` for LDAP integration, Camunda Connect, Camunda Spin, and Groovy scripting.
 If you use any of these extensions, the following update steps apply:
@@ -98,12 +98,12 @@ This section describes changes in the engine’s default behavior. While the cha
 
 ## Configuration of Job Executor Thread Pool in Camunda Wildfly 8 subsystem
 
-Beginning with 7.5, the Thread Pool used by the Job Executor is defined as part of the Camunda BPM Wildfly subsystem instead of the JBoss Threads subsystem.
+Beginning with 7.5, the Thread Pool used by the Job Executor is defined as part of the Camunda Platform Wildfly subsystem instead of the JBoss Threads subsystem.
 The reason is the deprecation and removal of the JBoss Threads subsystem since Wildfly 9. 
 To be compatible with Wildfly 8-10, Camunda rewrote the existing subsystem.   
 As a consequence, you must transfer your existing Thread Pool configuration from the JBoss Threads subsystem to the Camunda subsystem using the following steps.
 
-1. First, transfer the JBoss Threads configuration to the Camunda BPM subsystem. Search for the JBoss Threads subsystem configuration in your `standalone.xml` configuration. It looks similar to this example:
+1. First, transfer the JBoss Threads configuration to the Camunda Platform subsystem. Search for the JBoss Threads subsystem configuration in your `standalone.xml` configuration. It looks similar to this example:
 
 	 ```xml
    <subsystem xmlns="urn:jboss:domain:threads:1.1">

@@ -13,7 +13,7 @@ menu:
 
 ---
 
-This document guides you through the update from Camunda BPM `7.12.x` to `7.13.0`. It covers these use cases:
+This document guides you through the update from Camunda Platform `7.12.x` to `7.13.0`. It covers these use cases:
 
 1. For administrators and developers: [Database Updates](#database-updates)
 1. For administrators and developers: [Full Distribution Update](#full-distribution)
@@ -32,7 +32,7 @@ This document guides you through the update from Camunda BPM `7.12.x` to `7.13.0
 1. For developers: [Historic Process Instance Variables on Asynchronous Instantiation](#historic-process-instance-variables-on-asynchronous-instantiation)
 1. For administrators and developers: [Oracle JDBC Driver Removed from Camunda Docker Images](#oracle-jdbc-driver-removed-from-camunda-docker-images)
 
-This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new functionality included in Camunda BPM 7.13.
+This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new functionality included in Camunda Platform 7.13.
 
 
 # Database Updates
@@ -52,7 +52,7 @@ Every Camunda installation requires a database schema update.
 
     The scripts update the database from one minor version to the next, and change the underlying database structure. So make sure to backup your database in case there are any failures during the update process.
 
-3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda BPM platform, e.g., `7.13.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
+3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda Platform, e.g., `7.13.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
 
 
 # Full Distribution
@@ -64,7 +64,7 @@ The following steps are required:
 1. Update the Camunda libraries and applications inside the application server
 2. Migrate custom process applications
 
-Before starting, make sure that you have downloaded the Camunda BPM 7.13 distribution for the application server you use. It contains the SQL scripts and libraries required for the update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
+Before starting, make sure that you have downloaded the Camunda Platform 7.13 distribution for the application server you use. It contains the SQL scripts and libraries required for the update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
 
 ## Camunda Libraries and Applications
 
@@ -101,22 +101,22 @@ If a database other than the default H2 database is used, the following steps mu
 # Spring Boot Starter Update
 
 Starting with version 7.13, the **`camunda-bpm-spring-boot-starter`** library has been migrated into the `camunda-bpm-platform` repository.
-The library version has therefore changed from Camunda Spring Boot Starter (currently at 3.4.x) to the Camunda BPM Platform version (7.13.0).
+The library version has therefore changed from Camunda Spring Boot Starter (currently at 3.4.x) to the Camunda Platform version (7.13.0).
 The Maven coordinates have not changed otherwise.
 
 Overriding the Camunda version used by the Spring Boot Starter is not necessary anymore. 
-Pick the version of the Starter that resembles the version of Camunda BPM you would like to use.
+Pick the version of the Starter that resembles the version of Camunda Platform you would like to use.
 
 If you are using Camunda Spring Boot Starter within your Spring Boot application, then you need to:
 
 1. Check [Version Compatibility Matrix]({{< ref "/user-guide/spring-boot-integration/version-compatibility.md" >}})
 2. Update **Spring Boot Starter** and, when required, Spring Boot versions in your `pom.xml`.
-3. Remove the Camunda BPM version from your `pom.xml` in case you overrode it before (e.g. when using the enterprise version or a patch release).
+3. Remove the Camunda Platform version from your `pom.xml` in case you overrode it before (e.g. when using the enterprise version or a patch release).
 
 ## Changed Default Application Paths
 
 With this release, the application path of the Spring Boot Webapp Starter & REST API Starter changed. 
-The change aligns the application path with all other Camunda BPM distributions.
+The change aligns the application path with all other Camunda Platform distributions.
 
 ### REST API
 
@@ -136,8 +136,8 @@ Old Application Path: `/`\
 New Application Path: `/camunda`
 
 In previous versions, there was a problem when using URL paths like `/api/*` or `/app/*` for your 
-custom resources since these paths were reserved for the Camunda BPM Webapp. For instance, the 
-Camunda BPM Webapp specific CSRF Prevention Filter was applied on these paths and might have 
+custom resources since these paths were reserved for the Camunda Platform Webapp. For instance, the 
+Camunda Platform Webapp specific CSRF Prevention Filter was applied on these paths and might have 
 interfered with your custom REST endpoints or applications. With the changed application path, you 
 can now use these paths without restrictions and remove any workarounds (e. g. URL whitelisting for 
 the CSRF Prevention Filter).
@@ -150,7 +150,7 @@ camunda.bpm.webapp.application-path=/
 ```
 
 **Please Note:** When changing the application path back to `/`, the `/api/*` and `/app/*` are 
-reserved for the Camunda BPM Webapp again.
+reserved for the Camunda Platform Webapp again.
 
 ## New License Key Mechanism
 
@@ -228,7 +228,7 @@ Please note that the new versions of Freemarker and Velocity contain changes tha
 
 # Entirely Replaced FEEL Engine
 
-With this release, we replaced the old FEEL Engine completely. From now on, Camunda BPM uses the 
+With this release, we replaced the old FEEL Engine completely. From now on, Camunda Platform uses the 
 [FEEL Scala Engine](https://github.com/camunda/feel-scala) (opens external link) by default.
 You can restore the legacy behavior via a [configuration property][feel-legacy-prop].
 

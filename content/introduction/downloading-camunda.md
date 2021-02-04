@@ -34,7 +34,7 @@ customers:
 * [Community download page][community-download-page]
 * [Enterprise download page][enterprise-download-page]
 
-It is also possible to run Camunda BPM with [Spring Boot][run-with-spring-boot] and [Docker][run-with-docker].
+It is also possible to run Camunda Platform with [Spring Boot][run-with-spring-boot] and [Docker][run-with-docker].
 
 
 ## Full Distribution

@@ -13,7 +13,7 @@ menu:
 ---
 
 FEEL is part of the DMN specification and stands for "Friendly Enough Expression Language". You can 
-use it to evaluate expressions in a decision table. Camunda BPM currently supports FEEL in version 1.2.
+use it to evaluate expressions in a decision table. Camunda Platform currently supports FEEL in version 1.2.
 
 You can use the Expression Language in the following DMN Notation Elements:
 
@@ -23,11 +23,11 @@ You can use the Expression Language in the following DMN Notation Elements:
 * [Literal Expressions]
 
 This documentation covers everything integration-specific about the **FEEL Scala Engine** in the 
-Camunda DMN Engine. By default, Camunda BPM relies on the [FEEL Scala Engine][] (opens external link) 
+Camunda DMN Engine. By default, Camunda Platform relies on the [FEEL Scala Engine][] (opens external link) 
 in version `1.11.0`. 
 
 {{< note title="Heads Up!" class="info" >}}
-If you come from a Camunda BPM version <= 7.12.x and already use FEEL, 
+If you come from a Camunda Platform version <= 7.12.x and already use FEEL, 
 please read the documentation about the 
 <a href="{{< ref "/user-guide/dmn-engine/feel/legacy-behavior.md" >}}">FEEL Engine Legacy Behavior</a>.
 {{< /note >}}
