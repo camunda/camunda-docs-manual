@@ -13,7 +13,7 @@ menu:
 
 ---
 
-This document guides you through the update from Camunda BPM `7.1.x` to `7.2.0`. It covers these use cases:
+This document guides you through the update from Camunda Platform `7.1.x` to `7.2.0`. It covers these use cases:
 
 1. For administrators and developers: [Database Updates]({{< relref "#database-updates" >}})
 2. For administrators and developers: [Full Distribution Update]({{< relref "#full-distribution" >}})
@@ -21,11 +21,11 @@ This document guides you through the update from Camunda BPM `7.1.x` to `7.2.0`.
 4. For developers: [Migrating Task Forms]({{< relref "#task-forms" >}})
 5. For developers: [Migrating Cockpit Plugins]({{< relref "#cockpit-plugins" >}})
 
-This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda BPM 7.2.
+This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda Platform 7.2.
 
 Noteworthy new Features in 7.2:
 
-* **CMMN:** [Case Management Model And Notation][cmmn-ref] (CMMN) is a modelling standard similar to BPMN that focuses on human-centric processes. Camunda BPM 7.2 implements this standard and therefore extends the database schema during update. If you do not plan to use CMMN, these tables will stay empty.
+* **CMMN:** [Case Management Model And Notation][cmmn-ref] (CMMN) is a modelling standard similar to BPMN that focuses on human-centric processes. Camunda Platform 7.2 implements this standard and therefore extends the database schema during update. If you do not plan to use CMMN, these tables will stay empty.
 * **Spin/Connect:** Camunda [Spin][spin-ref] and [Connect][connect-ref] are optional Camunda extensions that ease the use of text-based data formats and connectivity in processes. Spin and Connect are separate modules that have to be explicitly added to and configured in an existing installation. This guide shows you how to enable/disable the usage of Spin and Connect.
 * **Freemarker:** This optional Camunda extension provides a [scripting engine for the templating language Freemarker][freemarker-ref] that allows to use Freemarker as scripts in process constructs.
 
@@ -56,7 +56,7 @@ The first step consists in updating the database.
 
     The scripts update the database from one minor version to the next one and change the underlying database structure, so make sure to backup your database in case there are any failures during the update process.
 
-3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda BPM platform, e.g., `7.1.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
+3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda Platform, e.g., `7.1.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
 
 # Full Distribution
 
@@ -67,7 +67,7 @@ The following steps are required:
 1. Update Camunda Libraries and Applications inside the application server
 2. Migrate custom Process Applications
 
-Before starting, make sure that you have downloaded the Camunda BPM 7.3 distribution for the application server you use. It contains the SQL scripts and libraries required for update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
+Before starting, make sure that you have downloaded the Camunda Platform 7.3 distribution for the application server you use. It contains the SQL scripts and libraries required for update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
 
 ## Camunda Libraries and Applications
 
@@ -120,7 +120,7 @@ As an alternative, script code can be migrated by replacing all implicit declara
 
 # Embedded Task Forms
 
-Embedded form support has been redesigned in Camunda BPM 7.2 and existing forms must be migrated.
+Embedded form support has been redesigned in Camunda Platform 7.2 and existing forms must be migrated.
 
 > Documentation on embedded forms support in 7.2 can be found in the [Embedded Forms Reference]({{< ref "/reference/embedded-forms/_index.md" >}})
 

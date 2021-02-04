@@ -10,7 +10,7 @@ menu:
 
 ---
 
-The following steps describe how to update the Camunda artifacts on an IBM was application server in a shared process engine setting. For the entire migration procedure, refer to the [migration guide][migration-guide]. If not already done, make sure to download the [Camunda BPM 7.2 IBM was distribution](https://app.camunda.com/nexus/service/rest/repository/browse/internal/org/camunda/bpm/was/camunda-bpm-was/).
+The following steps describe how to update the Camunda artifacts on an IBM was application server in a shared process engine setting. For the entire migration procedure, refer to the [migration guide][migration-guide]. If not already done, make sure to download the [Camunda Platform 7.2 IBM was distribution](https://app.camunda.com/nexus/service/rest/repository/browse/internal/org/camunda/bpm/was/camunda-bpm-was/).
 
 The update procedure takes the following steps:
 
@@ -20,13 +20,13 @@ The update procedure takes the following steps:
 4. Configure process engines
 5. Create a shared Camunda library
 6. Install the Camunda archive
-7. Install the Camunda BPM web applications
+7. Install the Camunda Platform web applications
 8. Associate existing applications with shared library
 
 In each of the following steps, the identifiers `$*_VERSION` refer to the current version and the new versions of the artifacts.
 
 {{< note title="Changing Platform Configuration" class="info" >}}
-Depending on your chosen feature set for Camunda BPM, some of the (optional) migration steps may require to change the configuration of the BPM platform. The Camunda enterprise archive (EAR) contains a default platform configuration. If you want to change this configuration, you can replace it as described in the
+Depending on your chosen feature set for Camunda Platform, some of the (optional) migration steps may require to change the configuration of the Camunda Platform. The Camunda enterprise archive (EAR) contains a default platform configuration. If you want to change this configuration, you can replace it as described in the
 [deployment descriptor reference]({{< ref "/reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}).
 {{< /note >}}
 
@@ -34,9 +34,9 @@ Depending on your chosen feature set for Camunda BPM, some of the (optional) mig
 
 First, uninstall the Camunda web applications, namely the Camunda REST API (artifact name like `camunda-engine-rest`) and the Camunda applications Cockpit, Tasklist and Admin (artifact name like `camunda-webapp`).
 
-Uninstall the Camunda EAR. Its name should be `camunda-ibm-was-ear-$PLATFORM_VERSION.ear`. Then, uninstall the Camunda job executor adapter, called `camunda-ibm-was-rar-$PLATFORM_VERSION.rar`. Delete the J2E connection factory and activation specification created for Camunda BPM 7.1.
+Uninstall the Camunda EAR. Its name should be `camunda-ibm-was-ear-$PLATFORM_VERSION.ear`. Then, uninstall the Camunda job executor adapter, called `camunda-ibm-was-rar-$PLATFORM_VERSION.rar`. Delete the J2E connection factory and activation specification created for Camunda Platform 7.1.
 
-After stopping the server, delete all Camunda BPM related libraries from the `$WAS_HOME/lib/ext` directory. These should be:
+After stopping the server, delete all Camunda Platform related libraries from the `$WAS_HOME/lib/ext` directory. These should be:
 
 * `camunda-engine-$PLATFORM_VERSION.jar`
 * `camunda-bpmn-model-$PLATFORM_VERSION.jar`
@@ -50,7 +50,7 @@ Note that the non-Camunda artifacts may be depended on by other applications.
 
 ## 2. Add the New Camunda Libraries
 
-Camunda BPM 7.2 ships a new installation approach for the Camunda BPM platform on IBM was. The Camunda BPM libraries are now available through a shared library the server administrator has to create.
+Camunda Platform 7.2 ships a new installation approach for the Camunda Platform on IBM was. The Camunda Platform libraries are now available through a shared library the server administrator has to create.
 
 Copy the Camunda core modules from the folder `$WAS_DISTRIBUTION/modules/lib` to a folder that can be referenced from your IBM was installation when you later create the shared library. In detail, these are the following artifacts:
 
@@ -71,10 +71,10 @@ If you have been previously using the Camunda LDAP plugin, also copy the followi
 
 There are artifacts for Camunda Connect, Camunda Spin, the Freemarker template language and Groovy scripting that may optionally be added to the shared library folder. Since all these artifacts add new functionality, the following steps are not required for migration.
 
-**Note:** The default Camunda configuration file contained by the Camunda EAR automatically activates the newly introduced, optional Camunda dependencies, Camunda Spin and Connect. If you do not use a custom BPM platform configuration as described [here][configuration-location] and do not intend to do so, you *must* install the Camunda Spin and Connect core libraries to the shared libraries folder.
+**Note:** The default Camunda configuration file contained by the Camunda EAR automatically activates the newly introduced, optional Camunda dependencies, Camunda Spin and Connect. If you do not use a custom Camunda Platform configuration as described [here][configuration-location] and do not intend to do so, you *must* install the Camunda Spin and Connect core libraries to the shared libraries folder.
 
 {{< note title="Not Using Connect/Spin" class="info" >}}
-If you do not want to use Camunda Connect or Camunda Spin, you cannot use the default BPM platform configuration that is contained in the Camunda EAR. In this case, make sure to change the configuration location as described [here][configuration-location]. As a starting point, you can copy the default configuration from `$WAS_DISTRIBUTION/modules/camunda-ibm-was-ear-$PLATFORM_VERSION.ear/camunda-ibm-was-service-$PLATFORM_VERSION.jar/META-INF/bpm-platform.xml` and remove the `<plugin>` entries for the classes `ConnectProcessEnginePlugin` and `SpinProcessEnginePlugin`.
+If you do not want to use Camunda Connect or Camunda Spin, you cannot use the default Camunda Platform configuration that is contained in the Camunda EAR. In this case, make sure to change the configuration location as described [here][configuration-location]. As a starting point, you can copy the default configuration from `$WAS_DISTRIBUTION/modules/camunda-ibm-was-ear-$PLATFORM_VERSION.ear/camunda-ibm-was-service-$PLATFORM_VERSION.jar/META-INF/bpm-platform.xml` and remove the `<plugin>` entries for the classes `ConnectProcessEnginePlugin` and `SpinProcessEnginePlugin`.
 {{< /note >}}
 
 ### Camunda Connect
@@ -86,7 +86,7 @@ If Camunda Connect is intended to be used, copy the following library from `$WAS
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
 * `slf4j-api-$SLF4J_VERSION.jar`
 
-If you use a custom BPM platform configuration file, Camunda Connect functionality has to be activated for a process engine by registering a process engine plugin (note that if you use the default configuration, this step is not necessary):
+If you use a custom Camunda Platform configuration file, Camunda Connect functionality has to be activated for a process engine by registering a process engine plugin (note that if you use the default configuration, this step is not necessary):
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -115,7 +115,7 @@ If Camunda Spin is intended to be used, copy the following library from `$WAS_DI
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
 * `slf4j-api-$SLF4J_VERSION.jar`
 
-If you use a custom BPM platform configuration file, Camunda Spin functionality has to be activated for a process engine by registering a process engine plugin (note that if you use the default configuration, this step is not necessary):
+If you use a custom Camunda Platform configuration file, Camunda Spin functionality has to be activated for a process engine by registering a process engine plugin (note that if you use the default configuration, this step is not necessary):
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -204,7 +204,7 @@ The following steps are required to update the Camunda web applications Cockpit,
 
 ## 8. Associate Existing Applications with Shared Library
 
-The new shared `Camunda` library affects process applications as well because the Camunda BPM libraries which are available with 7.1 on the global classpath are gone. In order to make the Camunda libraries available to applications, the `Camunda` shared library has to be associated with every process application. If this is not done, the applications fail due to missing resources.
+The new shared `Camunda` library affects process applications as well because the Camunda Platform libraries which are available with 7.1 on the global classpath are gone. In order to make the Camunda libraries available to applications, the `Camunda` shared library has to be associated with every process application. If this is not done, the applications fail due to missing resources.
 
 {{< note title="LDAP Entity Caching" class="info" >}}
 With 7.2, it is possible to enable entity caching for Hypertext Application Language (HAL) requests that the camunda web applications make. This can be especially useful when you use camunda in combination with LDAP. To activate caching, the camunda webapp artifact has to be modified and the pre-built application cannot be used as is. See the [REST Api Documentation]({{< ref "/reference/rest/overview/hal.md" >}}) for details.

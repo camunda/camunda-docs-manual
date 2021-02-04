@@ -14,7 +14,7 @@ menu:
 
 # JNDI Bindings
 
-To use the JNDI Bindings for BPM Platform Services on Apache Tomcat 7 you have to add the file `META-INF/context.xml` to your process application and add the following [ResourceLinks](http://tomcat.apache.org/tomcat-7.0-doc/config/context.html#Resource_Links):
+To use the JNDI Bindings for Camunda Platform Services on Apache Tomcat 7 you have to add the file `META-INF/context.xml` to your process application and add the following [ResourceLinks](http://tomcat.apache.org/tomcat-7.0-doc/config/context.html#Resource_Links):
 
 ```xml
 <Context>
@@ -52,19 +52,19 @@ Furthermore, declare the dependency on the JNDI binding inside the `WEB-INF/web.
 
 **Note**: You can choose different resource link names for the Process Engine Service and Process Application Service. The resource link name has to match the value inside the `<res-ref-name>`-element inside the corresponding `<resource-ref>`-element in `WEB-INF/web.xml`. We propose the name `ProcessEngineService` for the Process Engine Service and `ProcessApplicationService` for the Process Application Service.
 
-To do a lookup for a BPM Platform Service you have to use the resource link name to get the linked global resource. For example:
+To do a lookup for a Camunda Platform Service you have to use the resource link name to get the linked global resource. For example:
 
 * Process Engine Service: `java:comp/env/ProcessEngineService`
 * Process Application Service: `java:comp/env/ProcessApplicationService`
 
-If you have declared other resource link names than we proposed, you have to use `java:comp/env/$YOUR_RESOURCE_LINK_NAME` to do a lookup to get the corresponding BPM Platform Service.
+If you have declared other resource link names than we proposed, you have to use `java:comp/env/$YOUR_RESOURCE_LINK_NAME` to do a lookup to get the corresponding Camunda Platform Service.
 
 
 # Job Executor Configuration
 
 ## Tomcat Default Job Executor
 
-The BPM platform on Apache Tomcat 7.x uses the default job executor. The default [job executor]({{< ref "/user-guide/process-engine/the-job-executor.md" >}}) uses a ThreadPoolExecutor which manages a thread
+The Camunda Platform on Apache Tomcat 7.x uses the default job executor. The default [job executor]({{< ref "/user-guide/process-engine/the-job-executor.md" >}}) uses a ThreadPoolExecutor which manages a thread
 pool and a job queue.
 
 The core pool size, queue size, maximum pool size and keep-alive-time can be configured in the `bpm-platform.xml`.

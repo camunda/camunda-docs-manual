@@ -13,12 +13,12 @@ menu:
 ---
 
 
-This document describes the installation of Camunda BPM and its components on a vanilla [JBoss EAP 6](https://developers.redhat.com/products/eap/download) or vanilla [Wildfly Application Server / JBoss EAP 7](http://www.wildfly.org).
+This document describes the installation of Camunda Platform and its components on a vanilla [JBoss EAP 6](https://developers.redhat.com/products/eap/download) or vanilla [Wildfly Application Server / JBoss EAP 7](http://www.wildfly.org).
 
 {{< note title="Reading this Guide" class="info" >}}
 This guide uses a number of variables to denote common path names and constants:
 `$JBOSS_HOME`/`$WILDFLY_HOME` points to the JBoss/Wildfly application server main directory.
-`$PLATFORM_VERSION` denotes the version of the Camunda BPM platform you want to install or already have installed, e.g. `7.0.0`.
+`$PLATFORM_VERSION` denotes the version of the Camunda Platform you want to install or already have installed, e.g. `7.0.0`.
 {{< /note >}}
 
 # Required Setup for JBoss EAP 6
@@ -99,7 +99,7 @@ This also configures the default process engine.
 
 In the default configuration of the distribution, the database schema and all required tables are automatically created in an H2 database when the engine starts up for the first time. If you do not want to use the H2 database, you have to
 
-* Create a database schema for the Camunda BPM platform yourself.
+* Create a database schema for the Camunda Platform yourself.
 * Execute the SQL DDL scripts which create all required tables and default indices.
 
 The SQL DDL scripts reside in the `sql/create` folder of the distribution:
@@ -183,9 +183,9 @@ Add the Camunda subsystem as extension:
     <extension module="org.camunda.bpm.wildfly.camunda-wildfly-subsystem"/>
 ```
 
-Configure the thread pool for the Camunda BPM platform Job Executor:
+Configure the thread pool for the Camunda Platform Job Executor:
 
-Since Camunda BPM 7.5, the configuration of the thread pool is done in the Camunda subsystem, not in the JBoss Threads subsystem anymore like it was done before 7.5.
+Since Camunda Platform 7.5, the configuration of the thread pool is done in the Camunda subsystem, not in the JBoss Threads subsystem anymore like it was done before 7.5.
 The thread pool creation and shutdown is now controlled through the Camunda subsystem.
 You are able to configure it through the following new configuration elements in the `job-executor` element of the subsystem XML configuration.
 
@@ -238,7 +238,7 @@ The below example also configures the default process engine.
 
 ## Create the Database Schema
 
-By default, the database schema is automatically created in an H2 database when the engine starts up for the first time. If you do not want to use the H2 database, you first have to create a database schema for the Camunda BPM platform. The Camunda BPM distribution ships with a set of SQL create scripts that can be executed by a database administrator.
+By default, the database schema is automatically created in an H2 database when the engine starts up for the first time. If you do not want to use the H2 database, you first have to create a database schema for the Camunda Platform. The Camunda Platform distribution ships with a set of SQL create scripts that can be executed by a database administrator.
 
 The database creation scripts are reside in the `sql/create` folder:
 
@@ -281,7 +281,7 @@ These links point you to resources for other databases:
 
 # Optional Components
 
-This section describes how to install optional dependencies. None of these are required to work with the core platform. Before continuing, make sure that the Camunda BPM platform is already installed according to [this step]({{< relref "#required-setup-for-jboss-eap-6" >}}) for JBoss EAP 6, respectively [this step]({{< relref "#required-setup-for-wildfly-jboss-eap-7" >}}) for WildFly / JBoss EAP 7.
+This section describes how to install optional dependencies. None of these are required to work with the core platform. Before continuing, make sure that the Camunda Platform is already installed according to [this step]({{< relref "#required-setup-for-jboss-eap-6" >}}) for JBoss EAP 6, respectively [this step]({{< relref "#required-setup-for-wildfly-jboss-eap-7" >}}) for WildFly / JBoss EAP 7.
 
 
 ## Cockpit, Tasklist and Admin

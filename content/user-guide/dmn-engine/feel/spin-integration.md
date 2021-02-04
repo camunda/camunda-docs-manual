@@ -20,7 +20,7 @@ former data structures are transformed into the latter.
 
 The Spin integration for the FEEL Engine is implemented into the 
 [Spin Process Engine Plugin][spin plugin] since it is expected that the Process Engine should be 
-capable of using Spin, if another component of the Camunda BPM Platform (here, the FEEL Engine) 
+capable of using Spin, if another component of the Camunda Platform (here, the FEEL Engine) 
 supports its usage. 
 
 In the case of a standalone DMN Engine setup, the Spin Process Engine Plugin would need to be added 

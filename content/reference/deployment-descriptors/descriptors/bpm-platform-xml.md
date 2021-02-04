@@ -11,15 +11,15 @@ menu:
 
 ---
 
-The `bpm-platform.xml` file is part of the Camunda BPM platform distribution and can be used for configuration of process engines and the job executor.
-It is used to configure the Camunda BPM platform in the following distributions:
+The `bpm-platform.xml` file is part of the Camunda Platform distribution and can be used for configuration of process engines and the job executor.
+It is used to configure the Camunda Platform in the following distributions:
 
 *   [Apache Tomcat]({{< ref "/installation/full/tomcat/_index.md" >}})
 *   [IBM WebSphere Application Server]({{< ref "/installation/full/was/_index.md" >}})
 *   [Oracle WebLogic Application Server]({{< ref "/installation/full/wls/_index.md" >}})
 
 {{< note title="JBoss Application Server 7/Wildfly" class="warning">}}
-The <code>bpm-platform.xml</code> file is not used in the Camunda BPM distribution for JBoss Application Server 7 / Wildfly. There, the configuration is added to the central application server configuration file (<code>standalone.xml</code> or <code>domain.xml</code>). The XML schema is the same (i.e., the same elements and properties can be used). See the <a href="{{< ref "/user-guide/runtime-container-integration/jboss.md" >}}">The Camunda JBoss Subsystem</a> section of the <a href="{{< ref "/user-guide/_index.md" >}}">User Guide</a> for more details.
+The <code>bpm-platform.xml</code> file is not used in the Camunda Platform distribution for JBoss Application Server 7 / Wildfly. There, the configuration is added to the central application server configuration file (<code>standalone.xml</code> or <code>domain.xml</code>). The XML schema is the same (i.e., the same elements and properties can be used). See the <a href="{{< ref "/user-guide/runtime-container-integration/jboss.md" >}}">The Camunda JBoss Subsystem</a> section of the <a href="{{< ref "/user-guide/_index.md" >}}">User Guide</a> for more details.
 {{< /note >}}
 
 

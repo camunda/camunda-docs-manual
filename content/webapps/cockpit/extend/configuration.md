@@ -91,7 +91,7 @@ This includes a `custom-ng-module/script.js` file. The path is relative to the
 require(config.deps, callback);
 ```
 
-You can find a complete example about how to use `customScripts` to develop a Cockpit Plugin in the [Camunda BPM examples repository](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/js-only-plugin).
+You can find a complete example about how to use `customScripts` to develop a Cockpit Plugin in the [Camunda Platform examples repository](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/js-only-plugin).
 
 # BPMN Diagram Viewer (bpmn.js)
 
@@ -114,7 +114,7 @@ bpmnJs: {
 ...
 ```
 
-You can find an example on how to add an additional bpmn.js module to Cockpit in the [Camunda BPM examples repository](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/cockpit-bpmn-js-module).
+You can find an example on how to add an additional bpmn.js module to Cockpit in the [Camunda Platform examples repository](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/cockpit-bpmn-js-module).
 
 ## Moddle Extensions
 The BPMN moddle can be extended by adding a `moddleExtensions` property. Each moddle extension has a unique name (key)

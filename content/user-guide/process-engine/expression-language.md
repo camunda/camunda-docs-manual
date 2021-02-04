@@ -10,12 +10,12 @@ menu:
 
 ---
 
-Camunda BPM supports Unified Expression Language (EL), specified as part of the JSP 2.1 standard
+Camunda Platform supports Unified Expression Language (EL), specified as part of the JSP 2.1 standard
 ([JSR-245][]). To do so, it uses the open source [JUEL][] implementation. To get more general
 information about the usage of Expression Language, please read the [official documentation][].
 Especially the provided [examples][examples] give a good overview of the syntax of expressions.
 
-Within Camunda BPM, EL can be used in many circumstances to evaluate small script-like
+Within Camunda Platform, EL can be used in many circumstances to evaluate small script-like
 expressions. The following table provides an overview of the BPMN elements which support
 usage of EL.
 
@@ -73,7 +73,7 @@ usage of EL.
 
 ## Delegation Code
 
-Besides Java code, Camunda BPM also supports the evaluation of expressions as delegation code. For
+Besides Java code, Camunda Platform also supports the evaluation of expressions as delegation code. For
 general information about delegation code, see the corresponding
 [section]({{< ref "/user-guide/process-engine/delegation-code.md" >}}).
 

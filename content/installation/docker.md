@@ -1,6 +1,6 @@
 ---
 
-title: "Run Camunda BPM using Docker"
+title: "Run Camunda Platform using Docker"
 weight: 20
 
 menu:
@@ -16,9 +16,9 @@ menu:
 
 The Community Edition docker images can be found on [GitHub](https://github.com/camunda/docker-camunda-bpm-platform) and [Docker Hub](https://hub.docker.com/r/camunda/camunda-bpm-platform/).
 
-## Start Camunda BPM using Docker
+## Start Camunda Platform using Docker
 
-To start the Camunda BPM platform execute the following commands:
+To start the Camunda Platform execute the following commands:
 
 ```shell
 docker pull camunda/camunda-bpm-platform:latest
@@ -27,9 +27,9 @@ docker run -d --name camunda -p 8080:8080 camunda/camunda-bpm-platform:latest
 
 Please note that by default the Apache Tomcat distribution is used. For a guide on how to use one of the other distributions, see the [tag schema](https://github.com/camunda/docker-camunda-bpm-platform#supported-tagsreleases).
 
-## Start Camunda BPM Run using Docker
+## Start Camunda Platform Run using Docker
 
-To start [Camunda BPM Run]({{< ref "/user-guide/camunda-bpm-run.md" >}}) execute the following commands:
+To start [Camunda Platform Run]({{< ref "/user-guide/camunda-bpm-run.md" >}}) execute the following commands:
 
 ```shell
 docker pull camunda/camunda-bpm-platform:run-latest
@@ -38,7 +38,7 @@ docker run -d --name camunda -p 8080:8080 camunda/camunda-bpm-platform:run-lates
 
 # Enterprise Edition
 
-Since version 7.9 we offer to our customers a Docker image for the Enterprise edition of Camunda BPM platform.
+Since version 7.9 we offer to our customers a Docker image for the Enterprise edition of Camunda Platform.
 
 These images are hosted on our dedicated Docker registry and are available to Enterprise customers only. You can browse the available images in our [Docker registry](https://registry.camunda.cloud) after logging-in with your credentials.
 

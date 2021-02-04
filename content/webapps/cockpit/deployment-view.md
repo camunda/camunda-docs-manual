@@ -34,7 +34,7 @@ To delete a deployment, hover over the deployment  and click on the deletion ico
 # Redeploy
 
 {{< enterprise >}}
-  Please note that this feature is only included in the enterprise edition of the Camunda BPM platform, it is not available in the community edition.
+  Please note that this feature is only included in the enterprise edition of the Camunda Platform, it is not available in the community edition.
 {{< /enterprise >}}
 
 You can redeploy an existing deployment to increase the version of all definitions contained in the deployment and therefore overwrite any changes that happened to the definition since the initial deployment. To do so, click on the redeploy icon {{< glyphicon name="open" >}} that appears when hovering over a deployment. All contained resources in this deployment will then be redeployed. For every contained process, case, or decision definition a new version will be created. This new version will then be the latest version of all definitions with the same key.
@@ -44,7 +44,7 @@ You can also only redeploy a single resource within the deployment: Navigate to 
 # Create Deployment
 
 {{< enterprise >}}
-  Please note that this feature is only included in the enterprise edition of the Camunda BPM platform, it is not available in the community edition.
+  Please note that this feature is only included in the enterprise edition of the Camunda Platform, it is not available in the community edition.
 {{< /enterprise >}}
 
 You can create a new deployment. To do so, click on the deploy icon {{< glyphicon name="open" text="deploy" >}} that appears when hovering over a list of deployments. The deploy dialog will open. Specify the name of the deployment and select files for this deployment by clicking on the "choose files" button. Confirm the deployment with the "deploy" button. A confirmation notification with a link to the deployment details appears.

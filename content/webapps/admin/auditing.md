@@ -10,7 +10,7 @@ menu:
 
 ---
 {{< enterprise >}}
-  Please note that this feature is only included in the enterprise edition of the Camunda BPM platform, it is not available in the community edition.
+  Please note that this feature is only included in the enterprise edition of the Camunda Platform, it is not available in the community edition.
 {{< /enterprise >}}
 
 It is often desired to inspect which user performed which operation for auditing purposes. Admin operations are logged in the [user operation log]({{< ref "/user-guide/process-engine/history.md#user-operation-log" >}}) that is part of the process engine's history. The log allows to understand

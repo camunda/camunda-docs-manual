@@ -71,4 +71,4 @@ In case the variable does not yet exist (for instance in a Start Form), you have
 
 # Full Example
 
-A full example of this feature can be found in the [Camunda BPM Examples Repository](https://github.com/camunda/camunda-bpm-examples/tree/master/usertask/task-form-embedded-serialized-java-object).
+A full example of this feature can be found in the [Camunda Platform Examples Repository](https://github.com/camunda/camunda-bpm-examples/tree/master/usertask/task-form-embedded-serialized-java-object).

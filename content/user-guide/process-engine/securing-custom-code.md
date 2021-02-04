@@ -17,9 +17,9 @@ The process engine offers numerous extension points for customization of process
 
 Only trusted users should be authorized to interact with these endpoints. How access can be restricted is outlined in the next sections.
 
-# Camunda BPM in a Trusted Environment
+# Camunda Platform in a Trusted Environment
 
-When Camunda BPM is deployed in an environment where only trusted parties can access the system (for example due to firewall policies), no untrusted party can access the APIs for submitting custom code and the following suggestions need not be adhered to.
+When Camunda Platform is deployed in an environment where only trusted parties can access the system (for example due to firewall policies), no untrusted party can access the APIs for submitting custom code and the following suggestions need not be adhered to.
 
 # Deployments
 
