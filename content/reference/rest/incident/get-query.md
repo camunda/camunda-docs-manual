@@ -201,6 +201,11 @@ Each incident object has the following properties:
     <td>String</td>
     <td>The job definition id the incident is associated with.</td>
   </tr>
+  <tr>
+    <td>annotation</td>
+    <td>String</td>
+    <td>The annotation set to the incident.</td>
+  </tr>
 </table>
 
 \* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
@@ -251,7 +256,8 @@ GET `/incident?processInstanceId=aProcInstId`
     "configuration": "aConfiguration",
     "tenantId": null,
     "incidentMessage": "anIncidentMessage",
-    "jobDefinitionId": "aJobDefinitionId"
+    "jobDefinitionId": "aJobDefinitionId",
+    "annotation": "an annotation"
   },
   {
     "id": "anIncidentId",
@@ -267,7 +273,8 @@ GET `/incident?processInstanceId=aProcInstId`
     "configuration": "anotherConfiguration",
     "tenantId": null,
     "incidentMessage": "anotherIncidentMessage",
-    "jobDefinitionId": null
+    "jobDefinitionId": null,
+    "annotation": "another annotation"
   }
 ]
 ```
