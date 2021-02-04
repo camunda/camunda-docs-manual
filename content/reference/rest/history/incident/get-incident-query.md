@@ -269,6 +269,11 @@ Each historic incident object has the following properties:
     <td>String</td>
     <td>The process instance id of the root process instance that initiated the process containing this incident.</td>
   </tr>
+  <tr>
+    <td>annotation</td>
+    <td>String</td>
+    <td>The annotation set to the incident.</td>
+  </tr>
 </table>
 
 \* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
@@ -325,7 +330,8 @@ GET `/history/incident?processInstanceId=aProcInstId`
     "deleted": false,
     "resolved": false,
     "removalTime": null,
-    "rootProcessInstanceId": "aRootProcessInstanceId"
+    "rootProcessInstanceId": "aRootProcessInstanceId",
+    "annotation": "an annotation"
   },
   {
     "id": "anIncidentId",
@@ -347,7 +353,8 @@ GET `/history/incident?processInstanceId=aProcInstId`
     "deleted": false,
     "resolved": true,
     "removalTime": "2018-02-10T14:33:19.000+0200",
-    "rootProcessInstanceId": "aRootProcessInstanceId"
+    "rootProcessInstanceId": "aRootProcessInstanceId",
+    "annotation": "another annotation"
   }
 ]
 ```
