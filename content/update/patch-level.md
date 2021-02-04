@@ -22,8 +22,8 @@ Please note that Patch Level Updates are only provided to enterprise customers, 
 In this guide, a number of variables are used to denote common path names and constants:
 
 * `$DATABASE`: the target database platform, e.g. DB2, MySQL, etc.
-* `$DISTRIBUTION_PATH`: the path of the downloaded pre-packaged Camunda BPM distribution, e.g. `camunda-bpm-tomcat-$PLATFORM_VERSION.zip` or `camunda-bpm-tomcat-$PLATFORM_VERSION.tar.gz` for Tomcat etc.
-* `$PLATFORM_VERSION`: the version of the Camunda BPM platform you want to install, e.g. `7.1.0`.
+* `$DISTRIBUTION_PATH`: the path of the downloaded pre-packaged Camunda Platform distribution, e.g. `camunda-bpm-tomcat-$PLATFORM_VERSION.zip` or `camunda-bpm-tomcat-$PLATFORM_VERSION.tar.gz` for Tomcat etc.
+* `$PLATFORM_VERSION`: the version of the Camunda Platform you want to install, e.g. `7.1.0`.
 
 {{< /note >}}
 
@@ -536,7 +536,7 @@ The Docker images for Camunda 7.13 no longer provide an Oracle JDBC driver out o
 ### [Legal Note] Telemetry 
 
 In the mentioned patches above, a telemetry functionality is introduced. For more information please visit the [telemetry][] page.
-Before you upgrade to a Camunda BPM Runtime version >= 7.14.0-alpha1, 7.13.7+, 7.12.12+, and 7.11.19+, or activate the telemetry functionality, please make sure that you are authorized to take this step, and that the installation or activation of the [telemetry functionality][engine-config-initializeTelemetry] is not in conflict with any company-internal policies, compliance guidelines, any contractual or other provisions or obligations of your company.
+Before you upgrade to a Camunda Platform Runtime version >= 7.14.0-alpha1, 7.13.7+, 7.12.12+, and 7.11.19+, or activate the telemetry functionality, please make sure that you are authorized to take this step, and that the installation or activation of the [telemetry functionality][engine-config-initializeTelemetry] is not in conflict with any company-internal policies, compliance guidelines, any contractual or other provisions or obligations of your company.
 
 Camunda cannot be held responsible in the event of unauthorized installation or activation of this function.
 
@@ -628,7 +628,7 @@ This section is applicable if you installed the [Full Distribution]({{< ref "/in
 Please note that the following procedure may differ for cluster scenarios. Contact our [support team](https://app.camunda.com/jira/browse/SUPPORT) if you need further assistance.
 
 * Shut down the server
-* Exchange Camunda BPM libraries, tools and webapps (EAR, RAR, Subsystem (JBoss), Shared Libs) - essentially, follow the [installation guide]({{< ref "/installation/full/_index.md" >}}) for your server.
+* Exchange Camunda Platform libraries, tools and webapps (EAR, RAR, Subsystem (JBoss), Shared Libs) - essentially, follow the [installation guide]({{< ref "/installation/full/_index.md" >}}) for your server.
 * Restart the server
 
 # Application With Embedded Process Engine

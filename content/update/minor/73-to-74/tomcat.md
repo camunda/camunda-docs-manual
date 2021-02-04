@@ -10,12 +10,12 @@ menu:
 
 ---
 
-The following steps describe how to update the Camunda artifacts on a Tomcat server in a shared process engine setting. For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the [Camunda BPM 7.4 Tomcat distribution](https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/tomcat/camunda-bpm-tomcat/).
+The following steps describe how to update the Camunda artifacts on a Tomcat server in a shared process engine setting. For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the [Camunda Platform 7.4 Tomcat distribution](https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/tomcat/camunda-bpm-tomcat/).
 
 The update procedure takes the following steps:
 
-1. Update the Camunda BPM Core Libraries
-2. Update Optional Camunda BPM Libraries
+1. Update the Camunda Platform Core Libraries
+2. Update Optional Camunda Platform Libraries
 3. Maintain Process Engine Configuration
 4. Maintain Process Applications
 5. Update Web Applications
@@ -34,7 +34,7 @@ Should you want to update Tomcat along with Camunda, perform the following steps
 See the [Tomcat migration guide](https://tomcat.apache.org/migration-8.html#Migrating_from_7.0.x_to_8.0.x) for any Tomcat-specific migration notes and procedures.
 {{< /note >}}
 
-# 1. Update the Camunda BPM Core Libraries
+# 1. Update the Camunda Platform Core Libraries
 
 Replace the following libraries in the folder `$TOMCAT_HOME/lib/` with their new versions from the folder `$TOMCAT_DISTRIBUTION/lib/`:
 
@@ -61,7 +61,7 @@ Starting with 7.4, SLF4J is a mandatory dependency. Add the SLF4J libraries (if 
 Camunda needs version slf4j-api-1.7.7 or higher.
 See the User Guide for [Information on Logging in Camunda]({{< ref "/user-guide/logging.md" >}}).
 
-# 2. Update Optional Camunda BPM Libraries
+# 2. Update Optional Camunda Platform Libraries
 
 In addition to the core libraries, there may be optional artifacts in `$TOMCAT_HOME/lib/` for LDAP integration, Camunda Connect, Camunda Spin, and Groovy scripting. If you use any of these extensions, the following update steps apply:
 
@@ -98,7 +98,7 @@ This section describes changes in the engine’s default behavior. While the cha
 ## Task Query Expressions
 
 As of 7.4, the default handling of expressions submitted as parameters of task queries has changed. Passing EL expressions in a task query enables execution of arbitrary code when the query is evaluated. The process engine no longer evaluates these expressions by default and throws an exception instead. This behavior can be toggled in the process engine configuration using the properties `enableExpressionsInAdhocQueries` (default `false`) and `enableExpressionsInStoredQueries` (default `true`). To restore the engine's previous behavior, set both flags to `true`. See the user guide on [security considerations for custom code]({{< ref "/user-guide/process-engine/securing-custom-code.md" >}}) for details.
-This is already the default for Camunda BPM versions after and including 7.3.3 and 7.2.8.
+This is already the default for Camunda Platform versions after and including 7.3.3 and 7.2.8.
 
 ## User Operation Log
 

@@ -11,18 +11,18 @@ menu:
 ---
 
 {{< note title="ENVIRONMENT OUT OF SUPPORT" class="warning">}}
-  From Camunda BPM 7.5 onwards Glassfish Application Server is not supported anymore. Please have a look at the list of [Supported Environments]({{< ref "/introduction/supported-environments.md#container-application-server-for-runtime-components-excluding-camunda-cycle" >}}).
+  From Camunda Platform 7.5 onwards Glassfish Application Server is not supported anymore. Please have a look at the list of [Supported Environments]({{< ref "/introduction/supported-environments.md#container-application-server-for-runtime-components-excluding-camunda-cycle" >}}).
 {{< /note >}}
 
 
-The following steps describe how to update the Camunda artifacts on a Glassfish 3.1 application server in a shared process engine setting. For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the [Camunda BPM 7.5 Glassfish distribution](https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/glassfish/camunda-bpm-glassfish/).
+The following steps describe how to update the Camunda artifacts on a Glassfish 3.1 application server in a shared process engine setting. For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the [Camunda Platform 7.5 Glassfish distribution](https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/glassfish/camunda-bpm-glassfish/).
 
 The update procedure takes the following steps:
 
 1. Uninstall the Camunda Applications and Archives
 2. Replace Camunda Core Libraries
 3. Replace Optional Camunda Libraries
-4. Maintain the BPM Platform Configuration
+4. Maintain the Camunda Platform Configuration
 5. Maintain Process Applications
 6. Install the Camunda Archive
 7. Install the Web Applications
@@ -79,9 +79,9 @@ Copy the following library from `$GLASSFISH_DISTRIBUTION/modules/lib` to the fol
 
 * `groovy-all-$GROOVY_VERSION.jar`
 
-# 4. Maintain the BPM Platform Configuration
+# 4. Maintain the Camunda Platform Configuration
 
-If you have previously replaced the default BPM platform configuration with a custom configuration following any of the ways outlined in the [deployment descriptor reference][configuration-location], it may be necessary to restore this configuration. This can be done by repeating the configuration replacement steps for the updated platform.
+If you have previously replaced the default Camunda Platform configuration with a custom configuration following any of the ways outlined in the [deployment descriptor reference][configuration-location], it may be necessary to restore this configuration. This can be done by repeating the configuration replacement steps for the updated platform.
 
 # 5. Maintain Process Applications
 

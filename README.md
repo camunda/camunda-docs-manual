@@ -1,6 +1,6 @@
-# The Camunda BPM Documentation Sources
+# The Camunda Platform Documentation Sources
 
-This repository contains the sources of the Camunda BPM Documentation.
+This repository contains the sources of the Camunda Platform Documentation.
 
 **Important:** _do NOT change the content of `themes/camunda` directory directly!_
 Instead, change the [theme](//github.com/camunda/camunda-docs-theme).

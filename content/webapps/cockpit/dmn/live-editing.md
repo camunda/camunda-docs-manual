@@ -13,7 +13,7 @@ menu:
 ---
 
 {{< enterprise >}}
-  Please note that this feature is only included in the enterprise edition of the Camunda BPM platform, it is not available in the community edition.
+  Please note that this feature is only included in the enterprise edition of the Camunda Platform, it is not available in the community edition.
 {{< /enterprise >}}
 
 DMN tables can be changed directly in Cockpit. Clicking on the {{< glyphicon name="pencil" text=" Edit">}} button will open a dialog which contains an editable version of the DMN table. This button is only available for DMN resources. The edit dialog can also be opened by clicking on the {{< glyphicon name="pencil">}} icon on the [DMN definition page]({{< ref "/webapps/cockpit/dmn/decision-definition-view.md" >}}).

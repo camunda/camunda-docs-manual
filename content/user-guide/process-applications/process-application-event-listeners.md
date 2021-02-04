@@ -51,6 +51,6 @@ To use the global process application Event Listeners, you need to activate the 
       </plugins>
     </process-engine>
 
-Note that the plugin is activated by default in the pre-packaged Camunda BPM distributions.
+Note that the plugin is activated by default in the pre-packaged Camunda Platform distributions.
 
 The process application Event Listener interface is also a good place for adding the CdiEventListener bridge if you want to [use CDI Events in combination with the shared process engine]({{< ref "/user-guide/cdi-java-ee-integration/the-cdi-event-bridge.md" >}}).

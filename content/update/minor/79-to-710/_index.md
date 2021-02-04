@@ -13,7 +13,7 @@ menu:
 
 ---
 
-This document guides you through the update from Camunda BPM `7.9.x` to `7.10.0`. It covers these use cases:
+This document guides you through the update from Camunda Platform `7.9.x` to `7.10.0`. It covers these use cases:
 
 1. For administrators and developers: [Database Updates](#database-updates)
 2. For administrators and developers: [Full Distribution Update](#full-distribution)
@@ -28,7 +28,7 @@ This document guides you through the update from Camunda BPM `7.9.x` to `7.10.0`
 11. For administrators and developers: [Changed Permissions for Starting Process In Tasklist](#changed-permissions-for-starting-process-in-tasklist)
 12. For developers: [Spin and JAXB](#spin-and-jaxb)
 
-This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda BPM 7.10.
+This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda Platform 7.10.
 
 Noteworthy new Features and Changes in 7.10:
 
@@ -53,7 +53,7 @@ Every Camunda installation requires a database schema update.
 
     The scripts update the database from one minor version to the next, and change the underlying database structure. So make sure to backup your database in case there are any failures during the update process.
 
-3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda BPM platform, e.g., `7.10.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
+3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda Platform, e.g., `7.10.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
 
 ## DB2 Specifics
 
@@ -70,11 +70,11 @@ The following steps are required:
 1. Update the Camunda libraries and applications inside the application server
 2. Migrate custom process applications
 
-Before starting, make sure that you have downloaded the Camunda BPM 7.10 distribution for the application server you use. It contains the SQL scripts and libraries required for update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
+Before starting, make sure that you have downloaded the Camunda Platform 7.10 distribution for the application server you use. It contains the SQL scripts and libraries required for update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
 
 ## Wildfly distribution
 
-Starting from Camunda BPM 7.10, only a single WildFly distribution, packaged with the latest version of the WildFly application server will be provided. For WildFly 10+, the update process remains the same.
+Starting from Camunda Platform 7.10, only a single WildFly distribution, packaged with the latest version of the WildFly application server will be provided. For WildFly 10+, the update process remains the same.
 
 For **WildFly 8** users, separate **`camunda-wildfly8-modules`** and **`camunda-wildfly8-subsystem`** archives have been provided.
 
@@ -116,7 +116,7 @@ If you are using Camunda Spring Boot Starter within you Spring Boot application,
 
 1. Check [Version Compatibility Matrix]({{< ref "/user-guide/spring-boot-integration/version-compatibility.md" >}})
 2. Update **Spring Boot Starter** and, when required, Spring Boot versions in your `pom.xml`.
-3. Update the Camunda BPM version in your `pom.xml` in case you override it before (e.g. when using the enterprise version or a patch releases)
+3. Update the Camunda Platform version in your `pom.xml` in case you override it before (e.g. when using the enterprise version or a patch releases)
 
 # External Task Client Update
 
@@ -128,13 +128,13 @@ If you are using the **Camunda External Task Client**, please make sure to:
 # CSRF Prevention in the Webapps
 
 This release secures the Webapps with CSRF Prevention. If you want to make use of the newly introduced security enhancement, 
-please make sure to enable the `CsrfPreventionFilter` when migrating to 7.10 by adjusting the `web.xml` file of Camunda BPM Webapps.
+please make sure to enable the `CsrfPreventionFilter` when migrating to 7.10 by adjusting the `web.xml` file of Camunda Platform Webapps.
 
 Please also see the documentation about [CSRF Prevention]({{< ref "/webapps/shared-options/csrf-prevention.md" >}}).
 
 # Whitelist Pattern for User, Group and Tenant IDs
 
-With Camunda BPM 7.10 a whitelist pattern of User, Group and Tenant IDs has been introduced. By default, on creating or 
+With Camunda Platform 7.10 a whitelist pattern of User, Group and Tenant IDs has been introduced. By default, on creating or 
 updating users, groups or tenants the ID is matched against the pattern **"[a-zA-Z0-9]+|camunda-admin"**. To disable or 
 adjust the default pattern, please see the documentation under [Identity Service]({{< ref "/user-guide/process-engine/identity-service.md#custom-whitelist-for-user-group-and-tenant-ids" >}}) in the User Guide.
 
@@ -143,7 +143,7 @@ This release introduces support for JDK 9 / 10 / 11.
 
 ## JRuby
 
-The Camunda BPM Platform [supports scripting]({{< ref "/user-guide/process-engine/scripting.md" >}}) with JSR-223 compatible 
+The Camunda Platform [supports scripting]({{< ref "/user-guide/process-engine/scripting.md" >}}) with JSR-223 compatible 
 script engine implementations. 
 
 If the optional JRuby script engine implementation is used, the respective dependency needs to be updated to 
@@ -172,14 +172,14 @@ The default strategy of the [History Cleanup]({{< ref "/user-guide/process-engin
 has been changed. From now on, each historic instance related to processes, decisions or batches needs a 
 [removal time]({{< ref "/user-guide/process-engine/history.md#removal-time">}}) to be cleaned-up.
 
-Historic instances which (1) have been produced by a Camunda BPM version prior to 7.10 and (2) belong to a top-level instance 
+Historic instances which (1) have been produced by a Camunda Platform version prior to 7.10 and (2) belong to a top-level instance 
 which has been completed already cannot be cleaned-up after the migration took place. This is due to the reason, that a 
 removal time is missing for these historic instances. If you want to get rid of them anyway, please add a removal time 
 or switch the `historyCleanupStrategy` to the `endTimeBased` cleanup strategy via a 
 [process engine configuration property]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#historyCleanupStrategy" >}}).
 
 {{< note title="Heads Up!" class="info" >}}
-Starting with Camunda BPM 7.11 there exist several Batch Operations to set a removal time to historic processes, decisions and batches.
+Starting with Camunda Platform 7.11 there exist several Batch Operations to set a removal time to historic processes, decisions and batches.
 This allows you to set a removal time via Camunda Cockpit as well as REST & Java API.
 
 You can learn more about it in the [User Guide]({{< ref "/user-guide/process-engine/batch-operations.md#set-a-removal-time">}}).

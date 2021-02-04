@@ -16,7 +16,7 @@ The Camunda platform provides a public API. This section covers the definition o
 
 # Definition of Public API
 
-The Camunda BPM public API is limited to the following items:
+The Camunda Platform public API is limited to the following items:
 
 Java API: 
 

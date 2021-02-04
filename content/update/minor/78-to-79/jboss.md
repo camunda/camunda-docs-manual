@@ -13,20 +13,20 @@ menu:
 The following steps describe how to update the Camunda artifacts on a JBoss AS
 7, Wildfly 8 and Wildfly 10 server in a shared process engine scenario. For the entire
 procedure, refer to the [update guide][update-guide]. If not
-already done, make sure to download the [Camunda BPM 7.9 JBoss distribution](https://downloads.camunda.cloud/release/camunda-bpm/jboss/7.9/), [Camunda BPM 7.9 Wildfly 8](https://downloads.camunda.cloud/release/camunda-bpm/wildfly8/7.9/)
-or [Camunda BPM 7.9 Wildfly 10 distribution](https://downloads.camunda.cloud/release/camunda-bpm/wildfly10/7.9/). In the following instructions
+already done, make sure to download the [Camunda Platform 7.9 JBoss distribution](https://downloads.camunda.cloud/release/camunda-bpm/jboss/7.9/), [Camunda Platform 7.9 Wildfly 8](https://downloads.camunda.cloud/release/camunda-bpm/wildfly8/7.9/)
+or [Camunda Platform 7.9 Wildfly 10 distribution](https://downloads.camunda.cloud/release/camunda-bpm/wildfly10/7.9/). In the following instructions
 `$APP_SERVER` should be replaced with either `jboss` or `wildfly`, depending on
 the used application server.
 
 The update procedure takes the following steps:
 
-1. Update the Camunda BPM Modules
-2. Update Optional Camunda BPM Modules
+1. Update the Camunda Platform Modules
+2. Update Optional Camunda Platform Modules
 3. Update Camunda Web Applications
 
 Whenever the instructions are to *replace* a module, make sure to delete the previous version of the module first to avoid orphan jars.
 
-# 1. Update the Camunda BPM Modules
+# 1. Update the Camunda Platform Modules
 
 Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with their new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/`:
 
@@ -43,7 +43,7 @@ Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with t
 * `org/camunda/commons/camunda-commons-typed-values`
 * `org/camunda/commons/camunda-commons-utils`
 
-# 2. Update Optional Camunda BPM Modules
+# 2. Update Optional Camunda Platform Modules
 
 In addition to the core modules, there may be optional artifacts in `$APP_SERVER_HOME/modules/` for LDAP integration, Camunda Connect, Camunda Spin, and Groovy scripting.
 If you use any of these extensions, the following update steps apply:
@@ -79,7 +79,7 @@ Additionally, also replace the following dependent modules:
 * `com/fasterxml/jackson/core/jackson-databind`
 
 {{< note title="Stick to older Jackson version" class="info" >}}
-Starting from v. 7.9, Camunda BPM is delivered with Spin 1.5.1 version, which in its turn relies on Jackson of v. 2.9.5 (compared to v.2.6.3 used before). 
+Starting from v. 7.9, Camunda Platform is delivered with Spin 1.5.1 version, which in its turn relies on Jackson of v. 2.9.5 (compared to v.2.6.3 used before). 
 
 In case you need to stick to older Jackson version (2.6.3):
 
