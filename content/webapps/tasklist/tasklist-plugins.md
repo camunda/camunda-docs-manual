@@ -21,29 +21,7 @@ For further details about the concepts behind plugins, please read the [Cockpit 
 {{< note title="Difference between Cockpit and Tasklist plugins:" class="warning">}}
   * To publish the plugin with Tasklist, its class name must be put into a file called ```org.camunda.bpm.tasklist.plugin.spi.TasklistPlugin``` that resides in the directory ```META-INF/services```.
   * The plugin mechanism of Tasklist does not allow to provide additional SQL queries by using [MyBatis](http://www.mybatis.org/) mappings.
-  * Tasklist frontend modules depend on requireJS and angularJS to register Plugins. 
 {{< /note >}}
-
-# Structure of a Frontend Module
-This is how a sample `plugin.js` could look like:
-```Javascript
-define(['angular'], function(angular) {
-
-  var ngModule = angular.module('tasklist.cats', []);
-
-  ngModule.config(['ViewsProvider', function(ViewsProvider) {
-    ViewsProvider.registerDefaultView('tasklist.task.detail', {
-      id: 'tasklist.cats',
-      priority: 9001,
-      label: 'Cats!',
-      template: '<h1>Cats!</h1><img src="http://thecatapi.com/api/images/get?size=medium" width="400" />',
-    });
-  }]);
-
-  return ngModule;
-});
-```
-As the file is loaded as a RequireJS module, dependencies (in terms of other RequireJS modules) may be specified. The plugin must register itself with the ViewsProvider via a [module configuration hook](https://docs.angularjs.org/api/ng/type/angular.Module#config).
 
 # Plugin Points
 
@@ -60,6 +38,10 @@ Here you can see the various points at which you are able to add your own plugin
 
 {{< img src="../img/plugin-points/tasklist-plugin-task-action.png" title="Plugin Point" >}}
 
+This additional data is passed into the render function:
+
+  * `taskId`
+
 ---
 
 **Name:** `tasklist.header`.
@@ -72,6 +54,10 @@ Here you can see the various points at which you are able to add your own plugin
 
 {{< img src="../img/plugin-points/tasklist-plugin-task-detail.png" title="Plugin Point" >}}
 
+This additional data is passed into the render function:
+
+  * `taskId`
+
 ---
 
 **Name:** `tasklist.list`.
@@ -83,6 +69,10 @@ Here you can see the various points at which you are able to add your own plugin
 **Name:** `tasklist.card`.
 
 {{< img src="../img/plugin-points/tasklist-plugin-card.png" title="Plugin Point" >}}
+
+This additional data is passed into the render function:
+
+  * `taskId`
 
 ---
 
