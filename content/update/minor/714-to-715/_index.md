@@ -234,7 +234,7 @@ export default {
 If you do not have custom scripts or plugins, you are good to go. Otherwise, continue reading to find out how to migrate your plugins.
  
 # New Frontend Plugin System for all Webapps
-With the 7.15.0 release, we updated all our Webapps frontend plugin system. They now use the same plugin system that we introduced to cockpit in the 7.14 release. Check out the [7.13 to 7.14 update guide]({{< ref "update/minor/713-to-714/_index.md#migrate-existing-angularjs-plugins" >}}) for mor details on how to migrate your plugins.
+With the 7.15.0 release, we updated all our Webapps frontend plugin system. They now use the same plugin system that we introduced to cockpit in the 7.14 release. Check out the [7.13 to 7.14 update guide]({{< ref "/update/minor/713-to-714/_index.md#migrate-existing-angularjs-plugins" >}}) for mor details on how to migrate your plugins.
 
 You can still use your old plugins if you include them as legacy plugins:
 
