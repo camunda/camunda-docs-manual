@@ -23,6 +23,8 @@ This document guides you through the update from Camunda Platform `7.14.x` to `7
 1. For administrators and developers: [Changed filter criterion label in Cockpit](#changed-filter-criterion-label-in-cockpit)
 1. For developers: [Adjustments in Metrics](#adjustments-in-metrics)
 1. For developers: [DMN Model API generates DMN 1.3 diagrams](#dmn-model-api-generates-dmn-1-3-diagrams)
+1. For developers: [Changes to the Webapp Config Files](#changes-to-the-webapp-config-files)
+1. For developers: [New Frontend Plugin System for all Webapps](#new-frontend-plugin-system-for-all-webapps)
 
 This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new functionality included in Camunda Platform 7.15.
 
@@ -197,3 +199,95 @@ with the DMN 1.3 specification. Users that rely on the DMN 1.1 specification fro
 API should adjust their logic to use the DMN 1.3 specification.
 
 [create-dmn-diagram]: {{< ref "/user-guide/model-api/dmn-model-api/create-a-model.md" >}}
+
+# Changes to the Webapp Config Files
+
+The structure of the `config.js` file, located in the `app/{admin|tasklist|welcome}/scripts/` directory of the webapps, changed slightly. It is now a Javascript module. If you have customized the config file, replace the line 
+```javascript
+window.camAdminConf = {
+  // ...
+}
+```
+with
+```javascript
+export default {
+  // ...
+}
+```
+
+The `customScripts` and `bpmnJs.additionalModules` attributes changed as well. Both are now arrays of paths to your Javascript files. You can check the default `config.js` for an example structure:
+```Javascript
+export default {
+  customScripts: [
+    // If you have a folder called 'my-custom-script'
+    // with a file called 'customScript.js' in it
+    'my-custom-script/customScript'
+  ],
+  bpmnJs: {
+    additionalModules: [
+      // If you have a folder called 'my-custom-module'
+      // with a file called 'module.js' in it
+      'my-custom-module/module'
+    ],
+  }
+}
+```
+If you do not have custom scripts or plugins, you are good to go. Otherwise, continue reading to find out how to migrate your plugins.
+ 
+# New Frontend Plugin System for all Webapps
+
+With the 7.15.0 release, we updated all our Webapps frontend plugin system. They now use the same plugin system that we introduced to cockpit in the 7.14 release. Check out the [7.13 to 7.14 update guide]({{< ref "/update/minor/713-to-714/_index.md#migrate-existing-angularjs-plugins" >}}) for more details on how to migrate your plugins.
+
+You can still use your old plugins if you include them as legacy plugins:
+
+## Legacy Custom Scripts
+
+Custom Scripts created for Camunda Platform 7.13 or earlier can be included using the `requireJsConfig` property to the `app/{appName}/scripts/config.js`. You can include these custom scripts using the custom [requireJS configuration](https://requirejs.org/docs/api.html#config).
+If you are upgrading and have a modified `config.js` file, you can simply rename the `customScripts` attribute to `requireJsConfig`.
+
+
+## Legacy Plugins
+
+Plugins created for Camunda Platform 7.13 or earlier can be included for compatibility. To achieve this, simply prefix your Plugin ID with `legacy-`. The AngularJS module name for the entry module will be `{appName}.plugin.legacy-*`. There are 3 Steps you can follow to adjust your existing plugin to work with Camunda Platform 7.15. We will show the changes with the [Cockpit Failed Jobs Plugin](https://github.com/camunda/camunda-bpm-examples/tree/7.13/cockpit/cockpit-failed-jobs-plugin), but the steps are the same for all webapp plugins.
+
+  1. Prefix the Plugin ID with `legacy-`.  
+
+        --- a/src/main/java/org/camunda/bpm/cockpit/plugin/failedjobs/FailedJobsPlugin.java
+        +++ b/src/main/java/org/camunda/bpm/cockpit/plugin/failedjobs/FailedJobsPlugin.java
+        @@ -24,7 +24,7 @@ import org.camunda.bpm.cockpit.plugin.spi.impl.AbstractCockpitPlugin;
+        
+        public class FailedJobsPlugin extends AbstractCockpitPlugin {
+        
+        -  public static final String ID = "failed-jobs-plugin";
+        +  public static final String ID = "legacy-failed-jobs-plugin";
+        
+        public String getId() {
+            return ID;
+
+2. Rename the webapp resources folder.
+
+            src/main/resources/plugin-webapp/failed-jobs-plugin 
+        --> src/main/resources/plugin-webapp/legacy-failed-jobs-plugin
+
+3. Adjust the Plugin ID and paths in the frontend files. This includes custom API calls, resources and the module name.
+    
+        --- a/src/main/resources/plugin-webapp/failed-jobs-plugin/app/plugin.js
+        +++ b/src/main/resources/plugin-webapp/legacy-failed-jobs-plugin/app/plugin.js
+        @@ -67,14 +67,14 @@ define(['angular'], function(angular) {
+            ViewsProvider.registerDefaultView('cockpit.dashboard', {
+            id : 'failed-jobs',
+            label : 'Failed Jobs',
+        -      url: 'plugin://failed-jobs-plugin/static/app/failed-jobs-table.html',
+        +      url: 'plugin://legacy-failed-jobs-plugin/static/app/failed-jobs-table.html',
+            dashboardMenuLabel: 'Failed Jobs',
+            controller : FailedJobsController,
+            priority : 15
+            });
+        }];
+        
+        -  var ngModule = angular.module('cockpit.plugin.failed-jobs-plugin', []);
+        +  var ngModule = angular.module('cockpit.plugin.legacy-failed-jobs-plugin', []);
+                ngModule.config(Configuration);
+
+Please note that all Plugins with this prefix will be included using the 7.13 plugin mechanism. You cannot create new Plugins with IDs starting with `legacy`.
+
