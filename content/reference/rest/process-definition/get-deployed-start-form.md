@@ -70,7 +70,12 @@ An object with the deployed start form content.
     <td>application/xhtml+xml</td>
     <td>Request successful.</td>
   </tr>
-   <tr>
+  <tr>
+    <td>200</td>
+    <td>application/json</td>
+    <td>Request successful.</td>
+  </tr>
+  <tr>
     <td>400</td>
     <td>application/json</td>
     <td>The form key has wrong format.
