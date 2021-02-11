@@ -39,7 +39,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>businessKey</td>
-    <td>Used for correlation of process instances that wait for incoming messages. Will only correlate to executions that belong to a process instance with the provided business key.</td>
+    <td>Used for correlation of process instances that wait for incoming messages. Will only correlate to executions that belong to a process instance with the provided business key.<br>If the message triggers a start event, the business key is set in the process instance.</td>
   </tr>
   <tr>
     <td>tenantId</td>
