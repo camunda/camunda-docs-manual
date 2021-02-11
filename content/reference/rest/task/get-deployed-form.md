@@ -53,6 +53,11 @@ An object with the deployed form content.
     <td>Request successful.</td>
   </tr>
   <tr>
+    <td>200</td>
+    <td>application/json</td>
+    <td>Request successful.</td>
+  </tr>
+  <tr>
     <td>400</td>
     <td>application/json</td>
     <td>The form key has wrong format.
