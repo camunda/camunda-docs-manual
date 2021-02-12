@@ -185,7 +185,7 @@ Status 200.
     "links": [
         {
             "method": "GET",
-            "href": "http://localhost:38080/rest-test/deployment/aDeploymentId",
+            "href": "http://localhost:8080/rest-test/deployment/aDeploymentId",
             "rel": "self"
         }
     ],
