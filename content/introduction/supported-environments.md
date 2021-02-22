@@ -40,7 +40,7 @@ and [Deployment scenarios]({{< ref "/user-guide/spring-boot-integration/_index.m
 
 ## Supported Database Products
 
-* MySQL 5.6 / 5.7
+* MySQL 5.6 / 5.7 / 8.0
 * MariaDB 10.2 / 10.3
 * Oracle 12c / 18c / 19c
 * IBM DB2 10.5 / 11.1 (excluding IBM z/OS for all versions)
