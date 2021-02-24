@@ -27,6 +27,7 @@ This document guides you through the update from Camunda Platform `7.13.x` to `7
 1. For developers: [End of Spring 3 Support](#end-of-spring-3-support)
 1. For developers: [New Process Engine Property](#new-process-engine-property)
 1. For developers: [Disable Telemetry Reporter in Tests](#disable-telemetry-reporter-in-tests)
+1. For administrators and developers: [PostgreSQL Support Clarification](#postgresql-support-clarification)
 
 This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new functionality included in Camunda Platform 7.14.
 
@@ -278,3 +279,20 @@ processEngineConfiguration.buildProcessEngine();
 ```
 
 [telemetry]: {{< ref "/introduction/telemetry.md" >}}
+
+# PostgreSQL Support Clarification
+
+According to the [PostgreSQL versioning documentation][postgresql-versioning], the PostgreSQL versioning
+scheme changed from PostgreSQL 10. For versions before PostgreSQL 10, a major version was marked by the first two
+version numbers, e.g. `9.4`, `9.6`. From PostgreSQL 10, a major version is marked by a single version number, e.g. `10`,
+`11`, `12`.
+
+As this was only a change to the versioning scheme, the content of the minor releases (e.g. `9.4.6`,
+`9.6.18`, `10.13`, `11.2`, etc.) didn't change. Therefore, we have updated the [Camunda Supported Environments][supported-environments],
+to reflect that Camunda supports all the minor version updates of a major PostgreSQL version.
+
+Note that this adjustment doesn't change the supported versions of Amazon Aurora PostgreSQL. This is a database
+service built on top of PostgreSQL, and as such, needs to be tested for support separately from PostgreSQL.
+
+[postgresql-versioning]: https://www.postgresql.org/support/versioning/
+[supported-environments]: {{< ref "/introduction/supported-environments.md#supported-database-products" >}}
