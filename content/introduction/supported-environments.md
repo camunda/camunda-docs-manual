@@ -32,8 +32,8 @@ and [Deployment scenarios]({{< ref "/user-guide/spring-boot-integration/_index.m
 * JBoss EAP 6.4 / 7.0 / 7.1 / 7.2
 * Wildfly Application Server 10.1 / 11.0 / 12.0 / 13.0 / 14.0 / 15.0 / 16.0 / 17.0 / 18.0 / 19.0
 * IBM WebSphere Application Server 8.5 / 9.0 ([Enterprise Edition only](http://camunda.com/bpm/enterprise/))
-*	Oracle WebLogic Server 12c (12R2) ([Enterprise Edition only](http://camunda.com/bpm/enterprise/))
-and [Deployment scenarios]({{< ref "/user-guide/spring-boot-integration/_index.md#supported-deployment-scenarios" >}})).
+* Oracle WebLogic Server 12c (12R2) ([Enterprise Edition only](http://camunda.com/bpm/enterprise/))
+* And [Deployment scenarios]({{< ref "/user-guide/spring-boot-integration/_index.md#supported-deployment-scenarios" >}}).
 
 
 # Databases
@@ -44,7 +44,7 @@ and [Deployment scenarios]({{< ref "/user-guide/spring-boot-integration/_index.m
 * MariaDB 10.0 / 10.2 / 10.3
 * Oracle 11g / 12c / 18c / 19c
 * IBM DB2 10.5 / 11.1 (excluding IBM z/OS for all versions)
-* PostgreSQL 9.4 / 9.6 / 10.4 / 10.7 / 10.13 / 11.1 / 11.2 / 12.2
+* PostgreSQL 9.4 / 9.6 / 10 / 11 / 12
 * Amazon Aurora PostgreSQL compatible with PostgreSQL 9.6 / 10.4 / 10.7 / 10.13
 * Microsoft SQL Server 2012/2014/2016/2017 (see [Configuration Note]({{< ref "/user-guide/process-engine/database.md#configuration-for-microsoft-sql-server" >}}))
 * H2 1.4 (not recommended for [Cluster Mode]({{< ref "/introduction/architecture.md#clustering-model" >}}) - see [Deployment Note]({{< ref "/user-guide/process-engine/deployments.md" >}}))
