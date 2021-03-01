@@ -367,6 +367,10 @@ A JSON object with the following properties:
     </td>
   </tr>
   <tr>
+    <td>withoutDueDate</td>
+    <td>Only include tasks which have no due date. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>followUpDate</td>
     <td>Restrict to tasks that have a followUp date on the given date. By defalut*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.384+0200</code>.</td>
   </tr>
