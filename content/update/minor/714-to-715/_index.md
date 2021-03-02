@@ -23,6 +23,7 @@ This document guides you through the update from Camunda Platform `7.14.x` to `7
 1. For administrators and developers: [Changed filter criterion label in Cockpit](#changed-filter-criterion-label-in-cockpit)
 1. For developers: [Adjustments in Metrics](#adjustments-in-metrics)
 1. For developers: [DMN Model API generates DMN 1.3 diagrams](#dmn-model-api-generates-dmn-1-3-diagrams)
+1. For administrators and developers: [Embedded Forms Preview in Cockpit](#embedded-forms-preview-in-cockpit)
 
 This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new functionality included in Camunda Platform 7.15.
 
@@ -197,3 +198,7 @@ with the DMN 1.3 specification. Users that rely on the DMN 1.1 specification fro
 API should adjust their logic to use the DMN 1.3 specification.
 
 [create-dmn-diagram]: {{< ref "/user-guide/model-api/dmn-model-api/create-a-model.md" >}}
+
+# Embedded Forms Preview in Cockpit
+Deployed Forms now show a preview in the Cockpit deployment view. If the HTML has embedded `<script>` tags, they will be executed, which may have unintended side-effects.
+You can disable this preview feature in the [Cockpit configuration]({{< ref "/webapps/cockpit/extend/configuration.md#preview-deployed-embedded-forms" >}}) to prevent script execution. Check out our [security instructions]({{< ref "/user-guide/security.md#forms" >}}) for more information on how to secure your Camunda installation.
