@@ -485,7 +485,7 @@ expression as a substring.
     <br/>
     Valid operator values are: <code>eq</code> - equal to; <code>neq</code> - not equal to; <code>gt</code> - greater than;
     <code>gteq</code> - greater than or equal to; <code>lt</code> - lower than; <code>lteq</code> - lower than or equal to;
-    <code>like</code>.<br/>
+    <code>like</code>;<code>notLike</code>.<br/>
     </td>
   </tr>
   <tr>
