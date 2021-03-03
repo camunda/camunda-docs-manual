@@ -21,7 +21,9 @@
   </div><!-- / .page-wrapper -->
 
 
-  <script type="text/javascript" src="{{.Site.BaseURL}}js/docs.js"></script>
+  {{ $scripts := resources.Get "js/docs.js" | fingerprint }}
+
+  <script type="text/javascript" src="{{ $scripts.Permalink }}" integrity="{{ $scripts.Data.Integrity }}"></script>
   <script type="text/javascript">
     var _gaq = _gaq || [];
     var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
