@@ -6,3 +6,4 @@ npm-debug.log
 public/
 hugo
 thumbnails/
+_gen/
