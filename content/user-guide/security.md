@@ -145,6 +145,8 @@ However, script languages such as Groovy or Javascript are executed directly ins
 
 Camunda offers different types of forms which are primarily used in Tasklist. In the input inside of this forms you can call and execute scripts which allows you to achieve easily your business logic. Please validate this input each time to prevent malicious behaviour.
 
+If you don't want to display form previews and execute the embedded scripts in Cockpit, you can disable it in the [configuration]({{< ref "/webapps/cockpit/extend/configuration.md#preview-deployed-embedded-forms" >}}).
+
 ## Queries
 
 ### Expressions in Queries

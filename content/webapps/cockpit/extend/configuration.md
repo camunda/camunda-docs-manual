@@ -262,3 +262,13 @@ export default = {
 ```
 
 **Note:** This does only affect the Cockpit Operation Log. For the Admin Operation Log, check out the [Admin Configuration]({{<ref "/webapps/admin/configuration.md#user-operation-log-annotation-length" >}}).
+
+# Preview Deployed Embedded Forms
+You can view a preview of embedded forms and other HTML files in the Cockpit deployment view. If the HTML has embedded `<script>` tags, they will be executed, which may have unintended side-effects. You can disable this feature if you don't trust your deployed HTML files in the `config.js` file as follows: 
+
+```javascript
+export default = {
+  // …
+  previewHtml: false
+};
+```
