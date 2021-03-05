@@ -29,6 +29,17 @@ For further details about the concepts behind plugins, please read the [Cockpit 
 
 Here you can see the various points at which you are able to add your own plugins.
 
+## Route
+**Name:** `admin.route`
+
+This plugin points properties contain the attribute `path`, which stands for the hashRoute for this page. This will be rendered when the user navigates in the browser to the url, e.g. `#/my-path`.
+
+```Javascript
+properties: {
+  path: "/my-path"
+}
+```
+
 ## Dashboard
 
 **Name:** `admin.dashboard.section`
@@ -37,5 +48,13 @@ Here you can see the various points at which you are able to add your own plugin
 
 With Camunda Platform 7.5, the Admin webapp gets a dashboard based on plugins similar to the [Cockpit dashboard ones]({{< ref "/webapps/cockpit/extend/plugins.md" >}}#dashboard).
 
+This plugin points properties contain the attributes `label` and `pagePath`, which are the heading of the new Section as well as the linked sub-page of the heading. If `pagePath` is `undefined`, the label will not be rendered as a link.
+
+```Javascript
+properties: {
+  label: "My Plugin",
+  pagePath: '#/myPage'
+}
+```
 
 You can find examples of [Admin dashboard plugins here](https://github.com/camunda/camunda-bpm-platform/tree/master/webapps/ui/admin/plugins/base/app/views/dashboard).

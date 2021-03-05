@@ -329,6 +329,10 @@ expression as a substring.
     </td>
   </tr>
   <tr>
+    <td>withoutDueDate</td>
+    <td>Only include tasks which have no due date. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>followUpDate</td>
     <td>Restrict to tasks that have a followUp date on the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.984+0200</code>.</td>
   </tr>
@@ -481,7 +485,7 @@ expression as a substring.
     <br/>
     Valid operator values are: <code>eq</code> - equal to; <code>neq</code> - not equal to; <code>gt</code> - greater than;
     <code>gteq</code> - greater than or equal to; <code>lt</code> - lower than; <code>lteq</code> - lower than or equal to;
-    <code>like</code>.<br/>
+    <code>like</code>;<code>notLike</code>.<br/>
     </td>
   </tr>
   <tr>

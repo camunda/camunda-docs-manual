@@ -28,9 +28,9 @@ and [Deployment scenarios]({{< ref "/user-guide/spring-boot-integration/_index.m
 
 ## Container-Managed Process Engine and Camunda Cockpit, Tasklist, Admin
 
-* Apache Tomcat 7.0 / 8.0 / 9.0
+* Apache Tomcat 9.0
 * JBoss EAP 6.4 / 7.0 / 7.1 / 7.2 / 7.3
-* Wildfly Application Server 10.1 / 11.0 / 12.0 / 13.0 / 14.0 / 15.0 / 16.0 / 17.0 / 18.0 / 19.0 / 20.0 / 21.0
+* Wildfly Application Server 12.0 / 13.0 / 14.0 / 15.0 / 16.0 / 17.0 / 18.0 / 19.0 / 20.0 / 21.0
 * IBM WebSphere Application Server 8.5 / 9.0 ([Enterprise Edition only](http://camunda.com/bpm/enterprise/))
 *	Oracle WebLogic Server 12c (12R2) ([Enterprise Edition only](http://camunda.com/bpm/enterprise/))
 and [Deployment scenarios]({{< ref "/user-guide/spring-boot-integration/_index.md#supported-deployment-scenarios" >}})).
@@ -40,11 +40,11 @@ and [Deployment scenarios]({{< ref "/user-guide/spring-boot-integration/_index.m
 
 ## Supported Database Products
 
-* MySQL 5.6 / 5.7
-* MariaDB 10.0 / 10.2 / 10.3
-* Oracle 11g / 12c / 18c / 19c
+* MySQL 5.6 / 5.7 / 8.0
+* MariaDB 10.2 / 10.3
+* Oracle 12c / 18c / 19c
 * IBM DB2 10.5 / 11.1 (excluding IBM z/OS for all versions)
-* PostgreSQL 9.4 / 9.6 / 10.4 / 10.7 / 10.13 / 11.1 / 11.2 / 12.2
+* PostgreSQL 9.6 / 10.4 / 10.7 / 10.13 / 11.1 / 11.2 / 12.2
 * Amazon Aurora PostgreSQL compatible with PostgreSQL 9.6 / 10.4 / 10.7 / 10.13
 * Microsoft SQL Server 2012/2014/2016/2017/2019 (see [Configuration Note]({{< ref "/user-guide/process-engine/database/mssql-configuration.md" >}}))
 * H2 1.4 (not recommended for [Cluster Mode]({{< ref "/introduction/architecture.md#clustering-model" >}}) - see [Deployment Note]({{< ref "/user-guide/process-engine/deployments.md" >}}))
@@ -108,3 +108,10 @@ The exact release in which we support a new environment depends on factors such 
 
 Version support for other environments is decided case by case, much of which is based on the demand in our user base.
 
+## Removing Environments
+
+Whenever a new version of one of the following environments is supported, we usually discontinue support of the oldest version with the same release:
+
+* Wildfly Application Server
+
+Note that we may decide to deviate from this policy on a case-by-case basis.

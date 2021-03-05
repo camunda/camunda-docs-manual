@@ -26,7 +26,9 @@
   <meta name="generator" content="Hugo {{.Hugo.Version}}" />
   <link rel="shortcut icon" href="{{.Site.BaseURL}}img/favicon.ico" type="image/x-icon" />
 
-  <link rel="stylesheet" href="{{.Site.BaseURL}}css/docs.css">
+  {{ $styles := resources.Get "css/docs.css" | fingerprint }}
+
+  <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}">
 </head>
 <body class="{{ .Params.bodyclass }}">
 
