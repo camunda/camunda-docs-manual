@@ -476,7 +476,7 @@ Input mappings can also be used with multi-instance constructs, in which the map
   The engine does not support output mappings for multi-instance constructs. Every instance of the output mapping would overwrite the variables set by the previous instances and the final variable state would become hard to predict.
 {{< /note >}}
 
-[inputOutput]: {{< ref "/reference/bpmn20/custom-extensions/extension-elements/#inputoutput" >}}
+[inputOutput]: {{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}
 [inputParameter]: {{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#camunda-inputparameter" >}}
 [outputParameter]: {{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#camunda-outputparameter" >}}
 [list]: {{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#camunda-list" >}}
