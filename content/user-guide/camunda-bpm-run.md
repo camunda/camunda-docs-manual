@@ -10,7 +10,8 @@ menu:
 
 ---
 
-Camunda Platform Run is a pre-packaged distro of the Camunda Platform, including the Camunda webapps (Cockpit, Tasklist, Admin) and the [REST API]({{< ref "/reference/rest/overview/_index.md" >}}).
+Camunda Platform Run is a pre-packaged distro of the Camunda Platform, including the Camunda webapps (Cockpit, Tasklist, Admin), the [REST API]({{< ref "/reference/rest/overview/_index.md" >}}) and a bundled version of [Swagger UI](https://github.com/swagger-api/swagger-ui). 
+Swagger UI is a web-GUI that allows you to explore the REST API endpoints of Camunda Platform Run. 
 
 The idea behind Run is to provide a full Camunda Platform distro with a simple but powerful configuration mechanism that can be operated by everyone, regardless of their knowledge about Java or application server configuration.
 
@@ -38,7 +39,7 @@ camunda-bpm-run
 ├── start.bat
 └── start.sh
 ```
-Execute one of the two start scripts (`start.bat` for Windows, `start.sh` for Linux/Mac). After a few seconds, you will be able to access the Camunda webapps via http://localhost:8080/camunda/app/ and the REST API via http://localhost:8080/engine-rest/
+Execute one of the two start scripts (`start.bat` for Windows, `start.sh` for Linux/Mac). After a few seconds, you will be able to access the Camunda webapps via http://localhost:8080/camunda/app/, the REST API via http://localhost:8080/engine-rest/ and Swagger UI via http://localhost:8080/swaggerui/
 
 
 ## Starting Camunda Platform Run using Docker
@@ -46,9 +47,9 @@ Execute one of the two start scripts (`start.bat` for Windows, `start.sh` for Li
 Camunda Platform Run is also available as a Docker image. Please see the Run section of the Camunda Docker documentation [here]({{< ref "/installation/docker.md#start-camunda-bpm-run-using-docker" >}}) for more details.
 
 
-## Disable Webapps or REST API
+## Disable Webapps, REST API or Swagger UI
 
-By default Camunda Platform Run launches with the webapps and REST API modules. If you want only one of them enabled, execute the start script with a command-line interface with a `--webapps` or `--rest` property to enable the specific module.
+By default, Camunda Platform Run launches with the webapps, REST API and Swagger UI modules. If you want only a subset of them enabled, execute the start script through a command-line interface with any of the `--webapps`, `--rest` or `--swaggerui` properties to enable the specific module.
 
 
 ## Choose between default and production configuration
@@ -56,9 +57,11 @@ By default Camunda Platform Run launches with the webapps and REST API modules. 
 Camunda Platform Run ships with two different configuration files which are both located in the `configuration` folder. 
 
 * The `default.yml` configuration only contains necessary configuration like the H2 database, a demo user and [CORS](#cross-origin-resource-sharing) for REST calls from a client application.
-* The `production.yml` configuration is intended to provide the recommended properties according to the [Security Instructions]({{< ref "/user-guide/security.md" >}}). When using Camunda Platform Run in a production environment, make sure to base your custom configuration on this one and carefully read through the security instructions.
+* The `production.yml` configuration is intended to provide the recommended properties according to the [Security Instructions]({{< ref "/user-guide/security.md" >}}). 
+  When using Camunda Platform Run in a production environment, make sure to base your custom configuration on this one and carefully read through the security instructions.
 
-By default Run launches with the `default.yml` configuration. To enable the `production.yml` configuration, execute the start script, through a command-line interface, with the `--production` property.
+By default, Run launches with the `default.yml` configuration. To enable the `production.yml` configuration, execute the start script, through a command-line interface, with the `--production` property.
+Using `--production` disables Swagger UI. It can be enabled by explicitly passing `--swaggerui`, however, it is not recommended to use Swagger UI in production. 
 
 
 ## Connect to a Database

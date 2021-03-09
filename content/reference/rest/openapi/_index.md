@@ -57,15 +57,22 @@ Follow the steps of the OpenAPI Generator's documentation, how to [install][open
 
 Instead of client generation, you can use one of the OpenAPI editors to play around with the REST API endpoints.
 
-For example, go to [Swagger Editor][swagger-editor] and paste the content of the openapi.json on the left-hand side in the editor.
+For this reason, [Camunda Platform Run][cam-platform-run] ships with a version of [Swagger UI][swagger-ui] already included.
+You can use it to try out the REST API endpoints and read through the OpenAPI documentation.
+
+If you use a Camunda distribution other than Run, you can go to [Swagger Editor][swagger-editor] and paste the content of the openapi.json on the left-hand side in the editor.
 Start a Process engine with enabled cross-origin requests, and you will be able to execute requests from the editor.
 
 Some API Tools also support import of endpoints via upload of a OpenAPI document.
 For example, [Postman][postman-site] users can [import the OpenAPI documentation][postman-import] and work with the REST endpoints from a single place.
 
+[cam-platform-run]: {{< ref "/user-guide/camunda-bpm-run.md" >}}
+[swagger-ui]: https://github.com/swagger-api/swagger-ui
 [swagger-editor]: https://editor.swagger.io/
 [postman-site]: https://www.postman.com/
 [postman-import]: https://learning.postman.com/docs/postman/collections/working-with-openAPI/
+
+
 
 # Coverage
 
