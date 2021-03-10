@@ -119,6 +119,12 @@ If you have defined a specific prefix for the entities of your database, then yo
 Please note further that READ COMMITED is the required isolation level for database systems to run Camunda with. You may have to change the default setting on your database when installing Camunda. For more information see the documentation on [isolation levels]({{< ref "/user-guide/process-engine/database/database-configuration.md#isolation-level-configuration" >}}).
 {{< /note >}}
 
+{{< note title="Using CockroachDB" class="warning" >}}
+If you use CockroachDB, make sure to create the tables manually. If you leave the engine to create 
+the tables on startup, it may lead to a JBoss deployment timeout, as table creation on CockroachDB 
+takes longer than other Camunda-supported databases.
+{{< /note >}}
+
 ## Create a Datasource
 
 You need to create a datasource named `java:jboss/datasources/ProcessEngine`.
@@ -253,6 +259,11 @@ When you create the tables manually, then you can also configure the engine to *
 If you have defined a specific prefix for the entities of your database, then you will have to manually adjust the `create` scripts accordingly so that the tables are created with the prefix.
 {{< /note >}}
 
+{{< note title="Using CockroachDB" class="warning" >}}
+If you use CockroachDB, make sure to create the tables manually. If you leave the engine to create
+the tables on startup, it may lead to a WildFly deployment timeout, as table creation on CockroachDB
+takes longer than other Camunda-supported databases.
+{{< /note >}}
 
 ## Create a Datasource
 
