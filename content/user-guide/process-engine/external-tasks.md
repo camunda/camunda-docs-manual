@@ -63,6 +63,30 @@ It is possible to define the topic name by using an [expression]({{< ref "/user-
 
 In addition, other *service-task-like* elements such as send tasks, business rule tasks, and throwing message events can be implemented with the external task pattern. See the [BPMN 2.0 implementation reference]({{< ref "/reference/bpmn20/_index.md" >}}) for details.
 
+### Error Event Definitions
+
+External tasks allow for the definition of error events that throw a specified BPMN error. This can be done by adding a [camunda:errorEventDefinition]({{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#erroreventdefinition" >}}) extension element to the task's definition. Compared to the `bpmn:errorEventDefinition`, the `camunda:errorEventDefinition` elements accept an additional `expression` attribute which supports any JUEL expression. Within the expression, you have access to the {{< javadocref page="?org/camunda/bpm/engine/externaltask/ExternalTask.html" text="ExternalTaskEntity" >}} object via the key `externalTask` which provides getter methods
+for `errorMessage`, `errorDetails`, `workerId`, `retries` and more. 
+
+The expression is evaluated on invocations of `ExternalTaskService#complete` and
+`ExternalTaskService#handleFailure`. If the expression evaluates to `true`, the actual method execution is canceled and replaced by throwing the respective BPMN error. This error can be caught by an
+[Error Boundary Event]({{< ref "/reference/bpmn20/events/error-events.md#error-boundary-event" >}}). This implies that the error event definition can be used in success and failure scenarios alike - even if the task was completed successfully, you can still decide to throw a BPMN error.
+
+```xml
+<serviceTask id="validateAddressTask"
+  name="Validate Address"
+  camunda:type="external"
+  camunda:topic="AddressValidation" >
+  <extensionElements>
+    <camunda:errorEventDefinition id="addressErrorDefinition" 
+      errorRef="addressError" 
+      expression="${externalTask.getErrorDetails().contains('address error found')}" />
+  </extensionElements>
+</serviceTask>
+```
+
+Further information on the functionality of error event definitions on external tasks can be found in the [expression language user guide]({{< ref "/user-guide/process-engine/expression-language.md#external-task-error-handling" >}}). The specific use in external tasks for RPA orchestration scenarios is described in the [Camunda Platform RPA Bridge]({{< ref "/user-guide/camunda-bpm-rpa-bridge.md#error-handling" >}}).
+
 ## Rest API
 
 See the [REST API documentation]({{< ref "/reference/rest/external-task/_index.md" >}}) for how the API operations can be accessed via HTTP.
@@ -327,6 +351,10 @@ for (LockedExternalTask task : tasks) {
 
 After fetching and performing the requested work, a worker can complete an external task by calling the `ExternalTaskService#complete` method. A worker can only complete tasks that it fetched and locked before. If the task has been locked by a different worker in the meantime, an exception is raised.
 
+{{< note class="info" title="Error Events" >}}
+External tasks can include [error event definitions]({{< ref "/user-guide/process-engine/external-tasks.md#error-event-definitions" >}}) that can cancel the execution of `#complete` in case the error event's expression evaluates to `true`.
+{{< /note >}}
+
 ### Extending of Locks on External Tasks
 
 When an external task is locked by a worker, the lock duration can be extended by calling the method `ExternalTaskService#extendLock`. A worker can specify the amount of time (in milliseconds) to update the timeout. A lock can only be extended by the worker who owns a lock on the given external task.
@@ -362,6 +390,10 @@ externalTaskService.getExternalTaskErrorDetails(task.getId());
 A failure is reported for the locked task such that it can be retried once more after 10 minutes. The process engine does not decrement retries itself. Instead, such a behavior can be implemented by setting the retries to `task.getRetries() - 1` when reporting a failure.
 
 At the moment when error details are required, they are queried from the service using separate method. 
+
+{{< note class="info" title="Error Events" >}}
+External tasks can include [error event definitions]({{< ref "/user-guide/process-engine/external-tasks.md#error-event-definitions" >}}) that can cancel the execution of `#handleFailure` in case the error event's expression evaluates to `true`.
+{{< /note >}}
 
 ### Reporting BPMN Error
 
