@@ -80,6 +80,21 @@ The referencing error event definition must specify <a href="{{< ref "/reference
 ```
 When the error thrown by the error end event is catched a process variable with the name `err` will be created that holds the evaluated message.
 
+For External Tasks, it is also possible to define error events by using a [camunda:errorEventDefinition]({{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#erroreventdefinition" >}}) as shown in the following example. It additionally requires an expression that must evaluate to `true` in order for the BPMN error to be thrown. For further details on how to use those error events, consult the [External Tasks Guide]({{< ref "/user-guide/process-engine/external-tasks.md#error-event-definitions" >}}).
+
+```xml
+<serviceTask id="validateAddressTask"
+  name="Validate Address"
+  camunda:type="external"
+  camunda:topic="AddressValidation" >
+  <extensionElements>
+    <camunda:errorEventDefinition id="addressErrorDefinition" 
+      errorRef="addressError" 
+      expression="${externalTask.getErrorDetails().contains('address error found')}" />
+  </extensionElements>
+</serviceTask>
+```
+
 # Error Start Event
 
 An error start event can only be used to trigger an Event Sub-Process - it __cannot__ be used to start a process instance. The error start event is always interrupting.

@@ -181,14 +181,13 @@ a bean.
 
 ## External Task Error Handling
 
-For External Tasks (including tasks handled by [Camunda Platform RPA Bridge]({{< ref "/user-guide/camunda-bpm-rpa-bridge.md" >}})) it is possible to define
+For External Tasks it is possible to define
 [camunda:errorEventDefinition]({{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#erroreventdefinition" >}})
-elements which can be provided with a JUEL expression. The expression is evaluated on `externalTask.complete()` and
-`externalTask.failed()`. If the expression evaluates to true a BPMN error is thrown which can be caught by an
+elements which can be provided with a JUEL expression. The expression is evaluated on `ExternalTaskService#complete` and
+`ExternalTaskService#handleFailure`. If the expression evaluates to `true`, a BPMN error is thrown which can be caught by an
 [Error Boundary Event]({{< ref "/reference/bpmn20/events/error-events.md#error-boundary-event" >}}).
 
-In the scope of an External Task, expressions have access to the {{< javadocref page="?org/camunda/bpm/engine/externaltask/ExternalTask.html" text="ExternalTaskEntity" >}} object via the key `externalTask` which provides getter methods
-for `errorMessage`, `errorDetails`, `workerId`, `retries` and more.
+In the scope of an External Task, expressions have access to the {{< javadocref page="?org/camunda/bpm/engine/externaltask/ExternalTask.html" text="ExternalTaskEntity" >}} object via the key `externalTask` which provides getter methods for `errorMessage`, `errorDetails`, `workerId`, `retries` and more.
 
 **Examples:**
 
@@ -212,6 +211,7 @@ How to match an error message:
 </bpmn:serviceTask>
 ```
 
+For further details on the functionality of error event definitions in the context of external tasks, consult the [External Tasks Guide]({{< ref "/user-guide/process-engine/external-tasks.md#error-event-definitions" >}}).
 
 ## Value
 
