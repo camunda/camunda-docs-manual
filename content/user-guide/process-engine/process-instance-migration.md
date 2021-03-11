@@ -48,6 +48,9 @@ Process `exampleProcess:2`:
 
 <div data-bpmn-diagram="../bpmn/process-instance-migration/example2"></div>
 
+{{< enterprise >}}
+  The Camunda enterprise edition provides a user interface to migrate process instances in [Camunda Cockpit]({{< ref "/webapps/cockpit/bpmn/process-instance-migration.md" >}})
+{{< /enterprise >}}
 
 # Process Instance Migration by Example
 

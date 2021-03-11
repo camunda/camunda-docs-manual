@@ -59,6 +59,10 @@ Do you have a great idea around open source BPM you want to share with the world
 
 # Enterprise Extensions
 
+{{< enterprise >}}
+  Please note that these extensions are only included in the enterprise edition of the Camunda Platform, it is not available in the community edition.
+{{< /enterprise >}}
+
 ## XSLT Extension
 
 The XSLT extension depends on the following third-party libraries:
