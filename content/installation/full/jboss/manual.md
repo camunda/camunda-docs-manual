@@ -23,6 +23,10 @@ This guide uses a number of variables to denote common path names and constants:
 
 # Required Setup for JBoss EAP 6
 
+{{< enterprise >}}
+The Camunda JBoss distribution for JBoss EAP 6 is only available in the Enterprise Edition.
+{{< /enterprise >}}
+
 This section explains how to perform the required setup steps for JBoss Application Server.
 
 First, you need to download the [Camunda JBoss distribution](https://downloads.camunda.cloud/enterprise-release/camunda-bpm/jboss/) (Enterprise version only).

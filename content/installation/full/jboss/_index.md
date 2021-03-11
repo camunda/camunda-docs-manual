@@ -14,4 +14,8 @@ menu:
 
 This document describes the installation of the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) for [JBoss EAP 6](http://www.jboss.org/products/eap) or [Wildfly Application Server / JBoss EAP 7](http://www.wildfly.org).
 
+{{< enterprise >}}
+The Camunda JBoss distribution for JBoss EAP 6 is only available in the Enterprise Edition.
+{{< /enterprise >}}
+
 There are different options for installing the Full Distribution:
