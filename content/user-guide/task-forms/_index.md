@@ -15,29 +15,56 @@ menu:
 
 There are different types of forms which are primarily used in Tasklist. To implement a task form in your application, you have to connect the form resource with the BPMN 2.0 element in your process diagram. Suitable BPMN 2.0 elements for calling tasks forms are the [StartEvent][start-event] and the [UserTask][user-tasks].
 
-Out of the box, Camunda Tasklist supports four different kinds of task forms:
-
-* [Embedded Task Forms]({{< relref "#embedded-task-forms" >}}): HTML-based task forms, displayed
-  embedded within Tasklist.
-* [Generated Task Forms]({{< relref "#generated-task-forms" >}}): Like embedded task forms, but
-  generated from XML metadata within the BPMN 2.0 XML.
-* [External Task Forms]({{< relref "#external-task-forms" >}}): The user is directed to another
-  application to complete the task.
-* [Generic Task Forms]({{< relref "#generic-task-forms" >}}): If no task form exists, a generic form
-  is displayed to edit the process variables.
-
 {{< note title="This section applies to forms in Camunda Tasklist" class="info" >}}
   When embedding the process engine into a custom application, you can integrate the process engine with any form technology such
-  as [JavaServer Faces][jsf-task-forms], Java Swing, 
+  as [JavaServer Faces](jsf-task-forms), Java Swing, 
   JavaFX, REST-based JavaScript web applications and many more.
 {{< /note >}}
 
+# Deployable Task Forms 
+There are two types of Forms that can be deployed alongside your Process Diagram. They are seperate form files that are displayed directly inside Tasklist. They are referenced using Form Keys. 
 
-# Embedded Task Forms
+## Form Key Details
+Form keys have the structure `FORM-TYPE:LOCATION:FORM.NAME`.
 
-Embedded task forms are HTML and JavaScript forms which can be displayed directly within Tasklist. We provide more information about the creation of embedded forms in our [Embedded Task Forms Reference]({{< ref "/reference/embedded-forms/_index.md" >}}).
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>FORM-TYPE</td>
+    <td>Can be <code>embedded</code> or <code>camunda-forms</code> depending on the form type.</td>
+  </tr>
+  <tr>
+    <td>LOCATION</td>
+    <td>Can be either <code>deployment</code> or <code>app</code>:
+    <ul>
+      <li><em>deployment</em>: The file is part of your deployment (e.g., <a href="{{< ref "/reference/deployment-descriptors/tags/process-archive.md" >}}">by adding it to your process archive</a> or <a href="https://docs.camunda.org/get-started/quick-start/deploy/#use-the-camunda-modeler-to-deploy-the-process">by deploying from the Camunda Modeler</a>), which means that it is stored in the Camunda database. It can then be loaded from there. Note that this allows versioning of your form alongside the process model.</li>
+      <li><em>app</em>: Add the file to your development project in a folder <code>src/main/webapp/forms</code>. The form file will be packaged into your deployment artifact (typically a WAR archive). During runtime it will be loaded from there.</li>
+    </ul>
+  </td>
+  </tr>
+  <tr>
+  <td>FORM.NAME</td>
+  <td>The file name and path in the deployment, e.g. <code>forms/startFrom.html</code></td>
+  </tr>
+</table>
 
-To add an embedded form to your application, simply create an HTML file and refer to it from a [UserTask][user-tasks] or a [StartEvent][start-event] in your process model. For example, you can create a FORM_NAME.html file containing the relevant content for your form, e.g., a simple form with two input fields:
+
+To configure the form in your process, open the process with the [Camunda Modeler](http://camunda.org/bpmn/tool/) and select the desired [UserTask][user-tasks] or [StartEvent][start-event]. Open the properties panel and enter the Form Key. The relevant XML tag looks like this:
+
+```xml
+<userTask id="theTask" camunda:formKey="camunda-forms:app:forms/userTask.form"
+          camunda:candidateUsers="John, Mary"
+          name="my Task">
+```
+
+## Embedded Task Forms
+
+Embedded task forms are HTML and JavaScript forms. We provide more information about the creation of embedded forms in our [Embedded Task Forms Reference]({{< ref "/reference/embedded-forms/_index.md" >}}).
+
+To add an embedded form to your application, simply create an HTML file and refer to it from a [UserTask][user-tasks] or a [StartEvent][start-event] in your process model. For example, you can create a `FORM_NAME.html` file containing the relevant content for your form, e.g., a simple form with two input fields:
 
 ```html
 <form role="form" name="form">
@@ -57,21 +84,41 @@ To add an embedded form to your application, simply create an HTML file and refe
 </form>
 ```
 
-The file containing the form can be referenced in two ways:
+The form key for this file could be `embedded:deployment:FORM_NAME.html` or `embedded:app:forms/FORM_NAME.html`.
 
-* *app:*: Add the file to your development project in a folder `src/main/webapp/forms`. The HTML file will be packaged into your deployment artifact (typically a WAR archive). During runtime it will be loaded from there.
-* *deployment:*: The file is part of your deployment (e.g., [by adding it to your process archive]({{< ref "/reference/deployment-descriptors/tags/process-archive.md" >}})), which means that it is stored in the Camunda database. It can then be loaded from there. Note that this allows versioning of your form alongside the process model.
+## Camunda Forms
 
-To configure the form in your process, open the process with the [Camunda Modeler](http://camunda.org/bpmn/tool/) and select the desired [UserTask][user-tasks] or [StartEvent][start-event]. Open the properties panel and enter `embedded:app:forms/FORM_NAME.html` (or `embedded:deployment:forms/FORM_NAME.html`) as Form Key. The relevant XML tag looks like this:
+Camunda Forms are Forms created using the Form builder in the Camunda Modeler. The form schema is stored in `FORM_NAME.form` files. An example file could look like this:
 
-```xml
-<userTask id="theTask" camunda:formKey="embedded:app:forms/FORM_NAME.html"
-          camunda:candidateUsers="John, Mary"
-          name="my Task">
+```JSON
+{
+  "components": [
+    {
+      "key": "creditor",
+      "label": "Creditor",
+      "type": "textfield",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "description": "An invoice number in the format: C-123.",
+      "key": "invoiceNumber",
+      "label": "Invoice Number",
+      "type": "textfield",
+      "validate": {
+        "pattern": "^C-[0-9]+$"
+      }
+    }
+  ]
+}
 ```
 
+Process variables are mapped to form fields where the form key matches the variable name. The form key for this file could be `camunda-forms:deployment:FORM_NAME.form` or `embedded:app:forms/FORM_NAME.form`.
 
-# Generated Task Forms
+# Other Task Forms
+Besides embedded and camunda forms, Camunda Tasklist supports three other form types. These are not as user-friendly and are mainly used for testing your processes during development.
+## Generated Task Forms
 
 The Camunda process engine supports generating HTML task forms based on Form Data Metadata provided in the BPMN 2.0 XML. Form Data Metadata is a set of BPMN 2.0 vendor extensions provided by Camunda, allowing you to define form fields directly in the BPMN 2.0 XML:
 
@@ -125,7 +172,7 @@ A form data can have following attributes:
 </table>
 
 
-## Form Fields
+### Form Fields
 
 A form field can have the following attributes:
 
@@ -163,7 +210,7 @@ A form field can have the following attributes:
 </table>
 
 
-## Form Field Validation
+### Form Field Validation
 
 Validation can be used for specifying frontend and backend validation of form fields. Camunda Platform provides a set of built-in form field validators and an extension point for plugging in custom validators.
 
@@ -298,7 +345,7 @@ public class CustomValidator implements FormFieldValidator {
 If the process definition is deployed as part of a ProcessApplication deployment, the validator instance is resolved using the process application classloader and / or the process application Spring Application Context / CDI Bean Manager, in case of an expression.
 
 
-# External Task Forms
+## External Task Forms
 
 If you want to call a task form that is not part of your application, you can add a reference to the desired form. The referenced task form will be configured in a way similar to the embedded task form. Open the properties view and enter `FORM_NAME.html` as form key. The relevant XML tag looks like this:
 
@@ -321,7 +368,7 @@ When you have completed the task, the call back URL will be called.
 {{< /note >}}
 
 
-# Generic Task Forms
+## Generic Task Forms
 
 The generic form will be used whenever you have not added a dedicated form for a [UserTask][user-tasks] or a [StartEvent][start-event].
 
