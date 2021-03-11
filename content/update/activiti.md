@@ -16,7 +16,7 @@ This page describes the necessary steps.
 Once done with the migration, the [minor version update guides]({{< ref "/update/minor/_index.md" >}}) show how to update from 7.0 to the latest Camunda version.
 
 {{< note class="info" title="Getting Help" >}}
-If you are on a more recent Activiti version or if you have any trouble migrating, ask for assistance in the [Forum](http://camunda.org/community/forum.html) or turn to our [Consulting services](http://camunda.com/bpm/consulting/). We are happy to help you!
+If you are on a more recent Activiti version or if you have any trouble migrating, ask for assistance in the [Forum](https://forum.camunda.org/) or turn to our [Consulting services](https://camunda.com/services/consulting/). We are happy to help you!
 {{< /note >}}
 
 The changes in short are:
