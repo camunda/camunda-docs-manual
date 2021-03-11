@@ -15,8 +15,8 @@ menu:
 # Installation Procedure
 
 1. Download the pre-packaged distribution:
-  * JBoss EAP 6.4: https://downloads.camunda.cloud/release/camunda-bpm/jboss/,
-  * Wildfly / JBoss EAP 7.x: https://downloads.camunda.cloud/release/camunda-bpm/wildfly/.
+  * Wildfly / JBoss EAP 7.x: https://downloads.camunda.cloud/release/camunda-bpm/wildfly/,
+  * JBoss EAP 6.4: a pre-packaged distribution is not offered anymore, please check [Manual Installation]({{<ref "/installation/full/jboss/manual.md" >}}).
 2. Unpack the distro to a directory.
 3. Adjust the datasource according to your needs (see [Manual Installation]({{<ref "/installation/full/jboss/manual.md" >}})).
 4. Startup the server by running `camunda-welcome.bat` or by using the `$JBOSS_HOME/bin/standalone.{bat/sh}` script.

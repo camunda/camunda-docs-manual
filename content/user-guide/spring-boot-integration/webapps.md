@@ -25,6 +25,11 @@ By default the application path is `/camunda`, so without any further configurat
 the Webapps under [http://localhost:8080/camunda/app/](http://localhost:8080/camunda/app/).
 
 ## Enterprise webapps
+
+{{< enterprise >}}
+Please note that this feature is only included in the enterprise edition of the Camunda Platform, it is not available in the community edition.
+{{< /enterprise >}}
+
 To use the enterprise Web applications, include another starter:
 ```xml
 <dependency>
