@@ -28,7 +28,7 @@ The script engine wrapper implementations can be found in the
 
 Additionally, the following template engine is supported as enterprise extension:
 
-* [XSLT](/enterprise/download/#xslt-extension)
+* [XSLT](/enterprise/download/#additional-information)
 
 
 # Install a Template Engine
@@ -134,7 +134,7 @@ payload of a `camunda:connector`.
 
 ## Install the XSLT Template Engine
 
-The XSLT Template Engine can be downloaded from the [Enterprise Edition Download page](/enterprise/download/#xslt-extension).
+The XSLT Template Engine can be downloaded from the [Enterprise Edition Download page](/enterprise/download/#additional-information).
 
 Instructions on how to install the template engine can be found inside the downloaded distribution.
 

@@ -38,6 +38,10 @@ docker run -d --name camunda -p 8080:8080 camunda/camunda-bpm-platform:run-lates
 
 # Enterprise Edition
 
+{{< enterprise >}}
+Please note that these docker images are offered only for Camunda Platform Enterprise Edition.
+{{< /enterprise >}}
+
 Since version 7.9 we offer to our customers a Docker image for the Enterprise edition of Camunda Platform.
 
 These images are hosted on our dedicated Docker registry and are available to Enterprise customers only. You can browse the available images in our [Docker registry](https://registry.camunda.cloud) after logging-in with your credentials.
