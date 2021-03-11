@@ -42,16 +42,16 @@ As a **Community Edition** user you can download the Camunda standalone webapp m
     <tr>
       <td>Apache Tomcat</td>
       <td>
-        <a href="//downloads.camunda.cloud/release/camunda-bpm/tomcat/7.12/camunda-webapp-tomcat-standalone-{{< minor-version >}}.war">
-          camunda-webapp-tomcat-standalone-{{< minor-version >}}.war
+        <a href="//downloads.camunda.cloud/release/camunda-bpm/tomcat/{{< minor-version >}}/camunda-webapp-tomcat-standalone-{{< minor-version >}}.0.war">
+          camunda-webapp-tomcat-standalone-{{< minor-version >}}.0.war
         </a>
       </td>
     </tr>
     <tr>
       <td>WildFly</td>
       <td>
-        <a href="//downloads.camunda.cloud/release/camunda-bpm/jboss/7.12/camunda-webapp-jboss-standalone-{{< minor-version >}}.war">
-          camunda-webapp-jboss-standalone-{{< minor-version >}}.war
+        <a href="//downloads.camunda.cloud/release/camunda-bpm/jboss/{{< minor-version >}}/camunda-webapp-jboss-standalone-{{< minor-version >}}.0.war">
+          camunda-webapp-jboss-standalone-{{< minor-version >}}.0.war
         </a>
       </td>
     </tr>
