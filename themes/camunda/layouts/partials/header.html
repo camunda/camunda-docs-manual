@@ -20,6 +20,11 @@
   <meta name="description" content="documentation of the Camunda Platform" />
   <meta name="keywords" content="camunda, open source, free, Apache License, Apache 2.0, workflow, BPMN, BPMN 2.0, camunda.org, bpm, BPMS, engine, platform, process, automation, community, documentation" />
   <meta name="author" content="Camunda Platform community" />
+  {{ if ($.Site.Params.section.versions)}}
+    {{ if (not (eq (index $.Site.Params.section.versions 1) $.Site.Params.section.version))}}
+      <meta name="robots" content="noindex" />
+    {{ end }}
+  {{ end }}
 
   <title>{{ .Title }} | docs.camunda.org</title>
 
