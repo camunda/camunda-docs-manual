@@ -584,7 +584,8 @@ export default {
     searchType: "process" || "decision" || "batch",
 
     // A function which returns the endpoint and the payload of the batch operation. The argument contains either the search query or the selected IDs.
-    onSubmit: function({ query, ids }) {
+    // 'api' contains the engine API endpoints. See "Attributes in Detail" for more information.
+    onSubmit: function({ query, ids, api }) {
       // The return value must contain the endpoint and the payload object.
       return {
         endpoint: "/my/custom/batch/endpoint",
