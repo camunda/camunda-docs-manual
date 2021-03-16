@@ -23,8 +23,7 @@ Run the Camunda Platform in every Java-runnable environment. Camunda Platform is
 ## Application-Embedded Process Engine
 
 * All Java application servers
-* Camunda Spring Boot Starter: Embedded Tomcat (see [Supported versions]({{< ref "/user-guide/spring-boot-integration/version-compatibility.md" >}})
-and [Deployment scenarios]({{< ref "/user-guide/spring-boot-integration/_index.md#supported-deployment-scenarios" >}}))
+* Camunda Spring Boot Starter: Embedded Tomcat (see [Supported versions]({{< ref "/user-guide/spring-boot-integration/version-compatibility.md" >}}) and [Deployment scenarios]({{< ref "/user-guide/spring-boot-integration/_index.md#supported-deployment-scenarios" >}}))
 
 ## Container-Managed Process Engine and Camunda Cockpit, Tasklist, Admin
 
@@ -33,7 +32,6 @@ and [Deployment scenarios]({{< ref "/user-guide/spring-boot-integration/_index.m
 * Wildfly Application Server 10.1 / 11.0 / 12.0 / 13.0 / 14.0 / 15.0 / 16.0 / 17.0 / 18.0 / 19.0
 * IBM WebSphere Application Server 8.5 / 9.0 ([Enterprise Edition only](http://camunda.com/enterprise/))
 * Oracle WebLogic Server 12c (12R2) ([Enterprise Edition only](http://camunda.com/enterprise/))
-* And [Deployment scenarios]({{< ref "/user-guide/spring-boot-integration/_index.md#supported-deployment-scenarios" >}}).
 
 
 # Databases
