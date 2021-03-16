@@ -18,7 +18,7 @@ menu:
 
 {{< img src="img/create-dmn.png" title="New DMN Diagram" >}}
 
-To start modeling, create a new DMN 1.3 diagram by selecting *Create diagram > Create new DMN diagram* in the top-level menu.
+To start modeling, create a new DMN 1.3 diagram by selecting *Create diagram > Create new DMN diagram (Camunda DMN Engine)* in the top-level menu.
 
 ## Start Modeling
 
