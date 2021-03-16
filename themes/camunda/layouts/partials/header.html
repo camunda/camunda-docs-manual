@@ -17,16 +17,23 @@
 
   <meta name="viewport" content="width=device-width" />
 
-  <meta name="description" content="documentation of the camunda BPM platform" />
+  <meta name="description" content="documentation of the Camunda Platform" />
   <meta name="keywords" content="camunda, open source, free, Apache License, Apache 2.0, workflow, BPMN, BPMN 2.0, camunda.org, bpm, BPMS, engine, platform, process, automation, community, documentation" />
-  <meta name="author" content="camunda BPM community" />
+  <meta name="author" content="Camunda Platform community" />
+  {{ if ($.Site.Params.section.versions)}}
+    {{ if (not (eq (index $.Site.Params.section.versions 1) $.Site.Params.section.version))}}
+      <meta name="robots" content="noindex" />
+    {{ end }}
+  {{ end }}
 
   <title>{{ .Title }} | docs.camunda.org</title>
 
   <meta name="generator" content="Hugo {{.Hugo.Version}}" />
   <link rel="shortcut icon" href="{{.Site.BaseURL}}img/favicon.ico" type="image/x-icon" />
 
-  <link rel="stylesheet" href="{{.Site.BaseURL}}css/docs.css">
+  {{ $styles := resources.Get "css/docs.css" | fingerprint }}
+
+  <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}">
 </head>
 <body class="{{ .Params.bodyclass }}">
 
