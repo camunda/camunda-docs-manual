@@ -8,7 +8,7 @@
           </p>
 
           <p>
-            <a href="http://camunda.org">camunda.org</a> and <a href="{{ .Site.BaseURL }}">docs.camunda.org</a> are part of camunda BPM
+            <a href="http://camunda.org">camunda.org</a> and <a href="{{ .Site.BaseURL }}">docs.camunda.org</a> are part of Camunda Platform
             <span class="splitter">|</span>
             Built by <a href="http://www.camunda.com">camunda</a> and contributors &mdash; <a href="http://www.camunda.org/privacy.html">Privacy Statement</a> &mdash; camunda Services GmbH &copy; {{ now.Format "2006"}}
           </p>
@@ -21,7 +21,9 @@
   </div><!-- / .page-wrapper -->
 
 
-  <script type="text/javascript" src="{{.Site.BaseURL}}js/docs.js"></script>
+  {{ $scripts := resources.Get "js/docs.js" | fingerprint }}
+
+  <script type="text/javascript" src="{{ $scripts.Permalink }}" integrity="{{ $scripts.Data.Integrity }}"></script>
   <script type="text/javascript">
     var _gaq = _gaq || [];
     var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
