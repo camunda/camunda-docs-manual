@@ -72,7 +72,7 @@ A JSON object with a single property named `links`, providing a list of resource
 
 ## Request
 
-OPTIONS `/user/aUserId`
+OPTIONS `/user/peter`
   
 ## Response
 
