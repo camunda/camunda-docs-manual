@@ -62,7 +62,7 @@ To configure the form in your process, open the process with the [Camunda Modele
 
 ## Embedded Task Forms
 
-Embedded task forms are HTML and JavaScript forms. We provide more information about the creation of embedded forms in our [Embedded Task Forms Reference]({{< ref "/reference/embedded-forms/_index.md" >}}).
+Embedded task forms are HTML and JavaScript forms. We provide more information about the creation of embedded forms in our [Embedded Task Forms Reference]({{< ref "/reference/forms/embedded-forms/_index.md" >}}).
 
 To add an embedded form to your application, simply create an HTML file and refer to it from a [UserTask][user-tasks] or a [StartEvent][start-event] in your process model. For example, you can create a `FORM_NAME.html` file containing the relevant content for your form, e.g., a simple form with two input fields:
 

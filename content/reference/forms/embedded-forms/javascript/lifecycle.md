@@ -11,7 +11,7 @@ menu:
 ---
 
 It is possible to participate in the lifecycle of the form. See [Form Lifecycle and
-Events]({{< ref "/reference/embedded-forms/lifecycle.md" >}}) for more details.
+Events]({{< ref "/reference/forms/embedded-forms/lifecycle.md" >}}) for more details.
 
 
 # Fetching Additional Variables
