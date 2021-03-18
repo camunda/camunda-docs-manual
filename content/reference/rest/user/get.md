@@ -39,8 +39,8 @@ GET `/user/{id}/profile`
 
 # Result
 
-A JSON array of user objects.
-Each user object has the following properties:
+A JSON object.
+The user object has the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -67,11 +67,6 @@ Each user object has the following properties:
     <td>email</td>
     <td>String</td>
     <td>The email of the user.</td>
-  </tr> 
-  <tr>
-    <td>links</td>
-    <td>Object</td>
-    <td>A JSON array containing links to interact with the instance. The links contain only operations that the currently authenticated user is authorized to perform.</td>
   </tr>
 </table>
 

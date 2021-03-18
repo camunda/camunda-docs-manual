@@ -67,19 +67,65 @@ A JSON object with a single property named `links`, providing a list of resource
   </tr>
 </table>
 
-
-# Example
+# Example 1
 
 ## Request
 
-OPTIONS `/user/aUserId`
+OPTIONS `/user`
+
+## Response
+
+Status 200.
+```json
+ {
+  "links": [
+    {
+      "method": "GET",
+      "href": "http://localhost:8080/engine-rest/user",
+      "rel": "list"
+    },
+    {
+      "method": "GET",
+      "href": "http://localhost:8080/engine-rest/user/count",
+      "rel": "count"
+    },
+    {
+      "method": "POST",
+      "href": "http://localhost:8080/engine-rest/user/create",
+      "rel": "create"
+    }
+  ]
+}
+ ```
+
+
+# Example 2
+
+## Request
+
+OPTIONS `/user/peter`
   
 ## Response
 
 Status 200.
-
-    {"links":[
-      {"method":"GET","href":"http://localhost:8080/camunda/api/engine/engine/default/user/peter/profile","rel":"self"},
-      {"method":"DELETE","href":"http://localhost:8080/camunda/api/engine/engine/default/user/peter","rel":"delete"},
-      {"method":"PUT","href":"http://localhost:8080/camunda/api/engine/engine/default/user/peter/profile","rel":"update"}
-      ]}
+```json
+{
+  "links": [
+    {
+      "method": "GET",
+      "href": "http://localhost:8080/engine-rest/user/peter/profile",
+      "rel": "self"
+    },
+    {
+      "method": "DELETE",
+      "href": "http://localhost:8080/engine-rest/user/peter",
+      "rel": "delete"
+    },
+    {
+      "method": "PUT",
+      "href": "http://localhost:8080/engine-rest/user/peter/profile",
+      "rel": "update"
+    }
+  ]
+}
+```
