@@ -29,7 +29,11 @@ To enable Camunda Platform auto configuration, add the following dependency to y
 
 This will add the Camunda engine v.{{< minor-version >}}.0 to your dependencies.
 
-Other starters that can be used are: [`camunda-bpm-spring-boot-starter-rest`](rest-api) and [`camunda-bpm-spring-boot-starter-webapp`](webapps).
+Other starters that can be used are: 
+
+* [`camunda-bpm-spring-boot-starter-rest`](rest-api)
+* [`camunda-bpm-spring-boot-starter-webapp`](webapps)
+* [`camunda-bpm-spring-boot-starter-external-task-client`]({{< ref "user-guide/ext-client/spring-boot-starter.md" >}})
 
 # Using Enterprise Edition
 

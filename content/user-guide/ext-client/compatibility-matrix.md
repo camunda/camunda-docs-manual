@@ -1,7 +1,7 @@
 ---
 
 title: 'Version Compatibility'
-weight: 270
+weight: 300
 
 menu:
   main:
@@ -12,6 +12,10 @@ menu:
 ---
 
 Each version of the Camunda Platform is bound to a specific version of the **External Task Clients**.
+
+{{< note title="Heads Up" class="info" >}}
+  Starting with version 7.15.0, Camunda Platform and its compatible **Java** External Task Client always share the same version.
+{{< /note >}}
 
 <table class="table table-striped">
   <tr>
@@ -48,6 +52,11 @@ Each version of the Camunda Platform is bound to a specific version of the **Ext
     <td>7.14.x</td>
     <td>2.0.x</td>
     <td>1.4.x</td>
+  </tr>
+  <tr>
+    <td>7.15.x</td>
+    <td>2.0.x</td>
+    <td>7.15.x</td>
   </tr>
 </table>
 
