@@ -92,7 +92,6 @@ OPTIONS `/tenant/tenantOne/user-members`
 Status 200.
 
     {"links":[
-        {"method":"GET","href":"http://localhost:8080/camunda/api/engine/engine/default/tenant/tenantOne/user-members","rel":"self"},
         {"method":"DELETE","href":"http://localhost:8080/camunda/api/engine/engine/default/tenant/tenantOne/user-members","rel":"delete"},
         {"method":"PUT","href":"http://localhost:8080/camunda/api/engine/engine/default/tenant/tenantOne/user-members","rel":"create"}]
     }
