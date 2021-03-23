@@ -352,7 +352,7 @@ for (LockedExternalTask task : tasks) {
 After fetching and performing the requested work, a worker can complete an external task by calling the `ExternalTaskService#complete` method. A worker can only complete tasks that it fetched and locked before. If the task has been locked by a different worker in the meantime, an exception is raised.
 
 {{< note class="info" title="Error Events" >}}
-External tasks can include [error event definitions]({{< ref "/user-guide/process-engine/external-tasks.md#error-event-definitions" >}}) that can cancel the execution of `#complete` in case the error event's expression evaluates to `true`.
+External tasks can include [error event definitions]({{< ref "/user-guide/process-engine/external-tasks.md#error-event-definitions" >}}) that can cancel the execution of `#complete` in case the error event's expression evaluates to `true`. In case an error event's expression evaluation raises an exception, the call to `#complete` will fail with that same exception.
 {{< /note >}}
 
 ### Extending of Locks on External Tasks
@@ -392,7 +392,7 @@ A failure is reported for the locked task such that it can be retried once more 
 At the moment when error details are required, they are queried from the service using separate method. 
 
 {{< note class="info" title="Error Events" >}}
-External tasks can include [error event definitions]({{< ref "/user-guide/process-engine/external-tasks.md#error-event-definitions" >}}) that can cancel the execution of `#handleFailure` in case the error event's expression evaluates to `true`.
+External tasks can include [error event definitions]({{< ref "/user-guide/process-engine/external-tasks.md#error-event-definitions" >}}) that can cancel the execution of `#handleFailure` in case the error event's expression evaluates to `true`. In case an error event's expression evaluation raises an exception, this expression will be considered as evaluating to `false`.
 {{< /note >}}
 
 ### Reporting BPMN Error
