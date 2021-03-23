@@ -74,14 +74,19 @@ This method returns no content.
     <td>Request successful.</td>
   </tr>
   <tr>
+    <td>400</td>
+    <td>application/json</td>
+    <td>Returned if the <code>escalationCode</code> is not provided in the request. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+  </tr>
+  <tr>
     <td>403</td>
     <td>application/json</td>
-    <td>If the authenticated user is unauthorized to update the process instance. See the <a href="{{< ref "/reference/rest/overview/_index.md#escalation-handling" >}}">Introduction</a> for the escalation response format.</td>
+    <td>If the authenticated user is unauthorized to update the process instance. See the <a href="{{< ref "/reference/rest/overview/_index.md#escalation-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Returned if the task does not exist or <code>escalationCode</code> is not presented in the request. See the <a href="{{< ref "/reference/rest/overview/_index.md#escalation-handling" >}}">Introduction</a> for the escalation response format.</td>
+    <td>Returned if the task does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
