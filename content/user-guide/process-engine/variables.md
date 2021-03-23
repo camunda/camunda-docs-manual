@@ -477,8 +477,8 @@ Input mappings can also be used with multi-instance constructs, in which the map
 {{< /note >}}
 
 [inputOutput]: {{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#camunda-inputoutput" >}}
-[inputParameter]: {{< ref "/reference/bpmn20/custom-extensions/extension-elements/#inputparameter" >}}
-[outputParameter]: {{< ref "/reference/bpmn20/custom-extensions/extension-elements/#outputparameter" >}}
+[inputParameter]: {{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#inputparameter" >}}
+[outputParameter]: {{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#outputparameter" >}}
 [list]: {{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#camunda-list" >}}
 [map]: {{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#camunda-map" >}}
 [script-io]: {{< ref "/user-guide/process-engine/scripting.md#use-scripts-as-inputoutput-parameters" >}}
