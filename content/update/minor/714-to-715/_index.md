@@ -28,6 +28,7 @@ This document guides you through the update from Camunda Platform `7.14.x` to `7
 1. For developers: [New Frontend Plugin System for all Webapps](#new-frontend-plugin-system-for-all-webapps)
 1. For administrators and developers: [PostgreSQL Support Clarification](#postgresql-support-clarification)
 1. For administrators and developers: [Changes to Camunda Platform Run Start Script](#changes-to-camunda-platform-run-start-script)
+1. For administrators and developers: [Java External Task Client: New Version Handling](#java-external-task-client-new-version-handling)
 
 This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new functionality included in Camunda Platform 7.15.
 
@@ -339,3 +340,9 @@ By default, Spring Boot serves static content through Spring Web MVC from any di
 respectively, by setting `spring.web.resources.static-locations` to `NULL`. If you want serve static files, you can add paths there.
 
 [run-documentation]: {{< ref "/user-guide/camunda-bpm-run.md" >}}
+
+# Java External Task Client: New Version Handling
+
+Starting with version 7.15.0, Camunda Platform Runtime and its compatible Java External Task Client 
+artifact will share the same version.
+

@@ -11,7 +11,7 @@ menu:
 
 ---
 
-The **Camunda External Task Client** allows to set up remote Service Tasks for your workflow. There is a supported [Java](https://github.com/camunda/camunda-external-task-client-java)
+The **Camunda External Task Client** allows to set up remote Service Tasks for your workflow. There is a supported [Java](https://github.com/camunda/camunda-bpm-platform/clients/java)
 as well as [JavaScript](https://github.com/camunda/camunda-external-task-client-js) implementation.
 
 ## Features
@@ -162,7 +162,7 @@ For more details, please check the documentation related to the client of intere
 
 ## Examples
 
-Complete examples of how to set up the different External Task Clients can be found on GitHub ([Java](https://github.com/camunda/camunda-external-task-client-java/tree/master/examples),
+Complete examples of how to set up the different External Task Clients can be found on GitHub ([Java](https://github.com/camunda/camunda-bpm-examples/clients/java),
 [JavaScript](https://github.com/camunda/camunda-external-task-client-js/tree/master/examples)).
 
 ## External task throughput

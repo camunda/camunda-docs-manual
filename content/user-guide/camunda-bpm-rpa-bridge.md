@@ -22,7 +22,7 @@ For detailed instructions on how to connect your first RPA bot to a BPMN model (
 
 The Camunda RPA bridge serves as a connector between Camunda (BPMN) on the one side and UiPath (RPA) on the other side. Processes running inside the Camunda engine can define external tasks that are marked as RPA tasks.
 
-The bridge extends the regular [Java External Task Client](https://github.com/camunda/camunda-external-task-client-java), fetches and locks the RPA tasks and starts a job in UiPath. Once the job is done, UiPath will notify a webhook in the bridge about the job result and state (Success/Failure). Alternatively, a polling mechanism requesting status updates from UiPath can be configured. Either way, the bridge will complete the previously locked external task and pass any result variables received from UiPath along to the Camunda engine.
+The bridge extends the regular [Java External Task Client](https://github.com/camunda/camunda-bpm-platform/clients/java), fetches and locks the RPA tasks and starts a job in UiPath. Once the job is done, UiPath will notify a webhook in the bridge about the job result and state (Success/Failure). Alternatively, a polling mechanism requesting status updates from UiPath can be configured. Either way, the bridge will complete the previously locked external task and pass any result variables received from UiPath along to the Camunda engine.
 
 # Prerequisites and Supported Environments
 To execute RPA bots from Camunda you will need:
