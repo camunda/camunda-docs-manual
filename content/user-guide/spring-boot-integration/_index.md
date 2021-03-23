@@ -33,7 +33,7 @@ Other starters that can be used are:
 
 * [`camunda-bpm-spring-boot-starter-rest`](rest-api)
 * [`camunda-bpm-spring-boot-starter-webapp`](webapps)
-* [`camunda-bpm-spring-boot-starter-external-task-client`]({{< ref "user-guide/ext-client/spring-boot-starter.md" >}})
+* [`camunda-bpm-spring-boot-starter-external-task-client`]({{< ref "/user-guide/ext-client/spring-boot-starter.md" >}})
 
 # Using Enterprise Edition
 

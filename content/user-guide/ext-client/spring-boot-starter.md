@@ -61,7 +61,7 @@ Or, by defining configuration attributes in the annotation:
 @ExternalTaskSubscription(
   topicName = "creditScoreChecker",
   processDefinitionKey = "loan_process",
-  includeExtenstionProperties = true,
+  includeExtensionProperties = true,
   variableNames = "defaultScore"
 )
 ```
