@@ -15,17 +15,17 @@ menu:
 
 There are different types of forms which are primarily used in Tasklist. To implement a task form in your application, you have to connect the form resource with the BPMN 2.0 element in your process diagram. Suitable BPMN 2.0 elements for calling tasks forms are the [StartEvent][start-event] and the [UserTask][user-tasks].
 
-{{< note title="This section applies to forms in Camunda Tasklist" class="info" >}}
-  When embedding the process engine into a custom application, you can integrate the process engine with any form technology such
-  as [JavaServer Faces](jsf-task-forms), Java Swing, 
-  JavaFX, REST-based JavaScript web applications and many more.
-{{< /note >}}
+Forms are Referenced using Form Keys and can either be embedded in Camunda Tasklist or handled by a custom application. Depending on you use-case, different Form Types can be used:
 
-# Deployable Task Forms 
-There are two types of Forms that can be deployed alongside your Process Diagram. They are seperate form files that are displayed directly inside Tasklist. They are referenced using Form Keys. 
+1. [Embedded Task Forms](#embedded-task-forms) allow you to embed custom HTML and JavaScript forms into Tasklist.
+2. [Camunda Forms](#camunda-forms) offer a form builder in the Camunda Modeler and can be used for less complex forms.
+3. [External Task Forms](#external-task-forms) can be used to link to custom applications. The Form will not be embedded in Tasklist.
 
-## Form Key Details
-Form keys have the structure `FORM-TYPE:LOCATION:FORM.NAME`.
+If no form key is present, a [Generic Task Forms](#generic-task-forms) will be shown.
+
+
+# Form Key Details
+Form keys that are used in Tasklist have the structure `FORM-TYPE:LOCATION:FORM.NAME`.
 
 <table class="table table-striped">
   <tr>
@@ -34,7 +34,7 @@ Form keys have the structure `FORM-TYPE:LOCATION:FORM.NAME`.
   </tr>
   <tr>
     <td>FORM-TYPE</td>
-    <td>Can be <code>embedded</code> or <code>camunda-forms</code> depending on the form type.</td>
+    <td>Can be <code>embedded</code> or <code>camunda-forms</code> depending on the form type. If no type is set, the form will be shown as an <a href="#external-task-forms">External Task Form</a>.</td>
   </tr>
   <tr>
     <td>LOCATION</td>
@@ -60,7 +60,7 @@ To configure the form in your process, open the process with the [Camunda Modele
           name="my Task">
 ```
 
-## Embedded Task Forms
+# Embedded Task Forms
 
 Embedded task forms are HTML and JavaScript forms. We provide more information about the creation of embedded forms in our [Embedded Task Forms Reference]({{< ref "/reference/forms/embedded-forms/_index.md" >}}).
 
@@ -86,7 +86,7 @@ To add an embedded form to your application, simply create an HTML file and refe
 
 The form key for this file could be `embedded:deployment:FORM_NAME.html` or `embedded:app:forms/FORM_NAME.html`.
 
-## Camunda Forms
+# Camunda Forms
 
 Camunda Forms are Forms created using the Form builder in the Camunda Modeler. The form schema is stored in `FORM_NAME.form` files. An example file could look like this:
 
@@ -116,9 +116,60 @@ Camunda Forms are Forms created using the Form builder in the Camunda Modeler. T
 
 Process variables are mapped to form fields where the form key matches the variable name. The form key for this file could be `camunda-forms:deployment:FORM_NAME.form` or `embedded:app:forms/FORM_NAME.form`.
 
+# External Task Forms
+{{< note title="Using Task Forms outside of Camunda Tasklist" class="info" >}}
+  When embedding the process engine into a custom application, you can integrate the process engine with any form technology such
+  as [JavaServer Faces](jsf-task-forms), Java Swing, 
+  JavaFX, REST-based JavaScript web applications and many more.
+{{< /note >}}
+
+If you want to call a task form that is not part of your application, you can add a reference to the desired form. The referenced task form will be configured in a way similar to the embedded task form. Open the properties view and enter `FORM_NAME.html` as form key. The relevant XML tag looks like this:
+
+```xml
+<userTask id="theTask" camunda:formKey="app:FORM_NAME.html"
+          camunda:candidateUsers="John, Mary"
+          name="my Task">
+```
+
+Tasklist creates the URL by the pattern:
+
+```xml
+"../.." + contextPath (of process application) + "/" + "app" + formKey (from BPMN 2.0 XML) + "processDefinitionKey=" + processDefinitionKey + "&callbackUrl=" + callbackUrl;
+```
+
+When you have completed the task, the call back URL will be called.
+
+{{< note title="How To" class="info" >}}
+  [How to add JSF Forms to your process application]({{< ref "/user-guide/task-forms/jsf-task-forms.md" >}})
+{{< /note >}}
+
+
 # Other Task Forms
-Besides embedded and camunda forms, Camunda Tasklist supports three other form types. These are not as user-friendly and are mainly used for testing your processes during development.
+These Task forms do not use the form-key attribute to be referenced. They are not recommended for production use and are intended for testing and development purposes.
+
+## Generic Task Forms
+
+The generic form will be used whenever you have not added a dedicated form for a [UserTask][user-tasks] or a [StartEvent][start-event].
+
+{{< img src="img/tasklist-generic-form.png" title="Generic Start Form" >}}
+
+
+Hit the *Add a variable* button to add a variable that will be passed to the process instance upon task completion. State a variable name, select the type and enter the desired value. Enter as many variables as you need.
+After hitting the *Complete* button, the process instance contains the entered values. Generic task forms can be very helpful during the development stage, so you do not need to implement all task forms before you can run a workflow. For debugging and testing this concept has many benefits as well.
+
+You can also retrieve already existing variables of the process instance by clicking the *Load Variables* button.
+
+
+[user-tasks]: {{< ref "/reference/bpmn20/tasks/user-task.md" >}}
+[start-event]: {{< ref "/reference/bpmn20/events/start-events.md" >}}
+[jsf-task-forms]: {{< ref "/user-guide/task-forms/jsf-task-forms.md" >}}
+
 ## Generated Task Forms
+
+{{< note title="Camunda Forms or Generated Task Forms?" class="info" >}}
+  The feature set of Camunda Forms and Generated Task Forms are similar. For new projects, we recommend to use Camunda Forms, as they offer more flexibility and are easier to create.
+{{< /note >}}
+
 
 The Camunda process engine supports generating HTML task forms based on Form Data Metadata provided in the BPMN 2.0 XML. Form Data Metadata is a set of BPMN 2.0 vendor extensions provided by Camunda, allowing you to define form fields directly in the BPMN 2.0 XML:
 
@@ -343,44 +394,3 @@ public class CustomValidator implements FormFieldValidator {
 ```
 
 If the process definition is deployed as part of a ProcessApplication deployment, the validator instance is resolved using the process application classloader and / or the process application Spring Application Context / CDI Bean Manager, in case of an expression.
-
-
-## External Task Forms
-
-If you want to call a task form that is not part of your application, you can add a reference to the desired form. The referenced task form will be configured in a way similar to the embedded task form. Open the properties view and enter `FORM_NAME.html` as form key. The relevant XML tag looks like this:
-
-```xml
-<userTask id="theTask" camunda:formKey="app:FORM_NAME.html"
-          camunda:candidateUsers="John, Mary"
-          name="my Task">
-```
-
-Tasklist creates the URL by the pattern:
-
-```xml
-"../.." + contextPath (of process application) + "/" + "app" + formKey (from BPMN 2.0 XML) + "processDefinitionKey=" + processDefinitionKey + "&callbackUrl=" + callbackUrl;
-```
-
-When you have completed the task, the call back URL will be called.
-
-{{< note title="How To" class="info" >}}
-  [How to add JSF Forms to your process application]({{< ref "/user-guide/task-forms/jsf-task-forms.md" >}})
-{{< /note >}}
-
-
-## Generic Task Forms
-
-The generic form will be used whenever you have not added a dedicated form for a [UserTask][user-tasks] or a [StartEvent][start-event].
-
-{{< img src="img/tasklist-generic-form.png" title="Generic Start Form" >}}
-
-
-Hit the *Add a variable* button to add a variable that will be passed to the process instance upon task completion. State a variable name, select the type and enter the desired value. Enter as many variables as you need.
-After hitting the *Complete* button, the process instance contains the entered values. Generic task forms can be very helpful during the development stage, so you do not need to implement all task forms before you can run a workflow. For debugging and testing this concept has many benefits as well.
-
-You can also retrieve already existing variables of the process instance by clicking the *Load Variables* button.
-
-
-[user-tasks]: {{< ref "/reference/bpmn20/tasks/user-task.md" >}}
-[start-event]: {{< ref "/reference/bpmn20/events/start-events.md" >}}
-[jsf-task-forms]: {{< ref "/user-guide/task-forms/jsf-task-forms.md" >}}
