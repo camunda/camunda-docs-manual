@@ -88,9 +88,9 @@ The form key for this file could be `embedded:deployment:FORM_NAME.html` or `emb
 
 # Camunda Forms
 
-Camunda Forms are created as separate files using the Camunda Modeler and can be deployed together with the process models. The form schema is stored in `.form` files.  You can find out how to build Camunda Forms in the [Camunda Modeler documentation]({{< ref "/content/modeler/forms.md" >}}) or refer to the [Camunda Forms Reference]({{< ref "/content/reference/forms/camunda-forms/_index.md" >}}) to explore all configuration options for form elements.
+Camunda Forms are created as separate files using the Camunda Modeler and can be deployed together with the process models. The form schema is stored in `.form` files.  You can find out how to build Camunda Forms in the [Camunda Modeler documentation]({{< ref "/modeler/forms.md" >}}) or refer to the [Camunda Forms Reference]({{< ref "/reference/forms/camunda-forms/_index.md" >}}) to explore all configuration options for form elements.
 
-Process variables are mapped to form fields where the fields key matches the variable name.
+[Process variables]({{< ref "/user-guide/process-engine/variables.md" >}}) are mapped to form fields where the fields key matches the variable name.
 
 <!-- Add Screenshot of the Modeler -->
 

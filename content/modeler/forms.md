@@ -21,7 +21,7 @@ Please note that the initial release of Camunda Forms only includes a first mini
 
 # Overview
 
-The Camunda Forms feature allows you to easily design and configure forms. Once configured, they can be [connected to a BPMN 2.0 element]({{< ref "/content/user-guide/task-forms/_index.md#camunda-forms" >}}) so to implement a task form in your application.
+The Camunda Forms feature allows you to easily design and configure forms. Once configured, they can be [connected to a BPMN 2.0 element]({{< ref "/user-guide/task-forms/_index.md#camunda-forms" >}}) so to implement a task form in your application.
 
 # Quickstart
 
@@ -39,7 +39,7 @@ Now you can start to build your Camunda Form. Add the desired elements from the 
 
 <!-- TODO: Add Screenshot of the Modeler -->
 
-In the properties panel on the right hand side, you can view and edit attributes that apply to the currently selected form element. Please refer to the [Camunda Forms Reference]({{< ref "/content/reference/forms/camunda-forms/_index.md" >}}) to explore all configuration options for form elements.
+In the properties panel on the right hand side, you can view and edit attributes that apply to the currently selected form element. Please refer to the [Camunda Forms Reference]({{< ref "/reference/forms/camunda-forms/_index.md" >}}) to explore all configuration options for form elements.
 
 ## Save your Form
 
@@ -49,4 +49,4 @@ To save your state of work, click the **Save Camunda Form as...** button in the 
 
 ## Use your Form to implement a task form in your application
 
-You can connect your Camunda Form to a BPMN 2.0 element and deploy it together with the BPMN diagram to the Camunda Platform, so to implement a task form in your application. Pleaser refer to the [User Task Forms guide]({{< ref "/content/user-guide/task-forms/_index.md#camunda-forms" >}}) to learn more.
+You can connect your Camunda Form to a BPMN 2.0 element and deploy it together with the BPMN diagram to the Camunda Platform, so to implement a task form in your application. Pleaser refer to the [User Task Forms guide]({{< ref "/user-guide/task-forms/_index.md#camunda-forms" >}}) to learn more.
