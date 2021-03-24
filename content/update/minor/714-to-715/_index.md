@@ -100,7 +100,6 @@ If a database other than the default H2 database is used, the following steps mu
 With this release, the implementation of [`TaskService#handleBpmnError`][javadocs-taskservice-handleBpmnError] now throws a 
 `NotFoundException` instead of a `NullValueException` in case no task with the given id exists. If the provided task id or 
 error code are null or empty, a `BadUserRequestException` is thrown. 
-For more information about the reporting Bpmn Error in Task, please check the [User Task][user-task-reference] documentation.
 
 Additionally, the implementation of [`TaskService#handleEscalation`][javadocs-taskservice-handleEscalation] was, too.
 It now also throws a `NotFoundException` instead of a `NullValueException` in case no task with the given id exists. If the provided task id or
