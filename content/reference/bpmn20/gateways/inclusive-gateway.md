@@ -100,34 +100,35 @@ Note that in Camunda's implementation of the inclusive gateway, the following ho
 
 The following examples show under which conditions an inclusive gateway will trigger a join:
 
-1. In the diagram below, the parallel gateway creates two execution tokens. The first 
-   execution token will wait at `User Task 1`, and the second will reach the
-   `Inclusive Gateway 2` and wait for the gateway to trigger. However, the 
-   `Inclusive Gateway 2` **will not trigger** a join until `User Task 1` is completed and
-   the second token arrives at the gateway. As a result, the `Inclusive Gateway 2` will trigger
-   only once, instead of two times since both tokens will pass the same sequence flow (true). 
-   In cases like these, it is recommended to use an [`Exclusive Gateway`]({{< ref "/reference/bpmn20/gateways/exclusive-gateway.md" >}}) 
-   instead of the `Inclusive Gateway 1`. As a result, only one instance of `User Task 2` will
-   need to be completed.
-   <div data-bpmn-diagram="../bpmn/inclusive_gateway_scenario_1"></div>
-   
 1. In the following scenario, `Parallel Gateway 1` creates three execution tokens, but
    only two sequence flows join in the inclusive gateway. In this scenario, the inclusive
    gateway **will trigger** even with only two tokens since the tokens from `Task 1` and `Task 2`
    were joined in a single token by `Parallel Gateway 2`. 
-   <div data-bpmn-diagram="../bpmn/inclusive_gateway_scenario_2"></div>
+   <div data-bpmn-diagram="../bpmn/inclusive_gateway_scenario_1"></div>
    
 1. In this scenario, `Parallel Gateway 1` creates two execution tokens, and
    three sequence flows join in the inclusive gateway. In this scenario, the inclusive
    gateway **will trigger** with three tokens since `Parallel Gateway 2` splits the single
    token from `Task 1` into two separate tokens for `Task 3` and `Task 4`.
-   <div data-bpmn-diagram="../bpmn/inclusive_gateway_scenario_3"></div>
+   <div data-bpmn-diagram="../bpmn/inclusive_gateway_scenario_2"></div>
 
 1. In the last scenario, the parallel gateway creates two execution tokens. The first
    execution token will wait at `User Task 1`, and the second will reach the
    `Inclusive Gateway`. The `Inclusive Gateway` will trigger immediately for the first token,
    and a second time, for the second token, as both tokens arrive on the same sequence flow.
    As a result, there will be two instances of `User Task 2` that will need to be completed.
+   <div data-bpmn-diagram="../bpmn/inclusive_gateway_scenario_3"></div>
+
+1. In the diagram below, the parallel gateway creates two execution tokens. The first
+   execution token will wait at `User Task 1`, and the second will reach the
+   `Inclusive Gateway 2` and wait for the gateway to trigger. However, the
+   `Inclusive Gateway 2` **will not trigger** a join until `User Task 1` is completed and
+   the second token arrives at the gateway. As a result, the `Inclusive Gateway 2` will trigger
+   only once instead of two times. According to the BPMN 2.0 specification, since both tokens pass 
+   the same sequence flow (true), the inclusive gateway should trigger twice. Finally, due to this
+   behavior, only one instance of `User Task 2` will need to be completed instead of the expected two.
+   In cases like this one, it is recommended to use an [`Exclusive Gateway`]({{< ref "/reference/bpmn20/gateways/exclusive-gateway.md" >}})
+   instead of the `Inclusive Gateway 1`.
    <div data-bpmn-diagram="../bpmn/inclusive_gateway_scenario_4"></div>
 
 # Camunda Extensions
