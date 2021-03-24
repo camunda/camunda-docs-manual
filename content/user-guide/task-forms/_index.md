@@ -18,10 +18,10 @@ There are different types of forms which are primarily used in Tasklist. To impl
 Forms are Referenced using Form Keys and can either be embedded in Camunda Tasklist or handled by a custom application. Depending on you use-case, different Form Types can be used:
 
 1. [Embedded Task Forms](#embedded-task-forms) allow you to embed custom HTML and JavaScript forms into Tasklist.
-2. [Camunda Forms](#camunda-forms) offer a form builder in the Camunda Modeler and can be used for less complex forms.
+2. [Camunda Forms](#camunda-forms) offer visual editing of forms in the Camunda Modeler and can be used for less complex forms.
 3. [External Task Forms](#external-task-forms) can be used to link to custom applications. The Form will not be embedded in Tasklist.
 
-If no form key is present, a [Generic Task Forms](#generic-task-forms) will be shown.
+If no form key is present, a [Generic Task Form](#generic-task-forms) will be shown.
 
 
 # Form Key Details
@@ -55,7 +55,7 @@ Form keys that are used in Tasklist have the structure `FORM-TYPE:LOCATION:FORM.
 To configure the form in your process, open the process with the [Camunda Modeler](http://camunda.org/bpmn/tool/) and select the desired [UserTask][user-tasks] or [StartEvent][start-event]. Open the properties panel and enter the Form Key. The relevant XML tag looks like this:
 
 ```xml
-<userTask id="theTask" camunda:formKey="camunda-forms:app:forms/userTask.form"
+<userTask id="theTask" camunda:formKey="camunda-forms:deployment:forms/userTask.form"
           camunda:candidateUsers="John, Mary"
           name="my Task">
 ```
@@ -88,39 +88,17 @@ The form key for this file could be `embedded:deployment:FORM_NAME.html` or `emb
 
 # Camunda Forms
 
-Camunda Forms are Forms created using the Form builder in the Camunda Modeler. The form schema is stored in `FORM_NAME.form` files. An example file could look like this:
+Camunda Forms are created as separate files using the Camunda Modeler and can be deployed together with the process models. The form schema is stored in `.form` files. <!-- More detailed information can be found in the [Camunda Forms Documentation](link to new Modeler forms page) -->
 
-```JSON
-{
-  "components": [
-    {
-      "key": "creditor",
-      "label": "Creditor",
-      "type": "textfield",
-      "validate": {
-        "required": true
-      }
-    },
-    {
-      "description": "An invoice number in the format: C-123.",
-      "key": "invoiceNumber",
-      "label": "Invoice Number",
-      "type": "textfield",
-      "validate": {
-        "pattern": "^C-[0-9]+$"
-      }
-    }
-  ]
-}
-```
+Process variables are mapped to form fields where the fields key matches the variable name.
 
-Process variables are mapped to form fields where the form key matches the variable name. The form key for this file could be `camunda-forms:deployment:FORM_NAME.form` or `embedded:app:forms/FORM_NAME.form`.
+<!-- Add Screenshot of the Modeler -->
+
+ The form key for this file could be `camunda-forms:deployment:FORM_NAME.form` or `embedded:app:forms/FORM_NAME.form`.
 
 # External Task Forms
 {{< note title="Using Task Forms outside of Camunda Tasklist" class="info" >}}
-  When embedding the process engine into a custom application, you can integrate the process engine with any form technology such
-  as [JavaServer Faces](jsf-task-forms), Java Swing, 
-  JavaFX, REST-based JavaScript web applications and many more.
+  When embedding the process engine into a custom application, you can use any value in the form key property as a reference to your custom form. This way, your front-end can ensure to render the correct form for each user task.
 {{< /note >}}
 
 If you want to call a task form that is not part of your application, you can add a reference to the desired form. The referenced task form will be configured in a way similar to the embedded task form. Open the properties view and enter `FORM_NAME.html` as form key. The relevant XML tag looks like this:
