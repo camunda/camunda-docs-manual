@@ -12,5 +12,4 @@ menu:
     pre: "Forms created with the Camunda Modeler"
 ---
 
-<!-- TODO: Update link to the Modeler Page when ready -->
-Camunda Forms are created in the Camunda Modeler. More detailed information can be found in the [User Guide]({{< ref "/user-guide/task-forms/_index.md#camunda-forms" >}}).
+Camunda Forms are created in the Camunda Modeler. You can find out how to build Camunda Forms in the [Camunda Modeler documentation]({{< ref "/content/modeler/forms.md" >}}).
