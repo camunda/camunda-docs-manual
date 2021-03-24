@@ -92,6 +92,6 @@ OPTIONS `/group/sales/members`
 Status 200.
 
     {"links":[
-        {"method":"DELETE","href":"http://localhost:8080/camunda/api/engine/engine/default/group/sales/members","rel":"delete"},
-        {"method":"PUT","href":"http://localhost:8080/camunda/api/engine/engine/default/group/sales/members","rel":"create"}]
+        {"method":"DELETE","href":"http://localhost:8080/engine-rest/group/sales/members","rel":"delete"},
+        {"method":"PUT","href":"http://localhost:8080/engine-rest/group/sales/members","rel":"create"}]
     }
