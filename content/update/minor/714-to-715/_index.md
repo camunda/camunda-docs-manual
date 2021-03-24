@@ -97,10 +97,24 @@ If a database other than the default H2 database is used, the following steps mu
 
 # Exception Handling in Task API
 
-With this release, the implementation of <code>[TaskService#handleBpmnError][javadocs-taskservice-handleBpmnError]</code> now throws a `NotFoundException` instead of a `NullValueException` in case no task with the given id exists. If the provided task id or error code were null or empty, a `BadUserRequestException` is thrown. Code that consumes this API might need to adapt its error handling. For more information about the reporting Bpmn Error in Task, please check the [User Task][user-task-reference] documentation.
+With this release, the implementation of [`TaskService#handleBpmnError`][javadocs-taskservice-handleBpmnError] now throws a 
+`NotFoundException` instead of a `NullValueException` in case no task with the given id exists. If the provided task id or 
+error code are null or empty, a `BadUserRequestException` is thrown. 
+For more information about the reporting Bpmn Error in Task, please check the [User Task][user-task-reference] documentation.
+
+Additionally, the implementation of [`TaskService#handleEscalation`][javadocs-taskservice-handleEscalation] was, too.
+It now also throws a `NotFoundException` instead of a `NullValueException` in case no task with the given id exists. If the provided task id or
+escalation code were null or empty, a `BadUserRequestException` is thrown.
+
+Code that consumes these APIs might need to adapt its error handling.
+
+For more information about the reporting of Bpmn Errors and BPMN Escalations in Tasks, please check the  User Task documentation
+[here][user-task-reference-error] and [here][user-task-reference-escalation].
 
 [javadocs-taskservice-handleBpmnError]:https://docs.camunda.org/javadoc/camunda-bpm-platform/7.15/org/camunda/bpm/engine/TaskService.html#handleBpmnError-java.lang.String-java.lang.String-
-[user-task-reference]: {{< ref "/reference/bpmn20/tasks/user-task.md#reporting-bpmn-error" >}}
+[javadocs-taskservice-handleEscalation]:https://docs.camunda.org/javadoc/camunda-bpm-platform/7.15/org/camunda/bpm/engine/TaskService.html#handleEscalation-java.lang.String-java.lang.String-
+[user-task-reference-error]: {{< ref "/reference/bpmn20/tasks/user-task.md#reporting-bpmn-error" >}}
+[user-task-reference-escalation]: {{< ref "/reference/bpmn20/tasks/user-task.md#reporting-bpmn-escalation" >}}
 
 # Update of MySQL JDBC Driver in Camunda Docker Images
 
