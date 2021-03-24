@@ -112,14 +112,14 @@ The following examples show under which conditions an inclusive gateway will tri
    token from `Task 1` into two separate tokens for `Task 3` and `Task 4`.
    <div data-bpmn-diagram="../bpmn/inclusive_gateway_scenario_2"></div>
 
-1. In the last scenario, the parallel gateway creates two execution tokens. The first
+1. In the diagram below, the parallel gateway creates two execution tokens. The first
    execution token will wait at `User Task 1`, and the second will reach the
    `Inclusive Gateway`. The `Inclusive Gateway` will trigger immediately for the first token,
    and a second time, for the second token, as both tokens arrive on the same sequence flow.
    As a result, there will be two instances of `User Task 2` that will need to be completed.
    <div data-bpmn-diagram="../bpmn/inclusive_gateway_scenario_3"></div>
 
-1. In the diagram below, the parallel gateway creates two execution tokens. The first
+1. In the last scenario, the parallel gateway creates two execution tokens. The first
    execution token will wait at `User Task 1`, and the second will reach the
    `Inclusive Gateway 2` and wait for the gateway to trigger. However, the
    `Inclusive Gateway 2` **will not trigger** a join until `User Task 1` is completed and
