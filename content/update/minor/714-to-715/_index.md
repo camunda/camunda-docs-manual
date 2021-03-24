@@ -101,7 +101,7 @@ With this release, the implementation of [`TaskService#handleBpmnError`][javadoc
 `NotFoundException` instead of a `NullValueException` in case no task with the given id exists. If the provided task id or 
 error code are null or empty, a `BadUserRequestException` is thrown. 
 
-Additionally, the implementation of [`TaskService#handleEscalation`][javadocs-taskservice-handleEscalation] was, too.
+Additionally, the implementation of [`TaskService#handleEscalation`][javadocs-taskservice-handleEscalation] was changed, too.
 It now also throws a `NotFoundException` instead of a `NullValueException` in case no task with the given id exists. If the provided task id or
 escalation code were null or empty, a `BadUserRequestException` is thrown.
 
@@ -358,4 +358,3 @@ respectively, by setting `spring.web.resources.static-locations` to `NULL`. If y
 
 Starting with version 7.15.0, Camunda Platform Runtime and its compatible Java External Task Client 
 artifact will share the same version.
-
