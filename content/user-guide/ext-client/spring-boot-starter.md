@@ -46,7 +46,7 @@ The annotation requires at least the topic name. However, you can apply more con
 either referencing the topic name in your `application.yml` file:
 
 ```yaml
-org.camunda.bpm.client:
+camunda.bpm.client:
   base-url: http://localhost:8080/engine-rest
   subscriptions:
     creditScoreChecker:
@@ -168,12 +168,12 @@ The central configuration point is the `application.yml` file.
 
 #### Client Bootstrapping
 
-Please make sure to configure the properties together with the prefix: `org.camunda.bpm.client`
+Please make sure to configure the properties together with the prefix: `camunda.bpm.client`
 
 An example configuration could look as follows:
 
 ```yaml
-org.camunda.bpm.client:
+camunda.bpm.client:
   base-url: http://localhost:8080/engine-rest
   worker-id: spring-boot-worker
 ```
@@ -280,12 +280,12 @@ Available properties:
 
 #### Topic Subscription
 
-The properties for topic subscriptions go under: `org.camunda.bpm.client.subscriptions`
+The properties for topic subscriptions go under: `camunda.bpm.client.subscriptions`
 
 The configuration properties can be applied for each topic name as follows:
 
 ```yaml
-org.camunda.bpm.client:
+camunda.bpm.client:
   # ADD CLIENT CONFIGURATION HERE
   subscriptions:
     creditScoreChecker:
@@ -508,7 +508,7 @@ client.serializationFormat=application/json
 Make sure to reference the respective placeholders defined above in your `application.yml` file:
 
 ```yaml
-org.camunda.bpm.client:
+camunda.bpm.client:
   base-url: ${client.baseUrl}
   worker-id: ${client.workerId}
   date-format: ${client.dateFormat}
