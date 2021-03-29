@@ -55,7 +55,6 @@ Camunda supports the 1.1 version of DMN.
 [Quick Start (Java / JS)]: /get-started/quick-start/
 [BPMN Implementation Reference]: {{< ref "/reference/bpmn20/_index.md" >}}
 [CMMN Implementation Reference]: {{< ref "/reference/cmmn11/_index.md" >}}
-[CMMN Getting Started]: /get-started/cmmn11/
 [DMN Getting Started]: /get-started/dmn11/
 [DMN Implementation Reference]: {{< ref "/reference/dmn/_index.md" >}}
 [DMN Modeling Tutorial]: https://camunda.org/dmn/tutorial/
