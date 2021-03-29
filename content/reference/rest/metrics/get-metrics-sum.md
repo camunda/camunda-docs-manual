@@ -47,7 +47,7 @@ GET `/metrics/{metrics-name}/sum`
       <code>history-cleanup-removed-batch-operations</code>,
       <code>history-cleanup-removed-task-metrics</code>,
       <code>root-process-instance-start</code>,
-      <code>task-worker</code>,
+      <code>unique-task-workers</code>,
       <code>unique-task-workers</code>
     </td>
   </tr>
@@ -115,4 +115,3 @@ GET `/metrics/activity-instance-end/sum?startDate=2015-01-01T00:00:00.000%2b0200
 ## Response
 
     { "result": 4342343241 }
-
