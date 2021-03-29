@@ -760,6 +760,26 @@ The following describes the operations logged in the user operation log and the 
     </td>
   </tr>
   <tr>
+    <td>Incident</td>
+    <td>SetAnnotation</td>
+    <td>Operator</td>
+    <td>
+      <ul>
+        <li><strong>incidentId</strong>: the id of the annotated incident</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>ClearAnnotation</td>
+    <td>Operator</td>
+    <td>
+      <ul>
+        <li><strong>incidentId</strong>: the id of the annotated incident</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
     <td>IdentityLink</td>
     <td>AddUserLink</td>
 	<td>TaskWorker</td>
