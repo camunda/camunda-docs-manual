@@ -5,11 +5,15 @@ weight: 05
 
 menu:
   main:
-    name: "Camunda Platform Run"
+    name: "Remote Engine Distribution"
     identifier: "installation-camunda-bpm-run"
     parent: "installation-guide"
-    pre: "Install Camunda Platform Run, an easy to configure full distribution of the Camunda Platform. No Java knowledge necessary."
+    pre: "Install Camunda Platform Run, an easy to configure remote engine distribution of the Camunda Platform. No Java knowledge necessary."
 ---
+
+{{< note title="What is a Remote Engine Distribution?" class="info" >}}
+If you need a Remote or Shared Engine Distribution depends on your use-case. Check out the [architecture overview]({{<ref "/introduction/architecture.md" >}}) for more information.
+{{< /note >}}
 
 This page describes the steps to execute Camunda Platform Run.
 
