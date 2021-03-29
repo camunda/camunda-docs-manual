@@ -40,11 +40,14 @@ GET `/metrics`
       <code>job-failed</code>,
       <code>job-locked-exclusive</code>,
       <code>executed-decision-elements</code>,
+      <code>executed-decision-instances</code>,
       <code>history-cleanup-removed-process-instances</code>,
       <code>history-cleanup-removed-case-instances</code>,
       <code>history-cleanup-removed-decision-instances</code>,
       <code>history-cleanup-removed-batch-operations</code>,
-      <code>history-cleanup-removed-task-metrics</code>
+      <code>history-cleanup-removed-task-metrics</code>,
+      <code>root-process-instance-start</code>,
+      <code>unique-task-workers</code>
     </td>
   </tr>
   <tr>
