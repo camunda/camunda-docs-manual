@@ -879,6 +879,19 @@ The following is a list with the most commonly used process engine configuration
         Default value: <code>15000</code> (15 s)
     </td>
   </tr>
+  
+  <tr id="skipOutputMappingOnCanceledActivities">
+    <td><code>skipOutputMappingOnCanceledActivities</code></td>
+    <td>Boolean</td>
+    <td>
+        <p>For activities that were canceled (e.g. due to throwing and catching an error) this flag controls if the engine
+        should still perform output mapping. When set to <code>true</code>, output mapping will not be done for any
+        activity that was canceled. This might be helpful when it is not certain which variables will be available when
+        the activity is canceled (e.g. when an external task does not return an expected variable).</p>
+        <p>This flag is often used together with <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#erroreventdefinition" >}}">camunda:errorEventDefinition</a> extension elements on external service tasks.</p>
+        <p>Default value: <code>false</code></p>
+    </td>
+  </tr>
 
 </table>
 

@@ -431,6 +431,10 @@ The bot might return more variables that are ignored in this case.
 </bpmn:serviceTask>
 ```
 
+It is important to keep in mind that the Camunda engine does not have any control over the RPA bot execution. An RPA bot might return one set of variables if it succeeds and a different set in case of failure.
+If you configure output mapping for a variable that returns from the bot you are relying on that bot to always return this variable. If the bot does not return the correct variable, the output mapping will fail with an exception.
+To prevent that, you can enable an engine configuration flag called [skipOutputMappingOnCanceledActivities]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#skipOutputMappingOnCanceledActivities" >}}). The flag will cause all activities (not only RPA tasks) to skip the output mapping if they are canceled.
+
 ### Variable Conversion with UiPath
 
 UiPath supports basic variable types like String (text), Boolean (true/false), Number, and Date/Time, as well as more complex structures like Arrays and Data Tables.

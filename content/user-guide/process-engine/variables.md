@@ -476,6 +476,12 @@ Input mappings can also be used with multi-instance constructs, in which the map
   The engine does not support output mappings for multi-instance constructs. Every instance of the output mapping would overwrite the variables set by the previous instances and the final variable state would become hard to predict.
 {{< /note >}}
 
+## IO Mapping on canceled activities
+
+If an Activity is canceled (e.g. due to throwing a BPMN error), IO mapping is still executed. This can lead to exceptions if the output mapping references variables that do not exist in the scope of the activity at that time.
+
+The default behavior is that the engine still tries to execute output mappings on canceled activities and fails with an exception if a variable is not found. By enabling the [skipOutputMappingOnCanceledActivities]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#skipOutputMappingOnCanceledActivities" >}}) engine configuration flag (i.e. setting it to `true`) the engine will not perform output mappings on any canceled activity.
+
 [inputOutput]: {{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#camunda-inputoutput" >}}
 [inputParameter]: {{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#inputparameter" >}}
 [outputParameter]: {{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#outputparameter" >}}
