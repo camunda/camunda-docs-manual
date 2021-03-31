@@ -49,4 +49,12 @@ To save your state of work, click the **Save Camunda Form as...** button in the 
 
 ## Use your Form to implement a task form in your application
 
-You can connect your Camunda Form to a BPMN 2.0 element and deploy it together with the BPMN diagram to the Camunda Platform, so to implement a task form in your application. Pleaser refer to the [User Task Forms guide]({{< ref "/user-guide/task-forms/_index.md#camunda-forms" >}}) to learn more.
+### Connect to a BPMN 2.0 element
+
+You can connect your Camunda Form to a BPMN 2.0 element, so to implement a task form in your application. Pleaser refer to the [User Task Forms guide]({{< ref "/user-guide/task-forms/_index.md#camunda-forms" >}}) to learn how.
+
+### Deploy to Camunda Platform
+
+If you want to include your Camunda Form as part of the `deployment`, then you can use the **Deploy Diagram** dialog and include the Camunda Form `.form` file as **additional file**.
+
+<!-- TODO: Add Screenshot of the Modeler deploy-form.png -->
