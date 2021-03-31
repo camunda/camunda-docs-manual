@@ -445,8 +445,6 @@ Besides primitive variable types like String (text), Boolean (true/false), and N
 
 The RPA Bridge can convert primitive types (i.e., String, Boolean, Number) and DateTime variables for Cockpit to typed variables. The complex types are passed as received from Automation Anywhere (i.e., JSON nodes).
 
-Note, that currently variables of type Window and Credential are not supported and will not be handled by the Camunda RPA bridge. If you need information from a variable of this type in your BPMN process, make sure to store it in a different variable and pass it to the RPA bridge instead.
-
 Please consult the Automation Anywhere [documentation page](https://docs.automationanywhere.com/bundle/enterprise-v2019/page/enterprise-cloud/topics/aae-client/bot-creator/using-variables/cloud-user-local-variables.html) for more information about the different variable types.
 
 ## Error Handling
