@@ -182,7 +182,7 @@ Properties marked with a `'*'` are mandatory and can not be empty when starting 
   </tr>
   <tr>
       <td><code>token-expiration</code></td>
-      <td>Lifetime of the authentication token in milliseconds. The value of this property should match the configured lifetime of an authentication token acquired from UiPath.</td>
+      <td>Lifetime of the authentication token in minutes. The value of this property should match the configured lifetime of an authentication token acquired from UiPath.</td>
       <td>30 minutes (on-premise)<br/>1440 minutes/24 hours (cloud)</td>
   </tr>
 </table>
@@ -346,7 +346,7 @@ logging.level.<Logger>: DEBUG
     <td>Logs details for all interactions with Automation Anywhere, specifically outgoing requests. Note that responses to outgoing request are NOT logged here. Please additionally configure the <code>org.camunda.bpm.rpa.bridge.rpa.RequestHandler</code> for that purpose</td>
   </tr>
   <tr>
-    <td><code>org.camunda.bpm.rpa.bridge.rpa.uipath.auth</code></td>
+    <td><code>org.camunda.bpm.rpa.bridge.rpa.aai.auth</code></td>
     <td>Logs details for all authentication interactions with Automation Anywhere, specifically outgoing requests. Note that responses to outgoing request are NOT logged here.Please additionally configure the <code>org.camunda.bpm.rpa.bridge.rpa.RequestHandler</code> for that purpose</td>
   </tr>
 </table>
@@ -451,13 +451,13 @@ Please consult the Automation Anywhere [documentation page](https://docs.automat
 
 ## Error Handling
 
-If not everything works as expected and an RPA bot fails for any reason, you might want to react to the failure by throwing a BPMN error.
+In case an RPA bot fails for any reason, you might want to react to the failure by throwing a [BPMN error]({{< ref "/reference/bpmn20/events/error-events.md" >}}).
 You can do that by adding the [camunda:errorEventDefinition]({{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#erroreventdefinition" >}}) extension element to a service task.
 
 Compared to the `bpmn:errorEventDefinition`, the `camunda:errorEventDefinition` elements accept an additional `expression` attribute which supports any JUEL expression. Within the expression you have access to the `ExternalTaskEntity` object like shown in the example below. For more information about External Task error handling via `camunda:errorEventDefinition` have a look at the [External Tasks Guide]({{< ref "/user-guide/process-engine/external-tasks.md#error-event-definitions" >}}).
 
 You can use this feature regardless of the outcome of the RPA bot. Even if the bot was executed successfully, you could still decide to throw a BPMN error. Also note, that
-the RPA bots variables are available for mapping and error handling via `camunda:errorEventDefinition`, even if the bot failed.
+the RPA bot's variables are available for mapping and error handling via `camunda:errorEventDefinition`, even if the bot failed.
 
 ### Examples:
 
@@ -529,7 +529,7 @@ When connected to Automation Anywhere, the bridge will use the following API end
 
 # Telemetry
 
-At Camunda, we strive to offer an excellent user experience at a high and stable level. On a strict opt-in basis, we are looking to collect environment and usage data to improve the user experience for you further. These insights help us to understand typical environment setups and product usage patterns and will be used to make informed product improvement decisions to your benefit.
+At Camunda, we strive to offer an excellent user experience at a high and stable level. On a strict opt-in basis, we are looking to collect environment and usage data to further improve the user experience for you. These insights help us to understand typical environment setups and product usage patterns and will be used to make informed product improvement decisions to your benefit.
 
 Find more information on the [general telemetry introduction page]({{< ref "/introduction/telemetry.md" >}})
 
