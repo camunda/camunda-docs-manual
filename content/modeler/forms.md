@@ -27,23 +27,23 @@ The Camunda Forms feature allows you to easily design and configure forms. Once 
 
 ## Create new Form
 
-<!-- TODO: Add Screenshot of the Modeler -->
+<!-- TODO: Add Screenshot of the Modeler create-form.png -->
 
 To start building a form, in the **File** menu click **Create new Camunda Form**.
 
 ## Build your From
 
-<!-- TODO: Add Screenshot of the Modeler -->
+<!-- TODO: Add Screenshot of the Modeler build-form.png -->
 
 Now you can start to build your Camunda Form. Add the desired elements from the palette on the left hand side by dragging and dropping them onto the canvas.
 
-<!-- TODO: Add Screenshot of the Modeler -->
+<!-- TODO: Add Screenshot of the Modeler form-properties-panel.png -->
 
 In the properties panel on the right hand side, you can view and edit attributes that apply to the currently selected form element. Please refer to the [Camunda Forms Reference]({{< ref "/reference/forms/camunda-forms/_index.md#configuration" >}}) to explore all configuration options for form elements.
 
 ## Save your Form
 
-<!-- TODO: Add Screenshot of the Modeler -->
+<!-- TODO: Add Screenshot of the Modeler save-form.png -->
 
 To save your state of work, click the **Save Camunda Form as...** button in the top-level menu. Then select a location on your file system to store the diagram in the JSON format.
 
