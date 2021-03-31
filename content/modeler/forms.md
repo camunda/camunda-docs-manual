@@ -21,13 +21,13 @@ Please note that the initial release of Camunda Forms only includes a first mini
 
 # Overview
 
-The Camunda Forms feature allows you to easily design and configure forms. Once configured, they can be [connected to a BPMN 2.0 element]({{< ref "/user-guide/task-forms/_index.md#camunda-forms" >}}) so to implement a task form in your application.
+The Camunda Forms feature allows you to easily design and configure forms. Once configured, they can be [connected to a User Task or Start Event]({{< ref "/user-guide/task-forms/_index.md#camunda-forms" >}}) so to implement a task form in your application.
 
 # Quickstart
 
 ## Create new Form
 
-To start building a form, in the **File** menu click **Create new Camunda Form**.
+To start building a form, in the **File** menu click **Create new Form (Camunda Forms)**.
 
 {{< img src="img/create-form.png" title="Create new Camunda Form file" >}}
 
@@ -43,18 +43,10 @@ In the properties panel on the right hand side, you can view and edit attributes
 
 ## Save your Form
 
-To save your state of work, click the **Save Camunda Form as...** button in the top-level menu. Then select a location on your file system to store the diagram in the JSON format.
+To save your state of work, click the **Save Diagram as...** button in the top-level menu. Then select a location on your file system to store the form as `.form` file.
 
 {{< img src="img/save-form.png" title="Save your Camunda Form file" >}}
 
-## Use your Form to implement a task form in your application
+## Connect your Form to a BPMN diagram
 
-### Connect to a BPMN 2.0 element
-
-You can connect your Camunda Form to a BPMN 2.0 element, so to implement a task form in your application. Pleaser refer to the [User Task Forms guide]({{< ref "/user-guide/task-forms/_index.md#camunda-forms" >}}) to learn how.
-
-### Deploy to Camunda Platform
-
-If you want to include your Camunda Form as part of the `deployment`, then you can use the **Deploy Diagram** dialog and include the Camunda Form `.form` file as **additional file**.
-
-{{< img src="img/deploy-form.png" title="Deploy your Camunda Form file" >}}
+You can connect your Camunda Form to a User Task or Start Event, so to implement a task form in your application. Pleaser refer to the [User Task Forms guide]({{< ref "/user-guide/task-forms/_index.md#camunda-forms" >}}) to learn how.

@@ -30,7 +30,7 @@ Camunda Forms allow you to easily design and configure forms and then embed them
 
 Use the [Camunda Modeler]({{< ref "/modeler/forms.md" >}}) to configure your Camunda Form. The following form elements are currently supported.
 
-### Text Field
+## Text Field
 
 A text field allowing the user to read and edit textual data.
 
@@ -49,7 +49,7 @@ A text field can be configured using the following configuration properties:
 
 
 
-### Button
+## Button
 
 A button allowing the user to submit or reset the form.
 
