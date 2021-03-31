@@ -6,9 +6,10 @@ layout: "single"
 
 menu:
   main:
-    name: "Forms"
+    name: "Embeded Forms"
     identifier: "embedded-forms-ref"
-    parent: "references"
+    parent: "forms-ref"
+    pre: "Custom HTML Forms embeddable in Tasklist"
 
 ---
 

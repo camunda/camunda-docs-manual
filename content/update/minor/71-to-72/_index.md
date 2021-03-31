@@ -122,7 +122,7 @@ As an alternative, script code can be migrated by replacing all implicit declara
 
 Embedded form support has been redesigned in Camunda Platform 7.2 and existing forms must be migrated.
 
-> Documentation on embedded forms support in 7.2 can be found in the [Embedded Forms Reference]({{< ref "/reference/embedded-forms/_index.md" >}})
+> Documentation on embedded forms support in 7.2 can be found in the [Embedded Forms Reference]({{< ref "/reference/forms/embedded-forms/_index.md" >}})
 
 ## Overview
 
