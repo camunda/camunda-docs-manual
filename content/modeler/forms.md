@@ -39,7 +39,7 @@ Now you can start to build your Camunda Form. Add the desired elements from the 
 
 <!-- TODO: Add Screenshot of the Modeler -->
 
-In the properties panel on the right hand side, you can view and edit attributes that apply to the currently selected form element. Please refer to the [Camunda Forms Reference]({{< ref "/reference/forms/camunda-forms/_index.md" >}}) to explore all configuration options for form elements.
+In the properties panel on the right hand side, you can view and edit attributes that apply to the currently selected form element. Please refer to the [Camunda Forms Reference]({{< ref "/reference/forms/camunda-forms/_index.md#configuration" >}}) to explore all configuration options for form elements.
 
 ## Save your Form
 
