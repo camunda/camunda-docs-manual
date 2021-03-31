@@ -92,9 +92,9 @@ Camunda Forms are created as separate files using the Camunda Modeler and can be
 
 [Process variables]({{< ref "/user-guide/process-engine/variables.md" >}}) are mapped to form fields where the fields key matches the variable name.
 
-<!-- TODO: Add Screenshot of the Modeler user-task-reference-form.png -->
+The form key for Camunda Forms could be `camunda-forms:deployment:FORM_NAME.form` or `embedded:app:forms/FORM_NAME.form`.
 
- The form key for Camunda Forms could be `camunda-forms:deployment:FORM_NAME.form` or `embedded:app:forms/FORM_NAME.form`.
+{{< img src="img/reference-camunda-form.png" title="Provide Form Key for Camunda Forms" >}}
 
 # External Task Forms
 {{< note title="Using Task Forms outside of Camunda Tasklist" class="info" >}}

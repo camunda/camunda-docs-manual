@@ -27,25 +27,25 @@ The Camunda Forms feature allows you to easily design and configure forms. Once 
 
 ## Create new Form
 
-<!-- TODO: Add Screenshot of the Modeler create-form.png -->
-
 To start building a form, in the **File** menu click **Create new Camunda Form**.
+
+{{< img src="img/create-form.png" title="Create new Camunda Form file" >}}
 
 ## Build your From
 
-<!-- TODO: Add Screenshot of the Modeler build-form.png -->
-
 Now you can start to build your Camunda Form. Add the desired elements from the palette on the left hand side by dragging and dropping them onto the canvas.
 
-<!-- TODO: Add Screenshot of the Modeler form-properties-panel.png -->
+{{< img src="img/build-form.png" title="Drag and drop elements to build a Camunda Form" >}}
 
 In the properties panel on the right hand side, you can view and edit attributes that apply to the currently selected form element. Please refer to the [Camunda Forms Reference]({{< ref "/reference/forms/camunda-forms/_index.md#configuration" >}}) to explore all configuration options for form elements.
 
+{{< img src="img/form-properties-panel.png" title="Camunda Form Properties Panel" >}}
+
 ## Save your Form
 
-<!-- TODO: Add Screenshot of the Modeler save-form.png -->
-
 To save your state of work, click the **Save Camunda Form as...** button in the top-level menu. Then select a location on your file system to store the diagram in the JSON format.
+
+{{< img src="img/save-form.png" title="Save your Camunda Form file" >}}
 
 ## Use your Form to implement a task form in your application
 
@@ -57,4 +57,4 @@ You can connect your Camunda Form to a BPMN 2.0 element, so to implement a task 
 
 If you want to include your Camunda Form as part of the `deployment`, then you can use the **Deploy Diagram** dialog and include the Camunda Form `.form` file as **additional file**.
 
-<!-- TODO: Add Screenshot of the Modeler deploy-form.png -->
+{{< img src="img/deploy-form.png" title="Deploy your Camunda Form file" >}}
