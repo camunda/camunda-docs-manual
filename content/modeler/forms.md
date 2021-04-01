@@ -1,7 +1,7 @@
 ---
 
 title: 'Building Forms in Camunda Modeler'
-weight: 10
+weight: 25
 
 menu:
   main:
