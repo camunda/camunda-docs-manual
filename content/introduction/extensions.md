@@ -40,6 +40,7 @@ The following is a list of current (unsupported) community extensions:
 * [Grails Plugin](https://github.com/plexiti/camunda-grails-plugin)
 * [GraphQL API](https://github.com/camunda/camunda-graphql)
 * [Keycloak Identity Provider Plugin](https://github.com/camunda/camunda-bpm-identity-keycloak)
+* [Micronaut Camunda Integration](https://github.com/NovatecConsulting/micronaut-camunda-bpm)
 * [Migration API](https://github.com/camunda/camunda-bpm-migration)
 * [Mockito Testing Library](https://github.com/camunda/camunda-bpm-mockito)
 * [Needle Testing Library](https://github.com/camunda/camunda-bpm-needle)
