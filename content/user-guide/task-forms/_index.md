@@ -99,7 +99,7 @@ To reference a Camunda Forms file, you can use a `deployment` or `app` [form key
 * `camunda-forms:deployment:FORM_NAME.form`
 * `embedded:app:forms/FORM_NAME.form`
 
-When you use [Camunda Platform Run](../camunda-bpm-run) we recommend the camunda-forms:deployment form key for easy deployment from the Camunda Modeler. 
+When you use [Camunda Platform Run](../camunda-bpm-run) we recommend the camunda-forms:deployment form key for easy deployment from the Camunda Modeler.
 
 {{< img src="img/reference-camunda-form.png" title="Provide Form Key for Camunda Forms" >}}
 
@@ -107,9 +107,11 @@ When you use [Camunda Platform Run](../camunda-bpm-run) we recommend the camunda
 
 To define a default value for a form field, a process variable with the same name as the form field key needs to be defined. Local variables (e.g. created by defining an [Input Parameter](../process-engine/variables/#input-output-variable-mapping) for the User Task) take precedence over process variables.
 
-The submitted values of a form are returned as variables to the process engine.
+{{< img src="img/variable-mapping-camunda-form.png" title="User Input/Output Mappings for default values for form fields" >}}
 
-* When a process variable with the same name as the form field key already existed, then its value will be overwritten by the form submission
+The submitted values of a form are returned as variables to the process engine:
+
+* When a process variable with the same name as the form field key already existed, then its value will be overwritten by the form submission.
 * When the User Task has an Input Parameter defined with the same name as the form field key, then this local variable will be used. In this case, an [Output Parameter](../process-engine/variables/#input-output-variable-mapping) needs to be defined to map the local variable to a process variable for usage in other process elements.
 * When no variable exists with the same name as the form field key, then a new process variable will be created and gets the value from the submission.
 
