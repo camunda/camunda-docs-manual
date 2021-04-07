@@ -119,21 +119,21 @@ The following Entity Relationship Diagrams visualize the database tables and the
 
 ## Engine DMN
 
-{{< img src="../../img/erd_714_dmn.svg" title="DMN Tables" >}}
+{{< img src="../../img/erd_715_dmn.svg" title="DMN Tables" >}}
 
 
 ## Engine CMMN
 
-{{< img src="../../img/erd_714_cmmn.svg" title="CMMN Tables" >}}
+{{< img src="../../img/erd_715_cmmn.svg" title="CMMN Tables" >}}
 
 
 ## History
 
 To allow different configurations and to keep the tables more flexible, the history tables contain no foreign key constraints.
 
-{{< img src="../../img/erd_714_history.svg" title="History Tables" >}}
+{{< img src="../../img/erd_715_history.svg" title="History Tables" >}}
 
 
 ## Identity
 
-{{< img src="../../img/erd_714_identity.svg" title="Identity Tables" >}}
+{{< img src="../../img/erd_715_identity.svg" title="Identity Tables" >}}
