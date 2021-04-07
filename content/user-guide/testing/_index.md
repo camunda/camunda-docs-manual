@@ -178,18 +178,18 @@ To use Camunda Platform Assert, add the following dependency to your ```pom.xml`
 <dependency>
   <groupId>org.camunda.bpm.assert</groupId>
   <artifactId>camunda-bpm-assert</artifactId>
-  <version>8.0.0</version>
+  <version>10.0.0</version>
   <scope>test</scope>
 </dependency>
 ```
 
-Also, you will have to add the AssertJ library v3.16.1 to your dependencies with
+Also, you will have to add the AssertJ library v3.18.1 to your dependencies with
 
 ```xml
 <dependency>
-  <groupId>org.assertj</groupId>
-  <artifactId>assertj-core</artifactId>
-  <version>3.16.1</version>
+  <groupId>org.assertj</groupId>
+  <artifactId>assertj-core</artifactId>
+  <version>3.18.1</version>
   <scope>test</scope>
 </dependency>
 ```
