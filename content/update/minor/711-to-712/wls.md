@@ -42,7 +42,7 @@ After shutting down the server, replace the following libraries in `$WLS_DOMAIN_
 * `camunda-engine-feel-api-$PLATFORM_VERSION.jar`
 * `camunda-engine-feel-juel-$PLATFORM_VERSION.jar`
 * `camunda-commons-logging-$COMMONS_VERSION.jar`
-* `camunda-commons-typed-values-$COMMONS_VERSION.jar`
+* `camunda-commons-typed-values-$PLATFORM_VERSION.jar`
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
 
 # 3. Replace Optional Camunda Dependencies

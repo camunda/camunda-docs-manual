@@ -112,4 +112,3 @@ The following steps are required to update the Camunda web applications Cockpit,
 [update-guide]: {{< ref "/update/minor/714-to-715/_index.md" >}}
 [engine-rest]: https://app.camunda.com/nexus/#browse/browse:camunda-bpm:org%2Fcamunda%2Fbpm%2Fcamunda-engine-rest%2F7.15.0
 [webapp-jboss]: https://app.camunda.com/nexus/#browse/browse:camunda-bpm:org%2Fcamunda%2Fbpm%2Fwebapp%2Fcamunda-webapp-jboss%2F7.15.0%2Fcamunda-webapp-jboss-7.15.0.war
-[jackson-update]: {{< ref "/update/minor/714-to-715/_index.md#jackson-version-update" >}}
