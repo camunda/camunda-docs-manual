@@ -45,7 +45,7 @@ After shutting down the server, replace the following libraries in `$SHARED_LIBR
 * `camunda-engine-feel-api-$PLATFORM_VERSION.jar`
 * `camunda-engine-feel-juel-$PLATFORM_VERSION.jar`
 * `camunda-commons-logging-$COMMONS_VERSION.jar`
-* `camunda-commons-typed-values-$COMMONS_VERSION.jar`
+* `camunda-commons-typed-values-$PLATFORM_VERSION.jar`
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
 * `slf4j-api-$SLF4J_VERSION.jar`
 * `slf4j-jdk14-$SLF4J_VERSION.jar`

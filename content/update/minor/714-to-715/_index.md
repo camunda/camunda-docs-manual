@@ -20,12 +20,13 @@ This document guides you through the update from Camunda Platform `7.14.x` to `7
 1. For administrators: [Standalone Web Application](#standalone-web-application)
 1. For developers: [Exception Handling in Task API](#exception-handling-in-task-api)
 1. For administrators and developers: [Update of MySQL JDBC Driver in Camunda Docker Images](#update-of-mysql-jdbc-driver-in-camunda-docker-images)
-1. For administrators and developers: [Changed filter criterion label in Cockpit](#changed-filter-criterion-label-in-cockpit)
 1. For developers: [Adjustments in Metrics](#adjustments-in-metrics)
 1. For developers: [DMN Model API generates DMN 1.3 diagrams](#dmn-model-api-generates-dmn-1-3-diagrams)
-1. For administrators and developers: [Embedded Forms Preview in Cockpit](#embedded-forms-preview-in-cockpit)
-1. For developers: [Changes to the Webapp Config Files](#changes-to-the-webapp-config-files)
-1. For developers: [New Frontend Plugin System for all Webapps](#new-frontend-plugin-system-for-all-webapps)
+1. [Changes in Webapps](#changes-in-webapps)
+   - For administrators and developers: [Changed filter criterion label in Cockpit](#changed-filter-criterion-label-in-cockpit)
+   - For administrators and developers: [Embedded Forms Preview in Cockpit](#embedded-forms-preview-in-cockpit)
+   - For developers: [Changes to the Webapp Config Files](#changes-to-the-webapp-config-files)
+   - For developers: [New Frontend Plugin System for all Webapps](#new-frontend-plugin-system-for-all-webapps)
 1. For administrators and developers: [PostgreSQL Support Clarification](#postgresql-support-clarification)
 1. For administrators and developers: [Changes to Camunda Platform Run Start Script](#changes-to-camunda-platform-run-start-script)
 1. For administrators and developers: [Java External Task Client: New Version Handling](#java-external-task-client-new-version-handling)
@@ -175,13 +176,6 @@ to UTC for storage, and back from UTC to the current time zone for retrieval. Re
 * [Change Docker Environment Variables](https://github.com/camunda/docker-camunda-bpm-platform/tree/7.15#database-environment-variables)
 * [MySQL Connector/J 8.0 Migration Guide](https://dev.mysql.com/doc/connectors/en/connector-j-upgrading-to-8.0.html)
 
-# Changed filter criterion label in Cockpit
-
-On the process definition history view in the process instances tab, the filter criterion `Completed` changed to `Finished`.
-Only the wording changed – the behavior is still the same: the criterion filters for all historical process instances where the
-end time is not null. This includes regularly completed as well as internally and externally canceled process instances.
-
-
 # Adjustments in Metrics
 
 There are two major changes with regards to metrics:
@@ -217,12 +211,20 @@ API should adjust their logic to use the DMN 1.3 specification.
 
 [create-dmn-diagram]: {{< ref "/user-guide/model-api/dmn-model-api/create-a-model.md" >}}
 
-# Embedded Forms Preview in Cockpit
+# Changes in Webapps
+
+## Changed filter criterion label in Cockpit
+
+On the process definition history view in the process instances tab, the filter criterion `Completed` changed to `Finished`.
+Only the wording changed – the behavior is still the same: the criterion filters for all historical process instances where the
+end time is not null. This includes regularly completed as well as internally and externally canceled process instances.
+
+## Embedded Forms Preview in Cockpit
 Deployed Forms now show a preview in the Cockpit deployment view. If the HTML has embedded `<script>` tags, they will be executed, which may have unintended side-effects.
 You can disable this preview feature in the [Cockpit configuration]({{< ref "/webapps/cockpit/extend/configuration.md#preview-deployed-embedded-forms" >}}) to prevent script execution. Check out our [security instructions]({{< ref "/user-guide/security.md#forms" >}}) for more information on how to secure your Camunda installation.
 
 
-# Changes to the Webapp Config Files
+## Changes to the Webapp Config Files
 
 The structure of the `config.js` file, located in the `app/{admin|tasklist|welcome}/scripts/` directory of the webapps, changed slightly. It is now a Javascript module. If you have customized the config file, replace the line 
 ```javascript
@@ -256,19 +258,19 @@ export default {
 ```
 If you do not have custom scripts or plugins, you are good to go. Otherwise, continue reading to find out how to migrate your plugins.
  
-# New Frontend Plugin System for all Webapps
+## New Frontend Plugin System for all Webapps
 
 With the 7.15.0 release, we updated all our Webapps frontend plugin system. They now use the same plugin system that we introduced to cockpit in the 7.14 release. Check out the [7.13 to 7.14 update guide]({{< ref "/update/minor/713-to-714/_index.md#migrate-existing-angularjs-plugins" >}}) for more details on how to migrate your plugins.
 
 You can still use your old plugins if you include them as legacy plugins:
 
-## Legacy Custom Scripts
+### Legacy Custom Scripts
 
 Custom Scripts created for Camunda Platform 7.13 or earlier can be included using the `requireJsConfig` property to the `app/{appName}/scripts/config.js`. You can include these custom scripts using the custom [requireJS configuration](https://requirejs.org/docs/api.html#config).
 If you are upgrading and have a modified `config.js` file, you can simply rename the `customScripts` attribute to `requireJsConfig`.
 
 
-## Legacy Plugins
+### Legacy Plugins
 
 Plugins created for Camunda Platform 7.13 or earlier can be included for compatibility. To achieve this, simply prefix your Plugin ID with `legacy-`. The AngularJS module name for the entry module will be `{appName}.plugin.legacy-*`. There are 3 Steps you can follow to adjust your existing plugin to work with Camunda Platform 7.15. We will show the changes with the [Cockpit Failed Jobs Plugin](https://github.com/camunda/camunda-bpm-examples/tree/7.13/cockpit/cockpit-failed-jobs-plugin), but the steps are the same for all webapp plugins.
 
