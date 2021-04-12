@@ -22,38 +22,7 @@ Camunda supports the community in its effort to build additional community exten
   Camunda does not support community extensions as part of its commercial services to enterprise subscription customers
 {{< /note >}}
 
-The [Camunda Community Hub](https://github.com/camunda-community-hub) is a GitHub Organization that serves as the home of Camunda open source community-contributed extensions. You can migrate  extension, search for existing ones, or help maintainers with contributions.
-
-
-## List of Community Extensions
-
-The following is a list of current (unsupported) community extensions:
-
-<!-- list below is sorted in alphabetical order -->
-<!-- keep consistent on all branches 7.4+ -->
-<!-- keep consistent with list in index.html -->
-
-* [Apache Camel Integration](https://github.com/camunda/camunda-bpm-camel)
-* [Custom Batch](https://github.com/camunda/camunda-bpm-custom-batch)
-* [DMN Scala Extension](https://github.com/camunda/dmn-scala)
-* [Elastic Search Extension](https://github.com/camunda/camunda-bpm-elasticsearch)
-* [Email Connectors](https://github.com/camunda/camunda-bpm-mail)
-* [Excamad](https://github.com/KotskinKotskin/camunda-excamad)
-* [Grails Plugin](https://github.com/plexiti/camunda-grails-plugin)
-* [GraphQL API](https://github.com/camunda/camunda-graphql)
-* [Keycloak Identity Provider Plugin](https://github.com/camunda/camunda-bpm-identity-keycloak)
-* [Micronaut Camunda Integration](https://github.com/NovatecConsulting/micronaut-camunda-bpm)
-* [Migration API](https://github.com/camunda/camunda-bpm-migration)
-* [Mockito Testing Library](https://github.com/camunda/camunda-bpm-mockito)
-* [Needle Testing Library](https://github.com/camunda/camunda-bpm-needle)
-* [OSGi Integration](https://github.com/camunda/camunda-bpm-platform-osgi)
-* [PHP SDK](http://camunda.github.io/camunda-bpm-php-sdk/)
-* [Process Test Coverage](https://github.com/camunda/camunda-process-test-coverage)
-* [Reactor Event Bus](https://github.com/camunda/camunda-bpm-reactor)
-* [REST Client Spring Boot](https://github.com/camunda/camunda-rest-client-spring-boot/)
-* [Scenario Testing Library](https://github.com/camunda/camunda-bpm-assert-scenario/)
-* [Single Sign On for JBoss](https://github.com/camunda/camunda-sso-jboss)
-* [Wildfly Swarm](https://github.com/camunda/camunda-bpm-wildfly-swarm)
+The [Camunda Community Hub](https://github.com/camunda-community-hub) is a GitHub Organization that serves as the home of Camunda open source community-contributed extensions. You can migrate an extension you've built to the Hub, search for existing extensions, or get started with open source by helping community extension maintainers with open issue or pull request triage.
 
 ## Building a Community Extension
 
