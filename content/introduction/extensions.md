@@ -59,7 +59,7 @@ The following is a list of current (unsupported) community extensions:
 
 Do you have a great idea around open source BPM you want to share with the world? Awesome! Camunda will support you in building your own community extension. Have a look at our [contribution guidelines](http://camunda.org/community/contribute.html) to find out how to propose a community project, or contribute code to the core Camunda codebase. 
 
-You can also visit the Camunda Community Hub's [community repository](https://github.com/camunda-community-hub/community) to learn more about migrating your community extension into the community hub, benefits to joining the Camunda Community Hub Organization, contributing to an extension, and much more.
+You can also visit the Camunda Community Hub [community repository](https://github.com/camunda-community-hub/community) to learn more about migrating your community extension into the community hub, benefits to joining the Camunda Community Hub Organization, contributing to an extension, and much more.
 
 The Camunda Community Hub enables developers to have a centralized home for their Camunda community extensions, and aids new contributors to open source software in discovering new projects to work on.
 
