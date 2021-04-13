@@ -97,7 +97,7 @@ Camunda Forms are created as separate files using the Camunda Modeler and can be
 To reference a Camunda Forms file, you can use a `deployment` or `app` [form key]({{< ref "/user-guide/task-forms/_index.md#form-key-details" >}}):
 
 * `camunda-forms:deployment:FORM_NAME.form`
-* `embedded:app:forms/FORM_NAME.form`
+* `camunda-forms:app:forms/FORM_NAME.form`
 
 When you use [Camunda Platform Run](../camunda-bpm-run) we recommend the camunda-forms:deployment form key for easy deployment from the Camunda Modeler.
 
