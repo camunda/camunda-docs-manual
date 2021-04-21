@@ -82,11 +82,6 @@ A JSON array with the following properties:
     <td>The resource Id. The value "*" represents an authorization ranging over all instances of a resource.</td>
   </tr>
   <tr>
-    <td>links</td>
-    <td>Object</td>
-    <td>A JSON array containing links to interact with the resource. The links contain only operations that the currently authenticated user would be authorized to perform.</td>
-  </tr>
-  <tr>
     <td>removalTime</td>
     <td>String</td>
     <td>
