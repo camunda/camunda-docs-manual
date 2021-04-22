@@ -26,6 +26,19 @@ PUT `/filter/{id}`
 
 # Parameters
 
+## Path Parameters
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>The id of the filter to be updated.</td>
+  </tr>
+</table>
+
 ## Request Body
 
 A JSON object with the following properties:

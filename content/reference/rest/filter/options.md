@@ -79,12 +79,12 @@ OPTIONS `/filter/aFilterId`
 Status 200.
 
     {"links":[
-      {"method": "GET", href":"http://localhost:8080/engine-rest/filter/aFilterId", "rel":"self"},
-      {"method": "GET", href":"http://localhost:8080/engine-rest/filter/aFilterId/singleResult", "rel":"singleResult"}
-      {"method": "POST", href":"http://localhost:8080/engine-rest/filter/aFilterId/singleResult", "rel":"singleResult"}
-      {"method": "GET", href":"http://localhost:8080/engine-rest/filter/aFilterId/list", "rel":"list"}
-      {"method": "POST", href":"http://localhost:8080/engine-rest/filter/aFilterId/list", "rel":"list"}
-      {"method": "GET", href":"http://localhost:8080/engine-rest/filter/aFilterId/count", "rel":"count"}
-      {"method": "POST", href":"http://localhost:8080/engine-rest/filter/aFilterId/count", "rel":"count"}
-      {"method": "PUT", href":"http://localhost:8080/engine-rest/filter/aFilterId", "rel":"update"},
-      {"method": "DELETE", href":"http://localhost:8080/engine-rest/filter/aFilterId", "rel":"delete"}]}
+      {"method": "GET", "href":"http://localhost:8080/engine-rest/filter/aFilterId", "rel":"self"},
+      {"method": "GET", "href":"http://localhost:8080/engine-rest/filter/aFilterId/singleResult", "rel":"singleResult"},
+      {"method": "POST", "href":"http://localhost:8080/engine-rest/filter/aFilterId/singleResult", "rel":"singleResult"},
+      {"method": "GET", "href":"http://localhost:8080/engine-rest/filter/aFilterId/list", "rel":"list"},
+      {"method": "POST", "href":"http://localhost:8080/engine-rest/filter/aFilterId/list", "rel":"list"},
+      {"method": "GET", "href":"http://localhost:8080/engine-rest/filter/aFilterId/count", "rel":"count"},
+      {"method": "POST", "href":"http://localhost:8080/engine-rest/filter/aFilterId/count", "rel":"count"},
+      {"method": "PUT", "href":"http://localhost:8080/engine-rest/filter/aFilterId", "rel":"update"},
+      {"method": "DELETE", "href":"http://localhost:8080/engine-rest/filter/aFilterId", "rel":"delete"}]}
