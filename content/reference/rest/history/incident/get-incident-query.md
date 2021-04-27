@@ -115,6 +115,10 @@ GET `/history/incident`
     <td>Restricts to incidents that have the given parameter set as configuration.</td>
   </tr>
   <tr>
+    <td>historyConfiguration</td>
+    <td>Restricts to incidents that have the given parameter set as history configuration.</td>
+  </tr>
+  <tr>
     <td>tenantIdIn</td>
     <td>Restricts to incidents that have one of the given comma-separated tenant ids.</td>
   </tr>
