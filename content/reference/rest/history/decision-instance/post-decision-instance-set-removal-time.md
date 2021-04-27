@@ -13,7 +13,7 @@ menu:
 ---
 
 Sets the removal time to multiple historic decision instances asynchronously (batch).<br><br>
-At least _historicDecisionInstanceIds_ or _historicDecisionInstanceQuery_ has to be provided. If both are provided, 
+At least `historicDecisionInstanceIds` or `historicDecisionInstanceQuery` has to be provided. If both are provided, 
 all instances matching query criterion and instances from the list will be updated with a removal time.
 
 # Method
@@ -83,7 +83,7 @@ properties are as follows:
     <th>Description</th>
   </tr>
   <tr>
-    <td>204</td>
+    <td>200</td>
     <td>application/json</td>
     <td>Request successful.</td>
   </tr>

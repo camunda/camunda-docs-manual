@@ -14,7 +14,7 @@ menu:
 
 
 Delete multiple historic decision instances asynchronously (batch).
-At least _historicDecisionInstanceIds_ or _historicDecisionInstanceQuery_ has to be provided. If both are provided
+At least `historicDecisionInstanceIds` or `historicDecisionInstanceQuery` has to be provided. If both are provided
 then all instances matching query criterion and instances from the list will be deleted.
 
 # Method
@@ -51,7 +51,7 @@ A JSON object with the following properties:
   </tr>
 </table>
 
-## Response Body
+# Result
 
 A JSON object corresponding to the Batch interface in the engine. Its properties are as follows:
 
