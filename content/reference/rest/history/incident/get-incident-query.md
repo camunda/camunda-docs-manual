@@ -234,6 +234,12 @@ Each historic incident object has the following properties:
     <td>The payload of this incident.</td>
   </tr>
   <tr>
+  <tr>
+    <td>historyConfiguration</td>
+    <td>String</td>
+    <td>The payload of this incident at the time the incident occurred.</td>
+  </tr>
+  <tr>
     <td>incidentMessage</td>
     <td>String</td>
     <td>The message of this incident.</td>
@@ -327,6 +333,7 @@ GET `/history/incident?processInstanceId=aProcInstId`
     "causeIncidentId": "aCauseIncidentId",
     "rootCauseIncidentId": "aRootCauseIncidentId",
     "configuration": "aConfiguration",
+    "historyConfiguration": "aHistoryConfiguration",
     "incidentMessage": "anIncidentMessage",
     "tenantId": null,
     "jobDefinitionId": "aJobDefinitionId",
@@ -350,6 +357,7 @@ GET `/history/incident?processInstanceId=aProcInstId`
     "causeIncidentId": "anotherCauseIncidentId",
     "rootCauseIncidentId": "anotherRootCauseIncidentId",
     "configuration": "anotherConfiguration",
+    "historyConfiguration": "aHistoryConfiguration",
     "incidentMessage": "anotherIncidentMessage",
     "tenantId": null,
     "jobDefinitionId": null,
