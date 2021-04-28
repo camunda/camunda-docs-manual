@@ -199,7 +199,7 @@ Each historic job log object has the following properties:
     <td>The message of the exception that occurred by executing the associated job.</td>
   </tr>
   <tr>
-    <td>failedctivityId</td>
+    <td>failedActivityId</td>
     <td>String</td>
     <td>The id of the activity on which the last exception occurred by executing the associated job.</td>
   </tr>
