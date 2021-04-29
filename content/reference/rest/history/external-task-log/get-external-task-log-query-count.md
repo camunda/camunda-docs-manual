@@ -40,11 +40,9 @@ GET `/history/external-task-log/count`
     <td>Filter by external task id.</td>
   </tr>
   <tr>
-  <tr>
     <td>topicName</td>
     <td>Filter by an external task topic.</td>
   </tr>
-  <tr>
   <tr>
     <td>workerId</td>
     <td>Filter by the id of the worker that the task was most recently locked by.</td>

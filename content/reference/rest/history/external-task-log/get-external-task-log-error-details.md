@@ -56,7 +56,7 @@ The result is the corresponding error details as plain text.
   </tr>
   <tr>
     <td>404</td>
-    <td>text/plain</td>
+    <td>application/json</td>
     <td>Historic external task log with given id does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
