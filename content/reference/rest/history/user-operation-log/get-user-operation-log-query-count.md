@@ -68,6 +68,14 @@ GET `/history/user-operation/count`
     <td>Only include operations on this task.</td>
   </tr>
   <tr>
+    <td>externalTaskId</td>
+    <td>Only include operations on this external task.</td>
+  </tr>
+  <tr>
+    <td>batchId</td>
+    <td>Only include operations on this batch.</td>
+  </tr>
+  <tr>
     <td>jobId</td>
     <td>Filter by job id.</td>
   </tr>
@@ -93,7 +101,7 @@ GET `/history/user-operation/count`
   </tr>
   <tr>
     <td>entityTypeIn</td>
-    <td>Filter by types of the entities that was affected by this operation, possible values are <code>Task</code>, <code>Attachment</code> or <code>IdentityLink</code>.</td>
+    <td>Filter by a comma-separated list of types of the entities that were affected by this operation, possible values are <code>Task</code>, <code>Attachment</code> or <code>IdentityLink</code>.</td>
   </tr>
   <tr>
     <td>category</td>
@@ -101,7 +109,7 @@ GET `/history/user-operation/count`
   </tr>
   <tr>
     <td>categoryIn</td>
-    <td>Filter by the categories that this operation is associated with, possible values are <code>TaskWorker</code>, <code>Admin</code> or <code>Operator</code>.</td>
+    <td>Filter by a comma-separated list of categories that this operation is associated with, possible values are <code>TaskWorker</code>, <code>Admin</code> or <code>Operator</code>.</td>
   </tr>
   <tr>
     <td>property</td>
