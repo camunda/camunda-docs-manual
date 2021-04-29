@@ -24,7 +24,9 @@ POST `/history/external-task-log`
 
 # Parameters
 
-## Query Parameters
+## Request Body
+
+A JSON object with the following properties:
 
 <table class="table table-striped">
   <tr>
