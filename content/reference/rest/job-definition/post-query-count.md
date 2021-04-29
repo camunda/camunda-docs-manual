@@ -132,10 +132,9 @@ POST <code>/job-definition/count</code>
 Request Body:
 
     {
-      "activityIdIn":
-        [
-          ServiceTask1, ServiceTask2
-        ]
+      "activityIdIn": [
+          "ServiceTask1", "ServiceTask2"
+      ]
     }
 
 ## Response
