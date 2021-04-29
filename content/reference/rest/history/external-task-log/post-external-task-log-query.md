@@ -40,11 +40,9 @@ POST `/history/external-task-log`
     <td>Filter by external task id.</td>
   </tr>
   <tr>
-  <tr>
     <td>topicName</td>
     <td>Filter by an external task topic.</td>
   </tr>
-  <tr>
   <tr>
     <td>workerId</td>
     <td>Filter by the id of the worker that the task was most recently locked by.</td>
@@ -216,6 +214,7 @@ Each historic external task log object has the following properties:
     <td>String</td>
     <td>The key of the process definition which the associated external task belongs to.</td>
   </tr>
+  <tr>
     <td>tenantId</td>
     <td>String</td>
     <td>The id of the tenant that this historic external task log entry belongs to.</td>
