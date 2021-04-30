@@ -130,10 +130,13 @@ Status 200.
   "type": "decision-set-removal-time",
   "totalJobs": 12,
   "batchJobsPerSeed": 100,
+  "jobsCreated": 10,
   "invocationsPerBatchJob": 1,
   "seedJobDefinitionId": "120b5690-724a-11e9-98b7-be5e0f7575b7",
   "monitorJobDefinitionId": "120b568f-724a-11e9-98b7-be5e0f7575b7",
   "batchJobDefinitionId": "120b568e-724a-11e9-98b7-be5e0f7575b7",
-  "tenantId": "accounting"
+  "suspended": false,
+  "tenantId": "accounting",
+  "createUserId": "demo-user"
 }
 ```
