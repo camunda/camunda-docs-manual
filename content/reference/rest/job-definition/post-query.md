@@ -214,17 +214,20 @@ POST <code>/job-definition</code>
 Request Body:
 
     {
-      "activityIdIn":
-        [
-          ServiceTask1, ServiceTask2
-        ],
-      "sorting":
-        [{"sortBy": "activityId",
-        "sortOrder": "asc"
+      "activityIdIn": [
+        "ServiceTask1",
+        "ServiceTask2"
+      ],
+      "sorting": [
+        {
+          "sortBy": "activityId",
+          "sortOrder": "asc"
         },
-        {"sortBy": "jobType",
-        "sortOrder": "asc"
-        }]
+        {
+          "sortBy": "jobType",
+          "sortOrder": "asc"
+        }
+      ]
     }
 
 ## Response
@@ -240,7 +243,7 @@ Request Body:
         "suspended": false,
         "overridingJobPriority": 15,
         "tenantId": null,
-		"deploymentId": "aDeploymentId"	
+        "deploymentId": "aDeploymentId"	
       },
       {
         "id": "aJobDefId",
@@ -252,6 +255,6 @@ Request Body:
         "suspended": true,
         "overridingJobPriority": null,
         "tenantId": null,
-		"deploymentId": "aDeploymentId"	
+        "deploymentId": "aDeploymentId"	
       }
     ]

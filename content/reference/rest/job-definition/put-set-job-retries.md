@@ -32,7 +32,7 @@ PUT `/job-definition/{id}/retries`
   </tr>
   <tr>
     <td>id</td>
-    <td>The id of the job definition to be retrieved.</td>
+    <td>The id of the job definition to be updated.</td>
   </tr>
 </table>
 
