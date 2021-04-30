@@ -13,7 +13,7 @@ menu:
 ---
 
 Sets the removal time to multiple historic decision instances asynchronously (batch).<br><br>
-At least _historicDecisionInstanceIds_ or _historicDecisionInstanceQuery_ has to be provided. If both are provided, 
+At least `historicDecisionInstanceIds` or `historicDecisionInstanceQuery` has to be provided. If both are provided, 
 all instances matching query criterion and instances from the list will be updated with a removal time.
 
 # Method
@@ -83,7 +83,7 @@ properties are as follows:
     <th>Description</th>
   </tr>
   <tr>
-    <td>204</td>
+    <td>200</td>
     <td>application/json</td>
     <td>Request successful.</td>
   </tr>
@@ -130,10 +130,13 @@ Status 200.
   "type": "decision-set-removal-time",
   "totalJobs": 12,
   "batchJobsPerSeed": 100,
+  "jobsCreated": 10,
   "invocationsPerBatchJob": 1,
   "seedJobDefinitionId": "120b5690-724a-11e9-98b7-be5e0f7575b7",
   "monitorJobDefinitionId": "120b568f-724a-11e9-98b7-be5e0f7575b7",
   "batchJobDefinitionId": "120b568e-724a-11e9-98b7-be5e0f7575b7",
-  "tenantId": "accounting"
+  "suspended": false,
+  "tenantId": "accounting",
+  "createUserId": "demo-user"
 }
 ```

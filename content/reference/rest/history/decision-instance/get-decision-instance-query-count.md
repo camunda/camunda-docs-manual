@@ -39,10 +39,11 @@ GET `/history/decision-instance/count`
     <td>decisionInstanceIdIn</td>
     <td>Filter by decision instance ids. Must be a comma-separated list of decision instance ids.</td>
   </tr>
+  <tr>
     <td>decisionDefinitionId</td>
     <td>Filter by the decision definition the instances belongs to.</td>
   </tr>
-  </tr>
+  <tr>
     <td>decisionDefinitionIdIn</td>
     <td>
     Filter by the decision definitions the instances belongs to. Must be a comma-separated list of decision definition ids.
@@ -64,7 +65,7 @@ GET `/history/decision-instance/count`
     <td>decisionDefinitionNameLike</td>
     <td>Filter by the name of the decision definition the instances belongs to, that the parameter is a substring of.</td>
   </tr>
-  </tr>
+  <tr>
     <td>processDefinitionId</td>
     <td>Filter by the process definition the instances belongs to.</td>
   </tr>
@@ -72,11 +73,11 @@ GET `/history/decision-instance/count`
     <td>processDefinitionKey</td>
     <td>Filter by the key of the process definition the instances belongs to.</td>
   </tr>
-  </tr>
+  <tr>
     <td>processInstanceId</td>
     <td>Filter by the process instance the instances belongs to.</td>
   </tr>
-  </tr>
+  <tr>
     <td>caseDefinitionId</td>
     <td>Filter by the case definition the instances belongs to.</td>
   </tr>
@@ -84,18 +85,18 @@ GET `/history/decision-instance/count`
     <td>caseDefinitionKey</td>
     <td>Filter by the key of the case definition the instances belongs to.</td>
   </tr>
-  </tr>
+  <tr>
     <td>caseInstanceId</td>
     <td>Filter by the case instance the instances belongs to.</td>
   </tr>
-  </tr>
+  <tr>
     <td>activityIdIn</td>
     <td>
       Filter by the activity ids the instances belongs to.
       Must be a comma-separated list of acitvity ids.
     </td>
   </tr>
-  </tr>
+  <tr>
     <td>activityInstanceIdIn</td>
     <td>
       Filter by the activity instance ids the instances belongs to.
