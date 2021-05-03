@@ -75,7 +75,7 @@ A JSON object containing the id of the decision requirements definition and the 
 </table>
 
 
-## Response codes
+# Response codes
 
 <table class="table table-striped">
   <tr>
