@@ -51,6 +51,7 @@ GET `/history/process-definition/{id}/statistics`
   <tr>
     <td>finished</td>
     <td>Whether to include the number of finished activity instances in the result or not. Valid values are <code>true</code> or <code>false</code>. Default: <code>false</code>.</td>
+  </tr>
   <tr>
     <td>completeScope</td>
     <td>Whether to include the number of activity instances which completed a scope in the result or not. Valid values are <code>true</code> or <code>false</code>. Default: <code>false</code>.</td>
@@ -176,6 +177,7 @@ GET `history/process-definition/aProcessDefinitionId/statistics?canceled=true`
 
 ## Response
 
+```json
     [
       {
         "id": "anActivity",
@@ -198,6 +200,7 @@ GET `history/process-definition/aProcessDefinitionId/statistics?canceled=true`
         "deletedIncidents": 0
       }
     ]
+```
 
 ## Request With Query Parameter `finished=true`
 
@@ -205,6 +208,7 @@ GET `history/process-definition/aProcessDefinitionId/statistics?finished=true`
 
 ## Response
 
+```json
     [
       {
         "id": "anActivity",
@@ -227,6 +231,7 @@ GET `history/process-definition/aProcessDefinitionId/statistics?finished=true`
         "deletedIncidents": 0
       }
     ]
+```
 
 ## Request With Query Parameter `completeScope=true`
 
@@ -234,6 +239,7 @@ GET `history/process-definition/aProcessDefinitionId/statistics?completeScope=tr
 
 ## Response
 
+```json
     [
       {
         "id": "anActivity",
@@ -256,3 +262,4 @@ GET `history/process-definition/aProcessDefinitionId/statistics?completeScope=tr
         "deletedIncidents": 0
       }
     ]
+```
