@@ -44,6 +44,10 @@ GET `/history/detail`
     <td>Filter by execution id.</td>
   </tr>
   <tr>
+    <td>taskId</td>
+    <td>Filter by task id.</td>
+  </tr>
+  <tr>
     <td>activityInstanceId</td>
     <td>Filter by activity instance id.</td>
   </tr>
