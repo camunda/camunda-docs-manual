@@ -236,6 +236,29 @@ MigrationPlan migrationPlan = processEngine.getRuntimeService()
   .build();
 ```
 
+### Set Variables to Process Instances
+
+Sometimes it is necessary to add variables after migrating the process instances to a new version
+of the process definition. For example, when the new process model has a new input mapping which
+requires a specific variable which isn't yet present in the migrated process instance. The variables 
+are set to the process instances' scope.
+
+Please see below how to call the Java API:
+
+```java
+Map<String, Object> variables = Variables.putValue("my-variable", "my-value");
+MigrationPlan migrationPlan = processEngine.getRuntimeService()
+  .mapEqualActivities()
+  .setVariables(variables)
+  .build();
+```
+
+### Known Limitation
+
+Currently, it is not possible to set transient variables asynchronously. However,
+you can [set transient variables] synchronously.
+
+[set transient variables]: {{< ref "/user-guide/process-engine/variables.md#transient-variables" >}}
 
 ## Executing a migration plan
 
@@ -725,6 +748,9 @@ the following requirements:
 * It has to be a one-to-one mapping
 * A migrated activity must remain a descendant of its closest migrating ancestor scope (**Hierarchy Preservation**)
 * The migration plan adheres to [BPMN-element-specific considerations]({{< relref "#bpmn-specific-api-and-effects" >}})
+* A set variable must not be of type `Object` **AND** its `serializationFormat` must not be `application/x-java-serialized-object`
+  * Validation is skipped when the engine configuration flag `javaSerializationFormatEnabled` is set to `true`
+  * Please see [Process Engine Configuration Reference]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#javaSerializationFormatEnabled" >}}) for more details
 
 If validation reports errors, migration fails with a `MigrationPlanValidationException`
 providing a `MigrationPlanValidationReport` object with details on the

@@ -45,6 +45,15 @@ A JSON object with the following properties:
     <td>updateEventTriggers</td>
     <td>A boolean flag indicating whether instructions between events should be configured to update the event triggers.</td>
   </tr>
+  <tr>
+    <td>variables</td>
+    <td>
+      A map of variables which can be set into the process instances' scope.<br><br>
+      <strong>Heads-up:</strong> this property is just passed through and no generation, only validation happens. It is for convenience to directly pass the result as part of the execution payload.<br><br>
+      Each key is a variable name and each value a JSON variable value object with the following properties:
+      {{< rest-var-request transient="true">}}
+    </td>
+  </tr>
 </table>
 
 
@@ -101,6 +110,13 @@ Its properties are as follows:
         </table>
     </td>
   </tr>
+  <tr>
+    <td>variables</td>
+    <td>Object</td>
+    <td>
+      Each key is a variable name and each value a JSON variable value object.
+    </td>
+  </tr>
 </table>
 
 
@@ -116,6 +132,11 @@ Its properties are as follows:
     <td>200</td>
     <td>application/json</td>
     <td>Request successful.</td>
+  </tr>
+  <tr>
+    <td>400</td>
+    <td>application/json</td>
+    <td>Invalid variable value, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>400</td>
@@ -140,7 +161,17 @@ Request Body:
 {
   "sourceProcessDefinitionId": "aProcessDefinitionId1",
   "targetProcessDefinitionId": "aProcessDefinitionId2",
-  "updateEventTriggers": true
+  "updateEventTriggers": true,
+  "variables": {
+    "foo": {
+      "type": "Object",
+      "value": "[5,6]",
+      "valueInfo": {
+        "objectTypeName": "java.util.ArrayList",
+        "serializationDataFormat": "application/json"
+      }
+    }
+  }
 }
 ```
 
@@ -163,6 +194,16 @@ Status 200.
       "targetActivityIds": ["anotherEvent"],
       "updateEventTrigger": true
     }
-  ]
+  ],
+  "variables": {
+    "foo": {
+      "type": "Object",
+      "value": "[5,6]",
+      "valueInfo": {
+        "objectTypeName": "java.util.ArrayList",
+        "serializationDataFormat": "application/json"
+      }
+    }
+  }
 }
 ```
