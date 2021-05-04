@@ -11,7 +11,7 @@ menu:
     pre: "GET `/history/cleanup/jobs`"
 
 ---
-Finds history cleanup jobs (See [History cleanup]({{< ref "/user-guide/process-engine/history.md#job-progress">}})).
+Finds history cleanup jobs (See [History cleanup]({{< ref "/user-guide/process-engine/history.md#history-cleanup">}})).
 
 # Method
 

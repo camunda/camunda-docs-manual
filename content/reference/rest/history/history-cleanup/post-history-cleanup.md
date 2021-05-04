@@ -43,7 +43,10 @@ Not used
 # Result
 
 {{< note title="Result is not reliable any more" class="warning" >}}
-  Be aware, that since v. 7.9.0, the correct response object is not guaranteed any more. Use `GET /history/cleanup/jobs` to find history cleanup jobs. 
+  This endpoint will return at most a single history cleanup job. Since version `7.9.0` it is possible 
+  to configure multiple [parallel history cleanup jobs]({{<ref "/user-guide/process-engine/history.md#parallel-execution" >}})
+  Use [`GET /history/cleanup/jobs`]({{<ref "/reference/rest/history/history-cleanup/get-history-cleanup-jobs.md" >}}) 
+  to find all the available history cleanup jobs.
 {{</note>}}
 
 A JSON object representing scheduled job.

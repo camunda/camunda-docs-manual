@@ -43,12 +43,18 @@ A JSON object representing batch window datetimes with timezone.
   <tr>
     <td>batchWindowStartTime</td>
     <td>Date</td>
-    <td>Start time of the current or next batch window</td>
+    <td>Start time of the current or next batch window. By <a href="{{<ref "/reference/rest/overview/date-format.md" >}}">default</a>,
+        the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., 
+        <code>2013-01-23T14:42:45.000+0200</code>.
+    </td>
   </tr>
   <tr>
     <td>batchWindowEndTime</td>
     <td>Date</td>
-    <td>End time of the current or next batch window</td>
+    <td>End time of the current or next batch window. By <a href="{{<ref "/reference/rest/overview/date-format.md" >}}">default</a>,
+        the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., 
+        <code>2013-01-23T14:42:45.000+0200</code>.
+    </td>
   </tr>
   <tr>
     <td>enabled</td>

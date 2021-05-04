@@ -13,7 +13,7 @@ menu:
 ---
 <b>Deprecated!</b> Use `GET /history/cleanup/jobs` instead.
 
-Finds history cleanup job (See [History cleanup]({{< ref "/user-guide/process-engine/history.md#job-progress">}})).
+Finds history cleanup job (See [History cleanup]({{< ref "/user-guide/process-engine/history.md#history-cleanup">}})).
 
 # Method
 
