@@ -111,7 +111,7 @@ GET `/history/external-task-log`
   <tr>
     <td>sortBy</td>
     <td>Sort the results by a given criterion. Valid values are
-    <code>timestamp</code>, <code>taskId</code>, <code>topicName</code>, <code>workerId</code>, <code>retries</code>, <code>priority</code>,
+    <code>timestamp</code>, <code>externalTaskId</code>, <code>topicName</code>, <code>workerId</code>, <code>retries</code>, <code>priority</code>,
     <code>activityId</code>, <code>activityInstanceId</code>, <code>executionId</code>, <code>processInstanceId</code>, <code>processDefinitionId</code>, <code>processDefinitionKey</code> and <code>tenantId</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
