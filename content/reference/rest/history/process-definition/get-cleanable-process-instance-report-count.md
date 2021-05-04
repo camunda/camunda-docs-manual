@@ -53,7 +53,7 @@ GET `/history/process-definition/cleanable-process-instance-report/count`
 
 # Result
 
-A JSON array containing finished process instance information relevant to history cleanup. Each report result has the following properties:
+A JSON object that contains the count as the only property.
 
 <table class="table table-striped">
   <tr>
