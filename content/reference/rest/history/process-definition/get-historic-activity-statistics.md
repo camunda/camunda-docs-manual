@@ -51,6 +51,7 @@ GET `/history/process-definition/{id}/statistics`
   <tr>
     <td>finished</td>
     <td>Whether to include the number of finished activity instances in the result or not. Valid values are <code>true</code> or <code>false</code>. Default: <code>false</code>.</td>
+  </tr>
   <tr>
     <td>completeScope</td>
     <td>Whether to include the number of activity instances which completed a scope in the result or not. Valid values are <code>true</code> or <code>false</code>. Default: <code>false</code>.</td>
@@ -132,17 +133,17 @@ Each object has the following properties:
   <tr>
     <td>openIncidents</td>
     <td>Number</td>
-    <td>The total number of open incident for the activity. <strong>Note:</strong> Will be <code>0</code> (not <code>null</code>), if <code>incidents</code> is set to <code>false</code>.</td>
+    <td>The total number of open incidents for the activity. <strong>Note:</strong> Will be <code>0</code> (not <code>null</code>), if <code>incidents</code> is set to <code>false</code>.</td>
   </tr>
   <tr>
     <td>resolvedIncidents</td>
     <td>Number</td>
-    <td>The total number of resolved incident for the activity. <strong>Note:</strong> Will be <code>0</code> (not <code>null</code>), if <code>incidents</code> is set to <code>false</code>.</td>
+    <td>The total number of resolved incidents for the activity. <strong>Note:</strong> Will be <code>0</code> (not <code>null</code>), if <code>incidents</code> is set to <code>false</code>.</td>
   </tr>
   <tr>
     <td>deletedIncidents</td>
     <td>Number</td>
-    <td>The total number of deleted incident for the activity. <strong>Note:</strong> Will be <code>0</code> (not <code>null</code>), if <code>incidents</code> is set to <code>false</code>.</td>
+    <td>The total number of deleted incidents for the activity. <strong>Note:</strong> Will be <code>0</code> (not <code>null</code>), if <code>incidents</code> is set to <code>false</code>.</td>
   </tr>
 </table>
 
@@ -176,6 +177,7 @@ GET `history/process-definition/aProcessDefinitionId/statistics?canceled=true`
 
 ## Response
 
+```json
     [
       {
         "id": "anActivity",
@@ -198,6 +200,7 @@ GET `history/process-definition/aProcessDefinitionId/statistics?canceled=true`
         "deletedIncidents": 0
       }
     ]
+```
 
 ## Request With Query Parameter `finished=true`
 
@@ -205,6 +208,7 @@ GET `history/process-definition/aProcessDefinitionId/statistics?finished=true`
 
 ## Response
 
+```json
     [
       {
         "id": "anActivity",
@@ -227,6 +231,7 @@ GET `history/process-definition/aProcessDefinitionId/statistics?finished=true`
         "deletedIncidents": 0
       }
     ]
+```
 
 ## Request With Query Parameter `completeScope=true`
 
@@ -234,6 +239,7 @@ GET `history/process-definition/aProcessDefinitionId/statistics?completeScope=tr
 
 ## Response
 
+```json
     [
       {
         "id": "anActivity",
@@ -256,3 +262,4 @@ GET `history/process-definition/aProcessDefinitionId/statistics?completeScope=tr
         "deletedIncidents": 0
       }
     ]
+```
