@@ -50,7 +50,7 @@ GET `/decision-requirements-definition/count`
   </tr>
   <tr>
     <td>deploymentId</td>
-    <td>Filter by the deployment the id belongs to.</td>
+    <td>Filter by the id of the deployment a decision requirement definition belongs to.</td>
   </tr>
   <tr>
     <td>key</td>

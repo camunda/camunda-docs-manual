@@ -56,7 +56,7 @@ GET `/decision-requirements-definition/key/{key}/tenant-id/{tenant-id}/diagram` 
 
 The image diagram of the decision requirements definition.
 
-## Response codes
+# Response codes
 
 <table class="table table-striped">
   <tr>
