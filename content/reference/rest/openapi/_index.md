@@ -76,31 +76,11 @@ For example, [Postman][postman-site] users can [import the OpenAPI documentation
 
 # Coverage
 
-The description currently covers all endpoints of the following resources:
+The description currently covers all endpoints of all but the following resources:
 
-* Batch
-* Condition
-* Decision Definition
-* Deployment
-* Engine
-* Event Subscription
-* External Task
-* Execution  
-* Group
-* Identity
-* Incident
-* Job  
-* Message
-* Metrics
-* Process Instance
-* Process Definition
-* Signal
-* Schema Log
-* Task
-* Telemetry
-* Tenant
-* User
-* Version
-* Historic Activity Instance
-* Historic Process Instance
-* Variable Instance
+* Case Definition
+* Case Execution
+* Case Instance
+* Historic Case Definition
+* Historic Case Instance
+* Historic Case Activity Instance
