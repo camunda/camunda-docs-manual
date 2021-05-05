@@ -133,17 +133,17 @@ Each object has the following properties:
   <tr>
     <td>openIncidents</td>
     <td>Number</td>
-    <td>The total number of open incident for the activity. <strong>Note:</strong> Will be <code>0</code> (not <code>null</code>), if <code>incidents</code> is set to <code>false</code>.</td>
+    <td>The total number of open incidents for the activity. <strong>Note:</strong> Will be <code>0</code> (not <code>null</code>), if <code>incidents</code> is set to <code>false</code>.</td>
   </tr>
   <tr>
     <td>resolvedIncidents</td>
     <td>Number</td>
-    <td>The total number of resolved incident for the activity. <strong>Note:</strong> Will be <code>0</code> (not <code>null</code>), if <code>incidents</code> is set to <code>false</code>.</td>
+    <td>The total number of resolved incidents for the activity. <strong>Note:</strong> Will be <code>0</code> (not <code>null</code>), if <code>incidents</code> is set to <code>false</code>.</td>
   </tr>
   <tr>
     <td>deletedIncidents</td>
     <td>Number</td>
-    <td>The total number of deleted incident for the activity. <strong>Note:</strong> Will be <code>0</code> (not <code>null</code>), if <code>incidents</code> is set to <code>false</code>.</td>
+    <td>The total number of deleted incidents for the activity. <strong>Note:</strong> Will be <code>0</code> (not <code>null</code>), if <code>incidents</code> is set to <code>false</code>.</td>
   </tr>
 </table>
 
