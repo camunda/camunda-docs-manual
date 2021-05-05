@@ -117,6 +117,7 @@ A JSON object with the following properties:
     <td>String</td>
     <td>The key of the process definition which the associated external task belongs to.</td>
   </tr>
+  <tr>
     <td>tenantId</td>
     <td>String</td>
     <td>The id of the tenant that this historic external task log entry belongs to.</td>

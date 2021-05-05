@@ -40,11 +40,9 @@ GET `/history/external-task-log`
     <td>Filter by external task id.</td>
   </tr>
   <tr>
-  <tr>
     <td>topicName</td>
     <td>Filter by an external task topic.</td>
   </tr>
-  <tr>
   <tr>
     <td>workerId</td>
     <td>Filter by the id of the worker that the task was most recently locked by.</td>
@@ -113,7 +111,7 @@ GET `/history/external-task-log`
   <tr>
     <td>sortBy</td>
     <td>Sort the results by a given criterion. Valid values are
-    <code>timestamp</code>, <code>taskId</code>, <code>topicName</code>, <code>workerId</code>, <code>retries</code>, <code>priority</code>,
+    <code>timestamp</code>, <code>externalTaskId</code>, <code>topicName</code>, <code>workerId</code>, <code>retries</code>, <code>priority</code>,
     <code>activityId</code>, <code>activityInstanceId</code>, <code>executionId</code>, <code>processInstanceId</code>, <code>processDefinitionId</code>, <code>processDefinitionKey</code> and <code>tenantId</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
@@ -214,6 +212,7 @@ Each historic external task log object has the following properties:
     <td>String</td>
     <td>The key of the process definition which the associated external task belongs to.</td>
   </tr>
+  <tr>
     <td>tenantId</td>
     <td>String</td>
     <td>The id of the tenant that this historic external task log entry belongs to.</td>
