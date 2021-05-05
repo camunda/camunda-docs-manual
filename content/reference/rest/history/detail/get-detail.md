@@ -89,7 +89,7 @@ An object having the following properties:
   <tr>
     <td>activityInstanceId</td>
     <td>String</td>
-    <td>The id of the execution the historic detail belongs to.</td>
+    <td>The id of the activity instance the historic detail belongs to.</td>
   </tr>
   <tr>
     <td>executionId</td>

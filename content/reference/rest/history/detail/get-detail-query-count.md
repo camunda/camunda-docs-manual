@@ -43,6 +43,10 @@ GET `/history/detail/count`
     <td>Filter by execution id.</td>
   </tr>
   <tr>
+    <td>taskId</td>
+    <td>Filter by task id.</td>
+  </tr>
+  <tr>
     <td>activityInstanceId</td>
     <td>Filter by activity instance id.</td>
   </tr>
@@ -85,6 +89,11 @@ GET `/history/detail/count`
   <tr>
     <td>excludeTaskDetails</td>
     <td>Excludes all task-related <strong>HistoricDetails</strong>, so only items which have no task id set will be selected. When this parameter is used together with <code>taskId</code>, this call is ignored and task details are <strong>not</strong> excluded. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
+    <td>initial</td>
+    <td>boolean</td>
+    <td>Restrict to historic variable updates that contain only initial variable values. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>occurredBefore</td>
