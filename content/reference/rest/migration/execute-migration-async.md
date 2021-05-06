@@ -113,6 +113,14 @@ The migration plan JSON object has the following properties:
         </table>
     </td>
   </tr>
+  <tr>
+    <td>variables</td>
+    <td>
+      A map of variables which will be set into the process instances' scope.
+      Each key is a variable name and each value a JSON variable value object with the following properties:
+      {{< rest-var-request >}}
+    </td>
+  </tr>
 </table>
 
 # Result
@@ -134,6 +142,11 @@ properties are as follows:
     <td>200</td>
     <td>application/json</td>
     <td>Request successful.</td>
+  </tr>
+  <tr>
+    <td>400</td>
+    <td>application/json</td>
+    <td>Invalid variable value, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>400</td>
@@ -175,7 +188,17 @@ Request Body:
         "targetActivityIds": ["anotherEvent"],
         "updateEventTrigger": true
       }
-    ]
+    ],
+    "variables": {
+      "foo": {
+        "type": "Object",
+        "value": "[5,9]",
+        "valueInfo": {
+          "objectTypeName": "java.util.ArrayList",
+          "serializationDataFormat": "application/json"
+        }
+      }
+    }
   },
   "processInstanceIds": [
     "aProcessInstance",

@@ -112,6 +112,14 @@ The migration plan JSON object has the following properties:
         </table>
     </td>
   </tr>
+  <tr>
+    <td>variables</td>
+    <td>
+      A map of variables which will be set into the process instances' scope.
+      Each key is a variable name and each value a JSON variable value object with the following properties:
+      {{< rest-var-request transient="true">}}
+    </td>
+  </tr>
 </table>
 
 
@@ -144,8 +152,13 @@ This method returns no content.
     <td>400</td>
     <td>application/json</td>
     <td>
-      The provided migration plan is not valid for a specific process instance it is applied to, so an exception of type <code>MigrationInstructionInstanceValidationException</code> is returned. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.
+      The provided migration plan is not valid for a specific process instance it is applied to, so an exception of type <code>MigratingProcessInstanceValidationException</code> is returned. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
+  </tr>
+  <tr>
+    <td>400</td>
+    <td>application/json</td>
+    <td>Invalid variable value, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>400</td>
@@ -180,7 +193,17 @@ Request Body:
         "targetActivityIds": ["anotherEvent"],
         "updateEventTrigger": true
       }
-    ]
+    ],
+    "variables": {
+      "foo": {
+        "type": "Object",
+        "value": "[5,9]",
+        "valueInfo": {
+          "objectTypeName": "java.util.ArrayList",
+          "serializationDataFormat": "application/json"
+        }
+      }
+    }
   },
   "processInstanceIds": [
     "aProcessInstance",

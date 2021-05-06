@@ -678,6 +678,7 @@ The following describes the operations logged in the user operation log and the 
       <ul>
         <li><strong>processDefinitionId</strong>: The id of the process definition that instances are migrated to</li>
         <li><strong>nrOfInstances</strong>: The amount of process instances migrated</li>
+        <li><strong>nrOfVariables</strong>: The amount of set variables. Only present when variables were set</li>
         <li><strong>async</strong>: <code>true</code> if migration was performed asynchronously as a batch, <code>false</code> if migration was performed synchronously</li>
       </ul>
     </td>

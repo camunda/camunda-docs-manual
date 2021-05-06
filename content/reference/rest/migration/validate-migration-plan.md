@@ -72,6 +72,14 @@ A JSON object with the following properties:
         </table>
     </td>
   </tr>
+  <tr>
+    <td>variables</td>
+    <td>
+      A map of variables which can be set into the process instances' scope.
+      Each key is a variable name and each value a JSON variable value object with the following properties:
+      {{< rest-var-request transient="true">}}
+    </td>
+  </tr>
 </table>
 
 # Result
@@ -93,10 +101,19 @@ if any errors are detected, other wise it is empty.
       detected it is an empty list.
     </td>
   </tr>
+  <tr>
+    <td>variableReports</td>
+    <td>Object</td>
+    <td>
+      An object of variable validation reports. If no validation errors are
+      detected it is an empty object. 
+      Each key is a variable name and each value a JSON variable validation report object.
+    </td>
+  </tr>
 </table>
 
 
-The properties of a instruction report are as follows:
+The properties of an instruction report are as follows:
 
 <table class="table table-striped">
   <tr>
@@ -142,6 +159,39 @@ The properties of a instruction report are as follows:
   </tr>
 </table>
 
+The properties of a variable report are as follows:
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Value</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>type</td>
+    <td>String</td>
+    <td>The value type of the variable.</td>
+  </tr>
+  <tr>
+    <td>value</td>
+    <td>String/Number/Boolean/Object</td>
+    <td>
+      The variable's value.
+    </td>
+  </tr>
+  <tr>
+    <td>valueInfo</td>
+    <td>Object</td>
+    <td>
+      A JSON object containing additional, value-type-dependent properties.
+    </td>
+  </tr>
+  <tr>
+    <td>failures</td>
+    <td>Array</td>
+    <td>A list of instruction validation report messages.</td>
+  </tr>
+</table>
+
 # Response codes
 
 <table class="table table-striped">
@@ -154,6 +204,11 @@ The properties of a instruction report are as follows:
     <td>200</td>
     <td></td>
     <td>Request successful. The validation report was returned.</td>
+  </tr>
+  <tr>
+    <td>400</td>
+    <td>application/json</td>
+    <td>The instance could not be created due to an invalid variable value, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>400</td>
@@ -190,7 +245,17 @@ Request Body:
       "targetActivityIds": ["anotherEvent"],
       "updateEventTrigger": true
     }
-  ]
+  ],
+  "variables": {
+    "foo": {
+      "type": "Object",
+      "value": "...",
+      "valueInfo": {
+        "objectTypeName": "java.util.ArrayList",
+        "serializationDataFormat": "application/x-java-serialized-object"
+      }
+    }
+  }
 }
 ```
 
@@ -231,6 +296,19 @@ Status 200.
         "failure2"
       ]
     }
-  ]
+  ],
+  "variableReports": {
+    "foo": {
+      "type": "Object",
+      "value": "...",
+      "valueInfo": {
+        "objectTypeName": "java.util.ArrayList",
+        "serializationDataFormat": "application/x-java-serialized-object"
+      },
+      "failures": [
+        "Cannot set variable with name foo. Java serialization format is prohibited"
+      ]
+    }
+  }
 }
 ```
