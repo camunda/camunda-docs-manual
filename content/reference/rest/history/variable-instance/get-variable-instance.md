@@ -208,7 +208,6 @@ Status 200.
   "id": "someId",
   "name": "amount",
   "type": "Integer",
-  "variableType": "integer",
   "value": 5,
   "valueInfo": {},
   "processDefinitionKey": "aProcessDefinitionKey",
