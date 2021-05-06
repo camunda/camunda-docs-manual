@@ -51,7 +51,7 @@ GET `/history/batch/cleanable-batch-report/count`
 
 # Result
 
-A JSON array containing finished batch operations information relevant to history cleanup. Each report result has the following properties:
+A JSON object that contains the count as the only property.
 
 <table class="table table-striped">
   <tr>

@@ -82,6 +82,7 @@ Its properties are as follows:
       migration batch this specifies the number of process instances which
       are migrated per batch execution job.
     </td>
+  </tr>
   <tr>
     <td>seedJobDefinitionId</td>
     <td>String</td>
