@@ -247,6 +247,11 @@ Each historic activity instance object has the following properties:
     <td>The id of the tenant that this variable instance belongs to.</td>
   </tr>
   <tr>
+    <td>errorMessage</td>
+    <td>String</td>
+    <td>An error message in case a Java Serialized Object could not be de-serialized.</td>
+  </tr>
+  <tr>
     <td>state</td>
     <td>String</td>
     <td>The current state of the variable. Can be 'CREATED' or 'DELETED'.</td>
