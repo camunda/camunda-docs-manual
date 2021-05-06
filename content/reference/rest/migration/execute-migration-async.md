@@ -118,7 +118,7 @@ The migration plan JSON object has the following properties:
     <td>
       A map of variables which will be set into the process instances' scope.
       Each key is a variable name and each value a JSON variable value object with the following properties:
-      {{< rest-var-request transient="false">}}
+      {{< rest-var-request >}}
     </td>
   </tr>
 </table>
