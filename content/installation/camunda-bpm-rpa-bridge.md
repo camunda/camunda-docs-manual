@@ -43,3 +43,5 @@ The easiest way to create a BPMN model that connects to an RPA bot is by using C
 1. Create and deploy a model that includes an RPA service task (see the [user guide]({{< ref "/user-guide/camunda-bpm-rpa-bridge.md#set-up-an-rpa-task" >}}) for more information) to the Camunda Platform
 
 The bridge will now forward RPA tasks to the configured RPA vendor and publish the result back to Camunda. You can observe the process via Cockpit.
+
+Not sure where to go next? For a complete step-by-step guide that shows you how you can orchestrate RPA bots with BPMN, see the [RPA Orchestration Get Started guide](https://docs.camunda.org/get-started/rpa/).
