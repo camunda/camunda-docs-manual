@@ -194,6 +194,30 @@ MigrationPlan migrationPlan = processEngine.getRuntimeService()
   .build();
 ```
 
+### Set Variables to Process Instances
+
+Sometimes it is necessary to add variables after migrating the process instances to a new version
+of the process definition. For example, when the new process model has a new input mapping which
+requires a specific variable which isn't yet present in the migrated process instance. The variables 
+are set to the process instances' scope.
+
+Please see below how to call the Java API:
+
+```java
+Map<String, Object> variables = Variables.putValue("my-variable", "my-value");
+MigrationPlan migrationPlan = processEngine.getRuntimeService()
+  .mapEqualActivities()
+  .setVariables(variables)
+  .build();
+```
+
+#### Known Limitation
+
+Currently, it is not possible to set transient variables asynchronously. However,
+you can [set transient variables] synchronously.
+
+[set transient variables]: {{< ref "/user-guide/process-engine/variables.md#transient-variables" >}}
+
 ## Generating a migration plan
 
 In addition to manually specifying all migration instructions, the `MigrationPlanBuilder`
@@ -235,30 +259,6 @@ MigrationPlan migrationPlan = processEngine.getRuntimeService()
   .updateEventTriggers()
   .build();
 ```
-
-### Set Variables to Process Instances
-
-Sometimes it is necessary to add variables after migrating the process instances to a new version
-of the process definition. For example, when the new process model has a new input mapping which
-requires a specific variable which isn't yet present in the migrated process instance. The variables 
-are set to the process instances' scope.
-
-Please see below how to call the Java API:
-
-```java
-Map<String, Object> variables = Variables.putValue("my-variable", "my-value");
-MigrationPlan migrationPlan = processEngine.getRuntimeService()
-  .mapEqualActivities()
-  .setVariables(variables)
-  .build();
-```
-
-#### Known Limitation
-
-Currently, it is not possible to set transient variables asynchronously. However,
-you can [set transient variables] synchronously.
-
-[set transient variables]: {{< ref "/user-guide/process-engine/variables.md#transient-variables" >}}
 
 ## Executing a migration plan
 
