@@ -95,9 +95,6 @@ To configure a JDBC Resource you have to edit the file `$TOMCAT_HOME/conf/server
 ```
 
 For more information on the creation of JDBC datasources have a look at the documentation of your Tomcat version:
-[7.0](https://tomcat.apache.org/tomcat-7.0-doc/jndi-datasource-examples-howto.html),
-[8.0](https://tomcat.apache.org/tomcat-8.0-doc/jndi-datasource-examples-howto.html),
-[8.5](https://tomcat.apache.org/tomcat-8.5-doc/jndi-datasource-examples-howto.html) or
 [9.0](https://tomcat.apache.org/tomcat-9.0-doc/jndi-datasource-examples-howto.html).
 
 
@@ -161,9 +158,6 @@ You have to add the file `bpm-platform.xml` to the folder `$TOMCAT_HOME/conf` or
 ## Secure Tomcat
 
 Follow the Tomcat Security Howto of your Tomcat version:
-[7.0](https://tomcat.apache.org/tomcat-7.0-doc/security-howto.html),
-[8.0](https://tomcat.apache.org/tomcat-8.0-doc/security-howto.html),
-[8.5](https://tomcat.apache.org/tomcat-8.5-doc/security-howto.html) or
 [9.0](https://tomcat.apache.org/tomcat-9.0-doc/security-howto.html).
 
 In particular, go to `${TOMCAT_HOME}/webapps/` and remove the directories
