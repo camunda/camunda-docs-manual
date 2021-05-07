@@ -300,6 +300,7 @@ GET `/history/variable-instance?variableName=my_variable`
     "executionId": "aVariableInstanceExecutionId",
     "activityInstanceId": "aVariableInstanceActivityInstId",
     "caseDefinitionKey": null,
+    "caseDefinitionId": null,
     "caseInstanceId": null,
     "caseExecutionId": null,
     "taskId": null,
