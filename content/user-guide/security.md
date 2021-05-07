@@ -263,11 +263,11 @@ Setting up the session timeout is usually done via `web.xml` deployment descript
 
 ### Cookies domain
 
-The session cookies domain is configured in web server specific configuration. If you want to set such kind of cookies please consult the manual of your web server for details, e.g. for Tomcat check this [docs](https://tomcat.apache.org/tomcat-7.0-doc/config/context.html#Common_Attributes).
+The session cookies domain is configured in web server specific configuration. If you want to set such kind of cookies please consult the manual of your web server for details, e.g. for Tomcat check this [docs](https://tomcat.apache.org/tomcat-9.0-doc/config/context.html#Common_Attributes).
 
 ### Maximum POST size in server (REST API)
 
-Restriction of the maximum size in bytes of the POST requests is specific to your web server. Please consult the manual of your web server for details, e.g. for Tomcat server, check this [documentation page](https://tomcat.apache.org/tomcat-8.0-doc/config/http.html#Common_Attributes).
+Restriction of the maximum size in bytes of the POST requests is specific to your web server. Please consult the manual of your web server for details, e.g. for Tomcat server, check this [documentation page](https://tomcat.apache.org/tomcat-9.0-doc/config/http.html#Common_Attributes).
 
 ### Securing Cookies (Web Applications)
 
@@ -305,15 +305,15 @@ The exact configuration and the defaults differ among application servers.
 
 Please find below external documentation on how to configure your application server correctly:
 
-* Tomcat 7.0+
+* Tomcat 9.0+
     * Official Documentation
-        * [Security Considerations](https://tomcat.apache.org/tomcat-7.0-doc/security-howto.html#Valves)
-        * [Error Reporter Valve](https://tomcat.apache.org/tomcat-7.0-doc/config/valve.html#Error_Report_Valve)
+        * [Security Considerations](https://tomcat.apache.org/tomcat-9.0-doc/security-howto.html#Valves)
+        * [Error Reporter Valve](https://tomcat.apache.org/tomcat-9.0-doc/config/valve.html#Error_Report_Valve)
     * Alternative Resources
         * [Securing Tomcat](https://wiki.owasp.org/index.php/Securing_tomcat)
-* Wildfly 10.1+: Official Documentation
-    * [Servlet Container Configuration](https://docs.jboss.org/author/display/WFLY10/Undertow%20subsystem%20configuration.html#91947134_Undertowsubsystemconfiguration-Servletcontainerconfiguration)
-    * [Model Reference](https://wildscribe.github.io/WildFly/10.1/subsystem/undertow/servlet-container/index.html#attr-stack-trace-on-error)
+* Wildfly 12.0+: Official Documentation
+    * [Servlet Container Configuration](https://docs.jboss.org/author/display/WFLY/Undertow%20subsystem%20configuration.html#108626010_Undertowsubsystemconfiguration-Servletcontainerconfiguration)
+    * [Model Reference](https://wildscribe.github.io/WildFly/12.0/subsystem/undertow/servlet-container/index.html#attr-stack-trace-on-error)
 * JBoss EAP 7.0+: Official Documentation
     * [Servlet Container Configuration](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html/configuration_guide/reference_material#idm139812627222560)
     * [Model Refernce](https://wildscribe.github.io/JBoss%20EAP/7.0/subsystem/undertow/servlet-container/index.html#attr-stack-trace-on-error)

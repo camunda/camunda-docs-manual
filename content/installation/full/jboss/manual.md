@@ -389,7 +389,7 @@ In order to activate Camunda Spin functionality for a process engine, a process 
 ### Problems with Jackson Annotations
 
 The usage of Jackson annotations on WildFly together with the Camunda Spin JSON serialization can lead to problems.
-WildFly implicitly adds the JAX-RS subsystem to each new deployment, if JAX-RS annotations are present (see the WildFly [documentation](https://docs.jboss.org/author/display/WFLY8/Implicit+module+dependencies+for+deployments) for more information).
+WildFly implicitly adds the JAX-RS subsystem to each new deployment, if JAX-RS annotations are present (see the WildFly [documentation](https://docs.jboss.org/author/display/WFLY/Implicit%20module%20dependencies%20for%20deployments.html) for more information).
 This JAX-RS subsystem includes the Jackson library, the version of which does not match with the version used by the Camunda SPIN Plugin.
 As a result, Jackson annotations will be ignored. Note that this problem does not necessarily have to emerge upon direct usage of Spin.
 The Spin plugin also comes into play when JSON variables are set or read by the Camunda Process Engine.
