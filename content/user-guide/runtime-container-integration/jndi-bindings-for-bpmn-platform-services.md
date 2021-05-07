@@ -15,4 +15,5 @@ The Camunda Platform Services (i.e., Process Engine Service and Process Applicat
 * Process Engine Service: `java:global/camunda-bpm-platform/process-engine/ProcessEngineService!org.camunda.bpm.ProcessEngineService`
 * Process Application Service: `java:global/camunda-bpm-platform/process-engine/ProcessApplicationService!org.camunda.bpm.ProcessApplicationService`
 
-On JBoss AS 7 and Wildfly, you are able get any of these Camunda Platform Services through a JNDI lookup. However, on Apache Tomcat 8 you have to do quite a bit more to be able to do a lookup to get one of these Camunda Platform Services.
+On JBoss EAP and WildFly, you are able to get any of these Camunda Platform Services through a JNDI lookup. 
+However, on Apache Tomcat you have to do quite a bit more to be able to do a lookup to get one of these Camunda Platform Services.
