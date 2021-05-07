@@ -1,6 +1,6 @@
 ---
 
-title: 'Apache Tomcat 7 Integration'
+title: 'Apache Tomcat Integration'
 weight: 30
 
 menu:
@@ -14,7 +14,7 @@ menu:
 
 # JNDI Bindings
 
-To use the JNDI Bindings for Camunda Platform Services on Apache Tomcat 7 you have to add the file `META-INF/context.xml` to your process application and add the following [ResourceLinks](http://tomcat.apache.org/tomcat-7.0-doc/config/context.html#Resource_Links):
+To use the JNDI Bindings for Camunda Platform Services on Apache Tomcat you have to add the file `META-INF/context.xml` to your process application and add the following [ResourceLinks](http://tomcat.apache.org/tomcat-9.0-doc/config/context.html#Resource_Links):
 
 ```xml
 <Context>
@@ -64,7 +64,7 @@ If you have declared other resource link names than we proposed, you have to use
 
 ## Tomcat Default Job Executor
 
-The Camunda Platform on Apache Tomcat 7.x uses the default job executor. The default [job executor]({{< ref "/user-guide/process-engine/the-job-executor.md" >}}) uses a ThreadPoolExecutor which manages a thread
+The Camunda Platform on Apache Tomcat 9.x uses the default job executor. The default [job executor]({{< ref "/user-guide/process-engine/the-job-executor.md" >}}) uses a ThreadPoolExecutor which manages a thread
 pool and a job queue.
 
 The core pool size, queue size, maximum pool size and keep-alive-time can be configured in the `bpm-platform.xml`.
