@@ -35,7 +35,7 @@ GET `/user/count`
   </tr>
   <tr>
     <td>idIn</td>
-    <td>Filter by a list of user ids. Must be a JSON array of Strings.</td>
+    <td>Filter by a comma-separated list of user ids.</td>
   </tr>
   <tr>
     <td>firstName</td>
