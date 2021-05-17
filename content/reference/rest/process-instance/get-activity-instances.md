@@ -151,8 +151,8 @@ The properties of a transition instance are as follows:
   </tr>
   <tr>
     <td>executionId</td>
-    <td>List of String</td>
-    <td>A list of execution ids.</td>
+    <td>String</td>
+    <td>The id of the corresponding execution.</td>
   </tr>
   <tr>
     <td>incidentIds</td>
