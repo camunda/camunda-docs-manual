@@ -198,10 +198,18 @@ about the several headers, the defaults and how to configure the HTTP headers ac
 
 ## Variable Values from Untrusted Sources
 
-Process variables can be submitted as JSON or XML along with a Java class name via the Camunda REST API and web applications.
+Process variables can be submitted as Java objects using the JDK built-in `application/x-java-serialized-object` data format, JSON or XML along with a Java class name via the Camunda REST API and web applications.
 On server side, they can then be deserialized into Java objects, so that Java code can work with them in a native way. See [Camunda Spin]({{< ref "/user-guide/data-formats/configuring-spin-integration.md" >}}) for details and this [REST API endpoint]({{< ref "/reference/rest/execution/local-variables/put-local-variable.md#example-2" >}}) for an example.
 
 If an attacker can access these endpoints, they can exploit so-called _serialization gadgets_, i.e. classes that run vulnerable code during deserialization resulting in remote code execution in the general case. For example, consider a class constructor that makes a REST request based on a field value. An attacker could submit a forged variable value so that during deserialization, when the constructor is called, the application server would make an arbitrary REST request to a destination of the attacker's choice. For details, see [OWASP's description of Deserialization of untrusted data](https://www.owasp.org/index.php/Deserialization_of_untrusted_data).
+
+### Java objects using the JDK built-in `application/x-java-serialized-object` data format
+
+Starting with version 7.9, by default, it is not possible to set variables of type `Object` **AND** the data format `application/x-java-serialized-object`.
+The behavior can be restored with the process engine configuration flag [`javaSerializationFormatEnabled`]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#javaSerializationFormatEnabled" >}}).
+However, please bear in mind that enabling the java serialization format might make the process engine vulnerable against the aforementioned attacking scenario.
+
+### JSON/XML serialized objects using Spin
 
 Therefore, we recommend enabling the whitelisting of allowed Java classes by enabling the property [deserializationTypeValidationEnabled]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#deserializationTypeValidationEnabled" >}}) in the process engine configuration. With this, the process engine validates the class names of submitted variables against a whitelist of allowed Java class and package names. Any non-whitelisted content is rejected. The default values are safe, but may be too restrictive for your use case. You can use the engine properties `deserializationAllowedPackages` and `deserializationAllowedClasses` to extend the default whitelist with package and class names of Java types that you consider save to deserialize in your environment.
 
