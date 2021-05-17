@@ -312,8 +312,9 @@ com.example.Order retrievedOrder = (com.example.Order) retrievedTypedObjectValue
 {{< /note >}}
 
 {{< note title="Java serialization format" class="warning" >}}
-  Be aware, that when using a serialized representation of variables, the Java serialization format is forbidden by default. You should either use another format (JSON or XML), or explicitly enable the Java serialization
-  with the help of [`javaSerializationFormatEnabled` configuration parameter]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#javaSerializationFormatEnabled" >}}). 
+  Be aware that when using a serialized representation of variables, the Java serialization format is forbidden by default. You should either use another format (JSON or XML) or explicitly enable the Java serialization
+  with the help of the [`javaSerializationFormatEnabled`]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#javaSerializationFormatEnabled" >}}) configuration flag.
+  However, please make sure to read the [Security Implication]({{< ref "/user-guide/security.md#variable-values-from-untrusted-sources" >}}) first before enabling this.
 {{< /note >}}
 
 ## JSON and XML Values
