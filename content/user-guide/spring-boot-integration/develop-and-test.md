@@ -1,15 +1,30 @@
 ---
 
-title: "Testing Spring Boot Applications"
+title: "Developing and Testing Spring Boot Applications"
 weight: 70
 
 menu:
   main:
-    name: "Testing"
-    identifier: "user-guide-spring-boot-testing"
+    name: "Developing and Testing"
+    identifier: "user-guide-spring-boot-develop-and-test"
     parent: "user-guide-spring-boot-integration"
 
 ---
+
+# Developing
+
+Spring Boot provides [Developer Tools](https://docs.spring.io/spring-boot/docs/current/reference/html/using.html#using.devtools) which feature options like automatic restart and live reload during the development of an application.
+
+## Spring Developer Tools and Classloading
+
+An additional process engine plugin (`ApplicationContextClassloaderSwitchPlugin`) will be loaded in case your application is in a development mode:
+
+* Spring Developer tools (`spring-boot-devtools` library) are on the class path and
+* the tools are enabled, e.g., the application is started in IDE
+
+The plugin ensures exchanging the application context classloader with the classloader used for the process engine to prevent issues during deserialization.
+
+# Testing
 
 Spring offers extensive support for automated [testing](https://docs.spring.io/spring/docs/current/spring-framework-reference/testing.html#testing-introduction). 
 This is covered through dedicated mocking packages, test runners and annotations.
