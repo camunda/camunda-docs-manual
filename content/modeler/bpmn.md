@@ -18,7 +18,7 @@ menu:
 
 {{< img src="img/quickstart-1.png" title="New BPMN Diagram" >}}
 
-To start modeling, create a new BPMN 2.0 diagram by selecting *Create diagram > Create new BPMN diagram (Camunda Engine)* in the top-level menu.
+To start modeling, create a new BPMN 2.0 diagram for the Camunda Platform by selecting *Create diagram > Create new BPMN diagram (Camunda Platform)* in the top-level menu.
 
 ## Start Modeling
 

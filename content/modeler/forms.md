@@ -27,7 +27,7 @@ The Camunda Forms feature allows you to easily design and configure forms. Once 
 
 ## Create new Form
 
-To start building a form, in the **File** menu click **Create new Form (Camunda Forms)**.
+To start building a form, in the **File** menu click **Create new Form (Camunda Platform or Cloud)**.
 
 {{< img src="img/create-form.png" title="Create new Camunda Form file" >}}
 
