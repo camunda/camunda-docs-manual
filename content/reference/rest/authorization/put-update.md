@@ -49,8 +49,8 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>permissions</td>
-    <td>Integer</td>
-    <td>An integer holding the permissions provided by this authorization.</td>
+    <td>Array of Strings</td>
+    <td>An array of strings representing the permissions provided by this authorization.</td>
   </tr>
   <tr>
     <td>userId</td>
@@ -122,7 +122,7 @@ PUT `/authorization/anAuthorizationId`
 
 Request Body:
 
-    {"permissions": 16,
+    {"permissions":  ["READ", "UPDATE"],
      "userId": "*",
      "groupId": null,
      "resourceType": 1,
