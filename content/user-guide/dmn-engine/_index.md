@@ -11,7 +11,7 @@ menu:
 ---
 
 The Camunda DMN engine is a Java library which can evaluate DMN decision tables.
-It implements the version 1.3 of the OMG [DMN](http://www.omg.org/spec/DMN/1.3) standard to the extent documented in the [DMN reference].
+It implements version 1.3 of the OMG [DMN](http://www.omg.org/spec/DMN/1.3) standard to the extent documented in the [DMN reference].
 
 The DMN engine can be used as library embedded in an
 application or in combination with the Camunda Platform. This section
