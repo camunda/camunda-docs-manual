@@ -10,6 +10,9 @@ menu:
 
 ---
 
+On this page you can find information about the telemetry feature in the process engine. The information will help you to decide whether to enable or disable the feature for your installation.
+
+## Introduction
 
 At Camunda, we strive to offer excellent user experience at a high and stable level. On a strict opt-in basis, we are looking to collect environment and usage data to further improve the user experience for you. These insights help us to understand typical environment setups and product usage patterns and will be used to make informed product improvement decisions to your benefit.
 
@@ -17,11 +20,11 @@ At Camunda, we strive to offer excellent user experience at a high and stable le
 
 The process engine has a dedicated thread called the *Telemetry Reporter* to periodically report telemetry data to Camunda. This thread is by default always running, however only collects and reports data if telemetry is explicitly enabled. See the [How to Enable Telemetry]({{< ref "#how-to-enable-telemetry" >}}) section for how to do this. 
 
-When enabled, the collected data is sent once in 24 hours via HTTPS (please also have a look at [Initial Data Report][]). The telemetry reporter is designed so that your implemented processes are not negatively affected in case the reporter suddenly faces an unexpected error. The telemetry reporter stops in any case when the process engine is stopped.
+The process engine sends the collected data once in 24 hours via HTTPS when telemetry is enabled (please also have a look at [Initial Data Report][]). The telemetry reporter is designed so that your implemented processes are not negatively affected in case the reporter suddenly faces an unexpected error. The telemetry reporter stops in any case when the process engine is stopped.
 
 ## Initial Data Report
 
-In order to support the understanding of typical use cases and the overall distribution of our products, the installation sends an anonymized one-time initial report to Camunda via HTTPS. This report contains no specifics that would allow any direct link to an outside entity and is limited to the following data:
+To understand the typical use cases and the overall distribution of our products, the installation sends an anonymized one-time initial report to Camunda via HTTPS. This report contains no specifics that would allow any direct link to an outside entity and is limited to the following data:
 
 ```
 {
@@ -34,11 +37,11 @@ In order to support the understanding of typical use cases and the overall distr
   }
 }
 ```
-The telemetry service that receives this report also stores a hash of the IP address from which the report is sent. That hash of the IP address is stored to filter duplicate data and detect malicious access.
+The telemetry service that receives this report also stores a hash of the IP address from which the report is sent. The telemetry service stores the hash of the IP address to filter duplicate data and detect malicious access.
 No other information will be included in that report. Furthermore, this report will be sent exactly once on the first run of your installation.
 In case you disabled telemetry explicitly or did not configure it at all, this is the only report that will ever be sent to Camunda.
 
-If there is the necessity to also prevent this anonymized report from being sent to us, you can set the `telemetryReporterActivate` configuration [flag][engine-config-telemetryReporterActivate] to `false`.
+To prevent this anonymized report from being sent to us, set the `telemetryReporterActivate` configuration [flag][engine-config-telemetryReporterActivate] to `false`.
 With this, the reporter thread will not be started and no request will ever be sent to Camunda. See the [How to Enable Telemetry]({{< ref "#how-to-enable-telemetry" >}}) section for how to do this.
 
 ## Collected Data
@@ -142,23 +145,34 @@ The counts are collected from the start of the engine or the last reported time 
 
 ### Logger
 
-The logger with name `org.camunda.bpm.engine.telemetry` logs details about the sent information and errors in case the data couldn't be collected or sent. For further information check the [Logging]({{< ref "/user-guide/logging.md#telemetry-data" >}}) page in the User Guide.
+The logger with name `org.camunda.bpm.engine.telemetry` logs:
+
+* details about the sent information
+* errors in case the data couldn't be collected or sent.
+
+For further information, check the [Logging]({{< ref "/user-guide/logging.md#telemetry-data" >}}) page in the User Guide.
 
 
 
 ## How to Enable Telemetry
 
+This section contains different ways to enable the telemetry feature.
+
 ### Process Engine Configuration
 
 Use the `initializeTelemetry` configuration [flag][engine-config-initializeTelemetry] to enable the telemetry before starting the process engine. You can simply add it to your process engine configuration:
 
-```
+```xml
   <property name="initializeTelemetry">true</property>
 ```
 
-Note that this property only has an effect when telemetry is initialized on the first engine startup. After that, it can be enabled/disabled via the engine API.
+Note that this property only has an effect when telemetry is initialized on the first engine startup. After that, you can enabled/disabled the telemetry via the [process engine API](#java-rest-api) or [Admin Webapp](#admin-webapp).
 
-In case telemetry is not used, the `telemetryReporterActivate` configuration [flag][engine-config-telemetryReporterActivate] can be set to `false` to prevent the process engine from starting the telemetry reporter thread at all. This configuration is also useful for unit testing scenarios.
+Set `telemetryReporterActivate` configuration [flag][engine-config-telemetryReporterActivate] to `false` in the following cases:
+
+* to prevent the process engine from starting the telemetry reporter thread at all
+* telemetry feature is not used
+* unit testing when process engine is started
 
 ### Java/Rest API
 
@@ -174,7 +188,8 @@ To achieve the same, you can also use the respective REST API request. For more 
 
 ### Admin Webapp
 
-Configuration adjustment can be performed in the [Admin][system-management] web application. There, a user member of camunda-admin group can enable/disable the telemetry.
+Configuration adjustment can be performed \
+In the [Admin][system-management] web application, you can enable/disable the telemetry. There, a user member of camunda-admin group can enable/disable the telemetry.
 
 ## Legal Note
 
@@ -189,6 +204,5 @@ In case you want further details, you can have a look at the implementation of t
 [engine-config-initializeTelemetry]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#initializeTelemetry" >}}
 [engine-config-telemetryReporterActivate]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#telemetryReporterActivate" >}}
 [telemetry-config-rest]: {{< ref "/reference/rest/telemetry/port-telemetry.md" >}}
-[history level]: {{<ref "/user-guide/process-engine/history.md#set-the-history-level" >}}
 [system-management]: {{< ref "/webapps/admin/system-management.md" >}}
 [Initial Data Report]: {{< ref "#initial-data-report" >}}
