@@ -12,7 +12,7 @@ menu:
 
 On this page you can find information about the telemetry feature in the process engine. The information will help you to decide whether to enable or disable the feature for your installation.
 
-## Introduction
+## Motivation
 
 At Camunda, we strive to offer excellent user experience at a high and stable level. On a strict opt-in basis, we are looking to collect environment and usage data to further improve the user experience for you. These insights help us to understand typical environment setups and product usage patterns and will be used to make informed product improvement decisions to your benefit.
 
@@ -170,9 +170,9 @@ Note that this property only has an effect when telemetry is initialized on the 
 
 Set `telemetryReporterActivate` configuration [flag][engine-config-telemetryReporterActivate] to `false` in the following cases:
 
-* to prevent the process engine from starting the telemetry reporter thread at all
-* telemetry feature is not used
-* unit testing when process engine is started
+* To prevent the process engine from starting the telemetry reporter thread at all.
+* Telemetry feature is not used.
+* Write unit tests when process engine is started.
 
 ### Java/Rest API
 
