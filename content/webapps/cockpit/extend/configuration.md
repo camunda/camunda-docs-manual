@@ -9,11 +9,10 @@ menu:
     parent: "user-guide-cockpit-extend"
 
 ---
-
+This page shows you how to configure Cockpit. The directory `app/cockpit` contains the files referenced below.
 
 # Logo and Header Color
-
-To change visual aspects of Cockpit, you can edit the user stylesheet file located in
+You can change the visual aspects of Cockpit. The user stylesheet file is located in
 `app/cockpit/styles/user-styles.css`. This file contains CSS which is loaded into Cockpit
 and can override the standard styles.
 
@@ -50,6 +49,8 @@ app: {
 ```
 
 # Localization
+All text in Cockpit can be localized. Camunda maintains English and German translation files. 
+You can find and download Community maintained translate files [here](https://github.com/camunda/camunda-webapp-translations).
 
 The localization of Cockpit is contained in the `app/cockpit/locales/` directory. This
 directory contains a separate localization file for every available language. The file name
@@ -76,8 +77,10 @@ available, add it to the list of available locales in the configuration file.
 
 # Custom Scripts
 
-If you want to add your own scripts to the Cockpit application, you should add a `customScripts` property to the `app/cockpit/scripts/config.js`
-file with something like this:
+Cockpit allows you to include arbitrary JavaScript files. This allows you to extend Cockpit with custom code. The Script file might contain a 
+custom Frontend Module as described in [Cockpit Plugins - Structure of a Frontend Module]({{<ref "/webapps/cockpit/extend/plugins.md#structure-of-a-frontend-module" >}}).
+
+Add your files to the `customScripts` property of the `app/cockpit/scripts/config.js` file:
 
 ```javascript
 export default {
