@@ -10,7 +10,7 @@ menu:
 
 ---
 
-This guide gives an introduction to Camunda Platform Run, a pre-packaged, lightweight distribution of the Camunda Platform. Camunda Platform Run is easy to configure and does not require Java-knwoledge.
+This guide gives an introduction to Camunda Platform Run, a pre-packaged, lightweight distribution of the Camunda Platform. Camunda Platform Run is easy to configure and does not require Java knowledge.
 
 # Goal & Audience
 
