@@ -10,17 +10,28 @@ menu:
 
 ---
 
-Camunda Platform Run is a pre-packaged distro of the Camunda Platform, including the Camunda webapps (Cockpit, Tasklist, Admin), the [REST API]({{< ref "/reference/rest/overview/_index.md" >}}) and a bundled version of [Swagger UI](https://github.com/swagger-api/swagger-ui). 
-Swagger UI is a web-GUI that allows you to explore the REST API endpoints of Camunda Platform Run. 
+This guide gives an introduction to Camunda Platform Run, a pre-packaged, lightweight distribution of the Camunda Platform. Camunda Platform Run is easy to configure and does not require Java knowledge.
 
-The idea behind Run is to provide a full Camunda Platform distro with a simple but powerful configuration mechanism that can be operated by everyone, regardless of their knowledge about Java or application server configuration.
+# Prerequisites and audience
 
-For a step-by-step installation guide head over to the [installation section]({{< ref "/installation/camunda-bpm-run.md" >}}) and get started in minutes.
+To use this guide, you should at least know what Camunda Platform is and what it does. Check out the [Get Started guides](https://docs.camunda.org/get-started/quick-start/) if you have never used Camunda Platform before. The [Installation guide]({{< ref "/installation/camunda-bpm-run.md" >}}) is also worth looking at if you are completely new to Camunda Platform.
 
+This guide will teach you about Camunda Platform Run and how to configure it. It can serve as a reference page for configuration and operation options. It will not give you a step-by-step guide on how to install Camunda Platform Run. Head over to the [Installation guide]({{< ref "/installation/camunda-bpm-run.md" >}}) for details on how to install and start Camunda Platform Run.
+
+# What is Camunda Platform Run?
+
+Camunda Platform Run is a full distribution of the Camunda Platform. It includes:
+
+* Camunda webapps
+  * Cockpit
+  * Tasklist
+  * Admin
+* [REST API]({{< ref "/reference/rest/overview/_index.md" >}})
+* [Swagger UI](https://github.com/swagger-api/swagger-ui) (web application for exploring the REST API)
 
 # Starting with Camunda Platform Run
 
-After downloading the [distro](https://downloads.camunda.cloud/release/camunda-bpm/run/) ([enterprise](https://downloads.camunda.cloud/enterprise-release/camunda-bpm/run/)) and unpacking it to a folder, you will find the following structure:
+To start with Camunda Platform Run, download the [distribution](https://downloads.camunda.cloud/release/camunda-bpm/run/) ([enterprise](https://downloads.camunda.cloud/enterprise-release/camunda-bpm/run/)) and unpacking it. You will find the following structure:
 
 ```
 camunda-bpm-run
@@ -39,15 +50,15 @@ camunda-bpm-run
 ├── start.bat
 └── start.sh
 ```
-Execute one of the two start scripts (`start.bat` for Windows, `start.sh` for Linux/Mac). After a few seconds, you will be able to access the Camunda webapps via http://localhost:8080/camunda/app/, the REST API via http://localhost:8080/engine-rest/ and Swagger UI via http://localhost:8080/swaggerui/
+Execute one of the two start scripts (`start.bat` for Windows, `start.sh` for Linux/Mac). After a few seconds, you will be able to access the Camunda webapps via http://localhost:8080/camunda/app/, the REST API via http://localhost:8080/engine-rest/ and Swagger UI via http://localhost:8080/swaggerui/.
 
 
 ## Starting Camunda Platform Run using Docker
 
-Camunda Platform Run is also available as a Docker image. Please see the Run section of the Camunda Docker documentation [here]({{< ref "/installation/docker.md#start-camunda-bpm-run-using-docker" >}}) for more details.
+Camunda Platform Run is also available as a Docker image. Please see the Camunda Platform Run section of the Camunda Docker documentation [here]({{< ref "/installation/docker.md#start-camunda-bpm-run-using-docker" >}}) for more details.
 
 
-## Disable Webapps, REST API or Swagger UI
+## Disable components
 
 By default, Camunda Platform Run launches with the webapps, REST API and Swagger UI modules. If you want only a subset of them enabled, execute the start script through a command-line interface with any of the `--webapps`, `--rest` or `--swaggerui` properties to enable the specific module.
 
