@@ -175,19 +175,9 @@ You can use the `code` markdown to highlight single or multiple lines.
 
 ![Export](https://raw.githubusercontent.com/camunda/camunda-docs-manual/master/develop/drawings/ReadMe-images/export.png)
 
-## Writing Guidelines
-
-* Use short sentences. Full stop is better than comma.
-* Don't constantly repeat context: On a Page named *Updating Camunda* not every headline needs to start with *"Updating this"*, *"Updating that"*. Instead just write *"This"* or *"That"*. It is clear to the reader that things are being updated. Other example: if the page is named *"Installing the Full Distribution for JBoss Application Server"* not every section needs to mention the application server: Instead of *"The following steps are necessary in order to install the REST Api on JBoss"* write: *"The following steps are necessary in order to install the REST Api:"*
-* Don't overuse notes and warning. Not everything that comes to mind while writing a paragraph is a note or a warning. Maybe it is just content. There should not be more notes and warnings than content.
-* Yes, you programmed the stuff but you don't need to write the docs in a super self-conscious way: instead of *"We use Slf4j for logging"* write: *"Slf4j is used for logging"*.
-* Don't use the future form: instead of *"This document will guide you through the steps of..."* write *"This document guides you through the steps"*
-* Nice combination of the previous two points: *"Throughout this guide, we will use a number of variables to denote common path names and constants:"* => *"This guide uses the following variables to denote common path names and constants:"*
-* Use this tool to convert titles into title case: [Title Converter][Title Converter]
 
 [Hugo]: http://gohugo.io/
 [Hugo Installation]: http://gohugo.io/overview/installing/
 [Camunda Nexus]: https://app.camunda.com/nexus/service/rest/repository/browse/public/hugo/
-[Title Converter]: http://individed.com/code/to-title-case/
 [OpenOffice]: https://www.openoffice.org/download/index.html
 [OpenSans]: https://www.google.com/fonts#UsePlace:use/Collection:Open+Sans
