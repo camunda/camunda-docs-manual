@@ -80,12 +80,32 @@ You can visualize the migration plan in two ways: You can hover over an activity
 
 You can also click on an activity to show a green arrow pointing from the source activity to the mapped target activity. Clicking on the activity again hides the arrow. If the mapping contains errors, the arrow is displayed in red. You can also use the checkbox at the bottom of the screen reading "show migration plan" to toggle the display of all arrows on the diagram.
 
+# Set Variables
+
+After finishing defining the flow-node mapping, click on the **Set Variables** button to proceed.
+
+{{< img src="../../img/migration/step2.png" title="Set variables for migration" >}}
+
+The next step allows you to set variables into the process instances’ scope.
+
+{{< img src="../../img/migration/step2_modal.png" title="Set variables for migration – add variable" >}}
+
+When you click on the **Add Variable** button, a modal dialog opens where you can define the variable name, type, and value.
+
+{{< img src="../../img/migration/step2_validation.png" title="Set variables for migration – variable validation" >}}
+
+The Engine validates the variable against the migration plan validation rules and Cockpit displays the result for each variable in the **Valid** column of the table. 
+If a variable invalidates the migration plan, Cockpit opens a popover with the respective validation errors.
+
+{{< img src="../../img/migration/step2_edit.png" title="Set variables for migration – edit variable" >}}
+
+You can still edit the variables you have just added. For instance, if a variable invalidates the migration plan, you can easily correct it to proceed with the process instance migration.
 
 # Select instances
 
-{{< img src="../../img/migration/step2.png" title="Select instances for migration" >}}
+{{< img src="../../img/migration/step3.png" title="Select instances for migration" >}}
 
-After finishing the migration plan, click the `Select Instances` button to proceed to instance selection. Initially, all instances of the source process definition version are displayed. You can use the filter bar above the list of instances to filter the displayed instances. Furthermore, you can copy a link to the current filter query to your clipboard by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-link"></i></button> button and you can save filter queries to your local browser storage by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and inserting a name in the drop down menu that appears. You can then retrieve the filter query by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and selecting the chosen name in the drop down menu.
+After finishing the **Set Variables** step, click the `Select Instances` button to proceed to instance selection. Initially, all instances of the source process definition version are displayed. You can use the filter bar above the list of instances to filter the displayed instances. Furthermore, you can copy a link to the current filter query to your clipboard by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-link"></i></button> button and you can save filter queries to your local browser storage by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and inserting a name in the drop down menu that appears. You can then retrieve the filter query by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and selecting the chosen name in the drop down menu.
 
 Using the checkboxes to the left of the instances, you can mark them for migration. All instances you select on this page are migrated.
 
@@ -94,7 +114,7 @@ If you do not explicitly select any instances, all instances of the source proce
 
 # Confirm Migration
 
-{{< img src="../../img/migration/step3.png" title="Confirm Migration" >}}
+{{< img src="../../img/migration/step4.png" title="Confirm Migration" >}}
 
 In the next step, you see an overview of the migration that you are about to execute. This page displays the exact id of the source and target process definition as well as the number of process instances you are about to migrate. It also contains a tabular display of the migration plan. You can configure options for the migration such as whether the migration should be performed asynchronously as a batch and whether custom listeners and IO mappings should be skipped.
 
@@ -103,13 +123,13 @@ By clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-eye-
 
 # Check Migration Result
 
-{{< img src="../../img/migration/step4_batch.png" title="Executing migration asynchronously" >}}
+{{< img src="../../img/migration/step5_batch.png" title="Executing migration asynchronously" >}}
 
 After clicking `Execute Migration`, the result screen is displayed. If the migration was performed successfully, that is indicated on this page. For asynchronous migrations, a link to the [batch page]({{< ref "/webapps/cockpit/batch/monitoring.md" >}}) is displayed where the progress of the batch can be observed.
 
 ## Error: Migration Plan invalid
 
-{{< img src="../../img/migration/step4_error.png" title="Invalid migration plan" >}}
+{{< img src="../../img/migration/step5_error.png" title="Invalid migration plan" >}}
 
 If the migration plan contains errors, they are displayed on this page. No instances are migrated in this case. You can go back to the first step to fix the errors.
 
