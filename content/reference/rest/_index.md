@@ -1,11 +1,11 @@
 ---
 
-title: "Rest Api Reference"
+title: "REST API Reference"
 weight: 10
 
 menu:
   main:
-    name: "Rest Api"
+    name: "REST API"
     identifier: "rest-api"
     parent: "references"
 
