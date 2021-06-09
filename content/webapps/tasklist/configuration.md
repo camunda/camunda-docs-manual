@@ -12,7 +12,7 @@ menu:
 
 
 You can override the default configuration of Tasklist using a central configuration file
-located in `app/tasklist/scripts/config.js`. Currently, the following configuration options are
+located in `app/tasklist/scripts/config.js`. The following configuration options are
 available:
 
 # Date Format
@@ -44,6 +44,9 @@ export default {
 
 # Localization
 
+Tasklist can be localized. Camunda maintains English and German translation files. 
+You can find and download community maintained translation files at the [Camunda webapp translations repository](https://github.com/camunda/camunda-webapp-translations).
+
 The localization of Tasklist is contained in the `app/tasklist/locales/` directory. This
 directory contains a separate localization file for every available language. The file name
 consists of the language code and the suffix `.json` (e.g., `en.json`).
@@ -73,15 +76,10 @@ available, add it to the list of available locales in the configuration file.
 
 # Custom Scripts
 
-If you want to add your own scripts to the Admin application, you should add a `customScripts` property to the `app/admin/scripts/config.js`
-file with something like this:
+Tasklist allows you to include arbitrary JavaScript files. This allows you to extend Tasklist with custom code. The script file might contain a 
+custom frontend module. Tasklist shares the frontend module structure with [Cockpit Plugins]({{<ref "/webapps/cockpit/extend/plugins.md#structure-of-a-frontend-module" >}}).
 
-
-This includes a `custom-module/module.js` file. The path is relative to the `app/admin` folder in the Camunda webapp .war file.
-
-
-If you want to add your own scripts to the Tasklist application, you should add a `customScripts` property to the `app/tasklist/scripts/config.js`
-file with something like this:
+Add your files to the `customScripts` property of the `app/tasklist/scripts/config.js` file:
 
 ```javascript
 export default {
@@ -107,7 +105,7 @@ You can also add additional shortcuts. If you do so, whenever the user presses t
 
 # Logo and Header Color
 
-To change visual aspects of Tasklist, you can edit the user stylesheet file located in
+You can change the visual aspects of Tasklist. The user stylesheet file is located in
 `app/tasklist/styles/user-styles.css`. This file contains CSS which is loaded into Tasklist
 and can override the standard styles.
 
