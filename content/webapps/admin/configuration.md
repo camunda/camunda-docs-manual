@@ -42,12 +42,13 @@ and can override the standard styles.
 by changing the `app/admin/scripts/config.js` configuration file as follow:
 
 ```js
-// …
-app: {
-  name: 'Admin',
-  vendor: 'Company'
-},
-// …
+export default {
+  // …
+  app: {
+    name: 'Admin',
+    vendor: 'Company'
+  }
+}
 ```
 
 # Localization
@@ -65,9 +66,12 @@ If the browser uses a language which is not available, Admin uses the locale whi
 defined via the `fallbackLocale` property in the configuration file:
 
 ```javascript
-"locales": {
-  "availableLocales": ["en", "de"],
-  "fallbackLocale": "en"
+export default {
+  // …
+  "locales": {
+    "availableLocales": ["en", "de"],
+    "fallbackLocale": "en"
+  } 
 }
 ```
 
@@ -81,33 +85,13 @@ If you want to add your own scripts to the Admin application, you should add a `
 file with something like this:
 
 ```javascript
-var camAdminConf = {
+export default {
   // …
-  customScripts: {
-    // names of angular modules defined in your custom script files.
-    // will be added to the 'cam.admin.custom' as dependencies
-    ngDeps: ['my.custom.module'],
-
-    // RequireJS modules to load.
-    deps: ['custom-ng-module'],
-
-    // RequreJS path definitions
-    paths: {
-      'custom-ng-module': '../custom-ng-module/script'
-    }
-  }
-};
+  customScripts: 
+    ['custom-module/module.js']
+}
 ```
-This includes a `custom-ng-module/script.js` file. The path is relative to the
-`app/admin` folder in the Camunda webapp .war file.
-
-**Note:** The content of the `customScripts` property will be treated as a
-[RequireJS configuration](http://requirejs.org/docs/api.html#config) except for the
-`nodeIdCompat` and `skipDataMain` which are irrelevant and `deps` which will be used like:
-
-```javascript
-require(config.deps, callback);
-```
+This includes a `custom-module/module.js` file. The path is relative to the `app/admin` folder in the Camunda webapp .war file.
 
 # Change CSRF Cookie Name
 
@@ -115,10 +99,10 @@ The default name of the CSRF Cookie is `XSRF-TOKEN`. When using other applicatio
 same-origin, the CSRF mechanisms could interfere with each other. To avoid the name conflict, you
 can change the name of the CSRF cookie in the `config.js` file as follows:
 ```javascript
-var camAdminConf = {
+export default {
   // …
   csrfCookieName: 'MY-XSRF-TOKEN'
-};
+}
 ```
 
 **Note:** Please make sure to change the CSRF cookie name also on [server-side]({{<ref "/webapps/shared-options/csrf-prevention.md#cookie-name" >}}).
@@ -128,10 +112,10 @@ var camAdminConf = {
 First-time visitors are shown a message directing them to the camunda welcome page. If you do
 not want this message to be shown, you can disable it by adjusting the `config.js` as follows:
 ```javascript
-var camAdminConf = {
+export default {
   // …
   disableWelcomeMessage: true
-};
+}
 ```
 
 **Note:** This does only affect the Admin login page. For other webapps, you need to adjust the corresponding config file as well.
@@ -141,10 +125,10 @@ var camAdminConf = {
 The default maximum length of a User Operation Log annotation is 4000 characters. Some databases have smaller limits. You can change the maximum allowed input length in the `config.js` file as follows:
 
 ```javascript
-var camAdminConf = {
+export default {
   // …
   userOperationLogAnnotationLength: 4000
-};
+}
 ```
 
 **Note:** This does only affect the Admin Operation Log. For the Cockpit Operation Log, check out the [Cockpit configuration]({{<ref "/webapps/cockpit/extend/configuration.md#user-operation-log-annotation-length" >}}).
