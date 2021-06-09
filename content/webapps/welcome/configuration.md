@@ -23,7 +23,8 @@ Can be used to add some useful links for the user, such as other applications or
 ## Example
 
 ```javascript
-window.camWelcomeConf = {
+export default {
+  // …
   links: [
     {
       label: 'Camunda Forum',
@@ -32,7 +33,7 @@ window.camWelcomeConf = {
     },
     // ...
   ]
-};
+}
 ```
 
 # Logo and Header Color
@@ -61,12 +62,13 @@ and can override the standard styles.
 by changing the `app/welcome/scripts/config.js` configuration file as follow:
 
 ```js
-// …
-app: {
-  name: 'Welcome',
-  vendor: 'Company'
-},
-// …
+export default {
+  // …
+  app: {
+    name: 'Welcome',
+    vendor: 'Company'
+  }
+}
 ```
 
 # Localization
@@ -84,9 +86,12 @@ If the browser uses a language which is not available, the Welcome application u
 defined via the `fallbackLocale` property in the configuration file:
 
 ```javascript
-"locales": {
-  "availableLocales": ["en", "de"],
-  "fallbackLocale": "en"
+export default {
+  // …
+  "locales": {
+    "availableLocales": ["en", "de"],
+    "fallbackLocale": "en"
+  }
 }
 ```
 
@@ -100,7 +105,7 @@ The default name of the CSRF Cookie is `XSRF-TOKEN`. When using other applicatio
 same-origin, the CSRF mechanisms could interfere with each other. To avoid the name conflict, you
 can change the name of the CSRF cookie in the `config.js` file as follows:
 ```javascript
-var camWelcomeConf = {
+export default {
   // …
   csrfCookieName: 'MY-XSRF-TOKEN'
 };
@@ -113,7 +118,7 @@ var camWelcomeConf = {
 First-time visitors are shown a message directing them to the camunda welcome page. If you do
 not want this message to be shown, you can disable it by adjusting the `config.js` as follows:
 ```javascript
-var camWelcomeConf = {
+export default {
   // …
   disableWelcomeMessage: true
 };
