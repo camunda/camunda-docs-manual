@@ -149,7 +149,7 @@ POST `/task/aTaskId/comment/create`
 
     {
       "message": "a task comment",
-      "processInstanceId": 96dc383f-23eb-11e6-8e4a-f6aefe19b687""
+      "processInstanceId": "96dc383f-23eb-11e6-8e4a-f6aefe19b687"
     }
 
 ## Response
