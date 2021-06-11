@@ -10,7 +10,9 @@ menu:
 
 ---
 
-
+You can override the default configuration of Admin using a central configuration file
+located in `app/admin/scripts/config.js`. The following configuration options are
+available:
 # LDAP
 
 If you connect the Camunda Platform with the LDAP identity service, you have read-only access to the users and groups. Create new users and groups via the LDAP system, but not in the admin application. Find more information about how to configure the process engine in order to use the LDAP identity service [here]({{< ref "/user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}).
@@ -18,7 +20,7 @@ If you connect the Camunda Platform with the LDAP identity service, you have rea
 
 # Logo and Header Color
 
-To change visual aspects of Admin, you can edit the user stylesheet file located in
+You can change the visual aspects of Admin. The user stylesheet file is located in
 `app/admin/styles/user-styles.css`. This file contains CSS which is loaded into Admin
 and can override the standard styles.
 
@@ -42,15 +44,19 @@ and can override the standard styles.
 by changing the `app/admin/scripts/config.js` configuration file as follow:
 
 ```js
-// …
-app: {
-  name: 'Admin',
-  vendor: 'Company'
-},
-// …
+export default {
+  // …
+  app: {
+    name: 'Admin',
+    vendor: 'Company'
+  }
+}
 ```
 
 # Localization
+
+Admin can be localized. Camunda maintains English and German translation files. 
+You can find and download community maintained translation files at the [Camunda webapp translations repository](https://github.com/camunda/camunda-webapp-translations).
 
 The localization of Admin is contained in the `app/admin/locales/` directory. This
 directory contains a separate localization file for every available language. The file name
@@ -65,9 +71,12 @@ If the browser uses a language which is not available, Admin uses the locale whi
 defined via the `fallbackLocale` property in the configuration file:
 
 ```javascript
-"locales": {
-  "availableLocales": ["en", "de"],
-  "fallbackLocale": "en"
+export default {
+  // …
+  "locales": {
+    "availableLocales": ["en", "de"],
+    "fallbackLocale": "en"
+  } 
 }
 ```
 
@@ -77,37 +86,19 @@ available, add it to the list of available locales in the configuration file.
 
 # Custom Scripts
 
-If you want to add your own scripts to the Admin application, you should add a `customScripts` property to the `app/admin/scripts/config.js`
-file with something like this:
+Admin allows you to include arbitrary JavaScript files. This allows you to extend Admin with custom code. The script file might contain a 
+custom frontend module. Admin shares the frontend module structure with [Cockpit Plugins]({{<ref "/webapps/cockpit/extend/plugins.md#structure-of-a-frontend-module" >}}).
+
+Add your files to the `customScripts` property of the `app/admin/scripts/config.js` file:
 
 ```javascript
-var camAdminConf = {
+export default {
   // …
-  customScripts: {
-    // names of angular modules defined in your custom script files.
-    // will be added to the 'cam.admin.custom' as dependencies
-    ngDeps: ['my.custom.module'],
-
-    // RequireJS modules to load.
-    deps: ['custom-ng-module'],
-
-    // RequreJS path definitions
-    paths: {
-      'custom-ng-module': '../custom-ng-module/script'
-    }
-  }
-};
+  customScripts: 
+    ['custom-module/module.js']
+}
 ```
-This includes a `custom-ng-module/script.js` file. The path is relative to the
-`app/admin` folder in the Camunda webapp .war file.
-
-**Note:** The content of the `customScripts` property will be treated as a
-[RequireJS configuration](http://requirejs.org/docs/api.html#config) except for the
-`nodeIdCompat` and `skipDataMain` which are irrelevant and `deps` which will be used like:
-
-```javascript
-require(config.deps, callback);
-```
+This includes a `custom-module/module.js` file. The path is relative to the `app/admin` folder in the Camunda webapp .war file.
 
 # Change CSRF Cookie Name
 
@@ -115,10 +106,10 @@ The default name of the CSRF Cookie is `XSRF-TOKEN`. When using other applicatio
 same-origin, the CSRF mechanisms could interfere with each other. To avoid the name conflict, you
 can change the name of the CSRF cookie in the `config.js` file as follows:
 ```javascript
-var camAdminConf = {
+export default {
   // …
   csrfCookieName: 'MY-XSRF-TOKEN'
-};
+}
 ```
 
 **Note:** Please make sure to change the CSRF cookie name also on [server-side]({{<ref "/webapps/shared-options/csrf-prevention.md#cookie-name" >}}).
@@ -128,10 +119,10 @@ var camAdminConf = {
 First-time visitors are shown a message directing them to the camunda welcome page. If you do
 not want this message to be shown, you can disable it by adjusting the `config.js` as follows:
 ```javascript
-var camAdminConf = {
+export default {
   // …
   disableWelcomeMessage: true
-};
+}
 ```
 
 **Note:** This does only affect the Admin login page. For other webapps, you need to adjust the corresponding config file as well.
@@ -141,10 +132,10 @@ var camAdminConf = {
 The default maximum length of a User Operation Log annotation is 4000 characters. Some databases have smaller limits. You can change the maximum allowed input length in the `config.js` file as follows:
 
 ```javascript
-var camAdminConf = {
+export default {
   // …
   userOperationLogAnnotationLength: 4000
-};
+}
 ```
 
 **Note:** This does only affect the Admin Operation Log. For the Cockpit Operation Log, check out the [Cockpit configuration]({{<ref "/webapps/cockpit/extend/configuration.md#user-operation-log-annotation-length" >}}).

@@ -12,7 +12,7 @@ menu:
 
 
 You can override the default configuration of Tasklist using a central configuration file
-located in `app/tasklist/scripts/config.js`. Currently, the following configuration options are
+located in `app/tasklist/scripts/config.js`. The following configuration options are
 available:
 
 # Date Format
@@ -32,14 +32,20 @@ object must be strings representing date formats in accordance with
 ## Example
 
 ```javascript
-"dateFormat": {
-  "monthName": "MMM",
-  "long":   "LLLL"
+export default {
+  // …
+  "dateFormat": {
+    "monthName": "MMM",
+    "long":   "LLLL"
+  }
 }
 ```
 
 
 # Localization
+
+Tasklist can be localized. Camunda maintains English and German translation files. 
+You can find and download community maintained translation files at the [Camunda webapp translations repository](https://github.com/camunda/camunda-webapp-translations).
 
 The localization of Tasklist is contained in the `app/tasklist/locales/` directory. This
 directory contains a separate localization file for every available language. The file name
@@ -54,9 +60,12 @@ If the browser uses a language which is not available, Tasklist uses the locale 
 defined via the `fallbackLocale` property in the configuration file:
 
 ```javascript
-"locales": {
-  "availableLocales": ["en", "de"],
-  "fallbackLocale": "en"
+export default {
+  // …
+  "locales": {
+    "availableLocales": ["en", "de"],
+    "fallbackLocale": "en"
+  }
 }
 ```
 
@@ -67,77 +76,23 @@ available, add it to the list of available locales in the configuration file.
 
 # Custom Scripts
 
-If you want to add scripts (to add new [AngularJS](https://angularjs.org) directives or
-other libraries) you should add a `customScripts` property to the `app/tasklist/scripts/config.js`
-file with something like this:
+Tasklist allows you to include arbitrary JavaScript files. This allows you to extend Tasklist with custom code. The script file might contain a 
+custom frontend module. Tasklist shares the frontend module structure with [Cockpit Plugins]({{<ref "/webapps/cockpit/extend/plugins.md#structure-of-a-frontend-module" >}}).
+
+Add your files to the `customScripts` property of the `app/tasklist/scripts/config.js` file:
 
 ```javascript
-var camTasklistConf = {
+export default {
   // …
-  customScripts: {
-    // names of angular modules defined in your custom script files.
-    // will be added to the 'cam.tasklist.custom' as dependencies
-    ngDeps: ['my.custom.module'],
-
-    // RequireJS modules to load.
-    deps: ['custom-ng-module'],
-
-    // RequreJS path definitions
-    paths: {
-      'custom-ng-module': '../custom-ng-module/script'
-    }
-  }
-};
+  customScripts: 
+    ['custom-module/module.js']
+}
 ```
-This includes a `custom-ng-module/script.js` file. The path is relative to the
-`app/tasklist/` folder in the Camunda webapp .war file.
+This includes a `custom-module/module.js` file. The path is relative to the `app/tasklist` folder in the Camunda webapp .war file.
 
-**Note:** The content of the `customScripts` property will be treated as a
-[RequireJS configuration](http://requirejs.org/docs/api.html#config) except for the
-`nodeIdCompat` and `skipDataMain` which are irrelevant and `deps` which will be used like:
-
-```javascript
-require(config.deps, callback);
-```
+You can find a complete example about how to use `customScripts` to develop a Tasklist Plugin in the [Camunda Platform examples repository](https://github.com/camunda/camunda-bpm-examples/tree/master/tasklist/cats-plugin).
 
 
-In your scripts, you can add a controller and directive like this:
-
-```javascript
-'use strict';
-define('custom-ng-module', [
-  'angular'
-], function (angular) {
-  // define a new angular module named my.custom.module
-  // it will be added as angular module dependency to builtin 'cam.tasklist.custom' module
-  // see the config.js entry above
-  var customModule = angular.module('my.custom.module', []);
-
-  // …so now, you can safely add your controllers…
-  customModule.controller('customController', ['$scope', function ($scope) {
-    $scope.var1 = 'First variable';
-    $scope.var2 = 'Second variable';
-  }]);
-
-  // …directives or else.
-  customModule.directive('customDirective', function () {
-    return {
-      template: 'Directive example: "{{ var1 }}", "{{ var2 }}"'
-    };
-  });
-
-  // it is not necessary to 'return' the customModule but it might come handy
-  return customModule;
-});
-```
-
-And finally, in your UI or embedded forms, you can use the new features like this:
-
-```html
-<div ng-controller="customController">
-  <div custom-directive> - (in this case; will be overwritten) - </div>
-</div>
-```
 
 # Shortcuts
 
@@ -150,7 +105,7 @@ You can also add additional shortcuts. If you do so, whenever the user presses t
 
 # Logo and Header Color
 
-To change visual aspects of Tasklist, you can edit the user stylesheet file located in
+You can change the visual aspects of Tasklist. The user stylesheet file is located in
 `app/tasklist/styles/user-styles.css`. This file contains CSS which is loaded into Tasklist
 and can override the standard styles.
 
@@ -174,12 +129,13 @@ and can override the standard styles.
 by changing the `app/tasklist/scripts/config.js` configuration file as follow:
 
 ```js
-// …
-app: {
-  name: 'Todos',
-  vendor: 'Company'
-},
-// …
+export default {
+  // …
+  app: {
+    name: 'Todos',
+    vendor: 'Company'
+  }
+}
 ```
 
 # Change CSRF Cookie Name
@@ -188,10 +144,10 @@ The default name of the CSRF Cookie is `XSRF-TOKEN`. When using other applicatio
 same-origin, the CSRF mechanisms could interfere with each other. To avoid the name conflict, you
 can change the name of the CSRF cookie in the `config.js` file as follows:
 ```javascript
-var camTasklistConf = {
+export default {
   // …
   csrfCookieName: 'MY-XSRF-TOKEN'
-};
+}
 ```
 
 **Note:** Please make sure to change the CSRF cookie name also on [server-side]({{<ref "/webapps/shared-options/csrf-prevention.md#cookie-name" >}}).
@@ -201,10 +157,10 @@ var camTasklistConf = {
 First-time visitors are shown a message directing them to the camunda welcome page. If you do
 not want this message to be shown, you can disable it by adjusting the `config.js` as follows:
 ```javascript
-var camTasklistConf = {
+export default {
   // …
   disableWelcomeMessage: true
-};
+}
 ```
 
 **Note:** This does only affect the Tasklist login page. For other webapps, you need to adjust the corresponding config file as well.

@@ -12,7 +12,7 @@ menu:
 
 
 You can override the default configuration of the Welcome application by using a central configuration file,
-located in `app/welcome/scripts/config.js`. Currently, the following configuration options are
+located in `app/welcome/scripts/config.js`. The following configuration options are
 available:
 
 # Custom links
@@ -23,7 +23,8 @@ Can be used to add some useful links for the user, such as other applications or
 ## Example
 
 ```javascript
-window.camWelcomeConf = {
+export default {
+  // …
   links: [
     {
       label: 'Camunda Forum',
@@ -32,12 +33,12 @@ window.camWelcomeConf = {
     },
     // ...
   ]
-};
+}
 ```
 
 # Logo and Header Color
 
-To change visual aspects of Welcome, you can edit the user stylesheet file located in
+You can change the visual aspects of Welcome. The user stylesheet file is located in
 `app/welcome/styles/user-styles.css`. This file contains CSS which is loaded into Welcome
 and can override the standard styles.
 
@@ -61,15 +62,19 @@ and can override the standard styles.
 by changing the `app/welcome/scripts/config.js` configuration file as follow:
 
 ```js
-// …
-app: {
-  name: 'Welcome',
-  vendor: 'Company'
-},
-// …
+export default {
+  // …
+  app: {
+    name: 'Welcome',
+    vendor: 'Company'
+  }
+}
 ```
 
 # Localization
+
+Welcome can be localized. Camunda maintains English and German translation files. 
+You can find and download community maintained translation files at the [Camunda webapp translations repository](https://github.com/camunda/camunda-webapp-translations).
 
 The localization of the Welcome application is contained in the `app/welcome/locales/` directory. This
 directory contains a separate localization file for every available language. The file name
@@ -84,9 +89,12 @@ If the browser uses a language which is not available, the Welcome application u
 defined via the `fallbackLocale` property in the configuration file:
 
 ```javascript
-"locales": {
-  "availableLocales": ["en", "de"],
-  "fallbackLocale": "en"
+export default {
+  // …
+  "locales": {
+    "availableLocales": ["en", "de"],
+    "fallbackLocale": "en"
+  }
 }
 ```
 
@@ -100,7 +108,7 @@ The default name of the CSRF Cookie is `XSRF-TOKEN`. When using other applicatio
 same-origin, the CSRF mechanisms could interfere with each other. To avoid the name conflict, you
 can change the name of the CSRF cookie in the `config.js` file as follows:
 ```javascript
-var camWelcomeConf = {
+export default {
   // …
   csrfCookieName: 'MY-XSRF-TOKEN'
 };
@@ -113,7 +121,7 @@ var camWelcomeConf = {
 First-time visitors are shown a message directing them to the camunda welcome page. If you do
 not want this message to be shown, you can disable it by adjusting the `config.js` as follows:
 ```javascript
-var camWelcomeConf = {
+export default {
   // …
   disableWelcomeMessage: true
 };
