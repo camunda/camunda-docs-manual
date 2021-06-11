@@ -10,10 +10,12 @@ menu:
 
 ---
 
-
+You can override the default configuration of Cockpit using a central configuration file
+located in `app/cockpit/scripts/config.js`. The following configuration options are
+available:
 # Logo and Header Color
 
-To change visual aspects of Cockpit, you can edit the user stylesheet file located in
+You can change the visual aspects of Cockpit. The user stylesheet file is located in
 `app/cockpit/styles/user-styles.css`. This file contains CSS which is loaded into Cockpit
 and can override the standard styles.
 
@@ -41,15 +43,19 @@ and can override the standard styles.
 by changing the `app/cockpit/scripts/config.js` configuration file as follow:
 
 ```js
-// …
-app: {
-  name: 'Operations',
-  vendor: 'Company'
-},
-// …
+export default {
+  // …
+  app: {
+    name: 'Operations',
+    vendor: 'Company'
+  },
+}
 ```
 
 # Localization
+
+Cockpit can be localized. Camunda maintains English and German translation files. 
+You can find and download community maintained translation files at the [Camunda webapp translations repository](https://github.com/camunda/camunda-webapp-translations).
 
 The localization of Cockpit is contained in the `app/cockpit/locales/` directory. This
 directory contains a separate localization file for every available language. The file name
@@ -64,9 +70,12 @@ If the browser uses a language which is not available, Cockpit uses the locale w
 defined via the `fallbackLocale` property in the configuration file:
 
 ```javascript
-"locales": {
-  "availableLocales": ["en", "de"],
-  "fallbackLocale": "en"
+export default {
+  // …
+  "locales": {
+    "availableLocales": ["en", "de"],
+    "fallbackLocale": "en"
+  }
 }
 ```
 
@@ -76,8 +85,10 @@ available, add it to the list of available locales in the configuration file.
 
 # Custom Scripts
 
-If you want to add your own scripts to the Cockpit application, you should add a `customScripts` property to the `app/cockpit/scripts/config.js`
-file with something like this:
+Cockpit allows you to include arbitrary JavaScript files. This allows you to extend Cockpit with custom code. The script file might contain a 
+custom frontend module as described in [Cockpit Plugins - Structure of a Frontend Module]({{<ref "/webapps/cockpit/extend/plugins.md#structure-of-a-frontend-module" >}}).
+
+Add your files to the `customScripts` property of the `app/cockpit/scripts/config.js` file:
 
 ```javascript
 export default {
@@ -124,14 +135,15 @@ of Cockpit, a `bpmnJs` property must be added to the `app/cockpit/scripts/config
 ## Additional Modules
 To add modules, the `additionalModules` property needs to be specified, where each module is registered with its path. The path is relative to the `app/cockpit` folder in the .war file of the Camunda Webapp.
 
-```json
-...
-bpmnJs: {
-  additionalModules: [
-     'my-custom-module/module'
-  ]
+```javascript
+export default {
+  // …
+  bpmnJs: {
+    additionalModules: [
+      'my-custom-module/module'
+    ]
+  }
 }
-...
 ```
 
 You can find an example on how to add an additional bpmn.js module to Cockpit in the [Camunda Platform examples repository](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/cockpit-bpmn-js-module).
@@ -141,13 +153,14 @@ The BPMN moddle can be extended by adding a `moddleExtensions` property. Each mo
 and a path (value) to the JSON file of the moddle extension. The path is relative to the `app/cockpit` folder in the
 .war file of the Camunda Webapp. The suffix `.json` of the file is added automatically and must not be specified.
 ```json
-...
-bpmnJs: {
-  moddleExtensions: {
-    camunda: 'my-custom-moddle/camunda'
+export default {
+  // …
+  bpmnJs: {
+    moddleExtensions: {
+      camunda: 'my-custom-moddle/camunda'
+    }
   }
 }
-...
 ```
 
 # skipCustomListeners and skipIoMappings Flags
@@ -155,16 +168,16 @@ bpmnJs: {
 You can configure the skipCustomListeners and the skipIoMappings flag globally for cockpit by adding a `skipCustomListeners` or `skipIoMappings` property in `app/cockpit/scripts/config.js`:
 
 ```javascript
-   export default {
-     skipCustomListeners: {
-       default: true, // default value for skipCustomListeners is true
-       hidden: false  // skipCustomListeners checkbox is not hidden
-     },
-     skipIoMappings: {
-       default: true, // default value for skipIoMappings is true
-       hidden: false  // skipIoMappings checkbox is not hidden
-     }
-   };
+export default {
+  skipCustomListeners: {
+    default: true, // default value for skipCustomListeners is true
+    hidden: false  // skipCustomListeners checkbox is not hidden
+  },
+  skipIoMappings: {
+    default: true, // default value for skipIoMappings is true
+    hidden: false  // skipIoMappings checkbox is not hidden
+  }
+};
 ```
 By default (if not configured), the flag value is `true`. However, you can set the default value of the flag (`true | false`)
 in the `default` property in the configuration.
@@ -176,11 +189,11 @@ will be hidden everywhere in Cockpit.
 # Runtime Activity Instance Metrics (Process Definition)
 
  ```javascript
-    export default {
-       runtimeActivityInstanceMetrics: {
-          display: true
-       }
-    };
+export default {
+    runtimeActivityInstanceMetrics: {
+      display: true
+    }
+};
  ```
 By default the activity instance statistics are displayed for the runtime view of the process definition.
 Hence, the default value of the `display` flag is `true`. If the statistics shouldn't be displayed initially process definition runtime view is opened, the `display` option needs to be set to `false`.
@@ -189,15 +202,15 @@ In any case does the toggle button allow to display/remove the statistics on dem
 # Historic Activity Instance Metrics
 
  ```javascript
-    export default {
-       historicActivityInstanceMetrics: {
-         adjustablePeriod: true,
-         //select from the default time period: day, week, month, complete
-         period: {
-           unit: 'day'
-         }
-       }
-    };
+export default {
+    historicActivityInstanceMetrics: {
+      adjustablePeriod: true,
+      //select from the default time period: day, week, month, complete
+      period: {
+        unit: 'day'
+      }
+    }
+};
  ```
  By default, the `adjustablePeriod` flag value is `true`. Setting it to false disables the ability in the process definition history view to manually select the time period for which the activity instances are displayed.
  the `unit` property of `period` allows to specify the default timer period for which the activity instance badges are supposed to be shown.
@@ -206,14 +219,14 @@ In any case does the toggle button allow to display/remove the statistics on dem
 # Default Filter for the Historic Process Instances Search
 
 ```javascript
-    export default {
-      defaultFilter: {
-        historicProcessDefinitionInstancesSearch: {
-          lastDays: 5,
-          event: 'started'
-        }
-      }
-    };
+export default {
+  defaultFilter: {
+    historicProcessDefinitionInstancesSearch: {
+      lastDays: 5,
+      event: 'started'
+    }
+  }
+};
 ```
 
 A default filter can be applied for the historic process instances search on the historic process definition view.
