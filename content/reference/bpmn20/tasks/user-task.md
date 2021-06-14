@@ -209,7 +209,7 @@ This also works in a similar way for candidate users and groups:
 <userTask id="task" name="My Task" camunda:candidateUsers="${ldapService.findAllSales()}"/>
 ```
 
-Note that this will only work if the return type of the invoked methods is String or Collection<String> (for candidate users and groups):
+Note that this will only work if the return type of the invoked methods is String or Collection\<String\> (for candidate users and groups):
 
 ```java
 public class FakeLdapService {
