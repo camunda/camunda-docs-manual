@@ -62,6 +62,11 @@ A JSON object containing a list of task comments.
     <td>The id of the task to which the comment belongs.</td>
   </tr>
   <tr>
+    <td>processInstanceId</td>
+    <td>String</td>
+    <td>The id of the process instance the comment is related to.</td>
+  </tr>
+  <tr>
     <td>time</td>
     <td>Date</td>
     <td>The time when the comment was created.</td>
@@ -119,6 +124,7 @@ GET `/task/aTaskId/comment`
     "id": "commentId",
     "userId": "userId",
     "taskId": "aTaskId",
+    "processInstanceId": "96dc383f-23eb-11e6-8e4a-f6aefe19b687",
     "time": "2013-01-02T21:37:03.764+0200",
     "message": "message",
     "removalTime":"2018-02-10T14:33:19.000+0200",
@@ -128,6 +134,7 @@ GET `/task/aTaskId/comment`
     "id": "anotherCommentId",
     "userId": "anotherUserId",
     "taskId": "aTaskId",
+    "processInstanceId": "96dc383f-23eb-11e6-8e4a-f6aefe19b687",
     "time": "2013-02-23T20:37:43.975+0200",
     "message": "anotherMessage",
     "removalTime":"2018-02-10T14:33:19.000+0200",
@@ -137,6 +144,7 @@ GET `/task/aTaskId/comment`
     "id": "yetAnotherCommentId",
     "userId": "yetAnotherUserId",
     "taskId": "aTaskId",
+    "processInstanceId": "96dc383f-23eb-11e6-8e4a-f6aefe19b687",
     "time": "2013-04-21T10:15:23.764+0200",
     "message": "yetAnotherMessage",
     "removalTime":"2018-02-10T14:33:19.000+0200",
