@@ -68,6 +68,11 @@ Its properties are as follows:
     <td>The id of the task to which the comment belongs.</td>
   </tr>
   <tr>
+    <td>processInstanceId</td>
+    <td>String</td>
+    <td>The id of the process instance the comment is related to.</td>
+  </tr>
+  <tr>
     <td>time</td>
     <td>Date</td>
     <td>The time when the comment was created.</td>
@@ -124,6 +129,7 @@ GET `/task/aTaskId/comment/aTaskCommentId`
   "id": "aTaskCommentId",
   "userId": "userId",
   "taskId": "aTaskId",
+  "processInstanceId": "96dc383f-23eb-11e6-8e4a-f6aefe19b687",
   "time": "2013-01-02T21:37:03.664+0200",
   "message": "comment content",
   "removalTime":"2018-02-10T14:33:19.000+0200",
