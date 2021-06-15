@@ -47,6 +47,10 @@ A JSON object with the following properties:
     <td>message</td>
     <td>The message of the task comment to create. Has to be of type <code>String</code>.</td>
   </tr>
+  <tr>
+    <td>processInstanceId</td>
+    <td>Assigns the comment to a process instance id.</td>
+  </tr>
 </table>
 
 
@@ -75,6 +79,11 @@ Its properties are as follows:
     <td>taskId</td>
     <td>String</td>
     <td>The id of the task to which the comment belongs.</td>
+  </tr>
+  <tr>
+    <td>processInstanceId</td>
+    <td>String</td>
+    <td>The id of the process instance the comment is related to.</td>
   </tr>
   <tr>
     <td>time</td>
@@ -138,7 +147,10 @@ Post data for a new task comment:
 
 POST `/task/aTaskId/comment/create`
 
-    {"message": "a task comment"}
+    {
+      "message": "a task comment",
+      "processInstanceId": "96dc383f-23eb-11e6-8e4a-f6aefe19b687"
+    }
 
 ## Response
 
@@ -156,6 +168,7 @@ Status 200.
   "id": "aTaskCommentId",
   "userId": "userId",
   "taskId": "aTaskId",
+  "processInstanceId": "96dc383f-23eb-11e6-8e4a-f6aefe19b687",
   "time": "2013-01-02T21:37:03.887+0200",
   "message": "comment message",
   "removalTime":"2018-02-10T14:33:19.000+0200",
