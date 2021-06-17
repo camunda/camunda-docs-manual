@@ -28,8 +28,8 @@ Run the Camunda Platform in every Java-runnable environment. Camunda Platform is
 ## Container-Managed Process Engine and Camunda Cockpit, Tasklist, Admin
 
 * Apache Tomcat 9.0
-* JBoss EAP 6.4 / 7.0 / 7.1 / 7.2 / 7.3
-* Wildfly Application Server 12.0 / 13.0 / 14.0 / 15.0 / 16.0 / 17.0 / 18.0 / 19.0 / 20.0 / 21.0 / 22.0
+* JBoss EAP 7.0 / 7.1 / 7.2 / 7.3
+* Wildfly Application Server 13.0 / 14.0 / 15.0 / 16.0 / 17.0 / 18.0 / 19.0 / 20.0 / 21.0 / 22.0
 * IBM WebSphere Application Server 8.5 / 9.0 ([Enterprise Edition only](http://camunda.com/enterprise/))
 * Oracle WebLogic Server 12c (12R2) ([Enterprise Edition only](http://camunda.com/enterprise/))
 
@@ -38,13 +38,13 @@ Run the Camunda Platform in every Java-runnable environment. Camunda Platform is
 
 ## Supported Database Products
 
-* MySQL 5.6 / 5.7 / 8.0
+* MySQL 5.7 / 8.0
 * MariaDB 10.2 / 10.3
-* Oracle 12c / 18c / 19c
-* IBM DB2 10.5 / 11.1 (excluding IBM z/OS for all versions)
+* Oracle 12c / 19c
+* IBM DB2 11.1 (excluding IBM z/OS for all versions)
 * PostgreSQL 9.6 / 10 / 11 / 12 / 13
 * Amazon Aurora PostgreSQL compatible with PostgreSQL 9.6 / 10.4 / 10.7 / 10.13 / 12.4
-* Microsoft SQL Server 2012/2014/2016/2017/2019 (see [Configuration Note]({{< ref "/user-guide/process-engine/database/mssql-configuration.md" >}}))
+* Microsoft SQL Server 2014/2016/2017/2019 (see [Configuration Note]({{< ref "/user-guide/process-engine/database/mssql-configuration.md" >}}))
 * H2 1.4 (not recommended for [Cluster Mode]({{< ref "/introduction/architecture.md#clustering-model" >}}) - see [Deployment Note]({{< ref "/user-guide/process-engine/deployments.md" >}}))
 * CockroachDB v20.1.3 (see [Configuration guide]({{< ref "/user-guide/process-engine/database/cockroachdb-configuration.md" >}}) for more details)
 
