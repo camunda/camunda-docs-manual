@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Removes a task by id.
+Removes a task by id.  Only tasks that are not part of a running process or case can be deleted / only custom tasks can be deleted.
 
 # Method
 
