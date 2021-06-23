@@ -338,7 +338,7 @@ i.e., `$sum`)
 
 There are also special variables:
 
-1. `execution`, which is always available if the script is executed in an execution scope (e.g., in a script task) ({< javadocref page="?org/camunda/bpm/engine/delegate/DelegateExecution.html" text="DelegateExecution" >}}).
+1. `execution`, which is always available if the script is executed in an execution scope (e.g., in a script task) ({{< javadocref page="?org/camunda/bpm/engine/delegate/DelegateExecution.html" text="DelegateExecution" >}}).
 1. `task`, which is available if the script is executed in a task scope (e.g., a task listener) ({{< javadocref page="?org/camunda/bpm/engine/delegate/DelegateTask.html" text="DelegateTask" >}}).
 1. `connector`, which is available if the script is executed in a connector variable scope (e.g., outputParameter of a camunda:connector) ({{< javadocref page="?org/camunda/connect/plugin/impl/ConnectorVariableScope.html" text="ConnectorVariableScope" >}}).
 
