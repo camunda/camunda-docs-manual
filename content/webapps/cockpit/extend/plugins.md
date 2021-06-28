@@ -13,6 +13,8 @@ menu:
 
 {{< note title="Plugin Compatibility" class="info" >}}
 Please note that we updated the frontend plugin interface with Camunda Platform Runtime 7.14. Plugins written for Camunda Platform Runtime 7.13 and earlier might no longer work with Camunda Platform Runtime 7.14. Checkout the [update guide]({{< ref "/update/minor/713-to-714" >}}) for more details.
+
+It is also important to remember that [Camunda Platform Run]({{< ref "/user-guide/camunda-bpm-run" >}}) does not offer support for Cockpit plugins at the moment.
 {{< /note >}}
 
 Cockpit defines a plugin concept to add own functionality without being forced to extend or hack the Cockpit web application. You can add plugins at various plugin points, e.g., the processes dashboard as shown in the following example:
