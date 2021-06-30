@@ -62,6 +62,13 @@ A multipart form submit with the following parts:
     </td>
   </tr>
   <tr>
+    <td>deployment-activation-time</td>
+    <td>text/plain</td>
+    <td>
+      Sets the date on which the process definitions contained in this deployment will be activated. This means that all process definitions will be deployed as usual, but they will be suspended from the start until the given activation date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.
+    </td>
+  </tr>
+  <tr>
     <td>tenant-id</td>
     <td>text/plain</td>
     <td>
@@ -75,6 +82,7 @@ A multipart form submit with the following parts:
   </tr>
 </table>
 
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Result
 
@@ -193,6 +201,10 @@ true
 Content-Disposition: form-data; name="deployment-source"
 
 process application
+--28319d96a8c54b529aa9159ad75edef9
+Content-Disposition: form-data; name="deployment-activation-time"
+
+2030-11-11T11:11:11.000+0200
 --28319d96a8c54b529aa9159ad75edef9
 Content-Disposition: form-data; name="data"; filename="test.bpmn"
 
