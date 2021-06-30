@@ -47,7 +47,7 @@ Replace the following libraries in the folder `$TOMCAT_HOME/lib/` with their new
 
 # 2. Update Optional Camunda Platform Libraries
 
-In addition to the core libraries, there may be optional artifacts in `$TOMCAT_HOME/lib/` for LDAP integration, Camunda Connect, Camunda Spin, and Groovy scripting. If you use any of these extensions, the following update steps apply:
+In addition to the core libraries, there may be optional artifacts in `$TOMCAT_HOME/lib/` for LDAP integration, Camunda Connect, Camunda Spin, and scripting. If you use any of these extensions, the following update steps apply:
 
 ## LDAP Integration
 
@@ -69,6 +69,16 @@ Copy the following libraries from `$TOMCAT_DISTRIBUTION/lib` to the folder `$TOM
 * `camunda-spin-core-$SPIN_VERSION.jar`
 * `camunda-engine-plugin-spin-$PLATFORM_VERSION.jar`
 
+## GraalVM JavaScript
+
+Copy the following libraries from `$TOMCAT_DISTRIBUTION/lib` to the folder `$TOMCAT_HOME/lib/`, if present:
+
+* `graal-sdk-21.1.0.jar`
+* `icu4j-68.2.jar`
+* `js-21.1.0.jar`
+* `js-scriptengine-21.1.0.jar`
+* `regex-21.1.0.jar`
+* `truffle-api-21.1.0.jar`
 
 # 3. Update Web Applications
 

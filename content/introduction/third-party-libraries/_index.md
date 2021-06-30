@@ -39,6 +39,7 @@ Additionally, the process engine can be integrated with:
 * [Freemarker](http://freemarker.org/) {{< OD >}} for freemarker template engine support.
 * [Apache Velocity](http://velocity.apache.org/) {{< OD >}} for apache velocity template engine support.
 * [SAXON](http://saxon.sourceforge.net/) {{< OD >}} for XSLT and XQuery template engine support.
+* [GraalVM JavaScript](https://www.graalvm.org/reference-manual/js/) {{< OD >}} for JavaScript script task support.
 
 
 # REST API

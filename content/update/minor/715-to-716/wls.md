@@ -54,7 +54,7 @@ After shutting down the server, replace the following libraries in `$WLS_DOMAIN_
 
 # 3. Replace Optional Camunda Dependencies
 
-In addition to the core libraries, there may be optional artifacts in `$WLS_DOMAIN_HOME/lib` for LDAP integration, Camunda Spin, and Groovy scripting. If you use any of these extensions, the following update steps apply:
+In addition to the core libraries, there may be optional artifacts in `$WLS_DOMAIN_HOME/lib` for LDAP integration, Camunda Spin, and scripting. If you use any of these extensions, the following update steps apply:
 
 ## LDAP integration
 
@@ -76,6 +76,17 @@ Copy the following library from `$WLS_DISTRIBUTION/modules/lib` to the folder `$
 
 --- 
 `camunda-spin-dataformat-all` and `camunda-engine-plugin-spin` are part of the .ear
+
+## GraalVM JavaScript
+
+Copy the following libraries from `$WLS_DISTRIBUTION/modules/lib` to the folder `$WLS_DOMAIN_HOME/lib`, if present:
+
+* `graal-sdk-$GRAALJS_VERSION.jar`
+* `icu4j-$ICU4J_VERSION.jar`
+* `js-$GRAALJS_VERSION.jar`
+* `js-scriptengine-$GRAALJS_VERSION.jar`
+* `regex-$GRAALJS_VERSION.jar`
+* `truffle-api-$GRAALJS_VERSION.jar`
 
 # 4. Maintain the Camunda Platform Configuration
 

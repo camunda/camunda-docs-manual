@@ -57,7 +57,7 @@ After shutting down the server, replace the following libraries in `$SHARED_LIBR
 
 # 3. Replace Optional Camunda Dependencies
 
-In addition to the core libraries, there may be optional artifacts in `$SHARED_LIBRARY_PATH` for LDAP integration, Camunda Spin, and Camunda Connect. If you use any of these extensions, the following update steps apply:
+In addition to the core libraries, there may be optional artifacts in `$SHARED_LIBRARY_PATH` for LDAP integration, Camunda Spin, Camunda Connect, and scripting. If you use any of these extensions, the following update steps apply:
 
 ## LDAP integration
 
@@ -75,6 +75,16 @@ Copy the following library from `$WAS_DISTRIBUTION/modules/lib` to the folder `$
 
 * `camunda-spin-core-$SPIN_VERSION.jar`
 
+## GraalVM JavaScript
+
+Copy the following libraries from `$WAS_DISTRIBUTION/modules/lib` to the folder `$SHARED_LIBRARY_PATH`, if present:
+
+* `graal-sdk-$GRAALJS_VERSION.jar`
+* `icu4j-$ICU4J_VERSION.jar`
+* `js-$GRAALJS_VERSION.jar`
+* `js-scriptengine-$GRAALJS_VERSION.jar`
+* `regex-$GRAALJS_VERSION.jar`
+* `truffle-api-$GRAALJS_VERSION.jar`
 
 # 4. Maintain the Camunda Platform Configuration
 
