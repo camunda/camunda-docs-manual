@@ -195,7 +195,7 @@ If migration is not immediately possible, you can use the following options to r
 Furthermore, you can also configure the *GraalVM JavaScript* engine to your needs if necessary. 
 Please consult the [Configure Script Engine Guide]({{< ref "/user-guide/process-engine/scripting.md#configure-script-engine" >}}) on how to achieve this.
 
-[application setup]: ({{< ref "/introduction/architecture.md#camunda-platform-architecture" >}})
-[Pre-Packaged Distributions]: ({{< ref "/installation/full/_index.md" >}})
-[Camunda Platform Run]: ({{< ref "/installation/camunda-bpm-run.md" >}})
-[Default JavaScript engine]: (#default-javascript-engine)
+[application setup]: {{< ref "/introduction/architecture.md#camunda-platform-architecture" >}}
+[Pre-Packaged Distributions]: {{< ref "/installation/full/_index.md" >}}
+[Camunda Platform Run]: {{< ref "/installation/camunda-bpm-run.md" >}}
+[Default JavaScript engine]: #default-javascript-engine
