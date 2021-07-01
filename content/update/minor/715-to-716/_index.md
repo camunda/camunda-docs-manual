@@ -104,7 +104,8 @@ This section provides guidance on migration tasks for business processes that ma
 Beyond the adjustments regarding JavaScript execution, migrating to Java 15 requires no further specific actions.
 
 If you are migrating to Java 15 or later, please continue with section [Java 15 migration](#java-15-migration).
-If you are using any Java version prior to Java 15, jump ahead to section [Default JavaScript engine] to learn about changes in the default behavior of JavaScript execution in the Camunda Platform in general.
+If you are using any Java version prior to Java 15, jump ahead to section [Default JavaScript engine](#default-javascript-engine) 
+to learn about changes in the default behavior of JavaScript execution in the Camunda Platform in general.
 
 ## Java 15 migration
 
@@ -115,8 +116,8 @@ With Nashorn not included in Java 15 anymore, you can move forward with any of t
 1. Move away from JavaScript by using Java Delegates, External Tasks, or another scripting language like Groovy
 
 With this release, we add out-of-the-box support for option #1. You can approach options #2 and #3 as you can with any previous version of Camunda Platform.
-Depending on your [application setup] and use of JavaScript, moving forward with *GraalVM JavaScript* requires different follow-up tasks. 
-In any case, make sure to thoroughly test your scripts after migrating your applications before using them in production. 
+Depending on your [application setup]({{< ref "/introduction/architecture.md#camunda-platform-architecture" >}}) and use of JavaScript, moving forward with 
+*GraalVM JavaScript* requires different follow-up tasks. In any case, make sure to thoroughly test your scripts after migrating your applications before using them in production. 
 
 Choose the section that fits your setup best to read on from the following:
 
@@ -138,27 +139,27 @@ Please make sure you use the same version for both dependencies to ensure compat
 
 The JVM registers the *GraalVM JavaScript* engine automatically. The Camunda Platform picks up the script engine and configures it automatically for any occurrence of JavaScript execution in the process engine context. 
 
-If you are migrating from *Nashorn*, please read the [official migration guide](https://www.graalvm.org/reference-manual/js/NashornMigrationGuide/). 
+If you are migrating from *Nashorn*, please read the [official Nashorn migration guide]. 
 You can also configure the *GraalVM JavaScript* engine to your needs if necessary. 
-Please consult the [Configure Script Engine Guide]({{< ref "/user-guide/process-engine/scripting.md#configure-script-engine" >}}) on how to achieve this.
+Please consult the [Configure Script Engine Guide] on how to achieve this.
 
 
 ### Shared Process Engine
 
-If you are using any of our [Pre-Packaged Distributions], *GraalVM JavaScript* can be included in the container of your choice by updating as advised in the [Full Distribution](#full-distribution) section above.
+If you are using any of our [Pre-Packaged Distributions], *GraalVM JavaScript* can be included in the container of your choice by updating as advised in the [Full Distribution] section above.
 
-If you are migrating from *Nashorn*, please read the [official migration guide](https://www.graalvm.org/reference-manual/js/NashornMigrationGuide/).
+If you are migrating from *Nashorn*, please read the [official Nashorn migration guide].
 You can also configure the *GraalVM JavaScript* engine to your needs if necessary. 
-Please consult the [Configure Script Engine Guide]({{< ref "/user-guide/process-engine/scripting.md#configure-script-engine" >}}) on how to achieve this.
+Please consult the [Configure Script Engine Guide] on how to achieve this.
 
 ### Remote Process Engine
 
-If you are using any of our [Pre-Packaged Distributions], *GraalVM JavaScript* can be included in the container of your choice by updating as advised in the [Full Distribution](#full-distribution) section above.
+If you are using any of our [Pre-Packaged Distributions], *GraalVM JavaScript* can be included in the container of your choice by updating as advised in the [Full Distribution] section above.
 If you are using [Camunda Platform Run], *GraalVM JavaScript* is already included in your distribution by default. You don't have to consider any further setup tasks to include *GraalVM JavaScript*.
 
-If you are migrating from *Nashorn*, please read the [official migration guide](https://www.graalvm.org/reference-manual/js/NashornMigrationGuide/).
+If you are migrating from *Nashorn*, please read the [official Nashorn migration guide].
 You can also configure the *GraalVM JavaScript* engine to your needs if necessary. 
-Please consult the [Configure Script Engine Guide]({{< ref "/user-guide/process-engine/scripting.md#configure-script-engine" >}}) on how to achieve this.
+Please consult the [Configure Script Engine Guide] on how to achieve this.
 
 ## Default JavaScript engine
 
@@ -170,7 +171,7 @@ In order to provide a reliable behavior on those platforms, the Camunda Platform
 If this script engine cannot be found, the Camunda Platform picks any other script engine registered for JavaScript execution based on the JVM's choosing.
 In effect, you might be automatically migrating from *Nashorn* to *GraalVM JavaScript* depending on the distribution you use and the upgrade procedure you perform.
 
-The following Camunda distributions include *GraalVM JavaScript* by default when updating as advised in the [Full Distribution](#full-distribution) section:
+The following Camunda distributions include *GraalVM JavaScript* by default when updating as advised in the [Full Distribution] section:
 
 * Camunda Platform Run
 * JBoss AS / Wildfly
@@ -178,7 +179,7 @@ The following Camunda distributions include *GraalVM JavaScript* by default when
 All other Camunda distributions consider this script engine as optional. If you do not add it when updating your distribution, it will not be available.
 In this case, the Camunda Platform executes scripts with languages `javascript` and `ecmascript` as it did before.
 
-Please consult the [official Nashorn migration guide](https://www.graalvm.org/reference-manual/js/NashornMigrationGuide/) to evaluate if migrating to *GraalVM JavaScript* is feasible in your setup.
+Please consult the [official Nashorn migration guide] to evaluate if migrating to *GraalVM JavaScript* is feasible in your setup.
 If migration is not immediately possible, you can use the following options to roll out custom migration strategies:
 
 * Do not add *GraalVM JavaScript* as a library to your distribution. 
@@ -193,9 +194,10 @@ If migration is not immediately possible, you can use the following options to r
   Using this, you can migrate to *GraalVM JavaScript* in general and still keep single scripts on the old behavior until ready to migrate.
 
 Furthermore, you can also configure the *GraalVM JavaScript* engine to your needs if necessary. 
-Please consult the [Configure Script Engine Guide]({{< ref "/user-guide/process-engine/scripting.md#configure-script-engine" >}}) on how to achieve this.
+Please consult the [Configure Script Engine Guide] on how to achieve this.
 
-[application setup]: {{< ref "/introduction/architecture.md#camunda-platform-architecture" >}}
 [Pre-Packaged Distributions]: {{< ref "/installation/full/_index.md" >}}
 [Camunda Platform Run]: {{< ref "/installation/camunda-bpm-run.md" >}}
-[Default JavaScript engine]: #default-javascript-engine
+[official Nashorn migration guide]: https://www.graalvm.org/reference-manual/js/NashornMigrationGuide/
+[Full Distribution]: #full-distribution
+[Configure Script Engine Guide]: {{< ref "/user-guide/process-engine/scripting.md#configure-script-engine" >}}

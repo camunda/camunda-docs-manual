@@ -333,73 +333,14 @@ Note that for JavaScript execution you might be able to choose the script engine
 
 ## Process engine flags
 
-You can use the following process engine configuration flags to influence the configuration of specific script engines.
+You can use the following process engine configuration flags to influence the configuration of specific script engines:
 
-<table class="table table-striped">
-  <tr>
-    <th>Property name</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-
-  <tr>
-    <td><code>configureScriptEngineHostAccess</code></td>
-    <td>Boolean</td>
-    <td>
-      Specifies whether host language resources like classes and their methods are accessible or not.
-      <p>
-        <strong>GraalVM JavaScript</strong>:
-        <br>
-        If enabled, <code>polyglot.js.allowHostAccess</code> and <code>polyglot.js.allowHostClassLookup</code>
-        are set to <code>true</code>.
-      </p>
-      <p>
-        Default value is <code>true</code>.
-      </p>
-      <p>
-        <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
-      </p>
-    </td>
-  </tr>
-
-  <tr>
-    <td><code>enableScriptEngineLoadExternalResources</code></td>
-    <td>Boolean</td>
-    <td>
-      Specifies whether external resources can be loaded from file system or not.
-      <p>
-        <strong>GraalVM JavaScript</strong>:
-        <br>
-        If enabled, <code>polyglot.js.allowIO</code> is set to <code>true</code>.
-      </p>
-      <p>
-        Default value is <code>false</code>.
-      </p>
-      <p>
-        <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
-      </p>
-    </td>
-  </tr>
-
-  <tr>
-    <td><code>enableScriptEngineNashornCompatibility</code></td>
-    <td>Boolean</td>
-    <td>
-      Specifies whether Nashorn compatibility mode is enabled or not.
-      <p>
-        <strong>GraalVM JavaScript</strong>:
-        <br>
-        If enabled, <code>polyglot.js.nashorn-compat</code> is set to <code>true</code>.
-      </p>
-      <p>
-        Default value is <code>false</code>.
-      </p>
-      <p>
-        <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
-      </p>
-    </td>
-  </tr>
-</table>
+* [configureScriptEngineHostAccess]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#configureScriptEngineHostAccess" >}}) - 
+  Specifies whether host language resources like classes and their methods are accessible or not.
+* [enableScriptEngineLoadExternalResources]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#enableScriptEngineLoadExternalResources" >}}) - 
+  Specifies whether external resources can be loaded from file system or not.
+* [enableScriptEngineNashornCompatibility]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#enableScriptEngineNashornCompatibility" >}}) - 
+  Specifies whether Nashorn compatibility mode is enabled or not.
 
 ## System properties
 
