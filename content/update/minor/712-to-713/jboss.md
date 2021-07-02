@@ -89,6 +89,8 @@ Additionally, also replace the following dependent modules:
 * `com/fasterxml/jackson/core/jackson-core`
 * `com/fasterxml/jackson/core/jackson-databind`
 * `com/jayway/jsonpath/json-path`
+* `net/minidev/accessors-smart`
+* `net/minidev/json-smart`
 
 # 3. Update Camunda Web Applications
 
