@@ -675,6 +675,16 @@ to UTC for storage, and back from UTC to the current time zone for retrieval. Re
 * [Change Docker Environment Variables](https://github.com/camunda/docker-camunda-bpm-platform/tree/7.14#database-environment-variables)
 * [MySQL Connector/J 8.0 Migration Guide](https://dev.mysql.com/doc/connectors/en/connector-j-upgrading-to-8.0.html)
 
+## 7.14.9 to 7.14.10 / 7.13.15 to 7.13.16
+
+### Spin: updated dependencies
+
+With this release, the following dependencies of Spin have been updated:
+
+* json-path from 2.4.0 to 2.6.0
+* accessors-smart from 1.2 to 2.4.7
+* json-smart from 2.3 to 2.4.7
+
 # Full Distribution
 
 This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.
