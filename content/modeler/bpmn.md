@@ -20,6 +20,9 @@ menu:
 
 To start modeling, create a new BPMN 2.0 diagram for the Camunda Platform by selecting *Create diagram > Create new BPMN diagram (Camunda Platform)* in the top-level menu.
 
+{{< note class="info" title="Deployment Support" >}}
+BPMN diagrams must be created for the process engine they intend to be deployed on. You cannot run a BPMN diagram modeled for Camunda Platform in Camunda Cloud, or vice versa, at this time. {{< /note >}}
+
 ## Start Modeling
 
 {{< img src="img/quickstart-2.png" title="Start Modeling" >}}
