@@ -316,13 +316,28 @@ In case the Script Engine module should be installed globally and JBoss is used,
 
 # Configure Script Engine
 
-By default, the following script engines are configured with default options after creation:
+Most script engines offer configuration options to adjust their script execution semantics.
+We provide the following default configurations for supported script engines before executing code on them:
 
-* **Groovy**. Configured to only hold weak references to Java methods by setting `#jsr223.groovy.engine.keep.globals` to `weak`.
-* **GraalVM JavaScript**. Configured to allow host acces and host class lookup by setting `polyglot.js.allowHostAccess` and 
-  `polyglot.js.allowHostClassLookup` to `true`.
+<table class="table desc-table">
+  <tr>
+    <th>Script Engine</th>
+    <th>Default configuration</th>
+  </tr>
+  <tr>
+    <td>GraalVM JavaScript</td>
+    <td>
+      Configured to allow host acces and host class lookup by setting <code>polyglot.js.allowHostAccess</code> and 
+      <code>polyglot.js.allowHostClassLookup</code> to <code>true</code>.
+    </td>
+  </tr>
+  <tr>
+    <td>Groovy</td>
+    <td>Configured to only hold weak references to Java methods by setting <code>#jsr223.groovy.engine.keep.globals</code> to <code>weak</code>.</td>
+  </tr>
+</table>
 
-You can configure the script engines by any of the following:
+Besides those default options, you can configure the script engines by any of the following:
 
 * Set script engine-specific configuration flags in process engine configuration.
 * Provide script engine-specific system properties.
@@ -569,14 +584,14 @@ section of the [Custom Extensions]({{< ref "/reference/bpmn20/custom-extensions/
 
 # JavaScript Considerations
 
-**JavaScript** code execution is part of the Java Runtime (JRE) with the **Nashorn** script engine until Java 14 and thus only there available out of the box.
+JavaScript code execution is part of the Java Runtime (JRE) with the **Nashorn** script engine until Java 14 and thus only there available out of the box.
 We include **GraalVM JavaScript** in the pre-packaged Camunda distributions as a replacement regardless of the JRE version.
-JavaScript code executes on **GraalVM JavaScript** with preference in the process engine context if this script engine is available.
+JavaScript code executes on GraalVM JavaScript with preference in the process engine context if this script engine is available.
 If this script engine cannot be found, the process engine defaults to let the JVM select an appropriate script engine.
 
 You can set the default JavaScript engine to use for languages `javascript` and `ecmascript` with the process engine configuration property named `scriptEngineNameJavaScript`.
-Set this value to `nashorn` to configure the process engine to use the **Nashorn** script engine by default.
-Note that if no script engine related to that value can be found, the process engine will not look for a fallback and might throw an exception.
+Set this value to `nashorn` to configure the process engine to use the Nashorn script engine by default.
+Note that if no script engine related to that value can be found, the process engine does not look for a fallback and throws an exception.
 
 Consult the [official GraalVM JavaScript Guide](https://www.graalvm.org/reference-manual/js/ScriptEngine/) for questions around that script engine. 
 It also contains a guide on [Migration from Nashorn](https://www.graalvm.org/reference-manual/js/NashornMigrationGuide/).
