@@ -89,15 +89,15 @@ There are no new mandatory dependencies for process applications.
 
 # Standalone Web Application
 
-If the standalone web application is in use, the current `war` artifact must be replaced by its new version.
+If you use a standalone web application, replace the current `war` artifact by its new version. 
+Take the following steps to complete the update:
 
-If a database other than the default H2 database is used, the following steps must be taken:
-
-1. Undeploy the current version of the standalone web application
-2. Update the database to the new schema as described in the [database update](#database-updates) section
-3. Reconfigure the database as described in the [installation]({{< ref "/installation/standalone-webapplication.md#database-configuration" >}})
-   section
-4. Deploy the new and configured standalone web application to the server
+1. Undeploy the current version of the standalone web application.
+2. Update the database to the new schema as described in the [database update](#database-updates) section.
+3. Configure the database as described in the [installation]({{< ref "/installation/standalone-webapplication.md#database-configuration" >}})
+   section. **Note** that starting with 7.13.16 the standalone web applications use **HikariCP** for data sources instead of Apache Commons DBCP. 
+   Replace the `targetDataSource`'s bean class to `com.zaxxer.hikari.HikariDataSource` and rename the `url` parameter of the data source to `jdbcUrl`.
+4. Deploy the new and configured standalone web application to the server.
 
 # Spring Boot Starter Update
 
