@@ -113,14 +113,17 @@ Sometimes the creation of the very first Maven project fails in Eclipse. If that
 
 # Usage in IntelliJ IDEA
 
-1. On the "Welcome to IntelliJ IDEA" screen, click on "Configure" and select "Plugins" in the dropdown
-2. In the plugins dialog, click on "Browse repositories..."
-3. Search for the plugin "Maven Archetype Catalogs" and click on "Install"
-4. Restart IntelliJ IDEA
-5. On the "Welcome to IntelliJ IDEA" screen, click on "Configure" and select "Preferences" in the dropdown
-6. In the preferences window, navigate to: "Build, Execution, Deployment > Build Tools > Maven Archetype Catalogs"
-7. To create a Maven project from an archetype, click on the "Welcome to IntelliJ IDEA" screen on "Create New Project"
-8. In the new project dialog, click on the left side on "Maven", check "Create from archetype" and select any `org.camunda.bpm.archetype` entry
+1. On the "Welcome to IntelliJ IDEA" screen, click on "Configure" and select "Plugins" in the dropdown.
+2. In the plugins dialog, click on "Browse repositories...".
+3. Search for the plugin "Maven Archetype Catalogs" and click on "Install".
+4. Restart IntelliJ IDEA.
+5. On the "Welcome to IntelliJ IDEA" screen, click on "Configure" and select "Preferences" in the dropdown.
+6. In the preferences window, navigate to: "Build, Execution, Deployment > Build Tools > Maven Archetype Catalogs".
+7. In the Maven Archetype Catalogs window, click on the "+" button, and in the opened "Add Archetype Catalog URL"
+   modal window add the  URL of the catalog file: https://app.camunda.com/nexus/content/repositories/camunda-bpm/archetype-catalog.xml.
+8. To create a Maven project from an archetype, click on the "Welcome to IntelliJ IDEA" screen on "Create New Project".
+9. In the new project dialog, click on the left side on "Maven", check "Create from archetype" 
+   and select any `org.camunda.bpm.archetype` entry.
 
 # Usage on Command Line
 
