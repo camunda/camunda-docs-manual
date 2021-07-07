@@ -678,6 +678,27 @@ With this release, the following dependencies of Spin have been updated:
 * accessors-smart from 1.2 to 2.4.7
 * json-smart from 2.3 to 2.4.7
 
+### Standalone Webapplication: HikariCP replaces Commons DBCP
+
+The standalone web applications now use HikariCP for data source configuration instead of Apache Commons DBCP. Replace
+the `org.apache.commons.dbcp.BasicDataSource` class in your `applicationContext.xml` with a
+`com.zaxxer.hikari.HikariDataSource`. The HikariCP data source expects the JDBC URL on a property called `jdbcUrl` 
+instead of `url`. Thus, you need to rename the `url` property. Your data source description should look similar to 
+this, with `DB-DRIVER-CLASS`, `JDBC-URL`, `DB-USER`, and `DB-PASSWORD` replaced by values related to your database:
+
+```xml
+<bean id="dataSource" class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
+  <property name="targetDataSource">
+    <bean class="com.zaxxer.hikari.HikariDataSource">
+      <property name="driverClassName" value="DB-DRIVER-CLASS" />
+      <property name="jdbcUrl" value="JDBC-URL" />
+      <property name="username" value="DB-USER" />
+      <property name="password" value="DB-PASSWORD" />
+    </bean>
+  </property>
+</bean>
+```
+
 # Full Distribution
 
 This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.
