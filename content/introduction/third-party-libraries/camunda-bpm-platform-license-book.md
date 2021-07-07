@@ -686,6 +686,12 @@ This software includes projects with other licenses -- see `doc/LICENSE.md`.
 <div><details><summary>wildfly-dist@22.0.1.Final(<a href="https://opensource.org/licenses/LGPL-2.1">LGPL 2.1</a>)</summary><pre>Copyright: JBoss, Home of Professional Open Source. Copyright 2010, Red Hat, Inc., and individual contributors as indicated by the @author tags. See the copyright.txt file in the distribution for a full listing of individual contributors (https://github.com/wildfly/wildfly/blob/22.0.1.Final/servlet-feature-pack/common/src/main/resources/content/copyright.txt)</pre></details></div>
 <div><details><summary>wildfly-galleon-pack@22.0.1.Final(<a href="https://opensource.org/licenses/LGPL-2.1">LGPL 2.1</a>)</summary><pre>Copyright: JBoss, Home of Professional Open Source. Copyright 2010, Red Hat, Inc., and individual contributors as indicated by the @author tags. See the copyright.txt file in the distribution for a full listing of individual contributors (https://github.com/wildfly/wildfly/blob/22.0.1.Final/servlet-feature-pack/common/src/main/resources/content/copyright.txt)</pre></details></div>
 <div><details><summary>snakeyaml@1.27(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) http://www.snakeyaml.org</pre></details></div>
+<div><details><summary>js@21.1.0(<a href="https://opensource.org/licenses/UPL">UPL 1.0</a>)</summary><pre>Copyright (c) 2019, Oracle and/or its affiliates.</pre></details></div>
+<div><details><summary>js-scriptengine@21.1.0(<a href="https://opensource.org/licenses/UPL">UPL 1.0</a>)</summary><pre>Copyright (c) 2019, Oracle and/or its affiliates.</pre></details></div>
+<div><details><summary>graal-sdk@21.1.0(<a href="https://opensource.org/licenses/UPL">UPL 1.0</a>)</summary><pre>Copyright (c) 2015, 2019, Oracle and/or its affiliates. All rights reserved.</pre></details></div>
+<div><details><summary>regex@21.1.0(<a href="https://opensource.org/licenses/UPL">UPL 1.0</a>)</summary><pre>Copyright (c) 2015, 2019, Oracle and/or its affiliates. All rights reserved.</pre></details></div>
+<div><details><summary>truffle-api@21.1.0(<a href="https://opensource.org/licenses/UPL">UPL 1.0</a>)</summary><pre>Copyright (c) 2015, 2019, Oracle and/or its affiliates. All rights reserved.</pre></details></div>
+<div><details><summary>icu4j@68.2(<a href="http://www.unicode.org/copyright.html">Unicode Copyright</a>)</summary><pre>Copyright © 1991-2020 Unicode, Inc. All rights reserved.</pre></details></div>
 
 # Camunda Web Applications Javascript Dependencies
 

@@ -892,6 +892,70 @@ The following is a list with the most commonly used process engine configuration
         <p>Default value: <code>false</code></p>
     </td>
   </tr>
+  
+  <tr id="configureScriptEngineHostAccess">
+    <td><code>configureScriptEngineHostAccess</code></td>
+    <td>Boolean</td>
+    <td>
+      Specifies whether host language resources like classes and their methods are accessible or not.
+      <p>
+        <strong>GraalVM JavaScript</strong>:
+        <br>
+        If enabled, <code>polyglot.js.allowHostAccess</code> and <code>polyglot.js.allowHostClassLookup</code>
+        are set to <code>true</code>.
+        <br>
+        <strong>Note:</strong> These flags might not be available in every version of GraalVM JavaScript.
+      </p>
+      <p>
+        Default value is <code>true</code>.
+      </p>
+      <p>
+        <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
+      </p>
+    </td>
+  </tr>
+
+  <tr id="enableScriptEngineLoadExternalResources">
+    <td><code>enableScriptEngineLoadExternalResources</code></td>
+    <td>Boolean</td>
+    <td>
+      Specifies whether external resources can be loaded from file system or not.
+      <p>
+        <strong>GraalVM JavaScript</strong>:
+        <br>
+        If enabled, <code>polyglot.js.allowIO</code> is set to <code>true</code>.
+        <br>
+        <strong>Note:</strong> This flag might not be available in every version of GraalVM JavaScript.
+      </p>
+      <p>
+        Default value is <code>false</code>.
+      </p>
+      <p>
+        <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
+      </p>
+    </td>
+  </tr>
+
+  <tr id="enableScriptEngineNashornCompatibility">
+    <td><code>enableScriptEngineNashornCompatibility</code></td>
+    <td>Boolean</td>
+    <td>
+      Specifies whether Nashorn compatibility mode is enabled or not.
+      <p>
+        <strong>GraalVM JavaScript</strong>:
+        <br>
+        If enabled, <code>polyglot.js.nashorn-compat</code> is set to <code>true</code>.
+        <br>
+        <strong>Note:</strong> This flag might not be available in every version of GraalVM JavaScript.
+      </p>
+      <p>
+        Default value is <code>false</code>.
+      </p>
+      <p>
+        <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
+      </p>
+    </td>
+  </tr>
 
 </table>
 
