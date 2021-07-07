@@ -16,10 +16,10 @@ test the integration for Groovy, JavaScript, JRuby and Jython. To use a scriptin
 it is necessary to add the corresponding jar to the classpath.
 
 {{< note title="" class="info" >}}
-  We include *GraalVM JavaScript* in the pre-packaged Camunda distributions. 
+  We include **GraalVM JavaScript** in the pre-packaged Camunda distributions. 
   Consult [JavaScript Considerations](#javascript-considerations) for further information.
   
-  We include *Groovy* in the pre-packaged Camunda distributions.
+  We include **Groovy** in the pre-packaged Camunda distributions.
 {{< /note >}}
 
 The following table provides an overview of the BPMN elements which support the execution of
@@ -318,8 +318,8 @@ In case the Script Engine module should be installed globally and JBoss is used,
 
 By default, the following script engines are configured with default options after creation:
 
-* *Groovy*. Configured to only hold weak references to Java methods by setting `#jsr223.groovy.engine.keep.globals` to `weak`.
-* *GraalVM JavaScript*. Configured to allow host acces and host class lookup by setting `polyglot.js.allowHostAccess` and 
+* **Groovy**. Configured to only hold weak references to Java methods by setting `#jsr223.groovy.engine.keep.globals` to `weak`.
+* **GraalVM JavaScript**. Configured to allow host acces and host class lookup by setting `polyglot.js.allowHostAccess` and 
   `polyglot.js.allowHostClassLookup` to `true`.
 
 You can configure the script engines by any of the following:

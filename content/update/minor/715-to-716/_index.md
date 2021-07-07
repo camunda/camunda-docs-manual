@@ -97,7 +97,7 @@ and batch variables might not be removed when an old engine executes the monitor
 # Java 15 and GraalVM JavaScript support
 
 You can now run Camunda Platform with Java 15. 
-This version of Java not only adds new features but also removes the default JavaScript engine called *Nashorn*.
+This version of Java not only adds new features but also removes the default JavaScript engine called **Nashorn**.
 Therefore, Camunda Platform now also supports [GraalVM JavaScript](https://www.graalvm.org/reference-manual/js/) as JavaScript engine.
 
 This section provides guidance on migration tasks for processes that make use of JavaScript code in any way.
@@ -167,7 +167,7 @@ The Camunda Platform [Pre-Packaged Distributions] and [Camunda Platform Run] can
 If you run those distributions on any Java version prior to Java 15, the JVM also includes the **Nashorn** scripting engine by default.
 Thus, the JVM might have to choose from two JavaScript engines when executing scripts for languages `javascript` and `ecmascript`.
 
-In order to provide a reliable behavior on those platforms, the Camunda Platform preferrably executes code for languages `javascript` and `ecmascript` on *GraalVM JavaScript* if it is available.
+In order to provide a reliable behavior on those platforms, the Camunda Platform preferrably executes code for languages `javascript` and `ecmascript` on **GraalVM JavaScript** if it is available.
 If this script engine cannot be found, the Camunda Platform picks any other script engine registered for JavaScript execution based on the JVM's choosing.
 In effect, you might be automatically migrating from **Nashorn** to **GraalVM JavaScript** depending on the distribution you use and the upgrade procedure you perform.
 
