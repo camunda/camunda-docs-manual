@@ -43,9 +43,7 @@ In the properties panel on the right hand side, you can view and edit attributes
 
 ## Save your Form
 
-To save your state of work, click the **Save Diagram as...** button in the top-level menu. Then select a location on your file system to store the form as `.form` file.
-
-{{< img src="img/save-form.png" title="Save your Camunda Form file" >}}
+To save your state of work, click the **File > Save File As...** button in the top-level menu. Then select a location on your file system to store the form as `.form` file. You can load that file again by clicking **File > Open File...**.
 
 ## Connect your Form to a BPMN diagram
 
