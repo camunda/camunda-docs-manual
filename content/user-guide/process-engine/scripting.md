@@ -322,7 +322,7 @@ By default, the following script engines are configured with default options aft
 * *GraalVM JavaScript*. Configured to allow host acces and host class lookup by setting `polyglot.js.allowHostAccess` and 
   `polyglot.js.allowHostClassLookup` to `true`.
 
-You can configure the Script Engines by any of the following:
+You can configure the script engines by any of the following:
 
 * Set script engine-specific configuration flags in process engine configuration.
 * Provide script engine-specific system properties.
