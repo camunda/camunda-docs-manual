@@ -904,7 +904,7 @@ The following is a list with the most commonly used process engine configuration
         If enabled, <code>polyglot.js.allowHostAccess</code> and <code>polyglot.js.allowHostClassLookup</code>
         are set to <code>true</code>.
         <br>
-        <strong>Note:</strong> These flags might not be available in every version of GraalVM JavaScript
+        <strong>Note:</strong> These flags might not be available in every version of GraalVM JavaScript.
       </p>
       <p>
         Default value is <code>true</code>.
@@ -925,7 +925,7 @@ The following is a list with the most commonly used process engine configuration
         <br>
         If enabled, <code>polyglot.js.allowIO</code> is set to <code>true</code>.
         <br>
-        <strong>Note:</strong> This flag might not be available in every version of GraalVM JavaScript
+        <strong>Note:</strong> This flag might not be available in every version of GraalVM JavaScript.
       </p>
       <p>
         Default value is <code>false</code>.
@@ -946,7 +946,7 @@ The following is a list with the most commonly used process engine configuration
         <br>
         If enabled, <code>polyglot.js.nashorn-compat</code> is set to <code>true</code>.
         <br>
-        <strong>Note:</strong> This flag might not be available in every version of GraalVM JavaScript
+        <strong>Note:</strong> This flag might not be available in every version of GraalVM JavaScript.
       </p>
       <p>
         Default value is <code>false</code>.

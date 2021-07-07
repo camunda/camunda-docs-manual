@@ -350,7 +350,7 @@ Note that the supported options can differ between versions of the script engine
 
 You can set system properties either programmatically through `System.setProperty(parameter, value)` or as JVM arguments, 
 for example upon application start on command line via `-Dparameter=value`. Most application servers like JBoss AS/Wildfly, 
-Tomcat, Websphere and Weblogic support providing JVM arguments via environment variables `JAVA_OPTS` or `JAVA_OPTIONS`. 
+Tomcat, Websphere, and Weblogic support providing JVM arguments via environment variables `JAVA_OPTS` or `JAVA_OPTIONS`. 
 Consult your application server's documentation to learn how to pass on JVM arguments. Camunda Platform Run supports setting 
 JVM arguments via the `JAVA_OPTS` environment variable as well.
 
@@ -361,8 +361,8 @@ you can gain more configuration options with this approach. You can add your cus
 with the `#setScriptEngineResolver(ScriptEngineResolver)` method.
 
 You can inherit from the `org.camunda.bpm.engine.impl.scripting.engine.DefaultScriptEngineResolver` for starters in case configuring an existing 
-Script Engine instance is sufficient for you. By overriding the `#configureScriptEngines(String, ScriptEngine)` method of the `DefaultScriptEngineResolver`, 
-you can change settings on the Script Engine instance provided to that method as shown in the following example:
+script engine instance is sufficient for you. By overriding the `#configureScriptEngines(String, ScriptEngine)` method of the `DefaultScriptEngineResolver`, 
+you can change settings on the script engine instance provided to that method as shown in the following example:
 
 ```java
 public class CustomScriptEngineResolver extends DefaultScriptEngineResolver {
@@ -381,8 +381,8 @@ public class CustomScriptEngineResolver extends DefaultScriptEngineResolver {
 }
 ```
 
-If you need more flexibility in configuring a Script Engine, you can override a method further up the chain in the Script Engine creation
-or provide your own plain implementation of the interface. Have a look at the following example that provides a custom *GraalVM JavaScript* 
+If you need more flexibility in configuring a script engine, you can override a method further up the chain in the script engine creation
+or provide your own plain implementation of the interface. Have a look at the following example that provides a custom **GraalVM JavaScript** 
 instance with Nashorn Compatibility Mode enabled:
 
 ```java
@@ -569,13 +569,13 @@ section of the [Custom Extensions]({{< ref "/reference/bpmn20/custom-extensions/
 
 # JavaScript Considerations
 
-*JavaScript* code execution is part of the Java Runtime (JRE) with the *Nashorn* script engine until Java 14 and thus only there available out of the box.
-We include *GraalVM JavaScript* in the pre-packaged Camunda distributions as a replacement regardless of the JRE version.
-JavaScript code executes on *GraalVM JavaScript* with preference in the process engine context if this script engine is available.
+**JavaScript** code execution is part of the Java Runtime (JRE) with the **Nashorn** script engine until Java 14 and thus only there available out of the box.
+We include **GraalVM JavaScript** in the pre-packaged Camunda distributions as a replacement regardless of the JRE version.
+JavaScript code executes on **GraalVM JavaScript** with preference in the process engine context if this script engine is available.
 If this script engine cannot be found, the process engine defaults to let the JVM select an appropriate script engine.
 
 You can set the default JavaScript engine to use for languages `javascript` and `ecmascript` with the process engine configuration property named `scriptEngineNameJavaScript`.
-Set this value to `nashorn` to configure the process engine to use the *Nashorn* script engine by default.
+Set this value to `nashorn` to configure the process engine to use the **Nashorn** script engine by default.
 Note that if no script engine related to that value can be found, the process engine will not look for a fallback and might throw an exception.
 
 Consult the [official GraalVM JavaScript Guide](https://www.graalvm.org/reference-manual/js/ScriptEngine/) for questions around that script engine. 
