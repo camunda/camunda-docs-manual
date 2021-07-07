@@ -18,7 +18,7 @@ menu:
 
 {{< img src="img/create-dmn.png" title="New DMN Diagram" >}}
 
-To start modeling, create a new DMN 1.3 diagram for the Camunda Platform by selecting *Create diagram > Create new DMN diagram (Camunda Platform)* in the top-level menu.
+To start modeling, create a new DMN 1.3 diagram for the Camunda Platform by selecting **Create diagram > Create new DMN diagram (Camunda Platform)** in the top-level menu.
 
 ## Start Modeling
 
@@ -34,9 +34,7 @@ The demo above shows how to model a decision table. After creating a decision an
 
 ## Save a Diagram
 
-{{< img src="img/save.png" title="Save DMN Diagram" >}}
-
-To save your state of work, click *Save diagram as...* in the top-level menu. Then select a location on your file system to store the diagram in the DMN 1.3 XML format. You can load that file again by clicking *Open diagram..*.
+To save your state of work, click **File > Save File As...** in the top-level menu. Then select a location on your file system to store the diagram in the DMN 1.3 XML format. You can load that file again by clicking **File > Open File...**.
 
 ## DMN Coverage
 
