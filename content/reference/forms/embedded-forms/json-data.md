@@ -62,4 +62,4 @@ You can use JSON objects in your embedded forms. In order to persist this data i
 
 # Full Example
 
-A full example of this feature can be found in the [Camunda Platform Examples Repository](https://github.com/camunda/camunda-bpm-examples/tree/master/usertask/task-form-embedded-json).
+A full example of this feature can be found in the [Camunda Platform Examples Repository](https://github.com/camunda/camunda-bpm-examples/tree/master/usertask/task-form-embedded-json-variables).
