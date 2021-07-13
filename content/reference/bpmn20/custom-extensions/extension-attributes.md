@@ -1168,6 +1168,102 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
+# formRef
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute references a Camunda form definition by its key. See <a href="{{< ref "/user-guide/task-forms/_index.md" >}}">task forms</a> for more information.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.String</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      A <code>java.lang.String</code> or a <code>org.camunda.bpm.engine.delegate.Expression</code> which <a href="{{< ref "/webapps/tasklist/_index.md" >}}">Tasklist</a> can evaluate to display the referenced Camunda Form, e.g., myCamundaFormDefinitionKey or ${formKey}.
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>BPMN 2.0 Elements</th>
+    <td>
+      Initial <a href="{{< ref "/reference/bpmn20/events/start-events.md" >}}">Start Event</a> of a Process,
+      <a href="{{< ref "/reference/bpmn20/tasks/user-task.md" >}}">User Task</a>
+    </td>
+  </tr>
+</table>
+
+# formRefBinding
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+      <td>
+      The attribute specifies which Camunda form definition version the activity references. If the value is <code>version</code>, the attribute <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#formrefversion" >}}">camunda:formRefVersion</a> is required.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.String</code></td>
+  </tr>
+    <tr>
+    <th>Possible Values</th>
+    <td>
+      <code>latest</code>, <code>deployment</code>, <code>version</code>
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td><code>latest</code></td>
+  </tr>
+  <tr>
+    <th>BPMN 2.0 Elements</th>
+    <td>
+      Initial <a href="{{< ref "/reference/bpmn20/events/start-events.md" >}}">Start Event</a> of a Process,
+      <a href="{{< ref "/reference/bpmn20/tasks/user-task.md" >}}">User Task</a>
+    </td>
+  </tr>
+</table>
+
+# formRefVersion
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute specifies which Camunda form definition version the activity references if the <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#formrefbinding" >}}">camunda:formRefBinding</a>
+      is set to <code>version</code>.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.Integer</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      A concrete version of all deployed version numbers of the Camunda form definition as <code>java.lang.Integer</code> or an expression which evaluates to a <code>java.lang.Integer</code> e.g., <code>${versionToReference}</code>
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>BPMN 2.0 Elements</th>
+    <td>
+      Initial <a href="{{< ref "/reference/bpmn20/events/start-events.md" >}}">Start Event</a> of a Process,
+      <a href="{{< ref "/reference/bpmn20/tasks/user-task.md" >}}">User Task</a>
+    </td>
+  </tr>
+</table>
 
 # historyTimeToLive
 
