@@ -71,7 +71,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>executionDate</td>
-    <td>The date on which the given process definition will be activated or suspended. If null, the suspension state of the given process definition is updated immediately. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>The date on which the given process definition will be activated or suspended. If null, the suspension state of the given process definition is updated immediately. The date must follow the <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO-8601</a> standard, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
 </table>
 
