@@ -118,18 +118,3 @@ Whenever a new version of one of the following environments is supported, we usu
 * Wildfly Application Server
 
 Note that we may decide to deviate from this policy on a case-by-case basis.
-
-## Azure SQL compatibility levels support
-
-Microsoft ensures backwards compatibility of it's Azure SQL family of databases with the *Database 
-Compatibility Level* setting. This setting is documented in detail in our [MS-SQL Database Configuration page]({{< ref "user-guide/process-engine/database/mssql-configuration.md#camunda-support-for-azure-sql" >}}).
-
-Microsoft updates the default *Database Compatibility Level* of it's Azure SQL family of databases whenever a new
-SQL Server version is released. Camunda will add support for a new *Database Compatibility Level* when
-support for a new SQL Server version is added.
-
-In similar fashion, support for a *Database Compatibility Level* will be dropped when support for an
-SQL Server version is dropped by Camunda.
-
-You can find a table of the SQL Server versions, and their associated compatibility level values
-[at the Microsoft *Alter Compatibility Level* page](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15#arguments).
