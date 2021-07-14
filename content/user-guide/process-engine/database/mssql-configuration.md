@@ -60,7 +60,7 @@ Microsoft's *Azure SQL Managed Instance* and *Azure SQL Database* products alway
 stable version of the SQL Server database engine. In order to provide backward compatibility with
 earlier SQL Server versions, the Azure SQL products utilize the *Database Compatibility Level* setting.
 
-## SQL Server compatibility levels supported by Camunda
+## Azure SQL compatibility levels supported by Camunda
 
 Microsoft associates each SQL Server version with a *Database Compatibility Level*. You can find a table
 of the SQL Server versions, and their associated compatibility level values 
