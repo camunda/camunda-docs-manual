@@ -39,6 +39,8 @@ For executing BPMN Diagrams created using Camunda Modeler, Process Engine versio
 
 For evaluating DMN 1.3 Decisions created using Camunda Modeler, Process Engine version 7.13.0, 7.12.4, 7.11.11, 7.10.17 and above is required.
 
+For displaying Camunda Forms created using Camunda Modeler, Process Engine version 7.15.0 and above is required.
+
 Note that you do not need to install the Process Engine if you do not want to execute the BPMN Diagrams or evaluate DMN Decisions.
 
 # Download
