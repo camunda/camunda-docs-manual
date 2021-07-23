@@ -14,7 +14,7 @@ menu:
 Run the Camunda Platform in every Java-runnable environment. Camunda Platform is supported with our QA infrastructure in the following environments. Here you can find more information about our [enterprise support](http://camunda.com/bpm/enterprise/).
 
 {{< note title="Supported Environments" class="info" >}}
-  Please note that the environments listed in this section depend on the version of the Camunda Platform. Please select the corresponding version of this documentation to see the environment that fits to your version of the Camunda Platform. e.g., [supported environments for version 7.3](http://docs.camunda.org/7.3/guides/user-guide/#introduction-supported-environments)
+  Please note that the environments listed in this section depend on the version of the Camunda Platform. Please select the corresponding version of this documentation to see the environment that fits to your version of the Camunda Platform. e.g., [supported environments for version 7.15](http://docs.camunda.org/7.15/guides/user-guide/#introduction-supported-environments)
 {{< /note >}}
 
 
