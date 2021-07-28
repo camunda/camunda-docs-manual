@@ -71,10 +71,11 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>executionDate</td>
-    <td>The date on which the given process definition will be activated or suspended. If null, the suspension state of the given process definition is updated immediately. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>The date on which the given process definition will be activated or suspended. If null, the suspension state of the given process definition is updated immediately. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.234+0200</code>.</td>
   </tr>
 </table>
 
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> date format documentation</a>.
 
 # Result
 
