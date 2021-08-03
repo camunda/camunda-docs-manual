@@ -60,7 +60,9 @@ The `@CompleteTask` annotation offers the possibility to end the current convers
 
 # Work with @BusinessProcessScoped Beans
 
-Using camunda-engine-cdi, the lifecycle of a bean can be bound to a process instance. To this extent, a custom context implementation is provided, namely the BusinessProcessContext. Instances of BusinessProcessScoped beans are stored as process variables in the current process instance. BusinessProcessScoped beans need to be PassivationCapable (for example Serializable). The following is an example of a process scoped bean:
+Using camunda-engine-cdi, the lifecycle of a bean can be bound to a process instance. To this extent, a custom context implementation is provided, namely the BusinessProcessContext. Instances of BusinessProcessScoped beans are stored as process variables in the current process instance. On deployment, beans annotated with `BusinessProcessScoped` are validated for being "passivation capable", which means that they must implement the `Serializable` interface, and their references (dependencies) must be "passivation capable" as well. You can read more about the "passivation capable" criteria in the [CDI specification](https://docs.jboss.org/cdi/spec/1.0/html_single/#passivatingscope). 
+
+The following is an example of a "passivation capable" process scoped bean:
 
 ```java
 @Named
