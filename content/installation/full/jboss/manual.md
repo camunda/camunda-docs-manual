@@ -104,24 +104,10 @@ This also configures the default process engine.
 In the default configuration of the distribution, the database schema and all required tables are automatically created in an H2 database when the engine starts up for the first time. If you do not want to use the H2 database, you have to
 
 * Create a database schema for the Camunda Platform yourself.
-* Execute the SQL DDL scripts which create all required tables and default indices.
-
-The SQL DDL scripts reside in the `sql/create` folder of the distribution:
-
-`$JBOSS_DISTRIBUTION/sql/create/*_engine_$PLATFORM_VERSION.sql`
-`$JBOSS_DISTRIBUTION/sql/create/*_identity_$PLATFORM_VERSION.sql`
-
-As an alternative, you can also find a collection of the SQL scripts on our [Nexus](https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/distro/camunda-sql-scripts/). Select the respective version and download the scripts as a `zip` or `tar.gz` file, then open the `camunda-sql-scripts-$PLATFORM_VERSION/create` folder.
-
-There is an individual SQL script for each supported database. Select the appropriate script for your database and run it with your database administration tool (e.g., SqlDeveloper for Oracle).
+* Install the database schema to create all required tables and default indices using our [database schema installation guide]({{< ref "/installation/database-schema.md" >}}).
 
 When you create the tables manually, then you have to configure the engine to **not** create tables at startup by setting the `isAutoSchemaUpdate` property to `false` (or, in case you are using Oracle, to `noop`). In JBoss, this is done in the `standalone.xml`, located in the `$JBOSS_DISTRIBUTION\server\jboss-as-$VERSION\standalone\configuration\` folder.
 
-{{< note title="Heads Up!" class="info" >}}
-If you have defined a specific prefix for the entities of your database, then you will have to manually adjust the `create` scripts accordingly so that the tables are created with the prefix.
-
-Please note further that READ COMMITED is the required isolation level for database systems to run Camunda with. You may have to change the default setting on your database when installing Camunda. For more information see the documentation on [isolation levels]({{< ref "/user-guide/process-engine/database/database-configuration.md#isolation-level-configuration" >}}).
-{{< /note >}}
 
 ## Create a Datasource
 
