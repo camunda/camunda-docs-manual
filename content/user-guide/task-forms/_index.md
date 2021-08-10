@@ -104,12 +104,13 @@ When you use [Camunda Platform Run](../camunda-bpm-run) we recommend the camunda
 {{< img src="img/reference-camunda-form.png" title="Provide Form Key for Camunda Forms" >}}
 
 # Form Reference
-With Form References, Camunda Forms provide an additional way of linking an element in a BPMN diagram to a form. To link a BPMN element ([StartEvent][start-event] or [UserTask][user-tasks]) to a Camunda Form, you have to specify the key of the Camunda Form as the `camunda:FormRef` attribute. Additionally, the `camunda:formRefBinding` attribute specifies which version if the Camunda Form to reference.
+
+With Form References, Camunda Forms provide an additional way of linking an element in a BPMN diagram to a form. To link a BPMN element ([StartEvent][start-event] or [UserTask][user-tasks]) to a Camunda Form, you have to specify the key of the Camunda Form as the `camunda:FormRef` attribute. Additionally, the `camunda:formRefBinding` attribute specifies which version of the Camunda Form to reference.
 
 Valid values are:
 
 * `deployment`, which references the Camunda Form with the given key that was deployed with the same deployment as the referencing process.
-* `latest`, which will refer to the latest version of the Camunda Form.
+* `latest`, which will refer to the latest deployed version of the Camunda Form.
 *  `version`, which allows you to specify a specific version to be referenced from the BPMN element with the `camunda:formRefVersion` attribute.
 
 ```xml
