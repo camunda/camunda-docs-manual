@@ -166,7 +166,7 @@ Execute those related to your database type (`$DATABASENAME`) in ascending order
 The naming pattern is `$DATABASENAME_engine_$X_patch_*.sql`.
 
 1. Execute the corresponding update scripts named `$DATABASENAME_engine_$X_to_$Y.sql`.
-The scripts update the database from one minor version to the next, and change the underlying database structure. So make sure to backup your database in case there are any failures during the update process.
+The scripts update the database from one minor version to the next and change the underlying database structure. So make sure to backup your database in case there are any failures during the update process.
 
 1. We highly recommend checking for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to (`$Y`). Execute them in ascending order by version number. The procedure is the same as in step 1, only for the new minor version.
 
