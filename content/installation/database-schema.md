@@ -617,7 +617,7 @@ The one exception to this is a bug in the database schema itself. If you are aff
 Camunda Platform comes with a maintained changelog file that Liquibase can consume.
 This changelog helps Liquibase to keep track of the changes that have been made to your database already.
 Based on that changelog and the tracking tables, Liquibase determines which changes it needs to apply when instructing it to update your schema.
-Therefore, the procedure for patch level updates is equivalent to that for [minor version updates](#liquibase-update).
+Therefore, the procedure for patch-level updates is equivalent to that for [minor version updates](#liquibase-update).
 
 ### Manual patch level update
 
