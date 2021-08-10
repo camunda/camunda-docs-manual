@@ -28,7 +28,7 @@ This guide covers mandatory migration steps as well as optional considerations f
 
 Every Camunda installation requires a database schema update. Check our [database schema update guide]({{< ref "/installation/database-schema.md#update" >}}) for further instructions. 
 
-**Note**: Updating to Camunda Platform `7.16` from any version prior to `7.16` requires using the [manual update](({{< ref "/installation/database-schema.md#manual-update" >}})) approach.
+**Note**: Updating to Camunda Platform `7.16` from any version prior to `7.16` requires using the [manual update]({{< ref "/installation/database-schema.md#manual-update" >}}) approach.
 
 # Full Distribution
 
