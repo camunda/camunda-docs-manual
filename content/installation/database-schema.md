@@ -70,7 +70,7 @@ Consult the [manual installation guide]({{< ref "/installation/full/_index.md" >
 {{< note title="Heads Up!" class="info" >}}
 Liquibase provides additional commands to preview all changes that will be applied by commands that execute SQL statements on a database. For the `update` command, you can execute the [updateSql](https://docs.liquibase.com/commands/community/updatesql.html) command. This will let you inspect all statements that Liquibase will issue on your database without actually executing them.
 
-If you have defined a specific prefix for the entities of your database, you will have to manually adjust the `create` scripts in the `liquibase/baseline` directory accordingly so that the tables are created with the prefix.
+Furthermore, if you have defined a specific prefix for the entities of your database, you will have to manually adjust the `create` scripts in the `liquibase/baseline` directory accordingly so that the tables are created with the prefix.
 {{< /note >}}
 
 ## Manual installation
