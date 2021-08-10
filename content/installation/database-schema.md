@@ -40,7 +40,7 @@ The [update](#update) paragraph provides more details on this topic.
 
 ## Liquibase installation
 
-Camunda Platform comes with a maintained changelog file that can be consumed by Liquibase.
+Camunda Platform comes with a maintained changelog file that Liquibase can consume.
 This changelog defines which SQL statements to execute on a database.
 You can find the changelog and its referenced resources on our [Nexus].
 Select the respective version (`$PLATFORM_VERSION`) and download the resources as a `zip` or `tar.gz` file.
@@ -61,7 +61,7 @@ Perform the following steps to install the database schema on your database inst
 You can pass on the connection details to your database instance via parameters as described in the Liquibase documentation or [create a properties file](https://docs.liquibase.com/workflows/liquibase-community/creating-config-properties.html).
 
 Liquibase creates two additional tables to keep track of the changes that have been applied to your database.
-The `DATABASECHANGELOG` table keeps track of all applied changes, the `DATABASECHANGELOGLOCK` table prevents conflicts from concurrent updates on your database instance by multiple Liquibase instances. You can read more about it in the [Liquibase guide](https://www.liquibase.org/get-started/how-liquibase-works).
+The `DATABASECHANGELOG` table keeps track of all applied changes. The `DATABASECHANGELOGLOCK` table prevents conflicts from concurrent updates on your database instance by multiple Liquibase instances. You can read more about it in the [Liquibase guide](https://www.liquibase.org/get-started/how-liquibase-works).
 
 As you create the tables externally via Liquibase, you have to configure the engine to **not** create tables at startup as well.
 Set the `databaseSchemaUpdate` property to `false` (or, in case you are using Oracle, to `noop`).
@@ -98,7 +98,7 @@ If you have defined a specific prefix for the entities of your database, you wil
 # Update
 
 Updating to a newer Camunda Platform minor version also requires a database schema update. You can reuse all the options available for a [schema installation](#installation) here as well.
-In case you are switching from one option to another, you might however need to perform additional preparation work to reliably update.
+If you are switching from one option to another, you might need to perform additional preparation work to update reliably.
 The individual sections on the mechanisms will provide details if necessary.
 
 In case you are just updating to a newer patch level of your Camunda Platform installation, a schema update might not be necessary.
@@ -109,7 +109,7 @@ Section [patch level update](#patch-level-update) provides details on how this c
 This section assumes you are already set up with Liquibase as described in the [installation section](#liquibase-installation).
 In case you have not set up Liquibase itself yet and want to update a database that you [manually installed](#manual-installation) and updated until now, please consult the [migration section](#migrate-to-liquibase) first.
 
-Camunda Platform comes with a maintained changelog file that can be consumed by Liquibase.
+Camunda Platform comes with a maintained changelog file that Liquibase can consume.
 This changelog helps Liquibase to keep track of the changes that have been made to your database already.
 Based on that changelog and the tracking tables, Liquibase determines which changes it needs to apply when you instruct it to update your schema.
 
@@ -130,7 +130,7 @@ Liquibase takes care of determining which upgrade scripts to apply automatically
 {{< /note >}}
 
 {{< note title="Dry run" class="info" >}}
-Liquibase provides additional commands to preview all changes that will be applied by commands that execute SQL statements on a database. For the `update` command, you can execute the [updateSql](https://docs.liquibase.com/commands/community/updatesql.html) command. This will let you inspect all statements that Liquibase will issue on your database without actually executing them.
+Liquibase provides additional commands to preview all changes applied by commands that execute SQL statements on a database. For the `update` command, you can execute the [updateSql](https://docs.liquibase.com/commands/community/updatesql.html) command to inspect all statements that Liquibase will issue on your database without actually executing them.
 {{< /note >}}
 
 ### Migrate to Liquibase
@@ -173,7 +173,7 @@ The scripts update the database from one minor version to the next, and change t
     _Attention_: This step is only relevant when you are using an enterprise version of the Camunda Platform, e.g., `7.16.X` where `X > 0`.
 
 {{< note title="Do I need to apply every minor version if I missed a few?" class="warning" >}}
-If you need to apply multiple minor versions you MUST execute the database alteration scripts in minor version order as they are NOT cumulative.
+If you need to apply multiple minor versions, you MUST execute the database alteration scripts in minor version order as they are NOT cumulative.
 {{< /note >}}
 
 ## Patch level update
@@ -181,7 +181,7 @@ If you need to apply multiple minor versions you MUST execute the database alter
 This section explains how to perform a [patch-level update]({{< ref "/update/patch-level.md" >}}) for your database schema. The *patch level* is the version number "after the second dot". For example, update from `7.14.2` to `7.14.3`.
 
 {{< enterprise >}}
-Please note that Patch Level Updates are only provided to enterprise customers, they are not available in the community edition.
+Please note that Patch Level Updates are only provided to enterprise customers. They are not available in the community edition.
 {{< /enterprise >}}
 
 Between patch levels, the structure of the database schema does not change. The database structure of all patch releases is backward compatible with the corresponding minor version. For example, the database schema of all `7.14.x` versions are backward compatible with the `7.14.0` schema.
@@ -614,9 +614,9 @@ The one exception to this is a bug in the database schema itself. If you are aff
 
 ### Liquibase patch level update
 
-Camunda Platform comes with a maintained changelog file that can be consumed by Liquibase.
+Camunda Platform comes with a maintained changelog file that Liquibase can consume.
 This changelog helps Liquibase to keep track of the changes that have been made to your database already.
-Based on that changelog and the tracking tables, Liquibase determines which changes it needs to apply when you instruct it to update your schema.
+Based on that changelog and the tracking tables, Liquibase determines which changes it needs to apply when instructing it to update your schema.
 Therefore, the procedure for patch level updates is equivalent to that for [minor version updates](#liquibase-update).
 
 ### Manual patch level update
@@ -626,7 +626,7 @@ Select the respective patch version you want to update to (`$Y`) and download th
 Open the `camunda-sql-scripts-$Y/upgrade` folder to find all available patch scripts.
 In case you are using a [pre-packaged distribution], the SQL scripts reside in the `sql/upgrade` folder of the distribution you want to update to.
 
-The patch scripts are named `$DATABASENAME_engine_$MINOR_patch_$A_to_$B`, with `$A` being the patch level version to update from, `$B` the patch level to update to, and `$MINOR` the minor version they are on, e.g. `7.16`.
+The patch scripts are named `$DATABASENAME_engine_$MINOR_patch_$A_to_$B`, with `$A` being the patch level version to update from, `$B` the patch level to update to, and `$MINOR` the minor version they are on, e.g., `7.16`.
 If you do choose to apply a database patch, then you must apply all patch scripts that are within the bounds of your update path. This means if your current patch version is `X.X.1` and you update to `X.X.5` you have to execute all patch scripts first where `$A` &ge; `X.X.1` and `$B` &le; `X.X.5`.
 
 <strong>Note:</strong> Some patches are provided for multiple versions. It is not required to execute them more than once. See the description of the [patch version list](#patch-level-update) for information on duplicate fixes.
