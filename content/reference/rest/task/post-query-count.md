@@ -179,6 +179,10 @@ expression as a substring.
     <td>Only include tasks which are assigned to one of the passed and comma-separated user ids.</td>
   </tr>
   <tr>
+    <td>assigneeNotIn</td>
+    <td>Only include tasks which are not assigned to one of the passed and comma-separated user ids.</td>
+  </tr>
+  <tr>
     <td>owner</td>
     <td>Restrict to tasks that the given user owns.</td>
   </tr>
