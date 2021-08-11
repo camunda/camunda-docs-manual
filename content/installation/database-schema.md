@@ -67,8 +67,10 @@ As you create the tables externally via Liquibase, you have to configure the eng
 Set the `databaseSchemaUpdate` property to `false` (or, in case you are using Oracle, to `noop`).
 Consult the [manual installation guide]({{< ref "/installation/full/_index.md" >}}) of your distribution for further information on how to achieve that.
 
-{{< note title="Dry run" class="info" >}}
+{{< note title="Heads Up!" class="info" >}}
 Liquibase provides additional commands to preview all changes that will be applied by commands that execute SQL statements on a database. For the `update` command, you can execute the [updateSql](https://docs.liquibase.com/commands/community/updatesql.html) command. This will let you inspect all statements that Liquibase will issue on your database without actually executing them.
+
+Furthermore, if you have defined a specific prefix for the entities of your database, you will have to manually adjust the `create` scripts in the `liquibase/baseline` directory accordingly so that the tables are created with the prefix.
 {{< /note >}}
 
 ## Manual installation
