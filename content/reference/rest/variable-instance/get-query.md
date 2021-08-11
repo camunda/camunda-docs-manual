@@ -93,6 +93,10 @@ GET `/variable-instance`
     <td>Match all variable values provided in <code>variableValues</code> case-insensitively. If set to <code>true</code> <strong>variableValue</strong> and <strong>variablevalue</strong> are treated as equal.</td>
   </tr>
   <tr>
+    <td>variableScopeIdIn</td>
+    <td>Only include variable instances which belong to one of the passed scope ids.</td>
+  </tr>
+  <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
     <code>variableName</code>, <code>variableType</code>, <code>activityInstanceId</code> and <code>tenantId</code>.
