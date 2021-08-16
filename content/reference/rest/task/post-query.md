@@ -686,6 +686,34 @@ Each task object has the following properties:
     <td>If not null, the form key for the task.</td>
   </tr>
   <tr>
+    <td>camundaFormRef</td>
+    <td>String</td>
+    <td>If not null, the form binding for the Camunda Form with the following properties.
+      <table class="table table-striped">
+        <tr>
+          <th>Name</th>
+          <th>Value</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>key</td>
+          <td>String</td>
+          <td>The key of the linked Camunda Form.</td>
+        </tr>
+        <tr>
+          <td>binding</td>
+          <td>String</td>
+          <td>The binding type. Can be one of <code>latest</code>, <code>deployment</code> or <code>version</code>.</td>
+        </tr>
+        <tr>
+          <td>version</td>
+          <td>Integer</td>
+          <td>The concrete version of the linked Camunda Form. Only non-null when <code>binding</code> is <code>version</code>.</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
     <td>tenantId</td>
     <td>String</td>
     <td>If not null, the tenant id for the task.</td>
@@ -770,6 +798,11 @@ Request Body:
  "taskDefinitionKey":"aTaskDefinitionKey",
  "suspended": false,
  "formKey":"aFormKey",
+ "camundaFormRef": {
+   "key": "aCamundaForm",
+   "binding": "version",
+   "version": 3
+ },
  "tenantId":"aTenantId"}]
 ```
 
