@@ -379,7 +379,7 @@ During the execution of scripts, it might be desired to print to the console due
 
 Here are examples on how this can be accomplished in the respective language:
 
-* Goovy:
+* Groovy:
 
 ```groovy
 println 'This prints to the console'
