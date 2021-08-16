@@ -198,7 +198,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>assigneeNotIn</td>
-    <td>Only include tasks which are not assigned to one of the passed and comma-separated user ids.</td>
+    <td>Only include tasks which are not assigned to one of the user ids passed in the array.</td>
   </tr>
   <tr>
     <td>owner</td>
