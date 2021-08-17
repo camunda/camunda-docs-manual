@@ -411,3 +411,14 @@ Add the following modules (if not existing) from the folder `$JBOSS_DISTRIBUTION
 * `org/freemarker/freemarker`
 * `org/camunda/commons/camunda-commons-logging`
 * `org/camunda/commons/camunda-commons-utils`
+
+## GraalVM JavaScript Integration
+
+Add the following modules (if not existing) from the folder `$JBOSS_DISTRIBUTION/modules/` to the folder `$JBOSS_HOME/modules/`:
+
+* `org/graalvm/js/js`
+* `org/graalvm/js/js-scriptengine`
+* `org/graalvm/regex/regex`
+* `org/graalvm/sdk/graal-sdk`
+* `org/graalvm/truffle/truffle-api`
+* `com/ibm/icu/icu4j`
