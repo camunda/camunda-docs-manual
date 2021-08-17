@@ -228,21 +228,12 @@ The below example also configures the default process engine.
 
 ## Create the Database Schema
 
-By default, the database schema is automatically created in an H2 database when the engine starts up for the first time. If you do not want to use the H2 database, you first have to create a database schema for the Camunda Platform. The Camunda Platform distribution ships with a set of SQL create scripts that can be executed by a database administrator.
+By default, the database schema is automatically created in an H2 database when the engine starts up for the first time. If you do not want to use the H2 database, you have to
 
-The database creation scripts are reside in the `sql/create` folder:
-
-`$WILDFLY_DISTRIBUTION/sql/create/*_engine_$PLATFORM_VERSION.sql`
-`$WILDFLY_DISTRIBUTION/sql/create/*_identity_$PLATFORM_VERSION.sql`
-
-There is an individual SQL script for each supported database. Select the appropriate script for your database and run it with your database administration tool. (e.g., SqlDeveloper for Oracle).
+* Create a database schema for the Camunda Platform yourself.
+* Install the database schema to create all required tables and default indices using our [database schema installation guide]({{< ref "/installation/database-schema.md" >}}).
 
 When you create the tables manually, then you can also configure the engine to **not** create tables at startup by setting the `isAutoSchemaUpdate` property to `false` (or, in case you are using Oracle, to `noop`). In WildFly, this is done in the `standalone.xml`, located in the `$WildFly_DISTRIBUTION\server\WildFly-$VERSION\standalone\configuration\` folder.
-
-{{< note title="Heads Up!" class="info" >}}
-If you have defined a specific prefix for the entities of your database, then you will have to manually adjust the `create` scripts accordingly so that the tables are created with the prefix.
-{{< /note >}}
-
 
 ## Create a Datasource
 
