@@ -36,7 +36,7 @@ You may prepend `/engine/{name}` to any of the methods (unless otherwise documen
 
 # Error Handling
 
-For every method this documentation gives possible HTTP status codes. The error code explanations do not cover all possible error causes that may arise when the request is served, for example, most of the requests will not work properly if there are problems with database access. Any of these undocumented errors will be translated to a HTTP 500 error.
+For every method this documentation gives possible HTTP status codes. The error code explanations do not cover all possible error causes that may arise when the request is served, for example, most of the requests zxczfsdwill not work properly if there are problems with database access. Any of these undocumented errors will be translated to a HTTP 500 error.
 
 All errors also provide a JSON response body of the form:
 
