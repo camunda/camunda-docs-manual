@@ -39,10 +39,10 @@ GET `/process-definition/{id}/static-called-process-definitions`
 
 # Result
 
-A JSON Array of object corresponding to the `CalledProcessDefinition` interface in the engine.
+A JSON Array of objects corresponding to the `CalledProcessDefinition` interface in the engine.
 The Array can be empty, if the endpoint cannot resolve the called process(es) because the reference is
 an expression which is resolved by the engine during runtime of the calling process.
-Its properties of the objects in the array are as follows:
+Each called process definition object has the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -110,25 +110,25 @@ Its properties of the objects in the array are as follows:
     <td>String</td>
     <td>The version tag of the process definition.</td>
   </tr>
-    <tr>
-      <td>historyTimeToLive</td>
-      <td>Number</td>
-      <td>History time to live value of the process definition. Is used within <a href="{{< ref "/user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a>.</td>
+  <tr>
+    <td>historyTimeToLive</td>
+    <td>Number</td>
+    <td>History time to live value of the process definition. Is used within <a href="{{< ref "/user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a>.</td>
   </tr>
   <tr>
-      <td>startableInTasklist</td>
-      <td>Boolean</td>
-      <td>A flag indicating whether the process definition is startable in Tasklist or not.</td>
+    <td>startableInTasklist</td>
+    <td>Boolean</td>
+    <td>A flag indicating whether the process definition is startable in Tasklist or not.</td>
   </tr>
   <tr>
-      <td>calledFromActivityIds</td>
-      <td>Array</td>
-      <td>Ids of the CallActivities which call this process.</td>
+    <td>calledFromActivityIds</td>
+    <td>Array</td>
+    <td>Ids of the CallActivities which call this process.</td>
   </tr>
   <tr>
-      <td>callingProcessDefinitionId</td>
-      <td>String</td>
-      <td>The id of the calling process definition</td>
+    <td>callingProcessDefinitionId</td>
+    <td>String</td>
+    <td>The id of the calling process definition</td>
   </tr>
 </table>
 
