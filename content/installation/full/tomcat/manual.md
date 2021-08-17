@@ -253,3 +253,14 @@ Add the following artifacts (if not existing) from the folder `$TOMCAT_DISTRIBUT
 * `camunda-template-engines-freemarker-$TEMPLATE_VERSION.jar`
 * `freemarker-2.3.29.jar`
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
+
+## GraalVM JavaScript Integration
+
+Add the following artifacts (if not existing) from the folder `$TOMCAT_DISTRIBUTION/lib/` to the folder `$TOMCAT_HOME/lib/`:
+
+* `graal-sdk-21.1.0.jar`
+* `icu4j-68.2.jar`
+* `js-21.1.0.jar`
+* `js-scriptengine-21.1.0.jar`
+* `regex-21.1.0.jar`
+* `truffle-api-21.1.0.jar`
