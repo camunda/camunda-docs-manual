@@ -405,6 +405,9 @@ formService.submitTaskForm(taskId, properties);
       <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#exclusive" >}}">camunda:exclusive</a>,
       <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#formhandlerclass" >}}">camunda:formHandlerClass</a>,
       <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#formkey" >}}">camunda:formKey</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#formref" >}}">camunda:formRef</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#formrefbinding" >}}">camunda:formRefBinding</a>,
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#formrefversion" >}}">camunda:formRefVersion</a>,
       <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#jobpriority" >}}">camunda:jobPriority</a>,
       <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#priority" >}}">camunda:priority</a>
     </td>

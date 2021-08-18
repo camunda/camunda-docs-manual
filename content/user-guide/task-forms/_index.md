@@ -15,16 +15,16 @@ menu:
 
 There are different types of forms which are primarily used in Tasklist. To implement a task form in your application, you have to connect the form resource with the BPMN 2.0 element in your process diagram. Suitable BPMN 2.0 elements for calling tasks forms are the [StartEvent][start-event] and the [UserTask][user-tasks].
 
-Forms are Referenced using Form Keys and can either be embedded in Camunda Tasklist or handled by a custom application. Depending on you use-case, different Form Types can be used:
+Forms are referenced using Form Keys or Form References and can either be embedded in Camunda Tasklist or handled by a custom application. Depending on you use-case, different Form Types can be used:
 
 1. [Embedded Task Forms](#embedded-task-forms) allow you to embed custom HTML and JavaScript forms into Tasklist.
-2. [Camunda Forms](#camunda-forms) offer visual editing of forms in the Camunda Modeler and can be used for less complex forms.
+2. [Camunda Forms](#camunda-forms) offer visual editing of forms in the Camunda Modeler and can be used for less complex forms. Camunda Forms are the only form type that can be referenced either by Form Key or by Form Reference.
 3. [External Task Forms](#external-task-forms) can be used to link to custom applications. The Form will not be embedded in Tasklist.
 
 If no form key is present, a [Generic Task Form](#generic-task-forms) will be shown.
 
 
-# Form Key Details
+# Form Key details
 Form keys that are used in Tasklist have the structure `FORM-TYPE:LOCATION:FORM.NAME`.
 
 <table class="table table-striped">
@@ -103,6 +103,36 @@ When you use [Camunda Platform Run](../camunda-bpm-run) we recommend the camunda
 
 {{< img src="img/reference-camunda-form.png" title="Provide Form Key for Camunda Forms" >}}
 
+# Form Reference
+
+With Form References, Camunda Forms provide an additional way of linking an element in a BPMN diagram to a form. To link a BPMN element ([StartEvent][start-event] or [UserTask][user-tasks]) to a Camunda Form, you have to specify the key of the Camunda Form as the `camunda:FormRef` attribute. Additionally, the `camunda:formRefBinding` attribute specifies which version of the Camunda Form to reference.
+
+Valid values are:
+
+* `deployment`, which references the Camunda Form with the given key that was deployed with the same deployment as the referencing process.
+* `latest`, which will refer to the latest deployed version of the Camunda Form.
+*  `version`, which allows you to specify a specific version to be referenced from the BPMN element with the `camunda:formRefVersion` attribute.
+
+```xml
+<bpmn:userTask 
+    id="myUserTask"
+    camunda:formRef="formId"
+    camunda:formRefBinding="version"
+    camunda:formRefVersion="1">
+</bpmn:userTask>
+```
+
+The attributes `camunda:formRef` and `camunda:formRefVersion` can be specified as an expression which will be evaluated on execution of the task or start event.
+
+```xml
+<bpmn:userTask 
+    id="myUserTask"
+    camunda:formRef="${formId}"
+    camunda:formRefBinding="version"
+    camunda:formRefVersion="${formVersion}">
+</bpmn:userTask>
+```
+
 ## Process Variable Binding
 
 To define a default value for a form field, a process variable with the same name as the form field key needs to be defined. Local variables (e.g. created by defining an [Input Parameter](../process-engine/variables/#input-output-variable-mapping) for the User Task) take precedence over process variables.
@@ -120,6 +150,8 @@ The submitted values of a form are returned as variables to the process engine:
 If you want to include your Camunda Form as part of the `deployment`, then you need to deploy the `.form` file in the same deployment as the respective `.bpmn` diagram - for example using the Camunda Modeler.
 
 {{< img src="img/deploy-form.png" title="Deploy your Camunda Form file" >}}
+
+You can also include Camunda Forms from other deployments by using [form references](#form-reference).
 
 # External Task Forms
 {{< note title="Using Task Forms outside of Camunda Tasklist" class="info" >}}

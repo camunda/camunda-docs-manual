@@ -189,6 +189,17 @@ Please consult the [Configure Script Engine Guide] on how to achieve this.
 [Full Distribution]: #full-distribution
 [Configure Script Engine Guide]: {{< ref "/user-guide/process-engine/scripting.md#configure-script-engine" >}}
 
+# Camunda Form Definition parsing
+
+The 7.16.0 release introduces a new database entity called Camunda Form Definition. After Process, Decision, and Case Definition, this is the fourth definition entity in the engine.
+Camunda Form Definitions represent a [Camunda Form] and introduce versioning and more powerful ways of referencing Camunda Forms from other deployments.
+
+To create Camunda Form Definitions, the engine will parse the form JSON when it is deployed. All files with the `.form` file ending will be treated as Camunda Form Definitions. This
+might lead to unwanted behavior in cases where files with the `.form` ending that are not Camunda Forms already exist or are deployed to the engine. In those cases, the parser will throw
+an exception as the definition could not be parsed correctly.
+
+[Camunda Form]: {{< ref "/user-guide/task-forms/_index.md#camunda-forms" >}}
+
 # Upcoming Liquibase support
 
 Starting with Camunda Platform `7.16.0`, Liquibase can be used to [install the database schema]({{< ref "/installation/database-schema.md" >}}) and keep track of necessary changes to it.
