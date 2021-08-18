@@ -81,7 +81,7 @@ Camunda Platform Run is pre-configured to use a file-based H2 database for testi
 
 1. Make sure your database is among the [supported database systems]({{< ref "/introduction/supported-environments.md#supported-database-products" >}}).
 1. Create a database schema for the Camunda Platform yourself.
-1. Execute the SQL DDL scripts which create all required tables and default indices. The scripts can be found in the `configuration/sql/create` folder.
+1. Install the database schema to create all required tables and default indices using our [database schema installation guide]({{< ref "/installation/database-schema.md" >}}).
 1. Drop a JDBC driver jar for your database system in the `configuration/userlib` folder.
 1. Add the JDBC URL and login credentials to the configuration file like described [below](#database).
 1. Restart Camunda Platform Run
@@ -90,6 +90,8 @@ Camunda Platform Run is pre-configured to use a file-based H2 database for testi
 ## Deploy BPMN Models
 
 In the unpacked distro, you will find a `resources` folder. All files (including BPMN, DMN, CMMN, form, and script files) will be deployed when you start Camunda Platform Run.
+
+You can reference forms and scripts in the BPMN diagram with `embedded:deployment:/my-form.html`, `camunda-forms:deployment:/myform.form`, or `deployment:/my-script.js`. The deployment requires adding an extra `/` as a prefix to the filename.
 
 Deployments via the [REST API]({{< ref "/reference/rest/deployment/post-deployment.md" >}}) are still possible.
 

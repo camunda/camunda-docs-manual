@@ -47,4 +47,4 @@ To save your state of work, click the **File > Save File As...** button in the t
 
 ## Connect your Form to a BPMN diagram
 
-You can connect your Camunda Form to a User Task or Start Event, so to implement a task form in your application. Pleaser refer to the [User Task Forms guide]({{< ref "/user-guide/task-forms/_index.md#camunda-forms" >}}) to learn how.
+You can connect your Camunda Form to a User Task or Start Event, so to implement a task form in your application. Refer to the [User Task Forms guide]({{< ref "/user-guide/task-forms/_index.md#camunda-forms" >}}) to learn how.

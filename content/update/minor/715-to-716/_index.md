@@ -20,28 +20,15 @@ This document guides you through the update from Camunda Platform `7.15.x` to `7
 1. For administrators: [Standalone Web Application](#standalone-web-application)
 1. For administrators: [Set Variables on Process Instance Migration](#set-variables-on-process-instance-migration)
 1. For administrators: [Java 15 and GraalVM JavaScript support](#java-15-and-graalvm-javascript-support)
+1. For administrators: [Upcoming Liquibase support](#upcoming-liquibase-support)
 
 This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new functionality included in Camunda Platform 7.16.
 
 # Database Updates
 
-Every Camunda installation requires a database schema update.
+Every Camunda installation requires a database schema update. Check our [database schema update guide]({{< ref "/installation/database-schema.md#update" >}}) for further instructions. 
 
-## Procedure
-
-1. Check for [available database patch scripts]({{< ref "/update/patch-level.md#database-patches" >}}) for your database that are within the bounds of your update path.
- Locate the scripts at `$DISTRIBUTION_PATH/sql/upgrade` in the pre-packaged distribution (where `$DISTRIBUTION_PATH` is the path of an unpacked distribution) or in the [Camunda Nexus](https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/distro/camunda-sql-scripts/).
- We highly recommend executing these patches before updating. Execute them in ascending order by version number.
- The naming pattern is `$DATABASENAME_engine_7.15_patch_?.sql`.
-
-2. Execute the corresponding update scripts named
-
-    * `$DATABASENAME_engine_7.15_to_7.16.sql`
-
-    The scripts update the database from one minor version to the next, and change the underlying database structure. So make sure to backup your database in case there are any failures during the update process.
-
-3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda Platform, e.g., `7.16.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
-
+**Note**: Updating to Camunda Platform `7.16` from any version prior to `7.16` requires using the [manual update]({{< ref "/installation/database-schema.md#manual-update" >}}) approach.
 
 # Full Distribution
 
@@ -212,3 +199,9 @@ might lead to unwanted behavior in cases where files with the `.form` ending tha
 an exception as the definition could not be parsed correctly.
 
 [Camunda Form]: {{< ref "/user-guide/task-forms/_index.md#camunda-forms" >}}
+
+# Upcoming Liquibase support
+
+Starting with Camunda Platform `7.16.0`, Liquibase can be used to [install the database schema]({{< ref "/installation/database-schema.md" >}}) and keep track of necessary changes to it.
+However, Liquibase can *NOT* be used to update from `7.15.x` to `7.16`. Please use the [manual update approach]({{< ref "/installation/database-schema.md#manual-update" >}}) for that.
+Nonetheless, you can already [migrate to Liquibase]({{< ref "/installation/database-schema.md#migrate-to-liquibase" >}}) as soon as you updated to `7.16.0` and prepare your installation for any future updates.
