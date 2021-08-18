@@ -11,18 +11,18 @@ menu:
 
 ---
 
-A terminate event ends the complete scope where the event is raised and all inner scopes.
+A terminate event ends the complete scope it is raised in and all contained inner scopes.
 
-It is useful if you have a parallel split in your process and you want to immediately consume all tokens that are currently available.
+It is useful if you have a parallel token flow in a process and you want to consume all tokens available in the same scope immediately.
 
-If you use it on the process instance level, the whole process is terminated. On a subprocess level the current scope and all inner processes will be terminated.
+A terminate event on process instance level terminates the complete instance. On subprocess level the current scope and all contained processes instances will be terminated.
 
 <div data-bpmn-diagram="../bpmn/event-terminate"></div>
 
 
 # Terminate Event Definition
 
-A terminate event is modeled as a end event with an additional definition element to mark the termination:
+A terminate event is modeled as an end event with an additional definition element to mark the termination:
 
 ```xml
 <process id="someProcess">
