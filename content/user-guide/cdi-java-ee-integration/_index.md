@@ -19,6 +19,10 @@ The camunda-engine-cdi module provides programming model integration with CDI (C
  * Works with both Java EE and Java SE,
  * Support for unit testing.
 
+{{< note title="Quarkus Engine Extension" class="info" >}}
+Since Quarkus ArC does not aim to fully implement CDI 2.0, you cannot use the full range of features the `camunda-engine-cdi` module provides.
+Read about the limitations in the [Quarkus Integration]({{< ref "user-guide/quarkus-integration/cdi-integration.md#limitations" >}}) guide.
+{{< /note >}}
 
 # Maven Dependency
 
