@@ -23,10 +23,17 @@ Camunda Process Engine Configuration properties.
 An instance of the `QuarkusProcessEngineConfiguration` class configures the process engine in a Quarkus application. 
 A `QuarkusProcessEngineConfiguration` instance provides the following defaults:
 
-* Transactions are externally managed by default.
-* Database schema update is set to `true`. The [Database Configuration][db-schema-update] section documents goes into 
-  more details.
-* No JDBC configuration is present. A Quarkus datasource should be configured and used.
+* The job executor is activated by default, i.e. the `jobExecutorActivate` property is set to `true`.
+* Transactions are externally managed by default since the `transactionsExternallyManaged` is set to `true`.
+* The `databaseSchemaUpdate` property is set to `true`. The [Database Configuration][db-schema-update] section goes into 
+  more details on this propery and the resulting behavior.
+* No JDBC configuration is present since a Quarkus datasource should be configured and used. As a result, the following
+  properties are set to `null`:
+  * `jdbcUrl`
+  * `jdbcUsername`
+  * `jdbcPassword`
+  * `jdbcDriver`
+* The `idGenerator` is set to an instance of {{< javadocref page="?org/camunda/bpm/engine/impl/persistence/StrongUuidGenerator.html" text="StrongUuidGenerator" >}}.
 
 Quarkus allows to configure a Quarkus application via a [MicroProfile Config][mp-config] source. You can read more about 
 configuring a Quarkus application in the [Quarkus configuration][quarkus-config] page. The Camunda Quarkus extension 
