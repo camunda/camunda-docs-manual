@@ -107,10 +107,15 @@ Map<String, Object> variables = Variables.putValue("my-variable", "my-value");
 runtimeService.setVariablesAsync(processInstanceIds, variables);
 ```
 
-### Known Limitation
-
+{{< note title="Known limitations" class="info" >}}
 Currently, it is not possible to set transient variables via batch operation. However,
-you can [set transient variables] synchronously. 
+you can [set transient variables]({{< ref "/user-guide/process-engine/variables.md#transient-variables" >}}) synchronously.
+
+The execution jobs of this batch can be scheduled by the job executor as [exclusive jobs]({{< ref "/user-guide/process-engine/the-job-executor.md#exclusive-jobs" >}}).
+As a result, the execution of some of this batch's jobs may be delayed by other exclusive jobs that are related to the same process instance that the variables should be set to.
+However, exclusive scheduling only happens when the jobs of this batch relate to exactly one process instance. 
+This can be controlled by configuring the [invocationsPerBatchJob]({{< ref "/user-guide/process-engine/batch.md#configuration" >}}) property.
+{{< /note >}}
 
 ## Set a Removal Time
 
@@ -186,4 +191,3 @@ Batch batch = historyService.setRemovalTimeToHistoricBatches()
 
 [batch-migration]: {{< ref "/user-guide/process-engine/process-instance-migration.md#asynchronous-batch-migration-execution" >}}
 [batch]: {{< ref "/user-guide/process-engine/batch.md" >}}
-[set transient variables]: {{< ref "/user-guide/process-engine/variables.md#transient-variables" >}}
