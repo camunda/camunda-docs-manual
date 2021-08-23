@@ -336,7 +336,7 @@ You can configure the property in three ways:
 [process-instance-cancellation]: {{< ref "/user-guide/process-engine/batch-operations.md#cancellation-of-running-process-instances">}}
 [process-instance-deletion]: {{< ref "/user-guide/process-engine/batch-operations.md#deletion-of-historic-process-instances">}}
 [set-job-retries]: {{< ref "/user-guide/process-engine/batch-operations.md#setting-retries-of-jobs-associated-with-process-instances">}}
-[set-variables]: {< ref "/user-guide/process-engine/batch-operations.md#set-variables-to-process-instances">}}
+[set-variables]: {{< ref "/user-guide/process-engine/batch-operations.md#set-variables-to-process-instances">}}
 [migration]: {{< ref "/user-guide/process-engine/process-instance-migration.md" >}}
 [batch-migration]: {{< ref "/user-guide/process-engine/process-instance-migration.md#asynchronous-batch-migration-execution" >}}
 [job executor]: {{< ref "/user-guide/process-engine/the-job-executor.md" >}}
