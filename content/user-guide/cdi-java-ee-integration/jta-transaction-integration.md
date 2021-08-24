@@ -10,7 +10,7 @@ menu:
 
 ---
 
-# Embedded Process Engine
+## Embedded Process Engine
 
 The process engine transaction management can integrate with JTA. To use JTA transaction
 manager integration, you need to use the
@@ -27,11 +27,34 @@ The process engine requires access to an implementation of `javax.transaction.Tr
   This can lead to inconsistencies in the database, because transaction commits and rollbacks are no longer performed.
 {{< /note >}}
 
-# Shared Process Engine
+## Shared Process Engine
 
 The shared process engine distributions for Java EE Application Servers (Wildfly, JBoss, IBM WebSphere Application Server, Oracle WebLogic Application Server) provide JTA integration out of the box.
 
-# Using JTA Transaction Integration with CockroachDB
+## Example
+
+The following example shows how to integrate your custom business logic into a transaction of the process engine:
+
+```java
+@Named
+@Dependent
+public class MyBean {
+
+  @Inject
+  public RuntimeService runtimeService;
+
+  @Transactional
+  public void doSomethingTransactional() {
+    // Here you can do transactional stuff in your domain model and it will be 
+    // combined in the same transaction as the the following RuntimeService API 
+    // call to start a process instance:
+    runtimeService.startProcessInstanceByKey("my-process");
+  }
+
+}
+```
+
+## Using JTA Transaction Integration with CockroachDB
 
 Please see the documentation section on [external transaction management with CockroachDB]({{< ref "/user-guide/process-engine/database/cockroachdb-configuration.md#using-external-transaction-management-with-the-spring-java-ee-integrations" >}})
 to understand how to use the JTA Transaction Integration with CockroachDB.
