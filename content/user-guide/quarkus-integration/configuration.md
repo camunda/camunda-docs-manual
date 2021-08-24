@@ -31,7 +31,7 @@ A `QuarkusProcessEngineConfiguration` instance provides the following defaults:
   </tr>
 
   <tr>
-    <td rowspan="1"><code>jobExecutorActivate</code></td>
+    <td><code>jobExecutorActivate</code></td>
     <td>
       The job executor is activated.
     </td>
@@ -39,7 +39,7 @@ A `QuarkusProcessEngineConfiguration` instance provides the following defaults:
   </tr>
 
   <tr>
-    <td rowspan="1"><code>transactionsExternallyManaged</code></td>
+    <td><code>transactionsExternallyManaged</code></td>
     <td>
       Transactions are externally managed.
     </td>
@@ -47,7 +47,7 @@ A `QuarkusProcessEngineConfiguration` instance provides the following defaults:
   </tr>
 
   <tr>
-    <td rowspan="1"><code>databaseSchemaUpdate</code></td>
+    <td><code>databaseSchemaUpdate</code></td>
     <td>
       The <a href="{{< ref "/user-guide/process-engine/database/database-configuration.md#example-database-configuration" >}}">Database Configuration</a> 
       section goes into more details on this propery and the resulting behavior.
@@ -56,7 +56,7 @@ A `QuarkusProcessEngineConfiguration` instance provides the following defaults:
   </tr>
 
   <tr>
-    <td rowspan="1"><code>idGenerator</code></td>
+    <td><code>idGenerator</code></td>
     <td>
       An instance of {{< javadocref page="?org/camunda/bpm/engine/impl/persistence/StrongUuidGenerator.html" text="StrongUuidGenerator" >}}
       is used.
@@ -65,23 +65,16 @@ A `QuarkusProcessEngineConfiguration` instance provides the following defaults:
   </tr>
 
   <tr>
-    <td rowspan="1"><code>jdbcUrl</code></td>
-    <td rowspan="4">
+    <td>
+      <code>jdbcUrl</code>,<br> 
+      <code>jdbcUsername</code>,<br>
+      <code>jdbcPassword</code>,<br>
+      <code>jdbcDriver</code>
+    </td>
+    <td>
       No JDBC configuration is present since a Quarkus datasource should be configured and used.
     </td>
-    <td rowspan="4"><code>null</code></td>
-  </tr>
-
-  <tr>
-    <td rowspan="1"><code>jdbcUsername</code></td>
-  </tr>
-
-  <tr>
-    <td rowspan="1"><code>jdbcPassword</code></td>
-  </tr>
-
-  <tr>
-    <td rowspan="1"><code>jdbcDriver</code></td>
+    <td><code>null</code></td>
   </tr>
 
 </table>
@@ -106,21 +99,13 @@ quarkus.camunda.initialize-telemetry=false
 You can also configure the process engine programmatically, by providing a `QuarkusProcessEngineConfiguration` CDI bean.
 
 ```java
-  @ApplicationScoped
-  static class MyConfig {
-
-    @Produces
-    public QuarkusProcessEngineConfiguration customEngineConfig() {
-
-      QuarkusProcessEngineConfiguration engineConfig = new QuarkusProcessEngineConfiguration();
-      
-      // your custom configuration is done here
-      engineConfig.setProcessEngineName("customEngine");
-
-      return engineConfig;
-    }
-
+@ApplicationScoped
+public class MyCustomEngineConfig extends QuarkusProcessEngineConfiguration {
+  public MyCustomEngineConfig() {
+    // your custom configuration is done here
+    setProcessEngineName("customEngine");
   }
+}
 ```
 
 Note that values of properties set in a `QuarkusProcessEngineConfiguration` instance have a lower ordinal than
