@@ -23,17 +23,68 @@ Camunda Process Engine Configuration properties.
 An instance of the `QuarkusProcessEngineConfiguration` class configures the process engine in a Quarkus application. 
 A `QuarkusProcessEngineConfiguration` instance provides the following defaults:
 
-* The job executor is activated by default, i.e. the `jobExecutorActivate` property is set to `true`.
-* Transactions are externally managed by default since the `transactionsExternallyManaged` is set to `true`.
-* The `databaseSchemaUpdate` property is set to `true`. The [Database Configuration][db-schema-update] section goes into 
-  more details on this propery and the resulting behavior.
-* No JDBC configuration is present since a Quarkus datasource should be configured and used. As a result, the following
-  properties are set to `null`:
-  * `jdbcUrl`
-  * `jdbcUsername`
-  * `jdbcPassword`
-  * `jdbcDriver`
-* The `idGenerator` is set to an instance of {{< javadocref page="?org/camunda/bpm/engine/impl/persistence/StrongUuidGenerator.html" text="StrongUuidGenerator" >}}.
+<table class="table desc-table">
+  <tr>
+    <th>Property name</th>
+    <th>Description</th>
+    <th>Default value</th>
+  </tr>
+
+  <tr>
+    <td rowspan="1"><code>jobExecutorActivate</code></td>
+    <td>
+      The job executor is activated.
+    </td>
+    <td><code>true</code></td>
+  </tr>
+
+  <tr>
+    <td rowspan="1"><code>transactionsExternallyManaged</code></td>
+    <td>
+      Transactions are externally managed.
+    </td>
+    <td><code>true</code></td>
+  </tr>
+
+  <tr>
+    <td rowspan="1"><code>databaseSchemaUpdate</code></td>
+    <td>
+      The <a href="{{< ref "/user-guide/process-engine/database/database-configuration.md#example-database-configuration" >}}">Database Configuration</a> 
+      section goes into more details on this propery and the resulting behavior.
+    </td>
+    <td><code>true</code></td>
+  </tr>
+
+  <tr>
+    <td rowspan="1"><code>idGenerator</code></td>
+    <td>
+      An instance of {{< javadocref page="?org/camunda/bpm/engine/impl/persistence/StrongUuidGenerator.html" text="StrongUuidGenerator" >}}
+      is used.
+    </td>
+    <td><code>StrongUuidGenerator</code></td>
+  </tr>
+
+  <tr>
+    <td rowspan="1"><code>jdbcUrl</code></td>
+    <td rowspan="4">
+      No JDBC configuration is present since a Quarkus datasource should be configured and used.
+    </td>
+    <td rowspan="4"><code>null</code></td>
+  </tr>
+
+  <tr>
+    <td rowspan="1"><code>jdbcUsername</code></td>
+  </tr>
+
+  <tr>
+    <td rowspan="1"><code>jdbcPassword</code></td>
+  </tr>
+
+  <tr>
+    <td rowspan="1"><code>jdbcDriver</code></td>
+  </tr>
+
+</table>
 
 Quarkus allows to configure a Quarkus application via a [MicroProfile Config][mp-config] source. You can read more about 
 configuring a Quarkus application in the [Quarkus configuration][quarkus-config] page. The Camunda Quarkus extension 
@@ -50,7 +101,7 @@ quarkus.camunda.history=none
 quarkus.camunda.initialize-telemetry=false
 ```
 
-### Programmatic Process Engine Configuration
+### Programmatic Configuration
 
 You can also configure the process engine programmatically, by providing a `QuarkusProcessEngineConfiguration` CDI bean.
 
@@ -101,7 +152,7 @@ quarkus.camunda.job-executor.max-wait=65000
 
 ## Quarkus Extension Configuration
 
-In addition to the general process engine, and job executor, configuration properties mentioned in the previous 
+In addition to the general process engine and job executor configuration properties mentioned in the previous 
 sections, the Camunda Quarkus extension provides some Quarkus-specific configuration properties. They can be set
 through a Quarkus config source, but not through the `QuarkusProcessEngineConfiguration` class. You can find all
 the Quarkus-specific properties in the following table:
@@ -121,7 +172,8 @@ the Quarkus-specific properties in the following table:
     <td><code>.datasource</code></td>
     <td>
       Specifies which Quarkus datasource to use. If not defined, the primary Quarkus datasource will be used. 
-      For configuring a Quarkus Datasource, have a look on the [Quarkus Datasource][quarkus-datasource] page.
+      For configuring a Quarkus Datasource, have a look on the 
+      <a href="https://quarkus.io/guides/datasource">Quarkus Datasource</a> page.
     </td>
     <td><code>&#60;default&#62;</code></td>
   </tr>
@@ -144,8 +196,8 @@ the Quarkus-specific properties in the following table:
 
 ## Datasource
 
-If not default Quarkus datasource is configured, the Camunda Quarkus extension sets an embedded (local) H2 database as 
-the primary/default Quarkus datasource.
+If no default Quarkus datasource is configured, the Camunda Quarkus extension sets an embedded (local) on-disk H2 
+database as the primary/default Quarkus datasource.
 
 ### Using Quarkus Transaction Integration with CockroachDB
 
@@ -176,17 +228,16 @@ quarkus.camunda.job-executor.max-wait=65000
 quarkus.camunda.job-executor.backoff-time-in-millis=5
 
 # custom data source configuration and selection
-quarkus.datasource.camunda.db-kind=h2
-quarkus.datasource.camunda.username=camunda
-quarkus.datasource.camunda.password=camunda
-quarkus.datasource.camunda.jdbc.url=jdbc:h2:mem:camunda;MVCC=TRUE;TRACE_LEVEL_FILE=0;DB_CLOSE_ON_EXIT=FALSE
-quarkus.camunda.datasource=camunda
+quarkus.datasource.my-datasource.db-kind=h2
+quarkus.datasource.my-datasource.username=camunda
+quarkus.datasource.my-datasource.password=camunda
+quarkus.datasource.my-datasource.jdbc.url=jdbc:h2:mem:camunda;MVCC=TRUE;TRACE_LEVEL_FILE=0;DB_CLOSE_ON_EXIT=FALSE
+quarkus.camunda.datasource=my-datasource
 ```
 
 [crdb-transactions]: {{< ref "/user-guide/process-engine/database/cockroachdb-configuration.md#using-external-transaction-management-with-the-spring-java-ee-integrations" >}}
 [engine-properties]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#configuration-properties" >}}
 [executor-properties]: {{< ref "/reference/deployment-descriptors/tags/job-executor.md#job-acquisition-configuration-properties" >}}
-[db-schema-update]: {{< ref "/user-guide/process-engine/database/database-configuration.md#example-database-configuration" >}}
 
 [quarkus-datasource]: https://quarkus.io/guides/datasource
 [quarkus-transactions]: https://quarkus.io/guides/transaction#declarative-approach
