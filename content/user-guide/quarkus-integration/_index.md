@@ -18,7 +18,7 @@ Quarkus application.
 
 If you are not familiar with [Quarkus](https://quarkus.io/), have a look at the [getting started](https://quarkus.io/get-started/) guide.
 
-To enable Camunda Engine autoconfiguration, add the following dependency to your ```pom.xml```:
+To enable Camunda Engine autoconfiguration, add the following dependency to your `pom.xml`:
 
 ```xml
 <dependency>
@@ -34,6 +34,6 @@ This will add the Camunda engine v.{{< minor-version >}}.0 to your dependencies.
 
 Camunda supports the following deployment scenario:
 
-* executable JAR with embedded Tomcat and one embedded process engine.
+* executable JAR with one embedded process engine.
 
 There are other possible variations that might also work, but are not tested by Camunda at the moment.

@@ -12,8 +12,7 @@ menu:
 ---
 
 Each version of the Camunda Engine Quarkus Extension is bound to a specific version of Camunda Platform and Quarkus. 
-Only these default combinations are recommended (and supported) by Camunda. Other combinations must be thoroughly 
-tested before being used in production.
+Only these default combinations are recommended (and supported) by Camunda.
 
 <table class="table table-striped">
   <tr>
@@ -26,8 +25,8 @@ tested before being used in production.
   </tr>
 </table>
 
-In case a certain Quarkus version has a bug, users can override the existing Quarkus version by adding the following
-inside their `pom.xml`. Note that this new Camunda/Quarkus version combination should also be supported by Camunda.
+In case a certain Quarkus version has a bug, you can override the existing Quarkus version by adding the following
+inside your `pom.xml`. Note that this new Camunda/Quarkus version combination should also be supported by Camunda.
 
 ```xml
 <dependencyManagement>
