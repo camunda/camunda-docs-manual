@@ -147,3 +147,20 @@ To view long documentations, click on the {{< glyphicon name="info-sign" >}} on 
 You can change the job priority by overriding the priority specified in the BPMN 2.0 XML. To do so, click on the {{< glyphicon name="cog">}} icon in the `Job Definitions` tab. In the opened dialog you can override the job priority. If an overridden priority is already set, you can clear it to use the priority specified in the XML again. It is also possible to include existing jobs when changing the priority.
 
 By using the {{< glyphicon name="cog">}} button to the right of the process diagram, you can set the job priority of all jobs contained in the process definition at once.
+
+# Call Activity Navigation
+
+For some call activities, their process definition is enough to determine which process they are going call
+when the process runs. You can navigate to these called processes definitions by clicking the overlay on the call activity. 
+For some other call activities the called process is only determined at runtime, for example, through a process variable. 
+For these types of call activities, the overlay will be greyed out.
+Additionally, you can use the called process instance tab to get an overview of which call activity calls which process definition.
+We differentiate between three states:
+  * "Referenced": the called process definition can be derived without any runtime information.
+  * "Running and referenced": the called process definition can be derived without any runtime 
+information and a call activity in this process is currently calling it.
+  * "Running": There is currently a process instance calling this process definition. 
+However, the called process definition can only be resolved at runtime and is only valid for a particular process instance.
+
+For more drill down options on call activities you can check out the process instance view and the process
+history views.
