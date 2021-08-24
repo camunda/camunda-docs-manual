@@ -1,11 +1,11 @@
 ---
 
-title: "Deployments"
+title: "Resource Deployments"
 weight: 20
 
 menu:
   main:
-    name: "Deployments"
+    name: "Resource Deployments"
     identifier: "user-guide-quarkus-deployments"
     parent: "user-guide-quarkus-integration"
 
