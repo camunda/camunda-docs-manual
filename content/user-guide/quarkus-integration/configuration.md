@@ -179,14 +179,35 @@ the Quarkus-specific properties in the following table:
   </tr>
 </table>
 
-## Datasource
+## Persistence
 
-If no default Quarkus datasource is configured, the Camunda Quarkus extension sets an embedded (local) on-disk H2 
-database as the primary/default Quarkus datasource.
+The Engine Extension integrates with a JDBC Connection Pool and a Jakarta Transaction Manager provided 
+by [Quarkus][quarkus-datasource]. The latter allows you to integrate your business logic into database 
+transactions of the Engine. Read more about it under [JTA Transaction Integration][jta-transaction-integration].
+
+### Default Datasource
+
+To get started quickly, the Engine Extension sets an embedded (local) on-disk H2 database as the primary/default 
+Quarkus datasource, which you can override in your Quarkus application. You can find the default configuration 
+properties on [GitHub][datasource-defaults].
+
+### Choose from multiple datasources
+
+When multiple datasources are available in your application, you can choose the one the Engine Extension
+should use by its name via the `camunda.datasource` configuration property. Consider the example configuration below:
+
+```properties
+quarkus.datasource.engine-datasource.db-kind=oracle
+quarkus.datasource.engine-datasource.username=my-username
+quarkus.datasource.engine-datasource.password=my-password
+quarkus.datasource.engine-datasource.jdbc.url=jdbc:oracle:thin:@localhost:1521:ORCL
+
+quarkus.camunda.datasource=engine-datasource
+```
 
 ### Using Quarkus Transaction Integration with CockroachDB
 
-Quarkus allows its users to control transaction boundaries. This is documented in their [Quarkus Transactions][quarkus-transactions] 
+Quarkus allows its users to control transaction boundaries. This is documented on their [Quarkus Transactions][quarkus-transactions] 
 page. In case you use the Quarkus Transactions Integration with CockroachDB, please see the documentation section on 
 [external transaction management with CockroachDB][crdb-transactions] to understand how to configure the Camunda process
 engine correctly.
@@ -229,3 +250,8 @@ quarkus.camunda.datasource=my-datasource
 [quarkus-cdi]: https://quarkus.io/guides/cdi-reference
 [quarkus-config]: https://quarkus.io/guides/config-reference
 [mp-config]: https://www.eclipse.org/community/eclipse_newsletter/2017/september/article3.php
+
+[jta-transaction-integration]: {{< ref "/user-guide/cdi-java-ee-integration/jta-transaction-integration.md">}}
+
+<!-- Change this link to use {{< minor-version >}}.0 as soon as 7.16.0 is released -->
+[datasource-defaults]: https://github.com/camunda/camunda-bpm-platform/blob/master/quarkus-extension/engine/runtime/src/main/resources/application.properties
