@@ -154,7 +154,7 @@ When the process engine is used inside a Spring/Java EE application but left to 
 transactions, the recommendations from the sections above remain valid.
 {{< /note >}}
 
-The [Spring]({{< ref "/user-guide/spring-framework-integration/transactions.md" >}})/[Java EE]({{< ref "/user-guide/cdi-java-ee-integration/jta-transaction-integration.md" >}}) 
+The [Spring]({{< ref "/user-guide/spring-framework-integration/transactions.md" >}})/[Java EE]({{< ref "/user-guide/cdi-java-ee-integration/jta-transaction-integration.md" >}})/[Quarkus]({{< ref "/user-guide/quarkus-integration/configuration.md#datasource" >}}) 
 Transaction integrations enable developers to manage transactions through the respective framework. 
 This means that the process engine doesn't control when transactions are started, committed, 
 or rolled back. 
