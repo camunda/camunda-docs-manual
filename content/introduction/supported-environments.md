@@ -23,7 +23,12 @@ Run the Camunda Platform in every Java-runnable environment. Camunda Platform is
 ## Application-Embedded Process Engine
 
 * All Java application servers
-* Camunda Spring Boot Starter: Embedded Tomcat (see [Supported versions]({{< ref "/user-guide/spring-boot-integration/version-compatibility.md" >}}) and [Deployment scenarios]({{< ref "/user-guide/spring-boot-integration/_index.md#supported-deployment-scenarios" >}}))
+* Camunda Spring Boot Starter: Embedded Tomcat
+  * [Supported versions]({{< ref "/user-guide/spring-boot-integration/version-compatibility.md" >}})
+  * [Deployment scenarios]({{< ref "/user-guide/spring-boot-integration/_index.md#supported-deployment-scenarios" >}})
+* Camunda Engine Quarkus Extension
+  * [Supported versions]({{< ref "/user-guide/quarkus-integration/version-compatibility.md" >}})
+  * [Deployment scenarios]({{< ref "/user-guide/quarkus-integration/_index.md#supported-deployment-scenarios" >}})
 
 ## Container-Managed Process Engine and Camunda Cockpit, Tasklist, Admin
 
