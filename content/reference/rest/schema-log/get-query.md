@@ -66,7 +66,18 @@ Each schema log entry object has the following properties:
   <tr>
     <td>timestamp</td>
     <td>String</td>
-    <td>The date and time of the schame update.</td>
+    <td>The date and time of the schema update.</td>
+  </tr>
+  <tr>
+    <td>sortBy</td>
+    <td>Sort the results lexicographically by a given criterion. Valid values are
+    <code>timestamp</code>.
+    Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
+  </tr>
+  <tr>
+    <td>sortOrder</td>
+    <td>Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
+    Must be used in conjunction with the <code>sortBy</code> parameter.</td>
   </tr>
 </table>
 
@@ -100,14 +111,14 @@ Status 200
 ```json
 [
   {
-    "id": "0"
+    "id": "0",
     "version": "7.11.0",
     "timestamp": "2019-05-13T09:07:11.751+0200"
   },
   {
-    "id": "1"
+    "id": "1",
     "version": "7.11.1",
     "timestamp": "2019-06-1T17:22:05.123+0200"
-  },
+  }
 ]
 ```
