@@ -152,15 +152,22 @@ By using the {{< glyphicon name="cog">}} button to the right of the process diag
 
 For some call activities, their process definition is enough to determine which process they are going call
 when the process runs. You can navigate to these called processes definitions by clicking the overlay on the call activity. 
-For some other call activities the called process is only determined at runtime, for example, through a process variable. 
+For other call activities, the called process is only determined at runtime, for example, through a process variable. 
 For these types of call activities, the overlay will be greyed out.
+
 Additionally, you can use the called process instance tab to get an overview of which call activity calls which process definition.
 We differentiate between three states:
-  * "Referenced": the called process definition can be derived without any runtime information.
-  * "Running and referenced": the called process definition can be derived without any runtime 
+
+  * *Referenced*: the called process definition can be derived without any runtime information.
+  * *Running and referenced*: the called process definition can be derived without any runtime 
 information and a call activity in this process is currently calling it.
-  * "Running": There is currently a process instance calling this process definition. 
+  * *Running*: There is currently a process instance calling this process definition. 
 However, the called process definition can only be resolved at runtime and is only valid for a particular process instance.
 
-For more drill down options on call activities you can check out the process instance view and the process
-history views.
+{{< img src="../../img/cockpit-call-activity-definition-navigation.png" title="Navigate to called processes" >}}
+
+For more drill down options on call activities you can check out the [process instance view][process-instance-view] 
+and the [process history views][process-history-views].
+
+
+[process-history-views]: {{< ref "/webapps/cockpit/bpmn/process-history-views.md" >}}
