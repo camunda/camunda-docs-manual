@@ -124,7 +124,7 @@ The following API methods will throw an `UnsupportedOperationException`:
 * `io.quarkus.arc.InjectableContext#destroy(Contextual<?> contextual)`
 
 [java-cdi-20-standard]: http://docs.jboss.org/cdi/spec/2.0/cdi-spec.html
-[cdi-and-java-ee-integration]: ({{< ref "/user-guide/cdi-java-ee-integration/_index.md">}})
+[cdi-and-java-ee-integration]: {{< ref "/user-guide/cdi-java-ee-integration/_index.md">}}
 [quarkus-limitations]: https://quarkus.io/guides/cdi-reference#limitations
 [quarkus-supported-features]: https://quarkus.io/guides/cdi-reference#supported_features
 [cdi-conversational-scope]: https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#conversation_context_ee
