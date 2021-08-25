@@ -68,7 +68,7 @@ Clustered or replicated databases are supported given the following conditions. 
 
 # Java
 
-* Java 8 / 9 / 10 / 11 / 12 / 13 / 14 (if supported by your application server/container)
+* Java 8 / 9 / 10 / 11 / 12 / 13 / 14 / 15 (if supported by your application server/container)
 
 
 # Java Runtime
