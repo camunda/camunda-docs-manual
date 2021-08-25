@@ -77,6 +77,17 @@ A `QuarkusProcessEngineConfiguration` instance provides the following defaults:
     <td><code>null</code></td>
   </tr>
 
+  <tr>
+    <td>
+      <code>history</code>
+    </td>
+    <td>
+      Camunda Cockpit works best with history level 
+      <a href="{{< ref "/user-guide/process-engine/history.md#choose-a-history-level">}}">FULL</a>.
+    </td>
+    <td><code>full</code></td>
+  </tr>
+
 </table>
 
 Quarkus allows to configure a Quarkus application via a [MicroProfile Config][mp-config] source. You can read more about 
