@@ -126,8 +126,8 @@ Event listeners can be registered from [custom JavaScript]({{< ref "/reference/f
       // handle submit-success
     });
 
-    camForm.on('submit-error', function(evt, res) {
-      // handle submit-error:
+    camForm.on('submit-failed', function(evt, res) {
+      // handle submit-failed:
       var error = res[0];
     });
 
