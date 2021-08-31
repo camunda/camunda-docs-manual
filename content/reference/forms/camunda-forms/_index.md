@@ -33,7 +33,7 @@ Use the [Camunda Modeler]({{< ref "/modeler/forms.md" >}}) to configure your Cam
 
 A text field allowing the user to read and edit textual data.
 
-{{< img src="img/form-text-field.png" title="Form Text Field Symbol" >}}
+{{< img src="img/form-textField.svg" title="Form Text Field Symbol" >}}
 
 A text field can be configured using the following configuration properties:
 
@@ -52,7 +52,7 @@ A text field can be configured using the following configuration properties:
 
 A button allowing the user to submit or reset the form.
 
-{{< img src="img/form-button.png" title="Form Text Field Symbol" >}}
+{{< img src="img/form-button.svg" title="Form Text Field Symbol" >}}
 
 A button can be configured using the following configuration properties:
 
