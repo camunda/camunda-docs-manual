@@ -33,6 +33,8 @@ GET `/task`
   <tr>
     <th>Name</th>
     <th>Description</th>
+    <th>Value?</th>
+    <th>Default format</th>
   </tr>
   <tr>
     <td>processInstanceId</td>
@@ -146,7 +148,9 @@ GET `/task`
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only include tasks which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include tasks which belong to no tenant.</td>
+    <td><code>true</code></td>
+    <td><code>false</code></td>
   </tr>
   <tr>
     <td>assignee</td>
@@ -331,7 +335,9 @@ GET `/task`
   </tr>
   <tr>
     <td>withoutDueDate</td>
-    <td>Only include tasks which have no due date. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include tasks which have no due date.</td>
+    <td><code>true</code></td>
+    <td><code>false</code></td>
   </tr>
   <tr>
     <td>followUpDate</td>
@@ -426,7 +432,8 @@ GET `/task`
   </tr>
   <tr>
     <td>delegationState</td>
-    <td>Restrict to tasks that are in the given delegation state. Valid values are <code>PENDING</code> and <code>RESOLVED</code>.</td>
+    <td>Restrict to tasks that are in the given delegation state.</td>
+    <td><code>PENDING</code> and <code>RESOLVED</code></td>
   </tr>
   <tr>
     <td>candidateGroups</td>
@@ -442,31 +449,39 @@ GET `/task`
   </tr>
   <tr>
     <td>withCandidateGroups</td>
-    <td>Only include tasks which have a candidate group. Value may only be <code>true</code>, 
-    as <code>false</code> is the default behavior.</td>
+    <td>Only include tasks which have a candidate group.</td>
+    <td><code>true</code></td>
+    <td><code>false</code></td>
   </tr>
   <tr>
     <td>withoutCandidateGroups</td>
-    <td>Only include tasks which have no candidate group. Value may only be <code>true</code>,
-    as <code>false</code> is the default behavior.</td>
+    <td>Only include tasks which have no candidate group.</td>
+    <td><code>true</code></td>
+    <td><code>false</code></td>
   </tr>
   <tr>
     <td>withCandidateUsers</td>
-    <td>Only include tasks which have a candidate user. Value may only be <code>true</code>,
-    as <code>false</code> is the default behavior.</td>
+    <td>Only include tasks which have a candidate user.</td>
+    <td><code>true</code></td>
+    <td><code>false</code></td>
   </tr>
    <tr>
     <td>withoutCandidateUsers</td>
-    <td>Only include tasks which have no candidate users. Value may only be <code>true</code>, 
-    as <code>false</code> is the default behavior.</td>
+    <td>Only include tasks which have no candidate users.</td>
+    <td><code>true</code></td>
+    <td><code>false</code></td>
   </tr>
   <tr>
     <td>active</td>
-    <td>Only include active tasks. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include active tasks.</td>
+    <td><code>true</code></td>
+    <td><code>false</code></td>
   </tr>
   <tr>
     <td>suspended</td>
-    <td>Only include suspended tasks. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include suspended tasks.</td>
+    <td><code>true</code></td>
+    <td><code>false</code></td>
   </tr>
   <tr>
     <td>taskVariables</td>
@@ -556,6 +571,7 @@ Each task object has the following properties:
     <th>Name</th>
     <th>Value</th>
     <th>Description</th>
+    <th>Default format</th>
   </tr>
   <tr>
     <td>id</td>
@@ -580,17 +596,20 @@ Each task object has the following properties:
   <tr>
     <td>created</td>
     <td>String</td>
-    <td>The date the task was created on. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+    <td>The date the task was created on.</td>
+    <td><code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code></td>
   </tr>
   <tr>
     <td>due</td>
     <td>String</td>
-    <td>The task's due date. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+    <td>The task's due date.</td>
+    <td><code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code></td>
   </tr>
   <tr>
     <td>followUp</td>
     <td>String</td>
-    <td>The follow-up date for the task. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+    <td>The follow-up date for the task.</td>
+    <td><code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code></td>
   </tr>
   <tr>
     <td>delegationState</td>
