@@ -150,11 +150,17 @@ By using the {{< glyphicon name="cog">}} button to the right of the process diag
 
 # Call Activity Navigation
 
+You can navigate from a process that contains Call Activities to its respectively called process definitions. 
+Hover over a Call Activity in the BPMN diagram to display a link in the upper right corner of the Call Activity.
+
 {{< note title="Limitation" class="info" >}}
-When a to be called process is referenced via a process variable, the called process can only be determined at runtime. For these types of call activities, the overlay will be greyed out.
+When a to be called process is referenced via a process variable or an expression, the called process 
+can only be determined at runtime. For these types of call activities, the diagram shows a greyed out overlay, unless
+there is currently a process instance running at that call activity.
 {{< /note >}}
 
-Additionally, you can use the called process definitions tab to get an overview of which call activity calls which process definition.
+Additionally, you can use the called process definitions tab to get an overview of which call activity 
+calls which process definition.
 We differentiate between three states:
 
   * *Referenced*: the called process definition can be derived without any runtime information.
