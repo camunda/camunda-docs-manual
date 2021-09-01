@@ -1641,6 +1641,10 @@ The following elements of Camunda history are cleanable:
 
 Note that cleaning one such instance always removes all dependent history data along with it. For example, cleaning a process instance removes the historic process instance as well as all historic activity instances, historic task instances, etc.
 
+{{< note title="Note" class="info" >}}
+The history clean up job does not delete historic [timer-start-event]({{< ref "/reference/bpmn20/events/timer-events.md#timer-start-event" >}}) jobs. The reason being that the responsibility of timer-start-event job is to start a process instance i.e. it does not belong to a process instance.
+{{< /note >}}
+
 ### History Time To Live (TTL)
 
 *History Time To Live* (TTL) defines how long historic data shall remain in the database before it is cleaned up.
