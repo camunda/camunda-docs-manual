@@ -169,7 +169,7 @@ information and a call activity in this process is currently calling it.
   * *Running*: There is currently a process instance calling this process definition. 
 However, the called process definition can only be resolved at runtime and is only valid for a particular process instance.
 
-{{< img src="../../img/cockpit-call-activity-definition-navigation.png" title="Navigate to called processes" >}}
+{{< img src="../../img/cockpit-call-activity-definition-navigation.png" title="Navigate to called processes definition" >}}
 
 For more drill down options on call activities you can check out the [process instance view][process-instance-view] 
 and the [process history views][process-history-views].
