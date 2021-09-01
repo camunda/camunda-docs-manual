@@ -150,12 +150,11 @@ By using the {{< glyphicon name="cog">}} button to the right of the process diag
 
 # Call Activity Navigation
 
-For some call activities, their process definition is enough to determine which process they are going call
-when the process runs. You can navigate to these called processes definitions by clicking the overlay on the call activity. 
-For other call activities, the called process is only determined at runtime, for example, through a process variable. 
-For these types of call activities, the overlay will be greyed out.
+{{< note title="Limitation" class="info" >}}
+When a to be called process is referenced via a process variable, the called process can only be determined at runtime. For these types of call activities, the overlay will be greyed out.
+{{< /note >}}
 
-Additionally, you can use the called process instance tab to get an overview of which call activity calls which process definition.
+Additionally, you can use the called process definitions tab to get an overview of which call activity calls which process definition.
 We differentiate between three states:
 
   * *Referenced*: the called process definition can be derived without any runtime information.
