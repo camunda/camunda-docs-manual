@@ -17,11 +17,13 @@ The process definition view provides you with information about the definition a
 
 In the `Process Instances` tab all running instances are listed in a tabular view. Besides information about start time, business key and state you can select an instance by ID and go down to the [process instance view][process-instance-view].
 
-The `Called Process Definitions` tab displays the called child processes. In the column *Called Process Definition* the names of the called sub processes are listed. Click on the name to display the process in the process definition view. Please note that a filter called Parent is automatically set for the process so that you only see the instances that belong to the parent process. In the *Activity* column you can select the instance that is calling the child process.
+The `Called Process Definitions` tab displays the currently called child processes definitions 
+and those that are yet to be called. From the tab you can navigate to the called process definitions or to the call activities.
+You can learn more about navigating called process definitions and this tab in the section about [Call Activity Navigation][call-activity-navigation]
 
 The `Job Definitions` tab displays the job definitions that are linked to this process definition. Observe the name of the activity, the type of job, the configuration and the state thereof. You can also suspend and re-activate the job definition (see [Job Definition Suspension][job-definition-suspension] for more information). It is also possible to [set the priority of jobs]({{< ref "/webapps/cockpit/bpmn/process-definition-view.md#set-job-priority">}}).
 
-
+[call-activity-navigation]: {{< ref "/webapps/cockpit/bpmn/process-definition-view.md#call-activity-navigation" >}}
 [failed-activities]: {{< ref "/webapps/cockpit/bpmn/failed-jobs.md" >}}
 [process-instance-view]: {{< ref "/webapps/cockpit/bpmn/process-instance-view.md" >}}
 [job-definition-suspension]: {{< ref "/webapps/cockpit/bpmn/suspension.md#job-definition-suspension" >}}
