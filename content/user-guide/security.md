@@ -109,6 +109,25 @@ We think that the before mentioned scenarios are uncommon for organizations usin
 However, we want to inform you about the options to prevent unrecommended usage, which makes the product
 vulnerable to attacks.
 
+## Deployments
+
+[Deployments]({{< ref "/user-guide/process-engine/deployments.md" >}}) to the process engine can contain resources that are interpreted like code:
+
+* BPMN, DMN, CMMN models that the process engine executes on the Camunda server
+* Scripts and templates in various languages (Javascript, Groovy, Freemarker, ...) that the BPMN, DMN, CMMN models reference and that the process engine executes on the Camunda server
+* Java EL expressions that BPMN, DMN, CMMN models include and that are executed on the Camunda server
+* Forms that a client application like Camunda Tasklist renders in the browser of the end user
+
+Camunda does not provide a safe sandbox environment for the execution and rendering of these resources. Attackers that are able to make deployments can effectively perform remote code execution in the Camunda system. It is therefore critical that only trusted users and systems can make deployments. 
+
+For example, you can restrict deployment access in the following ways:
+
+* Using [authorizations](#authorization), administrators grant the `CREATE` permission on the `Deployment` resource only to trusted users
+* An application that embeds the Camunda Java API can choose to not expose the deployment API on untrusted channels (such as to HTTP requests)
+* System administrators ensure that only trusted users have network access to the Camunda installation
+
+See also the user guide section [Custom Code & Security]({{< ref "/user-guide/process-engine/securing-custom-code.md" >}}) for further information. 
+
 ## Throttle login attempts
 
 The engine gives option to throttle login attempts. The mechanism behind this is enabled by default. You can read more about it under [Identity Service]({{< ref "/user-guide/process-engine/identity-service.md#throttle-login-attempts" >}}) in User Guide.
@@ -131,15 +150,6 @@ also see the [OWASP guide] (https://github.com/OWASP/CheatSheetSeries/blob/7d94e
 on password complexity).
 
 You can find more information on how to enable the base password policy and how to implement a custom password policy in our [User Guide]({{< ref "/user-guide/process-engine/password-policy.md" >}}).
-
-## Script Execution
-
-Camunda allows users to deploy scripts to be used by BPMN processes or DMN decision tables. This is a very flexible and powerful feature and facilitates changing business logic fast since generally scripts can be deployed at runtime without restarting the server.
-However, script languages such as Groovy or Javascript are executed directly inside the same JVM which also hosts Camunda itself. It is not easily feasible to sandbox the execution of such scripts effectively which is why deployment of such scripts should only be allowed to trusted users. To achieve this:
-
-* Control who can deploy scripts through the appropriate CREATE [authorizations]({{< ref "/user-guide/process-engine/authorization-service.md#resources" >}}) on the DEPLOYMENT resource.
-* Consider disabling execution of scripts all together if the feature is not needed. See also: [Custom Code & Security
-]({{< ref "/user-guide/process-engine/securing-custom-code.md" >}})
 
 ## Forms
 
