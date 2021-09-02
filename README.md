@@ -125,6 +125,8 @@ You can use the `code` markdown to highlight single or multiple lines.
 
 ## How do I make screenshots for documentation?
 
+_Note: For screenshot of the enterprise webapps, you can use the automatic screenshot tool in the ee repository._
+
 ### Setup
 
 * Download and install [OpenOffice][OpenOffice]

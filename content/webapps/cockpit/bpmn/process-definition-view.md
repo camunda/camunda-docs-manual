@@ -17,11 +17,16 @@ The process definition view provides you with information about the definition a
 
 In the `Process Instances` tab all running instances are listed in a tabular view. Besides information about start time, business key and state you can select an instance by ID and go down to the [process instance view][process-instance-view].
 
-The `Called Process Definitions` tab displays the called child processes. In the column *Called Process Definition* the names of the called sub processes are listed. Click on the name to display the process in the process definition view. Please note that a filter called Parent is automatically set for the process so that you only see the instances that belong to the parent process. In the *Activity* column you can select the instance that is calling the child process.
+The `Called Process Definitions` tab displays the called child processes. 
+You can learn more about navigating called process definitions and this tab in the section about [Call Activity Navigation][call-activity-navigation]. 
+In the column *Called Process Definition* the names of the called sub processes are listed. 
+Click on the name to display the process in the process definition view. 
+Please note that a filter called Parent is automatically set for the process so that you only see the instances that belong to the parent process. 
+In the *Activity* column you can select the instance that is calling the child process.
 
 The `Job Definitions` tab displays the job definitions that are linked to this process definition. Observe the name of the activity, the type of job, the configuration and the state thereof. You can also suspend and re-activate the job definition (see [Job Definition Suspension][job-definition-suspension] for more information). It is also possible to [set the priority of jobs]({{< ref "/webapps/cockpit/bpmn/process-definition-view.md#set-job-priority">}}).
 
-
+[call-activity-navigation]: {{< ref "/webapps/cockpit/bpmn/process-definition-view.md#call-activity-navigation" >}}
 [failed-activities]: {{< ref "/webapps/cockpit/bpmn/failed-jobs.md" >}}
 [process-instance-view]: {{< ref "/webapps/cockpit/bpmn/process-instance-view.md" >}}
 [job-definition-suspension]: {{< ref "/webapps/cockpit/bpmn/suspension.md#job-definition-suspension" >}}
@@ -147,3 +152,32 @@ To view long documentations, click on the {{< glyphicon name="info-sign" >}} on 
 You can change the job priority by overriding the priority specified in the BPMN 2.0 XML. To do so, click on the {{< glyphicon name="cog">}} icon in the `Job Definitions` tab. In the opened dialog you can override the job priority. If an overridden priority is already set, you can clear it to use the priority specified in the XML again. It is also possible to include existing jobs when changing the priority.
 
 By using the {{< glyphicon name="cog">}} button to the right of the process diagram, you can set the job priority of all jobs contained in the process definition at once.
+
+# Call Activity Navigation
+
+You can navigate from a process that contains Call Activities to its respectively called process definitions. 
+Hover over a Call Activity in the BPMN diagram to display a link in the upper right corner of the Call Activity.
+
+{{< note title="Limitation" class="info" >}}
+When a to be called process is referenced via a process variable or an expression, the called process 
+can only be determined at runtime. For these types of call activities, the diagram shows a greyed out overlay, unless
+there is currently a process instance running at that call activity.
+{{< /note >}}
+
+Additionally, you can use the called process definitions tab to get an overview of which call activity 
+calls which process definition.
+We differentiate between three states:
+
+  * *Referenced*: the called process definition can be derived without any runtime information.
+  * *Running and referenced*: the called process definition can be derived without any runtime 
+information and a call activity in this process is currently calling it.
+  * *Running*: There is currently a process instance calling this process definition. 
+However, the called process definition can only be resolved at runtime and is only valid for a particular process instance.
+
+{{< img src="../../img/cockpit-call-activity-definition-navigation.png" title="Navigate to called processes definition" >}}
+
+For more drill down options on call activities you can check out the [process instance view][process-instance-view] 
+and the [process history views][process-history-views].
+
+
+[process-history-views]: {{< ref "/webapps/cockpit/bpmn/process-history-views.md" >}}
