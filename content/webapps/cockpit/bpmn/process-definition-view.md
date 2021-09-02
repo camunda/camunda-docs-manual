@@ -18,7 +18,7 @@ The process definition view provides you with information about the definition a
 In the `Process Instances` tab all running instances are listed in a tabular view. Besides information about start time, business key and state you can select an instance by ID and go down to the [process instance view][process-instance-view].
 
 The `Called Process Definitions` tab displays the called child processes. 
-ou can learn more about navigating called process definitions and this tab in the section about [Call Activity Navigation][call-activity-navigation]. 
+You can learn more about navigating called process definitions and this tab in the section about [Call Activity Navigation][call-activity-navigation]. 
 In the column *Called Process Definition* the names of the called sub processes are listed. 
 Click on the name to display the process in the process definition view. 
 Please note that a filter called Parent is automatically set for the process so that you only see the instances that belong to the parent process. 
