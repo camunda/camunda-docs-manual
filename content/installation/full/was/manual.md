@@ -382,15 +382,6 @@ Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION
 * `groovy-all-$GROOVY_VERSION.jar`
 
 
-## Freemarker Integration
-
-Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION/modules/lib/` to the `Camunda` shared library folder:
-
-* `camunda-template-engines-freemarker-$TEMPLATE_VERSION.jar`
-* `freemarker-2.3.29.jar`
-* `camunda-commons-utils-$COMMONS_VERSION.jar`
-
-
 # Process Applications
 
 After installing a Process Application (PA) in your IBM WebSphere Application Server, which **does not** include the Camunda Platform dependencies,
