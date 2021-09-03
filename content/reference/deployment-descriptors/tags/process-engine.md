@@ -617,6 +617,31 @@ The following is a list with the most commonly used process engine configuration
         <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
       </p>
   </td>
+
+  <tr id="jobExecutorPriorityRangeMin">
+    <td><code>jobExecutorPriorityRangeMin</code></td>
+    <td>Long</td>
+    <td>
+        When set, the job executor will only acquire jobs that have a priority equal to or higher than the specified threshold.
+        You can combine this property with <code>jobExecutorPriorityRangeMax</code> to specify a job priority range for the job executor.
+        Note, that you can configure the priority of batch jobs and history cleanup jobs via the <code>batchJobPriority</code> and <code>historyCleanupJobPriority</code> properties. Both default to <code>0</code>.
+      <p>
+        <strong>Default value:</strong> <code>null</code>
+      </p>
+  </td>
+
+  <tr id="jobExecutorPriorityRangeMax">
+    <td><code>jobExecutorPriorityRangeMax</code></td>
+    <td>Long</td>
+    <td>
+        When set, the job executor will only acquire jobs that have a priority equal to or lower than the specified threshold.
+        You can combine this property with <code>jobExecutorPriorityRangeMin</code> to specify a job priority range for the job executor.
+        Note, that you can configure the priority of batch jobs and history cleanup jobs via the <code>batchJobPriority</code> and <code>historyCleanupJobPriority</code> properties. Both default to <code>0</code>.
+      <p>
+        <strong>Default value:</strong> <code>null</code>
+      </p>
+  </td>
+
   <tr id="skipHistoryOptimisticLockingExceptions">
     <td><code>skipHistoryOptimisticLockingExceptions</code></td>
     <td>Boolean</td>
@@ -626,7 +651,7 @@ The following is a list with the most commonly used process engine configuration
         <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
     </td>
   </tr>
-  
+
   <tr>
     <td><code>standaloneTasksEnabled</code></td>
     <td>Boolean</td>
