@@ -618,7 +618,7 @@ The following is a list with the most commonly used process engine configuration
       </p>
   </td>
 
-  <tr>
+  <tr id="jobExecutorPriorityRangeMin">
     <td><code>jobExecutorPriorityRangeMin</code></td>
     <td>Long</td>
     <td>
@@ -630,7 +630,7 @@ The following is a list with the most commonly used process engine configuration
       </p>
   </td>
 
-  <tr>
+  <tr id="jobExecutorPriorityRangeMax">
     <td><code>jobExecutorPriorityRangeMax</code></td>
     <td>Long</td>
     <td>

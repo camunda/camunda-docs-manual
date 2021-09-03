@@ -368,13 +368,13 @@ For example:
 
 ## Job Executor priority range
 
-By default, the Job Executor executes all jobs regardless of their priorities. Some jobs might be more important to finish quickly than others, so we assign them priorities and set `jobExecutorAcquireByPriority` to `true` as described above. Depending on the work load the Job Executor might be able to execute all jobs eventually. But if the load is high enough, we can face potential blocks where a Job Executor is always busy working on the high priority jobs and never manages to execute the lower priority jobs.
+By default, the Job Executor executes all jobs regardless of their priorities. Some jobs might be more important to finish quicker than others, so we assign them priorities and set `jobExecutorAcquireByPriority` to `true` as described above. Depending on the workload, the Job Executor might be able to execute all jobs eventually. But if the load is high enough, we might face starvation where a Job Executor is always busy working on high-priority jobs and never manages to execute the lower priority jobs.
 
-To prevent this, you can specify a priority range for the job executor by setting values for `jobExecutorPriorityRangeMin` or `jobExecutorPriorityRangeMax` (or both). The Job Executor will only acquire jobs that are inside its priority range (inclusive). Both properties are optional, so it is fine to only set one of them.
+To prevent this, you can specify a priority range for the job executor by setting values for `jobExecutorPriorityRangeMin` or `jobExecutorPriorityRangeMax` (or both). The Job Executor will only acquire jobs that are inside its priority range (inclusive). Both properties are optional, so it is fine only to set one of them.
 
 To avoid job starvation, make sure to have no gaps between Job Executor priority ranges. If, for example, Job Executor A has a priority range of 0 to 100 and Job Executor B executes jobs from priority 200 to `Long.MAX_VALUE` any job that receives a priority of 101 to 199 will never be executed. Job starvation can also occur with `batch jobs` and `history cleanup jobs` as both types of jobs also receive priorities (default: `0`). You can configure them via their respective properties: `batchJobPriority` and `historyCleanupJobPriority`.
 
-This feature is particularly useful if you want to separate multiple types of jobs from each other. For example short-running, urgent jobs with high priority and long-running jobs that are not urgent but should finish eventually. Setting up a Job Executor priority range for both types will ensure that the long-running jobs can not block the urgent jobs.
+This feature is particularly useful if you want to separate multiple types of jobs from each other. For example, short-running, urgent jobs with high priority and long-running jobs that are not urgent but should finish eventually. Setting up a Job Executor priority range for both types will ensure that long-running jobs can not block urgent ones.
 
 ## Backoff Strategy
 The Job Executor uses a backoff strategy to avoid acquisition conflicts in clusters and to reduce the database load when no jobs are due. The second point may result in a delay between job creation and job execution as the job acquisition by default doubles the delay to the next acquisition run. 
