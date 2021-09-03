@@ -761,6 +761,19 @@ The following describes the operations logged in the user operation log and the 
     </td>
   </tr>
   <tr>
+    <td></td>
+    <td>CorrelateMessage</td>
+    <td>Operator</td>
+    <td>
+      <ul>
+        <li><strong>async</strong>: <code>true</code> if operation was performed asynchronously as a batch</li>
+        <li><strong>nrOfInstances</strong>: The amount of affected instances</li>
+        <li><strong>nrOfVariables</strong>: The amount of set variables</li>
+        <li><strong>messageName</strong>: The name of the correlated message</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
     <td>Incident</td>
     <td>SetAnnotation</td>
     <td>Operator</td>

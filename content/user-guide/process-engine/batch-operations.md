@@ -24,6 +24,7 @@ The following operations can be executed asynchronously
 - [Set a Removal Time to Historic Process Instances](#historic-process-instances)
 - [Set a Removal Time to Historic Decision Instances](#historic-decision-instances)
 - [Set a Removal Time to Historic Batches](#historic-batches)
+- [Correlate Messages to Process Instances](#correlate-messages-to-process-instances)
 
 All batch operations rely on corresponding methods that provide the possibility to
 operate on a list of entities synchronously. Please refer to the general [Batch][batch] documentation to
@@ -191,3 +192,33 @@ Batch batch = historyService.setRemovalTimeToHistoricBatches()
 
 [batch-migration]: {{< ref "/user-guide/process-engine/process-instance-migration.md#asynchronous-batch-migration-execution" >}}
 [batch]: {{< ref "/user-guide/process-engine/batch.md" >}}
+
+## Correlate Messages to Process Instances
+
+This batch operation helps you to correlate messages to multiple process instances asynchronously.
+Furthermore, you can set variables to the root scope of those process instances as well.
+
+You can either (1) filter for process instances using a `HistoricProcessInstanceQuery` or a `ProcessInstanceQuery`
+or (2) pass a set of process instance ids directly.
+
+Please see below how to call the Java API:
+
+```java
+List<String> processInstanceIds = ...;
+Map<String, Object> variables = Variables.putValue("my-variable", "my-value");
+
+Batch batch = runtimeService.createMessageCorrelationAsync("myMessage")
+  .setVariables(variables)
+  .processInstanceIds(processInstanceIds)
+  .correlateAllAsync();
+```
+
+{{< note title="Known limitations" class="info" >}}
+It is not possible to correlate to process definition-level start message events via this batch operation. However,
+you can [correlate to start messages]({{< ref "/reference/bpmn20/events/message-events.md#explicitly-triggering-a-message" >}}) synchronously.
+
+The execution jobs of this batch can be scheduled by the job executor as [exclusive jobs]({{< ref "/user-guide/process-engine/the-job-executor.md#exclusive-jobs" >}}).
+As a result, the execution of some of this batch's jobs may be delayed by other exclusive jobs that are related to the same process instance that the message should be correlated to.
+However, exclusive scheduling only happens when the jobs of this batch relate to exactly one process instance. 
+This can be controlled by configuring the [invocationsPerBatchJob]({{< ref "/user-guide/process-engine/batch.md#configuration" >}}) property.
+{{< /note >}}
