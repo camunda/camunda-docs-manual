@@ -262,6 +262,23 @@ this, with `DB-DRIVER-CLASS`, `JDBC-URL`, `DB-USER`, and `DB-PASSWORD` replaced 
 </bean>
 ```
 
+## 7.15.5 to 7.15.6 / 7.14.11 to 7.14.12 / 7.13.17 to 7.13.18
+
+The patches include version 2.1.0 of the `org.camunda.template-engines` artifacts, in particular `camunda-template-engines-freemarker`, `camunda-template-engines-velocity`, and `camunda-template-engines-xquery-saxon`.
+
+This updates the following template engine versions:
+
+* Apache Freemarker
+  * Old version: 2.3.29 (Release date: August 2019)
+  * New version: 2.3.31 (Release date: February 2021)
+  * Change log: https://freemarker.apache.org/docs/api/freemarker/template/Configuration.html#Configuration-freemarker.template.Version-
+* Apache Velocity
+  * Old version: 2.2 (Release date: January 2020)
+  * New version: 2.3 (Release date: March 2021)
+  * Change log: https://velocity.apache.org/engine/2.3/upgrading.html
+  
+Please note that the new version of Freemarker contains changes that are not compatible with the previous version. We strongly recommend to test the execution of your templates before applying the update. In addition, you can replace the artifacts of version 2.1.0 by the old artifacts in version 2.0.0 to continue using the old versions of Freemarker and Velocity.
+
 # Full Distribution
 
 This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.
