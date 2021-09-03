@@ -701,7 +701,7 @@ this, with `DB-DRIVER-CLASS`, `JDBC-URL`, `DB-USER`, and `DB-PASSWORD` replaced 
 
 ## 7.13.17 to 7.13.18
 
-The patches include version 2.1.0 of the `org.camunda.template-engines` artifacts, in particular `camunda-template-engines-freemarker`, `camunda-template-engines-velocity` and `camunda-template-engines-xquery-saxon`.
+The patches include version 2.1.0 of the `org.camunda.template-engines` artifacts, in particular `camunda-template-engines-freemarker`, `camunda-template-engines-velocity`, and `camunda-template-engines-xquery-saxon`.
 
 This updates the following template engine versions:
 
