@@ -272,5 +272,5 @@ Add the following artifacts (if not existing) from the folder `$TOMCAT_DISTRIBUT
 Add the following artifacts (if not existing) from the folder `$TOMCAT_DISTRIBUTION/lib/` to the folder `$TOMCAT_HOME/lib/`:
 
 * `camunda-template-engines-freemarker-$TEMPLATE_VERSION.jar`
-* `freemarker-2.3.29.jar`
+* `freemarker-2.3.31.jar`
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
