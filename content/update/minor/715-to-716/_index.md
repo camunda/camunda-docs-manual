@@ -209,7 +209,7 @@ Nonetheless, you can already [migrate to Liquibase]({{< ref "/installation/datab
 
 # New Version of Templating Engines (Freemarker, Velocity)
 
-Camunda 7.16 includes version 2.1.0 of the `org.camunda.template-engines` artifacts, in particular `camunda-template-engines-freemarker`, `camunda-template-engines-velocity` and `camunda-template-engines-xquery-saxon`.
+Camunda 7.16 includes version 2.1.0 of the `org.camunda.template-engines` artifacts, in particular `camunda-template-engines-freemarker`, `camunda-template-engines-velocity`, and `camunda-template-engines-xquery-saxon`.
 
 This updates the following template engine versions:
 
