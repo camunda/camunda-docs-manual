@@ -1812,6 +1812,7 @@ The `batchOperationsForHistoryCleanup` property can be configured in Spring base
     <entry key="decision-set-removal-time" value="P0D" />
     <entry key="batch-set-removal-time" value="P0D" />
     <entry key="set-variables" value="P1D" />
+    <entry key="correlate-message" value="P2D" />
     <!-- in case of custom batch jobs -->
     <entry key="custom-operation" value="P3D" />
   </map>
