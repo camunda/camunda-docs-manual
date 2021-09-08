@@ -29,8 +29,8 @@ The limitations and differences are explained in more detail below.
 {{< note title="Heads-up!" class="info" >}}
 Quarkus ArC has more limitations not described in this section, as only those restrictions are highlighted 
 that affect the functionality of the `camunda-engine-cdi` module. For your individual application development, 
-we highly recommend you consider the [limitations][quarkus-limitations] and 
-[supported features][quarkus-supported-features] of the Quarkus version you are using.
+we highly recommend you consider the <a href="https://quarkus.io/guides/cdi-reference#limitations">limitations</a> and 
+<a href="https://quarkus.io/guides/cdi-reference#supported_features">supported features</a> of the Quarkus version you are using.
 {{< /note >}}
 
 ### Limited support of JUEL Expression Resolution
@@ -125,8 +125,6 @@ The following API methods will throw an `UnsupportedOperationException`:
 
 [java-cdi-20-standard]: http://docs.jboss.org/cdi/spec/2.0/cdi-spec.html
 [cdi-and-java-ee-integration]: {{< ref "/user-guide/cdi-java-ee-integration/_index.md">}}
-[quarkus-limitations]: https://quarkus.io/guides/cdi-reference#limitations
-[quarkus-supported-features]: https://quarkus.io/guides/cdi-reference#supported_features
 [cdi-conversational-scope]: https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#conversation_context_ee
 [cdi-request-scope]: https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#request_context_ee
 [arc-config-reference]: https://quarkus.io/guides/cdi-reference#quarkus-arc_quarkus.arc.auto-inject-fields
