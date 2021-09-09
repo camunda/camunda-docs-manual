@@ -1,4 +1,4 @@
-# The Camunda Platform Documentation Sources
+# The Camunda Platform Documentation Sources my cool fix
 
 This repository contains the sources of the Camunda Platform Documentation.
 
