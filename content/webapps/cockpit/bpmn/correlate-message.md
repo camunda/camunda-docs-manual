@@ -61,4 +61,4 @@ This is the case when (1) a flow-node is a process instance Start Event or (2) t
 {{< /note >}}
 
 [Message Correlation]: {{< ref "/reference/bpmn20/events/message-events.md#message-api" >}}
-[Batch Operation]: {{< ref "/user-guide/process-engine/batch-operations.md#correlate-message" >}}
+[Batch Operation]: {{< ref "/user-guide/process-engine/batch-operations.md#correlate-messages-to-process-instances" >}}
