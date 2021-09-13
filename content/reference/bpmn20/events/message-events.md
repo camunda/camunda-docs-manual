@@ -193,7 +193,7 @@ void messageEventReceived(String messageName, String executionId);
 void messageEventReceived(String messageName, String executionId, HashMap<String, Object> processVariables);
 ```
 
-
+For an asynchronous correlation to existing process instances, you can use a [Batch operation]({{< ref "/user-guide/process-engine/batch-operations.md#correlate-messages-to-process-instances">}}).
 
 ## Querying for Message Event Subscriptions
 

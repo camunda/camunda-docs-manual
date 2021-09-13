@@ -596,6 +596,7 @@ In Addition to Create, Update, Read and Delete, the following permissions are av
 * Create Batch Update Process Instances Suspend
 * Create Batch Set Removal Time
 * Create Batch Set Variables
+* Create Batch Correlate Messages
 
 The specific "Create ..." permission has higher priority than the general "Create" permission.
 

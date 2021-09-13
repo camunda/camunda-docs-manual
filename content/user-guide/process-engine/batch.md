@@ -58,24 +58,8 @@ The following gives an overview of the Java API for batches.
 ## Creating a Batch
 
 A batch is created by executing a process engine command asynchronously.
-
-Currently supported batch types:
-
-- [Process Instance Migration][batch-migration]
-- [Cancellation of running Process Instances][process-instance-cancellation]
-- [Deletion of Historic Process Instances][process-instance-deletion]
-- [Update Process Instance Suspend State][process-instance-suspend]
-- [Setting retries of jobs associated with Process Instances][set-job-retries]
-- [Set Variables to Process Instances][set-variables]
-- [Process Instance Modification][process-instance-modification]
-- [Process Instance Restart][process-instance-restart]
-- [Setting retries of external tasks][set-external-tasks-retries]
-- [Set a Removal Time to Historic Process Instances][set-removal-time]
-- [Set a Removal Time to Historic Decision Instances][set-removal-time]
-- [Set a Removal Time to Historic Batches][set-removal-time]
-
-Java API can be used to create Batch command, please refer to specific commands for
-exact usage example.
+You can find a list of currently supported batch types in the [Batch operations]({{< ref "/user-guide/process-engine/batch-operations.md">}}).
+The Java API can be used to create Batch command. Refer to specific commands for exact usage examples.
 
 ## Query a Batch
 
@@ -333,10 +317,6 @@ You can configure the property in three ways:
         my-custom-operation:          7  # in case of custom batch operations
     ```
 
-[process-instance-cancellation]: {{< ref "/user-guide/process-engine/batch-operations.md#cancellation-of-running-process-instances">}}
-[process-instance-deletion]: {{< ref "/user-guide/process-engine/batch-operations.md#deletion-of-historic-process-instances">}}
-[set-job-retries]: {{< ref "/user-guide/process-engine/batch-operations.md#setting-retries-of-jobs-associated-with-process-instances">}}
-[set-variables]: {{< ref "/user-guide/process-engine/batch-operations.md#set-variables-to-process-instances">}}
 [migration]: {{< ref "/user-guide/process-engine/process-instance-migration.md" >}}
 [batch-migration]: {{< ref "/user-guide/process-engine/process-instance-migration.md#asynchronous-batch-migration-execution" >}}
 [job executor]: {{< ref "/user-guide/process-engine/the-job-executor.md" >}}
@@ -349,11 +329,6 @@ You can configure the property in three ways:
 [job prioritization]: {{< ref "/user-guide/process-engine/the-job-executor.md#job-prioritization" >}}
 [job-definition-priority]: {{< ref "/user-guide/process-engine/the-job-executor.md#override-priority-by-job-definition" >}}
 [job-priority]: {{< ref "/user-guide/process-engine/the-job-executor.md#set-job-priorities-via-managementservice-api" >}}
-[set-external-tasks-retries]: {{< ref "/user-guide/process-engine/batch-operations.md#setting-retries-of-external-tasks" >}}
-[process-instance-restart]: {{< ref "/user-guide/process-engine/process-instance-restart.md#asynchronous-batch-execution" >}}
-[process-instance-modification]: {{< ref "/user-guide/process-engine/process-instance-modification.md#modification-of-multiple-process-instances" >}}
-[process-instance-suspend]: {{< ref "/user-guide/process-engine/batch-operations.md#update-suspend-state-of-process-instances">}}
-[set-removal-time]: {{< ref "/user-guide/process-engine/batch-operations.md#set-a-removal-time">}}
 [invoc-per-batch-job-batch-type]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#invocations-per-batch-job-by-batch-type" >}}
 [Process Engine Plugin]: {{< ref "/user-guide/process-engine/process-engine-plugins.md" >}}
 [spring-xml-config]: {{< ref "/user-guide/spring-framework-integration/configuration.md" >}}

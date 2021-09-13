@@ -761,6 +761,19 @@ The following describes the operations logged in the user operation log and the 
     </td>
   </tr>
   <tr>
+    <td></td>
+    <td>CorrelateMessage</td>
+    <td>Operator</td>
+    <td>
+      <ul>
+        <li><strong>async</strong>: <code>true</code> if operation was performed asynchronously as a batch</li>
+        <li><strong>nrOfInstances</strong>: The amount of affected instances</li>
+        <li><strong>nrOfVariables</strong>: The amount of set variables</li>
+        <li><strong>messageName</strong>: The name of the correlated message</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
     <td>Incident</td>
     <td>SetAnnotation</td>
     <td>Operator</td>
@@ -1799,6 +1812,7 @@ The `batchOperationsForHistoryCleanup` property can be configured in Spring base
     <entry key="decision-set-removal-time" value="P0D" />
     <entry key="batch-set-removal-time" value="P0D" />
     <entry key="set-variables" value="P1D" />
+    <entry key="correlate-message" value="P2D" />
     <!-- in case of custom batch jobs -->
     <entry key="custom-operation" value="P3D" />
   </map>
