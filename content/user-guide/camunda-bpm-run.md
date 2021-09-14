@@ -22,12 +22,13 @@ This guide will teach you about Camunda Platform Run and how to configure it. It
 
 Camunda Platform Run is a full distribution of the Camunda Platform. It includes:
 
-* Camunda webapps
+* Camunda web applications
   * Cockpit
   * Tasklist
   * Admin
 * [REST API]({{< ref "/reference/rest/overview/_index.md" >}})
 * [Swagger UI](https://github.com/swagger-api/swagger-ui) (web application for exploring the REST API)
+* [An example application](#example-application)
 
 # Starting with Camunda Platform Run
 
@@ -43,7 +44,7 @@ camunda-bpm-run
 │   ├── sql/
 │   │   └── necessary SQL scripts to prepare your database system
 │   ├── userlib/
-│   │   └── put your database driver jar here
+│   │   └── put your database driver and other required JARs here
 │   ├── default.yml
 │   └── production.yml
 ├── internal/
@@ -52,16 +53,32 @@ camunda-bpm-run
 ```
 Execute one of the two start scripts (`start.bat` for Windows, `start.sh` for Linux/Mac). After a few seconds, you will be able to access the Camunda webapps via http://localhost:8080/camunda/app/, the REST API via http://localhost:8080/engine-rest/ and Swagger UI via http://localhost:8080/swaggerui/.
 
-
 ## Starting Camunda Platform Run using Docker
 
 Camunda Platform Run is also available as a Docker image. Please see the Camunda Platform Run section of the Camunda Docker documentation [here]({{< ref "/installation/docker.md#start-camunda-bpm-run-using-docker" >}}) for more details.
 
+## Optional components
 
-## Disable components
+By default, Camunda Platform Run launches with the web apps, REST API, Swagger UI, and example modules. If you want to enable only a subset of them, execute the start script through a command-line interface with any of the `--webapps`, `--rest`, `--swaggerui`, or `--example` properties to enable the specific modules.
 
-By default, Camunda Platform Run launches with the webapps, REST API and Swagger UI modules. If you want only a subset of them enabled, execute the start script through a command-line interface with any of the `--webapps`, `--rest` or `--swaggerui` properties to enable the specific module.
+### Example application
 
+By default, Camunda Platform Run deploys and launches an example application on startup.
+When launched, this application creates deployments with multiple BPMN and DMN definitions as well as form resources
+and starts instances of the defined processes.
+
+You can disable the *deployment* of the example application itself by enabling any combination of the other modules with the `--webapps`, `--rest`, and `--swaggerui` properties of the start script.
+That way, the example application will not be launched and its resources will not be present on the classpath of Camunda Run.
+
+You can also disable the *launch* of the example application by setting the application property `camunda.bpm.run.example.enabled` to `false`
+or removing it from the application properties.
+That way, the example application and its resources will be present on the classpath of Camunda Run.
+However, the example application will not be started.
+
+Disabling the example application with any of those mechanisms will **NOT** delete any deployments or process instances from Camunda Run once they are created.
+You have to delete this data manually through the [web apps]({{< ref "/webapps/cockpit/deployment-view.md#delete" >}}), the 
+[REST API]({{< ref "/reference/rest/deployment/delete-deployment.md" >}}), or by cleaning the database 
+[configured in the application properties](#database).
 
 ## Choose between default and production configuration
 
@@ -71,9 +88,9 @@ Camunda Platform Run ships with two different configuration files which are both
 * The `production.yml` configuration is intended to provide the recommended properties according to the [Security Instructions]({{< ref "/user-guide/security.md" >}}). 
   When using Camunda Platform Run in a production environment, make sure to base your custom configuration on this one and carefully read through the security instructions.
 
-By default, Run launches with the `default.yml` configuration. To enable the `production.yml` configuration, execute the start script, through a command-line interface, with the `--production` property.
-Using `--production` disables Swagger UI. It can be enabled by explicitly passing `--swaggerui`, however, it is not recommended to use Swagger UI in production. 
-
+By default, Run launches with the `default.yml` configuration. To enable the `production.yml` configuration, execute the start script with the `--production` property.
+Using `--production` disables Swagger UI and the example application. They can be enabled by explicitly passing `--swaggerui` and `--example` to the start script.
+However, we do not recommended to use Swagger UI and the exmaple application in production.
 
 ## Connect to a Database
 
@@ -86,7 +103,6 @@ Camunda Platform Run is pre-configured to use a file-based H2 database for testi
 1. Add the JDBC URL and login credentials to the configuration file like described [below](#database).
 1. Restart Camunda Platform Run
 
-
 ## Deploy BPMN Models
 
 In the unpacked distro, you will find a `resources` folder. All files (including BPMN, DMN, CMMN, form, and script files) will be deployed when you start Camunda Platform Run.
@@ -95,13 +111,11 @@ You can reference forms and scripts in the BPMN diagram with `embedded:deploymen
 
 Deployments via the [REST API]({{< ref "/reference/rest/deployment/post-deployment.md" >}}) are still possible.
 
-
 ## Automatic License Pickup
 
 If you downloaded the enterprise version of Camunda Platform Run, you will need a license key to enable the enterprise 
 features. Please see the [dedicated License section]({{< ref "/user-guide/license-use.md#with-the-camunda-spring-boot-starter-camunda-run" >}}) 
 of the docs, to learn more.
-
 
 # Configure Camunda Platform Run
 
@@ -111,7 +125,6 @@ Just like all the other distros, you can tailor Camunda Platform Run to your nee
 Camunda Platform Run is based on the [Camunda Spring Boot Starter](https://github.com/camunda/camunda-bpm-spring-boot-starter). 
 All [configuration properties]({{< ref "/user-guide/spring-boot-integration/configuration.md#camunda-engine-properties" >}}) from the camunda-spring-boot-starter are available to customize Camunda Platform Run.
 {{< /note >}}
-
 
 ## Database
 
@@ -147,7 +160,6 @@ The distro comes with a file-based h2 database for testing. It is recommended to
   </tr>
 </table>
 
-
 ## Authentication
 
 To add authentication to requests against the [REST API]({{< ref "/reference/rest/overview/_index.md" >}}), you can enable basic authentication.
@@ -172,7 +184,6 @@ To add authentication to requests against the [REST API]({{< ref "/reference/res
   </tr>
 </table>
 
-
 ## Cross-Origin Resource Sharing
 
 If you want to allow cross-origin requests to the [REST API]({{< ref "/reference/rest/overview/_index.md" >}}), you need to enable CORS.
@@ -196,7 +207,6 @@ If you want to allow cross-origin requests to the [REST API]({{< ref "/reference
   </tr>
 </table>
 
-
 ## LDAP Identity Service
 
 Camunda Platform can manage users and authorizations on its own, but if you want to use an existing LDAP authentication database you can enable the [LDAP Identity Service Plugin]({{< ref "/user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}})
@@ -219,6 +229,26 @@ Find all available configuration properties in the [LDAP Plugin Guide]({{< ref "
   </tr>
 </table>
 
+## Example application launch
+
+Camunda Platform Run comes with a [demo application](#example-application) that deploys resources and starts process instances.
+You can disable the start of that application so it does not create deployments and process instances. The resources of the application
+are however still accessible on the classpath of Camunda Run. Consult the [example application section](#example-application) for further details.
+
+<table class="table desc-table">
+  <tr>
+      <th>Prefix</th>
+      <th>Property name</th>
+      <th>Description</th>
+      <th>Default value</th>
+  </tr>
+  <tr>
+      <td rowspan="15"><code>camunda.bpm.run.example</code></td>
+      <td><code>.enabled</code></td>
+      <td>Switch to enable the example application.</td>
+      <td><code>false</code></td>
+  </tr>
+</table>
 
 ## HTTPS
 
@@ -271,7 +301,6 @@ After starting Camunda Platform Run, you can access the webapps via https://loca
       <td><code>-</code></td>
   </tr>
 </table>
-
 
 ## Logging
 
