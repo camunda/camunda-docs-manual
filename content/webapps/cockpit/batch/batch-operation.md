@@ -32,6 +32,7 @@ It is possible to execute the following batch operations:
 - Set a Removal Time to Historic Process Instances.
 - Set a Removal Time to Historic Decision Instances.
 - Set a Removal Time to Historic Batches.
+- Correlate Message.
 
 After selecting the operation, fields may appear with additional data that is either optional or required to perform the operation. 
 When canceling running process instances, you can optionally select to skip custom listeners and provide a cancellation reason. In addition to the
