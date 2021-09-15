@@ -39,9 +39,9 @@ If you click this button, a modal dialog opens:
 When you click into the text input field, you can choose a message name from a list of suggestions.
 
 You can also enter another message name that is not present in the list of suggestions, e.g., it is
-resolved via an EL expression and not present in the list. You can also leave the message name empty.
+resolved via an expression and not present in the list. You can also leave the message name empty.
 
-To proceed, click on the "Open Batch Operation" button. The correlate message batch operation page 
+To proceed, click on the "Open Batch Operation" button. The correlate message [batch operation]({{< ref "/webapps/cockpit/batch/batch-operation.md" >}}) page
 opens prefilled with the previously selected message name. Depending on whether you are on the process 
 definition or instance page, a filter criterion defines the process definition or instance id.
 
