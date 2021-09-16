@@ -238,14 +238,14 @@ This section describes how to install optional components. None of these are req
 
 ## Cockpit, Tasklist and Admin
 
-The web application archive that contains Camunda Cockpit and Camunda Tasklist resides under `webapps/camunda-was-$PLATFORM_VERSION.war` in the IBM WebSphere Application Server distribution archive.
+The web application archive that contains Camunda Cockpit and Camunda Tasklist resides under `$WAS_DISTRIBUTION/webapps/camunda-webapp-ee-was-$PLATFORM_VERSION.war` in the IBM WebSphere Application Server distribution archive.
 
 In this section we explain how to install the WAR file using the IBM WebSphere enterprise application wizard provided by the WebSphere Integrated Solutions Console:
 
 1. Open the WebSphere Integrated Solutions Console.
 2. Navigate to the **Applications / Application Types / WebSphere** enterprise applications page.
 3. Click the **Install** Button
-4. The first page of the wizard opens. Using the file browser, select the `camunda-was-VERSION.war` file from the distribution and upload it.
+4. The first page of the wizard opens. Using the file browser, select the `camunda-webapp-ee-was-$PLATFORM_VERSION.war` file from the distribution and upload it.
 5. Continue to the next page.
 6. Select the **"Fast Path"** on the next page.
 7. Step 1. Usually no changes are required.
@@ -272,14 +272,14 @@ You can check if everything went well by accessing Cockpit and Tasklist via `/ca
 
 ## REST API
 
-The Camunda REST API WAR file resides under `webapps/camunda-engine-rest-$PLATFORM_VERSION-was.war` in the IBM WebSphere Application Server distribution archive.
+The Camunda REST API WAR file resides under `$WAS_DISTRIBUTION/webapps/camunda-engine-rest-$PLATFORM_VERSION-was.war` in the IBM WebSphere Application Server distribution archive.
 
 In this section we explain how to install the WAR file using the IBM WebSphere enterprise application wizard provided within the WebSphere Integrated Solutions Console:
 
 1. Open the WebSphere Integrated Solutions Console.
 2. Navigate to the **Applications / Application Types / WebSphere** enterprise applications page.
 3. Click the **Install** Button
-4. The first page of the wizard opens. Using the file browser, select the `camunda-engine-rest-VERSION-was.war` file from the distribution and upload it.
+4. The first page of the wizard opens. Using the file browser, select the `camunda-engine-rest-$PLATFORM_VERSION-was.war` file from the distribution and upload it.
 5. Continue to the next page.
 6. Select the **"Fast Path"** on the next page.
 7. Step 1. Usually no changes are required.
