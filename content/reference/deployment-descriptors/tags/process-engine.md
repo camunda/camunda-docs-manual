@@ -748,6 +748,20 @@ The following is a list with the most commonly used process engine configuration
   </tr>
 
   <tr>
+    <td><code>compositeIncidentHandlersEnabled</code></td>
+    <td>Boolean</td>
+    <td>
+      Sets if the incidents handled by <a href="{{< ref "/user-guide/process-engine/incidents.md#composite-incident-handlers" >}}"f>multiple</a> handlers.
+      <p>
+        Default value is <code>false</code>.
+      </p>
+      <p>
+        <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
+      </p>
+    </td>
+  </tr>
+
+  <tr>
     <td><code>deploymentSynchronized</code></td>
     <td>Boolean</td>
     <td>
