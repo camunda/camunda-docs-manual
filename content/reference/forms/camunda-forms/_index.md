@@ -123,46 +123,49 @@ A text component can be configured using the following configuration properties:
 
 * **Text**: Either **Markdown** or **basic HTML** which will be rendered in the Form. Please note that dangerous HTML elements will not be rendered so to prevent the risk of cross-site scripting using Camunda Forms.
   * **Example for Markdown**:
-    * ```
-      # This is a heading
 
-      This shows an image:
-      ![alternative image text](https://someurl.com/image.png)
+```
+# This is a heading
 
-      ## This is a sub-heading
+This shows an image:
+![alternative image text](https://someurl.com/image.png)
 
-      Text can be shown for example using
-      **bold**, or *italic* font.
+## This is a sub-heading
 
-      * This is an unordered list...
-      * ...with two list items
+Text can be shown for example using
+**bold**, or *italic* font.
 
-      1. This is an ordered list...
-      2. ...with two list items
-      ```
+* This is an unordered list...
+* ...with two list items
+
+1. This is an ordered list...
+2. ...with two list items
+```
+
   * **Example for HTML**:
-    * ```
-      <h1>This is a heading</h1>
 
-      This shows an image:
-      <img src="https://someurl.com/image.png"
-      alt="alternative image text">
+```
+<h1>This is a heading</h1>
 
-      <h2>This is a sub-heading</h2>
+This shows an image:
+<img src="https://someurl.com/image.png"
+alt="alternative image text">
 
-      Text can be shown for example
-      using <b>bold</b>, or <i>italic</i> font.
+<h2>This is a sub-heading</h2>
 
-      <ul>
-        <li>This is an unordered list...</li>
-        <li>...with two list items</li>
-      </ul>
+Text can be shown for example
+using <b>bold</b>, or <i>italic</i> font.
 
-      <ol>
-        <li>This is an ordered list...</li>
-        <li>...with two list items</li>
-      </ol>
-      ```
+<ul>
+  <li>This is an unordered list...</li>
+  <li>...with two list items</li>
+</ul>
+
+<ol>
+  <li>This is an ordered list...</li>
+  <li>...with two list items</li>
+</ol>
+```
 
 
 ## Button
