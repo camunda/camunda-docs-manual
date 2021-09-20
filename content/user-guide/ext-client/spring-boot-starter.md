@@ -176,6 +176,9 @@ An example configuration could look as follows:
 camunda.bpm.client:
   base-url: http://localhost:8080/engine-rest
   worker-id: spring-boot-worker
+  basic-auth:
+    username: admin
+    password: admin
 ```
 
 Available properties:
@@ -274,6 +277,20 @@ Available properties:
         when no specific format is requested.
       </td>
       <td><code>application/json</code></td>
+    </tr>
+    <tr>
+      <td><code>basic-auth.username</code></td>
+      <td>
+        Specifies the username credential of the REST API to be authenticated with. 
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>basic-auth.password</code></td>
+      <td>
+        Specifies the password credential of the REST API to be authenticated with.
+      </td>
+      <td></td>
     </tr>
   </tbody>
 </table>
