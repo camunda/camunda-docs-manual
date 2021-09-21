@@ -13,11 +13,11 @@ menu:
 ---
 
 
-Completes a task and updates process variables using a form submit. There are two difference between this method and the `complete` method:
+Completes a task and updates process variables using a form submit. There are two differences between this method
+and the [complete]({{< ref "/reference/rest/task/post-complete.md" >}}) method:
 
 * If the task is in state `PENDING` - i.e., has been delegated before, it is not completed but resolved. Otherwise it will be completed.
-* If the task has Form Field Metadata defined, the process engine will perform backend validation for any form fields which have validators defined. See the [Generated Task Forms]({{< ref "/user-guide/task-forms/_index.md#generated-task-forms" >}}) section of the [User Guide]({{< ref "/user-guide/_index.md" >}}) for more information.
-
+* If the task has Form Field Metadata defined, the process engine will perform backend validation for any form fields which have validators defined. See the [Generated Task Forms]({{< ref "/user-guide/task-forms/_index.md#generated-task-forms" >}}) section of the [User Guide]({{< ref "/user-guide/_index.md" >}}) for more information. Note that Form Field Metadata does not restrict which variables you can submit via this endpoint.
 
 # Method
 

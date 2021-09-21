@@ -90,7 +90,14 @@ The form key for this file could be `embedded:deployment:FORM_NAME.html` or `emb
 
 Camunda Forms are created as separate files using the Camunda Modeler and can be deployed together with the process models. The form schema is stored in `.form` files.  You can find out how to build Camunda Forms in the [Camunda Modeler documentation]({{< ref "/modeler/forms.md" >}}) or refer to the [Camunda Forms Reference]({{< ref "/reference/forms/camunda-forms/_index.md#configuration" >}}) to explore all configuration options for form elements.
 
-[Process variables]({{< ref "/user-guide/process-engine/variables.md" >}}) are mapped to form fields where the fields key matches the variable name.
+[Process variables]({{< ref "/user-guide/process-engine/variables.md" >}}) are mapped to form fields where the field's key matches the variable name.
+
+{{< note title="Process variables access" class="warning" >}}
+Defining forms does not introduce any permissions on process variables.
+Users can still submit any variables via APIs for form completion like the
+[Submit Task Form]({{< ref "/reference/rest/task/post-submit-form.md" >}}) REST API.
+Forms can be used on top of the task completion API to render form fields and validate submitted values.
+{{< /note >}}
 
 ## Form Key
 
@@ -103,7 +110,7 @@ When you use [Camunda Platform Run](../camunda-bpm-run) we recommend the camunda
 
 {{< img src="img/reference-camunda-form.png" title="Provide Form Key for Camunda Forms" >}}
 
-# Form Reference
+## Form Reference
 
 With Form References, Camunda Forms provide an additional way of linking an element in a BPMN diagram to a form. To link a BPMN element ([StartEvent][start-event] or [UserTask][user-tasks]) to a Camunda Form, you have to specify the key of the Camunda Form as the `camunda:FormRef` attribute. Additionally, the `camunda:formRefBinding` attribute specifies which version of the Camunda Form to reference.
 
@@ -259,6 +266,13 @@ A form data can have following attributes:
 
 
 ### Form Fields
+
+{{< note title="Process variables access" class="warning" >}}
+Defining form fields does not introduce any permissions on process variables.
+Users can still submit any variables via APIs for form completion like the
+[Submit Task Form]({{< ref "/reference/rest/task/post-submit-form.md" >}}) REST API.
+Form fields can be used on top of the task completion API to render forms and validate submitted values.
+{{< /note >}}
 
 A form field can have the following attributes:
 
