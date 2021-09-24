@@ -251,7 +251,7 @@ Sometimes you need more powerful queries, e.g., queries using an OR operator or 
 
 ```java
 List<Task> tasks = taskService.createNativeTaskQuery()
-  .sql("SELECT count(*) FROM " + managementService.getTableName(Task.class) + " T WHERE T.NAME_ = #{taskName}")
+  .sql("SELECT * FROM " + managementService.getTableName(Task.class) + " T WHERE T.NAME_ = #{taskName}")
   .parameter("taskName", "aOpenTask")
   .list();
 
