@@ -17,9 +17,11 @@ This section will describe how you can install the Camunda Platform and its comp
 
 {{< note title="Reading this Guide" class="info" >}}
 Throughout this guide we will use a number of variables to denote common path names and constants.
+You don't have to create these variables in your environment.
+They are just used in this guide to make it more readable.
 
 * `$WAS_HOME`: points to the IBM WebSphere application server main directory (typically something like `/opt/IBM/WebSphere/AppServer`).
-* `$PLATFORM_VERSION` denotes the version of the Camunda Platform you want to install or already have installed, e.g., `7.2.0`.
+* `$PLATFORM_VERSION` denotes the version of the Camunda Platform you want to install or already have installed, e.g., `7.15.6-ee`.
 * `$WAS_DISTRIBUTION` represents the downloaded Camunda Platform distribution for the IBM WebSphere Application Server, e.g., `camunda-ee-ibm-was-$PLATFORM_VERSION.zip`.
 
 The distribution is available at the [Camunda enterprise release page](https://downloads.camunda.cloud/enterprise-release/camunda-bpm/ibm-was/).
