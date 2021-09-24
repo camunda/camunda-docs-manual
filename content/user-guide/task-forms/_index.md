@@ -121,7 +121,7 @@ Valid values are:
 *  `version`, which allows you to specify a specific version to be referenced from the BPMN element with the `camunda:formRefVersion` attribute.
 
 ```xml
-<bpmn:userTask 
+<bpmn:userTask
     id="myUserTask"
     camunda:formRef="formId"
     camunda:formRefBinding="version"
@@ -132,7 +132,7 @@ Valid values are:
 The attributes `camunda:formRef` and `camunda:formRefVersion` can be specified as an expression which will be evaluated on execution of the task or start event.
 
 ```xml
-<bpmn:userTask 
+<bpmn:userTask
     id="myUserTask"
     camunda:formRef="${formId}"
     camunda:formRefBinding="version"
@@ -240,7 +240,7 @@ The Camunda process engine supports generating HTML task forms based on Form Dat
 </userTask>
 ```
 
-Form metadata can be graphically edited using the [Camunda Modeler](http://camunda.org/bpmn/tool/).
+Form metadata can be graphically edited using the [Camunda Modeler](https://camunda.com/products/camunda-platform/modeler/).
 
 This form would look like this in Tasklist:
 
