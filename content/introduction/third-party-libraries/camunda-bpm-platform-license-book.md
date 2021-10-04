@@ -1329,7 +1329,7 @@ INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
 DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
 OTHER DEALINGS IN THE FONT SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/bpmn-js#readme">bpmn-js@8.1.0</a> (The bpmn.io-License)</summary><pre>Copyright (c) 2015-present Camunda Services GmbH
+<div><details><summary><a href="https://github.com/bpmn-io/bpmn-js#readme">bpmn-js@8.1.0</a> (The bpmn.io-License)</summary><pre>Copyright (c) 2014-present Camunda Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in the
@@ -1341,10 +1341,10 @@ following conditions:
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
 
-The source code responsible for displaying the bpmn.io logo (two green cogwheels in
-a box) that links back to http://bpmn.io as part of rendered tables MUST NOT be
+The source code responsible for displaying the bpmn.io project watermark that
+links back to https://bpmn.io as part of rendered diagrams MUST NOT be
 removed or changed. When this software is being used in a website or application,
-the logo must stay fully visible and not visually overlapped by other elements.
+the watermark must stay fully visible and not visually overlapped by other elements.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
 INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
@@ -1427,7 +1427,7 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/cmmn-js#readme">cmmn-js@0.20.0</a> (The bpmn.io-License)</summary><pre>Copyright (c) 2015-present Camunda Services GmbH
+<div><details><summary><a href="https://github.com/bpmn-io/cmmn-js#readme">cmmn-js@0.20.0</a> (The bpmn.io-License)</summary><pre>Copyright (c) 2014-present Camunda Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in the
@@ -1439,10 +1439,10 @@ following conditions:
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
 
-The source code responsible for displaying the bpmn.io logo (two green cogwheels in
-a box) that links back to http://bpmn.io as part of rendered tables MUST NOT be
+The source code responsible for displaying the bpmn.io project watermark that
+links back to https://bpmn.io as part of rendered diagrams MUST NOT be
 removed or changed. When this software is being used in a website or application,
-the logo must stay fully visible and not visually overlapped by other elements.
+the watermark must stay fully visible and not visually overlapped by other elements.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
 INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
@@ -1800,7 +1800,7 @@ INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
 DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
 OTHER DEALINGS IN THE FONT SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/dmn-js#readme">dmn-js@10.0.0</a> (The bpmn.io-License)</summary><pre>Copyright (c) 2015-present Camunda Services GmbH
+<div><details><summary><a href="https://github.com/bpmn-io/dmn-js#readme">dmn-js@10.0.0</a> (The bpmn.io-License)</summary><pre>Copyright (c) 2014-present Camunda Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in the
@@ -1812,10 +1812,10 @@ following conditions:
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
 
-The source code responsible for displaying the bpmn.io logo (two green cogwheels in
-a box) that links back to http://bpmn.io as part of rendered tables MUST NOT be
+The source code responsible for displaying the bpmn.io project watermark that
+links back to https://bpmn.io as part of rendered diagrams MUST NOT be
 removed or changed. When this software is being used in a website or application,
-the logo must stay fully visible and not visually overlapped by other elements.
+the watermark must stay fully visible and not visually overlapped by other elements.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
 INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
