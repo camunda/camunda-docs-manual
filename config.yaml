@@ -32,6 +32,7 @@ params:
     version: "7.14"
     versions:
       - "latest"
+      - "7.16"
       - "7.15"
       - "7.14"
       - "7.13"
