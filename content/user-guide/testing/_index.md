@@ -289,6 +289,12 @@ All versions prior to 3.0.0 belong to the community extension are not part of th
     <td>10.0.0</td>
     <td>7.15.0</td>
   </tr>
+  <tr>
+    <td>camunda-bpm-assert</td>
+    <td>3.19.0</td>
+    <td>11.0.0</td>
+    <td>7.15.0</td>
+  </tr>
 </table>
 
 \* For these versions, use the following Maven coordinates:
