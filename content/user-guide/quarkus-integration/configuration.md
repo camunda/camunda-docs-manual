@@ -264,5 +264,4 @@ quarkus.camunda.datasource=my-datasource
 
 [jta-transaction-integration]: {{< ref "/user-guide/cdi-java-ee-integration/jta-transaction-integration.md">}}
 
-<!-- Change this link to use {{< minor-version >}}.0 as soon as 7.16.0 is released -->
-[datasource-defaults]: https://github.com/camunda/camunda-bpm-platform/blob/master/quarkus-extension/engine/runtime/src/main/resources/application.properties
+[datasource-defaults]: https://github.com/camunda/camunda-bpm-platform/blob/{{< minor-version >}}.0/quarkus-extension/engine/runtime/src/main/resources/application.properties
