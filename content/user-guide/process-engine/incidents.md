@@ -115,7 +115,7 @@ If you want to provide multiple incident handlers, you can add them using the fo
 org.camunda.bpm.engine.impl.cfg.ProcessEngineConfigurationImpl.setCustomIncidentHandlers(List<IncidentHandler>)
 ```
 
-All customIncidentHandlers will be added as sub handlers to `CompositeIncidentHandler` for same handler type.
+All additional incident handlers will be added as sub handlers to the `CompositeIncidentHandler` for the same handler type.
 
 By default, main handler is `DefaultIncidentHandler`. To override the main handler you need create `CompositeIncidentHandler` with your main `IncidentHandler` and init incidentHandlers before setting up the engine.
 
