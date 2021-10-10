@@ -117,7 +117,7 @@ org.camunda.bpm.engine.impl.cfg.ProcessEngineConfigurationImpl.setCustomIncident
 
 All additional incident handlers will be added as sub handlers to the `CompositeIncidentHandler` for the same handler type.
 
-By default, main handler is `DefaultIncidentHandler`. To override the main handler you need create `CompositeIncidentHandler` with your main `IncidentHandler` and init incidentHandlers before setting up the engine.
+By default, the main handler is `DefaultIncidentHandler`. To override the main handler, create a `CompositeIncidentHandler` with your own main `IncidentHandler` and initialize the incident handlers in the engine configuration before setting up the engine.
 
 See javadoc for more details
 {{< javadocref page="?org/camunda/bpm/engine/impl/incident/CompositeIncidentHandler.html" text="Composite Incident Handler" >}}.
