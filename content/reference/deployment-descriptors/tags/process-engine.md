@@ -751,7 +751,7 @@ The following is a list with the most commonly used process engine configuration
     <td><code>compositeIncidentHandlersEnabled</code></td>
     <td>Boolean</td>
     <td>
-      Sets if the incidents handled by <a href="{{< ref "/user-guide/process-engine/incidents.md#composite-incident-handlers" >}}"f>multiple</a> handlers.
+      Sets if the incidents can be handled by <a href="{{< ref "/user-guide/process-engine/incidents.md#composite-incident-handlers" >}}"f>multiple</a> handlers for the same incident type.
       <p>
         Default value is <code>false</code>.
       </p>
