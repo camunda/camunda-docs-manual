@@ -109,7 +109,7 @@ To enable composite incident handlers, configure the following property:
 <property name="compositeIncidentHandlersEnabled" value="true" />
 ```
 
-If you want to provide a multiple incident handler`s you can add one or multiple incident handlers using the following method:
+If you want to provide multiple incident handlers, you can add them using the following method:
 
 ```java
 org.camunda.bpm.engine.impl.cfg.ProcessEngineConfigurationImpl.setCustomIncidentHandlers(List<IncidentHandler>)
