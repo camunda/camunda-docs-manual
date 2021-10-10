@@ -101,7 +101,7 @@ Please be aware that this API is **not** part of the [public API]({{< ref "/intr
 # Composite Incident Handlers
 
 By default, an incident can only be handled by one handler with a same type.
-Composite incident handler contains main and subs handlers. Only the result from the "main" incident handler will be returned.
+Composite incident handlers allow defining one main and multiple sub handlers. Only the result from the "main" incident handler will be returned.
 
 To enable composite handlers configure property:
 
