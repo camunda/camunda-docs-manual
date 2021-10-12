@@ -90,5 +90,5 @@ The following steps are required to update the Camunda web applications Cockpit,
 3. Deploy the web application archive to your Tomcat instance.
 
 [update-guide]: {{< ref "/update/minor/79-to-710/_index.md" >}}
-[nexus]: https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/camunda-engine-rest/
-[tomcat-distribution]: https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/tomcat/camunda-bpm-tomcat/
+[nexus]: https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/camunda-engine-rest/
+[tomcat-distribution]: https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/tomcat/camunda-bpm-tomcat/
