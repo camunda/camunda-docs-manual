@@ -10,7 +10,7 @@ menu:
 
 ---
 
-The following steps describe how to update the Camunda artifacts on a Tomcat server in a shared process engine setting. For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the [Camunda BPM 7.5 Tomcat distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/tomcat/camunda-bpm-tomcat/).
+The following steps describe how to update the Camunda artifacts on a Tomcat server in a shared process engine setting. For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the [Camunda BPM 7.5 Tomcat distribution](https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/tomcat/camunda-bpm-tomcat/).
 
 The update procedure takes the following steps:
 
@@ -104,4 +104,4 @@ The following steps are required to update the Camunda web applications Cockpit,
 3. Deploy the web application archive to your Tomcat instance.
 
 [update-guide]: {{< ref "/update/minor/74-to-75/_index.md" >}}
-[nexus]: https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/camunda-engine-rest/
+[nexus]: https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/camunda-engine-rest/
