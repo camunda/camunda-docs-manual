@@ -39,7 +39,7 @@ The first step consists in updating the database.
 ## Basic Procedure
 
 1. Check for [available database patch scripts]({{< ref "/update/patch-level.md#database-patches" >}}) for your database that are within the bounds of your upgrade path.
- Locate the scripts at `$DISTRIBUTION_PATH/sql/upgrade` in the pre-packaged distribution or in the [Camunda Nexus](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/distro/camunda-sql-scripts/).
+ Locate the scripts at `$DISTRIBUTION_PATH/sql/upgrade` in the pre-packaged distribution or in the [Camunda Nexus](https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/distro/camunda-sql-scripts/).
  We highly recommend to execute these patches before upgrading. Execute them in ascending order by version number.
  The naming pattern is `$DATABASENAME_engine_7.2_patch_?.sql`.
 

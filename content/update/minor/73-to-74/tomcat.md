@@ -10,7 +10,7 @@ menu:
 
 ---
 
-The following steps describe how to upgrade the Camunda artifacts on a Tomcat server in a shared process engine setting. For the entire procedure, refer to the [upgrade guide][upgrade-guide]. If not already done, make sure to download the [Camunda BPM 7.4 Tomcat distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/tomcat/camunda-bpm-tomcat/).
+The following steps describe how to upgrade the Camunda artifacts on a Tomcat server in a shared process engine setting. For the entire procedure, refer to the [upgrade guide][upgrade-guide]. If not already done, make sure to download the [Camunda BPM 7.4 Tomcat distribution](https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/tomcat/camunda-bpm-tomcat/).
 
 The upgrade procedure takes the following steps:
 
@@ -137,4 +137,4 @@ It is possible to enable entity caching for Hypertext Application Language (HAL)
 {{< /note >}}
 
 [upgrade-guide]: {{< ref "/update/minor/73-to-74/_index.md" >}}
-[nexus]: https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/camunda-engine-rest/
+[nexus]: https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/camunda-engine-rest/
