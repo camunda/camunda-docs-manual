@@ -118,7 +118,7 @@ As of 7.3.3, the default handling of expressions submitted as parameters of task
 This is already the default for Camunda BPM versions after and including 7.2.8.
 
 [migration-guide]: {{< ref "/update/minor/72-to-73/_index.md" >}}
-[jboss-distro]: https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/jboss/camunda-bpm-jboss/
-[wildfly-distro]: https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/wildfly/camunda-bpm-wildfly/
-[engine-rest]: https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/camunda-engine-rest/
-[webapp-jboss]: https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/webapp/camunda-webapp-jboss/
+[jboss-distro]: https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/jboss/camunda-bpm-jboss/
+[wildfly-distro]: https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/wildfly/camunda-bpm-wildfly/
+[engine-rest]: https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/camunda-engine-rest/
+[webapp-jboss]: https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-jboss/
