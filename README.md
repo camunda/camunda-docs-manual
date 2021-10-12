@@ -102,5 +102,5 @@ The FOO Feature is only available in the Enterprise Edition.
 
 [hugo]: http://gohugo.io/
 [hugo-installation]: http://gohugo.io/overview/installing/
-[Camunda Nexus]: https://app.camunda.com/nexus/content/repositories/public/hugo/
+[Camunda Nexus]: https://app.camunda.com/nexus/service/rest/repository/browse/thirdparty/hugo/
 [title converter]: http://individed.com/code/to-title-case/
