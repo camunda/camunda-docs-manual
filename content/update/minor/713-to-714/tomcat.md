@@ -89,6 +89,6 @@ The following steps are required to update the Camunda web applications Cockpit,
 3. Deploy the web application archive to your Tomcat instance.
 
 [update-guide]: {{< ref "/update/minor/713-to-714/_index.md" >}}
-[nexus-restapi]: https://app.camunda.com/nexus/#browse/browse:camunda-bpm:org%2Fcamunda%2Fbpm%2Fcamunda-engine-rest%2F7.14.0%2Fcamunda-engine-rest-7.14.0-tomcat.war
-[nexus-webapp]: https://app.camunda.com/nexus/#browse/browse:camunda-bpm:org%2Fcamunda%2Fbpm%2Fwebapp%2Fcamunda-webapp-tomcat%2F7.14.0%2Fcamunda-webapp-tomcat-7.14.0.war
+[nexus-restapi]: https://app.camunda.com/nexus/repository/camunda-bpm/org/camunda/bpm/camunda-engine-rest/7.14.0/camunda-engine-rest-7.14.0-tomcat.war
+[nexus-webapp]: https://app.camunda.com/nexus/repository/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-tomcat/7.14.0/camunda-webapp-tomcat-7.14.0.war
 [tomcat-distribution]: https://downloads.camunda.cloud/release/camunda-bpm/tomcat/7.14/

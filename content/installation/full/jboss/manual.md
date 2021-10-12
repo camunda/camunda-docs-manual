@@ -292,7 +292,7 @@ This section describes how to install optional dependencies. None of these are r
 
 The following steps are required to deploy the web application:
 
-1. Download the Camunda web application that contains both applications from our [Maven Nexus Server](https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/webapp/camunda-webapp-jboss/).
+1. Download the Camunda web application that contains both applications from our [Maven Nexus Server](https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-jboss/).
     Alternatively, switch to the private repository for the enterprise version (credentials from license required).
     Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-jboss-$PLATFORM_VERSION.war`.
 2. Optionally, you may change the context path to which the application will be deployed (default is `/camunda`).
