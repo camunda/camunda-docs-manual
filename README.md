@@ -184,7 +184,7 @@ By using the `code` which can highlight 1 line or a range of lines (and you can 
 
 [hugo]: http://gohugo.io/
 [hugo-installation]: http://gohugo.io/overview/installing/
-[Camunda Nexus]: https://app.camunda.com/nexus/content/repositories/public/hugo/
+[Camunda Nexus]: https://app.camunda.com/nexus/service/rest/repository/browse/thirdparty/hugo/
 [title converter]: http://individed.com/code/to-title-case/
 [openoffice]: https://www.openoffice.org/download/index.html
 [opensans]: https://www.google.com/fonts#UsePlace:use/Collection:Open+Sans
