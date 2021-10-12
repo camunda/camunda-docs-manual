@@ -10,7 +10,7 @@ menu:
 
 ---
 
-The following steps describe how to update the Camunda artifacts on a Glassfish 3.1 application server in a shared process engine setting. For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the [Camunda BPM 7.4 Glassfish distribution](https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/glassfish/camunda-bpm-glassfish/).
+The following steps describe how to update the Camunda artifacts on a Glassfish 3.1 application server in a shared process engine setting. For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the [Camunda BPM 7.4 Glassfish distribution](https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/glassfish/camunda-bpm-glassfish/).
 
 The update procedure takes the following steps:
 
@@ -117,14 +117,14 @@ First, install the Camunda job executor resource adapter, namely the file `$GLAS
 
 The following steps are required to update the Camunda REST API on a Glassfish instance:
 
-1. Download the REST API web application archive from our [Maven Nexus Server](https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/camunda-engine-rest/). Alternatively, switch to the private repository for the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION.war`.
+1. Download the REST API web application archive from our [Maven Nexus Server](https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/camunda-engine-rest/). Alternatively, switch to the private repository for the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION.war`.
 2. Deploy the web application archive to your Glassfish instance.
 
 ## Cockpit, Tasklist, and Admin
 
 The following steps are required to update the Camunda web applications Cockpit, Tasklist, and Admin on a Glassfish instance:
 
-1. Download the Camunda web application archive from our [Maven Nexus Server](https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/webapp/camunda-webapp-glassfish/). Alternatively, switch to the private repository for the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-glassfish-$PLATFORM_VERSION.war`.
+1. Download the Camunda web application archive from our [Maven Nexus Server](https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-glassfish/). Alternatively, switch to the private repository for the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-glassfish-$PLATFORM_VERSION.war`.
 2. Deploy the web application archive to your Glassfish instance.
 
 {{< note title="LDAP Entity Caching" class="info" >}}
