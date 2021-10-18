@@ -97,3 +97,27 @@ An example of a custom incident handler could be a handler which extends the def
 Please be aware that this API is **not** part of the [public API]({{< ref "/introduction/public-api.md" >}}) and may change in later releases.
 
 {{< /note >}}
+
+# Composite Incident Handlers
+
+By default, an incident can only be handled by one handler with a same type.
+Composite incident handlers allow defining one main and multiple sub handlers. Only the result from the "main" incident handler will be returned.
+
+To enable composite incident handlers, configure the following property:
+
+```xml
+<property name="compositeIncidentHandlersEnabled" value="true" />
+```
+
+If you want to provide multiple incident handlers, you can add them using the following method:
+
+```java
+org.camunda.bpm.engine.impl.cfg.ProcessEngineConfigurationImpl.setCustomIncidentHandlers(List<IncidentHandler>)
+```
+
+All additional incident handlers will be added as sub handlers to the `CompositeIncidentHandler` for the same handler type.
+
+By default, the main handler is `DefaultIncidentHandler`. To override the main handler, create a `CompositeIncidentHandler` with your own main `IncidentHandler` and initialize the incident handlers in the engine configuration before setting up the engine.
+
+See javadoc for more details
+{{< javadocref page="?org/camunda/bpm/engine/impl/incident/CompositeIncidentHandler.html" text="Composite Incident Handler" >}}.
