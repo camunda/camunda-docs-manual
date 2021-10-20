@@ -59,7 +59,7 @@ A JSON object containing the id of the decision definition and the DMN 1.0 XML.
 <table class="table table-striped">
   <tr>
     <th>Name</th>
-    <th>Value</th>
+    <th>Type</th>
     <th>Description</th>
   </tr>
   <tr>

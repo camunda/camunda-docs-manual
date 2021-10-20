@@ -135,7 +135,7 @@ Each historic detail object has the following properties:
 <table class="table table-striped">
   <tr>
     <th>Name</th>
-    <th>Value</th>
+    <th>Type</th>
     <th>Description</th>
   </tr>
   <tr>
@@ -232,7 +232,7 @@ Depending on the type of the historic detail it contains further properties. In 
 <table class="table table-striped">
   <tr>
     <th>Name</th>
-    <th>Value</th>
+    <th>Type</th>
     <th>Description</th>
   </tr>
   <tr>
@@ -282,7 +282,7 @@ In case of an <code>HistoricFormField</code> the following properties are also p
 <table class="table table-striped">
   <tr>
     <th>Name</th>
-    <th>Value</th>
+    <th>Type</th>
     <th>Description</th>
   </tr>
   <tr>

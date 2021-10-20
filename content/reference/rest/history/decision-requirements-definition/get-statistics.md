@@ -54,7 +54,7 @@ A JSON array containing statistics object for each decision definition related t
 <table class="table table-striped">
   <tr>
     <th>Name</th>
-    <th>Value</th>
+    <th>Type</th>
     <th>Description</th>
   </tr>
   <tr>
