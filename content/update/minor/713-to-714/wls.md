@@ -65,7 +65,7 @@ Copy the following library from `$WLS_DISTRIBUTION/modules/lib` to the folder `$
 ## Camunda Connect Plugin
 
 
-`camunda-connect-connectors-all` and `camunda-engine-plugin-connect` are part of the .ear
+`camunda-connect-http-client`, `camunda-connect-soap-http-client`, and `camunda-engine-plugin-connect` are part of the .ear
 
 
 ## Camunda Spin
@@ -75,7 +75,7 @@ Copy the following library from `$WLS_DISTRIBUTION/modules/lib` to the folder `$
 * `camunda-spin-core-$SPIN_VERSION.jar`
 
 --- 
-`camunda-spin-dataformat-all` and `camunda-engine-plugin-spin` are part of the .ear
+`camunda-spin-dataformat-json-jackson`, `camunda-spin-dataformat-xml-dom`, and `camunda-engine-plugin-spin` are part of the .ear
 
 # 4. Maintain the BPM Platform Configuration
 
