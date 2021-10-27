@@ -90,7 +90,7 @@ A JSON array of aggregated metrics. Each aggregated metric has the following pro
 <table class="table table-striped">
   <tr>
     <th>Name</th>
-    <th>Value</th>
+    <th>Type</th>
     <th>Description</th>
   </tr>
   <tr>

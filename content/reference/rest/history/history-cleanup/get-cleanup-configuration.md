@@ -37,7 +37,7 @@ A JSON object representing batch window datetimes with timezone.
 <table class="table table-striped">
   <tr>
     <th>Name</th>
-    <th>Value</th>
+    <th>Type</th>
     <th>Description</th>
   </tr>
   <tr>

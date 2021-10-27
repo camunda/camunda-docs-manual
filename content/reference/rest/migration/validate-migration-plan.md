@@ -118,7 +118,7 @@ The properties of an instruction report are as follows:
 <table class="table table-striped">
   <tr>
     <th>Name</th>
-    <th>Value</th>
+    <th>Type</th>
     <th>Description</th>
   </tr>
   <tr>
@@ -129,7 +129,7 @@ The properties of an instruction report are as follows:
         <table class="table table-striped">
           <tr>
             <th>Name</th>
-            <th>Value</th>
+            <th>Type</th>
             <th>Description</th>
           </tr>
           <tr>
@@ -163,7 +163,7 @@ The properties of a variable report are as follows:
 <table class="table table-striped">
   <tr>
     <th>Name</th>
-    <th>Value</th>
+    <th>Type</th>
     <th>Description</th>
   </tr>
   <tr>
