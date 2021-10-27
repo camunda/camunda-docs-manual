@@ -33,7 +33,7 @@ A JSON object containing the version of the Rest API.
 <table class="table table-striped">
   <tr>
     <th>Name</th>
-    <th>Value</th>
+    <th>Type</th>
     <th>Description</th>
   </tr>
   <tr>

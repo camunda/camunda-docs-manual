@@ -113,7 +113,7 @@ A JSON object that contains the count as the only property.
 <table class="table table-striped">
   <tr>
     <th>Name</th>
-    <th>Value</th>
+    <th>Type</th>
     <th>Description</th>
   </tr>
   <tr>

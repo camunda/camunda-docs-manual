@@ -60,7 +60,7 @@ A JSON object containing the id of the definition and the BPMN 2.0 XML.
 <table class="table table-striped">
   <tr>
     <th>Name</th>
-    <th>Value</th>
+    <th>Type</th>
     <th>Description</th>
   </tr>
   <tr>

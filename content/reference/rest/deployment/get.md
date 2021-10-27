@@ -44,7 +44,7 @@ A JSON object corresponding to the `Deployment` interface of the engine. Its pro
 <table class="table table-striped">
   <tr>
     <th>Name</th>
-    <th>Value</th>
+    <th>Type</th>
     <th>Description</th>
   </tr>
   <tr>

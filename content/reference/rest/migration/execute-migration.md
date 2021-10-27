@@ -89,7 +89,7 @@ The migration plan JSON object has the following properties:
         <table class="table table-striped">
           <tr>
             <th>Name</th>
-            <th>Value</th>
+            <th>Type</th>
             <th>Description</th>
           </tr>
           <tr>

@@ -109,7 +109,7 @@ Otherwise, a JSON array of the message correlation results will be returned. Eac
 <table class="table table-striped">
   <tr>
     <th>Name</th>
-    <th>Value</th>
+    <th>Type</th>
     <th>Description</th>
   </tr>
   <tr>
