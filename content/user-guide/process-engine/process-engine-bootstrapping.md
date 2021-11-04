@@ -25,7 +25,7 @@ You manage the process engine as part of your application. The following ways ex
 
 # Shared, Container Managed Process Engine
 
-A container of your choice (e.g., Tomcat, JBoss or IBM WebSphere) manages the process engine for you. The configuration is carried out in a container specific way, see [Runtime Container Integration]({{< ref "/user-guide/runtime-container-integration/_index.md" >}}) for details.
+A container of your choice (e.g., Tomcat, Wildfly or IBM WebSphere) manages the process engine for you. The configuration is carried out in a container specific way, see [Runtime Container Integration]({{< ref "/user-guide/runtime-container-integration/_index.md" >}}) for details.
 
 
 ## ProcessEngineConfiguration Bean
