@@ -1,14 +1,14 @@
 ---
 
-title: "Install the Full Distribution for Wildfly"
+title: "Install the Full Distribution for JBoss EAP/Wildfly"
 weight: 20
 
 menu:
   main:
-    name: "Wildfly"
+    name: "JBoss EAP/Wildfly"
     identifier: "installation-guide-full-jboss"
     parent: "installation-guide-full"
-    pre: "Install the Full Distribution for Wildfly Application Servers."
+    pre: "Install the Full Distribution for JBoss EAP or Wildfly Application Servers."
 
 ---
 

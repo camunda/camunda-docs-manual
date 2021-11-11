@@ -1,6 +1,6 @@
 ---
 
-title: 'Install the Full Distribution on a Wildfly Application Server manually '
+title: 'Install the Full Distribution on a JBoss EAP/Wildfly Application Server manually '
 weight: 20
 
 menu:
@@ -17,7 +17,7 @@ This document describes the installation of Camunda Platform and its components 
 
 {{< note title="Reading this Guide" class="info" >}}
 This guide uses a number of variables to denote common path names and constants:
-`$WILDFLY_HOME` points to the Wildfly application server main directory.
+`$WILDFLY_HOME` points to the JBoss EAP/Wildfly application server main directory.
 `$PLATFORM_VERSION` denotes the version of the Camunda Platform you want to install or already have installed, e.g. `7.0.0`.
 {{< /note >}}
 

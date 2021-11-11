@@ -1,6 +1,6 @@
 ---
 
-title: 'Configure the Full Distribution for Wildfly'
+title: 'Configure the Full Distribution for JBoss EAP/Wildfly'
 weight: 30
 
 menu:
@@ -13,17 +13,17 @@ menu:
 ---
 
 
-This page explains how to configure the full distribution for the Wildfly application server.
+This page explains how to configure the full distribution for the JBoss EAP/Wildfly application server.
 
 
 ## LDAP
 
-In order to setup LDAP for the Wildfly Application Server distribution, you have to perform the following steps:
+In order to setup LDAP for the JBoss EAP/Wildfly Application Server distribution, you have to perform the following steps:
 
 
 ### Adjust the Process Engine Configuration
 
-Edit the file `standalone.xml` (or `domain.xml`) provided by the Wildfly Application Server and add the [LDAP Identity Provider Plugin]({{< ref "/user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}) and the [Administrator Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}).
+Edit the file `standalone.xml` (or `domain.xml`) provided by the JBoss EAP/Wildfly Application Server and add the [LDAP Identity Provider Plugin]({{< ref "/user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}) and the [Administrator Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}).
 
 ```xml
 <subsystem xmlns="urn:org.camunda.bpm.jboss:1.1">
