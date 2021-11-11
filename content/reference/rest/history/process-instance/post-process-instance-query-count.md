@@ -46,6 +46,10 @@ A JSON object with the following properties:
     <td>Filter by process instance business key.</td>
   </tr>
   <tr>
+    <td>processInstanceBusinessKeyIn</td>
+    <td>Filter by a list of business keys. A process instance must have one of the given business keys. Must be a JSON array of Strings.</td>
+  </tr>
+  <tr>
     <td>processInstanceBusinessKeyLike</td>
     <td>Filter by process instance business key that the parameter is a substring of.</td>
   </tr>
