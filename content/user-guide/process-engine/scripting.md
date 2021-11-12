@@ -300,7 +300,7 @@ By default, compilation of scripts is enabled. If you need to disable script com
 
 If the process engine configuration flag named `enableFetchScriptEngineFromProcessApplication` is set to true, it is also possible to load Script Engines from the classpath of the process application. For that, the Script Engine can be packaged as a library within the process application. It is also possible to install the Script Engine globally.
 
-In case the Script Engine module should be installed globally and JBoss is used, it is necessary to add a module dependency to the Script Engine. This can be done by adding a `jboss-deployment-structure.xml` to the process application, e.g.,:
+In case the Script Engine module should be installed globally and Wildfly is used, it is necessary to add a module dependency to the Script Engine. This can be done by adding a `jboss-deployment-structure.xml` to the process application, e.g.,:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -364,7 +364,7 @@ Consult the development guides of the script engine you want to configure for fu
 Note that the supported options can differ between versions of the script engine.
 
 You can set system properties either programmatically through `System.setProperty(parameter, value)` or as JVM arguments, 
-for example upon application start on command line via `-Dparameter=value`. Most application servers like JBoss AS/Wildfly, 
+for example upon application start on command line via `-Dparameter=value`. Most application servers like Wildfly, 
 Tomcat, Websphere, and Weblogic support providing JVM arguments via environment variables `JAVA_OPTS` or `JAVA_OPTIONS`. 
 Consult your application server's documentation to learn how to pass on JVM arguments. Camunda Platform Run supports setting 
 JVM arguments via the `JAVA_OPTS` environment variable as well.

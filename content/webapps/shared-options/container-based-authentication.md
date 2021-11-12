@@ -13,7 +13,7 @@ menu:
 
 # What Is Container-Based Authentication?
 
-Camunda supports a broad range of containers, including Tomcat, JBoss, Wildfly, IBM WebSphere and Oracle WebLogic. Using Container-Based Authentication, it is possible to move the authentication action to the container level, which will then make the authentication result available to the Camunda Web Applications.
+Camunda supports a broad range of containers, including Tomcat, Wildfly, IBM WebSphere and Oracle WebLogic. Using Container-Based Authentication, it is possible to move the authentication action to the container level, which will then make the authentication result available to the Camunda Web Applications.
 
 # Enabling Container-Based Authentication
 
