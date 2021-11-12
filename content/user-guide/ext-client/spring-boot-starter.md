@@ -76,7 +76,7 @@ Please find the complete list of attributes in the
 Please consider the following complete handler bean example:
 
 ```java
-@Configuraton
+@Configuration
 @ExternalTaskSubscription("creditScoreChecker")
 public class CreditScoreCheckerHandler implements ExternalTaskHandler {
 
@@ -92,7 +92,7 @@ public class CreditScoreCheckerHandler implements ExternalTaskHandler {
 If you want to define multiple handler beans within one configuration class, you can do it as follows:
 
 ```java
-@Configuraton
+@Configuration
 public class HandlerConfiguration {
 
   @Bean
