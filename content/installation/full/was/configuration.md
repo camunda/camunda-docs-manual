@@ -136,6 +136,9 @@ You can configure the **Session Cookie** per deployment via the Admin Web Consol
   * ... *"Set session cookies to HTTPOnly to help prevent cross-site scripting attacks"*, you can add the <code>HttpOnly</code> flag to the session cookie
   * ... *"Restrict cookies to HTTPS sessions"*, you can add the <code>Secure</code> flag to the session cookie
 
+To configure the `SameSite` flag of session cookies, you can refer to all possible options detailed in IBM's 
+[authorized program analysis report (APAR) PH22157](https://www.ibm.com/support/pages/apar/PH22157).
+
 ## Security-related HTTP headers in Webapps
 
 To customize the configuration of security-related HTTP headers in the web applications its deployment descriptor needs 
