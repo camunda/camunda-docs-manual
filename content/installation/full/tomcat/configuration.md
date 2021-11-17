@@ -131,9 +131,9 @@ configuration to the `web.xml` file of Camunda webapplication
 
 ## Session Cookie in Webapps
 
-The deployment descriptor of the Web applications needs to be adjusted, to configure the **Session Cookie**.
+To configure the **Session Cookie**, you can adjust the deployment descriptor of the Web applications.
+You can find it in the `WEB-INF/web.xml` in the following section:
 
-You can find it under `WEB-INF/web.xml`. Please watch out for the following section:
 ```xml
 ...
 <session-config>
@@ -146,6 +146,42 @@ You can find it under `WEB-INF/web.xml`. Please watch out for the following sect
 ```
 
 Please note that security-related configurations for the **Session Cookie** can only be applied with the Deployment Descriptor (`web.xml`) version set to 3.0.
+
+To customize the `SameSite` attribute of the session cookie, you can adjust the `SessionCookieFilter`.
+You can find it in the `WEB-INF/web.xml` as well in the following section:
+
+```xml
+...
+<filter>
+  <filter-name>SessionCookieFilter</filter-name>
+  <filter-class>org.camunda.bpm.webapp.impl.security.filter.SessionCookieFilter</filter-class>
+</filter>
+<filter-mapping>
+  <filter-name>SessionCookieFilter</filter-name>
+  <url-pattern>/*</url-pattern>
+</filter-mapping>
+...
+```
+
+You can change the default behavior by adding configuration parameters to the servlet filter configuration:
+
+```xml
+...
+<filter>
+  <filter-name>SessionCookieFilter</filter-name>
+  <filter-class>org.camunda.bpm.webapp.impl.security.filter.SessionCookieFilter</filter-class>
+  <init-param>
+    <param-name>sameSiteCookieValue</param-name>
+    <param-value>Strict</param-value>
+  </init-param>
+</filter>
+...
+```
+
+The filter adds the `SameSite` attribute to the cookie if this attribute is not present yet. 
+It does not alter any existing value that has been set prior to the filter execution.
+
+Please also see the detailed overview about the [Cookie Security]({{< ref "/webapps/shared-options/cookie-security.md" >}}).
 
 ## Security-related HTTP headers in Webapps
 

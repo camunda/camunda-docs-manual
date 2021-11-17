@@ -155,6 +155,9 @@ You can find it under `WEB-INF/web.xml`. Please watch out for the following sect
 
 Please note that security-related configurations for the **Session Cookie** can only be applied with the Deployment Descriptor (`web.xml`) version set to 3.0.
 
+To adjust the `SameSite` flag of the session cookie, you can configure a `SameSiteCookieHandler` as described in related the [WildFly documentation](https://www.wildfly.org/news/2020/05/04/WildFly-1910-Released/).
+This can be used with WildFly versions >= 19.1.0.
+
 ## Security-related HTTP headers in Webapps
 
 To customize the configuration of security-related HTTP headers in the web applications its deployment descriptor needs 
