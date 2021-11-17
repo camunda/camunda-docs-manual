@@ -587,6 +587,59 @@ When setting to <code>/</code>, the legacy behavior of Camunda Spring Boot Start
   <td><code>XSRF-TOKEN</code></td>
 </tr>
 
+<tr id="session-cookie">
+  <td rowspan="6"><code>camunda.bpm.webapp.session-cookie</code></td>
+</tr>
+<tr>
+  <td><code>.enable-secure-cookie</code></td>
+  <td>
+    If set to <code>true</code>, the cookie flag <a href="{{< ref "/webapps/shared-options/cookie-security.md#secure" >}}">Secure</a> is enabled.<br><br>
+    <strong>Note:</strong> If the <code>Secure</code> flag is set in the cookie by any other means already, this property will not remove it by setting it to <code>false</code>.
+  </td>
+  <td><code>false</code></td>
+</tr>
+<tr>
+  <td><code>.enable-same-site-cookie</code></td>
+  <td>
+    If set to <code>false</code>, the cookie flag <a href="{{< ref "/webapps/shared-options/cookie-security.md#samesite" >}}">SameSite</a> is disabled. The default value of the <code>SameSite</code> cookie is <code>LAX</code> and it can be changed via <code>same-site-cookie-option</code> configuration property.<br><br>
+    <strong>Note:</strong> If the <code>SameSite</code> flag is set in the cookie by any other means already, this property will not adjust or remove it.
+  </td>
+  <td><code>true</code></td>
+</tr>
+<tr>
+  <td><code>.same-site-cookie-option</code></td>
+  <td>
+    Can be configured either to <code>STRICT</code> or <code>LAX</code>.<br><br>
+    <strong>Note:</strong>
+    <ul>
+      <li>Is ignored when <code>enable-same-site-cookie</code> is set to <code>false</code></li>
+      <li>Cannot be set in conjunction with <code>same-site-cookie-value</code></li>
+      <li>Will not change the value of the <code>SameSite</code> flag if it is set already by any other means</li>
+    </ul>
+  </td>
+  <td><i>Not set</i></td>
+</tr>
+<tr>
+  <td><code>.same-site-cookie-value</code></td>
+  <td>
+    A custom value for the cookie property.<br><br>
+    <strong>Note:</strong>
+    <ul>
+      <li>Is ignored when <code>enable-same-site-cookie</code> is set to <code>false</code></li>
+      <li>Cannot be set in conjunction with <code>same-site-cookie-option</code></li>
+      <li>Will not change the value of the <code>SameSite</code> flag if it is set already by any other means</li>
+    </ul>
+  </td>
+  <td><i>Not set</i></td>
+</tr>
+<tr>
+  <td><code>.cookie-name</code></td>
+  <td>
+      A custom value to configure the name of the session cookie to adjust.
+  </td>
+  <td><code>JSESSIONID</code></td>
+</tr>
+
 <tr id="header-security">
   <td rowspan="12"><code>camunda.bpm.webapp.header-security</code></td>
 </tr>
@@ -808,9 +861,7 @@ camunda:
 
 You can configure the **Session Cookie** for the Spring Boot application via the `application.yaml` configuration file.
 
-Camunda Spring Boot Starter versions:
-
-<= 2.3 (Spring Boot version 1.x)
+Camunda Spring Boot Starter versions <= 2.3 (Spring Boot version 1.x)
 
 ```yaml
 server:
@@ -820,7 +871,7 @@ server:
       http-only: true # Not possible for versions before 1.5.14
 ```
 
-\>= 3.0 (Spring Boot version 2.x)
+Camunda Spring Boot Starter versions >= 3.0 (Spring Boot version 2.x)
 
 ```yaml
 server:
@@ -830,6 +881,9 @@ server:
         secure: true
         http-only: true # Not possible for versions before 2.0.3
 ```
+
+Further details of the session cookie like the `SameSite` flag can be configured via 
+[camunda.bpm.webapp.session-cookie]({{< ref "/user-guide/spring-boot-integration/configuration.md#session-cookie" >}}) in the `application.yaml`.
 
 # Configuring Spin DataFormats
 
