@@ -44,6 +44,10 @@ GET `/history/process-instance/count`
     <td>Filter by process instance business key.</td>
   </tr>
   <tr>
+    <td>processInstanceBusinessKeyIn</td>
+    <td>Filter by a comma-separated list of business keys. A process instance must have one of the given business keys.</td>
+  </tr>
+  <tr>
     <td>processInstanceBusinessKeyLike</td>
     <td>Filter by process instance business key that the parameter is a substring of.</td>
   </tr>
