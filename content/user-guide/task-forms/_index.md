@@ -15,7 +15,7 @@ menu:
 
 There are different types of forms which are primarily used in Tasklist. To implement a task form in your application, you have to connect the form resource with the BPMN 2.0 element in your process diagram. Suitable BPMN 2.0 elements for calling tasks forms are the [StartEvent][start-event] and the [UserTask][user-tasks].
 
-Forms are referenced using Form Keys or Form References and can either be embedded in Camunda Tasklist or handled by a custom application. Depending on you use-case, different Form Types can be used:
+Forms are referenced using Form Keys or Form References and can either be embedded in Camunda Tasklist or handled by a custom application. Depending on your use-case, different Form Types can be used:
 
 1. [Embedded Task Forms](#embedded-task-forms) allow you to embed custom HTML and JavaScript forms into Tasklist.
 2. [Camunda Forms](#camunda-forms) offer visual editing of forms in the Camunda Modeler and can be used for less complex forms. Camunda Forms are the only form type that can be referenced either by Form Key or by Form Reference.
