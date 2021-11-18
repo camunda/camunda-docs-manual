@@ -163,6 +163,7 @@ You can find it in the `WEB-INF/web.xml` as well in the following section:
 ...
 ```
 
+By default, the `SameSite` flag will be set to `LAX` by the filter.
 You can change the default behavior by adding configuration parameters to the servlet filter configuration:
 
 ```xml
@@ -178,8 +179,69 @@ You can change the default behavior by adding configuration parameters to the se
 ...
 ```
 
-The filter adds the `SameSite` attribute to the cookie if this attribute is not present yet. 
+Note that the filter only adds the `SameSite` attribute to the cookie if this attribute is not present yet. 
 It does not alter any existing value that has been set prior to the filter execution.
+
+The servlet filter accepts several initialization parameters besides the one describes above.
+The following list describes all possible parameters you can use for the filter configuration:
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Default value</th>
+  </tr>
+  <tr>
+    <td>enableSecureCookie</td>
+    <td>
+      If set to <code>true</code>, the cookie flag <a href="{{< ref "/webapps/shared-options/cookie-security.md#secure" >}}">Secure</a> is enabled for the 
+      <a href="({{< ref "/webapps/shared-options/cookie-security.md" >}})">Session Cookie</a>.<br><br>
+      <strong>Note:</strong> If the <code>Secure</code> flag is set in the cookie by any other means already, this property will not remove it by setting it to <code>false</code>.
+    </td>
+    <td><code>false</code></td>
+  </tr>
+  <tr>
+    <td>enableSameSiteCookie</td>
+    <td>
+      If set to <code>false</code>, the cookie flag <a href="{{< ref "/webapps/shared-options/cookie-security.md#samesite" >}}">SameSite</a> is disabled. The default value of the <code>SameSite</code> cookie is <code>LAX</code> and it can be changed via <code>same-site-cookie-option</code> configuration property.<br><br>
+      <strong>Note:</strong> If the <code>SameSite</code> flag is set in the cookie by any other means already, this property will not adjust or remove it.
+    </td>
+    <td><code>true</code></td>
+  </tr>
+  <tr>
+    <td>sameSiteCookieOption</td>
+    <td>
+      Can be configured either to <code>STRICT</code> or <code>LAX</code>.<br><br>
+      <strong>Note:</strong>
+      <ul>
+        <li>Is ignored when <code>enable-same-site-cookie</code> is set to <code>false</code></li>
+        <li>Cannot be set in conjunction with <code>same-site-cookie-value</code></li>
+        <li>Will not change the value of the <code>SameSite</code> flag if it is set already by any other means</li>
+      </ul>
+    </td>
+    <td><i>Not set</i></td>
+  </tr>
+  <tr>
+    <td>sameSiteCookieValue</td>
+    <td>
+      A custom value for the cookie property.<br><br>
+      <strong>Note:</strong>
+      <ul>
+        <li>Is ignored when <code>enable-same-site-cookie</code> is set to <code>false</code></li>
+        <li>Cannot be set in conjunction with <code>same-site-cookie-option</code></li>
+        <li>Will not change the value of the <code>SameSite</code> flag if it is set already by any other means</li>
+      </ul>
+    </td>
+    <td><i>Not set</i></td>
+  </tr>
+  <tr id="cookie-name">
+    <td>cookieName</td>
+    <td>
+      A custom value to configure the name of the session cookie to adjust.
+    </td>
+    <td><code>JSESSIONID</code></td>
+  </tr>
+</table>
 
 Please also see the detailed overview about the [Cookie Security]({{< ref "/webapps/shared-options/cookie-security.md" >}}).
 

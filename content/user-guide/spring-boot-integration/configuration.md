@@ -602,7 +602,8 @@ When setting to <code>/</code>, the legacy behavior of Camunda Spring Boot Start
 <tr>
   <td><code>.enable-secure-cookie</code></td>
   <td>
-    If set to <code>true</code>, the cookie flag <a href="{{< ref "/webapps/shared-options/cookie-security.md#secure" >}}">Secure</a> is enabled.<br><br>
+    If set to <code>true</code>, the cookie flag <a href="{{< ref "/webapps/shared-options/cookie-security.md#secure" >}}">Secure</a> is enabled for the 
+      <a href="{{< ref "/webapps/shared-options/cookie-security.md" >}}">Session Cookie</a>.<br><br>
     <strong>Note:</strong> If the <code>Secure</code> flag is set in the cookie by any other means already, this property will not remove it by setting it to <code>false</code>.
   </td>
   <td><code>false</code></td>
