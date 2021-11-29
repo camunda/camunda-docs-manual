@@ -70,6 +70,23 @@ Sometimes it is not relevant for your search whether the value is capitalized or
 
 When your search contains one of the Variables mentioned above, two checkboxes appear. You can choose the case handling for the variable name and variable value independently. The option applies to all variable queries within the same search.
 
+### `IN` Operator
+
+{{< img src="../img/tasklist-in-operator.png" title="IN Operator" >}}
+
+Tasklist provides `IN` operator support for the following query criteria:
+
+* Tenant ID
+* Process Instance ID
+
+By default, the criteria defined in the search are linked together with a logical `AND` ([conjunctive normal form](https://en.wikipedia.org/wiki/Conjunctive_normal_form)).
+Sometimes, you want to search not only for one but multiple query criterion values. The `IN` operator allows searching for multiple values where any of the values match.
+
+To use the `IN` operator, select a query criterion that supports the `IN` operator, and provide the values as a comma-separated list. To adjust the comma-separated list of values,
+start editing by clicking on the value. You can expand the value in a modal dialog for easier editing by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-resize-full"></i></button> button.
+
+{{< img src="../img/tasklist-in-operator-modal.png" title="IN Operator Modal" >}}
+
 # Task View
 
 {{< img src="../img/tasklist-task-view.png" title="Task Detail View" >}}
