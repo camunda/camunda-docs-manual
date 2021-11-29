@@ -12,21 +12,22 @@ menu:
 
 The following steps describe how to update the Camunda artifacts on a JBoss EAP 6 or 
 Wildfly / JBoss EAP 7 in a shared process engine scenario. For the entire
-procedure, refer to the [update guide][update-guide]. If not
-already done, make sure to download the [Camunda Platform 7.17 JBoss distribution](https://downloads.camunda.cloud/release/camunda-bpm/jboss/7.17/)
-or [Camunda Platform 7.17 Wildfly distribution](https://downloads.camunda.cloud/release/camunda-bpm/wildfly/7.17/). In the following instructions
+procedure, refer to the [update guide][update-guide].
+
+If not already done, download the [Camunda Platform 7.17 JBoss distribution](https://downloads.camunda.cloud/release/camunda-bpm/jboss/7.17/)
+or [Camunda Platform 7.17 Wildfly distribution](https://downloads.camunda.cloud/release/camunda-bpm/wildfly/7.17/). In the following instructions,
 `$APP_SERVER` should be replaced with either `jboss` or `wildfly`, depending on
 the used application server.
 
 The update procedure takes the following steps:
 
-1. Update the Camunda Platform Modules
-2. Update Optional Camunda Platform Modules
-3. Update Camunda Web Applications
+1. Update the Camunda Platform modules.
+2. Update optional Camunda Platform modules.
+3. Update Camunda web applications.
 
 Whenever the instructions are to *replace* a module, make sure to delete the previous version of the module first to avoid orphan jars.
 
-# 1. Update the Camunda Platform Modules
+# 1. Update the Camunda Platform modules
 
 Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with their new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/`:
 
@@ -60,18 +61,18 @@ Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with t
 * `org/graalvm/truffle/truffle-api`
 * `com/ibm/icu/icu4j`
 
-# 2. Update Optional Camunda Platform Modules
+# 2. Update optional Camunda Platform modules
 
 In addition to the core modules, there may be optional artifacts in `$APP_SERVER_HOME/modules/` for LDAP integration, Camunda Connect, Camunda Spin, and Groovy scripting.
 If you use any of these extensions, the following update steps apply:
 
-## LDAP Integration
+## LDAP integration
 
 Replace the following module from the folder `$APP_SERVER_HOME/modules/` with its new version from the folder `$APP_SERVER_DISTRIBUTION/modules/`, if present:
 
 * `org/camunda/bpm/identity/camunda-identity-ldap`
 
-## Camunda Connect Plugin
+## Camunda Connect plugin
 
 Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with their new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/`, if present:
 
@@ -95,13 +96,13 @@ Additionally, also replace the following dependent modules:
 * `net/minidev/accessors-smart`
 * `net/minidev/json-smart`
 
-# 3. Update Camunda Web Applications
+# 3. Update Camunda web applications
 
 ## Update REST API
 
 The following steps are required to update the Camunda REST API on a JBoss/Wildfly instance:
 
-1. Undeploy an existing web application with a name like `camunda-engine-rest`
+1. Undeploy an existing web application with a name like `camunda-engine-rest`.
 2. Download the REST API web application archive from our [Maven Nexus Server][engine-rest]. Alternatively, switch to the private repository for
    the enterprise version (credentials from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION-$CLASSIFIER.war`.
 3. Deploy the web application archive to your JBoss/Wildfly instance.
@@ -110,7 +111,7 @@ The following steps are required to update the Camunda REST API on a JBoss/Wildf
 
 The following steps are required to update the Camunda web applications Cockpit, Tasklist, and Admin on a JBoss/Wildfly instance:
 
-1. Undeploy an existing web application with a name like `camunda-webapp`
+1. Undeploy an existing web application with a name like `camunda-webapp`.
 2. Download the Camunda web application archive from our [Maven Nexus Server][webapp-jboss].
    Alternatively, switch to the private repository for the enterprise version (credentials from license required).
    Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-jboss.war`.

@@ -11,26 +11,26 @@ menu:
 ---
 
 
-The following steps describe how to update the Camunda artifacts on an IBM WebSphere application server in a shared process engine setting. For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the [Camunda Platform 7.17 IBM WebSphere distribution](https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm-ee/org/camunda/bpm/websphere/camunda-bpm-websphere/7.17.0-ee/).
+The following steps describe how to update the Camunda artifacts on an IBM WebSphere application server in a shared process engine setting. For the entire procedure, refer to the [update guide][update-guide]. If not already done, download the [Camunda Platform 7.17 IBM WebSphere distribution](https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm-ee/org/camunda/bpm/websphere/camunda-bpm-websphere/7.17.0-ee/).
 
 The update procedure takes the following steps:
 
-1. Uninstall the Camunda Libraries and Archives
-2. Replace Camunda Core Libraries
-3. Replace Optional Camunda Dependencies
-4. Maintain the Camunda Platform Configuration
-5. Install the Camunda Archive
-6. Install the Web Applications
+1. Uninstall the Camunda libraries and archives.
+2. Replace Camunda core libraries.
+3. Replace optional Camunda dependencies.
+4. Maintain the Camunda Platform configuration.
+5. Install the Camunda Archive.
+6. Install the web applications.
 
 In each of the following steps, the identifier `$*_VERSION` refers to the current versions and the new versions of the artifacts.
 
-# 1. Uninstall the Camunda Libraries and Archives
+# 1. Uninstall the Camunda libraries and archives
 
-First, uninstall the Camunda web applications, namely the Camunda REST API (artifact name like `camunda-engine-rest`) and the Camunda applications Cockpit, Tasklist and Admin (artifact name like `camunda-webapp`).
+First, uninstall the Camunda web applications, namely the Camunda REST API (artifact name like `camunda-engine-rest`) and the Camunda applications Cockpit, Tasklist, and Admin (artifact name like `camunda-webapp`).
 
 Uninstall the Camunda EAR. Its name should be `camunda-ibm-websphere-ear-$PLATFORM_VERSION.ear`.
 
-# 2. Replace Camunda Core Libraries
+# 2. Replace Camunda core libraries
 
 With your first Camunda installation or update to 7.2, you have created a shared library named `Camunda`. We identify the folder to this shared library as `$SHARED_LIBRARY_PATH`.
 
@@ -55,7 +55,7 @@ After shutting down the server, replace the following libraries in `$SHARED_LIBR
 * `freemarker-$FREEMARKER_VERSION.jar`
 * `mybatis-$MYBATIS_VERSION.jar`
 
-# 3. Replace Optional Camunda Dependencies
+# 3. Replace optional Camunda dependencies
 
 In addition to the core libraries, there may be optional artifacts in `$SHARED_LIBRARY_PATH` for LDAP integration, Camunda Spin, Camunda Connect, and scripting. If you use any of these extensions, the following update steps apply:
 
@@ -86,7 +86,7 @@ Copy the following libraries from `$WAS_DISTRIBUTION/modules/lib` to the folder 
 * `regex-$GRAALJS_VERSION.jar`
 * `truffle-api-$GRAALJS_VERSION.jar`
 
-# 4. Maintain the Camunda Platform Configuration
+# 4. Maintain the Camunda Platform configuration
 
 If you have previously replaced the default Camunda Platform configuration with a custom configuration following any of the ways outlined in the [deployment descriptor reference][configuration-location], it may be necessary to restore this configuration. This can be done by repeating the configuration replacement steps for the updated platform.
 
@@ -94,7 +94,7 @@ If you have previously replaced the default Camunda Platform configuration with 
 
 Install the Camunda EAR, i.e., the file `$WAS_DISTRIBUTION/modules/camunda-ibm-websphere-ear-$PLATFORM_VERSION.ear`. During the installation, the EAR will try to reference the `Camunda` shared library.
 
-# 6. Install the Web Applications
+# 6. Install the web applications
 
 ## REST API
 
