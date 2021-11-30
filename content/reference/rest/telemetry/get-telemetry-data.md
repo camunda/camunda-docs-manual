@@ -38,196 +38,206 @@ A JSON object containing all collected telemetry data.
     <td>product</td>
     <td>Object</td>
     <td>
-      A data object containing further information about the Camunda product.
-      <table class="table table-striped">
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Description</th>
-        </tr>
-        <tr>
-          <td>name</td>
-          <td>String</td>
-          <td>The name of the product (i.e., Camunda BPM Runtime).</td>
-        </tr>
-        <tr>
-          <td>version</td>
-          <td>String</td>
-          <td>The version of the process engine (i.e., 7.X.Y).</td>
-        </tr>
-        <tr>
-          <td>edition</td>
-          <td>String</td>
-          <td>The edition of the product (i.e., either community or enterprise).</td>
-        </tr>
-        <tr>
-          <td>internals</td>
-          <td>Object</td>
-          <td>
-            A data object containing further information about technical internals and the environment of the Camunda Platform installation.
-            <table class="table table-striped">
-              <tr>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Description</th>
-              </tr>
-              <tr>
-                <td>database</td>
-                <td>Object</td>
-                <td>
-                  Data object containing information about the connected database system.
-                  <table class="table table-striped">
-                    <tr>
-                      <th>Name</th>
-                      <th>Type</th>
-                      <th>Description</th>
-                    </tr>
-                    <tr>
-                      <td>vendor</td>
-                      <td>String</td>
-                      <td>The vendor of the connected database system.</td>
-                    </tr>
-                    <tr>
-                      <td>version</td>
-                      <td>String</td>
-                      <td>The version of the connected database system.</td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-              <tr>
-                <td>application-server</td>
-                <td>Object</td>
-                <td>
-                  Data object containing information about the application server Camunda is running on.
-                  <table class="table table-striped">
-                    <tr>
-                      <th>Name</th>
-                      <th>Type</th>
-                      <th>Description</th>
-                    </tr>
-                    <tr>
-                      <td>vendor</td>
-                      <td>String</td>
-                      <td>The vendor of the installed application server.</td>
-                    </tr>
-                    <tr>
-                      <td>version</td>
-                      <td>String</td>
-                      <td>The version of the installed application server.</td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-              <tr>
-                <td>license-key</td>
-                <td>Object</td>
-                <td>
-                  Data object containing information about the Camunda license key issued for enterprise editions of Camunda Platform.
-                  <table class="table table-striped">
-                    <tr>
-                      <th>Name</th>
-                      <th>Type</th>
-                      <th>Description</th>
-                    </tr>
-                    <tr>
-                      <td>customer</td>
-                      <td>String</td>
-                      <td>The name of the customer this license was issued for.</td>
-                    </tr>
-                    <tr>
-                      <td>type</td>
-                      <td>String</td>
-                      <td>Camunda uses different license types e.g., when one license includes usage of Cawemo enterprise.</td>
-                    </tr>
-                    <tr>
-                      <td>valid-until</td>
-                      <td>String</td>
-                      <td>The expiry date of the license in the format 'YYYY-MM-DD'.</td>
-                    </tr>
-                    <tr>
-                      <td>unlimited</td>
-                      <td>boolean</td>
-                      <td>A flag indicating if the license is unlimited or expires.</td>
-                    </tr>
-                    <tr>
-                      <td>features</td>
-                      <td>boolean</td>
-                      <td>A collection of features that are enabled through this license. Features could be Camunda BPM, Optimize or Cawemo.</td>
-                    </tr>
-                    <tr>
-                      <td>raw</td>
-                      <td>boolean</td>
-                      <td>The raw license data. This combines all data fields also included in this class in the form which is stored in the license key String. Note, that this is not the license key as issued to the customer but only contains the plain-text part of it and not the encrypted key.</td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-              <tr>
-                <td>commands</td>
-                <td>Object</td>
-                <td>Information about the number of command executions performed by the Camunda engine. If telemetry sending is enabled, the number of executions per command resets on sending the data to Camunda. Retrieving the data through this API endpoint or the corresponding Java API will not reset the count.</td>
-              </tr>
-              <tr>
-                <td>metrics</td>
-                <td>Object</td>
-                <td>
-                  A selection of metrics collected by the engine. Metrics included are:
-                  <ul>
-                    <li>The number of root process instance executions started (<code>root-process-instance-start</code>).</li>
-                    <li>The number of activity instances started or also known as flow node instances (<code>activity-instance-start</code>).</li>
-                    <li>The number of executed decision instances (<code>executed-decision-instances</code>).</li>
-                    <li>The number of executed decision elements (<code>executed-decision-elements</code>).</li>
-                  </ul>
-                  The metrics reset on sending the data to Camunda. Retrieving the data
-                  through {@link ManagementService#getTelemetryData()} will not reset the
-                  count.
-                </td>
-              </tr>
-              <tr>
-                <td>camunda-integration</td>
-                <td>Array</td>
-                <td>Used Camunda integrations (e.g, Spring boot starter, Camunda Platform Run, WildFly/JBoss subsystem or Camunda EJB service).</td>
-              </tr>
-              <tr>
-                <td>jdk</td>
-                <td>Object</td>
-                <td>
-                  Information about the installed Java runtime environment.
-                  <table class="table table-striped">
-                    <tr>
-                      <th>Name</th>
-                      <th>Type</th>
-                      <th>Description</th>
-                    </tr>
-                    <tr>
-                      <td>vendor</td>
-                      <td>String</td>
-                      <td>The vendor of the Java runtime environment.</td>
-                    </tr>
-                    <tr>
-                      <td>version</td>
-                      <td>String</td>
-                      <td>The version of the Java runtime environment.</td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-              <tr>
-                <td>telemetryEnabled</td>
-                <td>Boolean</td>
-                <td>Flag that indicates if sending of telemetry data was enabled.</td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-      </table>
+      A data object containing further information about the installation. See the <a href="#product">product description</a> for its properties.
     </td>
   </tr>
   <tr>
     <td>installation</td>
     <td>String</td>
     <td>A unique installation id generated by the Camunda Platform. The id is generated once per database, so all engines connected to one database will receive the same id.</td>
+  </tr>
+</table>
+
+## Product
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td>String</td>
+    <td>The name of the product (i.e., Camunda BPM Runtime).</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>String</td>
+    <td>The version of the process engine (i.e., 7.X.Y).</td>
+  </tr>
+  <tr>
+    <td>edition</td>
+    <td>String</td>
+    <td>The edition of the product (i.e., either community or enterprise).</td>
+  </tr>
+  <tr>
+    <td>internals</td>
+    <td>Object</td>
+    <td>
+      A data object containing further information about technical internals and the environment of the Camunda Platform installation. See the <a href="#internals">internals description</a> for its properties.
+    </td>
+  </tr>
+</table>
+
+## Internals
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>database</td>
+    <td>Object</td>
+    <td>
+      Data object containing information about the connected database system. See the <a href="#database">database description</a> for its properties.
+    </td>
+  </tr>
+  <tr>
+    <td>application-server</td>
+    <td>Object</td>
+    <td>
+      Data object containing information about the application server Camunda is running on. See the <a href="#application-server">application server description</a> for its properties.
+    </td>
+  </tr>
+  <tr>
+    <td>license-key</td>
+    <td>Object</td>
+    <td>
+      Data object containing information about the Camunda license key issued for enterprise editions of Camunda Platform. See the <a href="#license-key">license key description</a> for its properties.
+    </td>
+  </tr>
+  <tr>
+    <td>commands</td>
+    <td>Object</td>
+    <td>Information about the number of command executions performed by the Camunda engine. Keys of the object are the command names. Values are JSON objects with a single property <code>count</code>.</td>
+  </tr>
+  <tr>
+    <td>metrics</td>
+    <td>Object</td>
+    <td>
+      A selection of metrics collected by the engine. Keys of the object are the metric names. Values are JSON objects with a single property <code>count</code>. Metrics included are:
+      <ul>
+        <li>The number of root process instance executions started (<code>root-process-instance-start</code>).</li>
+        <li>The number of activity instances started or also known as flow node instances (<code>activity-instance-start</code>).</li>
+        <li>The number of executed decision instances (<code>executed-decision-instances</code>).</li>
+        <li>The number of executed decision elements (<code>executed-decision-elements</code>).</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>camunda-integration</td>
+    <td>Array</td>
+    <td>Contains String values describing the Camunda integrations used (e.g, Spring boot starter, Camunda Platform Run, WildFly/JBoss subsystem or Camunda EJB service).</td>
+  </tr>
+  <tr>
+    <td>jdk</td>
+    <td>Object</td>
+    <td>
+      Information about the installed Java runtime environment. See the <a href="#jdk">JDK description</a> for its properties.      
+    </td>
+  </tr>
+</table>
+
+## Database
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>vendor</td>
+    <td>String</td>
+    <td>The vendor of the connected database system.</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>String</td>
+    <td>The version of the connected database system.</td>
+  </tr>
+</table>
+
+## Application Server
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>vendor</td>
+    <td>String</td>
+    <td>The vendor of the installed application server.</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>String</td>
+    <td>The version of the installed application server.</td>
+  </tr>
+</table>
+
+## License Key
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>customer</td>
+    <td>String</td>
+    <td>The name of the customer this license was issued for.</td>
+  </tr>
+  <tr>
+    <td>type</td>
+    <td>String</td>
+    <td>Camunda uses different license types e.g., when one license includes usage of Cawemo enterprise.</td>
+  </tr>
+  <tr>
+    <td>valid-until</td>
+    <td>String</td>
+    <td>The expiry date of the license in the format 'YYYY-MM-DD'.</td>
+  </tr>
+  <tr>
+    <td>unlimited</td>
+    <td>boolean</td>
+    <td>A flag indicating if the license is unlimited or expires.</td>
+  </tr>
+  <tr>
+    <td>features</td>
+    <td>boolean</td>
+    <td>A collection of features that are enabled through this license. Features could be Camunda BPM, Optimize or Cawemo.</td>
+  </tr>
+  <tr>
+    <td>raw</td>
+    <td>boolean</td>
+    <td>The raw license data. This combines all data fields also included in this class in the form which is stored in the license key String. Note, that this is not the license key as issued to the customer but only contains the plain-text part of it and not the encrypted key.</td>
+  </tr>
+</table>
+
+## JDK
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>vendor</td>
+    <td>String</td>
+    <td>The vendor of the Java runtime environment.</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>String</td>
+    <td>The version of the Java runtime environment.</td>
   </tr>
 </table>
 

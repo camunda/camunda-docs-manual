@@ -185,9 +185,17 @@ Note that some of the dynamic data, like executed engine commands or reported me
 
 ### Java API
 
-To fetch the collected data via the Java API, you can use the ManagementService class.
-```
-managementService.getTelemetryData()
+To fetch the collected data via the Java API, you can use the `ManagementService` class. For example, the following code retrieves the detected JDK vendor and version:
+
+```java
+ProcessEngine processEngine = ...;
+ManagementService managementService = processEngine.getManagementService();
+
+TelemetryData telemetryData = managementService.getTelemetryData();
+Internals productInternals = telemetryData.getProduct().getInternals();
+
+String jdkVendor = productInternals.getJdk().getVendor();
+String jdkVersion = productInternals.getJdk().getVersion();
 ```
 
 ### REST API
