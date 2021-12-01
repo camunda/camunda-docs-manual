@@ -113,9 +113,9 @@ Other combinations must be thoroughly tested before being used in production.
     <td>2.4.x<br/>2.5.x</td>
   </tr>
   <tr>
-    <td>7.16.x</td>
-    <td>7.16.x</td>
-    <td>2.5.x</td>
+    <td>7.16.x<br/>7.16.3+&#42;&#42;&#42;</td>
+    <td>7.16.x<br/>7.16.3+</td>
+    <td>2.5.x<br/>2.6.x</td>
   </tr>
 </table>
 
