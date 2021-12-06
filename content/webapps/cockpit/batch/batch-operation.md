@@ -17,7 +17,7 @@ Please note that this feature is only included in the enterprise edition of the 
 
 {{< img src="../../img/batch/batch_operation_definition.png" alt="Batch Operation Definition" caption="" >}}
 
-# Definition Of Operation
+# Definition of operation
 
 It is possible to execute the following batch operations:
 
@@ -50,13 +50,13 @@ Navigation to the next step is disabled as long as all required data to perform 
 
 Cockpit provides `IN` operator support when filtering for process instances for the following query criteria:
 
-* Process Instance ID
-* Business Key
-* Process Definition Key
-* Variable Value
+* Process instance ID
+* Business key
+* Process definition key
+* Variable value
 
 By default, the criteria defined in the search are linked together with a logical `AND` ([conjunctive normal form](https://en.wikipedia.org/wiki/Conjunctive_normal_form)).
-Sometimes, you want to search not only for one but multiple query criterion values. The `IN` operator allows searching for multiple values where any of the values match.
+Occasionally, you may search for multiple query criterion values. The `IN` operator allows searching for multiple values where any of the values match.
 
 To use the `IN` operator, select a query criterion that supports the `IN` operator, and provide the values as a comma-separated list. To adjust the comma-separated list of values,
 start editing by clicking on the value. You can expand the value in a modal dialog for easier editing by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-resize-full"></i></button> button.
@@ -67,14 +67,14 @@ start editing by clicking on the value. You can expand the value in a modal dial
   The instance search operates on the history endpoint of the engine. In case the requested historic data is not persisted to the database, then the search does not deliver the desired results.
 {{< /note >}}
 
-# Confirmation Of Operation
+# Confirmation of operation
 
 {{< img src="../../img/batch/batch_operation_confirmation.png" alt="Batch Operation Confirmation" caption="" >}}
 
 In the next step of the process, you can review the operation that is going to be performed. One can see a short summary of affected instances
 count as well as a <button class="btn btn-xs"><i class="glyphicon glyphicon-eye-open"></i></button> button which toggles display of extended information. In the section with extended information, you see a path to the REST endpoint that will process the request as well as the payload of the request.
 
-# Review Results
+# Review results
 
 {{< img src="../../img/batch/batch_operation_result.png" alt="Batch Operation Result" caption="" >}}
 
