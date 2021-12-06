@@ -10,18 +10,18 @@ menu:
 
 ---
 
-You can override the default configuration of Admin using a central configuration file
+You can override the default configuration of admin using a central configuration file
 located in `app/admin/scripts/config.js`. The following configuration options are
 available:
+
 # LDAP
 
 If you connect the Camunda Platform with the LDAP identity service, you have read-only access to the users and groups. Create new users and groups via the LDAP system, but not in the admin application. Find more information about how to configure the process engine in order to use the LDAP identity service [here]({{< ref "/user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}).
 
-
-# Logo and Header Color
+# Logo and header color
 
 You can change the visual aspects of Admin. The user stylesheet file is located in
-`app/admin/styles/user-styles.css`. This file contains CSS which is loaded into Admin
+`app/admin/styles/user-styles.css`. This file contains CSS, which is loaded into Admin
 and can override the standard styles.
 
 ```css
@@ -64,11 +64,10 @@ consists of the language code and the suffix `.json` (e.g., `en.json`).
 
 Admin uses a locale file corresponding to the language settings of the browser. You can
 set the `availableLocales` property in the configuration file to provide a list of available
-locales. Every locale which is contained in this list must have a locale file in the `locales`
+locales. Every locale contained in this list must have a locale file in the `locales`
 directory with the corresponding language code.
 
-If the browser uses a language which is not available, Admin uses the locale which is
-defined via the `fallbackLocale` property in the configuration file:
+If the browser uses a language which is not available, Admin uses the locale defined via the `fallbackLocale` property in the configuration file:
 
 ```javascript
 export default {
@@ -84,9 +83,9 @@ To create a new localization for Admin, copy the provided language file, transla
 save it as new localization file with the corresponding language code. To make the new translation
 available, add it to the list of available locales in the configuration file.
 
-# Custom Scripts
+# Custom scripts
 
-Admin allows you to include arbitrary JavaScript files. This allows you to extend Admin with custom code. The script file might contain a 
+Admin allows you to include arbitrary JavaScript files. This allows you to extend admin with custom code. The script file might contain a 
 custom frontend module. Admin shares the frontend module structure with [Cockpit Plugins]({{<ref "/webapps/cockpit/extend/plugins.md#structure-of-a-frontend-module" >}}).
 
 Add your files to the `customScripts` property of the `app/admin/scripts/config.js` file:
@@ -100,11 +99,11 @@ export default {
 ```
 This includes a `custom-module/module.js` file. The path is relative to the `app/admin` folder in the Camunda webapp .war file.
 
-# Change CSRF Cookie Name
+# Change CSRF cookie name
 
 The default name of the CSRF Cookie is `XSRF-TOKEN`. When using other applications within the
-same-origin, the CSRF mechanisms could interfere with each other. To avoid the name conflict, you
-can change the name of the CSRF cookie in the `config.js` file as follows:
+same origin, the CSRF mechanisms could interfere with each other. To avoid the name conflict, change the name of the CSRF cookie in the `config.js` file as follows:
+
 ```javascript
 export default {
   // …
@@ -112,12 +111,13 @@ export default {
 }
 ```
 
-**Note:** Please make sure to change the CSRF cookie name also on [server-side]({{<ref "/webapps/shared-options/csrf-prevention.md#cookie-name" >}}).
+**Note:** Ensure you also change the CSRF cookie name on [server-side]({{<ref "/webapps/shared-options/csrf-prevention.md#cookie-name" >}}).
 
-# Disable Welcome Message for new Users
+# Disable welcome message for new users
 
-First-time visitors are shown a message directing them to the camunda welcome page. If you do
+First-time visitors are shown a message directing them to the Camunda welcome page. If you do
 not want this message to be shown, you can disable it by adjusting the `config.js` as follows:
+
 ```javascript
 export default {
   // …
@@ -125,11 +125,11 @@ export default {
 }
 ```
 
-**Note:** This does only affect the Admin login page. For other webapps, you need to adjust the corresponding config file as well.
+**Note:** This only affects the Admin login page. For other web apps, adjust the corresponding config file as well.
 
+# User operation log annotation length
 
-# User Operation Log Annotation Length
-The default maximum length of a User Operation Log annotation is 4000 characters. Some databases have smaller limits. You can change the maximum allowed input length in the `config.js` file as follows:
+The default maximum length of a user operation log annotation is 4000 characters. Some databases have smaller limits. You can change the maximum allowed input length in the `config.js` file as follows:
 
 ```javascript
 export default {
@@ -138,15 +138,27 @@ export default {
 }
 ```
 
-**Note:** This does only affect the Admin Operation Log. For the Cockpit Operation Log, check out the [Cockpit configuration]({{<ref "/webapps/cockpit/extend/configuration.md#user-operation-log-annotation-length" >}}).
+**Note:** This only affects the Admin Operation Log. For the Cockpit Operation Log, check out the [Cockpit configuration]({{<ref "/webapps/cockpit/extend/configuration.md#user-operation-log-annotation-length" >}}).
 
+# Task worker metrics
 
-# Advanced Styles Customization
+The task worker metrics (TW) on the metrics page are displayed by default. You can disable this behavior by adjusting the `config.js` as follows:
 
-In addition to the basic `user-styles.css` file, you can edit the source style- and layout files
+```javascript
+export default {
+  // …
+  alwaysShowUniqueTaskWorkerMetrics: false
+}
+```
+
+If disabled, the metrics can still be displayed on-demand via a checkbox.
+
+# Advanced styles customization
+
+In addition to the basic `user-styles.css` file, you can edit the source style and layout files
 using [less](http://lesscss.org/) to change the overall appearance of Admin.
 
-If you want to customize the interface with `less`, you should probably start by having a look
+To customize the interface with `less`, start by having a look
 at the variables defined in the following files:
 
  - `node_modules/camunda-commons-ui/node_modules/bootstrap/less/variables.less`
@@ -162,4 +174,4 @@ From within the `camunda-bpm-webapp` directory:
 grunt build:admin
 ```
 
-The command will build the frontend assets (of Admin), styles included.
+The command will build the front-end assets (of Admin), styles included.

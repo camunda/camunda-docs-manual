@@ -20,11 +20,11 @@ Most Camunda modules, including the Camunda engine, use [slf4j] as logging "faca
 
 When installing Camunda as a shared process engine in an application server, Camunda logging is pre-configured.
 
-On all application servers except JBoss and Wildfly, logging is pre-configured using the slf4j-jdk14 bridge.
+On all application servers except Wildfly, logging is pre-configured using the slf4j-jdk14 bridge.
 This means that Camunda effectively re-directs all its logging to Java Util Logging.
 Both SLF4J API and the slf4j-jdk14 bridge are available in a shared classpath which means that they are available in the classpath of all applications deployed on these servers.
 
-On JBoss/Wildfly, logging is directed to the JBoss logging infrastructure. The SLF4J API is not available in the classpath of custom applications by default.
+On Wildfly, logging is directed to the JBoss logging infrastructure. The SLF4J API is not available in the classpath of custom applications by default.
 
 ## Adding a Logging Backend for Embedded Use
 
@@ -411,7 +411,7 @@ List of modules still using Java Util Logging:
 * camunda-engine-cdi
 * camunda-engine-spring
 * camunda-engine-rest
-* JBoss/Wildfly Subsystems
+* Wildfly Subsystems
 
 [slf4j]: http://www.slf4j.org/
 [log4j]: http://logging.apache.org/log4j/

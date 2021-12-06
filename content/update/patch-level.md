@@ -279,6 +279,20 @@ This updates the following template engine versions:
   
 Please note that the new version of Freemarker contains changes that are not compatible with the previous version. We strongly recommend to test the execution of your templates before applying the update. In addition, you can replace the artifacts of version 2.1.0 by the old artifacts in version 2.0.0 to continue using the old versions of Freemarker and Velocity.
 
+## 7.16.1 to 7.16.2 / 7.15.7 to 7.15.8
+
+### REST API and web applications: new dependency Jackson JSR310
+
+The patches introduce the [Jackson JSR310 artifact](https://search.maven.org/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310/2.12.1/bundle) to the REST API and web applications by default.
+This artifact enables those modules to handle [Java 8 Date & Time API](https://jcp.org/en/jsr/detail?id=310) data types.
+
+Be aware that the serialized data of values of such data types can change with the usage of this artifact. 
+Prior to version 2.12, the serialization library Jackson defaulted to a fallback serialization mechanism if no artifact was available for those data types.
+Starting with version 2.12.0, Jackson [throws an exception](https://github.com/FasterXML/jackson-databind/issues/2683) in such cases. 
+Therefore, the REST API and web applications now register an appropriate module.
+This allows you to keep using Java 8 date and time data types when updating to a newer Jackson version. 
+However, this can also lead to changed serialized data for such values.
+
 # Full Distribution
 
 This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.
@@ -286,7 +300,7 @@ This section is applicable if you installed the [Full Distribution]({{< ref "/in
 Please note that the following procedure may differ for cluster scenarios. Contact our [support team](https://app.camunda.com/jira/browse/SUPPORT) if you need further assistance.
 
 * Shut down the server
-* Exchange Camunda Platform libraries, tools and webapps (EAR, RAR, Subsystem (JBoss), Shared Libs) - essentially, follow the [installation guide]({{< ref "/installation/full/_index.md" >}}) for your server.
+* Exchange Camunda Platform libraries, tools and webapps (EAR, RAR, Subsystem (Wildfly), Shared Libs) - essentially, follow the [installation guide]({{< ref "/installation/full/_index.md" >}}) for your server.
 * Restart the server
 
 # Application With Embedded Process Engine

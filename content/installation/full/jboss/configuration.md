@@ -1,6 +1,6 @@
 ---
 
-title: 'Configure the Full Distribution for JBoss/Wildfly'
+title: 'Configure the Full Distribution for JBoss EAP/Wildfly'
 weight: 30
 
 menu:
@@ -13,17 +13,17 @@ menu:
 ---
 
 
-This page explains how to configure the full distribution for the JBoss/Wildfly application server.
+This page explains how to configure the full distribution for the JBoss EAP/Wildfly application server.
 
 
 ## LDAP
 
-In order to setup LDAP for the JBoss/Wildfly Application Server distribution, you have to perform the following steps:
+In order to setup LDAP for the JBoss EAP/Wildfly Application Server distribution, you have to perform the following steps:
 
 
 ### Adjust the Process Engine Configuration
 
-Edit the file `standalone.xml` (or `domain.xml`) provided by the JBoss/Wildfly Application Server and add the [LDAP Identity Provider Plugin]({{< ref "/user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}) and the [Administrator Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}).
+Edit the file `standalone.xml` (or `domain.xml`) provided by the JBoss EAP/Wildfly Application Server and add the [LDAP Identity Provider Plugin]({{< ref "/user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}) and the [Administrator Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}).
 
 ```xml
 <subsystem xmlns="urn:org.camunda.bpm.jboss:1.1">
@@ -122,8 +122,8 @@ configuration to the `web.xml` file of Camunda webapplication
 
 ## Add Custom Engine Plugins
  
-1.  Add an additional engine plugin as a module to the folder $JBOSS_HOME/modules/
-2.  Add the module dependency to the file `$JBOSS_HOME/modules/org/camunda/bpm/camunda-engine-plugins/main/module.xml` and set the attribute `export="true"` to make sure that the module is visible in the classpath of Camunda's subsystem
+1.  Add an additional engine plugin as a module to the folder $WILDFLY_HOME/modules/
+2.  Add the module dependency to the file `$WILDFLY_HOME/modules/org/camunda/bpm/camunda-engine-plugins/main/module.xml` and set the attribute `export="true"` to make sure that the module is visible in the classpath of Camunda's subsystem
       ```xml
     <module xmlns="urn:jboss:module:1.0"
             name="org.camunda.bpm.camunda-engine-plugins">
@@ -134,7 +134,7 @@ configuration to the `web.xml` file of Camunda webapplication
     </module>
       ```
       
-    The `module.xml` file is included in the Camunda Platform distribution. If you install Camunda Platform on a vanilla JBoss/Wildfly container, this file needs to be created manually.
+    The `module.xml` file is included in the Camunda Platform distribution. If you install Camunda Platform on a vanilla Wildfly container, this file needs to be created manually.
 3. [Configure the process engine plugin]({{< ref "/user-guide/runtime-container-integration/jboss.md#extend-a-process-engine-using-process-engine-plugins" >}}) in the standalone.xml/domain.xml configuration file
 
 ## Session Cookie in Webapps
@@ -154,6 +154,9 @@ You can find it under `WEB-INF/web.xml`. Please watch out for the following sect
 ```
 
 Please note that security-related configurations for the **Session Cookie** can only be applied with the Deployment Descriptor (`web.xml`) version set to 3.0.
+
+To adjust the `SameSite` flag of the session cookie, you can configure a `SameSiteCookieHandler` as described in related the [WildFly documentation](https://www.wildfly.org/news/2020/05/04/WildFly-1910-Released/).
+This can be used with WildFly versions >= 19.1.0.
 
 ## Security-related HTTP headers in Webapps
 
