@@ -11,17 +11,17 @@ menu:
 ---
 
 
-At Camunda, we strive to offer excellent user experience at a high and stable level. On a strict opt-in basis, we are looking to collect environment and usage data to further improve the user experience for you. These insights help us to understand typical environment setups and product usage patterns and will be used to make informed product improvement decisions to your benefit.
+At Camunda, we strive to offer an excellent user experience at a high and stable level. On a strict opt-in basis, we are looking to collect environment and usage data to further improve the user experience for you. These insights help us to understand typical environment setups and product usage patterns and will be used to make informed product improvement decisions to your benefit.
 
 ## Design
 
-The process engine has a dedicated thread called the *Telemetry Reporter* to periodically report telemetry data to Camunda. This thread is by default always running, however only collects and reports data if telemetry is explicitly enabled. See the [How to enable telemetry]({{< ref "#how-to-enable-telemetry" >}}) section for how to do this. The collected data is available through multiple APIs, even if sending the data to Camunda is not enabled. See [How to access the data]({{< ref "#how-to-access-the-data" >}}) for more information on how to do this.
+The process engine has a dedicated thread called the *Telemetry Reporter* to periodically report telemetry data to Camunda. By default, this thread is always running, but only collects and reports data if telemetry is explicitly enabled. See the [how to enable telemetry]({{< ref "#how-to-enable-telemetry" >}}) section for how to do this. The collected data is available through multiple APIs, even if sending the data to Camunda is not enabled. See [how to access the data]({{< ref "#how-to-access-the-data" >}}) for more information on how to do this.
 
 When enabled, the collected data is sent once in 24 hours via HTTPS (please also have a look at [Initial Data Report][]). The telemetry reporter is designed so that your implemented processes are not negatively affected in case the reporter suddenly faces an unexpected error. The telemetry reporter stops in any case when the process engine is stopped.
 
 ## Initial data report
 
-In order to support the understanding of typical use cases and the overall distribution of our products, the installation sends an anonymized one-time initial report to Camunda via HTTPS. This report contains no specifics that would allow any direct link to an outside entity and is limited to the following data:
+To support the understanding of typical use cases and the overall distribution of our products, the installation sends an anonymized one-time initial report to Camunda via HTTPS. This report contains no specifics that would allow any direct link to an outside entity and is limited to the following data:
 
 ```
 {
