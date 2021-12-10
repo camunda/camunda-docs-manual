@@ -15,7 +15,7 @@ menu:
 The processes dashboard of Cockpit is the entry point for process monitoring. It comes with a pre-installed plugin, which lets you see deployed process definitions. Additional [plugins]({{< ref "/webapps/cockpit/extend/plugins.md" >}}) can be added to the processes dashboard.
 
 
-# Deployed Processes
+# Deployed processes
 
 {{< img src="../../img/cockpit-process-definition-state.png" title="Deployed Processes" >}}
 
@@ -53,26 +53,27 @@ You can perform batch operation on process instances matching search criteria by
   The process instance search operates on the history endpoint of the engine. In case the requested historic data is not persisted to the database, then the search does not deliver the desired results.
 {{< /note >}}
 
-## `IN` Operator
+## `IN` operator
 
 {{< img src="../../img/cockpit-in-operator.png" title="IN Operator" >}}
 
 Cockpit provides `IN` operator support when filtering for process instances for the following query criteria:
 
-* Process Instance ID
-* Business Key
-* Process Definition Key
-* Variable Value
+* Process instance ID
+* Business key
+* Process definition key
+* Variable value
 
 By default, the criteria defined in the search are linked together with a logical `AND` ([conjunctive normal form](https://en.wikipedia.org/wiki/Conjunctive_normal_form)).
-Sometimes, you want to search not only for one but multiple query criterion values. The `IN` operator allows searching for multiple values where any of the values match.
+Occasionally, you may search for multiple query criterion values. The `IN` operator allows searching for multiple values where any of the values match.
 
 To use the `IN` operator, select a query criterion that supports the `IN` operator, and provide the values as a comma-separated list. To adjust the comma-separated list of values,
 start editing by clicking on the value. You can expand the value in a modal dialog for easier editing by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-resize-full"></i></button> button.
 
 {{< img src="../../img/cockpit-in-operator-modal.png" title="IN Operator Modal" >}}
 
-# Delete Process Definitions
+# Delete process definitions
+
 {{< enterprise >}}
 Please note that this feature is only included in the enterprise edition of the Camunda Platform, it is not available in the community edition.
 {{< /enterprise >}}
