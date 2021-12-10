@@ -47,7 +47,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>processInstanceBusinessKeyIn</td>
-    <td>Filter by a list of business keys. A process instance must have one of the given business keys. Must be a JSON array of Strings.</td>
+    <td>Filter by a list of business keys. A process instance must have one of the given business keys and must be a JSON array of strings.</td>
   </tr>
   <tr>
     <td>processInstanceBusinessKeyLike</td>
