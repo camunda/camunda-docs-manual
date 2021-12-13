@@ -48,7 +48,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>userId</td>
-    <td>The id of the user that claims the task.</td>
+    <td>The id of the user that claims the task. If userId is empty the task is unclaimed.</td>
   </tr>
 </table>
 
