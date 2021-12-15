@@ -21,13 +21,13 @@ the used application server.
 
 The update procedure takes the following steps:
 
-1. Update the Camunda Platform Modules
-2. Update Optional Camunda Platform Modules
-3. Update Camunda Web Applications
+1. Update the Camunda Platform modules.
+2. Update optional Camunda Platform modules.
+3. Update Camunda web applications.
 
-Whenever the instructions are to *replace* a module, make sure to delete the previous version of the module first to avoid orphan jars.
+Whenever the instructions are to *replace* a module, delete the previous version of the module first to avoid orphan jars.
 
-# 1. Update the Camunda Platform Modules
+# 1. Update the Camunda Platform modules
 
 Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with their new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/`:
 
@@ -87,7 +87,7 @@ Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with t
 * `org/camunda/spin/camunda-spin-dataformat-xml-dom`
 * `org/camunda/bpm/camunda-engine-plugin-spin`
 
-Additionally, also replace the following dependent modules:
+Additionally, replace the following dependent modules:
 
 * `com/fasterxml/jackson/core/jackson-annotations`
 * `com/fasterxml/jackson/core/jackson-core`
@@ -116,7 +116,6 @@ The following steps are required to update the Camunda web applications Cockpit,
    Alternatively, switch to the private repository for the enterprise version (credentials from license required).
    Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-jboss.war`.
 3. Deploy the web application archive to your JBoss/Wildfly instance.
-
 
 [update-guide]: {{< ref "/update/minor/716-to-717/_index.md" >}}
 [engine-rest]: https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/camunda-engine-rest/7.17.0/

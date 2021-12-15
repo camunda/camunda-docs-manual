@@ -10,7 +10,9 @@ menu:
 
 ---
 
-The following steps describe how to update the Camunda artifacts on an Oracle WebLogic application server in a shared process engine setting. For the entire procedure, refer to the [update guide][update-guide]. If not already done, download the [Camunda Platform 7.17 Oracle WebLogic distribution](https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm-ee/org/camunda/bpm/weblogic/camunda-bpm-weblogic/7.17.0-ee/).
+The following steps describe how to update the Camunda artifacts on an Oracle WebLogic application server in a
+shared process engine setting. Throughout the procedure, refer to the [update guide][update-guide]. If not already 
+done, download the [Camunda Platform 7.17 Oracle WebLogic distribution](https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm-ee/org/camunda/bpm/weblogic/camunda-bpm-weblogic/7.17.0-ee/).
 
 The update procedure takes the following steps:
 
@@ -62,8 +64,7 @@ Copy the following library from `$WLS_DISTRIBUTION/modules/lib` to the folder `$
 
 * `camunda-identity-ldap-$PLATFORM_VERSION.jar`
 
-## Camunda Connect Plugin
-
+## Camunda Connect plugin
 
 `camunda-connect-http-client`, `camunda-connect-soap-http-client`, and `camunda-engine-plugin-connect` are part of the .ear
 
@@ -96,7 +97,7 @@ If you have previously replaced the default Camunda Platform configuration by a 
 
 Install the Camunda EAR, i.e., the file `$WLS_DISTRIBUTION/modules/camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear`.
 
-# 6. Install the Web Applications
+# 6. Install the web applications
 
 ## REST API
 
