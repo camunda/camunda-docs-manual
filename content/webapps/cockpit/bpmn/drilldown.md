@@ -14,20 +14,20 @@ menu:
 Diagrams can contain collapsed subprocesses to hide complexity on multiple levels. You can drill down into
 collapsed subprocesses with the drilldown icon.
 
-## Process Diagram
+## Process diagram
 
 If you have a collapsed subprocess in your diagram, a drilldown icon will appear in the lower right of the activity.
 
 {{< img src="../../img/drilldown/shape.png" alt="A Collapsed Subprocess Shape with a drilldown Action">}}
 
-The collapsed shape will indicate if there are running child instances or if an incident occurred in a child Activity.
+The collapsed shape indicates if there are running child instances or if an incident occurred in a child activity.
 
-If you click on the drilldown icon, the diagram will show the contents of the Collapsed Subprocess. Use the breadcrumbs in the upper left corner
+If you click on the drilldown icon, the diagram will show the contents of the collapsed subprocess. Use the breadcrumbs in the upper left corner
 of the diagram to navigate back to the parent process.
 
 {{< img src="../../img/drilldown/breadcrumbs.png" alt="Breadcrumb links showing the process hirarchy">}}
 
-The breadcrumbs show the process hierarchy. Opening an expanded subprocess will open the nearest collapsed subprocess.
+The breadcrumbs show the process hierarchy. Opening an expanded subprocess opens the nearest collapsed subprocess.
 
 ## Migration
 
@@ -37,7 +37,7 @@ When migrating collapsed subprocesses, be aware that the collapsed shapes hide o
 
 Additionally, collapsed subprocesses can have two badges:
 
-  * status of the subprocess activity
-  * status of the child activities
+  * Status of the subprocess activity
+  * Status of the child activities
 
-If a child Activity of the collapses subprocess is not mapped or has an error, an additional badge is shown on the left of the shape.
+If a child activity of the collapsed subprocess is not mapped or has an error, an additional badge is shown on the left of the shape.
