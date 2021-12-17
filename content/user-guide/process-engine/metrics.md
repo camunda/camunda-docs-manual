@@ -27,25 +27,25 @@ If you are an enterprise customer, your license agreement might require you to r
   </tr>
   <tr>
     <td><b>BPMN Execution</b></td>
-    <td>root-process-instance-start*</td>
-    <td>The number of root process instance executions started. This is also known as <b>Root Process Instances (RPI)</b>.
+    <td>process-instances*</td>
+    <td>The number of root process instance executions started. This is also known as <b>Process Instances (PI)</b>.
     A root process instance has no parent process instance, i.e. it is a top-level execution.
     </td>
   </tr>
   <tr>
     <td></td>
-    <td>activity-instance-start*</td>
-    <td>The number of activity instances started. This is also known as <b>flow node instances (FNI)</b>.</td>
+    <td>flow-node-instances-start*</td>
+    <td>The number of flow node instances (activity instances) started (FNI).</td>
   </tr>
   <tr>
     <td></td>
-    <td>activity-instance-end</td>
-    <td>The number of activity instances ended.</td>
+    <td>flow-node-instances-end</td>
+    <td>The number of flow node instances (activity instances) ended.</td>
   </tr>
   <tr>
     <td><b>DMN Execution</b></td>
-    <td>executed-decision-instances*</td>
-    <td>The number of evaluated decision instances (EDI). A decision instance is a DMN decision table or a DMN Literal Expression.</td>
+    <td>decision-instances*</td>
+    <td>The number of evaluated decision instances (DI). A decision instance is a DMN decision table or a DMN Literal Expression.</td>
   </tr>
   <tr>
     <td></td>
@@ -89,8 +89,8 @@ If you are an enterprise customer, your license agreement might require you to r
   </tr>
   <tr>
     <td><b>Task Metrics</b></td>
-    <td>unique-task-workers*</td>
-    <td>The number of unique task workers that have served as assignees.</td>
+    <td>task-users*</td>
+    <td>The number of task users (TU) that have served as assignees.</td>
   </tr>
   <tr>
     <td><b>History Clean up</b></td>
