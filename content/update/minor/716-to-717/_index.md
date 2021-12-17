@@ -20,6 +20,7 @@ This document guides you through the update from Camunda Platform `7.16.x` to `7
 1. For administrators: [Standalone web application](#standalone-web-application)
 1. For administrators and developers: [Task Worker Metrics](#task-worker-metrics)
 1. For developers: [Spin configuration options](#set-variables-on-process-instance-migration)
+1. For developers: [Extended Camunda Run CORS configuration properties](#extended-camunda-run-cors-configuration-properties)
 
 This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new 
 functionality included in Camunda Platform 7.17.
@@ -93,3 +94,11 @@ parser against [XXE attacks](https://en.wikipedia.org/wiki/XML_external_entity_a
 You can restore the old behavior by passing the appropriate [configuration properties to the Spin process engine plugin][spin-config].
 
 [spin-config]: {{< ref "/user-guide/data-formats/configuring-spin-integration.md#configuration-properties-of-the-spin-plugin" >}}
+
+# Extended Camunda Run CORS configuration properties
+
+Version 7.17 of the Camunda Run distro brings new [CORS configuration properties][cors-properties]. There are no
+changes in the existing CORS behavior. The new CORS configuration properties allow for additional parameters, like 
+credentials support, to be set on the CORS Filter.
+
+[cors-properties]: {{< ref "/user-guide/camunda-bpm-run.md#cross-origin-resource-sharing" >}}

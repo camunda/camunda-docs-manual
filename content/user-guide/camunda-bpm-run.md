@@ -203,7 +203,36 @@ If you want to allow cross-origin requests to the [REST API]({{< ref "/reference
   <tr>
       <td><code>.allowed-origins</code></td>
       <td>Origins that are allowed to make CORS requests. Multiple origins can be separated with commas. To support both HTTP authentication and CORS, <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSNotSupportingCredentials"><code>allowed-origins</code> must not be</a> <code>\*</code>. To allow Camunda Modeler to deploy with authentication, including <code>file://</code> in the allowed origins.</td>
-    <td><code>\*</code> (all origins, including <code>file://</code>)</td>
+      <td><code>\*</code> (all origins, including <code>file://</code>)</td>
+  </tr>
+  <tr>
+      <td><code>.allowed-headers</code></td>
+      <td>Headers that are allowed to be passed with CORS requests. Multiple headers can be separated with commas.</td>
+      <td><code>Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers</code></td>
+  </tr>
+  <tr>
+      <td><code>.exposed-headers</code></td>
+      <td>Headers that can be read by browsers from a CORS response. Simple response headers should not be 
+          included in this list. Multiple headers can be separated with commas.
+      </td>
+      <td>None</td>
+  </tr>
+  <tr>
+      <td><code>.allow-credentials</code></td>
+      <td>A boolean flag that helps a browser determine it can make a CORS request using credentials.</td>
+      <td><code>false</code></td>
+  </tr>
+  <tr>
+      <td><code>.preflight-maxage</code></td>
+      <td>Determines how long a browser can cache the result of a  pre-flight request in seconds.</td>
+      <td><code>1800</code></td>
+  </tr>
+  <tr>
+      <td><code>.decorate-request</code></td>
+      <td>A boolean flag to tell the CORS Filter to populate the <code>HttpServletRequest</code> instance with 
+        <a href="https://tomcat.apache.org/tomcat-9.0-doc/config/filter.html#CORS_Filter_and_HttpServletRequest_attributes">CORS-related attributes</a>.
+      </td>
+      <td><code>true</code></td>
   </tr>
 </table>
 
