@@ -224,7 +224,7 @@ If you want to allow cross-origin requests to the [REST API]({{< ref "/reference
   </tr>
   <tr>
       <td><code>.preflight-maxage</code></td>
-      <td>Determines how long a browser can cache the result of a  pre-flight request in seconds.</td>
+      <td>Determines how long a browser can cache the result of a pre-flight request in seconds.</td>
       <td><code>1800</code></td>
   </tr>
   <tr>
