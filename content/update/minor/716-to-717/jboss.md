@@ -10,9 +10,9 @@ menu:
 
 ---
 
-The following steps describe how to update the Camunda artifacts on a JBoss EAP 6 or 
-Wildfly / JBoss EAP 7 in a shared process engine scenario. For the entire
-procedure, refer to the [update guide][update-guide].
+The following steps describe how to update the Camunda artifacts on a JBoss EAP 6 or
+Wildfly / JBoss EAP 7 in a shared process engine scenario. Throughout the procedure, 
+refer to the [update guide][update-guide].
 
 If not already done, download the [Camunda Platform 7.17 JBoss distribution](https://downloads.camunda.cloud/release/camunda-bpm/jboss/7.17/)
 or [Camunda Platform 7.17 Wildfly distribution](https://downloads.camunda.cloud/release/camunda-bpm/wildfly/7.17/). In the following instructions,
@@ -25,7 +25,7 @@ The update procedure takes the following steps:
 2. Update optional Camunda Platform modules.
 3. Update Camunda web applications.
 
-Whenever the instructions are to *replace* a module, make sure to delete the previous version of the module first to avoid orphan jars.
+Whenever the instructions are to *replace* a module, delete the previous version of the module first to avoid orphan jars.
 
 # 1. Update the Camunda Platform modules
 
@@ -87,7 +87,7 @@ Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with t
 * `org/camunda/spin/camunda-spin-dataformat-xml-dom`
 * `org/camunda/bpm/camunda-engine-plugin-spin`
 
-Additionally, also replace the following dependent modules:
+Additionally, replace the following dependent modules:
 
 * `com/fasterxml/jackson/core/jackson-annotations`
 * `com/fasterxml/jackson/core/jackson-core`
@@ -117,7 +117,6 @@ The following steps are required to update the Camunda web applications Cockpit,
    Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-jboss.war`.
 3. Deploy the web application archive to your JBoss/Wildfly instance.
 
-
 [update-guide]: {{< ref "/update/minor/716-to-717/_index.md" >}}
 [engine-rest]: https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/camunda-engine-rest/7.17.0/
-[webapp-jboss]: https://app.camunda.com/nexus/repository/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-jboss/7.17.0/camunda-webapp-jboss-7.16.0.war
+[webapp-jboss]: https://app.camunda.com/nexus/repository/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-jboss/7.17.0/camunda-webapp-jboss-7.17.0.war

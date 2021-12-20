@@ -33,7 +33,32 @@ Note that the package relocation means that you cannot develop against the origi
 
 ## camunda-engine-plugin-spin
 
-`camunda-engine-plugin-spin` is a process engine plugin that integrates Spin with a process engine. For example it registers variable serializers that enable the process engine to store Java objects as JSON.
+`camunda-engine-plugin-spin` is a process engine plugin that integrates Spin with a process engine. For example, it 
+registers variable serializers that enable the process engine to store Java objects as JSON.
+
+### Configuration properties of the Spin plugin
+
+The Spin process engine plugin provides the following configuration options:
+
+<table class="table table-striped">
+  <tr>
+    <th>Property</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code>enableXxeProcessing</code></td>
+    <td>Toggle the processing of External XML Entities (XXE) in an XML document. Disable to prevent 
+        <a href="https://en.wikipedia.org/wiki/XML_external_entity_attack">XXE attacks</a>. Default value: 
+        <code>false</code>
+    </td>
+  </tr>
+  <tr>
+    <td><code>enableSecureXmlProcessing</code></td>
+    <td>Toggle the <a href="https://docs.oracle.com/en/java/javase/13/security/java-api-xml-processing-jaxp-security-guide.html">secure processing of an XML document</a>. 
+        Default value: <code>true</code>
+    </td>
+  </tr>
+</table>
 
 ## Maven coordinates
 
