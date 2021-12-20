@@ -295,6 +295,8 @@ However, this can also lead to changed serialized data for such values.
 
 ## 7.16.3 to 7.16.4 / 7.15.9 to 7.15.10 / 7.14.15 to 7.14.16
 
+### Spin configuration properties
+
 This set of patches introduce configuration properties for the Spin `DomXmlDataFormat` module. The `DomXmlDataFormat`
 configuration properties provide options to toggle **External XML Entity (XXE)** processing, as well as secure processing
 for the Spin XML parser.
