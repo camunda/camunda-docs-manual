@@ -11,7 +11,9 @@ menu:
 ---
 
 
-The following steps describe how to update the Camunda artifacts on an IBM WebSphere application server in a shared process engine setting. Throughout the procedure, refer to the [update guide][update-guide]. If not already done, download the [Camunda Platform 7.16 IBM WebSphere distribution](https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm-ee/org/camunda/bpm/websphere/camunda-bpm-websphere/7.16.0-ee/).
+The following steps describe how to update the Camunda artifacts on an IBM WebSphere application server in a 
+shared process engine setting. Throughout the procedure, refer to the [update guide][update-guide]. If not already done, 
+download the [Camunda Platform 7.17 IBM WebSphere distribution](https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm-ee/org/camunda/bpm/websphere/camunda-bpm-websphere/7.17.0-ee/).
 
 The update procedure takes the following steps:
 

@@ -13,23 +13,21 @@ menu:
 
 ---
 
-This document guides you through the update from Camunda Platform `7.16.x` to `7.17.0`. It covers these use cases:
+This document guides you through the update from Camunda Platform `7.16.x` to `7.17.0` and covers the following use cases:
 
-1. For administrators and developers: [Database Updates](#database-updates)
-1. For administrators and developers: [Full Distribution Update](#full-distribution)
-1. For administrators: [Standalone Web Application](#standalone-web-application)
+1. For administrators and developers: [Database updates](#database-updates)
+1. For administrators and developers: [Full distribution update](#full-distribution)
+1. For administrators: [Standalone web application](#standalone-web-application)
 1. For administrators and developers: [Task Worker Metrics](#task-worker-metrics)
 1. For developers: [Spin configuration options](#set-variables-on-process-instance-migration)
 
-This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.16.
+This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new 
+functionality included in Camunda Platform 7.17.
 
 # Database updates
 
 Every Camunda installation requires a database schema update. Check our [database schema update guide]({{< ref "/installation/database-schema.md#update" >}}) 
-for further instructions. 
-
-**Note**: Updating to Camunda Platform `7.17` from any version prior to `7.17` requires using the 
-[manual update]({{< ref "/installation/database-schema.md#manual-update" >}}) approach.
+for further instructions.
 
 # Full distribution
 
@@ -39,18 +37,18 @@ with a **shared process engine**.
 
 The following steps are required:
 
-1. Update the Camunda libraries and applications inside the application server
-2. Migrate custom process applications
+1. Update the Camunda libraries and applications inside the application server.
+2. Migrate custom process applications.
 
-Before starting, make sure that you have downloaded the Camunda Platform 7.17 distribution for the application server 
-you use. It contains the SQL scripts and libraries required for the update. This guide assumes you have unpacked the 
+Before starting, ensure you have downloaded the Camunda Platform 7.17 distribution for the application server 
+you use. This contains the SQL scripts and libraries required for the update. This guide assumes you have unpacked the 
 distribution to a path named `$DISTRIBUTION_PATH`.
 
 ## Camunda libraries and applications
 
-Please choose the application server you are working with from the following list:
+Choose the application server you are working with from the following list:
 
-* [JBoss AS/Wildfly]({{< ref "/update/minor/716-to-717/jboss.md" >}})
+* [JBoss EAP 6 or Wildfly / JBoss EAP 7]({{< ref "/update/minor/716-to-717/jboss.md" >}})
 * [Apache Tomcat]({{< ref "/update/minor/716-to-717/tomcat.md" >}})
 * [Oracle WebLogic]({{< ref "/update/minor/716-to-717/wls.md" >}})
 * [IBM WebSphere]({{< ref "/update/minor/716-to-717/was.md" >}})
@@ -74,9 +72,7 @@ Take the following steps to complete the update:
 1. Undeploy the current version of the standalone web application.
 2. Update the database to the new schema as described in the [database update](#database-updates) section.
 3. Configure the database as described in the [installation]({{< ref "/installation/standalone-webapplication.md#database-configuration" >}})
-   section. **Note** that from 7.16 the standalone web applications use **HikariCP** for data sources instead of 
-   Apache Commons DBCP. Replace the `targetDataSource`'s bean class to `com.zaxxer.hikari.HikariDataSource` and 
-   rename the `url` parameter of the data source to `jdbcUrl`.
+   section.
 4. Deploy the new and configured standalone web application to the server.
 
 # Task worker metrics
