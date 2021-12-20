@@ -293,13 +293,13 @@ Therefore, the REST API and web applications now register an appropriate module.
 This allows you to keep using Java 8 date and time data types when updating to a newer Jackson version. 
 However, this can also lead to changed serialized data for such values.
 
-## 7.16.2 to 7.16.3 / 7.15.8 to 7.15.9 / 7.14.14 to 7.14.15
+## 7.16.3 to 7.16.4 / 7.15.9 to 7.15.10 / 7.14.15 to 7.14.16
 
 This set of patches introduce configuration properties for the Spin `DomXmlDataFormat` module. The `DomXmlDataFormat`
-configuration properties provide options to toggle External XML Entity (XXE) processing, as well as secure processing
+configuration properties provide options to toggle **External XML Entity (XXE)** processing, as well as secure processing
 for the Spin XML parser.
 
-By default, we disabled XXE processing, and enabled secure processing of XML documents, to protect the Spin XML 
+By default, we disabled XXE processing, and enabled secure processing of XML documents to protect the Spin XML 
 parser against [XXE attacks](https://en.wikipedia.org/wiki/XML_external_entity_attack) and 
 [Billion laughs attacks](https://en.wikipedia.org/wiki/Billion_laughs_attack).
 
