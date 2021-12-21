@@ -194,7 +194,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
   <tr>
     <th>Default Value</th>
-    <td>&ndash;</td>
+    <td><code>latest</code></td>
   </tr>
   <tr>
     <th>BPMN 2.0 Elements</th>
