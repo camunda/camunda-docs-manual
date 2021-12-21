@@ -598,34 +598,7 @@ In Addition to Create, Update, Read and Delete, the following permissions are av
 * Create Batch Set Variables
 * Create Batch Correlate Messages
 
-The specific "Create ..." permission has higher priority than the general "Create" permission.  For example, a user assigned the following Batch permissions will be able successfully execute only the batch type 'Delete finished process instances':  
-
-<table class="table matrix-table table-condensed table-hover table-bordered">
-<thead>
-  <tr>
-    <th></th>
-    <th>Read</th>
-    <th>Update</th>
-    <th>Create</th>
-    <th>Delete</th>
-    <th>Read History</th>
-    <th>Delete History</th>
-    <th>Create Batch Delete Finished Process Instances</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Batch</th>
-      <td>X</td>
-      <td>X</td>
-      <td></td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-  </tbody>
-</table>
+The specific GRANT and REVOKE permissions “Create Batch …” precede over the general Create permission.
 
 ## Default Read Variable Permissions
 When the `enforceSpecificVariablePermission` process engine configuration is enabled, in order to read variables, the user needs to be granted with the following permissions:
