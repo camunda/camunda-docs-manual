@@ -68,8 +68,8 @@ The basic permissions available in the engine are:
 * Delete
 * Access
 
-Please note that the permission "None" does not mean that no permissions are granted, it stands for "no action".
-Also, the "All" permission will vanish from a user if a single permission is revoked.
+Please note that the permission **None** does not mean that no permissions are granted, it stands for "no action".
+Also, the **All** permission will vanish from a user if a single permission is revoked.
 
 For detailed list of available permissions please check [Permission by resource]({{< relref "#permissions-by-resource" >}}) section.
 
@@ -262,7 +262,7 @@ This section explains which permissions are available on which resources.
 
 ## Read, Update, Create, Delete
 
-The permissions Read, Update, Create and Delete are available for most of the resources.
+The permissions **Read**, **Update**, **Create** and **Delete** are available for most of the resources.
 The following table gives an overview for which resources they are available:
 
 <table class="table matrix-table table-condensed table-hover table-bordered">
@@ -398,24 +398,24 @@ The following table gives an overview for which resources they are available:
   </tbody>
 </table>
 
-To execute an operation [asynchronously]({{< ref "/user-guide/process-engine/batch.md">}}), only a "Create" permission on the Batch Resource is required. However, when executing the same operation synchronously, the specific permissions (e.g. "Delete" on Process Instance Resource) are checked. 
+To execute an operation [asynchronously]({{< ref "/user-guide/process-engine/batch.md">}}), only a **Create** permission on the Batch Resource is required. However, when executing the same operation synchronously, the specific permissions (e.g. **Delete** on Process Instance Resource) are checked. 
 
-For example, a user without the "Update" permission on the Process Instance Resource and granted "Create" permission on the Batch Resource can modify multiple Process Instances asynchronously by creating a batch, although he could not execute this operation synchronously.
+For example, a user without the **Update** permission on the Process Instance Resource and granted **Create** permission on the Batch Resource can modify multiple Process Instances asynchronously by creating a batch, although he could not execute this operation synchronously.
 
 ## Additional Task Permissions
 
-In Addition to Update, Read and Delete, the following permissions are available on the Task Resource:
+In Addition to **Update**, **Read** and **Delete**, the following permissions are available on the Task Resource:
 
 * Task Assign
 * Task Work
 * Update Variable
 
 A user can perform different actions on a task, like assigning the task, claiming the task or completing the task.
-If a user has "Update" permission on a task (or "Update Task" permission on the corresponding process definition) then the user is authorized to perform _all_ these task actions.
-If finer grained authorizations are required, the permissions "Task Work" and "Task Assign" can be used.
-The intuition behind "Task Work" is that it only authorizes the user to _work_ on a task (i.e., claim and complete it) but not assign it to another user or in another way "distribute work" to colleagues.
+If a user has **Update** permission on a task (or **Update Task** permission on the corresponding process definition) then the user is authorized to perform _all_ these task actions.
+If finer grained authorizations are required, the permissions **Task Work** and **Task Assign** can be used.
+The intuition behind **Task Work** is that it only authorizes the user to _work_ on a task (i.e., claim and complete it) but not assign it to another user or in another way "distribute work" to colleagues.
 
-If a user has "Update Variable" permission on a task (or "Update Task Variable" permission on the corresponding process definition) the user is authorized to perform set/remove task variable actions.
+If a user has **Update Variable** permission on a task (or **Update Task Variable** permission on the corresponding process definition) the user is authorized to perform set/remove task variable actions.
 
 The table below shows a detailed overview on which permissions authorize a user to perform which task actions:
 
@@ -517,18 +517,18 @@ The table below shows a detailed overview on which permissions authorize a user 
   </tbody>
 </table>
 
-GRANT and REVOKE authorizations with Task Work, Task Assign, and Update Variable permissions precede over Update and Update Task.
+GRANT and REVOKE authorizations with **Task Work**, **Task Assign**, and **Update Variable** permissions precede over **Update** and **Update Task**.
 
 ### Default Task Permissions
 
 When a user is related to a task by being an assignee, a candidate user, a part of a candidate group or an owner, then these users
-get the default permission as either "Task Work" or "Update", based on the configuration setting "defaultUserPermissionNameForTask". 
+get the default permission as either **Task Work** or **Update**, based on the process engine configuration property "defaultUserPermissionNameForTask". 
 
-If the "defaultUserPermissionNameForTask" is not set, then by default UPDATE permission is granted.
+If the "defaultUserPermissionNameForTask" configuration option is not set, then by default **Update** permission is granted.
 
 ## Additional Process Definition Permissions
 
-In Addition to Update, Read and Delete, the following permissions are available on the Process Definition Resource:
+In Addition to **Update**, **Read** and **Delete**, the following permissions are available on the Process Definition Resource:
 
 * Read Task
 * Update Task
@@ -548,40 +548,40 @@ In Addition to Update, Read and Delete, the following permissions are available 
 * Delete History
 * Update History
 
-The "Create Instance" permission is required to start new process instances.
+The **Create Instance** permission is required to start new process instances.
 
 {{< note title="Start new process instance" class="info" >}}
-  To perform that action, the user also needs to have "Create" permission on the Process Instance resource.
+  To perform that action, the user also needs to have **Create** permission on the Process Instance resource.
 
 {{< /note >}}
 
-GRANT and REVOKE authorizations with Retry Job, Suspend, Suspend Instance, Update Instance Variable, and Update Task Variable permissions precede over Update.
+GRANT and REVOKE authorizations with **Retry Job**, **Suspend**, **Suspend Instance**, **Update Instance Variable**, and **Update Task Variable** permissions precede over **Update**.
 Keep in mind that user who is allowed to perform variable updates could trigger other changes in the process by updating a variable. For example, successful evaluation of conditional event related to this variable.
 
 ## Additional Process Instance Permissions
 
-In Addition to Create, Read, Update, and Delete, the following permissions are available on the Process Instance Resource:
+In Addition to **Create**, **Read**, **Update**, and **Delete**, the following permissions are available on the Process Instance Resource:
 
 * Retry Job
 * Suspend
 * Update Variable
 
-GRANT and REVOKE authorizations with Retry Job, Suspend, and Update Variable permissions precede over Update.
+GRANT and REVOKE authorizations with **Retry Job**, **Suspend**, and **Update Variable** permissions precede over **Update**.
 Keep in mind that user who is allowed to perform variable updates could trigger other changes in the process by updating a variable. For example, successful evaluation of conditional event related to this variable.
 
 ## Additional Decision Definition Permissions
 
-In Addition to Update, Read and Delete, the following permissions are available on the Decision Definition Resource:
+In Addition to **Update**, **Read** and **Delete**, the following permissions are available on the Decision Definition Resource:
 
 * Create Instance
 * Read History
 * Delete History
 
-The "Create Instance" permission is required to evaluate decisions with the decision service.
+The **Create Instance** permission is required to evaluate decisions with the decision service.
 
 ## Additional Batch Permissions
 
-In Addition to Create, Update, Read and Delete, the following permissions are available on the Batch Resource:
+In Addition to **Create**, **Update**, **Read** and **Delete**, the following permissions are available on the Batch Resource:
 
 * Read History
 * Delete History
@@ -598,7 +598,7 @@ In Addition to Create, Update, Read and Delete, the following permissions are av
 * Create Batch Set Variables
 * Create Batch Correlate Messages
 
-The specific "Create ..." permission has higher priority than the general "Create" permission.
+The specific **Create ...** permission has higher priority than the general **Create** permission.
 
 
 ## Default Read Variable Permissions
@@ -620,8 +620,8 @@ In case of Process Definitions
 
 ## Application Permissions
 
-The resource "Application" uniquely supports the "Access" permission.
-The Access permission controls whether a user has access to a Camunda webapplication or not. Out of the box, it can be granted for the following applications (resource ids):
+The resource "Application" uniquely supports the **Access** permission.
+The **Access** permission controls whether a user has access to a Camunda webapplication or not. Out of the box, it can be granted for the following applications (resource ids):
 
 * `admin`
 * `cockpit`
@@ -687,6 +687,158 @@ retrieve the entities related to the Historic Process Instance:
 * Job Log Query
 * External Task Log Query
 * User Operation Log Query
+
+### System permissions
+
+Permissions for the System resource are usually granted to Operations Engineers who supervise processes and applications and ensure they run smoothly from a technical perspective.
+Typically, those people do not need full access to the system like an administrator does. They must be able to access and change system information including system properties, metrics, database information, telemetry and license key data. Administrators will not need to have system permissions because their role already grants them access to all features. See also the <a href="#Administrator">Administrator</a> section.
+
+The following table gives an overview over the features that the System permissions grant access to.
+
+<table class="table matrix-table table-condensed table-hover table-bordered">
+<thead>
+  <tr>
+    <th></th>
+    <th>Read</th>
+    <th>Write</th>
+    <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+     <tr>
+      <th>Configure Telemetry</th>
+      <td></td>
+      <td>X</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Get Telemetry Data</th>
+      <td>X</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Get Telemetry Status</th>
+      <td>X</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Get Database Table Count</th>
+      <td>X</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Get Database Table Name</th>
+      <td>X</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Get Database Table Meta Data</th>
+      <td>X</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Get History Level</th>
+      <td>X</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Get Property</th>
+      <td>X</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Set Property</th>
+      <td></td>
+      <td>X</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Delete Property</th>
+      <td></td>
+      <td></td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Get License Key</th>
+      <td>X</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Set License Key</th>
+      <td></td>
+      <td>X</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Delete License Key</th>
+      <td></td>
+      <td></td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Register Process Application</th>
+      <td></td>
+      <td>X</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Unregister Process Application</th>
+      <td></td>
+      <td>X</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Get Process Application for Deployment</th>
+      <td>X</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Register Deployment</th>
+      <td></td>
+      <td>X</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Unregister Deployment</th>
+      <td></td>
+      <td>X</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Get Registered Deployment</th>
+      <td>X</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Delete Metrics</th>
+      <td></td>
+      <td></td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Delete Task Metrics</th>
+      <td></td>
+      <td></td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Query Schema Log</th>
+      <td>X</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
 
 # Administrators
 
@@ -775,7 +927,7 @@ Also see the [Performance Considerations]({{< relref "#performance-consideration
 
 # Java API Example
 
-An authorization is created between a user/group and a resource. It describes the user/group's permissions to access that resource. An authorization may express different permissions, such as the permission to READ, UPDATE, DELETE the resource. (See Authorization for details).
+An authorization is created between a user/group and a resource. It describes the user/group's permissions to access that resource. An authorization may express different permissions, such as the permission to **Read**, **Update** and **Delete** the resource. (See Authorization for details).
 
 To grant the permission to access a certain resource, an authorization object is created. For example, to give access to a certain filter:
 
@@ -804,7 +956,7 @@ auth.addPermission(Permissions.CREATE);
 authorizationService.saveAuthorization(auth);
 ```
 
-As a result, the given user or group will have permission to READ the referenced filter.
+As a result, the given user or group will have permission to **Read** the referenced filter.
 
 Another possible example would be to restrict the group of persons who are allowed to start a specific process:
 

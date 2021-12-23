@@ -19,7 +19,8 @@ This document guides you through the update from Camunda Platform `7.16.x` to `7
 1. For administrators and developers: [Full distribution update](#full-distribution)
 1. For administrators: [Standalone web application](#standalone-web-application)
 1. For administrators and developers: [Task Worker Metrics](#task-worker-metrics)
-1. For developers: [Spin configuration options](#set-variables-on-process-instance-migration)
+1. For administrators and Operation Engineers: [New System Permissions](#system-permissions)
+1. For developers: [Spin configuration options](#spin-configuration-options)
 1. For developers: [Extended Camunda Run CORS configuration properties](#extended-camunda-run-cors-configuration-properties)
 
 This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new 
@@ -80,6 +81,12 @@ Take the following steps to complete the update:
 
 Starting from version 7.17, the task worker metrics are displayed by default.
 If this causes slow page loading, you can turn it off in the [admin webapp configuration.]({{< ref "/webapps/admin/configuration.md#task-worker-metrics" >}}).
+
+# System permissions
+
+A new set of permissions has been introduced to Camunda with Platform 7.17.0 which grants Operations Engineers access to system properties and data without the need of administrator privileges.
+
+For more details including a full list of features and their required permissions, head over to [authorization documentation page]({{< ref "/user-guide/process-engine/authorization-service.md#system-permissions" >}}).
 
 # Spin configuration options
 
