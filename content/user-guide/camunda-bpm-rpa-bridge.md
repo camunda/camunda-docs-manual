@@ -83,6 +83,12 @@ Properties marked with a `'*'` are mandatory and can not be empty when starting 
       <td>Enable sending usage metrics and general statistics to Camunda. For more information see the <a href="#telemetry">Telemetry section</a> below.</td>
       <td>false</td>
   </tr>
+  <tr id="date-format">
+    <td><code>date-format</code></td>
+    <td><p>If the Camunda Platform engine uses <a href="/reference/rest/overview/date-format/">a custom date format</a>, configure the same format for the Camunda RPA bridge. This ensures the bridge can read date fields acquired from the Camunda Platform REST API correctly.</td>
+    <td>The default for this property is inherited from the Java external task client and is the same as the default date format in Camunda Platform.</p>
+    <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code></td>
+  </tr>
 </table>
 
 ## Configure Access to the Camunda API
