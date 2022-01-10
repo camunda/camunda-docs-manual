@@ -700,7 +700,7 @@ The following table gives an overview over the features that the System permissi
   <tr>
     <th></th>
     <th>Read</th>
-    <th>Write</th>
+    <th>Set</th>
     <th>Delete</th>
     </tr>
   </thead>
