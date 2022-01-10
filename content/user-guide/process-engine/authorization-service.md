@@ -68,8 +68,8 @@ The basic permissions available in the engine are:
 * Delete
 * Access
 
-Please note that the permission **None** does not mean that no permissions are granted, it stands for "no action".
-Also, the **All** permission will vanish from a user if a single permission is revoked.
+Note that the permission **None** does not mean no permissions are granted. Instead, it represents "no action".
+Additionally, the **All** permission will vanish from a user if a single permission is revoked.
 
 For detailed list of available permissions please check [Permission by resource]({{< relref "#permissions-by-resource" >}}) section.
 
@@ -262,7 +262,7 @@ This section explains which permissions are available on which resources.
 
 ## Read, Update, Create, Delete
 
-The permissions **Read**, **Update**, **Create** and **Delete** are available for most of the resources.
+The permissions **Read**, **Update**, **Create**, and **Delete** are available for most of the resources.
 The following table gives an overview for which resources they are available:
 
 <table class="table matrix-table table-condensed table-hover table-bordered">
@@ -398,20 +398,20 @@ The following table gives an overview for which resources they are available:
   </tbody>
 </table>
 
-To execute an operation [asynchronously]({{< ref "/user-guide/process-engine/batch.md">}}), only a **Create** permission on the Batch Resource is required. However, when executing the same operation synchronously, the specific permissions (e.g. **Delete** on Process Instance Resource) are checked. 
+To execute an operation [asynchronously]({{< ref "/user-guide/process-engine/batch.md">}}), only a **Create** permission on the Batch Resource is required. However, when executing the same operation synchronously, the specific permissions (e.g. **Delete** on **Process Instance Resource**) are checked. 
 
-For example, a user without the **Update** permission on the Process Instance Resource and granted **Create** permission on the Batch Resource can modify multiple Process Instances asynchronously by creating a batch, although he could not execute this operation synchronously.
+For example, a user without the **Update** permission on the **Process Instance Resource** and granted **Create** permission on the **Batch Resource** can modify multiple process instances asynchronously by creating a batch. However, the user can't execute this operation synchronously.
 
 ## Additional Task Permissions
 
-In Addition to **Update**, **Read** and **Delete**, the following permissions are available on the Task Resource:
+In addition to **Update**, **Read**, and **Delete**, the following permissions are available on the Task Resource:
 
 * Task Assign
 * Task Work
 * Update Variable
 
 A user can perform different actions on a task, like assigning the task, claiming the task or completing the task.
-If a user has **Update** permission on a task (or **Update Task** permission on the corresponding process definition) then the user is authorized to perform _all_ these task actions.
+If a user has **Update** permissions on a task (or **Update Task** permissions on the corresponding process definition), the user is authorized to perform _all_ these task actions.
 If finer grained authorizations are required, the permissions **Task Work** and **Task Assign** can be used.
 The intuition behind **Task Work** is that it only authorizes the user to _work_ on a task (i.e., claim and complete it) but not assign it to another user or in another way "distribute work" to colleagues.
 
@@ -521,8 +521,8 @@ GRANT and REVOKE authorizations with **Task Work**, **Task Assign**, and **Updat
 
 ### Default Task Permissions
 
-When a user is related to a task by being an assignee, a candidate user, a part of a candidate group or an owner, then these users
-get the default permission as either **Task Work** or **Update**, based on the process engine configuration property "defaultUserPermissionNameForTask". 
+When a user is related to a task as an assignee, a candidate user, a part of a candidate group, or an owner, these users
+obtain the default permissions as either **Task Work** or **Update**, based on the process engine configuration property **defaultUserPermissionNameForTask**. 
 
 If the "defaultUserPermissionNameForTask" configuration option is not set, then by default **Update** permission is granted.
 
@@ -551,7 +551,7 @@ In Addition to **Update**, **Read** and **Delete**, the following permissions ar
 The **Create Instance** permission is required to start new process instances.
 
 {{< note title="Start new process instance" class="info" >}}
-  To perform that action, the user also needs to have **Create** permission on the Process Instance resource.
+  To perform that action, the user also needs to have **Create** permission on the process instance resource.
 
 {{< /note >}}
 
@@ -560,7 +560,7 @@ Keep in mind that user who is allowed to perform variable updates could trigger 
 
 ## Additional Process Instance Permissions
 
-In Addition to **Create**, **Read**, **Update**, and **Delete**, the following permissions are available on the Process Instance Resource:
+In addition to **Create**, **Read**, **Update**, and **Delete**, the following permissions are available on the Process Instance Resource:
 
 * Retry Job
 * Suspend
@@ -571,7 +571,7 @@ Keep in mind that user who is allowed to perform variable updates could trigger 
 
 ## Additional Decision Definition Permissions
 
-In Addition to **Update**, **Read** and **Delete**, the following permissions are available on the Decision Definition Resource:
+In addition to **Update**, **Read**, and **Delete**, the following permissions are available on the Decision Definition Resource:
 
 * Create Instance
 * Read History
@@ -581,7 +581,7 @@ The **Create Instance** permission is required to evaluate decisions with the de
 
 ## Additional Batch Permissions
 
-In Addition to **Create**, **Update**, **Read** and **Delete**, the following permissions are available on the Batch Resource:
+In addition to **Create**, **Update**, **Read**, and **Delete**, the following permissions are available on the Batch Resource:
 
 * Read History
 * Delete History
@@ -621,7 +621,7 @@ In case of Process Definitions
 ## Application Permissions
 
 The resource "Application" uniquely supports the **Access** permission.
-The **Access** permission controls whether a user has access to a Camunda webapplication or not. Out of the box, it can be granted for the following applications (resource ids):
+The **Access** permission controls whether a user has access to a Camunda web application or not. Out of the box, it can be granted for the following applications (resource ids):
 
 * `admin`
 * `cockpit`
@@ -690,10 +690,10 @@ retrieve the entities related to the Historic Process Instance:
 
 ### System permissions
 
-Permissions for the System resource are usually granted to Operations Engineers who supervise processes and applications and ensure they run smoothly from a technical perspective.
-Typically, those people do not need full access to the system like an administrator does. They must be able to access and change system information including system properties, metrics, database information, telemetry and license key data. Administrators will not need to have system permissions because their role already grants them access to all features. See also the <a href="#Administrator">Administrator</a> section.
+Permissions for the system resource are usually granted to operations engineers who supervise processes and applications and ensure they run smoothly from a technical perspective.
+Typically, those people do not need full access to the system like an administrator does. They must be able to access and change system information, including system properties, metrics, database information, telemetry, and license key data. Administrators will not need to have system permissions because their role already grants them access to all features. See also the <a href="#Administrator">Administrator</a> section.
 
-The following table gives an overview over the features that the System permissions grant access to.
+The following table gives an overview of the features that the system permissions grant access to.
 
 <table class="table matrix-table table-condensed table-hover table-bordered">
 <thead>
@@ -925,9 +925,9 @@ Available values are:
 
 Also see the [Performance Considerations]({{< relref "#performance-considerations" >}}) section on this page.
 
-# Java API Example
+# Java API example
 
-An authorization is created between a user/group and a resource. It describes the user/group's permissions to access that resource. An authorization may express different permissions, such as the permission to **Read**, **Update** and **Delete** the resource. (See Authorization for details).
+An authorization is created between a user/group and a resource. It describes the user/group's permissions to access that resource. An authorization may express different permissions, such as the permission to **Read**, **Update**, and **Delete** the resource. (See Authorization for details).
 
 To grant the permission to access a certain resource, an authorization object is created. For example, to give access to a certain filter:
 
