@@ -24,7 +24,7 @@ GET `/deployment/registered`
 
 A JSON array of strings containing the IDs of registered deployments for the application.
 
-# Response Codes
+# Response codes
 
 <table class="table table-striped">
   <tr>
