@@ -41,11 +41,11 @@ The Camunda Modeler is a desktop modeling application.
 
 ## License 
 
-The source code of the Camunda Modeler is licensed under the MIT license as stated in the [`LICENSE` file](https://github.com/camunda/camunda-modeler/blob/master/LICENSE) in the root of the source code repository. This file is also shipped as `LICENSE.camunda-modeler.txt` with each modeler distribution.
+[License information](https://docs.camunda.io/docs/reference/licenses/#camunda-modeler) for Camunda Modeler has moved to docs.camunda.io.
 
 ## Third-Party Libraries
 
-The application builds upon a number of third party libraries. You find an up-to-date list of third party libraries used and their license terms in the [`THIRD_PARTY_NOTICES` file](https://github.com/camunda/camunda-modeler/blob/master/THIRD_PARTY_NOTICES), located in the root of the source code repository. This file is also shipped with the application distribution as `THIRD_PARTY_NOTICES.camunda-modeler.txt`.
+[Third-Party libraries](https://docs.camunda.io/docs/reference/dependencies/) for Camunda Modeler have moved to docs.camunda.io.
 
 # GPL Cooperation Commitment
 

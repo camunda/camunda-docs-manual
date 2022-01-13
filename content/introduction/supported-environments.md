@@ -88,17 +88,7 @@ Clustered or replicated databases are supported given the following conditions. 
 
 # Camunda Modeler
 
-Supported on the following platforms:
-
-* Windows 7 / 10
-* Mac OS X 10.11
-* Ubuntu LTS (latest)
-
-Reported to work on
-
-* Ubuntu 12.04 and newer
-* Fedora 21
-* Debian 8
+[Supported environments](https://docs.camunda.io/docs/reference/supported-environments/#camunda-modeler) for Camunda Modeler have moved to docs.camunda.io.
 
 # Maintenance Policy
 
