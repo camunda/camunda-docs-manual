@@ -258,6 +258,30 @@ Find all available configuration properties in the [LDAP Plugin Guide]({{< ref "
   </tr>
 </table>
 
+### LDAP Administrator Authorization
+
+You can also use the [Administrator Authorization plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}) 
+to ensure that the appropriate LDAP user, or group, gains administrative access. You can find all the available 
+configuration options in the [Administrator Authorization plugin section]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}})
+of our documentation.
+
+In the table below, you can find the Camunda Run specific properties for the Administrator Authorization plugin.
+
+<table class="table desc-table">
+  <tr>
+      <th>Prefix</th>
+      <th>Property name</th>
+      <th>Description</th>
+      <th>Default value</th>
+  </tr>
+  <tr>
+      <td rowspan="15"><code>camunda.bpm.run.admin-auth</code></td>
+      <td><code>.enabled</code></td>
+      <td>Switch to enable the Administrator Authorization plugin.</td>
+      <td><code>false</code></td>
+  </tr>
+</table>
+
 ## Example application launch
 
 Camunda Platform Run comes with a [demo application](#example-application) that deploys resources and starts process instances.
