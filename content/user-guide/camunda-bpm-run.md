@@ -227,13 +227,6 @@ If you want to allow cross-origin requests to the [REST API]({{< ref "/reference
       <td>Determines how long a browser can cache the result of a pre-flight request in seconds.</td>
       <td><code>1800</code></td>
   </tr>
-  <tr>
-      <td><code>.decorate-request</code></td>
-      <td>A boolean flag to tell the CORS Filter to populate the <code>HttpServletRequest</code> instance with 
-        <a href="https://tomcat.apache.org/tomcat-9.0-doc/config/filter.html#CORS_Filter_and_HttpServletRequest_attributes">CORS-related attributes</a>.
-      </td>
-      <td><code>true</code></td>
-  </tr>
 </table>
 
 ## LDAP Identity Service
