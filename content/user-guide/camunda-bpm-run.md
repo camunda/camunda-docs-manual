@@ -261,11 +261,11 @@ Find all available configuration properties in the [LDAP Plugin Guide]({{< ref "
 ### LDAP Administrator Authorization
 
 You can also use the [Administrator Authorization plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}) 
-to ensure that the appropriate LDAP user, or group, gains administrative access. You can find all the available 
+to ensure the appropriate LDAP user or group gains administrative access. Review all the available 
 configuration options in the [Administrator Authorization plugin section]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}})
 of our documentation.
 
-In the table below, you can find the Camunda Run specific properties for the Administrator Authorization plugin.
+In the table below, observe the Camunda Run-specific properties for the Administrator Authorization plugin.
 
 <table class="table desc-table">
   <tr>
