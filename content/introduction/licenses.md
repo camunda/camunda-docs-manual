@@ -41,7 +41,7 @@ The Camunda Modeler is a desktop modeling application.
 
 ## License 
 
-[License information](https://docs.camunda.io/docs/reference/licenses/#camunda-modeler) for Camunda Modeler has moved to docs.camunda.io.
+[License information](https://docs.camunda.io/docs/reference/licenses/#camunda-modeler) for Camunda Modeler has moved to [docs.camunda.io](https://docs.camunda.io/).
 
 ## Third-Party Libraries
 
