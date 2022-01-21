@@ -44,7 +44,7 @@ Run the Camunda Platform in every Java-runnable environment. Camunda Platform is
 ## Supported Database Products
 
 * MySQL 5.7 / 8.0
-* MariaDB 10.2 / 10.3
+* MariaDB 10.2 / 10.3 / 10.6
 * Oracle 12c / 19c
 * IBM DB2 11.1 (excluding IBM z/OS for all versions)
 * PostgreSQL 9.6 / 10 / 11 / 12 / 13
