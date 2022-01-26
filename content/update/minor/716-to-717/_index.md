@@ -22,6 +22,7 @@ This document guides you through the update from Camunda Platform `7.16.x` to `7
 1. For administrators and operation engineers: [New System Permissions](#system-permissions)
 1. For developers: [Spin configuration options](#spin-configuration-options)
 1. For developers: [Extended Camunda Run CORS configuration properties](#extended-camunda-run-cors-configuration-properties)
+1. For administrators: [Improved Camunda Run LDAP support](#improved-camunda-run-ldap-support)
 
 This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new 
 functionality included in Camunda Platform 7.17.
@@ -104,8 +105,21 @@ You can restore the old behavior by passing the appropriate [configuration prope
 
 # Extended Camunda Run CORS configuration properties
 
-Version 7.17 of the Camunda Run distro brings new [CORS configuration properties][cors-properties]. There are no
+Version 7.17 of the Camunda Run distribution brings new [CORS configuration properties][cors-properties]. There are no
 changes in the existing CORS behavior. The new CORS configuration properties allow for additional parameters, like 
 credentials support, to be set on the CORS Filter.
 
 [cors-properties]: {{< ref "/user-guide/camunda-bpm-run.md#cross-origin-resource-sharing" >}}
+
+# Improved Camunda Run LDAP support
+
+Previous versions of the Camunda Run distribution already supported the Camunda LDAP identity service plugin. With this
+version, we made it easier to configure and use Camunda Run with the LDAP plugin with the following additions:
+
+The [Administrator Authorization plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}) 
+is now available within Camunda Run by default. With the Administrator Authorization plugin, you can configure which 
+LDAP user group gains administrative access to configure additional authorizations.
+
+The Administrator Authorization plugin configuration properties are integrated with Camunda Run. You can find them
+in the [LDAP Adminstrator Authorization section]({{< ref "/user-guide/camunda-bpm-run.md#ldap-administrator-authorization" >}})
+of the Camunda Run documentation. You can also find a template LDAP configuration in the Camunda Run `production.yml`.
