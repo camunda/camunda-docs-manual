@@ -23,6 +23,7 @@ This document guides you through the update from Camunda Platform `7.16.x` to `7
 1. For developers: [Spin configuration options](#spin-configuration-options)
 1. For developers: [Extended Camunda Run CORS configuration properties](#extended-camunda-run-cors-configuration-properties)
 1. For administrators: [Improved Camunda Run LDAP support](#improved-camunda-run-ldap-support)
+1. For developers: [Disabled remote access to H2 console](#disabled-remote-access-to-h2-console)
 
 This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new 
 functionality included in Camunda Platform 7.17.
@@ -123,3 +124,25 @@ LDAP user group gains administrative access to configure additional authorizatio
 The Administrator Authorization plugin configuration properties are integrated with Camunda Run. You can find them
 in the [LDAP Adminstrator Authorization section]({{< ref "/user-guide/camunda-bpm-run.md#ldap-administrator-authorization" >}})
 of the Camunda Run documentation. You can also find a template LDAP configuration in the Camunda Run `production.yml`.
+
+# Disabled remote access to H2 console
+
+This set of patches deactivates remote access to the H2 console application in the Tomcat and Wildfly distributions. The H2 application accepts only localhost connections moving forward.
+
+To restore remote access, add the following initialization parameter to the `org.h2.server.web.WebServlet` servlet defined in the `web.xml` file of the h2 web application:
+
+```
+<init-param>
+  <param-name>webAllowOthers</param-name>
+  <param-value>true</param-value>
+</init-param>
+```
+
+`web.xml` is located in the following paths:
+
+* Tomcat distribution: `server/apache-tomcat-${TOMCAT_VERSION}/webapps/h2/WEB-INF`
+* Wildfly distribution: `server/wildfly-${WILDFLY_VERSION}/standalone/deployments/camunda-h2-webapp-${CAMUNDA_VERSION}.war/WEB-INF`
+* Docker container Tomcat: `/camunda/webapps/h2/WEB-INF`
+* Docker container Wildfly: `/camunda/standalone/deployments/camunda-h2-webapp-${CAMUNDA_VERSION}.war/WEB-INF`
+
+Please note that we strongly discourage enabling remote access because it creates a security risk.

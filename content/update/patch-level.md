@@ -309,6 +309,28 @@ You can restore the old behavior by passing the appropriate [configuration prope
 
 [spin-config]: {{< ref "/user-guide/data-formats/configuring-spin-integration.md#configuration-properties-of-the-spin-plugin" >}}
 
+## 7.16.5 to 7.16.6 / 7.15.11 to 7.15.12 / 7.14.17 to 7.14.18
+
+This set of patches deactivates remote access to the H2 console application in the Tomcat and Wildfly distributions. The H2 application accepts only localhost connections moving forward.
+
+To restore remote access, add the following initialization parameter to the `org.h2.server.web.WebServlet` servlet defined in the `web.xml` file of the h2 web application:
+
+```
+<init-param>
+  <param-name>webAllowOthers</param-name>
+  <param-value>true</param-value>
+</init-param>
+```
+
+`web.xml` is located in the following paths:
+
+* Tomcat distribution: `server/apache-tomcat-${TOMCAT_VERSION}/webapps/h2/WEB-INF`
+* Wildfly distribution: `server/wildfly-${WILDFLY_VERSION}/standalone/deployments/camunda-h2-webapp-${CAMUNDA_VERSION}.war/WEB-INF`
+* Docker container Tomcat: `/camunda/webapps/h2/WEB-INF`
+* Docker container Wildfly: `/camunda/standalone/deployments/camunda-h2-webapp-${CAMUNDA_VERSION}.war/WEB-INF`
+
+Please note that we strongly discourage enabling remote access because it creates a security risk.
+
 # Full Distribution
 
 This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.
