@@ -275,6 +275,75 @@ In the table below, observe the Camunda Run-specific properties for the Administ
   </tr>
 </table>
 
+## Process engine plugin registration
+
+The Camunda Platform provides a process engine plugin mechanism to enable users to add and adjust
+process engine features by extending the process engine configuration. You can use plugins developed by Camunda, or by
+third-party developers.
+
+You can get more details on how process engine plugins work on the dedicated [Process Engine Plugins][engine-plugins] 
+documentation section.
+
+In the table below, observe the Camunda Run-specific properties for registering process engine plugins.
+
+<table class="table desc-table">
+  <tr>
+      <th>Prefix</th>
+      <th>Property name</th>
+      <th>Description</th>
+      <th>Default value</th>
+  </tr>
+  <tr>
+      <td rowspan="15"><code>camunda.bpm.run</code></td>
+      <td><code>.process-engine-plugins</code></td>
+      <td>Define your process engine plugin configurations under this YAML property.</td>
+      <td>none</td>
+  </tr>
+</table>
+
+In Camunda Run, process engine plugins can be registered by performing the following steps:
+
+1. Always find and read the process engine plugin documentation.
+  * Find the canonical name of the process engine plugin Java class that implements the `ProcessEnginePlugin` interface.
+  * Find if the process engine plugin provides any configuration parameters.
+1. Download and add the process engine plugin `.jar` file in the `${RUN_HOME}/configuration/userlib/` directory.
+1. In the Camunda Run `default.yaml` or `production.yaml` configuration file, add the process engine plugin 
+   class and any configuration parameters under the `process-engine-plugins` YAML property.
+  * Wrap the canonical name of the process engine plugin class in double quotes and square brackets like so 
+    `"[PLUGIN_NAME]"`, to prevent a conflict in the YAML syntax.
+
+### Example process engine plugin registration
+
+Let's say that you want to register a process engine plugin called `TestPlugin`. The following information is 
+available:
+
+* The plugin is provided in a `.jar` archive called `camunda-bpm-test-plugin.jar`. 
+* The name of the Java class that implements the `ProcessEnginePlugin` interface is `TestPlugin`. The canonical name of this class is 
+`org.camunda.bpm.run.test.plugins.TestPlugin`.
+* The `TestPlugin` exposes the following two configuration parameters:
+  * `parameterOne` - a `String` value
+  * `parameterTwo` - a `Boolean` value
+
+First, you should place the `camunda-bpm-test-first-plugin.jar` archive in 
+the `${RUN_HOME}/configuration/userlib/` directory.
+
+Next, add the following content to your Camunda Run YAML configuration file.
+
+```yaml
+camunda.bpm.run.process-engine-plugins:
+  "[org.camunda.bpm.run.test.plugins.TestPlugin]":
+    parameterOne: valueOne
+    parameterTwo: true
+```
+
+In the example above, we use the `TestPlugin` canonical name as a YAML key. The YAML value consists of a 
+collection of key-value pairs that represent the configuration parameters for the `TestPlugin` and their values.
+
+You can now start Camunda Run. The `TestPlugin` will be read from the YAML configuration and registered with the
+process engine.
+
+[engine-plugins]: {{< ref "/user-guide/process-engine/process-engine-plugins.md" >}}
+
 ## Example application launch
 
 Camunda Platform Run comes with a [demo application](#example-application) that deploys resources and starts process instances.
