@@ -688,7 +688,7 @@ retrieve the entities related to the Historic Process Instance:
 * External Task Log Query
 * User Operation Log Query
 
-### System permissions
+## System permissions
 
 Permissions for the system resource are usually granted to operations engineers who supervise processes and applications and ensure they run smoothly from a technical perspective.
 Typically, those people do not need full access to the system like an administrator does. They must be able to access and change system information, including system properties, metrics, database information, telemetry, and license key data. Administrators will not need to have system permissions because their role already grants them access to all features. See also the <a href="#Administrators">Administrators</a> section.
