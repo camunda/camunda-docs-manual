@@ -101,7 +101,7 @@ Forms can be used on top of the task completion API to render form fields and va
 
 ## Form Reference
 
-With Form References, Camunda Forms provide an flexible way of linking an element in a BPMN diagram to a form. To link a BPMN element ([StartEvent][start-event] or [UserTask][user-tasks]) to a Camunda Form, you have to specify the key of the Camunda Form as the `camunda:FormRef` attribute. Additionally, the `camunda:formRefBinding` attribute specifies which version of the Camunda Form to reference.
+With Form References, Camunda Forms provide a flexible way of linking an element in a BPMN diagram to a form. To link a BPMN element ([StartEvent][start-event] or [UserTask][user-tasks]) to a Camunda Form, you have to specify the Id of the Camunda Form as the `camunda:FormRef` attribute. Additionally, the `camunda:formRefBinding` attribute specifies which version of the Camunda Form to reference.
 
 Valid values are:
 
@@ -133,7 +133,7 @@ The attributes `camunda:formRef` and `camunda:formRefVersion` can be specified a
 
 ## Form Key
 
-Aa an alternative to `formRef`  you can reference a Camunda Form file with a `deployment` or `app` [form key]({{< ref "/user-guide/task-forms/_index.md#form-key-details" >}}):
+Aa an alternative to `formRef` you can reference a Camunda Form file with a `deployment` or `app` [form key]({{< ref "/user-guide/task-forms/_index.md#form-key-details" >}}):
 
 * `camunda-forms:deployment:FORM_NAME.form`
 * `camunda-forms:app:forms/FORM_NAME.form`
