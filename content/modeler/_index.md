@@ -14,8 +14,4 @@ menu:
 
 ---
 
-Camunda Modeler is a desktop application for modeling BPMN and DMN. It allows you to model files located directly on your local file system.
-
-{{< img src="img/camunda-modeler.png" title="Camunda Modeler" >}}
-
-This is a guide to get you started with modeling BPMN diagrams and DMN decision tables. Make sure to [Install the Camunda Modeler]({{< ref "/installation/camunda-modeler.md" >}}) first.
+This content has moved to (docs.camunda.io)[https://docs.camunda.io/] and is available [here](https://docs.camunda.io/docs/components/modeler/about-modeler/) for all future versions.
