@@ -766,7 +766,7 @@ To restore remote access, add the following initialization parameter to the `org
 </init-param>
 ```
 
-`web.xml` is located in the following paths:
+You can find the `web.xml` in the following paths:
 
 * Tomcat distribution: `server/apache-tomcat-${TOMCAT_VERSION}/webapps/h2/WEB-INF`
 * Wildfly distribution: `server/wildfly-${WILDFLY_VERSION}/standalone/deployments/camunda-h2-webapp-${CAMUNDA_VERSION}.war/WEB-INF`
