@@ -127,7 +127,7 @@ of the Camunda Run documentation. You can also find a template LDAP configuratio
 
 # Disabled remote access to H2 console
 
-This set of patches deactivates remote access to the H2 console application in the Tomcat and Wildfly distributions. The H2 application accepts only localhost connections moving forward.
+The Camunda Platform 7.17.0 release deactivates remote access to the H2 console application in the Tomcat and Wildfly distributions. The H2 application accepts only localhost connections moving forward.
 
 To restore remote access, add the following initialization parameter to the `org.h2.server.web.WebServlet` servlet defined in the `web.xml` file of the h2 web application:
 
