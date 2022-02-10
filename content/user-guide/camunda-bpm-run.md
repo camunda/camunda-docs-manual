@@ -305,13 +305,14 @@ In Camunda Run, process engine plugins can be registered by performing the follo
 
 1. Always find and read the process engine plugin documentation.
   * Find the canonical name of the process engine plugin Java class that implements the `ProcessEnginePlugin` interface.
-  * Find if the process engine plugin provides any configuration parameters.
-1. Download and add the process engine plugin `.jar` file in the `${RUN_HOME}/configuration/userlib/` directory.
+  * Find out if the process engine plugin provides any configuration parameters. You will be able to configure your plugin using those parameters in Camunda Run's `default.yml` or `production.yml`. If the plugin does not provide any properties you don't have to worry about this step.
+1. Download the process engine plugin `.jar` file and add it to the `${RUN_HOME}/configuration/userlib/` directory.
 1. In the Camunda Run `default.yaml` or `production.yaml` configuration file, add the process engine plugin 
    class and any configuration parameters under the `process-engine-plugins` YAML property.
   * Wrap the canonical name of the process engine plugin class in double quotes and square brackets like so 
     `"[PLUGIN_NAME]"`, to prevent a conflict in the YAML syntax.
-
+camunda.bpm.run.process-engine-plugins:
+  "[canonical.name.of.the.PluginClass]"
 ### Example process engine plugin registration
 
 Let's say that you want to register a process engine plugin called `TestPlugin`. The following information is 
