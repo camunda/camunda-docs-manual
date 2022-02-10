@@ -99,20 +99,9 @@ Users can still submit any variables via APIs for form completion like the
 Forms can be used on top of the task completion API to render form fields and validate submitted values.
 {{< /note >}}
 
-## Form Key
-
-To reference a Camunda Forms file, you can use a `deployment` or `app` [form key]({{< ref "/user-guide/task-forms/_index.md#form-key-details" >}}):
-
-* `camunda-forms:deployment:FORM_NAME.form`
-* `camunda-forms:app:forms/FORM_NAME.form`
-
-When you use [Camunda Platform Run](../camunda-bpm-run) we recommend the camunda-forms:deployment form key for easy deployment from the Camunda Modeler.
-
-{{< img src="img/reference-camunda-form.png" title="Provide Form Key for Camunda Forms" >}}
-
 ## Form Reference
 
-With Form References, Camunda Forms provide an additional way of linking an element in a BPMN diagram to a form. To link a BPMN element ([StartEvent][start-event] or [UserTask][user-tasks]) to a Camunda Form, you have to specify the key of the Camunda Form as the `camunda:FormRef` attribute. Additionally, the `camunda:formRefBinding` attribute specifies which version of the Camunda Form to reference.
+With Form References, Camunda Forms provide a flexible way of linking an element in a BPMN diagram to a form. To link a BPMN element ([StartEvent][start-event] or [UserTask][user-tasks]) to a Camunda Form, you have to specify the Id of the Camunda Form as the `camunda:formRef` attribute. Additionally, the `camunda:formRefBinding` attribute specifies which version of the Camunda Form to reference.
 
 Valid values are:
 
@@ -140,6 +129,19 @@ The attributes `camunda:formRef` and `camunda:formRefVersion` can be specified a
 </bpmn:userTask>
 ```
 
+{{< img src="img/reference-camunda-form.png" title="Provide Form Key for Camunda Forms" >}}
+
+## Form Key
+
+Aa an alternative to `formRef` you can reference a Camunda Form file with a `deployment` or `app` [form key]({{< ref "/user-guide/task-forms/_index.md#form-key-details" >}}):
+
+* `camunda-forms:deployment:FORM_NAME.form`
+* `camunda-forms:app:forms/FORM_NAME.form`
+
+To enter the `formKey` in the Modeler,  you have to select `Embedded or External Task Forms` as Type in the dropdown. 
+
+From the form developers point of view, `formRef` offers more flexibility than `formKey` as they can be deployed independently from the process model.
+
 ## Process Variable Binding
 
 To define a default value for a form field, a process variable with the same name as the form field key needs to be defined. Local variables (e.g. created by defining an [Input Parameter](../process-engine/variables/#input-output-variable-mapping) for the User Task) take precedence over process variables.
@@ -153,6 +155,8 @@ The submitted values of a form are returned as variables to the process engine:
 * When no variable exists with the same name as the form field key, then a new process variable will be created and gets the value from the submission.
 
 ## Deployment
+
+You can deploy each single Camunda Form directly from the Modeler (since Modeler Version 5.0.0).
 
 If you want to include your Camunda Form as part of the `deployment`, then you need to deploy the `.form` file in the same deployment as the respective `.bpmn` diagram - for example using the Camunda Modeler.
 
