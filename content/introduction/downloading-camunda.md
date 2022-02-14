@@ -50,11 +50,11 @@ The full distribution bundles
 * Container / Application Server itself.
 
 {{< note title="Server/Container" class="info" >}}
-  If you download the full distribution for an open source application
-  server/container, the container itself is included. For example, if you download the tomcat
-  distribution, tomcat itself is included and the Camunda binaries (process engine and
-  webapplications) are pre-installed into the container. This is not true for the the Oracle WebLogic
-  and IBM WebSphere downloads. These downloads do not include the application servers themselves.
+  If you download the full distribution for an open-source application
+  server/container, the container itself is included. For example, if you download the Tomcat
+  distribution, Tomcat itself is included and the Camunda binaries (process engine and
+  web apps) are pre-installed in the container. This is not true for the the Oracle WebLogic
+  and IBM WebSphere downloads; these downloads do not include the application servers themselves.
 {{< /note >}}
 
 {{< note title="Wildfly Application Server" class="info" >}}
