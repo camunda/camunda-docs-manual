@@ -12,4 +12,4 @@ menu:
 
 ---
 
-This content has moved to (docs.camunda.io)[https://docs.camunda.io/] and is available [here](https://docs.camunda.io/docs/components/modeler/bpmn/modeler-bpmn/) for all future versions.
+This content has moved to [docs.camunda.io](https://docs.camunda.io/) and is available [here](https://docs.camunda.io/docs/components/modeler/bpmn/modeler-bpmn/) for all future versions.
