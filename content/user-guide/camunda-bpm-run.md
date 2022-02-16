@@ -353,11 +353,18 @@ camunda.bpm.run.process-engine-plugins:
     plugin-parameters:
       parameterOne: valueOne
       parameterTwo: true
-  - 
 ```
 
 In the example above, we use the `TestPlugin` canonical name as a YAML key. The YAML value consists of a 
 collection of key-value pairs that represent the configuration parameters for the `TestPlugin` and their values.
+Some process engine plugins don't have configuration parameters. For them, you only need to define the `plugin-class` 
+YAML property, like so:
+
+```yaml
+camunda.bpm.run.process-engine-plugins:
+  - plugin-class: org.camunda.bpm.run.test.plugins.TestPlugin
+  - plugin-class: org.camunda.bpm.run.test.plugins.AnotherPlugin
+```
 
 You can now start Camunda Run. The `TestPlugin` will be read from the YAML configuration and registered with the
 process engine.
