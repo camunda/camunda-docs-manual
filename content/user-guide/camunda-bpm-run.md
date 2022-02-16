@@ -53,9 +53,17 @@ camunda-bpm-run
 └── shutdown.sh
 └── shutdown.bat
 ```
-Execute one of the two start scripts (`start.bat` for Windows, `start.sh` for Linux/Mac). After a few seconds, you will 
-be able to access the Camunda webapps via http://localhost:8080/camunda/app/, the REST API via 
-http://localhost:8080/engine-rest/ and Swagger UI via http://localhost:8080/swaggerui/.
+Execute one of the two start scripts (`start.bat` for Windows, `start.sh` for Linux/Mac). After a few seconds, you can 
+access the Camunda webapps via http://localhost:8080/camunda/app/, the REST API via 
+http://localhost:8080/engine-rest/, and Swagger UI via http://localhost:8080/swaggerui/.
+
+When executing one of the two start scripts without any arguments, Camunda Run will start with a default configuration 
+as a detached process. To shut down Camunda Run in "detached" mode, use one of the two shutdown scripts (`shutdown.bat` 
+for Windows, `shutdown.sh` for Linux/Mac).
+
+By explicitly passing arguments to one of the two Camunda Run start scripts, the default detached mode is disabled and
+you can configure Camunda Run according to your needs. Furthermore, Camunda Run will start as a foreground process
+unless the `--detached` argument is explicitly passed to the `start.bat` or `start.sh` script.
 
 ## Start script arguments
 
@@ -100,10 +108,12 @@ The start scripts (`start.bat` for Windows, `start.sh` for Linux/Mac) accept the
       </td>
       <td><code>enabled</code></td>
   </tr>
+  <tr>
+      <td><code>--help</code></td>
+      <td>Prints a message showing the available start script arguments.</td>
+      <td><code>-</code></td>
+  </tr>
 </table>
-
-By default, Camunda Run will start as a detached process. To shut it down, use one of the two shutdown scripts 
-(`shutdown.bat` for Windows, `shutdown.sh` for Linux/Mac).
 
 ## Starting Camunda Platform Run using Docker
 
