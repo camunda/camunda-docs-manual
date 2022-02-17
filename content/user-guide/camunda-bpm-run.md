@@ -53,8 +53,9 @@ camunda-bpm-run
 └── shutdown.sh
 └── shutdown.bat
 ```
+
 Execute one of the two start scripts (`start.bat` for Windows, `start.sh` for Linux/Mac). After a few seconds, you can 
-access the Camunda webapps via http://localhost:8080/camunda/app/, the REST API via 
+access the Camunda web apps via http://localhost:8080/camunda/app/, the REST API via 
 http://localhost:8080/engine-rest/, and Swagger UI via http://localhost:8080/swaggerui/.
 
 When executing one of the two start scripts without any arguments, Camunda Run will start with a default configuration 
@@ -77,7 +78,7 @@ The start scripts (`start.bat` for Windows, `start.sh` for Linux/Mac) accept the
   </tr>
   <tr>
       <td><code>--webapps</code></td>
-      <td>Enables the Camunda Platform Webapps</td>
+      <td>Enables the Camunda Platform web apps</td>
       <td><code>enabled</code></td>
   </tr>
   <tr>
@@ -97,7 +98,7 @@ The start scripts (`start.bat` for Windows, `start.sh` for Linux/Mac) accept the
   </tr>
   <tr>
       <td><code>--production</code></td>
-      <td>Applies the production.yaml configuration file.</td>
+      <td>Applies the `production.yaml` configuration file.</td>
       <td><code>disabled</code></td>
   </tr>
   <tr>

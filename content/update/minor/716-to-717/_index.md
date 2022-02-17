@@ -131,11 +131,11 @@ of the Camunda Run documentation. You can also find a template LDAP configuratio
 Camunda Run starts with the [provided `start.sh` or `start.bat` scripts]({{< ref "/user-guide/camunda-bpm-run.md#starting-with-camunda-platform-run" >}}).
 When you execute one of these scripts, Camunda Run starts, and outputs logs to the command line.
 
-With version 7.17 we made a small change to the behavior of these start scripts. If you don't provide any additional
+With version 7.17, we made a small change to the behavior of these start scripts. If you don't provide any additional
 arguments to the start script, it will start Camunda Run as a detached process. You can then use the new `shutdown.sh`
 or `shutdown.bat` script to stop Camunda Run.
 
-If you want to have the old start script behavior, simply pass the desired [start script arguments]({{< ref "/user-guide/camunda-bpm-run.md#start-script-arguments" >}})
+If you want to have the old start script behavior, pass the desired [start script arguments]({{< ref "/user-guide/camunda-bpm-run.md#start-script-arguments" >}})
 directly to the script.
 
 # Disabled remote access to H2 console
