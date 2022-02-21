@@ -193,6 +193,11 @@ The following resources are available:
     <td>17</td>
     <td>User Operation Log Entry Category</td>
   </tr>
+  <tr>
+    <td>System</td>
+    <td>21</td>
+    <td>*<br>System resources do not support individual resource ids. You have to use them with a wildcard id (*).</td>
+  </tr>
 </table>
 
 **Note:** The Resource Id should be '*' when you create new authorization with CREATE permissions only.
