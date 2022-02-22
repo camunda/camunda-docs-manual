@@ -50,8 +50,71 @@ camunda-bpm-run
 ├── internal/
 ├── start.bat
 └── start.sh
+└── shutdown.sh
+└── shutdown.bat
 ```
-Execute one of the two start scripts (`start.bat` for Windows, `start.sh` for Linux/Mac). After a few seconds, you will be able to access the Camunda webapps via http://localhost:8080/camunda/app/, the REST API via http://localhost:8080/engine-rest/ and Swagger UI via http://localhost:8080/swaggerui/.
+
+Execute one of the two start scripts (`start.bat` for Windows, `start.sh` for Linux/Mac). After a few seconds, you can 
+access the Camunda web apps via http://localhost:8080/camunda/app/, the REST API via 
+http://localhost:8080/engine-rest/, and Swagger UI via http://localhost:8080/swaggerui/.
+
+When executing one of the two start scripts without any arguments, Camunda Run will start with a default configuration 
+as a detached process. To shut down Camunda Run in "detached" mode, use one of the two shutdown scripts (`shutdown.bat` 
+for Windows, `shutdown.sh` for Linux/Mac).
+
+By explicitly passing arguments to one of the two Camunda Run start scripts, the default detached mode is disabled and
+you can configure Camunda Run according to your needs. Furthermore, Camunda Run will start as a foreground process
+unless the `--detached` argument is explicitly passed to the `start.bat` or `start.sh` script.
+
+## Start script arguments
+
+The start scripts (`start.bat` for Windows, `start.sh` for Linux/Mac) accept the following arguments:
+
+<table class="table desc-table">
+  <tr>
+      <th>Argument</th>
+      <th>Description</th>
+      <th>Default state</th>
+  </tr>
+  <tr>
+      <td><code>--webapps</code></td>
+      <td>Enables the Camunda Platform web apps</td>
+      <td><code>enabled</code></td>
+  </tr>
+  <tr>
+      <td><code>--rest</code></td>
+      <td>Enables the REST API</td>
+      <td><code>enabled</code></td>
+  </tr>
+  <tr>
+      <td><code>--swaggerui</code></td>
+      <td>Enables the Swagger UI</td>
+      <td><code>enabled</code></td>
+  </tr>
+  <tr>
+      <td><code>--example</code></td>
+      <td>Enables the example application.</td>
+      <td><code>enabled</code></td>
+  </tr>
+  <tr>
+      <td><code>--production</code></td>
+      <td>Applies the `production.yaml` configuration file.</td>
+      <td><code>disabled</code></td>
+  </tr>
+  <tr>
+      <td><code>--detached</code></td>
+      <td>
+        Starts Camunda Run as a detached process. This is the default behavior of the start scripts. To disable it, 
+        explicitly pass a valid argument to the script.
+      </td>
+      <td><code>enabled</code></td>
+  </tr>
+  <tr>
+      <td><code>--help</code></td>
+      <td>Prints a message showing the available start script arguments.</td>
+      <td><code>-</code></td>
+  </tr>
+</table>
 
 ## Starting Camunda Platform Run using Docker
 

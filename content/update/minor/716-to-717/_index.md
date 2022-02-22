@@ -23,6 +23,7 @@ This document guides you through the update from Camunda Platform `7.16.x` to `7
 1. For developers: [Spin configuration options](#spin-configuration-options)
 1. For developers: [Extended Camunda Run CORS configuration properties](#extended-camunda-run-cors-configuration-properties)
 1. For administrators: [Improved Camunda Run LDAP support](#improved-camunda-run-ldap-support)
+1. For administrators and developers: [Changed Camunda Run start script behavior](#changed-camunda-run-start-script-behavior)
 1. For developers: [Disabled remote access to H2 console](#disabled-remote-access-to-h2-console)
 
 This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new 
@@ -124,6 +125,18 @@ LDAP user group gains administrative access to configure additional authorizatio
 The Administrator Authorization plugin configuration properties are integrated with Camunda Run. You can find them
 in the [LDAP Adminstrator Authorization section]({{< ref "/user-guide/camunda-bpm-run.md#ldap-administrator-authorization" >}})
 of the Camunda Run documentation. You can also find a template LDAP configuration in the Camunda Run `production.yml`.
+
+# Changed Camunda Run start script behavior
+
+Camunda Run starts with the [provided `start.sh` or `start.bat` scripts]({{< ref "/user-guide/camunda-bpm-run.md#starting-with-camunda-platform-run" >}}).
+When you execute one of these scripts, Camunda Run starts, and outputs logs to the command line.
+
+With version 7.17, we made a small change to the behavior of these start scripts. If you don't provide any additional
+arguments to the start script, it will start Camunda Run as a detached process. You can then use the new `shutdown.sh`
+or `shutdown.bat` script to stop Camunda Run.
+
+If you want to have the old start script behavior, pass the desired [start script arguments]({{< ref "/user-guide/camunda-bpm-run.md#start-script-arguments" >}})
+directly to the script.
 
 # Disabled remote access to H2 console
 
