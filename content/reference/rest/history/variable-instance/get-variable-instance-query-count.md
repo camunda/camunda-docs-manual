@@ -36,6 +36,10 @@ GET `/history/variable-instance/count`
     <td>Filter by variable name.</td>
   </tr>
   <tr>
+    <td>variableNameIn</td>
+    <td>Only include historic variable instances which belong to one of the passed and comma-separated variable names.</td>
+  </tr>
+  <tr>
     <td>variableNameLike</td>
     <td>Restrict to variables with a name like the parameter.</td>
   </tr>
