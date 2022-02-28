@@ -607,7 +607,7 @@ The specific **Create ...** permission has higher priority than the general **Cr
 
 
 ## Default Read Variable Permissions
-When the `enforceSpecificVariablePermission` process engine configuration is enabled, in order to read variables, the user needs to be granted with the following permissions:
+When the `enforceSpecificVariablePermission` process engine configuration is enabled, in order to read variables, the user needs to be granted the following permissions:
 
 In case of Tasks
 
