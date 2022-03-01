@@ -1,7 +1,7 @@
 ---
 baseURL: "/manual/develop/"
 languageCode: "en-us"
-title: "Camunda Platform documentation"
+title: "Camunda Platform 7 documentation"
 theme: "camunda"
 
 blackfriday:
