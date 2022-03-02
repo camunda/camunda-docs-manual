@@ -39,7 +39,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>variableNameIn</td>
-    <td>Only include historic variable instances which belong to one of the passed and comma-separated variable names.</td>
+    <td>A comma-separated list of variable names. Allows restricting the list of requested variables to the variable names in the list.</td>
   </tr>
   <tr>
     <td>variableNameLike</td>
