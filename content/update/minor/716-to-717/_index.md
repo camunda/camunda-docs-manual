@@ -22,7 +22,7 @@ This document guides you through the update from Camunda Platform `7.16.x` to `7
 1. For administrators and operation engineers: [New System Permissions](#system-permissions)
 1. For developers: [Spin configuration options](#spin-configuration-options)
 1. For developers: [Extended Camunda Run CORS configuration properties](#extended-camunda-run-cors-configuration-properties)
-1. For administrators: [Improved Camunda Run LDAP support](#improved-camunda-run-ldap-support)
+1. For administrators and developers: [Improved Camunda Run library support](#improved-camunda-run-library-support)
 1. For administrators and developers: [Changed Camunda Run start script behavior](#changed-camunda-run-start-script-behavior)
 1. For developers: [Disabled remote access to H2 console](#disabled-remote-access-to-h2-console)
 
@@ -113,7 +113,9 @@ credentials support, to be set on the CORS Filter.
 
 [cors-properties]: {{< ref "/user-guide/camunda-bpm-run.md#cross-origin-resource-sharing" >}}
 
-# Improved Camunda Run LDAP support
+# Improved Camunda Run library support
+
+## Improved LDAP support
 
 Previous versions of the Camunda Run distribution already supported the Camunda LDAP identity service plugin. With this
 version, we made it easier to configure and use Camunda Run with the LDAP plugin with the following additions:
@@ -125,6 +127,22 @@ LDAP user group gains administrative access to configure additional authorizatio
 The Administrator Authorization plugin configuration properties are integrated with Camunda Run. You can find them
 in the [LDAP Adminstrator Authorization section]({{< ref "/user-guide/camunda-bpm-run.md#ldap-administrator-authorization" >}})
 of the Camunda Run documentation. You can also find a template LDAP configuration in the Camunda Run `production.yml`.
+
+## Groovy scripting engine included
+
+The Camunda Run distribution now ships with the Groovy scripting engine as well, in the form of the 
+`groovy-all-2.4.13.jar` located in the `{RUN_HOME}/configuration/userlib/` directory. Users that utilize Groovy scripts
+in their BPMN processes don't need to provide a Groovy binary when upgrading to a new Camunda Run version 
+anymore.
+
+Users that don't use Groovy can just remove the `groovy-all-2.4.13.jar` archive from the 
+`{RUN_HOME}/configuration/userlib/` directory.
+
+## Camunda Connect plugin included
+
+With Camunda Run 7.17.0, the Camunda Connect process engine plugin is available in Camunda Run just like with any 
+other Camunda distro. Users that use connectors in their BPMN processes don't need to provide any additional binary
+when upgrading to a new Camunda Run version anymore.
 
 # Changed Camunda Run start script behavior
 
