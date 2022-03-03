@@ -87,7 +87,7 @@ To configure a JDBC Resource you have to edit the file `$TOMCAT_HOME/conf/server
               defaultTransactionIsolation="READ_COMMITTED"
               username="sa"
               password="sa"
-              maxTotal="20"
+              maxActive="20"
               minIdle="5"
               maxIdle="20" />
   </GlobalNamingResources>
