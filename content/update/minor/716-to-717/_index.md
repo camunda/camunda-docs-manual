@@ -132,7 +132,7 @@ of the Camunda Run documentation. You can also find a template LDAP configuratio
 
 The Camunda Run distribution now ships with the Groovy scripting engine as well, in the form of the 
 `groovy-all-2.4.13.jar` located in the `{RUN_HOME}/configuration/userlib/` directory. Users that utilize Groovy scripts
-in their BPMN processes don't need to provide a Groovy `.jar` archive when upgrading to a new Camunda Run version 
+in their BPMN processes don't need to provide a Groovy binary when upgrading to a new Camunda Run version 
 anymore.
 
 Users that don't use Groovy can just remove the `groovy-all-2.4.13.jar` archive from the 
@@ -141,8 +141,8 @@ Users that don't use Groovy can just remove the `groovy-all-2.4.13.jar` archive 
 ## Camunda Connect plugin included
 
 With Camunda Run 7.17.0, the Camunda Connect process engine plugin is available in Camunda Run just like with any 
-other Camunda distro. Users that use connectors in their BPMN processes don't need to provide any additional `.jar` 
-archive when upgrading to a new Camunda Run version anymore.
+other Camunda distro. Users that use connectors in their BPMN processes don't need to provide any additional binary
+when upgrading to a new Camunda Run version anymore.
 
 # Changed Camunda Run start script behavior
 
