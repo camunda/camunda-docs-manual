@@ -97,7 +97,7 @@ The format of the export result is a file of [Comma-separated values (CSV)](http
 * The spreadsheet displays:
   * A `null` value as `<<NULL>>`
   * An unsupported variable value type as `<<UNSUPPORTED TYPE>>`
-  * A non-existing as empty cell.
+  * A non-existing variable as empty cell.
 
 #### Example
 
