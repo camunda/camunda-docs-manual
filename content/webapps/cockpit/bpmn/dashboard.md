@@ -66,7 +66,7 @@ To trigger the CSV export, search for process instances and customize what prope
 specific process instances; you can checkmark the process instances of interest on the left side or select the whole page by checkmarking
 the box on the left side in the table header. You can select process instances across multiple pages. In the next step, you can choose a more coarse-grained process instance selection approach.
 
-When you are satisfied with your configuration of columns, query criteria, and selection of process instances, you can click on the <button class="btn btn-xs"><i class="glyphicon glyphicon-save"></i></button> button.
+When you are satisfied with your configuration of columns, query criteria, and selection of process instances, click <button class="btn btn-xs"><i class="glyphicon glyphicon-save"></i></button>.
 
 {{< img src="../../img/cockpit-export-modal-dialog.png" title="CSV Export for Process Instances: Modal Dialog" >}}
 
@@ -76,16 +76,15 @@ the currently displayed page, or all pages.
 Additionally, you can specify process variables by name to enrich the export result with the values of these variables.
 
 {{< note title="Heads-up!" class="info" >}}
-* Exporting all pages is more inefficient than exporting a selection or a single page of process instances and can cause extra load on the database and application server.
-  Also, a more complex query that runs against an unbounded number of rows affects the execution time negatively.
+* Exporting all pages is more inefficient than exporting a selection or a single page of process instances and can cause extra load on the database and application server. Also, a more complex query that runs against an unbounded number of rows affects the execution time negatively.
 * For security reasons, you can limit the maximum number of process instances that can be exported via the [Query Maximum Results Limit]({{< ref "/user-guide/process-engine/process-engine-api.md#query-maximum-results-limit" >}}).
 {{< /note >}}
 
-When clicking on the "Export CSV" button, the backend crunches the requested data and creates a CSV file. This could take a while, depending on the amounts of process instances you want to export.
+When clicking **Export CSV**, the backend crunches the requested data and creates a CSV file. This could take a while, depending on the amounts of process instances you want to export.
 
 {{< img src="../../img/cockpit-export-download-as-csv.png" title="CSV Export for Process Instances: Modal Dialog – Download as CSV" >}}
 
-As soon as the request succeeds, you should see a notification that the CSV creation was successful, and the button changes to "Download as CSV". When you click the button, the download of the CSV file starts.
+As soon as the request succeeds, you should see a notification that the CSV creation was successful, and the button changes to **Download as CSV**. When you click the button, the download of the CSV file starts.
 
 ### Export Result
 
@@ -96,9 +95,9 @@ The format of the export result is a file of [Comma-separated values (CSV)](http
 * Each row in the spreadsheet represents a process instance, while each property has its dedicated column.
 * The spreadsheet has a dedicated column for each variable property and displays its value in the respective row that matches with the process instance.
 * The spreadsheet displays:
-  * a `null` value as `<<NULL>>`,
-  * an unsupported variable value type as `<<UNSUPPORTED TYPE>>`, and
-  * a non existing as empty cell.
+  * A `null` value as `<<NULL>>`
+  * An unsupported variable value type as `<<UNSUPPORTED TYPE>>`
+  * A non-existing variable as empty cell.
 
 #### Example
 
