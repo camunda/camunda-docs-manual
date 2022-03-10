@@ -74,7 +74,7 @@ A JSON object with the following properties: (at least an empty JSON object `{}`
   </tr>
   <tr>
     <td>caseInstanceId</td>
-    <td>The case instance id the process instance is to be initialized with.</td>
+    <td>The case instance id of the process instance is to be initialized with.</td>
   </tr>
   <tr>
     <td>startInstructions</td>
