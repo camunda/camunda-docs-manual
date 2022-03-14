@@ -17,7 +17,7 @@ At Camunda, we strive to offer excellent user experience at a high and stable le
 
 The process engine has a dedicated thread called the *Telemetry Reporter* to periodically report telemetry data to Camunda. This thread is by default always running, however only collects and reports data if telemetry is explicitly enabled. See the [How to Enable Telemetry]({{< ref "#how-to-enable-telemetry" >}}) section for how to do this. 
 
-When enabled, the collected data is sent once in 24 hours via HTTPS. The telemetry reporter is designed so that your implemented processes are not negatively affected in case the reporter suddenly faces an unexpected error. The telemetry reporter stops in any case when the process engine is stopped.
+When enabled, the collected data is sent once within 24 hours via HTTPS. The telemetry reporter is designed so that your implemented processes are not negatively affected in case the reporter suddenly faces an unexpected error. The telemetry reporter stops in any case when the process engine is stopped.
 
 ## Collected Data
 
@@ -176,7 +176,7 @@ In previous Camunda versions, the installation sends an anonymized one-time init
 * 7.14: 7.14.18 and lower
 * 7.13 / 7.12 / 7.11: all versions
 
-In higher versions the installation no longer sends this initial message.
+In newer versions, the installation no longer sends this initial message.
 {{< /note >}}
 
 To support the understanding of typical use cases and the overall distribution of our products, the installation sends an anonymized one-time initial report to Camunda via HTTPS. This report contains no specifics that would allow any direct link to an outside entity and is limited to the following data:
@@ -197,7 +197,7 @@ No other information will be included in that report. Furthermore, this report w
 In case you disabled telemetry explicitly or did not configure it at all, this is the only report that will ever be sent to Camunda.
 
 If there is the necessity to also prevent this anonymized report from being sent to us, you can set the `telemetryReporterActivate` configuration [flag][engine-config-telemetryReporterActivate] to `false`.
-With this, the reporter thread will not be started and no request will ever be sent to Camunda. See the [How to Enable Telemetry]({{< ref "#how-to-enable-telemetry" >}}) section for how to do this.
+With this, the reporter thread will not be started and no request will ever be sent to Camunda. See the [how to enable telemetry]({{< ref "#how-to-enable-telemetry" >}}) section on how to do this.
 
 
 [engine-config-initializeTelemetry]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#initializeTelemetry" >}}
