@@ -183,24 +183,23 @@ Please note that we strongly discourage enabling remote access because it create
 
 Camunda Platform 7.17.0 supports H2 version 2.0 and drops support for H2 version 1.4. Note that these two H2 releases are not compatible with each other, which means:
 
-* The H2 library in version 2.0 cannot work with persisted databases created by H2 version 1.4
-* Camunda Platform 7.17 cannot work with H2 1.4
-* Camunda Platform versions 7.16 and lower cannot work with H2 2.0
+* The H2 library in version 2.0 cannot work with persisted databases created by H2 version 1.4.
+* Camunda Platform 7.17 cannot work with H2 1.4.
+* Camunda Platform versions 7.16 and lower cannot work with H2 2.0.
 
 When using Camunda with a file-persisted H2 database, this implies:
 
-* The H2 database must be migrated from version 1.4 to 2.0
-* It is not possible to perform a [rolling update](({{< ref "/update/rolling-update.md" >}})) from Camunda 7.16 to 7.17
+* The H2 database must be migrated from version 1.4 to 2.0.
+* It is not possible to perform a [rolling update](({{< ref "/update/rolling-update.md" >}})) from Camunda 7.16 to 7.17.
 
-In order to migrate from 7.16 to 7.17, and from H2 1.4 to 2.0, you can follow these steps:
+To migrate from 7.16 to 7.17, and from H2 1.4 to 2.0, follow these steps:
 
-1. Shut down Camunda Platform 7.16
-1. Export the file-persisted H2 database by running the following SQL command: `SCRIPT TO '<path>' CHARSET 'UTF-8'` where you substitute `<path>` with a path to a file on your system (for example by using the [H2 web console](https://www.h2database.com/html/tutorial.html#tutorial_starting_h2_console) of H2 version 1.4)
-1. Delete the H2 database file
-1. Create a new H2 database file with H2 2.0 and re-import the data with the following SQL command: `RUNSCRIPT FROM '<path>' CHARSET 'UTF-8'` (for example by using the [H2 web console](https://www.h2database.com/html/tutorial.html#tutorial_starting_h2_console) of H2 version 2.0)
-1. Migrate the Camunda application and start Camunda Platform 7.17
+1. Shut down Camunda Platform 7.16.
+1. Export the file-persisted H2 database by running the following SQL command: `SCRIPT TO '<path>' CHARSET 'UTF-8'` where you substitute `<path>` with a path to a file on your system (for example, by using the [H2 web console](https://www.h2database.com/html/tutorial.html#tutorial_starting_h2_console) of H2 version 1.4)
+1. Delete the H2 database file.
+1. Create a new H2 database file with H2 2.0 and re-import the data with the following SQL command: `RUNSCRIPT FROM '<path>' CHARSET 'UTF-8'` (for example, by using the [H2 web console](https://www.h2database.com/html/tutorial.html#tutorial_starting_h2_console) of H2 version 2.0).
+1. Migrate the Camunda application and start Camunda Platform 7.17.
 
 In addition, with this release the process engine no longer supports the `jdbcStatementTimeout` configuration setting for H2 databases.
 
-Please also see the [migration instructions provided by the h2 project](https://h2database.com/html/migration-to-v2.html).
-
+Also see the [migration instructions provided by the h2 project](https://h2database.com/html/migration-to-v2.html).
