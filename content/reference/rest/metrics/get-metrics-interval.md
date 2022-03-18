@@ -31,8 +31,9 @@ GET `/metrics`
     <td>name</td>
     <td>The name of the metric. Supported names:
       <ul>
-        <li>flow-node-instances-start</li>
-        <li>flow-node-instances-end</li>
+        <li>activity-instance-start (flow-node-instances)</li>
+        <li>activity-instance-end</li>
+        <li>flow-node-instances</li>
         <li>job-acquisition-attempt</li>
         <li>job-acquired-success</li>
         <li>job-acquired-failure</li>
@@ -41,6 +42,7 @@ GET `/metrics`
         <li>job-failed</li>
         <li>job-locked-exclusive</li>
         <li>executed-decision-elements</li>
+        <li>executed-decision-instances (decision-instances)</li>
         <li>decision-instances</li>
         <li>history-cleanup-removed-process-instances</li>
         <li>history-cleanup-removed-case-instances</li>
@@ -48,14 +50,8 @@ GET `/metrics`
         <li>history-cleanup-removed-batch-operations</li>
         <li>history-cleanup-removed-task-metrics</li>
         <li>process-instances</li>
-        <li>task-users</li>
-      </ul>
-      Supported legacy names:
-      <ul>
-        <li>activity-instance-start (flow-node-instances-start)</li>
-        <li>activity-instance-end (flow-node-instances-end)</li>
-        <li>executed-decision-instances (decision-instances)</li>
         <li>root-process-instance-start (process-instances)</li>
+        <li>task-users</li>
         <li>unique-task-workers (task-users)</li>
       </ul>
     </td>

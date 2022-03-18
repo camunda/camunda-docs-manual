@@ -91,7 +91,7 @@ The counts are collected from the start of the engine or the last reported time 
         },
         "metrics": {
           "process-instances": { "count": 936 },
-          "flow-node-instances-start": { "count": 6125 },
+          "flow-node-instances": { "count": 6125 },
           "decision-instances": { "count": 140 },
           "executed-decision-elements": { "count": 732 }
         },
