@@ -88,7 +88,7 @@ Clustered or replicated databases are supported given the following conditions. 
 
 # Camunda Modeler
 
-[Supported environments](https://docs.camunda.io/docs/reference/supported-environments/#camunda-modeler) for Camunda Modeler have moved to docs.camunda.io.
+[Supported environments](https://docs.camunda.io/docs/reference/supported-environments/#camunda-modeler) for Camunda Modeler have moved to [docs.camunda.io](https://docs.camunda.io/).
 
 # Maintenance Policy
 
