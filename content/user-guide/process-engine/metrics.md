@@ -27,24 +27,24 @@ If you are an enterprise customer, your license agreement might require you to r
   </tr>
   <tr>
     <td><b>BPMN Execution</b></td>
-    <td>process-instances*</td>
+    <td>root-process-instance-start*</td>
     <td>The number of root process instance executions started. This is also known as <b>Process Instances (PI)</b>.
     A root process instance has no parent process instance, i.e. it is a top-level execution.
     </td>
   </tr>
   <tr>
     <td></td>
-    <td>flow-node-instances-start*</td>
+    <td>activity-instance-start*</td>
     <td>The number of flow node instances (activity instances) started (FNI).</td>
   </tr>
   <tr>
     <td></td>
-    <td>flow-node-instances-end</td>
+    <td>activity-instance-end</td>
     <td>The number of flow node instances (activity instances) ended.</td>
   </tr>
   <tr>
     <td><b>DMN Execution</b></td>
-    <td>decision-instances*</td>
+    <td>executed-decision-instances*</td>
     <td>The number of evaluated decision instances (DI). A decision instance is a DMN decision table or a DMN Literal Expression.</td>
   </tr>
   <tr>
@@ -89,7 +89,7 @@ If you are an enterprise customer, your license agreement might require you to r
   </tr>
   <tr>
     <td><b>Task Metrics</b></td>
-    <td>task-users*</td>
+    <td>unique-task-workers*</td>
     <td>The number of task users (TU) that have served as assignees.</td>
   </tr>
   <tr>

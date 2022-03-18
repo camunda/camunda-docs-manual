@@ -121,7 +121,7 @@ A JSON object containing all collected telemetry data.
       A selection of metrics collected by the engine. Keys of the object are the metric names. Values are JSON objects with a single property <code>count</code>. Metrics included are:
       <ul>
         <li>The number of process instances started (<code>process-instances</code>).</li>
-        <li>The number of activity instances started or also known as flow node instances (<code>flow-node-instances-start</code>).</li>
+        <li>The number of activity instances started or also known as flow node instances (<code>flow-node-instances</code>).</li>
         <li>The number of executed decision instances (<code>decision-instances</code>).</li>
         <li>The number of executed decision elements (<code>executed-decision-elements</code>).</li>
       </ul>
@@ -293,7 +293,7 @@ GET `/telemetry/data`
         },
         "metrics": {
           "process-instances": { "count": 936 },
-          "flow-node-instances-start": { "count": 6125 },
+          "flow-node-instances": { "count": 6125 },
           "decision-instances": { "count": 140 },
           "executed-decision-elements": { "count": 732 }
         },
