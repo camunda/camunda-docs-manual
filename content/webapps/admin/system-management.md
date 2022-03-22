@@ -23,7 +23,7 @@ The System Settings menu is only usable by users which are granted with *All* pe
 
 {{< img src="../img/admin-diagnostics.png" title="Diagnostics" >}}
 
-The Diagnostics menu allows you to view and copy telemetry data about your environment or distribution of Camunda. Its main purpose is to increase transparency by giving you easy access to important system telemetry information. In the event of an issue, this should also improve problem diagnosis by enabling you to quickly understand and share the Camunda environment that you are running.
+The **Diagnostics** menu allows you to view and copy telemetry data about your environment or distribution of Camunda. The main purpose of the **Diagnostics** menu is to increase transparency by giving you easy access to important system telemetry information. In the event of an issue, this should also improve problem diagnosis by enabling you to quickly understand and share the Camunda environment you are running.
 
 # Execution Metrics
 
