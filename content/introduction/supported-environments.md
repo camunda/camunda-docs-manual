@@ -35,7 +35,7 @@ Run the Camunda Platform in every Java-runnable environment. Camunda Platform is
 * Apache Tomcat 9.0
 * JBoss EAP 7.0 / 7.1 / 7.2 / 7.3 / 7.4
 * Wildfly Application Server 13.0 / 14.0 / 15.0 / 16.0 / 17.0 / 18.0 / 19.0 / 20.0 / 21.0 / 22.0 / 23.0 / 24.0 / 25.0 / 26.0
-* IBM WebSphere Application Server 8.5 / 9.0 ([Enterprise Edition only](http://camunda.com/enterprise/))
+* IBM WebSphere Application Server 9.0 ([Enterprise Edition only](http://camunda.com/enterprise/))
 * Oracle WebLogic Server 12c (12R2) / 14c (14R1) ([Enterprise Edition only](http://camunda.com/enterprise/))
 
 
@@ -44,10 +44,10 @@ Run the Camunda Platform in every Java-runnable environment. Camunda Platform is
 ## Supported Database Products
 
 * MySQL 5.7 / 8.0
-* MariaDB 10.2 / 10.3 / 10.6
+* MariaDB 10.3 / 10.6
 * Oracle 12c / 19c
 * IBM DB2 11.1 / 11.5 (excluding IBM z/OS for all versions)
-* PostgreSQL 9.6 / 10 / 11 / 12 / 13
+* PostgreSQL 10 / 11 / 12 / 13
 * Amazon Aurora PostgreSQL compatible with PostgreSQL 10.4 / 10.7 / 10.13 / 12.4
 * Microsoft SQL Server 2014/2016/2017/2019 (see [Configuration Note]({{< ref "/user-guide/process-engine/database/mssql-configuration.md" >}}))
 * Microsoft Azure SQL with Camunda-supported SQL Server compatibility levels 
@@ -62,7 +62,6 @@ Run the Camunda Platform in every Java-runnable environment. Camunda Platform is
 
 Clustered or replicated databases are supported given the following conditions. The communication between Camunda Platform and the database cluster has to match with the corresponding non-clustered / non-replicated configuration. It is especially important that the configuration of the database cluster guarantees the equivalent behavior of READ-COMMITTED isolation level.
 
-* MariaDB Galera Cluster: Galera Cluster for MariaDB is supported with specific configuration settings and some known limitations. See [Details]({{< ref "/user-guide/process-engine/database/mariadb-galera-configuration.md" >}}).
 
 # Web Browser
 
@@ -73,14 +72,14 @@ Clustered or replicated databases are supported given the following conditions. 
 
 # Java
 
-* Java 8 / 9 / 10 / 11 / 12 / 13 / 14 / 15 / 17 (if supported by your application server/container)
+* Java 8 / 11 / 17 (if supported by your application server/container)
 
 
 # Java Runtime
 
-* Oracle JDK 8 / 9 / 10 / 11 / 12 / 13 / 14 / 15 / 17
+* Oracle JDK 8 / 11 / 17
 * IBM JDK 8 (with J9 JVM)
-* OpenJDK 8 / 9 / 10 / 11 / 12 / 13 / 14 / 15 / 17, including builds of the following products:
+* OpenJDK 8 / 11 / 17, including builds of the following products:
   * Oracle OpenJDK
   * AdoptOpenJDK (with HotSpot JVM)
   * Amazon Corretto
