@@ -31,12 +31,12 @@ Enterprise subscription customers use the [enterprise download page](/enterprise
 
 ## Cycle Only
 
-Download a Camunda Cycle from our [NEXUS repository](https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/cycle/camunda-cycle-tomcat/). Choose the correct version named `$CYCLE_VERSION/camunda-cycle-tomcat-$CYCLE_VERSION.war`.
+Download a Camunda Cycle from our [NEXUS repository](https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/cycle/camunda-cycle-tomcat/). Choose the correct version named `$CYCLE_VERSION/camunda-cycle-tomcat-$CYCLE_VERSION.war`.
 
 
 ## Database Scripts
 
-Download scripts to create the database schema from our [NEXUS repository](https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/cycle/camunda-cycle-sql-scripts/). Choose the correct version named `$CYCLE_VERSION/camunda-cycle-sql-scripts-$CYCLE_VERSION.jar`.
+Download scripts to create the database schema from our [NEXUS repository](https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/cycle/camunda-cycle-sql-scripts/). Choose the correct version named `$CYCLE_VERSION/camunda-cycle-sql-scripts-$CYCLE_VERSION.jar`.
 
 
 # Create the Database Schema
@@ -55,14 +55,14 @@ There is an individual SQL script for each supported database. Select the script
 We recommend to create a separate database or database schema for Camunda Cycle.
 
 {{< note title="" class="info" >}}
-  If you have not got the distro at hand, you can also download a file that packages these scripts from our [server](https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/cycle/camunda-cycle-sql-scripts/).
+  If you have not got the distro at hand, you can also download a file that packages these scripts from our [server](https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/cycle/camunda-cycle-sql-scripts/).
   Choose the correct version named `$CYCLE_VERSION/camunda-cycle-sql-scripts-$CYCLE_VERSION.jar`.
 {{< /note >}}
 
 
 # Install Camunda Cycle on a Vanilla Tomcat 7
 
-You can download the Camunda Cycle web application from our [server](https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/cycle/camunda-cycle-tomcat/).
+You can download the Camunda Cycle web application from our [server](https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/cycle/camunda-cycle-tomcat/).
 Choose the correct version named `$CYCLE_VERSION/camunda-cycle-tomcat-$CYCLE_VERSION.war`.
 
 
@@ -195,5 +195,5 @@ camunda-cycle-distro-$CYCLE_VERSION.zip/sql/upgrade/*_cycle_3.0_to_3.1.sql
 There is an individual SQL script for each supported database. Select the script appropriate for your database and run it with your database administration tool (e.g. SqlDeveloper for Oracle).
 
 {{< note title="" class="info" >}}
-  If you have not got the distro at hand, you can also download a file that packages these scripts from our [server](https://app.camunda.com/nexus/service/rest/repository/browse/public/org/camunda/bpm/cycle/camunda-cycle-sql-scripts/3.1.0/camunda-cycle-sql-scripts-3.1.0.jar).
+  If you have not got the distro at hand, you can also download a file that packages these scripts from our [server](https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/cycle/camunda-cycle-sql-scripts/3.1.0/camunda-cycle-sql-scripts-3.1.0.jar).
 {{< /note >}}
