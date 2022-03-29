@@ -10,7 +10,7 @@ menu:
 
 ---
 
-The following steps describe how to update the Camunda artifacts on a Tomcat server in a shared process engine setting. For the entire migration procedure, refer to the [migration guide][migration-guide]. If not already done, make sure to download the [Camunda Platform 7.3 Tomcat distribution](https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/tomcat/camunda-bpm-tomcat/).
+The following steps describe how to update the Camunda artifacts on a Tomcat server in a shared process engine setting. For the entire migration procedure, refer to the [migration guide][migration-guide]. If not already done, make sure to download the [Camunda Platform 7.3 Tomcat distribution](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/tomcat/camunda-bpm-tomcat/).
 
 The update procedure takes the following steps:
 
@@ -100,4 +100,4 @@ As of 7.3.3, the default handling of expressions submitted as parameters of task
 This is already the default for Camunda Platform versions after and including 7.2.8.
 
 [migration-guide]: {{< ref "/update/minor/72-to-73/_index.md" >}}
-[nexus]: https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/camunda-engine-rest/
+[nexus]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/camunda-engine-rest/
