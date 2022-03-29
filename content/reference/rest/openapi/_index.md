@@ -28,7 +28,7 @@ The documentation is shipped as a single `openapi.json` file archived in a jar a
 Download the Camunda REST API artifact containing the OpenAPI documentation [here][nexus-link]. Choose the correct version and then download the `jar` file.
 
 [spec-3.0.2]: https://github.com/OAI/OpenAPI-Specification/blob/3.0.2/versions/3.0.2.md
-[nexus-link]: https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/camunda-engine-rest-openapi/
+[nexus-link]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/camunda-engine-rest-openapi/
 
 Alternatively, you can obtain this artifact with the following Maven coordinates:
 
