@@ -180,6 +180,6 @@ _Note: For screenshot of the enterprise webapps, you can use the automatic scree
 
 [Hugo]: http://gohugo.io/
 [Hugo Installation]: http://gohugo.io/overview/installing/
-[Camunda Nexus]: https://app.camunda.com/nexus/service/rest/repository/browse/thirdparty/hugo/
+[Camunda Nexus]: https://artifacts.camunda.com/artifactory/thirdparty/hugo/
 [OpenOffice]: https://www.openoffice.org/download/index.html
 [OpenSans]: https://www.google.com/fonts#UsePlace:use/Collection:Open+Sans
