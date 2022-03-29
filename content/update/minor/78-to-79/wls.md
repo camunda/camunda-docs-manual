@@ -10,7 +10,7 @@ menu:
 
 ---
 
-The following steps describe how to update the Camunda artifacts on an Oracle WebLogic application server in a shared process engine setting. For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the [Camunda Platform 7.9 Oracle WebLogic distribution](https://app.camunda.com/nexus/service/rest/repository/browse/internal/org/camunda/bpm/weblogic/camunda-bpm-weblogic/).
+The following steps describe how to update the Camunda artifacts on an Oracle WebLogic application server in a shared process engine setting. For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the [Camunda Platform 7.9 Oracle WebLogic distribution](https://artifacts.camunda.com/artifactory/internal/org/camunda/bpm/weblogic/camunda-bpm-weblogic/).
 
 The update procedure takes the following steps:
 
