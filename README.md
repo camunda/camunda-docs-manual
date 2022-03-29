@@ -187,7 +187,7 @@ You can use the `code` markdown to highlight single or multiple lines.
 
 [Hugo]: http://gohugo.io/
 [Hugo Installation]: http://gohugo.io/overview/installing/
-[Camunda Nexus]: https://app.camunda.com/nexus/service/rest/repository/browse/thirdparty/hugo/
+[Camunda Nexus]: https://artifacts.camunda.com/artifactory/thirdparty/hugo/
 [Title Converter]: http://individed.com/code/to-title-case/
 [OpenOffice]: https://www.openoffice.org/download/index.html
 [OpenSans]: https://www.google.com/fonts#UsePlace:use/Collection:Open+Sans
