@@ -886,7 +886,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="sindresorhus/array-move">array-move@3.0.1</a> (MIT)</summary><pre>MIT License
+<div><details><summary><a href="https://github.com/sindresorhus/array-move">array-move@3.0.1</a> (MIT)</summary><pre>MIT License
 
 Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
 
