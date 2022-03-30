@@ -264,8 +264,8 @@ The following steps are required to update the Camunda web applications Cockpit,
 
 [jboss-threads-to-camunda-mapping-table]: {{< ref "/update/minor/74-to-75/jboss.md#jboss-threads-to-camunda-subsystem-mapping-table" >}}
 [update-guide]: {{< ref "/update/minor/74-to-75/_index.md" >}}
-[jboss-distro]: https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/jboss/camunda-bpm-jboss/
-[wildfly-distro]: https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/wildfly/camunda-bpm-wildfly/
-[engine-rest]: https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/camunda-engine-rest/
-[webapp-jboss]: https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-jboss/
+[jboss-distro]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/jboss/camunda-bpm-jboss/
+[wildfly-distro]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/wildfly/camunda-bpm-wildfly/
+[engine-rest]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/camunda-engine-rest/
+[webapp-jboss]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-jboss/
 [jboss-container-integration]: {{< ref "/user-guide/runtime-container-integration/jboss.md" >}}
