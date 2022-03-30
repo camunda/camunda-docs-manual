@@ -63,7 +63,7 @@ Make sure that you have the Camunda Maven Repository set correctly:
 <repository>
   <id>camunda-bpm-nexus</id>
   <name>camunda Maven Repository</name>
-  <url>https://app.camunda.com/nexus/service/rest/repository/browse/public</url>
+  <url>https://artifacts.camunda.com/artifactory/public/</url>
 </repository>
 ```
 

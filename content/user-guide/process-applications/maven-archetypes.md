@@ -16,7 +16,7 @@ They enable a quickstart for developing process applications using the Camunda B
 
 # Overview of Available Maven Archetypes
 
-The following archetypes are currently provided. They are distributed via our Maven repository: https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/
+The following archetypes are currently provided. They are distributed via our Maven repository: https://artifacts.camunda.com/artifactory/camunda-bpm/
 
 <table class="table table-bordered">
   <thead>
@@ -24,33 +24,33 @@ The following archetypes are currently provided. They are distributed via our Ma
   </thead>
   <tbody>
     <tr>
-      <td><a href="https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-cockpit-plugin/">Camunda Cockpit Plugin</a></td>
+      <td><a href="https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-cockpit-plugin/">Camunda Cockpit Plugin</a></td>
       <td>Plugin for Camunda Cockpit, contains REST-Backend, MyBatis database query, HTML and JavaScript frontend, Ant build script for one-click deployment</td>
     </tr>
     <tr>
-      <td><a href="https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-ejb-war/">Process Application (EJB, WAR)</a></td>
+      <td><a href="https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-ejb-war/">Process Application (EJB, WAR)</a></td>
       <td>Process application that uses a shared Camunda BPM engine in a Java EE Container, e.g., JBoss Wildfly.
           Contains: Camunda EJB Client, Camunda CDI Integration, BPMN Process, Java Delegate as CDI bean, HTML5- & JSF-based start and task forms,
           configuration for JPA (Hibernate), JUnit Test with in-memory engine and visual process test coverage, Arquillian Test for JBoss AS7 & Wildfly, Maven Plugins or Ant build script for one-click deployment in Eclipse</td>
     </tr>
     <tr>
-      <td><a href="https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-servlet-war/">Process Application (Servlet, WAR)</a></td>
+      <td><a href="https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-servlet-war/">Process Application (Servlet, WAR)</a></td>
       <td>Process application that uses a shared Camunda BPM engine in a Servlet Container, e.g., Apache Tomcat.
           Contains: Servlet process application, BPMN Process, Java Delegate, HTML5-based start and task forms,
           JUnit Test with in-memory engine, Maven Plugins or Ant build script for one-click deployment in Eclipse</td>
     </tr>
     <tr>
-      <td><a href="https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-spring-boot/">Camunda Spring Boot Application</a></td>
+      <td><a href="https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-spring-boot/">Camunda Spring Boot Application</a></td>
       <td>Application that uses the Camunda Spring Boot Starter.
           Contains: Spring Boot Process Application, Camunda Webapps, BPMN Process, Java Delegate, HTML5-based start and task forms,
           JUnit Test with in-memory engine, Maven Plugins for packing as an executable application.</td>
     </tr>
     <tr>
-      <td><a href="https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-spring-boot-demo/">Camunda Spring Boot Application with Demo Users</a></td>
+      <td><a href="https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-spring-boot-demo/">Camunda Spring Boot Application with Demo Users</a></td>
       <td>Same as the <i>Spring Boot Application</i> archetype and additionally creates demo users and groups for easy start with the Camunda Webapps (use <code>demo/demo</code> to log in).</td>
     </tr>
     <tr>
-      <td><a href="https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-engine-plugin/">Process Engine Plugin</a></td>
+      <td><a href="https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-engine-plugin/">Process Engine Plugin</a></td>
       <td>An example for a process engine plugin.
       Contains: Process engine plugin, BPMN Parse Listener that is registered via the plugin, Task Listener that is added to every user task, JUnit Test with in-memory engine.</td>
     </tr>
@@ -63,7 +63,7 @@ The following archetypes are currently provided. They are distributed via our Ma
 ## Summary
 
 1. Add archetype catalog (**Preferences -> Maven -> Archetypes -> Add Remote Catalog**):
-    **https://app.camunda.com/nexus/content/repositories/camunda-bpm/**
+    **https://artifacts.camunda.com/artifactory/camunda-bpm/**
 2. Create Maven project from archetype (**File -> New -> Project... -> Maven -> Maven Project**)
 
 
@@ -73,7 +73,7 @@ The following archetypes are currently provided. They are distributed via our Ma
 {{< img src="../img/eclipse-00-preferences-maven-archetypes.png" title="Eclipse Preferences: Maven Archetypes" >}}
 2. Enter the following URL and description, click on **Verify...** to test the connection and if that worked click on **OK** to save the catalog.
 
-    Catalog File: **https://app.camunda.com/nexus/content/repositories/camunda-bpm/**
+    Catalog File: **https://artifacts.camunda.com/artifactory/camunda-bpm/**
 
     Description: **camunda BPM platform**
 {{< img src="../img/eclipse-01-add-remote-archetype-catalog.png" title="Eclipse Preferences: Add Maven Archetype Catalog" >}}
@@ -103,7 +103,7 @@ Sometimes the creation of the very first Maven project fails in Eclipse. If that
 ## Summary
 
 1. Add an archetype plugin (**Settings -> Plugins -> install the archetype plugin**)
-2. Add the catalog file with the full path to the xml file **https://app.camunda.com/nexus/content/repositories/camunda-bpm/archetype-catalog.xml**
+2. Add the catalog file with the full path to the xml file **https://artifacts.camunda.com/artifactory/camunda-bpm/archetype-catalog.xml**
 3. Create Maven project from archetype (**New Project -> Maven -> Check "From Archetype"** The com.camunda archetypes should be in the list)
 
 # Usage on Command Line
@@ -113,7 +113,7 @@ Sometimes the creation of the very first Maven project fails in Eclipse. If that
 Run the following command in a terminal to generate a project. Maven will allow you to select an archetype and ask you for all parameters needed to configure it:
 
 <pre class="console">
-mvn archetype:generate -Dfilter=org.camunda.bpm.archetype: -DarchetypeCatalog=https://app.camunda.com/nexus/content/repositories/camunda-bpm
+mvn archetype:generate -Dfilter=org.camunda.bpm.archetype: -DarchetypeCatalog=https://artifacts.camunda.com/artifactory/camunda-bpm/
 </pre>
 
 
@@ -123,7 +123,7 @@ The following command completely automates the project generation and can be use
 <pre class="console">
 mvn archetype:generate \
   -DinteractiveMode=false \
-  -DarchetypeRepository=https://app.camunda.com/nexus/content/repositories/camunda-bpm \
+  -DarchetypeRepository=https://artifacts.camunda.com/artifactory/camunda-bpm/ \
   -DarchetypeGroupId=org.camunda.bpm.archetype \
   -DarchetypeArtifactId=camunda-archetype-ejb-war \
   -DarchetypeVersion=7.10.0 \
