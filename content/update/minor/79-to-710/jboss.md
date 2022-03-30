@@ -20,7 +20,7 @@ the used application server.
 
 {{< note title="WildFly 8 Modules" class="info" >}}
 From version 7.10, only a single **Camunda Platform WildFly distribution** is provided, packaged with the latest WildFly version. For WildFly 10+ users,
-the update guide remains the same. However, if you are a WildFly 8 user, please download the [Camunda WildFly 8 Modules](https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/wildfly/camunda-wildfly8-modules/) archive
+the update guide remains the same. However, if you are a WildFly 8 user, please download the [Camunda WildFly 8 Modules](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/wildfly/camunda-wildfly8-modules/) archive
 for updating the Camunda Platform Modules.
 
 Furthermore, the Camunda subsystem extension in the application server's configuration file (in most cases `$WILDFLY_HOME/standalone/configuration/standalone.xml`) needs to be adjusted to:
@@ -123,6 +123,6 @@ The following steps are required to update the Camunda web applications Cockpit,
 
 
 [update-guide]: {{< ref "/update/minor/79-to-710/_index.md" >}}
-[engine-rest]: https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/camunda-engine-rest/
-[webapp-jboss]: https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-jboss/
+[engine-rest]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/camunda-engine-rest/
+[webapp-jboss]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-jboss/
 [jackson-update]: {{< ref "/update/minor/79-to-710/_index.md#jackson-version-update" >}}
