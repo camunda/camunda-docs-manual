@@ -58,7 +58,7 @@ A `QuarkusProcessEngineConfiguration` instance provides the following defaults:
   <tr>
     <td><code>idGenerator</code></td>
     <td>
-      An instance of {{< javadocref page="?org/camunda/bpm/engine/impl/persistence/StrongUuidGenerator.html" text="StrongUuidGenerator" >}}
+      An instance of {{< javadocref page="org/camunda/bpm/engine/impl/persistence/StrongUuidGenerator.html" text="StrongUuidGenerator" >}}
       is used.
     </td>
     <td><code>StrongUuidGenerator</code></td>

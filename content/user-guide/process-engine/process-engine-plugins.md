@@ -15,7 +15,7 @@ The process engine configuration can be extended through process engine plugins.
 extension to the [process engine configuration]({{< ref "/user-guide/process-engine/process-engine-bootstrapping.md" >}}).
 
 A plugin must provide an implementation of the 
-{{< javadocref page="?org/camunda/bpm/engine/impl/cfg/ProcessEnginePlugin.html" text="ProcessEnginePlugin" >}} interface.
+{{< javadocref page="org/camunda/bpm/engine/impl/cfg/ProcessEnginePlugin.html" text="ProcessEnginePlugin" >}} interface.
 
 
 # Configure Process Engine Plugins
