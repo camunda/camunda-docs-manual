@@ -67,7 +67,7 @@ Or, by defining configuration attributes in the annotation:
 ```
 
 Please find the complete list of attributes in the 
-{{< javadocref page="?org/camunda/bpm/client/spring/annotation/ExternalTaskSubscription.html" text="Javadocs" >}}.
+{{< javadocref page="org/camunda/bpm/client/spring/annotation/ExternalTaskSubscription.html" text="Javadocs" >}}.
 
 **Please Note:** A property defined in the `application.yml` file always overrides the respective attribute defined programmatically via annotation.
 
@@ -600,4 +600,4 @@ to your `pom.xml` file:
 
 To bootstrap the Client, use the class annotation `@EnableExternalTaskClient`. You can find all
 configuration attributes in the 
-{{< javadocref page="?org/camunda/bpm/client/spring/annotation/EnableExternalTaskClient.html" text="Javadocs" >}}.
+{{< javadocref page="org/camunda/bpm/client/spring/annotation/EnableExternalTaskClient.html" text="Javadocs" >}}.
