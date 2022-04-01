@@ -26,6 +26,8 @@ This document guides you through the update from Camunda Platform `7.16.x` to `7
 1. For administrators and developers: [Changed Camunda Run start script behavior](#changed-camunda-run-start-script-behavior)
 1. For developers: [Disabled remote access to H2 console](#disabled-remote-access-to-h2-console)
 1. For administrators and developers: [H2 version update](#h2-version-update)
+1. For developers: [Official support for JUnit 5 community extension](#official-support-for-junit-5-community-extension)
+1. For developers: [Changes to Camunda Platform Assert](#changes-to-camunda-platform-assert)
 
 This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new 
 functionality included in Camunda Platform 7.17.
@@ -203,3 +205,58 @@ To migrate from 7.16 to 7.17, and from H2 1.4 to 2.0, follow these steps:
 In addition, with this release the process engine no longer supports the `jdbcStatementTimeout` configuration setting for H2 databases.
 
 Also see the [migration instructions provided by the h2 project](https://h2database.com/html/migration-to-v2.html).
+
+# Official support for JUnit 5 community extension
+
+Camunda took over the development of a JUnit 5 extension which was maintained by the community in the [Camunda Community Hub](https://github.com/camunda-community-hub). The source code is is now located in the [Camunda Platform 7 repository](https://github.com/camunda/camunda-bpm-platform/tree/master/test-utils/junit5-extension).
+The extension allows users to access the process engine and its API in JUnit 5 tests. Documentation on how to use the extension was migrated to the [Testing documentation]({{< ref "/user-guide/testing/_index.md#junit-5" >}}) in the Camunda 7 docs.
+
+## Versioning of the JUnit 5 extension
+
+From now on the JUnit 5 extension will be released together with the Camunda Platform 7. This also means they will share the same version (e.g. 7.17.0, 7.17.1, etc.).
+
+## JUnit 5 Maven coordinates
+
+When migrating to the new version of the JUnit 5 extension, make sure to update the maven coordinates of the dependency.
+The group id changed from `<groupId>org.camunda.bpm.extension</groupId>` to `<groupId>org.camunda.bpm</groupId>` and the versioning schema is now tied to Camunda Platform 7. The first release of the new JUnit 5 extension will have the version `7.17.0`.
+
+```xml
+    <dependency>
+      <groupId>org.camunda.bpm</groupId>
+      <artifactId>camunda-bpm-junit5</artifactId>
+      <version>7.17.0</version>
+      <scope>test</scope>
+    </dependency>
+```
+
+# Changes to Camunda Platform Assert
+
+Camunda Platform Assert is a tool that makes it easy to assert the status of a process in a unit test. Initially, it was a community extension before Camunda took over developing it.
+Now, we decided to move the source code from its [previous location](https://github.com/camunda/camunda-bpm-assert) into the [Camunda Platform 7 repository](https://github.com/camunda/camunda-bpm-platform/tree/master/test-utils/assert).
+
+Moving the project has several implications:
+
+* Camunda Platform Assert version is now tied to the Camunda Platform 7 release.
+* The Maven group id for Camunda Platform Assert [changed](#camunda-platform-assert-maven-coordinates).
+* Camunda Platform Assert uses AssertJ under the hood. The version of AssertJ is tied to the version that the latest version of Spring Boot currently supported by Camunda Platform uses.
+Find details on supported AssertJ versions in the version [compatibility table]({{< ref "/user-guide/testing/_index.md#assertions-version-compatibility" >}}) in the testing documentation.
+
+If you are interested in general information on how to use Camunda Platform Assert, check out the [Testing documentation]({{< ref "/user-guide/testing/_index.md#camunda-assertions" >}}) in the Camunda 7 docs.
+
+## Versioning of Camunda Platform Assert
+
+From now on Camunda Platform Assert will be released together with the Camunda Platform 7. This also means they will share the same version (e.g. 7.17.0, 7.17.1, etc.).
+
+## Camunda Platform Assert Maven coordinates
+
+When migrating to the new version of the JUnit 5 extension, make sure to update the maven coordinates of the dependency.
+The group id changed from `<groupId>org.camunda.bpm.extension</groupId>` to `<groupId>org.camunda.bpm</groupId>` and the versioning schema is now tied to Camunda Platform 7. The first release of the new JUnit 5 extension will have the version `7.17.0`.
+
+```xml
+  <dependency>
+    <groupId>org.camunda.bpm</groupId>
+    <artifactId>camunda-bpm-assert</artifactId>
+    <version>7.17.0</version>
+    <scope>test</scope>
+  </dependency>
+```

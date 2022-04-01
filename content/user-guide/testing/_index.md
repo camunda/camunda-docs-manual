@@ -1,7 +1,7 @@
 ---
 
 title: "Testing"
-weight: 70
+weight: 75
 layout: "single"
 
 menu:
@@ -17,11 +17,104 @@ This section explains how to write unit tests and integration tests with Camunda
 
 # Unit Tests
 
-Camunda supports both JUnit versions 3 and 4 styles of unit testing.
+The Camunda Platform provides helper classes to write unit tests for JUnit versions 3, 4 and 5.
+
+## JUnit 5
+
+Camunda Platform version 7.17.0+ ships with a {{< javadocref page="?org/camunda/bpm/engine/test/junit5/ProcessEngineExtension.html" text="JUnit 5 extension" >}} that provides access to the process engine and services through getter methods.
+
+The extensions process engine is configured by the default configuration file called `camunda.cfg.xml`, which needs to be placed on the classpath. A custom configuration file can be passed to the extension when creating the `ProcessEngineExtension` object.
+
+If you want to use the JUnit 5  `ProcessEngineExtension`, you need to add the following dependency to your `pom.xml` file:
+
+```xml
+    <dependency>
+      <groupId>org.camunda.bpm</groupId>
+      <artifactId>camunda-bpm-junit5</artifactId>
+      <version>{{< minor-version >}}.0</version>
+      <scope>test</scope>
+    </dependency>
+```
+
+The following code snippets show examples of how to use the extension.
+
+Use the `@ExtendWith` annotation to inject a process engine into a provided field automatically.
+
+```java
+@ExtendWith(ProcessEngineExtension.class)
+public class MyBusinessProcessTest {
+
+  // provide a field where the process engine gets injected
+  ProcessEngine processEngine;
+
+  @Test
+  @Deployment
+  public void extensionUsageExample() {
+    RuntimeService runtimeService = processEngine.getRuntimeService();
+    runtimeService.startProcessInstanceByKey("extensionUsage");
+
+    TaskService taskService = processEngine.getTaskService();
+    Task task = taskService.createTaskQuery().singleResult();
+    assertThat(task.getName()).isEqualTo("My Task");
+
+    taskService.complete(task.getId());
+    assertThat(runtimeService.createProcessInstanceQuery().count()).isEqualTo(0);
+  }
+
+}
+```
+
+Use the `@RegisterExtension` to create a referenceable ProcessEngineExtension object which gives you access to more configuration options.
+
+```java
+public class MyBusinessProcessTest {
+
+  @RegisterExtension
+  ProcessEngineExtension extension = ProcessEngineExtension.builder()
+      .configurationResource("myConfig.xml")
+      .build();
+
+  @Test
+  @Deployment
+  public void extensionUsageExample() {
+    RuntimeService runtimeService = extension.getRuntimeService();
+    runtimeService.startProcessInstanceByKey("extensionUsage");
+
+    TaskService taskService = extension.getTaskService();
+    Task task = taskService.createTaskQuery().singleResult();
+    assertThat(task.getName()).isEqualTo("My Task");
+
+    taskService.complete(task.getId());
+    assertThat(runtimeService.createProcessInstanceQuery().count()).isEqualTo(0);
+  }
+
+}
+```
+
+If you don't want to create a configuration file, you can configure a process engine programmatically.
+
+```java
+public class MyBusinessProcessTest {
+
+  public ProcessEngine myProcessEngine = ProcessEngineConfiguration
+      .createStandaloneInMemProcessEngineConfiguration()
+      .setJdbcUrl("jdbc:h2:mem:camunda;DB_CLOSE_DELAY=1000")
+      .buildProcessEngine();
+  
+  @RegisterExtension
+  ProcessEngineExtension extension = ProcessEngineExtension
+      .builder()
+      .useProcessEngine(myProcessEngine)
+      .build();
+
+}
+```
 
 ## JUnit 4
 
-Using the JUnit 4 style of writing unit tests, the {{< javadocref page="?org/camunda/bpm/engine/test/ProcessEngineRule.html" text="ProcessEngineRule" >}} must be used. Through this rule, the process engine and services are available through getters. As with the ProcessEngineTestCase (see above), including this rule will look for the default configuration file on the classpath. Process engines are statically cached over multiple unit tests when using the same configuration resource.
+Using the JUnit 4 style of writing unit tests, the {{< javadocref page="?org/camunda/bpm/engine/test/ProcessEngineRule.html" text="ProcessEngineRule" >}} must be used. Through this rule, the process engine and services are available through getters.
+
+This rule will look for the default configuration file on the classpath called `camunda.cfg.xml`. When constructing the ProcessEngineRule object you can pass a custom configuration file to the rule. Process engines are statically cached over multiple unit tests when using the same configuration resource.
 
 The following code snippet shows an example of using the JUnit 4 style of testing and the usage of the ProcessEngineRule.
 
@@ -39,10 +132,10 @@ public class MyBusinessProcessTest {
 
     TaskService taskService = processEngineRule.getTaskService();
     Task task = taskService.createTaskQuery().singleResult();
-    assertEquals("My Task", task.getName());
+    assertThat(task.getName()).isEqualTo("My Task");
 
     taskService.complete(task.getId());
-    assertEquals(0, runtimeService.createProcessInstanceQuery().count());
+    assertThat(runtimeService.createProcessInstanceQuery().count()).isEqualTo(0);
   }
 }
 ```
@@ -66,10 +159,10 @@ public class MyBusinessProcessTest extends ProcessEngineTestCase {
   runtimeService.startProcessInstanceByKey("simpleProcess");
 
   Task task = taskService.createTaskQuery().singleResult();
-  assertEquals("My Task", task.getName());
+  assertThat(task.getName()).isEqualTo("My Task");
 
   taskService.complete(task.getId());
-  assertEquals(0, runtimeService.createProcessInstanceQuery().count());
+  assertThat(runtimeService.createProcessInstanceQuery().count()).isEqualTo(0);
   }
 }
 ```
@@ -163,33 +256,33 @@ You can now see the engine database and use it to understand how and why your un
 
 # Camunda Assertions
 
-Additional to normal JUnit assertions, [Camunda Platform Assert](https://github.com/camunda/camunda-bpm-assert) adds a fluent API for asserting typical scenarios in a process integrating with [AssertJ](https://joel-costigliola.github.io/assertj/).
+Additional to normal JUnit assertions, [Camunda Platform Assert](https://github.com/camunda/camunda-bpm-platform/tree/{{< minor-version >}}/test-utils/assert) adds a fluent API for asserting typical scenarios in a process integrating with [AssertJ](https://joel-costigliola.github.io/assertj/).
 
 ```java
 assertThat(processInstance).isWaitingAt("UserTask_InformCustomer");
 assertThat(task()).hasCandidateGroup("Sales").isNotAssigned();
 ```
 
-A more extensive guide with examples can also be found [in the repository](https://github.com/camunda/camunda-bpm-assert/blob/master/README.md).
+You can find a more extensive guide with examples under [Assert Examples]({{< ref "/user-guide/testing/assert-examples.md" >}}).
 
-To use Camunda Platform Assert, add the following dependency to your ```pom.xml```:
+To use Camunda Platform Assert, add the following dependency to your `pom.xml`:
 
 ```xml
 <dependency>
-  <groupId>org.camunda.bpm.assert</groupId>
+  <groupId>org.camunda.bpm</groupId>
   <artifactId>camunda-bpm-assert</artifactId>
-  <version>10.0.0</version>
+  <version>${version.camunda}</version> <!-- set correct version here -->
   <scope>test</scope>
 </dependency>
 ```
 
-Also, you will have to add the AssertJ library v3.18.1 to your dependencies with
+Also, you will have to add the AssertJ library to your dependencies. Make sure that the version is correct. You can find the correct version in the compatibility matrix below.
 
 ```xml
 <dependency>
   <groupId>org.assertj</groupId>
   <artifactId>assertj-core</artifactId>
-  <version>3.18.1</version>
+  <version>${version.assertJ}</version> <!-- set correct version here -->
   <scope>test</scope>
 </dependency>
 ```
@@ -203,6 +296,7 @@ the AssertJ dependency will be present in your project already.
 Each version of Camunda Platform Assert is bound to a specific version of Camunda Platform and AssertJ. Only these default combinations are recommended (and supported) by Camunda.
 Nevertheless, each version of Camunda Platform Assert can be combined with newer patch versions of the Camunda Platform engine, though such combinations must be thoroughly tested before being used in production.
 All versions prior to 3.0.0 belong to the community extension are not part of the official Camunda Platform product support.
+With Camunda Platform 7.17.0 the project was moved into the [Camunda Platform repository](https://github.com/camunda/camunda-bpm-platform) and will use the same versioning as Camunda Platform in the future.
 
 <table class="table table-striped">
   <tr>
@@ -244,73 +338,80 @@ All versions prior to 3.0.0 belong to the community extension are not part of th
   <tr>
     <td>camunda-bpm-assert</br>camunda-bpm-assert-assertj2</br>camunda-bpm-assert-assertj3-9-1</td>
     <td>3.11.1</br>2.9.0</br>3.9.1</td>
-    <td>3.0.0</td>
+    <td>3.0.0&#42;&#42;&#42;</td>
     <td>7.10.0</td>
   </tr>
   <tr>
     <td>camunda-bpm-assert</br>camunda-bpm-assert-assertj2</br>camunda-bpm-assert-assertj3-11-1</td>
     <td>3.12.2</br>2.9.0</br>3.11.1</td>
-    <td>4.0.0</td>
+    <td>4.0.0&#42;&#42;&#42;</td>
     <td>7.11.0</td>
   </tr>
   <tr>
     <td>camunda-bpm-assert</td>
     <td>3.13.2</td>
-    <td>5.0.0</td>
+    <td>5.0.0&#42;&#42;&#42;</td>
     <td>7.12.0</td>
   </tr>
   <tr>
     <td>camunda-bpm-assert</td>
     <td>3.13.2</td>
-    <td>6.0.0</td>
+    <td>6.0.0&#42;&#42;&#42;</td>
     <td>7.13.0</td>
   </tr>
   <tr>
     <td>camunda-bpm-assert</td>
     <td>3.16.1</td>
-    <td>7.0.0</td>
+    <td>7.0.0&#42;&#42;&#42;</td>
     <td>7.13.0</td>
   </tr>
   <tr>
     <td>camunda-bpm-assert</td>
     <td>3.16.1</td>
-    <td>8.0.0</td>
+    <td>8.0.0&#42;&#42;&#42;</td>
     <td>7.14.0</td>
   </tr>
   <tr>
     <td>camunda-bpm-assert</td>
     <td>3.18.1</td>
-    <td>9.0.0</td>
+    <td>9.0.0&#42;&#42;&#42;</td>
     <td>7.14.0</td>
   </tr>
   <tr>
     <td>camunda-bpm-assert</td>
     <td>3.18.1</td>
-    <td>10.0.0</td>
+    <td>10.0.0&#42;&#42;&#42;</td>
     <td>7.15.0</td>
   </tr>
   <tr>
     <td>camunda-bpm-assert</td>
     <td>3.19.0</td>
-    <td>11.0.0</td>
+    <td>11.0.0&#42;&#42;&#42;</td>
     <td>7.15.0</td>
   </tr>
   <tr>
     <td>camunda-bpm-assert</td>
     <td>3.19.0</td>
-    <td>12.0.0</td>
+    <td>12.0.0&#42;&#42;&#42;</td>
     <td>7.16.0</td>
   </tr>
   <tr>
     <td>camunda-bpm-assert</td>
     <td>3.20.2</td>
-    <td>13.0.0</td>
+    <td>13.0.0&#42;&#42;&#42;</td>
     <td>7.16.0</td>
+  </tr>
+  <tr>
+    <td>camunda-bpm-assert</td>
+    <td>3.21.0</td>
+    <td>7.17.0</td>
+    <td>7.17.0</td>
   </tr>
 </table>
 
 \* For these versions, use the following Maven coordinates:
-```
+
+```xml
 <dependency>
   <groupId>org.camunda.bpm.extension</groupId>
   <artifactId>camunda-bpm-assert</artifactId>
@@ -321,7 +422,8 @@ All versions prior to 3.0.0 belong to the community extension are not part of th
 
 \*\* For these versions, only alphas were released, there will be no final release for this branch.
 For these versions, use the following Maven coordinates:
-```
+
+```xml
 <dependency>
   <groupId>org.camunda.bpm.extension</groupId>
   <artifactId>camunda-bpm-assert</artifactId>
@@ -330,11 +432,22 @@ For these versions, use the following Maven coordinates:
 </dependency>
 ```
 
-## Migration from community versions
+\*\*\* For these versions, use the following Maven coordinates:
 
-In order to migrate from a Camunda Platform Assert version 1.x / 2.x to a version 3.x or higher, the following points have to be considered:
+```xml
+<dependency>
+  <groupId>org.camunda.bpm.assert</groupId>
+  <artifactId>camunda-bpm-assert</artifactId>
+  <version>${version.camunda-assert}</version> <!-- set correct version here -->
+  <scope>test</scope>
+</dependency>
+```
 
-* The groupId for Maven dependencies has changed, it is now `org.camunda.bpm.assert`. Project dependencies have to be adjusted accordingly.
+## Migration from a version prior to 7.17.0
+
+In order to migrate from an earlier Camunda Platform Assert version to a version 7.17.0 or higher, the following points have to be considered:
+
+* The groupId for Maven dependencies has changed, it is now `org.camunda.bpm`. Project dependencies have to be adjusted accordingly.
 * There might be multiple artifacts available for a specific version as shown in the compatibility overview above. The artifact that matches the other project dependencies has to be chosen by `artifactId` and `version`.
 * The inheritance from AssertJ's `Assertions` has been cut. In case AssertJ assertions are used in test code besides BPM Assert assertions, the imports have to be adjusted to also include:
 
