@@ -86,21 +86,21 @@ Take the following steps to complete the update:
 # Task worker metrics
 
 Starting from version 7.17, the task worker metrics are displayed by default.
-If this causes slow page loading, you can turn it off in the [admin webapp configuration.]({{< ref "/webapps/admin/configuration.md#task-worker-metrics" >}}).
+If this causes slow page loading, you can turn it off in the [admin webapp configuration]({{< ref "/webapps/admin/configuration.md#task-worker-metrics" >}}).
 
 # System permissions
 
-A new set of permissions has been introduced to Camunda with Platform 7.17.0, which grants operations engineers access to system properties and data without the need of administrator privileges.
+Camunda Platform 7.17 introduces a new set of permissions which grant operation engineers access to system properties and data without the need for administrator privileges.
 
 For more details, including a full list of features and their required permissions, visit our [authorization documentation page]({{< ref "/user-guide/process-engine/authorization-service.md#system-permissions" >}}).
 
 # Spin configuration options
 
-Version 7.17 introduces configuration properties for the Spin `DomXmlDataFormat` module. The `DomXmlDataFormat`
+Version 7.17 features new configuration properties for the Spin `DomXmlDataFormat` module. The `DomXmlDataFormat`
 configuration properties provide options to toggle **External XML Entity (XXE)** processing, as well as secure processing
 for the Spin XML parser.
 
-By default, we disabled XXE processing, and enabled secure processing of XML documents to protect the Spin XML
+By default, we disabled XXE processing and enabled secure processing of XML documents to protect the Spin XML
 parser against [XXE attacks](https://en.wikipedia.org/wiki/XML_external_entity_attack) and
 [Billion laughs attacks](https://en.wikipedia.org/wiki/Billion_laughs_attack).
 
@@ -111,8 +111,8 @@ You can restore the old behavior by passing the appropriate [configuration prope
 # Extended Camunda Run CORS configuration properties
 
 Version 7.17 of the Camunda Run distribution brings new [CORS configuration properties][cors-properties]. There are no
-changes in the existing CORS behavior. The new CORS configuration properties allow for additional parameters, like 
-credentials support, to be set on the CORS Filter.
+changes in the existing CORS behavior. The new CORS configuration properties rather allow you to set additional parameters on the CORS filter like 
+credentials support.
 
 [cors-properties]: {{< ref "/user-guide/camunda-bpm-run.md#cross-origin-resource-sharing" >}}
 
@@ -150,7 +150,7 @@ when upgrading to a new Camunda Run version anymore.
 # Changed Camunda Run start script behavior
 
 Camunda Run starts with the [provided `start.sh` or `start.bat` scripts]({{< ref "/user-guide/camunda-bpm-run.md#starting-with-camunda-platform-run" >}}).
-When you execute one of these scripts, Camunda Run starts, and outputs logs to the command line.
+When you execute one of these scripts, Camunda Run starts and outputs logs to the command line.
 
 With version 7.17, we made a small change to the behavior of these start scripts. If you don't provide any additional
 arguments to the start script, it will start Camunda Run as a detached process. You can then use the new `shutdown.sh`
