@@ -231,8 +231,7 @@ The group id changed from `<groupId>org.camunda.bpm.extension</groupId>` to `<gr
 
 # Changes to Camunda Platform Assert
 
-Camunda Platform Assert is a tool that makes it easy to assert the status of a process in a unit test. Initially, it was a community extension before Camunda took over developing it.
-Now, we decided to move the source code from its [previous location](https://github.com/camunda/camunda-bpm-assert) into the [Camunda Platform 7 repository](https://github.com/camunda/camunda-bpm-platform/tree/master/test-utils/assert).
+The source code of [Camunda Platform Assert]({{< ref "/user-guide/testing#camunda-assertions" >}}) has moved from its [previous location](https://github.com/camunda/camunda-bpm-assert) into the [Camunda Platform 7 repository](https://github.com/camunda/camunda-bpm-platform/tree/master/test-utils/assert).
 
 Moving the project has several implications:
 
@@ -241,16 +240,14 @@ Moving the project has several implications:
 * Camunda Platform Assert uses AssertJ under the hood. The version of AssertJ is tied to the version that the latest version of Spring Boot currently supported by Camunda Platform uses.
 Find details on supported AssertJ versions in the version [compatibility table]({{< ref "/user-guide/testing/_index.md#assertions-version-compatibility" >}}) in the testing documentation.
 
-If you are interested in general information on how to use Camunda Platform Assert, check out the [Testing documentation]({{< ref "/user-guide/testing/_index.md#camunda-assertions" >}}) in the Camunda 7 docs.
-
 ## Versioning of Camunda Platform Assert
 
 From now on Camunda Platform Assert will be released together with the Camunda Platform 7. This also means they will share the same version (e.g. 7.17.0, 7.17.1, etc.).
 
 ## Camunda Platform Assert Maven coordinates
 
-When migrating to the new version of the JUnit 5 extension, make sure to update the maven coordinates of the dependency.
-The group id changed from `<groupId>org.camunda.bpm.extension</groupId>` to `<groupId>org.camunda.bpm</groupId>` and the versioning schema is now tied to Camunda Platform 7. The first release of the new JUnit 5 extension will have the version `7.17.0`.
+When updating to the `7.17.0` (or higher) releases of Assert, make sure to update the Maven coordinates of the dependency.
+The group id changed from `<groupId>org.camunda.bpm.assert</groupId>` to `<groupId>org.camunda.bpm</groupId>`. Here is the Maven dependency for Assert in version 7.17.0:
 
 ```xml
   <dependency>
