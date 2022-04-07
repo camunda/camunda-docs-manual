@@ -401,6 +401,11 @@ With Camunda Platform 7.17.0 the project was moved into the [Camunda Platform re
     <td>13.0.0&#42;&#42;&#42;</td>
     <td>7.16.0</td>
   </tr>
+    <td>camunda-bpm-assert</td>
+    <td>3.21.0</td>
+    <td>15.0.0&#42;&#42;&#42;</td>
+    <td>7.16.0</td>
+  </tr>
   <tr>
     <td>camunda-bpm-assert</td>
     <td>3.21.0</td>
