@@ -11,9 +11,9 @@ Have a look at our [contribution guide](https://github.com/camunda/camunda-bpm-p
 
 ## Installing Hugo
 
-In order to build this documentation, you first need to install [Hugo][Hugo] v0.54 (newer versions _may_ work, please note that some issues have been reported on v61.0+).
+In order to build this documentation, you first need to install [Hugo][Hugo] v0.54. Newer versions _may_ work, but please note that some issues have been reported on v61.0+.
 
-See the [Hugo installation guide][Hugo Installation] for more details on how to install Hugo.
+See the [Hugo installation guide][Hugo Installation] for more details on how to install Hugo. Issues have been reported when installing v0.54 via a package manager; install via tarball instead. The v0.54 tarball can be downloaded from [the corresponding Hugo release page](https://github.com/gohugoio/hugo/releases/tag/v0.54.0).
 
 ## Building the Documentation
 
@@ -179,7 +179,7 @@ _Note: For screenshot of the enterprise webapps, you can use the automatic scree
 
 
 [Hugo]: http://gohugo.io/
-[Hugo Installation]: http://gohugo.io/overview/installing/
+[Hugo Installation]: https://gohugo.io/getting-started/installing/#install-hugo-from-tarball
 [Camunda Nexus]: https://artifacts.camunda.com/artifactory/thirdparty/hugo/
 [OpenOffice]: https://www.openoffice.org/download/index.html
 [OpenSans]: https://www.google.com/fonts#UsePlace:use/Collection:Open+Sans
