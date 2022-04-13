@@ -502,8 +502,8 @@ The following example defines the retries of a multi-instance service task with 
 ```
 
 ### Retry Intervals
-The property retry time cycle (e.g. R5/PT5M) allows to define the number of retries and an interval when the failed job should be retried. However that case the interval is always (at least) 5 minutes. When you need none static interval you can configure list of retry intervals (separated by commas) on global level or for a specific job configuration. The local configuration takes precedence.
-Here is an example of the process engine configuration:
+The retry time cycle (e.g. R5/PT5M) allows to define the number of retries and an interval when the failed job should be retried. Regardless of the values, the interval is always (at least) 5 minutes. You can configure the list of retry intervals (separated by comma) on a global level or for a specific job configuration. The local configuration takes precedence.
+Here is an example of a global process engine configuration:
 ```xml
 <process-engine name="default">
   ...
@@ -515,11 +515,12 @@ Here is an example of the process engine configuration:
 ```
 The retry times would be three and the behaviour for this example would be the following:
 
-* job fails for the first time -> the job will be retried in 10 minutes (PT10M is applied)
-* job fails for the second time -> the job will be retried in 17 minutes (PT17M is applied)
-* job fails for the third time -> the job will be retried in 20 minutes (PT20M is applied)
+* A job fails for the first time: the job will be retried in 10 minutes (PT10M is applied).
+* A job fails for the second time: the job will be retried in 17 minutes (PT17M is applied).
+* A job fails for the third time: the job will be retried in 20 minutes (PT20M is applied).
+* A job fails for the fourth time: the job will **NOT** be retried again and the next due date is in 20 minutes (PT20M is applied again).
 
-If the user decide to change the retry number to higher during the retries, the last interval of the list would be applied within the difference of the new value and the size of the list. After that it would continue with the normal flow as above.
+If the user decides to increase the retry number during retries, the last interval of the list would be applied within the difference of the new value and the size of the list. After that it would continue with the normal flow as above.
 
 ### Custom Retry Configuration
 
