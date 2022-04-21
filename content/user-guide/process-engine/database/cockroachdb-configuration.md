@@ -67,7 +67,7 @@ retried using a CRDB-specific mechanism:
 * When manually triggering history cleanup with {{< javadocref page="org/camunda/bpm/engine/HistoryService.html#cleanUpHistoryAsync-boolean-" text="HistoryService#cleanUpHistoryAsync(boolean immediatelyDue)" >}}.
 * When fetching external tasks:
   * With the External Tasks Rest API [endpoint]({{< ref "/reference/rest/external-task/fetch.md" >}}).
-  * With the execution of the {{< javadocref page="?org/camunda/bpm/engine/ExternalTaskService.html" text="ExternalTaskService#fetchAndLock" >}} API calls.
+  * With the execution of the {{< javadocref page="org/camunda/bpm/engine/ExternalTaskService.html" text="ExternalTaskService#fetchAndLock" >}} API calls.
 * When [acquiring jobs]({{< ref "/user-guide/process-engine/the-job-executor.md#job-acquisition" >}}) for execution by the job executor.
 
 It is important to note that the CockroachDB retry mechanism is applied to API calls where an 
