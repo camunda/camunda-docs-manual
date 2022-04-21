@@ -103,8 +103,8 @@ A complete list of all methods can be found in the {{< javadocref
 page="?org/camunda/bpm/dmn/engine/DmnDecisionResult" text="Java Docs" >}}.
 
 If the decision is implemented as [decision table] then it can also be evaluated using one of the 
-{{< javadocref page="?org/camunda/bpm/engine/DecisionService.html##evaluateDecisionTableByKey(java.lang.String)"
-text="evaluateDecisionTable" >}} methods. In this case, the evaluation returns a {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnDecisionTableResult.html" text="DmnDecisionTableResult" >}} which is semantically equal and provide the same methods as a
+{{< javadocref page="org/camunda/bpm/engine/DecisionService.html##evaluateDecisionTableByKey(java.lang.String)"
+text="evaluateDecisionTable" >}} methods. In this case, the evaluation returns a {{< javadocref page="org/camunda/bpm/dmn/engine/DmnDecisionTableResult.html" text="DmnDecisionTableResult" >}} which is semantically equal and provide the same methods as a
 `DmnDecisionResult`.
 
 # History of Evaluated Decisions

@@ -63,7 +63,7 @@ Use the `img` shorthand:
 Use the 'javadocref' shorthand:
 
 ```html
-{{< javadocref page="?org/camunda/bpm/engine/impl/TaskServiceImpl.html" text="Java-API Task Service" >}}.
+{{< javadocref page="org/camunda/bpm/engine/impl/TaskServiceImpl.html" text="Java-API Task Service" >}}.
 ```
 
 ### How can I add a note?

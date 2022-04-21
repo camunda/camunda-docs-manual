@@ -153,7 +153,7 @@ Make sure to return all results without any limitation when calling <code>[Query
 The possibility to retrieve an unlimited list is important to make sure that the REST API works appropriately since a few endpoints
 rely on retrieving unlimited results.
 
-[javadocs-query-unlimited-list]: {{< javadocref_url page="?org/camunda/bpm/engine/query/Query.html#unlimitedList--" >}}
+[javadocs-query-unlimited-list]: {{< javadocref_url page="org/camunda/bpm/engine/query/Query.html#unlimitedList--" >}}
 
 ## Paginated Queries
 

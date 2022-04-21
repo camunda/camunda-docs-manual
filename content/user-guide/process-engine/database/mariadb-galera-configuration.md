@@ -56,7 +56,7 @@ Important: when running Camunda in a cluster, the client configuration needs to 
 
 The following known limitations apply when using Galera Cluster:
 
-1. APIs requiring Pessimistic read locks in the database do not work correctly. Affected APIs: Exclusive Message correlation (`.correlateExclusively()`). See ({{< javadocref page="?org/camunda/bpm/engine/runtime/MessageCorrelationBuilder.html#correlateExclusively()" text="Javadocs" >}}).
+1. APIs requiring Pessimistic read locks in the database do not work correctly. Affected APIs: Exclusive Message correlation (`.correlateExclusively()`). See ({{< javadocref page="org/camunda/bpm/engine/runtime/MessageCorrelationBuilder.html#correlateExclusively()" text="Javadocs" >}}).
 Another possible negative effects:
  * duplication of deployed definitions when deploying the same resources from two threads simultaneously
  * duplication of history cleanup job when calling `HistoryService#cleanUpHistoryAsync` from two threads simultaneously

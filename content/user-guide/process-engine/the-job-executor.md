@@ -262,7 +262,7 @@ To optimize the acquisition of jobs that need to be executed immediately, the `D
 
 In case each job must have a `DUEDATE_` set, the optimisation can be disabled. This can be done by setting the `ensureJobDueDateNotNull` [process engine configuration flag]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#ensureJobDueDateNotNull" >}}) to `true`.
 
-However, any jobs created with a `null` value for `DUEDATE_` before disabling the optimisation will not be picked up by the Job Acquisition phase, unless the jobs are explicitly updated with a due date through the {{< javadocref page="?org/camunda/bpm/engine/ManagementService.html#setJobDuedate-java.lang.String-java.util.Date-" text="Java" >}}/[Rest]({{< ref "/reference/rest/job/put-set-job-duedate.md" >}}) API.
+However, any jobs created with a `null` value for `DUEDATE_` before disabling the optimisation will not be picked up by the Job Acquisition phase, unless the jobs are explicitly updated with a due date through the {{< javadocref page="org/camunda/bpm/engine/ManagementService.html#setJobDuedate-java.lang.String-java.util.Date-" text="Java" >}}/[Rest]({{< ref "/reference/rest/job/put-set-job-duedate.md" >}}) API.
 
 ## The Two Phases of Job Acquisition
 

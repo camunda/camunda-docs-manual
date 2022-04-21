@@ -14,7 +14,7 @@ The process engine reports runtime metrics to the database that can help draw co
 
 # Built-in Metrics
 
-The following table describes the built-in metrics. The identifiers of all built-in metrics are available as constants of the class {{< javadocref page="?org/camunda/bpm/engine/management/Metrics.html" text="org.camunda.bpm.engine.management.Metrics" >}}.
+The following table describes the built-in metrics. The identifiers of all built-in metrics are available as constants of the class {{< javadocref page="org/camunda/bpm/engine/management/Metrics.html" text="org.camunda.bpm.engine.management.Metrics" >}}.
 {{< note title="Heads Up!" class="warning" >}}
 If you are an enterprise customer, your license agreement might require you to report some metrics annually. Please store `root-process-instance-start`, `activity-instance-start`, `executed-decision-instances` and `executed-decision-elements` metrics from `ACT_RU_METER_LOG` as well as task metrics from `ACT_RU_TASK_METER_LOG` for at least 18 months until they were reported.
 {{< /note >}}
@@ -123,7 +123,7 @@ If you are an enterprise customer, your license agreement might require you to r
 
 # Querying
 
-Metrics can be queried by making a {{< javadocref page="?org/camunda/bpm/engine/management/MetricsQuery.html" text="MetricsQuery" >}} offered by the `ManagementService`. For example, the following query retrieves the number of all executed activity instances throughout the entire history of reporting:
+Metrics can be queried by making a {{< javadocref page="org/camunda/bpm/engine/management/MetricsQuery.html" text="MetricsQuery" >}} offered by the `ManagementService`. For example, the following query retrieves the number of all executed activity instances throughout the entire history of reporting:
 
 ```java
 long numCompletedActivityInstances = managementService
@@ -176,12 +176,12 @@ Metrics are reported with an identifier of the reporting party. This identifier 
 reports to individual engine instances when making a metrics query. For example in a cluster, load 
 metrics can be related to individual cluster nodes. By default the process engine generates a 
 reporter id as `<local IP>$<engine name>`. The generation can be customized by implementing the 
-interface {{< javadocref page="?org/camunda/bpm/engine/impl/history/event/HostnameProvider.html" text="org.camunda.bpm.engine.impl.history.event.HostnameProvider" >}}
+interface {{< javadocref page="org/camunda/bpm/engine/impl/history/event/HostnameProvider.html" text="org.camunda.bpm.engine.impl.history.event.HostnameProvider" >}}
 and setting the engine property `hostnameProvider` to an instance of that class.
 
 {{< note title="Heads Up!" class="info" >}}
 The 
-{{< javadocref page="?org/camunda/bpm/engine/impl/metrics/MetricsReporterIdProvider.html" text="org.camunda.bpm.engine.impl.metrics.MetricsReporterIdProvider" >}}
+{{< javadocref page="org/camunda/bpm/engine/impl/metrics/MetricsReporterIdProvider.html" text="org.camunda.bpm.engine.impl.metrics.MetricsReporterIdProvider" >}}
 interface and the corresponding `metricsReporterIdProvider` engine property have been deprecated. 
 {{< /note >}}
 

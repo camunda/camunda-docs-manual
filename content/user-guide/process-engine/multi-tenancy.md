@@ -43,7 +43,7 @@ If no tenant identifier is set then the deployment and its definitions belong to
 
 ### Specify the Tenant Identifier via Java API
 
-When a deployment is created using the Repository Service, the tenant identifier can be set on the {{< javadocref page="?org/camunda/bpm/engine/repository/DeploymentBuilder.html" text="DeploymentBuilder" >}}.
+When a deployment is created using the Repository Service, the tenant identifier can be set on the {{< javadocref page="org/camunda/bpm/engine/repository/DeploymentBuilder.html" text="DeploymentBuilder" >}}.
 
 ```java
 repositoryService
@@ -151,7 +151,7 @@ Note that the [transparent access restrictions]({{< relref "#transparent-access-
 
 ### Create a Process Instance
 
-To create an instance by key of a process definition which is deployed for multiple tenants, the tenant identifier has to be passed to the {{< javadocref page="?org/camunda/bpm/engine/runtime/ProcessInstantiationBuilder.html" text="ProcessInstantiationBuilder" >}}. 
+To create an instance by key of a process definition which is deployed for multiple tenants, the tenant identifier has to be passed to the {{< javadocref page="org/camunda/bpm/engine/runtime/ProcessInstantiationBuilder.html" text="ProcessInstantiationBuilder" >}}. 
 
 ```java
 runtimeService
@@ -162,7 +162,7 @@ runtimeService
 
 ### Correlate a Message
 
-The [Message API]({{< ref "/reference/bpmn20/events/message-events.md#message-api" >}}) can be used to correlate a message to one or all tenants. In case a message can correlate to definitions or executions of multiple tenants, the tenant identifier has to be passed to the {{< javadocref page="?org/camunda/bpm/engine/runtime/MessageCorrelationBuilder.html" text="MessageCorrelationBuilder" >}}. Otherwise, a `MismatchingMessageCorrelationException` is thrown.
+The [Message API]({{< ref "/reference/bpmn20/events/message-events.md#message-api" >}}) can be used to correlate a message to one or all tenants. In case a message can correlate to definitions or executions of multiple tenants, the tenant identifier has to be passed to the {{< javadocref page="org/camunda/bpm/engine/runtime/MessageCorrelationBuilder.html" text="MessageCorrelationBuilder" >}}. Otherwise, a `MismatchingMessageCorrelationException` is thrown.
 
 ```java
 runtimeService
@@ -181,7 +181,7 @@ runtimeService
 
 ### Send a Signal
 
-The [Signal API]({{< ref "/reference/bpmn20/events/signal-events.md#signal-api" >}}) can be used to deliver a signal to one or all tenants. Pass the tenant identifier to the {{< javadocref page="?org/camunda/bpm/engine/runtime/SignalEventReceivedBuilder.html" text="SignalEventReceivedBuilder" >}} to deliver the signal to a specific tenant. If no identifier is passed then the signal is delivered to all tenants.
+The [Signal API]({{< ref "/reference/bpmn20/events/signal-events.md#signal-api" >}}) can be used to deliver a signal to one or all tenants. Pass the tenant identifier to the {{< javadocref page="org/camunda/bpm/engine/runtime/SignalEventReceivedBuilder.html" text="SignalEventReceivedBuilder" >}} to deliver the signal to a specific tenant. If no identifier is passed then the signal is delivered to all tenants.
 
 ```java
 runtimeService
@@ -194,7 +194,7 @@ When a signal is thrown within a process (i.e., intermediate signal event or sig
 
 ### Create a Case Instance
 
-To create an instance by key of a case definition which is deployed for multiple tenants, the tenant identifier has to be passed to the {{< javadocref page="?org/camunda/bpm/engine/runtime/CaseInstanceBuilder.html" text="CaseInstanceBuilder" >}}.
+To create an instance by key of a case definition which is deployed for multiple tenants, the tenant identifier has to be passed to the {{< javadocref page="org/camunda/bpm/engine/runtime/CaseInstanceBuilder.html" text="CaseInstanceBuilder" >}}.
 
 ```java
 caseService
@@ -205,7 +205,7 @@ caseService
 
 ### Evaluate a Decision Table
 
-To evaluate a decision table by key which is deployed for multiple tenants, the tenant identifier has to be passed to the {{< javadocref page="?org/camunda/bpm/engine/dmn/DecisionEvaluationBuilder.html" text="DecisionEvaluationBuilder" >}}.
+To evaluate a decision table by key which is deployed for multiple tenants, the tenant identifier has to be passed to the {{< javadocref page="org/camunda/bpm/engine/dmn/DecisionEvaluationBuilder.html" text="DecisionEvaluationBuilder" >}}.
 
 ```java
 decisionService
@@ -377,7 +377,7 @@ repositoryService.createProcessDefinitionQuery()
 ### Instantiate a Shared Definition
 
 When creating (starting) a new process instance, the tenant id of the process definition is propagated to the process instance.
-Shared resources  do not have a tenant id which means that no tenant id is propagated automatically. To have the tenant id of the user who starts the process instances assigned  to the process instance, an implementation of the {{< javadocref page="?org/camunda/bpm/engine/impl/cfg/multitenancy/TenantIdProvider.html" text="TenantIdProvider" >}} SPI needs to be provided.
+Shared resources  do not have a tenant id which means that no tenant id is propagated automatically. To have the tenant id of the user who starts the process instances assigned  to the process instance, an implementation of the {{< javadocref page="org/camunda/bpm/engine/impl/cfg/multitenancy/TenantIdProvider.html" text="TenantIdProvider" >}} SPI needs to be provided.
 
 The `TenantIdProvider` receives a callback when an instance of a process definition, case definition or decision definition is created. It can then assign a tenant id to the newly created instance (or not).
 
