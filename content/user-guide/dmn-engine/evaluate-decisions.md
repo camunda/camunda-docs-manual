@@ -12,12 +12,12 @@ menu:
 
 ---
 
-The DMN engine {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnEngine.html" text="interface" >}} exposes methods
+The DMN engine {{< javadocref page="org/camunda/bpm/dmn/engine/DmnEngine.html" text="interface" >}} exposes methods
 for parsing and evaluating DMN Decisions.
 
 # Parse Decisions
 
-Decisions can be parsed from an `InputStream` or transformed from a {{< javadocref page="?org/camunda/bpm/model/dmn/DmnModelInstance.html" text="DmnModelInstance" >}}.
+Decisions can be parsed from an `InputStream` or transformed from a {{< javadocref page="org/camunda/bpm/model/dmn/DmnModelInstance.html" text="DmnModelInstance" >}}.
 
 This example shows how to parse a decision from an input stream:
 
@@ -109,7 +109,7 @@ The DRG is represented in the XML by the `definitions` element. The `id` of the 
 
 ## Decision Tables only
 
-It is possible to check if a parsed decision is implemented as [decision table] by using the method {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnDecision.html#isDecisionTable()" text="isDecisionTable()" >}}.
+It is possible to check if a parsed decision is implemented as [decision table] by using the method {{< javadocref page="org/camunda/bpm/dmn/engine/DmnDecision.html#isDecisionTable()" text="isDecisionTable()" >}}.
 
 ```java
 // create a default DMN engine
@@ -134,7 +134,7 @@ if (decision.isDecisionTable()) {
 
 # Evaluate Decisions
 
-To evaluate (or "execute") a decision, either pass an already transformed {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnDecision.html" text="DmnDecision" >}} or use a DMN model instance or input stream in combination with a decision key.
+To evaluate (or "execute") a decision, either pass an already transformed {{< javadocref page="org/camunda/bpm/dmn/engine/DmnDecision.html" text="DmnDecision" >}} or use a DMN model instance or input stream in combination with a decision key.
 
 As input to the evaluation, a set of input variables must be provided.
 
@@ -182,7 +182,7 @@ Use the `VariableContext` to support lazy-loading of variables.
 
 ## Interpret the Decision Result
 
-The evaluation of a DMN decision returns a {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnDecisionResult.html"
+The evaluation of a DMN decision returns a {{< javadocref page="org/camunda/bpm/dmn/engine/DmnDecisionResult.html"
 text="DmnDecisionResult" >}}. If the decision is implemented as [decision table] then the result is a list of the
 matching decision rule results. These results represent a mapping from an output name to an output value.
 
@@ -246,8 +246,8 @@ decisionResult.getSingleEntry();
 ```
 
 Note that the decision can also be evaluated using the
-{{< javadocref page="?org/camunda/bpm/dmn/engine/DmnEngine.html##evaluateDecisionTable(org.camunda.bpm.dmn.engine.DmnDecision, java.util.Map)"
-text="evaluateDecisionTable()" >}} method if it is implemented as [decision table]. In this case, evaluation returns a {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnDecisionTableResult.html" text="DmnDecisionTableResult" >}} which is semantically equal and provides the same methods as a
+{{< javadocref page="org/camunda/bpm/dmn/engine/DmnEngine.html##evaluateDecisionTable(org.camunda.bpm.dmn.engine.DmnDecision, java.util.Map)"
+text="evaluateDecisionTable()" >}} method if it is implemented as [decision table]. In this case, evaluation returns a {{< javadocref page="org/camunda/bpm/dmn/engine/DmnDecisionTableResult.html" text="DmnDecisionTableResult" >}} which is semantically equal and provides the same methods as a
 `DmnDecisionResult`.
 
 ## Decisions with Required Decisions

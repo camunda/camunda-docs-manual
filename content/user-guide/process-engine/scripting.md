@@ -449,9 +449,9 @@ i.e., `$sum`)
 
 There are also special variables:
 
-1. `execution`, which is always available if the script is executed in an execution scope (e.g., in a script task) ({{< javadocref page="?org/camunda/bpm/engine/delegate/DelegateExecution.html" text="DelegateExecution" >}}).
-1. `task`, which is available if the script is executed in a task scope (e.g., a task listener) ({{< javadocref page="?org/camunda/bpm/engine/delegate/DelegateTask.html" text="DelegateTask" >}}).
-1. `connector`, which is available if the script is executed in a connector variable scope (e.g., outputParameter of a camunda:connector) ({{< javadocref page="?org/camunda/connect/plugin/impl/ConnectorVariableScope.html" text="ConnectorVariableScope" >}}).
+1. `execution`, which is always available if the script is executed in an execution scope (e.g., in a script task) ({{< javadocref page="org/camunda/bpm/engine/delegate/DelegateExecution.html" text="DelegateExecution" >}}).
+1. `task`, which is available if the script is executed in a task scope (e.g., a task listener) ({{< javadocref page="org/camunda/bpm/engine/delegate/DelegateTask.html" text="DelegateTask" >}}).
+1. `connector`, which is available if the script is executed in a connector variable scope (e.g., outputParameter of a camunda:connector) ({{< javadocref page="org/camunda/connect/plugin/impl/ConnectorVariableScope.html" text="ConnectorVariableScope" >}}).
 
 These variables correspond to the `DelegateExecution`, `DelegateTask` or resp. `ConnectorVariableScope`
 interface which means that it can be used to get and set variables or access process engine services.
@@ -474,9 +474,9 @@ task = execution.getProcessEngineServices().getTaskService()
 
 Camunda's Java API provides access to Camunda's process engine services; these services can be accessed using Scripts:
 
-{{< javadocref page="?org/camunda/bpm/engine/ProcessEngineServices.html" text="Process Engine Services" >}} \
+{{< javadocref page="org/camunda/bpm/engine/ProcessEngineServices.html" text="Process Engine Services" >}} \
 
-{{< javadocref page="?org/camunda/bpm/engine/package-summary.html" text="Public Java API of Camunda Platform Engine" >}}
+{{< javadocref page="org/camunda/bpm/engine/package-summary.html" text="Public Java API of Camunda Platform Engine" >}}
 
 Example of creating a BPMN Message that correlates with the message key "work":
 
