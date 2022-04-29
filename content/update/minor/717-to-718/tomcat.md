@@ -25,7 +25,7 @@ In each of the following steps, the identifier `$*_VERSION` refers to the curren
 
 # 1. Update the Camunda Platform core libraries
 
-Replace the following libraries in the folder `$TOMCAT_HOME/lib/` with their new versions from the folder `$TOMCAT_DISTRIBUTION/lib/`:
+Replace the following libraries in the folder `$TOMCAT_HOME/lib/` with the new versions from the folder `$TOMCAT_DISTRIBUTION/lib/`:
 
 * `camunda-engine-$PLATFORM_VERSION.jar`
 * `camunda-bpmn-model-$PLATFORM_VERSION.jar`
@@ -101,9 +101,7 @@ The following libraries replace the single `groovy-all-$GROOVY_VERSION.jar` libr
 The following steps are required to update the Camunda REST API on a Tomcat instance:
 
 1. Undeploy an existing web application with a name like `camunda-engine-rest`.
-2. Download the REST API web application archive from our [Maven Nexus Server][nexus-restapi] Alternatively, switch 
-   to the private repository for the enterprise version (credentials from license required). Choose the correct version 
-   named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION-tomcat.war`.
+2. Download the REST API web application archive from our [Maven Nexus Server][nexus-restapi] Alternatively, switch to the private repository for the enterprise version (credentials from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION-tomcat.war`.
 3. Deploy the web application archive to your Tomcat instance.
 
 ## Update Cockpit, Tasklist, and Admin
@@ -111,9 +109,7 @@ The following steps are required to update the Camunda REST API on a Tomcat inst
 The following steps are required to update the Camunda web applications Cockpit, Tasklist, and Admin on a Tomcat instance:
 
 1. Undeploy an existing web application with a name like `camunda-webapp`.
-2. Download the Camunda web application archive from our [Maven Nexus Server][nexus-webapp]. Alternatively, switch 
-   to the private repository for the enterprise version (credentials from license required). Choose the correct version 
-   named `$PLATFORM_VERSION/camunda-webapp-tomcat-$PLATFORM_VERSION.war`.
+2. Download the Camunda web application archive from our [Maven Nexus Server][nexus-webapp]. Alternatively, switch to the private repository for the enterprise version (credentials from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-tomcat-$PLATFORM_VERSION.war`.
 3. Deploy the web application archive to your Tomcat instance.
 
 [update-guide]: {{< ref "/update/minor/717-to-718/_index.md" >}}

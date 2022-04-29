@@ -11,9 +11,7 @@ menu:
 ---
 
 
-The following steps describe how to update the Camunda artifacts on an IBM WebSphere application server in a 
-shared process engine setting. Throughout the procedure, refer to the [update guide][update-guide]. If not already done, 
-download the [Camunda Platform 7.18 IBM WebSphere distribution](https://artifacts.camunda.com/artifactory/camunda-bpm-ee/org/camunda/bpm/websphere/camunda-bpm-websphere/7.18.0-ee/).
+The following steps describe how to update the Camunda artifacts on an IBM WebSphere application server in a shared process engine setting. Throughout the procedure, refer to the [update guide][update-guide]. If not already done, download the [Camunda Platform 7.18 IBM WebSphere distribution](https://artifacts.camunda.com/artifactory/camunda-bpm-ee/org/camunda/bpm/websphere/camunda-bpm-websphere/7.18.0-ee/).
 
 The update procedure takes the following steps:
 
@@ -30,13 +28,13 @@ In each of the following steps, the identifier `$*_VERSION` refers to the curren
 
 First, uninstall the Camunda web applications, namely the Camunda REST API (artifact name like `camunda-engine-rest`) and the Camunda applications Cockpit, Tasklist, and Admin (artifact name like `camunda-webapp`).
 
-Uninstall the Camunda EAR. Its name should be `camunda-ibm-websphere-ear-$PLATFORM_VERSION.ear`.
+Uninstall the Camunda EAR; its name should be `camunda-ibm-websphere-ear-$PLATFORM_VERSION.ear`.
 
 # 2. Replace Camunda core libraries
 
 With your first Camunda installation or update to 7.2, you have created a shared library named `Camunda`. We identify the folder to this shared library as `$SHARED_LIBRARY_PATH`.
 
-After shutting down the server, replace the following libraries in `$SHARED_LIBRARY_PATH` with their equivalents from `$WAS_DISTRIBUTION/modules/lib`:
+After shutting down the server, replace the following libraries in `$SHARED_LIBRARY_PATH` with the equivalents from `$WAS_DISTRIBUTION/modules/lib`:
 
 * `camunda-engine-$PLATFORM_VERSION.jar`
 * `camunda-bpmn-model-$PLATFORM_VERSION.jar`
@@ -103,11 +101,11 @@ The following libraries replace the single `groovy-all-$GROOVY_VERSION.jar` libr
 
 # 4. Maintain the Camunda Platform configuration
 
-If you have previously replaced the default Camunda Platform configuration with a custom configuration following any of the ways outlined in the [deployment descriptor reference][configuration-location], it may be necessary to restore this configuration. This can be done by repeating the configuration replacement steps for the updated platform.
+If you have previously replaced the default Camunda Platform configuration with a custom configuration following any of the methods outlined in the [deployment descriptor reference][configuration-location], it may be necessary to restore this configuration. This can be done by repeating the configuration replacement steps for the updated platform.
 
 # 5. Install the Camunda Archive
 
-Install the Camunda EAR, i.e., the file `$WAS_DISTRIBUTION/modules/camunda-ibm-websphere-ear-$PLATFORM_VERSION.ear`. During the installation, the EAR will try to reference the `Camunda` shared library.
+Install the Camunda EAR, or the file `$WAS_DISTRIBUTION/modules/camunda-ibm-websphere-ear-$PLATFORM_VERSION.ear`. During the installation, the EAR will try to reference the `Camunda` shared library.
 
 # 6. Install the web applications
 

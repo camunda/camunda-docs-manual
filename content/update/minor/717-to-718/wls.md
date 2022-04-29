@@ -11,8 +11,7 @@ menu:
 ---
 
 The following steps describe how to update the Camunda artifacts on an Oracle WebLogic application server in a
-shared process engine setting. Throughout the procedure, refer to the [update guide][update-guide]. If not already 
-done, download the [Camunda Platform 7.18 Oracle WebLogic distribution](https://artifacts.camunda.com/artifactory/camunda-bpm-ee/org/camunda/bpm/weblogic/camunda-bpm-weblogic/7.18.0-ee/).
+shared process engine setting. Throughout the procedure, refer to the [update guide][update-guide]. If not already done, download the [Camunda Platform 7.18 Oracle WebLogic distribution](https://artifacts.camunda.com/artifactory/camunda-bpm-ee/org/camunda/bpm/weblogic/camunda-bpm-weblogic/7.18.0-ee/).
 
 The update procedure takes the following steps:
 
@@ -33,7 +32,7 @@ Uninstall the Camunda EAR. Its name should be `camunda-oracle-weblogic-ear-$PLAT
 
 # 2. Replace Camunda core libraries
 
-After shutting down the server, replace the following libraries in `$WLS_DOMAIN_HOME/lib` with their equivalents from `$WLS_DISTRIBUTION/modules/lib`:
+After shutting down the server, replace the following libraries in `$WLS_DOMAIN_HOME/lib` with the equivalents from `$WLS_DISTRIBUTION/modules/lib`:
 
 * `camunda-engine-$PLATFORM_VERSION.jar`
 * `camunda-bpmn-model-$PLATFORM_VERSION.jar`
@@ -66,8 +65,7 @@ Copy the following library from `$WLS_DISTRIBUTION/modules/lib` to the folder `$
 
 ## Camunda Connect plugin
 
-`camunda-connect-http-client`, `camunda-connect-soap-http-client`, and `camunda-engine-plugin-connect` are part of 
-the `.ear`.
+`camunda-connect-http-client`, `camunda-connect-soap-http-client`, and `camunda-engine-plugin-connect` are part of the `.ear`.
 
 ## Camunda Spin
 
@@ -75,9 +73,8 @@ Copy the following library from `$WLS_DISTRIBUTION/modules/lib` to the folder `$
 
 * `camunda-spin-core-$SPIN_VERSION.jar`
 
---- 
-`camunda-spin-dataformat-json-jackson`, `camunda-spin-dataformat-xml-dom`, and `camunda-engine-plugin-spin` are part 
-of the `.ear`.
+---
+`camunda-spin-dataformat-json-jackson`, `camunda-spin-dataformat-xml-dom`, and `camunda-engine-plugin-spin` are part of the `.ear`.
 
 ## GraalVM JavaScript
 
@@ -92,8 +89,7 @@ Copy the following libraries from `$WLS_DISTRIBUTION/modules/lib` to the folder 
 
 ## Groovy
 
-The following libraries replace the single `groovy-all-$GROOVY_VERSION.jar` library. Copy these libraries from 
-`$WLS_DISTRIBUTION/modules/lib` to the folder `$WLS_DOMAIN_HOME/lib`, if present:
+The following libraries replace the single `groovy-all-$GROOVY_VERSION.jar` library. Copy these libraries from `$WLS_DISTRIBUTION/modules/lib` to the folder `$WLS_DOMAIN_HOME/lib`, if present:
 
 * `groovy-$GROOVY_VERSION.jar`
 * `groovy-jsr223-$GROOVY_VERSION.jar`
@@ -109,7 +105,7 @@ If you have previously replaced the default Camunda Platform configuration by a 
 
 # 5. Install the Camunda Archive
 
-Install the Camunda EAR, i.e., the file `$WLS_DISTRIBUTION/modules/camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear`.
+Install the Camunda EAR, or the file `$WLS_DISTRIBUTION/modules/camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear`.
 
 # 6. Install the web applications
 

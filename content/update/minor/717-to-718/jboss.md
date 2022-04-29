@@ -11,8 +11,7 @@ menu:
 ---
 
 The following steps describe how to update the Camunda artifacts on a JBoss EAP 6 or
-Wildfly / JBoss EAP 7 in a shared process engine scenario. Throughout the procedure, 
-refer to the [update guide][update-guide].
+Wildfly/JBoss EAP 7 in a shared process engine scenario. Throughout the procedure, refer to the [update guide][update-guide].
 
 If not already done, download the [Camunda Platform 7.18 JBoss distribution](https://downloads.camunda.cloud/release/camunda-bpm/jboss/7.18/)
 or [Camunda Platform 7.18 Wildfly distribution](https://downloads.camunda.cloud/release/camunda-bpm/wildfly/7.18/). In the following instructions,
@@ -29,8 +28,7 @@ Whenever the instructions are to *replace* a module, delete the previous version
 
 # 1. Update the Camunda Platform modules
 
-Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with their new versions 
-from the folder `$APP_SERVER_DISTRIBUTION/modules/`:
+Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with the new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/`:
 
 * `org/camunda/bpm/camunda-engine`
 * `org/camunda/bpm/$APP_SERVER/camunda-$APP_SERVER-subsystem`
@@ -75,13 +73,13 @@ Replace the following module from the folder `$APP_SERVER_HOME/modules/` with it
 
 ## Camunda Connect plugin
 
-Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with their new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/`, if present:
+Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with the new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/`, if present:
 
 * `org/camunda/bpm/camunda-engine-plugin-connect`
 
 ## Camunda Spin
 
-Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with their new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/`, if present:
+Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with the new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/`, if present:
 
 * `org/camunda/spin/camunda-spin-core`
 * `org/camunda/spin/camunda-spin-dataformat-json-jackson`
