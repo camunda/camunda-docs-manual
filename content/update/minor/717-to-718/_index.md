@@ -76,7 +76,7 @@ Take the following steps to complete the update:
 
 # Groovy version update
 
-Camunda Platform provides the Groovy script engine by default with the pre-packaged distributions. With Camunda Platform
+Camunda Platform 7 provides the Groovy script engine by default with the pre-packaged distributions. With Camunda Platform
 7.18, we bumped Groovy to version `2.5.16`. This version of Groovy [doesn't provide a `groovy-all.jar` anymore](https://groovy-lang.org/releasenotes/groovy-2.5.html). 
 Therefore, you will find the following Groovy-related libraries in the Camunda Platform 7.18 pre-packed distributions:
 
@@ -97,4 +97,4 @@ Camunda users that rely on Groovy for their scripts will need to replace the lib
 Platform Run users will need to replace the `groovy-all-$GROOVY_VERSION.jar` in the `{RUN_HOME}/configuration/userlib/` 
 directory with the `.jar` libraries from the list above.
 
-Camunda users that don't rely in Groovy can ignore this section.
+Camunda users that don't rely on Groovy can ignore this section.
