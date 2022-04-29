@@ -338,16 +338,7 @@ Please note that we strongly discourage enabling remote access because it create
 The pre-built Camunda distributions of versions `7.15.14`, `7.16.8`, and `7.17.1` provide version `2.4.13` of the Groovy 
 library, whereas newer versions come with Groovy `2.4.21`.
 
-Please replace the library `groovy-all-$GROOVY_VERSION.jar` in the `lib` folder of your application server with the
-following libraries:
-
-* `groovy-$GROOVY_VERSION.jar`
-* `groovy-jsr223-$GROOVY_VERSION.jar`
-* `groovy-json-$GROOVY_VERSION.jar`
-* `groovy-xml-$GROOVY_VERSION.jar`
-* `groovy-templates-$GROOVY_VERSION.jar`
-* `groovy-datetime-$GROOVY_VERSION.jar`
-* `groovy-dateutil-$GROOVY_VERSION.jar`
+Please update the library `groovy-all-$GROOVY_VERSION.jar` in the `lib` folder of your application server.
 
 # Full Distribution
 
