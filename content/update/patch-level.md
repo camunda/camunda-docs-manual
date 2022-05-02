@@ -82,8 +82,9 @@ You can disable Java serialization usage with the help of [this configuration pa
 
 ### Groovy version
 
-The pre-built Camunda distributions of versions 7.6.10, 7.7.5 and 7.8.0 ship with Groovy library of version 2.4.5, whereas newer versions come with Groovy 2.4.13. 
-Please update the library `groovy-all-$GROOVY_VERSION.jar` in the `lib` folder of your application server.
+The pre-built Camunda distributions of versions 7.6.10, 7.7.5 and 7.8.0 ship with Groovy library of version 2.4.5, whereas newer versions come with Groovy 2.4.13.
+
+Update the library `groovy-all-$GROOVY_VERSION.jar` in the `lib` folder of your application server.
 
 
 ## 7.8.1. to 7.8.2 
@@ -330,6 +331,15 @@ You can find the `web.xml` at the following paths:
 * Docker container Wildfly: `/camunda/standalone/deployments/camunda-h2-webapp-${CAMUNDA_VERSION}.war/WEB-INF`
 
 Please note that we strongly discourage enabling remote access because it creates a security risk.
+
+## 7.17.1 to 7.17.2 / 7.16.8 to 7.16.9 / 7.15.14 to 7.15.15
+
+### Groovy version
+
+The pre-built Camunda distributions of versions `7.15.14`, `7.16.8`, and `7.17.1` provide version `2.4.13` of the Groovy 
+library, whereas newer versions come with Groovy `2.4.21`.
+
+Update the library `groovy-all-$GROOVY_VERSION.jar` in the `lib` folder of your application server.
 
 # Full Distribution
 
