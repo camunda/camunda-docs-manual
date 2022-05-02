@@ -329,6 +329,15 @@ You can find the `web.xml` in the following paths:
 
 Please note that we strongly discourage enabling remote access because it creates a security risk.
 
+## 7.16.8 to 7.16.9 / 7.15.14 to 7.15.15
+
+### Groovy version
+
+The pre-built Camunda distributions of versions `7.15.14` and `7.16.8` provide version `2.4.13` of the Groovy 
+library, whereas newer versions come with Groovy `2.4.21`.
+
+Update the library `groovy-all-$GROOVY_VERSION.jar` in the `lib` folder of your application server.
+
 # Full Distribution
 
 This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.
