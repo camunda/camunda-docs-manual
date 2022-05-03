@@ -20,8 +20,12 @@ Only these default combinations are recommended (and supported) by Camunda.
     <th>Quarkus version</th>
   </tr>
   <tr>
-    <td>7.16.0</td>
+    <td>7.16.x, 7.17.x</td>
     <td>2.1.2.Final</td>
+  </tr>
+  <tr>
+    <td>7.18.x</td>
+    <td>2.8.2.Final</td>
   </tr>
 </table>
 
