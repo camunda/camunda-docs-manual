@@ -30,30 +30,46 @@ If the **XSS Protection** header is enabled some cross-site scripting (XSS) atta
 
 The **Content Security Policy** is a mighty tool to prevent cross-site scripting and code injection attacks.
 
-It is a common practice to extend the Camunda Platform web applications by custom scripts & forms. To ensure that these user 
-customizations work without any problems, by default, the **Content Security Policy** is configured very lax. It is highly 
-recommended to strengthen the default policy based on your requirements.
+It is a common practice to extend the Camunda Platform web applications by custom scripts and forms.
+We apply a strict **Content Security Policy** by default but to ensure that these user customizations work without any problems, our policy is adjusted accordingly.
 
 #### Default Policy
 
-For the default policy, only the `base-uri` directive is set to `'self'` which restricts the HTML Base Tag to point to 
-the same-origin.
-
 The header value of the default policy looks as follows:
 ```
-base-uri 'self'
+base-uri 'self';
+script-src $NONCE 'strict-dynamic' 'unsafe-eval' https: 'self' 'unsafe-inline';
+style-src 'unsafe-inline' 'self';
+default-src 'self';
+img-src 'self' data:;
+block-all-mixed-content;
+form-action 'self';
+frame-ancestors 'none';
+object-src 'none';
+sandbox allow-forms allow-scripts allow-same-origin allow-popups;
 ```
+Where `$NONCE` is a placeholder that is replaced by a random generated string and is used to enable script tags in the `index.html` pages.
 
-#### Strengthen the Default Policy
+#### Policy Details
 
-We encourage you to use a stricter **Content Security Policy** than the default policy to mitigate attacks. This section describes how to configure several directives more strict and explains the resulting impact:
+We encourage you to use a strict **Content Security Policy**.
+This section describes what our default policy contains: 
 
 * `base-uri 'self'`
   * The URI of the HTML Base Tag must not point to a cross-origin
-* `default-src 'self' 'unsafe-inline' 'unsafe-eval'`
-  * Resources (e. g. scripts, styles, fonts, etc.) must not point to a cross-origin
-  * Inline styles/scripts must be allowed since the web applications make use of it
+* `script-src $NONCE 'strict-dynamic' 'unsafe-eval' https: 'self' 'unsafe-inline';`
+  * We recommend using `strict-dynamic` with nonce
+  * The `$NONCE` placeholder is replaced with a random generated string by the engine, it can be used to enable inline scripts
   * JavaScript's `eval(…)` calls must be allowed to execute `cam-script` in Tasklist
+     * If there are no embedded forms in your application then it's recommended to remove the `'unsafe-eval'` directive
+  * The second part `https: 'self' 'unsafe-inline'` is a fallback for browsers that don't support `strict-dynamic` yet (non CSP3 compliant browser)
+     * Script resources must not point to a cross-origin
+     * Inline styles/scripts must be allowed since the web applications make use of it
+* `style-src 'unsafe-inline' 'self'`
+  * Style resources must not point to a cross-origin
+  * Inline styles/scripts must be allowed since the web applications make use of it
+* `default-src 'self'`
+  * Any other not specified resources must not point to a cross-origin
 * `img-src 'self' data:`
   * Images must not point to a cross-origin
   * Data URIs are allowed since the web applications make use of it
@@ -72,24 +88,8 @@ We encourage you to use a stricter **Content Security Policy** than the default 
   * The site is rendered inside a sandbox
   * Submitting forms, executing scripts, accessing the local storage as well as opening popups must be allowed since the web applications make use of these mechanisms
 
-If you want to configure all of the directives introduced above, the policy would look as follows:
-```
-base-uri 'self';
-default-src 'self' 'unsafe-inline' 'unsafe-eval';
-img-src 'self' data:;
-block-all-mixed-content;
-form-action 'self';
-frame-ancestors 'none';
-object-src 'none';
-sandbox
-  allow-forms
-  allow-scripts
-  allow-same-origin
-  allow-popups
-```
-
 {{< note title="Heads-up!" class="info" >}}
-Please keep in mind that a configuration which is more strict than the one introduced above might break the functionality of the web applications.
+Please keep in mind that a configuration which is stricter than the one introduced above might break the functionality of the web applications.
 {{< /note >}}
 
 ### Content-Type Options
