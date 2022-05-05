@@ -62,7 +62,7 @@ This section describes what our default policy contains:
   * The `$NONCE` placeholder is replaced with a random generated string by the engine, it can be used to enable inline scripts
   * JavaScript's `eval(…)` calls must be allowed to execute `cam-script` in Tasklist
      * If there are no embedded forms in your application then it's recommended to remove the `'unsafe-eval'` directive
-  * The second part `https: 'self' 'unsafe-inline'` is a fallback for browsers that don't support `strict-dynamic` yet (non CSP3 compliant browser)
+  * The second part (`https: 'self' 'unsafe-inline'`) is a fallback for browsers that don't support `strict-dynamic` yet (non CSP3 compliant browser)
      * Script resources must not point to a cross-origin
      * Inline styles/scripts must be allowed since the web applications make use of it
 * `style-src 'unsafe-inline' 'self'`
