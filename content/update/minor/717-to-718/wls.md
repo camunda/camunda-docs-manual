@@ -96,8 +96,6 @@ The following libraries replace the single `groovy-all-$GROOVY_VERSION.jar` libr
 * `groovy-json-$GROOVY_VERSION.jar`
 * `groovy-xml-$GROOVY_VERSION.jar`
 * `groovy-templates-$GROOVY_VERSION.jar`
-* `groovy-datetime-$GROOVY_VERSION.jar`
-* `groovy-dateutil-$GROOVY_VERSION.jar`
 
 # 4. Maintain the Camunda Platform configuration
 

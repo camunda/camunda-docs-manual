@@ -73,15 +73,15 @@ Take the following steps to complete the update:
 # Groovy version update
 
 Camunda Platform 7 provides the Groovy script engine by default with the pre-packaged distributions. With Camunda Platform
-7.18, we bumped Groovy to version `2.5.16`. This version of Groovy [doesn't provide a `groovy-all.jar` anymore](https://groovy-lang.org/releasenotes/groovy-2.5.html). Therefore, you will find the following Groovy-related libraries in the Camunda Platform 7.18 pre-packed distributions:
+7.18, we bumped Groovy to version `2.4.21`. With this Groovy version bump, we decided to move away from the `groovy-all-$GROOVY_VERSION.jar` 
+since newer Groovy versions [don't provide a `groovy-all-$GROOVY_VERSION.jar` anymore](https://groovy-lang.org/releasenotes/groovy-2.5.html).
+Therefore, you will find the following Groovy-related libraries in the Camunda Platform 7.18 pre-packed distributions:
 
 * `groovy-$GROOVY_VERSION.jar`
 * `groovy-jsr223-$GROOVY_VERSION.jar`
 * `groovy-json-$GROOVY_VERSION.jar`
 * `groovy-xml-$GROOVY_VERSION.jar`
 * `groovy-templates-$GROOVY_VERSION.jar`
-* `groovy-datetime-$GROOVY_VERSION.jar`
-* `groovy-dateutil-$GROOVY_VERSION.jar`
 
 The `groovy` and `groovy-jsr-223` Groovy modules are required for correct operation of the Groovy script engine.
 Since the `groovy-all.jar` included a lot more than `groovy` and `groovy-jsr-223` modules, we decided to provide additional useful Groovy modules.
