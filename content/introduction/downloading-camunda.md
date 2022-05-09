@@ -28,8 +28,7 @@ to use Camunda, you can choose a different distribution.
 
 ## Community vs. Enterprise Edition
 
-Camunda provides separate runtime downloads for community users and enterprise subscription
-customers:
+Camunda provides separate runtime downloads for community users and enterprise subscription customers:
 
 * [Community download page][community-download-page]
 * [Enterprise download page][enterprise-download-page]
@@ -91,7 +90,7 @@ from the [community download page][community-download-page].
 
 
 [get-jdk]: https://www.oracle.com/technetwork/java/javase/downloads/index.html
-[community-download-page]: https://downloads.camunda.cloud/release/camunda-bpm/
+[community-download-page]: https://camunda.com/download/
 [enterprise-download-page]: /enterprise/download
 [shared-engine]: {{< ref "/introduction/architecture.md#shared-container-managed-process-engine" >}}
 [embedded-engine]: {{< ref "/introduction/architecture.md#embedded-process-engine" >}}
