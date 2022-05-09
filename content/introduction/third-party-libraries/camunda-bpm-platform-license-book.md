@@ -7,6 +7,7 @@ menu:
   main:
     identifier: "user-guide-introduction-third-party-libraries-license-book-platform"
     parent: "user-guide-introduction-third-party-libraries"
+    pre: "All third-party dependencies distributed with Camunda Platform 7 artifacts"
 
 ---
 
