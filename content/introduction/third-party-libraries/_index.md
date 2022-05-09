@@ -53,6 +53,17 @@ Additionally, when using Apache Tomcat:
 * [RESTEasy](http://www.jboss.org/resteasy) {{< RD >}}
 
 
+# Web Applications (Cockpit, Tasklist, Admin)
+
+Find a full list of third-party Javascript libraries and their licenses in the [license book]({{< ref "/introduction/third-party-libraries/camunda-bpm-platform-license-book.md#camunda-web-applications-javascript-dependencies" >}}). 
+
+## XLTS for AngularJS
+
+Starting with versions 7.18.0-alpha2, 7.17.2, 7.16.9, 7.15.15, the Camunda web applications use a set of third-party libraries referred to as *XLTS for AngularJS* (technical names: `angular`, `angular-animate`, `angular-cookies`, `angular-loader`, `angular-mocks`, `angular-resource`, `angular-route`, `angular-sanitize`, `angular-touch`). XLTS for AngularJS follows a proprietary license called *EULA for the downstream recipient of XLTS for AngularJS* (short *XLTS for AngularJS – EULA*) that you can find at: https://xlts.dev/angularjs/downstream-eula. 
+
+Especially, the license imposes restrictions around distributing and reverse-engineering XLTS for AngularJS independently of Camunda artifacts. The license does otherwise not restrict how you can use and distribute the Camunda artifacts that include XLTS for AngularJS. You can find our rationale for using this library in [our blog post on ensuring the long-term maintenance of Camunda Platform 7](https://camunda.com/blog/2022/02/ensuring-continuous-support-of-angularjs-in-camunda-platform-7-17/).
+
+
 # Spring Support
 
 The Spring support can be integrated with the following third-party libraries:
