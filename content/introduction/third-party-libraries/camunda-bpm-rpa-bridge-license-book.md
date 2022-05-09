@@ -7,6 +7,7 @@ menu:
   main:
     identifier: "user-guide-introduction-third-party-libraries-license-book-rpa"
     parent: "user-guide-introduction-third-party-libraries"
+    pre: "All third-party dependencies distributed with the Camunda Platform RPA Bridge"
 
 ---
 
