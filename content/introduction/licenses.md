@@ -27,10 +27,10 @@ If you are using the Enterprise Platform, the software is provided under a licen
 
 The Camunda Platform (Community and Enterprise Edition) includes libraries developed by third parties. See the following resources:
 
-* [Third-Party Libraries][third-party-libraries]: An overview the dependencies that Camunda distributes. Additionally, this page points out particularly important third-party licenses we want to make you aware of.
-* [HTML License Book Camunda Platform]({{< ref "/introduction/third-party-libraries/camunda-bpm-platform-license-book.md" >}}): A list of all dependencies that Camunda distributes with the Platform 7 artifacts, including their licenses and notices
-* [Plain text license book Camunda Platform][license-book]: A plain text version of the license book
-* [HTML License Book Camunda Platform RPA Bridge]({{< ref "/introduction/third-party-libraries/camunda-bpm-rpa-bridge-license-book.md" >}}): A list of all dependencies that Camunda distributes with the RPA Bridge
+* [Third-Party Libraries][third-party-libraries]: An overview of the dependencies Camunda distributes. Additionally, this page points out particularly important third-party licenses to be aware of.
+* [HTML License Book Camunda Platform]({{< ref "/introduction/third-party-libraries/camunda-bpm-platform-license-book.md" >}}): A list of all dependencies Camunda distributes with the Platform 7 artifacts, including their licenses and notices.
+* [Plain text license book Camunda Platform][license-book]: A plain text version of the license book.
+* [HTML License Book Camunda Platform RPA Bridge]({{< ref "/introduction/third-party-libraries/camunda-bpm-rpa-bridge-license-book.md" >}}): A list of all dependencies Camunda distributes with the RPA Bridge.
 
 [third-party-libraries]: {{< ref "/introduction/third-party-libraries/_index.md" >}}
 [license-book]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/license-book/{{< minor-version >}}.0/license-book-{{< minor-version >}}.0.txt
