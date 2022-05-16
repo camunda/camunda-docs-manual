@@ -31,7 +31,7 @@ If the **XSS Protection** header is enabled some cross-site scripting (XSS) atta
 The **Content Security Policy** is a mighty tool to prevent cross-site scripting and code injection attacks.
 
 It is a common practice to extend the Camunda Platform web applications by custom scripts and forms.
-We apply a strict **Content Security Policy** by default but to ensure that these user customizations work without any problems, our policy is adjusted accordingly.
+Our default **Content Security Policy** policy defines some exceptions to ensure that our Webapps, your embedded forms, and embedded form scripts work out of the box.
 
 #### Default Policy
 
