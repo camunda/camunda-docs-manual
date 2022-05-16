@@ -21,7 +21,7 @@ This document guides you through the update from Camunda Platform `7.17.x` to `7
 4. For administrators and developers: [Groovy version update](#groovy-version-update)
 5. For administrators: [Camunda Docker Images: Base image updated to Alpine 3.15](#camunda-docker-images-base-image-updated-to-alpine-3-15)
 6. For administrators and developers: [XLTS for AngularJS](#xlts-for-angularjs)
-1. For administrators and developers: [Content Security Policy update](#content-security-policy-update)
+1. For administrators and developers: [Stricter default Content Security Policy](#stricter-default-content-security-policy)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.18.
 
@@ -114,11 +114,15 @@ If you have extended the Camunda docker images yourself, please read the release
 
 Camunda Platform 7.18.0 replaces the AngularJS libraries with XLTS for AngularJS. Where AngularJS was licensed entirely under the MIT license, XLTS for AngularJS licenses additional parts under the XLTS for AngularJS – EULA. By downloading and using Camunda with XLTS for AngularJS, you agree to the terms of the XLTS for AngularJS – EULA. Please see our [third-Party libraries documentation]({{< ref "/introduction/third-party-libraries/_index.md#xlts-for-angularjs" >}}) for details and the terms of the EULA.
 
-# Content Security Policy update
+# Stricter default Content Security Policy
 
 The default **Content Security Policy** configuration is changing from version 7.18.
 In older versions, the default policy used to be a very minimal configuration, which had to be explicitly strengthened according to our recommendations.\
 With this version, we make the previously recommended **Content Security Policy** the default policy and make it even stricter by introducing the `strict-dynamic` directive.
-If you have added custom script tags in one of the `index.html` files of the Webapps, add the following attribute to the opening script tag `nonce="$CSP_NONCE"`. You don't need to worry about whitelisting for scripts you load via our plugin system.
+If you have added custom script tags in one of the `index.html` files of the Webapps, add the `nonce` attribute to the opening script tag:
+```html
+<script type="application/javascript" nonce="$CSP_NONCE">
+```
+You don't need to worry about whitelisting for scripts you load via our plugin system.
 
 You can find the details in the [Content Security Policy]({{< ref "/webapps/shared-options/header-security.md#content-security-policy" >}}) section.
