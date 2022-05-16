@@ -118,5 +118,5 @@ Camunda Platform 7.18.0 replaces the AngularJS libraries with XLTS for AngularJS
 
 The default **Content Security Policy** configuration is changing from version 7.18.
 In older versions, the default policy used to be a very minimal configuration, which had to be explicitly strengthened according to our recommendations.\
-Starting of this version we are introducing a stricter **Content Security Policy** by default, that allows just the required contents.
+With this version, we make the previously recommended **Content Security Policy** the default policy and make it even stricter by introducing the `strict-dynamic` directive.
 You can find the details in the [Content Security Policy]({{< ref "/webapps/shared-options/header-security.md#content-security-policy" >}}) section.
