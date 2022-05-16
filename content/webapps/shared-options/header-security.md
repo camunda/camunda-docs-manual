@@ -48,7 +48,16 @@ frame-ancestors 'none';
 object-src 'none';
 sandbox allow-forms allow-scripts allow-same-origin allow-popups;
 ```
-Where `$NONCE` is a placeholder that is replaced by a random generated string and is used to enable script tags in the `index.html` pages.
+Where `$NONCE` is a placeholder that is replaced by a random generated secure string.
+This nonce can be then used to enable inline scripts in the `index.html` pages using another placeholder called `$CSP_NONCE`:
+```html
+<script type="application/javascript" nonce="$CSP_NONCE">
+```
+
+{{< note title="Heads-up!" class="info" >}}
+If you have custom inline scripts defined, make sure to add the above mentioned nonce attribute to
+the script tag, otherwise they will be ignored by the browser.
+{{< /note >}}
 
 #### Policy Details
 
@@ -58,16 +67,15 @@ This section describes what our default policy contains:
 * `base-uri 'self'`
   * The URI of the HTML Base Tag must not point to a cross-origin
 * `script-src $NONCE 'strict-dynamic' 'unsafe-eval' https: 'self' 'unsafe-inline';`
-  * We recommend using `strict-dynamic` with nonce
-  * The `$NONCE` placeholder is replaced with a random generated string by the engine, it can be used to enable inline scripts
+  * The browser only executes inline scripts that are explicitly whitelisted by adding a backend generated nonce to each script tag included in the `index.html` asset.
   * JavaScript's `eval(…)` calls must be allowed to execute `cam-script` in Tasklist
      * If there are no embedded forms in your application then it's recommended to remove the `'unsafe-eval'` directive
   * The second part (`https: 'self' 'unsafe-inline'`) is a fallback for browsers that don't support `strict-dynamic` yet (non CSP3 compliant browser)
      * Script resources must not point to a cross-origin
-     * Inline styles/scripts must be allowed since the web applications make use of it
+     * Inline scripts must be allowed since the web applications make use of it
 * `style-src 'unsafe-inline' 'self'`
   * Style resources must not point to a cross-origin
-  * Inline styles/scripts must be allowed since the web applications make use of it
+  * Inline styles must be allowed since the web applications make use of it
 * `default-src 'self'`
   * Any other not specified resources must not point to a cross-origin
 * `img-src 'self' data:`
