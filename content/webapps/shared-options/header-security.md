@@ -46,7 +46,7 @@ block-all-mixed-content;
 form-action 'self';
 frame-ancestors 'none';
 object-src 'none';
-sandbox allow-forms allow-scripts allow-same-origin allow-popups;
+sandbox allow-forms allow-scripts allow-same-origin allow-popups allow-downloads;
 ```
 Where `$NONCE` is a placeholder that is replaced by a random generated secure string.
 This nonce can be then used to enable inline scripts in the `index.html` pages using another placeholder called `$CSP_NONCE`:
