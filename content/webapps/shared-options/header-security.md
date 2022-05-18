@@ -31,7 +31,7 @@ If the **XSS Protection** header is enabled some cross-site scripting (XSS) atta
 The **Content Security Policy** is a mighty tool to prevent cross-site scripting and code injection attacks.
 
 It is a common practice to extend the Camunda Platform web applications by custom scripts and forms.
-Our default **Content Security Policy** policy defines some exceptions to ensure that our Webapps, your embedded forms, and embedded form scripts work out of the box.
+Our default **Content Security Policy** defines some exceptions to ensure our web apps, your embedded forms, and embedded form scripts work out of the box.
 
 #### Default Policy
 
@@ -55,7 +55,7 @@ This nonce can be then used to enable inline scripts in the `index.html` pages u
 ```
 
 {{< note title="Heads-up!" class="info" >}}
-If you have custom inline scripts defined, make sure to add the above mentioned nonce attribute to
+If you have custom inline scripts defined, make sure to add the aforementioned `nonce` attribute to
 the script tag, otherwise they will be ignored by the browser.
 {{< /note >}}
 
@@ -67,37 +67,37 @@ This section describes what our default policy contains:
 * `base-uri 'self'`
   * The URI of the HTML Base Tag must not point to a cross-origin
 * `script-src $NONCE 'strict-dynamic' 'unsafe-eval' https: 'self' 'unsafe-inline';`
-  * The browser only executes inline scripts that are explicitly whitelisted by adding a backend generated nonce to each script tag included in the `index.html` asset.
-  * JavaScript's `eval(…)` calls must be allowed to execute `cam-script` in Tasklist
-     * If there are no embedded forms in your application then it's recommended to remove the `'unsafe-eval'` directive
-  * The second part (`https: 'self' 'unsafe-inline'`) is a fallback for browsers that don't support `strict-dynamic` yet (non CSP3 compliant browser)
-     * Script resources must not point to a cross-origin
-     * Inline scripts must be allowed since the web applications make use of it
+  * The browser only executes inline scripts that are explicitly whitelisted by adding a backend generated `nonce` to each script tag included in the `index.html` asset.
+  * JavaScript's `eval(…)` calls must be allowed to execute `cam-script` in Tasklist.
+     * If there are no embedded forms in your application, it's recommended to remove the `'unsafe-eval'` directive.
+  * The second part (`https: 'self' 'unsafe-inline'`) is a fallback for browsers that don't support `strict-dynamic` yet (non CSP3 compliant browser).
+     * Script resources must not point to a cross-origin.
+     * Inline scripts must be allowed since the web applications make use of it.
 * `style-src 'unsafe-inline' 'self'`
-  * Style resources must not point to a cross-origin
-  * Inline styles must be allowed since the web applications make use of it
+  * Style resources must not point to a cross-origin.
+  * Inline styles must be allowed since the web applications make use of it.
 * `default-src 'self'`
-  * Any other not specified resources must not point to a cross-origin
+  * Any other unspecified resources must not point to a cross-origin.
 * `img-src 'self' data:`
-  * Images must not point to a cross-origin
-  * Data URIs are allowed since the web applications make use of it
+  * Images must not point to a cross-origin.
+  * Data URIs are allowed since the web applications make use of it.
 * `block-all-mixed-content`
-  * When accessed via HTTPS, all resources loaded via HTTP are blocked
-  * Mixed content is allowed when the site is accessed via HTTP
+  * When accessed via HTTPS, all resources loaded via HTTP are blocked.
+  * Mixed content is allowed when the site is accessed via HTTP.
 * `form-action 'self'`
-  * A form must not be submitted against a cross-origin
-  * JavaScript in the <code>action</code> attribute of a form is not executed
+  * A form must not be submitted against a cross-origin.
+  * JavaScript in the <code>action</code> attribute of a form is not executed.
 * `frame-ancestors 'none'`
-  * Embedding the web applications via an <code>iframe</code> is forbidden; Mitigates clickjacking attacks
+  * Embedding the web applications via an <code>iframe</code> is forbidden; mitigates clickjacking attacks.
 * `object-src 'none'`
-  * Resources embedded via <code>object</code>, <code>embed</code> or <code>applet</code> tags are not loaded
-  * Mitigates the exploitation of bugs that are included in third-party plugins (e. g. Adobe Flash, Java Applets, etc.)
+  * Resources embedded via <code>object</code>, <code>embed</code> or <code>applet</code> tags are not loaded.
+  * Mitigates the exploitation of bugs that are included in third-party plugins (e.g. Adobe Flash, Java Applets, etc.)
 * `sandbox allow-forms allow-scripts allow-same-origin allow-popups allow-downloads`
-  * The site is rendered inside a sandbox
-  * Submitting forms, executing scripts, accessing the local storage, opening popups as well as downloading files must be allowed since the web applications make use of these mechanisms
+  * The site is rendered inside a sandbox.
+  * Submitting forms, executing scripts, accessing the local storage, opening popups as well as downloading files must be allowed since the web applications make use of these mechanisms.
 
 {{< note title="Heads-up!" class="info" >}}
-Please keep in mind that a configuration which is stricter than the one introduced above might break the functionality of the web applications.
+Keep in mind a stricter configuration than the one introduced above might break the functionality of the web applications.
 {{< /note >}}
 
 ### Content-Type Options

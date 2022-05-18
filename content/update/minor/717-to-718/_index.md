@@ -117,12 +117,12 @@ Camunda Platform 7.18.0 replaces the AngularJS libraries with XLTS for AngularJS
 # Stricter default Content Security Policy
 
 The default **Content Security Policy** configuration is changing from version 7.18.
-In older versions, the default policy used to be a very minimal configuration, which had to be explicitly strengthened according to our recommendations.\
-With this version, we make the previously recommended **Content Security Policy** the default policy and make it even stricter by introducing the `strict-dynamic` directive.
-If you have added custom script tags in one of the `index.html` files of the Webapps, add the `nonce` attribute to the opening script tag:
+In older versions, the default policy was a very minimal configuration and explicitly strengthened according to our recommendations.
+With this version, we make the previously recommended **Content Security Policy** the default policy, and even stricter by introducing the `strict-dynamic` directive.
+If you have added custom script tags in one of the `index.html` files of the web apps, add the `nonce` attribute to the opening script tag:
 ```html
 <script type="application/javascript" nonce="$CSP_NONCE">
 ```
 You don't need to worry about whitelisting for scripts you load via our plugin system.
 
-You can find the details in the [Content Security Policy]({{< ref "/webapps/shared-options/header-security.md#content-security-policy" >}}) section.
+Find the details in the [Content Security Policy]({{< ref "/webapps/shared-options/header-security.md#content-security-policy" >}}) section.
