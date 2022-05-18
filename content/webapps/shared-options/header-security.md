@@ -92,9 +92,9 @@ This section describes what our default policy contains:
 * `object-src 'none'`
   * Resources embedded via <code>object</code>, <code>embed</code> or <code>applet</code> tags are not loaded
   * Mitigates the exploitation of bugs that are included in third-party plugins (e. g. Adobe Flash, Java Applets, etc.)
-* `sandbox allow-forms allow-scripts allow-same-origin allow-popups`
+* `sandbox allow-forms allow-scripts allow-same-origin allow-popups allow-downloads`
   * The site is rendered inside a sandbox
-  * Submitting forms, executing scripts, accessing the local storage as well as opening popups must be allowed since the web applications make use of these mechanisms
+  * Submitting forms, executing scripts, accessing the local storage, opening popups as well as downloading files must be allowed since the web applications make use of these mechanisms
 
 {{< note title="Heads-up!" class="info" >}}
 Please keep in mind that a configuration which is stricter than the one introduced above might break the functionality of the web applications.
