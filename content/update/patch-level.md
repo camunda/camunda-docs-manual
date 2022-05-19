@@ -339,6 +339,22 @@ The pre-built Camunda distributions of versions `7.15.14`, `7.16.8`, and `7.17.1
 
 Update the library `groovy-all-$GROOVY_VERSION.jar` in the `lib` folder of your application server.
 
+### Camunda Docker Images: Base image updated to Alpine 3.15
+
+With 7.17.2, 7.16.9, and 7.15.15, Alpine, the base image in Camunda’s docker images, has been updated from version 3.13 to 3.15.
+
+We went through the release notes to identify breaking changes and could identify the following:
+
+> The faccessat2 syscall has been enabled in musl. This can result in issues on docker hosts with older versions of docker (<20.10.0) and libseccomp (<2.4.4), which blocks this syscall.
+
+Besides Docker runtime versions < 20.10.0, alternative docker runtimes like containerd.io are also affected by this. 
+Read more about it in the [Alpine 3.14 Release Notes](https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.14.0#faccessat2).
+
+If you have extended the Camunda docker images yourself, please read the release notes of Alpine 3.14 and 3.15 carefully:
+
+* https://alpinelinux.org/posts/Alpine-3.14.0-released.html
+* https://alpinelinux.org/posts/Alpine-3.15.0-released.html
+
 # Full Distribution
 
 This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.

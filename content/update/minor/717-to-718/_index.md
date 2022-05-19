@@ -16,9 +16,10 @@ menu:
 This document guides you through the update from Camunda Platform `7.17.x` to `7.18.0` and covers the following use cases:
 
 1. For administrators and developers: [Database updates](#database-updates)
-1. For administrators and developers: [Full distribution update](#full-distribution)
-1. For administrators: [Standalone web application](#standalone-web-application)
-1. For administrators and developers: [Groovy version update](#groovy-version-update)
+2. For administrators and developers: [Full distribution update](#full-distribution)
+3. For administrators: [Standalone web application](#standalone-web-application)
+4. For administrators and developers: [Groovy version update](#groovy-version-update)
+5. For administrators: [Camunda Docker Images: Base image updated to Alpine 3.15](#camunda-docker-images-base-image-updated-to-alpine-3-15)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.18.
 
@@ -90,3 +91,19 @@ Camunda users relying on Groovy for their scripts need to replace the libraries 
 [Camunda libraries and applications](#camunda-libraries-and-applications) guide for their application server. Camunda Platform Run users need to replace the `groovy-all-$GROOVY_VERSION.jar` in the `{RUN_HOME}/configuration/userlib/` directory with the `.jar` libraries from the list above.
 
 Camunda users who don't rely on Groovy can ignore this section.
+
+# Camunda Docker Images: Base image updated to Alpine 3.15
+
+With Camunda Platform 7.18, Alpine, the base image in Camunda’s docker images, has been updated from version 3.13 to 3.15.
+
+We went through the release notes to identify breaking changes and could identify the following:
+
+> The faccessat2 syscall has been enabled in musl. This can result in issues on docker hosts with older versions of docker (<20.10.0) and libseccomp (<2.4.4), which blocks this syscall.
+
+Besides Docker runtime versions < 20.10.0, alternative docker runtimes like containerd.io are also affected by this.
+Read more about it in the [Alpine 3.14 Release Notes](https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.14.0#faccessat2).
+
+If you have extended the Camunda docker images yourself, please read the release notes of Alpine 3.14 and 3.15 carefully:
+
+* https://alpinelinux.org/posts/Alpine-3.14.0-released.html
+* https://alpinelinux.org/posts/Alpine-3.15.0-released.html
