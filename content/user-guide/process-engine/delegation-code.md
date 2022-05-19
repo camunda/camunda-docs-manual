@@ -324,7 +324,7 @@ A task listener is used to execute custom Java logic or an expression upon the o
 The execution of Task Listeners is dependent on the order of firing of
 the following task-related events:
 
-The **create** event fires when the task has been created and all task properties are set. No
+The **create** event fires when the task has been created as a transient object with all task properties. No
 other task-related event will be fired before the *create* event. The event allows us to inspect
 all properties of the task when we receive it in the create listener.
 
@@ -401,6 +401,7 @@ A task listener supports the following attributes:
 
       public void notify(DelegateTask delegateTask) {
         // Custom logic goes here
+        // The task object is persisted in the database after this method has finished
       }
 
     }
