@@ -20,6 +20,7 @@ This document guides you through the update from Camunda Platform `7.17.x` to `7
 3. For administrators: [Standalone web application](#standalone-web-application)
 4. For administrators and developers: [Groovy version update](#groovy-version-update)
 5. For administrators: [Camunda Docker Images: Base image updated to Alpine 3.15](#camunda-docker-images-base-image-updated-to-alpine-3-15)
+6. For administrators and developers: [XLTS for AngularJS](#xlts-for-angularjs)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.18.
 
@@ -107,3 +108,7 @@ If you have extended the Camunda docker images yourself, please read the release
 
 * https://alpinelinux.org/posts/Alpine-3.14.0-released.html
 * https://alpinelinux.org/posts/Alpine-3.15.0-released.html
+
+# XLTS for AngularJS
+
+Camunda Platform 7.18.0 replaces the AngularJS libraries with XLTS for AngularJS. Where AngularJS was licensed entirely under the MIT license, XLTS for AngularJS licenses additional parts under the XLTS for AngularJS – EULA. By downloading and using Camunda with XLTS for AngularJS, you agree to the terms of the XLTS for AngularJS – EULA. Please see our [third-Party libraries documentation]({{< ref "/introduction/third-party-libraries/_index.md#xlts-for-angularjs" >}}) for details and the terms of the EULA.
