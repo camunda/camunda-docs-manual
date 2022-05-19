@@ -19,6 +19,7 @@ This document guides you through the update from Camunda Platform `7.17.x` to `7
 1. For administrators and developers: [Full distribution update](#full-distribution)
 1. For administrators: [Standalone web application](#standalone-web-application)
 1. For administrators and developers: [Groovy version update](#groovy-version-update)
+1. For administrators and developers: [XLTS for AngularJS](#xlts-for-angularjs)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.18.
 
@@ -90,3 +91,7 @@ Camunda users relying on Groovy for their scripts need to replace the libraries 
 [Camunda libraries and applications](#camunda-libraries-and-applications) guide for their application server. Camunda Platform Run users need to replace the `groovy-all-$GROOVY_VERSION.jar` in the `{RUN_HOME}/configuration/userlib/` directory with the `.jar` libraries from the list above.
 
 Camunda users who don't rely on Groovy can ignore this section.
+
+# XLTS for AngularJS
+
+Camunda Platform 7.18.0 replaces the AngularJS libraries with XLTS for AngularJS. Where AngularJS was licensed entirely under the MIT license, XLTS for AngularJS licenses additional parts under the XLTS for AngularJS – EULA. By downloading and using Camunda with XLTS for AngularJS, you agree to the terms of the XLTS for AngularJS – EULA. Please see our [third-Party libraries documentation]({{< ref "/introduction/third-party-libraries/_index.md#xlts-for-angularjs" >}}) for details and the terms of the EULA.
