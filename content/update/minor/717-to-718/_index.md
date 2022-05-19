@@ -94,7 +94,7 @@ Camunda users who don't rely on Groovy can ignore this section.
 
 # Camunda Docker Images: Base image updated to Alpine 3.15
 
-With Camunda Platform 7.18, Alpine, the base image in Camunda’s docker images, has been updated from version 3.13 to 3.15.
+With Camunda Platform 7.18, Alpine, the base image in Camunda’s Docker images, has been updated from version 3.13 to 3.15.
 
 We went through the release notes to identify breaking changes and could identify the following:
 
