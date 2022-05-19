@@ -53,7 +53,7 @@ Or an expression which calls a method or resolves to a value.
              camunda:expression="${myBean.doWork()}" />
 ```
 
-Be aware that the three extension `camunda:class`, `camunda:expression` and `camunda:delegateExpression` are mutual exclusive. Only one will be used by the process engine.
+Be aware that the three extensions `camunda:class`, `camunda:expression`, and `camunda:delegateExpression` are mutually exclusive. The process engine will use only one.
 
 For more information about expression language as delegation code, please see the corresponding
 [section]({{< ref "/user-guide/process-engine/expression-language.md#use-expression-language-as-delegation-code" >}})
