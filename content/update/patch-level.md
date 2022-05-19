@@ -786,7 +786,7 @@ Update the library `groovy-all-$GROOVY_VERSION.jar` in the `lib` folder of your 
 
 ### Camunda Docker Images: Base image updated to Alpine 3.15
 
-With 7.15.15, Alpine, the base image in Camunda’s docker images, has been updated from version 3.13 to 3.15.
+With 7.15.15, Alpine, the base image in Camunda’s Docker images, has been updated from version 3.13 to 3.15.
 
 We went through the release notes to identify breaking changes and could identify the following:
 
