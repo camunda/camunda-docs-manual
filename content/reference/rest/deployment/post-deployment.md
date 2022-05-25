@@ -44,7 +44,7 @@ A multipart form submit with the following parts:
     <td>enable-duplicate-filtering</td>
     <td>text/plain</td>
     <td>
-      A flag indicating whether the process engine should perform duplicate checking for the deployment or not. This allows you to check if a deployment with the same name and the same resouces already exists and if true, not create a new deployment but instead return the existing deployment. The default value is <code>false</code>.
+      A flag indicating whether the process engine should perform duplicate checking for the deployment or not. This allows you to check if a deployment with the same name and the same resources already exists and if true, not create a new deployment but instead return the existing deployment. The default value is <code>false</code>.
     </td>
   </tr>
   <tr>
