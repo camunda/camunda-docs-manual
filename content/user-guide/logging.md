@@ -178,7 +178,11 @@ The process engine logs on the following categories
   </tr>
   <tr>
     <td><code>org.camunda.bpm.engine.context</code></td>
-    <td>command context logs including executing atomic operations and bpmn stack traces during exceptions</td>
+    <td>
+      command context logs including executing atomic operations and bpmn stack traces during exceptions<br/>
+      You can override the default <code>DEBUG</code> log level for bpmn stack traces, see the
+      <a href="{{< ref "/reference/deployment-descriptors/tags/process-engine.md#logLevelBpmnStackTrace" >}}">Logging level parameters</a> section.
+    </td>
   </tr>
   <tr>
     <td><code>org.camunda.bpm.engine.core</code></td>
