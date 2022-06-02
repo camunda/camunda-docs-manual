@@ -21,7 +21,8 @@ This document guides you through the update from Camunda Platform `7.17.x` to `7
 4. For administrators and developers: [Groovy version update](#groovy-version-update)
 5. For administrators: [Camunda Docker Images: Base image updated to Alpine 3.15](#camunda-docker-images-base-image-updated-to-alpine-3-15)
 6. For administrators and developers: [XLTS for AngularJS](#xlts-for-angularjs)
-1. For administrators and developers: [Stricter default Content Security Policy](#stricter-default-content-security-policy)
+7. For administrators and developers: [Stricter default Content Security Policy](#stricter-default-content-security-policy)
+8. For administrators: [Log level configuration for BPMN stack trace](#log-level-configuration-for-bpmn-stack-trace)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.18.
 
@@ -126,3 +127,13 @@ If you have added custom script tags in one of the `index.html` files of the web
 You don't need to worry about whitelisting for scripts you load via our plugin system.
 
 Find the details in the [Content Security Policy]({{< ref "/webapps/shared-options/header-security.md#content-security-policy" >}}) section.
+
+
+# Log level configuration for BPMN stack trace
+
+We've added a new configuration property called `logLevelBpmnStackTrace` to change the default `DEBUG` level of the bpmn stack trace.
+The default behaviour remains the same as before, so you don't have to do anything.
+However, if you want to see the bpmn stack traces in the log, but don't want to turn on debug logging, then you can change their log level with this parameter.
+
+See the [Logging level parameters]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#logLevelBpmnStackTrace" >}}) section for details.  
+Additionally, you can find out more about logging in the [Logging User Guide]({{< ref "/user-guide/logging.md" >}}) section.

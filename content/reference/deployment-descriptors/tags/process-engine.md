@@ -1269,3 +1269,18 @@ The specified data will only be put into the MDC if a key is defined. All parame
     <td>Defines the key for the current tenant id. Default value: <code>tenantId</code></td>
   </tr>
 </table>
+
+## Logging level parameters
+
+These parameters define the log level for the specified log entries.
+
+<table class="table table-striped">
+  <tr id="logLevelBpmnStackTrace">
+    <td><code>logLevelBpmnStackTrace</code></td>
+    <td>String</td>
+    <td>
+      Defines the log level for the bpmn stack traces. Default value: <code>DEBUG</code>.<br/>
+      Possible values are: <code>ERROR, WARN, INFO, DEBUG, TRACE</code>.
+    </td>
+  </tr>
+</table>
