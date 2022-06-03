@@ -68,9 +68,9 @@ We encourage you to use a stricter **Content Security Policy** than the default 
 * `object-src 'none'`
   * Resources embedded via <code>object</code>, <code>embed</code> or <code>applet</code> tags are not loaded
   * Mitigates the exploitation of bugs that are included in third-party plugins (e. g. Adobe Flash, Java Applets, etc.)
-* `sandbox allow-forms allow-scripts allow-same-origin allow-popups`
-  * The site is rendered inside a sandbox
-  * Submitting forms, executing scripts, accessing the local storage as well as opening popups must be allowed since the web applications make use of these mechanisms
+* `sandbox allow-forms allow-scripts allow-same-origin allow-popups allow-downloads`
+  * The site is rendered inside a sandbox.
+  * Submitting forms, executing scripts, accessing the local storage, opening popups as well as downloading files must be allowed since the web applications make use of these mechanisms.
 
 If you want to configure all of the directives introduced above, the policy would look as follows:
 ```
@@ -86,6 +86,7 @@ sandbox
   allow-scripts
   allow-same-origin
   allow-popups
+  allow-downloads
 ```
 
 {{< note title="Heads-up!" class="info" >}}
