@@ -330,7 +330,7 @@ all properties of the task when we receive it in the create listener.
 
 The **update** event occurs when a task property (e.g. assignee, owner, priority, etc.) on an already
 created task is changed. This includes attributes of a task  (e.g. assignee, owner, priority, etc.),
-as well as dependent entities (e.g. attachments, comments, task-local variables).
+as well as dependent entities (e.g. attachments, comments, task-local variables). 
 Note that the initialization of a task does not fire an update event (the task is being created).
 This also means that the *update* event will always occur after a *create* event has already occurred.
 
