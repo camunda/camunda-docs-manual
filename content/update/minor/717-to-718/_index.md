@@ -16,13 +16,14 @@ menu:
 This document guides you through the update from Camunda Platform `7.17.x` to `7.18.0` and covers the following use cases:
 
 1. For administrators and developers: [Database updates](#database-updates)
-2. For administrators and developers: [Full distribution update](#full-distribution)
-3. For administrators: [Standalone web application](#standalone-web-application)
-4. For administrators and developers: [Groovy version update](#groovy-version-update)
-5. For administrators: [Camunda Docker Images: Base image updated to Alpine 3.15](#camunda-docker-images-base-image-updated-to-alpine-3-15)
-6. For administrators and developers: [XLTS for AngularJS](#xlts-for-angularjs)
-7. For administrators and developers: [Stricter default Content Security Policy](#stricter-default-content-security-policy)
-8. For administrators: [Log level configuration for BPMN stack trace](#log-level-configuration-for-bpmn-stack-trace)
+1. For administrators and developers: [Full distribution update](#full-distribution)
+1. For administrators: [Standalone web application](#standalone-web-application)
+1. For administrators and developers: [Groovy version update](#groovy-version-update)
+1. For administrators: [Camunda Docker Images: Base image updated to Alpine 3.15](#camunda-docker-images-base-image-updated-to-alpine-3-15)
+1. For administrators and developers: [XLTS for AngularJS](#xlts-for-angularjs)
+1. For administrators and developers: [Stricter default Content Security Policy](#stricter-default-content-security-policy)
+1. For administrators: [Log level configuration for BPMN stack trace](#log-level-configuration-for-bpmn-stack-trace)
+1. For developers: [Adjusted class structure for Expression Language handling](#adjusted-class-structure-for-expression-language-handling)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.18.
 
@@ -137,3 +138,11 @@ However, if you want to see the bpmn stack traces in the log, but don't want to 
 
 See the [Logging level parameters]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#logLevelBpmnStackTrace" >}}) section for details.  
 Additionally, you can find out more about logging in the [Logging User Guide]({{< ref "/user-guide/logging.md" >}}) section.
+
+# Adjusted class structure for Expression Language handling
+
+To provide a more convenient pluggability of the [Unified Expression Language (EL)]({{< ref "/user-guide/process-engine/expression-language.md" >}}) used in the engine, the structure of related classes changes with Camunda Platform 7.18.
+The `ExpressionManager` class is now a Java `Interface` that needs to be implemented to provide a custom expression manager for the EL of your choice. If you still want to extend the default JUEL-based expression manager, you can subclass the new `JuelExpressionManager` class.
+
+Additionally, if you want your custom expression manager to be available in the DMN Engine, you can implement the new `ElProviderCompatible` interface in your expression manager as well.
+The process engine configuration will then take care of passing on your expression manager to the DMN Engine. The `JuelExpressionManager` already implements this interface as well.
