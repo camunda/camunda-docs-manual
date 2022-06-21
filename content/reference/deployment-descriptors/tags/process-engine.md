@@ -1243,6 +1243,11 @@ The specified data will only be put into the MDC if a key is defined. All parame
     <td>Defines the key for the current activity id. Default value: <code>activityId</code></td>
   </tr>
   <tr>
+    <td><code>loggingContextActivityName</code></td>
+    <td>String</td>
+    <td>Defines the key for the current activity name. Default value: <code>activityName</code></td>
+  </tr>
+  <tr>
     <td><code>loggingContextApplicationName</code></td>
     <td>String</td>
     <td>Defines the key for the current process application name. Default value: <code>applicationName</code></td>
