@@ -1262,7 +1262,7 @@ The specified data will only be put into the MDC if a key is defined. All parame
     <td><code>loggingContextProcessDefinitionKey</code></td>
     <td>String</td>
     <td>Defines the key for the current process definition key. Default value: <code>null</code> (disabled by default since a lookup into the database might be necessary 
-	in case the business key needs to be fetched from the process instance)</td>
+	in case the process definition key needs to be fetched from the process instance)</td>
   </tr>
   <tr>
     <td><code>loggingContextProcessInstanceId</code></td>
