@@ -602,6 +602,53 @@ public class BookOutGoodsDelegate implements JavaDelegate {
 }
 ```
 
+# Exception codes
+
+You can throw a `{{< javadocref page="org/camunda/bpm/engine/ProcessEngineException.html" text="ProcessEngineException" >}}`
+from your delegation code and define your custom error code by passing it to the constructor or by
+calling `ProcessEngineException#setCode`.
+
+Also, you can create a custom exception class that extends the `ProcessEngineException`:
+
+```java
+// Defining a custom exception.
+public class MyException extends ProcessEngineException {
+
+  public MyException(String message, int code) {
+    super(message, code);
+  }
+}
+
+// Delegation code that throws MyException with a custom error code.
+public class MyJavaDelegate implements JavaDelegate {
+
+  @Override
+  public void execute(DelegateExecution execution) {
+    String myErrorMessage = "My error message.";
+    int myErrorCode = 22_222;
+    throw new MyException(myErrorMessage, myErrorCode);
+  }
+
+}
+```
+
+Setting a custom error code via Delegation Code allows your business logic to react to it by getting 
+the code via `ProcessEngineException#getCode` when calling Camunda Java API or by evaluating the 
+`error` property in the response of an [erroneous REST API call]({{< ref "/reference/rest/overview/_index.md#exception-codes" >}}).
+
+If you don't set any code, the engine assigns `0`, which a custom or built-in error code provider can override.
+
+Also, you can [register your custom exception code provider]({{< ref "/user-guide/process-engine/error-handling.md#register-a-custom-code-provider" >}}) 
+to assign error codes to exceptions you cannot control via your Delegation Code.
+
+{{< note title="Heads-up!" class="info" >}}
+* A custom error code you define via delegation code has precedence over a custom error code provided 
+by a [Custom Code Provider](#custom-code-provider).
+* If your custom error code violates the [reserved code range](#reserved-code-range), it will be 
+overridden with `0` unless you disable the built-in code provider.
+{{< /note >}}
+
+
 [script-sources]: {{< ref "/user-guide/process-engine/scripting.md#script-source" >}}
 [camunda-script]: {{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#camunda-script" >}}
 [timerEventDefinition]: {{< ref "/reference/bpmn20/events/timer-events.md#defining-a-timer" >}}

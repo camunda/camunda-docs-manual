@@ -263,6 +263,7 @@ Status 400.
 {
 	"type": "ParseException",
 	"message": "ENGINE-09005 Could not parse BPMN process. Errors: Exclusive Gateway 'ExclusiveGateway_1' has outgoing sequence flow 'SequenceFlow_0' without condition which is not the default flow.",
+	"code": 0,
 	"details": {
 		"invoice.bpmn": {
 			"errors": [

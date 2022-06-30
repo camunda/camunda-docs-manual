@@ -36,14 +36,15 @@ You may prepend `/engine/{name}` to any of the methods (unless otherwise documen
 
 # Error Handling
 
-For every method this documentation gives possible HTTP status codes. The error code explanations do not cover all possible error causes that may arise when the request is served, for example, most of the requests will not work properly if there are problems with database access. Any of these undocumented errors will be translated to a HTTP 500 error.
+For every method this documentation gives possible HTTP status codes. The error explanations do not cover all possible error causes that may arise when the request is served, for example, most of the requests will not work properly if there are problems with database access. Any of these undocumented errors will be translated to a HTTP 500 error.
 
 All errors also provide a JSON response body of the form:
 
 ```json
   {
     "type" : "SomeExceptionClass",
-    "message" : "a detailed message"
+    "message" : "a detailed message",
+    "code" : 10000
   }
 ```
 
@@ -60,6 +61,7 @@ If an already authenticated user interacts with a resource in an unauthorized wa
 ```json
 {"type" : "AuthorizationException",
  "message" : "The user with id 'jonny' does not have 'DELETE' permission on resource 'Mary' of type 'User'.",
+ "code" : 0,
  "userId" : "jonny",
  "permissionName" : "DELETE",
  "resourceName" : "User",
@@ -137,6 +139,7 @@ Every validation report object contains the following properties:
 {
   "type": "MigrationPlanValidationException",
   "message": "ENGINE-23001 Migration plan for process definition 'invoice:1:8aa1533c-23e5-11e6-abb7-f6aefe19b687' to 'invoice:2:8accd012-23e5-11e6-abb7-f6aefe19b687' is not valid:\n\t Migration instruction MigrationInstructionImpl{sourceActivityId='approveInvoice', targetActivityId='assignApprover', updateEventTrigger='false'} is not valid:\n\t\tActivities have incompatible types (UserTaskActivityBehavior is not compatible with DmnBusinessRuleTaskActivityBehavior)\n",
+  "code" : 0,
   "validationReport": {
     "instructionReports": [
       {
@@ -251,6 +254,7 @@ Every validation report object contains the following properties:
 {
   "type": "MigratingProcessInstanceValidationException",
   "message": "ENGINE-23004 Cannot migrate process instance '96dc383f-23eb-11e6-8e4a-f6aefe19b687':\n\tCannot migrate activity instance 'approveInvoice:f59925bc-23eb-11e6-8e4a-f6aefe19b687':\n\t\tThere is no migration instruction for this instance's activity\n\tCannot migrate transition instance 'f598897a-23eb-11e6-8e4a-f6aefe19b687':\n\t\tThere is no migration instruction for this instance's activity\n",
+  "code": 0,
   "validationReport": {
     "processInstanceId": "96dc383f-23eb-11e6-8e4a-f6aefe19b687",
     "failures": [],
@@ -292,6 +296,7 @@ If the process bpmn resource cannot be parsed during deployment, the deployment 
 {
 	"type": "ParseException",
 	"message": "ENGINE-09005 Could not parse BPMN process. Errors: Exclusive Gateway 'ExclusiveGateway_1' has outgoing sequence flow 'SequenceFlow_0' without condition which is not the default flow.",
+	"code" : 0,
 	"details": {
 		"invoice.bpmn": {
 			"errors": [
@@ -325,6 +330,16 @@ If the process bpmn resource cannot be parsed during deployment, the deployment 
 
 When the [maximum results limit of a query]({{< ref "/user-guide/process-engine/process-engine-api.md#query-maximum-results-limit">}})
 is exceeded, an exception is thrown which results in an HTTP status code 400.
+
+## Exception codes
+
+Whenever an error occurs, the REST API exposes a property `"error"` with a numeric code as value in 
+the response body of the failed request. Like this, your client application can handle the error in 
+a reliable and automated fashion. The `type` property might be too coarse-grained, and the `message` 
+property might change with newer versions. 
+
+You can look up the meaning of all built-in codes and learn how to add custom codes in the 
+[User Guide]({{< ref "/user-guide/process-engine/error-handling.md#exception-codes" >}}).
 
 # Authentication
 
