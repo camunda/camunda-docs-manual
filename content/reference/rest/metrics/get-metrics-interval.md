@@ -51,8 +51,6 @@ GET `/metrics`
         <li>history-cleanup-removed-task-metrics</li>
         <li>process-instances</li>
         <li>root-process-instance-start (process-instances)</li>
-        <li>task-users</li>
-        <li>unique-task-workers (task-users)</li>
       </ul>
     </td>
   </tr>
