@@ -46,8 +46,7 @@ GET `/metrics`
       <code>history-cleanup-removed-decision-instances</code>,
       <code>history-cleanup-removed-batch-operations</code>,
       <code>history-cleanup-removed-task-metrics</code>,
-      <code>root-process-instance-start</code>,
-      <code>unique-task-workers</code>
+      <code>root-process-instance-start</code>
     </td>
   </tr>
   <tr>
