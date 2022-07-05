@@ -104,6 +104,15 @@ A JSON object with the following properties:
     <td>The error message.</td>
   </tr>
   <tr>
+    <td>code</td>
+    <td>Number</td>
+    <td>
+        The code allows your client application to identify the error in an automated fashion. 
+        You can look up the meaning of all built-in codes and learn how to add custom codes in the 
+        <a href="{{< ref "/user-guide/process-engine/error-handling.md#exception-codes" >}}">User Guide</a>.
+    </td>
+  </tr>
+  <tr>
     <td>validationReport</td>
     <td>Object</td>
     <td>
@@ -181,6 +190,15 @@ A JSON object with the following properties:
     <td>type</td>
     <td>String</td>
     <td>The type of exception, here <code>MigratingProcessInstanceValidationException</code>.</td>
+  </tr>
+  <tr>
+    <td>code</td>
+    <td>Number</td>
+    <td>
+        The code allows your client application to identify the error in an automated fashion. 
+        You can look up the meaning of all built-in codes and learn how to add custom codes in the 
+        <a href="{{< ref "/user-guide/process-engine/error-handling.md#exception-codes" >}}">User Guide</a>.
+    </td>
   </tr>
   <tr>
     <td>message</td>
@@ -333,7 +351,7 @@ is exceeded, an exception is thrown which results in an HTTP status code 400.
 
 ## Exception codes
 
-Whenever an error occurs, the REST API exposes a property `"error"` with a numeric code as value in 
+Whenever an error occurs, the REST API exposes a property `"code"` with a numeric code as value in 
 the response body of the failed request. Like this, your client application can handle the error in 
 a reliable and automated fashion. The `type` property might be too coarse-grained, and the `message` 
 property might change with newer versions. 

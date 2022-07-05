@@ -634,7 +634,7 @@ public class MyJavaDelegate implements JavaDelegate {
 
 Setting a custom error code via Delegation Code allows your business logic to react to it by getting 
 the code via `ProcessEngineException#getCode` when calling Camunda Java API or by evaluating the 
-`error` property in the response of an [erroneous REST API call]({{< ref "/reference/rest/overview/_index.md#exception-codes" >}}).
+`code` property in the response of an [erroneous REST API call]({{< ref "/reference/rest/overview/_index.md#exception-codes" >}}).
 
 If you don't set any code, the engine assigns `0`, which a custom or built-in error code provider can override.
 

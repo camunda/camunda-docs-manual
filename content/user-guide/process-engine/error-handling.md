@@ -148,9 +148,8 @@ You can configure the exception error codes feature in your [process engine conf
 * To disable the exception codes feature entirely, set the flag <code>disableExceptionCode</code> 
   in your process engine configuration to <code>true</code>.
 * To disable the built-in exception code provider, set the flag <code>disableBuiltinExceptionCodeProvider</code>
-  in your process engine configuration to <code>true</code>.
-  * Disabling the built-in exception code provider allows overriding the [reserved code range](#reserved-code-range) 
-    with your custom exception codes.
+  in your process engine configuration to <code>true</code>. Disabling the built-in exception code 
+  provider allows overriding the [reserved code range](#reserved-code-range) with your custom exception codes.
 
 ### Register a Custom Code Provider
 
