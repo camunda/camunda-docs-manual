@@ -996,6 +996,46 @@ The following is a list with the most commonly used process engine configuration
     </td>
   </tr>
 
+  <tr id="exception-codes">
+    <td><code>disableExceptionCode</code></td>
+    <td>Boolean</td>
+    <td>
+      Disables the entire <a href="{{< ref "/user-guide/process-engine/error-handling.md#exception-codes" >}}">exception error code feature</a>. No exception error codes are assigned.
+       <p>
+        Default value is <code>false</code>.
+      </p>
+      <p>
+        <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td><code>disableBuiltinExceptionCodeProvider</code></td>
+    <td>Boolean</td>
+    <td>
+      Disables the default implementation of {{< javadocref page="org/camunda/bpm/engine/impl/errorcode/ExceptionCodeProvider.html" text="ExceptionCodeProvider" >}} which allows overriding the <a href="{{< ref "/user-guide/process-engine/error-handling.md#reserved-code-range" >}}">reserved exception codes</a>.
+       <p>
+        Default value is <code>false</code>.
+      </p>
+      <p>
+        <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td><code>customExceptionCodeProvider</code></td>
+    <td><code>{{< javadocref page="org/camunda/bpm/engine/impl/errorcode/ExceptionCodeProvider.html" text="ExceptionCodeProvider" >}}</code></td>
+    <td>
+       Allows registering a custom implementation of the exception code provider allowing to provide custom exception codes.
+       <p>
+        Default value is <code>null</code>.
+      </p>
+      <p>
+        Read more in the <a href="{{< ref "/user-guide/process-engine/error-handling.md#register-a-custom-code-provider" >}}">User Guide</a>.
+      </p>
+    </td>
+  </tr>
+
 </table>
 
 ## History cleanup configuration parameters
