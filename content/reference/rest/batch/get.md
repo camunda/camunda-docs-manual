@@ -90,6 +90,7 @@ Status 200.
   "batchJobDefinitionId": "aBatchJobDefinitionId",
   "suspended": false,
   "tenantId": "aTenantId",
-  "createUserId": "aUserId"
+  "createUserId": "aUserId",
+  "startTime":"2013-01-23T13:42:42.000+0200"
 }
 ```
