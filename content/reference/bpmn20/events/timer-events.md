@@ -156,7 +156,7 @@ The XML representation of a timer start event is the normal start event declarat
 </startEvent>
 ```
 
-and this process will start once, on a selected date, at Greewich time:
+and this process will start once, on a selected date, at Greenwich time:
 
 ```xml
 <startEvent id="theStart">
