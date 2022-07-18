@@ -107,7 +107,7 @@ You can use expressions for the timer event definitions. By doing so you can inf
 
 ## Handling of Timezones
 
-The configuration `2016-03-11T12:13:14` does not specify a time zone. At runtime, such a date is interpreted in the local time zone of the JVM executing the process. This can be problematic in various cases, such as when running multiple Camunda nodes in different time zones or when you cannot assume the time zone the platform runs in. Furthermore, there can be glitches with respect to daylight saving time (DST). If in doubt, specify the time in UTC (e.g., `2016-03-11T12:13:14Z`) or with a UTC-relative offset (e.g., `2016-03-11T12:13:14+01`).
+The configuration `2022-03-11T12:13:14` does not specify a time zone. At runtime, such a date is interpreted in the local time zone of the JVM executing the process. This can be problematic in various cases, such as when running multiple Camunda nodes in different time zones or when you cannot assume the time zone the platform runs in. Furthermore, there can be glitches with respect to daylight saving time (DST). If in doubt, specify the time in UTC (e.g., `2022-03-11T12:13:14Z`) or with a UTC-relative offset (e.g., `2022-03-11T12:13:14+01`).
 
 ## Camunda Extensions
 
@@ -145,23 +145,23 @@ Note: A subprocess cannot have a timer start event.
 
 Note: A timer start event is scheduled as soon as process is deployed. There is no need to call `startProcessInstanceBy...`, although calling start process methods is not restricted and will cause one more start of the process at the time of the `startProcessInstanceBy...` invocation.
 
-The XML representation of a timer start event is the normal start event declaration, with a timer definition sub-element. The following example process will start 4 times, in 5 minute intervals, starting on 11th of March 2016, at 12:13 (24 hour clock system):
+The XML representation of a timer start event is the normal start event declaration, with a timer definition sub-element. The following example process will start 4 times, in 5 minute intervals, starting on 11th of March 2022, at 12:13 (UTC +01, 24 hour clock system):
 
 
 ```xml
 <startEvent id="theStart">
   <timerEventDefinition>
-    <timeCycle>R4/2016-03-11T12:13/PT5M</timeCycle>
+    <timeCycle>R4/2022-03-11T12:13+01/PT5M</timeCycle>
   </timerEventDefinition>
 </startEvent>
 ```
 
-and this process will start once, on a selected date:
+and this process will start once, on a selected date, at Greewich time:
 
 ```xml
 <startEvent id="theStart">
   <timerEventDefinition>
-    <timeDate>2016-03-11T12:13:14</timeDate>
+    <timeDate>2022-03-11T12:13:14Z</timeDate>
   </timerEventDefinition>
 </startEvent>
 ```
