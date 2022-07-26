@@ -163,6 +163,7 @@ Status 200.
     "followUp": null,
     "formKey": null,
     "id": "aTaskId",
+    "lastUpdated": "2014-09-15T15:45:48.000+0200",
     "name": "Task 2",
     "owner": null,
     "parentTaskId": null,

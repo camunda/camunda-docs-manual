@@ -80,6 +80,11 @@ Its properties are as follows:
     <td>The follow-up date for the task. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
+    <td>lastUpdated</td>
+    <td>String</td>
+    <td>The date the task was updated last. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+  <tr>
     <td>delegationState</td>
     <td>String</td>
     <td>The delegation state of the task. Corresponds to the <code>DelegationState</code> enum in the engine.
