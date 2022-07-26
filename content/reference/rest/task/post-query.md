@@ -465,7 +465,7 @@ A JSON object with the following properties:
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
   </tr>
-    <tr>
+  <tr>
     <td>updatedAfter</td>
     <td>Restrict to tasks that were updated after the given date. Every action that fires a <a href="{{< ref "/user-guide/process-engine/delegation-code.md#task-listener-event-lifecycle" >}}">task update event</a> is considered as updating the task.<br>
     By default*, the given date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.332+0200</code>.
