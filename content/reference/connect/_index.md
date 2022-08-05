@@ -36,7 +36,7 @@ connector.addRequestInterceptor(interceptor).createRequest();
 Connect can be used in any Java-based application by adding the following maven
 dependency to your `pom.xml` file:
 
-{{< note title="Camunda BOM" >}}
+{{< note title="Camunda BOM" class="info" >}}
 If you use other Camunda Platform projects please import the
 [Camunda BOM](/get-started/apache-maven/)
 to ensure correct versions for every Camunda project.
@@ -71,6 +71,10 @@ to ensure correct versions for every Camunda project.
 ```
 
 Camunda Connect is published to [maven central](http://search.maven.org/#search%7Cga%7C1%7Ccamunda-connect).
+
+{{< note title="Process engine plugin" class="info" >}}
+If you are using Connect in the Camunda Platform process engine, you also need the `camunda-engine-plugin-connect` dependency. For more information, refer to the [Connectors guide]({{< ref "/user-guide/process-engine/connectors.md" >}}).
+{{< /note >}}
 
 # Logging
 
