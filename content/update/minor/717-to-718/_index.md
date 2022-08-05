@@ -25,6 +25,7 @@ This document guides you through the update from Camunda Platform `7.17.x` to `7
 1. For administrators: [Log level configuration for BPMN stack trace](#log-level-configuration-for-bpmn-stack-trace)
 1. For developers: [Adjusted class structure for Expression Language handling](#adjusted-class-structure-for-expression-language-handling)
 1. For developers: [Adjusted exception handling in the Java External Task Client](#adjusted-exception-handling-in-the-java-external-task-client)
+1. For administrators: [Batch execution start time](#batch-execution-start-time)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.18.
 
@@ -178,3 +179,16 @@ Before 7.18, the exception cause was wrapped in a `FetchAndLockException` and pa
 With this version, we streamlined the exception types thrown when calling operations on the `ExternalTaskService` with 
 the exceptions passed to `#reconfigure(List, ExternalTaskClientException)` in case a "fetch and lock" request fails.
 This is why we removed the `FetchAndLockException` and replaced it with an `ExternalTaskClientException`.
+
+# Batch execution start time
+
+We are introducing a few new features for the cockpit's batches page, one of which is a field called
+execution start time. The execution start time is displayed in the batch details view on the batches
+page, and it shows the time when the first job's execution of the batch began.
+
+If you have batch jobs started but not finished before the 7.18 update then this new field on the
+batch page could either show incorrect or empty value. This is due to the fact that the batch has
+been started before the update.
+
+There is no need for any action and this won't influence the batch execution in any way.
+All the batch jobs started after the update will populate this field properly.

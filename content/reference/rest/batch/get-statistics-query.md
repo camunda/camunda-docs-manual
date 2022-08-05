@@ -172,6 +172,14 @@ Each batch statistics object has the following properties:
     <td>The time the batch was started. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
+    <td>executionStartTime</td>
+    <td>String</td>
+    <td>
+      The time the batch execution was started, i.e., at least one batch job has been executed.
+      Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.
+    </td>
+  </tr>
+  <tr>
     <td>remainingJobs</td>
     <td>Number</td>
     <td>
@@ -250,6 +258,7 @@ Status 200.
     "tenantId": "aTenantId",
     "createUserId": "aUserId",
     "startTime":"2013-01-23T13:42:42.000+0200",
+    "executionStartTime":"2013-01-23T13:42:43.000+0200",
     "remainingJobs": 3,
     "completedJobs": 7,
     "failedJobs": 1

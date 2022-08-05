@@ -114,6 +114,14 @@ Its properties are as follows:
     <td>The time the batch was started. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
+    <td>executionStartTime</td>
+    <td>String</td>
+    <td>
+      The time the batch was execution started, i.e., at least one batch job has been executed.
+      Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.
+    </td>
+  </tr>
+  <tr>
     <td>endTime</td>
     <td>String</td>
     <td>The time the batch ended. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
@@ -174,6 +182,7 @@ Status 200.
   "tenantId": "aTenantId",
   "createUserId": "aUserId",
   "startTime": "2016-04-12T15:29:33.000+0200",
+  "executionStartTime":"2013-01-23T13:42:43.000+0200",
   "endTime": "2016-04-12T16:23:34.000+0200",
   "removalTime": "2016-04-15T16:23:34.000+0200"
 }

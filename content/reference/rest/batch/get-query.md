@@ -139,7 +139,8 @@ Status 200.
     "suspended": false,
     "tenantId": "aTenantId",
     "createUserId": "aUserId",
-    "startTime":"2013-01-23T13:42:42.000+0200"
+    "startTime":"2013-01-23T13:42:42.000+0200",
+    "executionStartTime":"2013-01-23T13:42:43.000+0200"
   }
 ]
 ```
