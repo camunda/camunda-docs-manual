@@ -95,11 +95,12 @@ Check our [Enterprise Announcements page](/enterprise/announcement/) for confirm
 
 ## Adding Environments
 
-Whenever a new version of one of the following environments is released, we target support of that new version with the next minor release of Camunda Platform:
+Whenever a new version of one of the following environments is released, we target support of that new version with the next minor release of Camunda Platform. A new released environment has to be available three months before the next Camunda Platform minor release to be considered.
 
-* Java Language
+* Java Language (LTS)
 * Wildfly Application Server
 * Oracle Database
+* PostgreSQL
 
 The exact release in which we support a new environment depends on factors such as the release date of the environment and the required implementation effort.
 
