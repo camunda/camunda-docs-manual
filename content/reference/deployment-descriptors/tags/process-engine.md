@@ -1319,6 +1319,11 @@ The specified data will only be put into the MDC if a key is defined. All parame
     <td>String</td>
     <td>Defines the key for the current tenant id. Default value: <code>tenantId</code></td>
   </tr>
+  <tr>
+    <td><code>loggingContextEngineName</code></td>
+    <td>String</td>
+    <td>Defines the key for the current process engine name. Default value: <code>engineName</code></td>
+  </tr>
 </table>
 
 ## Logging level parameters
