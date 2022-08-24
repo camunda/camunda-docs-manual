@@ -128,6 +128,8 @@ configuration to the `web.xml` file of Camunda webapplication
 
 ## Session Cookie in Webapps
 
+### WebSphere 9 configuration
+
 You can configure the **Session Cookie** per deployment via the Admin Web Console of WebSphere.
 
 1. Navigate to **Enterprise Applications > $YOUR_DEPLOYMENT > Session management > Enable cookies**
@@ -138,6 +140,32 @@ You can configure the **Session Cookie** per deployment via the Admin Web Consol
 
 To configure the `SameSite` flag of session cookies, you can refer to all possible options detailed in IBM's 
 [authorized program analysis report (APAR) PH22157](https://www.ibm.com/support/pages/apar/PH22157).
+
+### WebSphere Liberty configuration
+
+In WebSphere Liberty, you can configure the **Session Cookie** per Liberty server via the `server.xml` by adding the
+`httpSession` element with the following content:
+
+```xml
+<server>
+  <httpSession 
+     cookieName="JSESSIONID"
+     cookieHttpOnly="true"
+     cookieMaxAge="-1"
+     cookiePath="/" />
+</server>
+```
+
+* To ensure that session cookies are `HTTPOnly`, set the `httpSession#cookieHttpOnly` attribute to `true`.
+* To restrict session cookies to HTTPS sessions, set the `httpSession#cookieSecure` attribute to `true`.
+* To confgiure the session cookies' SameSite policy, set the `httpSession#cookieSameSite` attribute to one of the 
+  [available policies](https://www.ibm.com/docs/en/was-liberty/core?topic=configuration-httpsession). 
+  The default policy is `Disabled`.
+* To ensure that the session cookie expires once the current browser session ends, set the `httpSession#cookieMaxAge` 
+  attribute to -1.
+
+You can find more details in the [Liberty configuring cookies](https://www.ibm.com/docs/en/was-liberty/core?topic=configuration-httpsession) 
+documentation page.
 
 ## Security-related HTTP headers in Webapps
 
