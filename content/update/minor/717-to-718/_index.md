@@ -24,6 +24,7 @@ This document guides you through the update from Camunda Platform `7.17.x` to `7
 1. For administrators and developers: [Stricter default Content Security Policy](#stricter-default-content-security-policy)
 1. For administrators: [Log level configuration for BPMN stack trace](#log-level-configuration-for-bpmn-stack-trace)
 1. For developers: [Adjusted class structure for Expression Language handling](#adjusted-class-structure-for-expression-language-handling)
+1. For developers: [Adjusted exception handling in the Java External Task Client](#adjusted-exception-handling-in-the-java-external-task-client)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.18.
 
@@ -146,3 +147,34 @@ The `ExpressionManager` class is now a Java `Interface` that needs to be impleme
 
 Additionally, if you want your custom expression manager to be available in the DMN Engine, you can implement the new `ElProviderCompatible` interface in your expression manager as well.
 The process engine configuration will then take care of passing on your expression manager to the DMN Engine. The `JuelExpressionManager` already implements this interface as well.
+
+# Adjusted exception handling in the Java External Task Client
+
+In the course of exposing the new [Exception codes]({{< ref "/user-guide/process-engine/error-handling.md#exception-codes" >}}) feature to the Java External Task Client, 
+the client's exception handling was slightly overhauled which might lead to migration effort.
+
+## Deprecated exception types
+
+With this version, we deprecated the following exception types: 
+
+* `NotResumedException`: thrown when the HTTP status code returns `500`
+* `NotAcquiredException`: thrown when the HTTP status code returns `400`
+
+These exception names didn't really match their respective semantics. This is why we replaced the 
+`NotResumedException` with `EngineException` and the `NotAcquiredException` with `BadRequestException`. 
+
+With this release, the old exceptions are marked as deprecated but still work like before. 
+We will remove the deprecated exception types with the next minor version.
+
+Please make sure to adjust your business logic accordingly.
+
+## Breaking change in `ErrorAwareBackoffStrategy`
+
+When you have implemented a custom `ErrorAwareBackoffStrategy`, please make sure to migrate your 
+custom code to respect the adjusted method signature that changed from `#reconfigure(List, Exception)` 
+to `#reconfigure(List, ExternalTaskClientException)`. 
+
+Before 7.18, the exception cause was wrapped in a `FetchAndLockException` and passed to `#reconfigure(List, Exception)`.
+With this version, we streamlined the exception types thrown when calling operations on the `ExternalTaskService` with 
+the exceptions passed to `#reconfigure(List, ExternalTaskClientException)` in case a "fetch and lock" request fails.
+This is why we removed the `FetchAndLockException` and replaced it with an `ExternalTaskClientException`.
