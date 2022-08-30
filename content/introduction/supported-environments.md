@@ -34,9 +34,9 @@ Run the Camunda Platform in every Java-runnable environment. Camunda Platform is
 
 * Apache Tomcat 9.0
 * JBoss EAP 7.0 / 7.1 / 7.2 / 7.3 / 7.4
-* Wildfly Application Server 13.0 / 14.0 / 15.0 / 16.0 / 17.0 / 18.0 / 19.0 / 20.0 / 21.0 / 22.0 / 23.0 / 24.0 / 25.0 / 26.0
+* Wildfly Application Server 14.0 / 15.0 / 16.0 / 17.0 / 18.0 / 19.0 / 20.0 / 21.0 / 22.0 / 23.0 / 24.0 / 25.0 / 26.0
 * IBM WebSphere Application Server 9.0 ([Enterprise Edition only](http://camunda.com/enterprise/))
-* Oracle WebLogic Server 12c (12R2) / 14c (14R1) ([Enterprise Edition only](http://camunda.com/enterprise/))
+* Oracle WebLogic Server 14c (14R1) ([Enterprise Edition only](http://camunda.com/enterprise/))
 
 
 # Databases
@@ -46,10 +46,10 @@ Run the Camunda Platform in every Java-runnable environment. Camunda Platform is
 * MySQL 5.7 / 8.0
 * MariaDB 10.3 / 10.6
 * Oracle 12c / 19c
-* IBM DB2 11.1 / 11.5 (excluding IBM z/OS for all versions)
-* PostgreSQL 10 / 11 / 12 / 13 / 14
-* Amazon Aurora PostgreSQL compatible with PostgreSQL 10 / 12
-* Microsoft SQL Server 2014/2016/2017/2019 (see [Configuration Note]({{< ref "/user-guide/process-engine/database/mssql-configuration.md" >}}))
+* IBM DB2 11.5 (excluding IBM z/OS for all versions)
+* PostgreSQL 11 / 12 / 13 / 14
+* Amazon Aurora PostgreSQL compatible with PostgreSQL 12
+* Microsoft SQL Server 2016/2017/2019 (see [Configuration Note]({{< ref "/user-guide/process-engine/database/mssql-configuration.md" >}}))
 * Microsoft Azure SQL with Camunda-supported SQL Server compatibility levels 
   (see [Configuration Note]({{< ref "/user-guide/process-engine/database/mssql-configuration.md#azure-sql-compatibility-levels-supported-by-camunda" >}})): 
   * SQL Server on Azure Virtual Machines
