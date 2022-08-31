@@ -150,15 +150,15 @@ The process engine configuration will then take care of passing on your expressi
 
 # Adjusted exception handling in the Java External Task Client
 
-In the course of exposing the new [Exception codes]({{< ref "/user-guide/process-engine/error-handling.md#exception-codes" >}}) feature to the Java External Task Client, 
+In the course of exposing the new [exception codes]({{< ref "/user-guide/process-engine/error-handling.md#exception-codes" >}}) feature to the Java External Task Client, 
 the client's exception handling was slightly overhauled which might lead to migration effort.
 
 ## Deprecated exception types
 
 With this version, we deprecated the following exception types: 
 
-* `NotResumedException`: thrown when the HTTP status code returns `500`
-* `NotAcquiredException`: thrown when the HTTP status code returns `400`
+* `NotResumedException`: thrown when the HTTP status code returns `500`.
+* `NotAcquiredException`: thrown when the HTTP status code returns `400`.
 
 These exception names didn't really match their respective semantics. This is why we replaced the 
 `NotResumedException` with `EngineException` and the `NotAcquiredException` with `BadRequestException`. 
@@ -166,11 +166,11 @@ These exception names didn't really match their respective semantics. This is wh
 With this release, the old exceptions are marked as deprecated but still work like before. 
 We will remove the deprecated exception types with the next minor version.
 
-Please make sure to adjust your business logic accordingly.
+Ensure you adjust your business logic accordingly.
 
 ## Breaking change in `ErrorAwareBackoffStrategy`
 
-When you have implemented a custom `ErrorAwareBackoffStrategy`, please make sure to migrate your 
+When you implement a custom `ErrorAwareBackoffStrategy`, ensure you migrate your 
 custom code to respect the adjusted method signature that changed from `#reconfigure(List, Exception)` 
 to `#reconfigure(List, ExternalTaskClientException)`. 
 
