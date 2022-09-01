@@ -668,6 +668,18 @@ The `server.xml` should look like the following example:
 </server>
 ```
 
+{{< note title="Transaction rollbacks in WebSphere Liberty" class="warning" >}}
+Camunda Platform 7 allows to mark a transaction as "rollback only" by calling `UserTransaction#setRollbackOnly()`.
+If this code is executed within a Camunda Platform 7 Job, the job is marked as failed, and can be retried.
+
+WebSphere Liberty doesn't support this behavior of Camunda Platform 7. When calling `UserTransaction#setRollbackOnly()`
+in WebSphere Liberty, the transaction is rolled back silently, and the Camunda process engine is unable to unlock the
+job and decrease the job retry count.
+
+As a workaround, you can throw a `RuntimeException` after invoking the `UserTransaction#setRollbackOnly()`. The Camunda 
+process engine will catch this `Exception` and handle the transaction rollback inside a job correctly. 
+{{< /note >}}
+
 ### Concurrency policy attributes
 
 You can use the following attributes of the `concurrencyPolicy` element to configure the CommonJ Work manager:
