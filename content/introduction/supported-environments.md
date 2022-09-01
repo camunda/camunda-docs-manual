@@ -48,7 +48,7 @@ Run the Camunda Platform in every Java-runnable environment. Camunda Platform is
 * Oracle 12c / 19c
 * IBM DB2 11.1 / 11.5 (excluding IBM z/OS for all versions)
 * PostgreSQL 10 / 11 / 12 / 13
-* Amazon Aurora PostgreSQL compatible with PostgreSQL 10 / 12
+* Amazon Aurora PostgreSQL compatible with PostgreSQL 10 / 11 / 12
 * Microsoft SQL Server 2014/2016/2017/2019 (see [Configuration Note]({{< ref "/user-guide/process-engine/database/mssql-configuration.md" >}}))
 * Microsoft Azure SQL with Camunda-supported SQL Server compatibility levels 
   (see [Configuration Note]({{< ref "/user-guide/process-engine/database/mssql-configuration.md#azure-sql-compatibility-levels-supported-by-camunda" >}})): 
