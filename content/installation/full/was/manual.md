@@ -65,7 +65,6 @@ Camunda Platform uses one or multiple process engines which must be connected to
 
 Related resources:
 
-* [WebSphere 8.5: Configuring a JDBC provider and data source](https://www.ibm.com/support/knowledgecenter/en/SSEQTP_8.5.5/com.ibm.websphere.base.iseries.doc/ae/tdat_tccrtprovds.html)
 * [Websphere 9.0: Configuring a JDBC provider and data source](https://www.ibm.com/support/knowledgecenter/en/SSEQTP_9.0.5/com.ibm.websphere.base.doc/ae/tdat_tccrtprovds.html)
 
 ### Default JNDI Name
@@ -83,7 +82,7 @@ Note that you may configure multiple datasources used by different process engin
 
 This section explains how you can use the WebSphere Integrated Solutions Console to configure a work manager to be used by the Camunda Platform jobexecutor. It is recommended to check the [manual of the application server](http://www-01.ibm.com/software/webservers/appserv/was/library/) for additional details.
 
-Go to **Resources / Asynchronous Bean / Work Managers** (Websphere 8) or **Resources / Concurrency / Work Managers** (Websphere 9). Select the appropriate scope, for example: `Cell=<some_id>`.
+Go to **Resources / Concurrency / Work Managers**. Select the appropriate scope, for example: `Cell=<some_id>`.
 Create a new work manager in the scope using the Button **New...**.
 Configure the new Work Manager. The following is a selection of sensible default values:
 
