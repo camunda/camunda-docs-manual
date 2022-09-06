@@ -58,6 +58,38 @@ GET `/batch/statistics`
     </td>
   </tr>
   <tr>
+    <td>createdBy</td>
+    <td>Only include batches that were started by this user id.</td>
+  </tr>
+  <tr>
+    <td>startedBefore</td>
+    <td>
+      Only include batches that were started before the given date.
+      By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.
+    </td>
+  </tr>
+  <tr>
+    <td>startedAfter</td>
+    <td>
+      Only include batches that were started after the given date.
+      By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.
+    </td>
+  </tr>
+  <tr>
+    <td>withFailures</td>
+    <td>
+      Only include batches having jobs with failures.
+      Value can only be <code>true</code>.
+    </td>
+  </tr>
+  <tr>
+    <td>withoutFailures</td>
+    <td>
+      Only include batches having jobs without failures. Also returns batches without jobs.
+      Value can only be <code>true</code>.
+    </td>
+  </tr>
+  <tr>
     <td>sortBy</td>
     <td>
       Sort the results lexicographically by a given criterion.
@@ -80,6 +112,7 @@ GET `/batch/statistics`
   </tr>
 </table>
 
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Result
 
