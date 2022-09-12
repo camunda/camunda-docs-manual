@@ -598,7 +598,7 @@ In Addition to Create, Update, Read and Delete, the following permissions are av
 * Create Batch Set Variables
 * Create Batch Correlate Messages
 
-The specific GRANT and REVOKE permissions "Create Batch …" precede over the general "Create" permission.
+GRANT and REVOKE authorizations with "Create Batch …" permissions precede over Create.
 
 ## Default Read Variable Permissions
 When the `enforceSpecificVariablePermission` process engine configuration is enabled, in order to read variables, the user needs to be granted with the following permissions:
