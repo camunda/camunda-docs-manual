@@ -33,10 +33,10 @@ Run the Camunda Platform in every Java-runnable environment. Camunda Platform is
 ## Container-Managed Process Engine and Camunda Cockpit, Tasklist, Admin
 
 * Apache Tomcat 9.0
-* JBoss EAP 7.0 / 7.1 / 7.2 / 7.3 / 7.4
-* Wildfly Application Server 13.0 / 14.0 / 15.0 / 16.0 / 17.0 / 18.0 / 19.0 / 20.0 / 21.0 / 22.0 / 23.0
-* IBM WebSphere Application Server 8.5 / 9.0 ([Enterprise Edition only](http://camunda.com/enterprise/))
-* Oracle WebLogic Server 12c (12R2) ([Enterprise Edition only](http://camunda.com/enterprise/))
+* JBoss EAP 7.2 / 7.3 / 7.4
+* Wildfly Application Server 13.0 / 14.0 / 15.0 / 16.0 / 17.0 / 18.0 / 19.0 / 20.0 / 21.0 / 22.0 / 23.0 / 24.0 / 25.0 / 26.0
+* IBM WebSphere Application Server 9.0 ([Enterprise Edition only](http://camunda.com/enterprise/))
+* Oracle WebLogic Server 12c (12R2) / 14c (14R1) ([Enterprise Edition only](http://camunda.com/enterprise/))
 
 
 # Databases
@@ -44,25 +44,24 @@ Run the Camunda Platform in every Java-runnable environment. Camunda Platform is
 ## Supported Database Products
 
 * MySQL 5.7 / 8.0
-* MariaDB 10.2 / 10.3
+* MariaDB 10.3 / 10.6
 * Oracle 12c / 19c
-* IBM DB2 11.1 (excluding IBM z/OS for all versions)
-* PostgreSQL 9.6 / 10 / 11 / 12 / 13
-* Amazon Aurora PostgreSQL compatible with PostgreSQL 9.6 / 10.4 / 10.7 / 10.13 / 12.4
+* IBM DB2 11.1 / 11.5 (excluding IBM z/OS for all versions)
+* PostgreSQL 10 / 11 / 12 / 13 / 14
+* Amazon Aurora PostgreSQL compatible with PostgreSQL 10 / 11 / 12
 * Microsoft SQL Server 2014/2016/2017/2019 (see [Configuration Note]({{< ref "/user-guide/process-engine/database/mssql-configuration.md" >}}))
 * Microsoft Azure SQL with Camunda-supported SQL Server compatibility levels 
   (see [Configuration Note]({{< ref "/user-guide/process-engine/database/mssql-configuration.md#azure-sql-compatibility-levels-supported-by-camunda" >}})): 
   * SQL Server on Azure Virtual Machines
   * Azure SQL Managed Instance
   * Azure SQL Database
-* H2 1.4 (not recommended for [Cluster Mode]({{< ref "/introduction/architecture.md#clustering-model" >}}) - see [Deployment Note]({{< ref "/user-guide/process-engine/deployments.md" >}}))
+* H2 2.1 (not recommended for [Cluster Mode]({{< ref "/introduction/architecture.md#clustering-model" >}}) - see [Deployment Note]({{< ref "/user-guide/process-engine/deployments.md" >}}))
 * CockroachDB v20.1.3 (see [Configuration guide]({{< ref "/user-guide/process-engine/database/cockroachdb-configuration.md" >}}) for more details)
 
 ## Database Clustering & Replication
 
 Clustered or replicated databases are supported given the following conditions. The communication between Camunda Platform and the database cluster has to match with the corresponding non-clustered / non-replicated configuration. It is especially important that the configuration of the database cluster guarantees the equivalent behavior of READ-COMMITTED isolation level.
 
-* MariaDB Galera Cluster: Galera Cluster for MariaDB is supported with specific configuration settings and some known limitations. See [Details]({{< ref "/user-guide/process-engine/database/mariadb-galera-configuration.md" >}}).
 
 # Web Browser
 
@@ -73,14 +72,14 @@ Clustered or replicated databases are supported given the following conditions. 
 
 # Java
 
-* Java 8 / 9 / 10 / 11 / 12 / 13 / 14 / 15 (if supported by your application server/container)
+* Java 8 / 11 / 17 (if supported by your application server/container)
 
 
 # Java Runtime
 
-* Oracle JDK 8 / 9 / 10 / 11 / 12 / 13 / 14 / 15
+* Oracle JDK 8 / 11 / 17
 * IBM JDK 8 (with J9 JVM)
-* OpenJDK 8 / 9 / 10 / 11 / 12 / 13 / 14 / 15, including builds of the following products:
+* OpenJDK 8 / 11 / 17, including builds of the following products:
   * Oracle OpenJDK
   * AdoptOpenJDK (with HotSpot JVM)
   * Amazon Corretto
@@ -88,17 +87,7 @@ Clustered or replicated databases are supported given the following conditions. 
 
 # Camunda Modeler
 
-Supported on the following platforms:
-
-* Windows 7 / 10
-* Mac OS X 10.11
-* Ubuntu LTS (latest)
-
-Reported to work on
-
-* Ubuntu 12.04 and newer
-* Fedora 21
-* Debian 8
+[Supported environments](https://docs.camunda.io/docs/reference/supported-environments/#camunda-modeler) for Camunda Modeler have moved to [docs.camunda.io](https://docs.camunda.io/).
 
 # Maintenance Policy
 
@@ -106,11 +95,12 @@ Check our [Enterprise Announcements page](/enterprise/announcement/) for confirm
 
 ## Adding Environments
 
-Whenever a new version of one of the following environments is released, we target support of that new version with the next minor release of Camunda Platform:
+Whenever a new version of one of the following environments is released, we target support of that new version with the next minor release of Camunda Platform. A new released environment has to be available three months before the next Camunda Platform minor release to be considered.
 
-* Java Language
+* Java Language (LTS)
 * Wildfly Application Server
 * Oracle Database
+* PostgreSQL
 
 The exact release in which we support a new environment depends on factors such as the release date of the environment and the required implementation effort.
 

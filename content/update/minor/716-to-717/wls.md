@@ -10,7 +10,9 @@ menu:
 
 ---
 
-The following steps describe how to update the Camunda artifacts on an Oracle WebLogic application server in a shared process engine setting. For the entire procedure, refer to the [update guide][update-guide]. If not already done, download the [Camunda Platform 7.17 Oracle WebLogic distribution](https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm-ee/org/camunda/bpm/weblogic/camunda-bpm-weblogic/7.17.0-ee/).
+The following steps describe how to update the Camunda artifacts on an Oracle WebLogic application server in a
+shared process engine setting. Throughout the procedure, refer to the [update guide][update-guide]. If not already 
+done, download the [Camunda Platform 7.17 Oracle WebLogic distribution](https://artifacts.camunda.com/artifactory/camunda-bpm-ee/org/camunda/bpm/weblogic/camunda-bpm-weblogic/7.17.0-ee/).
 
 The update procedure takes the following steps:
 
@@ -47,10 +49,10 @@ After shutting down the server, replace the following libraries in `$WLS_DOMAIN_
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
 * `camunda-connect-connectors-all-$CONNECT_VERSION.jar`
 * `camunda-connect-core-$CONNECT_VERSION.jar`
-* `camunda-template-engines-freemarker-$TEMPLATE_ENGINES_VERSION.jar`
 * `feel-engine-$FEEL_ENGINE_VERSION-scala-shaded.jar`
-* `freemarker-$FREEMARKER_VERSION.jar`
 * `mybatis-$MYBATIS_VERSION.jar`
+* `slf4j-api-$SLF4J_VERSION.jar`
+* `slf4j-jdk14-$SLF4J_VERSION.jar`
 
 # 3. Replace optional Camunda dependencies
 
@@ -62,11 +64,10 @@ Copy the following library from `$WLS_DISTRIBUTION/modules/lib` to the folder `$
 
 * `camunda-identity-ldap-$PLATFORM_VERSION.jar`
 
-## Camunda Connect Plugin
+## Camunda Connect plugin
 
-
-`camunda-connect-http-client`, `camunda-connect-soap-http-client`, and `camunda-engine-plugin-connect` are part of the .ear
-
+`camunda-connect-http-client`, `camunda-connect-soap-http-client`, and `camunda-engine-plugin-connect` are part of 
+the `.ear`.
 
 ## Camunda Spin
 
@@ -75,7 +76,8 @@ Copy the following library from `$WLS_DISTRIBUTION/modules/lib` to the folder `$
 * `camunda-spin-core-$SPIN_VERSION.jar`
 
 --- 
-`camunda-spin-dataformat-json-jackson`, `camunda-spin-dataformat-xml-dom`, and `camunda-engine-plugin-spin` are part of the .ear
+`camunda-spin-dataformat-json-jackson`, `camunda-spin-dataformat-xml-dom`, and `camunda-engine-plugin-spin` are part 
+of the `.ear`.
 
 ## GraalVM JavaScript
 
@@ -96,7 +98,7 @@ If you have previously replaced the default Camunda Platform configuration by a 
 
 Install the Camunda EAR, i.e., the file `$WLS_DISTRIBUTION/modules/camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear`.
 
-# 6. Install the Web Applications
+# 6. Install the web applications
 
 ## REST API
 

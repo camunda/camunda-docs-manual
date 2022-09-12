@@ -10,7 +10,7 @@ menu:
 
 ---
 
-The following steps describe how to update the Camunda artifacts on an IBM WebSphere application server in a shared process engine setting. For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the [Camunda Platform 7.5 IBM WebSphere distribution](https://app.camunda.com/nexus/service/rest/repository/browse/internal/org/camunda/bpm/websphere/camunda-bpm-websphere/).
+The following steps describe how to update the Camunda artifacts on an IBM WebSphere application server in a shared process engine setting. For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the [Camunda Platform 7.5 IBM WebSphere distribution](https://artifacts.camunda.com/artifactory/internal/org/camunda/bpm/websphere/camunda-bpm-websphere/).
 
 The update procedure takes the following steps:
 
@@ -90,11 +90,11 @@ The interface of an [Incident Handler]({{< ref "/user-guide/process-engine/incid
 
 ## Correlation Handler
 
-A new method has been added to the interface of a {{< javadocref page="?org/camunda/bpm/engine/impl/runtime/CorrelationHandler.html" text="Correlation Handler" >}}. The new method `correlateStartMessage()` allows to explicitly trigger a message start event of a process definition. If the default implementation is replaced by a custom one then it has to be adjusted.
+A new method has been added to the interface of a {{< javadocref page="org/camunda/bpm/engine/impl/runtime/CorrelationHandler.html" text="Correlation Handler" >}}. The new method `correlateStartMessage()` allows to explicitly trigger a message start event of a process definition. If the default implementation is replaced by a custom one then it has to be adjusted.
 
 ## Job Handler
 
-The interface of a {{< javadocref page="?org/camunda/bpm/engine/impl/jobexecutor/JobHandler.html" text="Job Handler" >}} has changed to support multi-tenancy and separate the parsing of the configuration. 
+The interface of a {{< javadocref page="org/camunda/bpm/engine/impl/jobexecutor/JobHandler.html" text="Job Handler" >}} has changed to support multi-tenancy and separate the parsing of the configuration. 
 
 # 6. Install the Camunda Archive
 

@@ -30,66 +30,74 @@ If the **XSS Protection** header is enabled some cross-site scripting (XSS) atta
 
 The **Content Security Policy** is a mighty tool to prevent cross-site scripting and code injection attacks.
 
-It is a common practice to extend the Camunda Platform web applications by custom scripts & forms. To ensure that these user 
-customizations work without any problems, by default, the **Content Security Policy** is configured very lax. It is highly 
-recommended to strengthen the default policy based on your requirements.
+It is a common practice to extend the Camunda Platform web applications by custom scripts and forms.
+Our default **Content Security Policy** defines some exceptions to ensure our web apps, your embedded forms, and embedded form scripts work out of the box.
 
 #### Default Policy
 
-For the default policy, only the `base-uri` directive is set to `'self'` which restricts the HTML Base Tag to point to 
-the same-origin.
-
 The header value of the default policy looks as follows:
 ```
-base-uri 'self'
-```
-
-#### Strengthen the Default Policy
-
-We encourage you to use a stricter **Content Security Policy** than the default policy to mitigate attacks. This section describes how to configure several directives more strict and explains the resulting impact:
-
-* `base-uri 'self'`
-  * The URI of the HTML Base Tag must not point to a cross-origin
-* `default-src 'self' 'unsafe-inline' 'unsafe-eval'`
-  * Resources (e. g. scripts, styles, fonts, etc.) must not point to a cross-origin
-  * Inline styles/scripts must be allowed since the web applications make use of it
-  * JavaScript's `eval(…)` calls must be allowed to execute `cam-script` in Tasklist
-* `img-src 'self' data:`
-  * Images must not point to a cross-origin
-  * Data URIs are allowed since the web applications make use of it
-* `block-all-mixed-content`
-  * When accessed via HTTPS, all resources loaded via HTTP are blocked
-  * Mixed content is allowed when the site is accessed via HTTP
-* `form-action 'self'`
-  * A form must not be submitted against a cross-origin
-  * JavaScript in the <code>action</code> attribute of a form is not executed
-* `frame-ancestors 'none'`
-  * Embedding the web applications via an <code>iframe</code> is forbidden; Mitigates clickjacking attacks
-* `object-src 'none'`
-  * Resources embedded via <code>object</code>, <code>embed</code> or <code>applet</code> tags are not loaded
-  * Mitigates the exploitation of bugs that are included in third-party plugins (e. g. Adobe Flash, Java Applets, etc.)
-* `sandbox allow-forms allow-scripts allow-same-origin allow-popups`
-  * The site is rendered inside a sandbox
-  * Submitting forms, executing scripts, accessing the local storage as well as opening popups must be allowed since the web applications make use of these mechanisms
-
-If you want to configure all of the directives introduced above, the policy would look as follows:
-```
 base-uri 'self';
-default-src 'self' 'unsafe-inline' 'unsafe-eval';
+script-src $NONCE 'strict-dynamic' 'unsafe-eval' https: 'self' 'unsafe-inline';
+style-src 'unsafe-inline' 'self';
+default-src 'self';
 img-src 'self' data:;
 block-all-mixed-content;
 form-action 'self';
 frame-ancestors 'none';
 object-src 'none';
-sandbox
-  allow-forms
-  allow-scripts
-  allow-same-origin
-  allow-popups
+sandbox allow-forms allow-scripts allow-same-origin allow-popups allow-downloads;
+```
+Where `$NONCE` is a placeholder that is replaced by a random generated secure string.
+This nonce can be then used to enable inline scripts in the `index.html` pages using another placeholder called `$CSP_NONCE`:
+```html
+<script type="application/javascript" nonce="$CSP_NONCE">
 ```
 
 {{< note title="Heads-up!" class="info" >}}
-Please keep in mind that a configuration which is more strict than the one introduced above might break the functionality of the web applications.
+If you have custom inline scripts defined, make sure to add the aforementioned `nonce` attribute to
+the script tag, otherwise they will be ignored by the browser.
+{{< /note >}}
+
+#### Policy Details
+
+We encourage you to use a strict **Content Security Policy**.
+This section describes what our default policy contains: 
+
+* `base-uri 'self'`
+  * The URI of the HTML Base Tag must not point to a cross-origin
+* `script-src $NONCE 'strict-dynamic' 'unsafe-eval' https: 'self' 'unsafe-inline';`
+  * The browser only executes inline scripts that are explicitly whitelisted by adding a backend generated `nonce` to each script tag included in the `index.html` asset.
+  * JavaScript's `eval(…)` calls must be allowed to execute `cam-script` in Tasklist.
+     * If there are no embedded forms in your application, it's recommended to remove the `'unsafe-eval'` directive.
+  * The second part (`https: 'self' 'unsafe-inline'`) is a fallback for browsers that don't support `strict-dynamic` yet (non CSP3 compliant browser).
+     * Script resources must not point to a cross-origin.
+     * Inline scripts must be allowed since the web applications make use of it.
+* `style-src 'unsafe-inline' 'self'`
+  * Style resources must not point to a cross-origin.
+  * Inline styles must be allowed since the web applications make use of it.
+* `default-src 'self'`
+  * Any other unspecified resources must not point to a cross-origin.
+* `img-src 'self' data:`
+  * Images must not point to a cross-origin.
+  * Data URIs are allowed since the web applications make use of it.
+* `block-all-mixed-content`
+  * When accessed via HTTPS, all resources loaded via HTTP are blocked.
+  * Mixed content is allowed when the site is accessed via HTTP.
+* `form-action 'self'`
+  * A form must not be submitted against a cross-origin.
+  * JavaScript in the <code>action</code> attribute of a form is not executed.
+* `frame-ancestors 'none'`
+  * Embedding the web applications via an <code>iframe</code> is forbidden; mitigates clickjacking attacks.
+* `object-src 'none'`
+  * Resources embedded via <code>object</code>, <code>embed</code> or <code>applet</code> tags are not loaded.
+  * Mitigates the exploitation of bugs that are included in third-party plugins (e.g. Adobe Flash, Java Applets, etc.)
+* `sandbox allow-forms allow-scripts allow-same-origin allow-popups allow-downloads`
+  * The site is rendered inside a sandbox.
+  * Submitting forms, executing scripts, accessing the local storage, opening popups as well as downloading files must be allowed since the web applications make use of these mechanisms.
+
+{{< note title="Heads-up!" class="info" >}}
+Keep in mind a stricter configuration than the one introduced above might break the functionality of the web applications.
 {{< /note >}}
 
 ### Content-Type Options

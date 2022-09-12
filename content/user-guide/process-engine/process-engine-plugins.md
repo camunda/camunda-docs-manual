@@ -11,9 +11,11 @@ menu:
 ---
 
 
-The process engine configuration can be extended through process engine plugins. A process engine plugin is an extension to the [process engine configuration]({{< ref "/user-guide/process-engine/process-engine-bootstrapping.md" >}}).
+The process engine configuration can be extended through process engine plugins. A process engine plugin is an 
+extension to the [process engine configuration]({{< ref "/user-guide/process-engine/process-engine-bootstrapping.md" >}}).
 
-A plugin must provide an implementation of the {{< javadocref page="?org/camunda/bpm/engine/impl/cfg/ProcessEnginePlugin.html" text="ProcessEnginePlugin" >}} interface.
+A plugin must provide an implementation of the 
+{{< javadocref page="org/camunda/bpm/engine/impl/cfg/ProcessEnginePlugin.html" text="ProcessEnginePlugin" >}} interface.
 
 
 # Configure Process Engine Plugins
@@ -23,6 +25,7 @@ Process engine plugins can be configured
 * in the [Camunda Platform Deployment Descriptors]({{< ref "/reference/deployment-descriptors/_index.md" >}}) (bpm-platform.xml/processes.xml),
 * in the [Wildfly configuration file]({{< ref "/user-guide/runtime-container-integration/jboss.md" >}}) (standalone.xml/domain.xml),
 * using [Spring Beans XML]({{< ref "/user-guide/spring-framework-integration/_index.md#configure-a-process-engine-plugin-in-spring" >}}),
+* in the [Camunda Platform Run YAML configuration files]({{< ref "/user-guide/camunda-bpm-run.md#process-engine-plugin-registration" >}})
 * programatically.
 
 The following is an example of how to configure a process engine plugin in a bpm-platform.xml file:

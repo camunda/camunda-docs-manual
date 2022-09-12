@@ -45,7 +45,7 @@ The history level controls the amount of data the process engine provides via th
     * Historic External Task Log CREATED, DELETED, FAILED, SUCCESSFUL: fired as an external task has been created, deleted or an external task execution has been reported to fail or succeed.
 * `AUTO`: The level `auto` is useful if you are planning to run multiple engines on the same database. In that case, all engines have to use the same history level. Instead of manually keeping your configurations in sync, use the level `auto` and the engine determines the level already configured in the database automatically. If none is found, the default value `audit` is used. Keep in mind: If you are planning to use custom history levels, you have to register the custom levels for every configuration, otherwise an exception is thrown.
 
-If you need to customize the amount of history events logged, you can provide a custom implementation {{< javadocref page="?org/camunda/bpm/engine/impl/history/producer/HistoryEventProducer.html" text="HistoryEventProducer" >}} and wire it in the process engine configuration.
+If you need to customize the amount of history events logged, you can provide a custom implementation {{< javadocref page="org/camunda/bpm/engine/impl/history/producer/HistoryEventProducer.html" text="HistoryEventProducer" >}} and wire it in the process engine configuration.
 
 
 # Set the History Level
@@ -449,9 +449,9 @@ The log consists of *operations* and *entries*. An operation corresponds to one 
 A user operation log entry has the following properties:
 
 * **Operation ID**: A generated id that uniquely identifies a performed operation. Multiple log entries that are part of one operation reference the same operation ID.
-* **Operation Type**: The name of the performed operation. Available operation types are listed in the interface {{< javadocref page="?org/camunda/bpm/engine/history/UserOperationLogEntry.html" text="org.camunda.bpm.engine.history.UserOperationLogEntry" >}}. Note that one operation can consist of multiple types, for example a cascading API operation is one user operation, but is split into multiple types of operations.
-* **Entity Type**: An identifier of the type of the entity that was addressed by the operation. Available entity types are listed in the class {{< javadocref page="?org/camunda/bpm/engine/EntityTypes.html" text="org.camunda.bpm.engine.EntityTypes" >}}. Like the operation type, one operation may address more than one type of entity.
-* **Category**: The name of the category the operation is associated with. Available categories are listed in the interface {{< javadocref page="?org/camunda/bpm/engine/history/UserOperationLogEntry.html" text="org.camunda.bpm.engine.history.UserOperationLogEntry" >}}. For example, all task related runtime operations like claiming and completing tasks fall into the category {{< javadocref page="?org/camunda/bpm/engine/history/UserOperationLogEntry.html#CATEGORY_TASK_WORKER" text="TaskWorker" >}}.
+* **Operation Type**: The name of the performed operation. Available operation types are listed in the interface {{< javadocref page="org/camunda/bpm/engine/history/UserOperationLogEntry.html" text="org.camunda.bpm.engine.history.UserOperationLogEntry" >}}. Note that one operation can consist of multiple types, for example a cascading API operation is one user operation, but is split into multiple types of operations.
+* **Entity Type**: An identifier of the type of the entity that was addressed by the operation. Available entity types are listed in the class {{< javadocref page="org/camunda/bpm/engine/EntityTypes.html" text="org.camunda.bpm.engine.EntityTypes" >}}. Like the operation type, one operation may address more than one type of entity.
+* **Category**: The name of the category the operation is associated with. Available categories are listed in the interface {{< javadocref page="org/camunda/bpm/engine/history/UserOperationLogEntry.html" text="org.camunda.bpm.engine.history.UserOperationLogEntry" >}}. For example, all task related runtime operations like claiming and completing tasks fall into the category {{< javadocref page="org/camunda/bpm/engine/history/UserOperationLogEntry.html#CATEGORY_TASK_WORKER" text="TaskWorker" >}}.
 * **Annotation**: An arbitrary text annotation set by a user for auditing reasons. Multiple log entries that belong to an operation have the same annotation.
 * **Entity IDs**: A job log entry contains the entity IDs that serve to identify the entities addressed by the operation. For example, an operation log entry on a task contains the id of the task as well as the id of the process instance the task belongs to. As a second example, a log entry for suspending all process instances of a process definition does not contain individual process instance IDs but only the process definition ID.
 * **User ID**: The ID of the user who performed the operation.
@@ -1531,7 +1531,7 @@ Once the event has reached the History Event Handler, it can be processed and st
 
 Exchanging the History Event Handler with a custom implementation allows users to plug in a custom History Backend. To do so, two main steps are required:
 
-* Provide a custom implementation of the {{< javadocref page="?org/camunda/bpm/engine/impl/history/handler/HistoryEventHandler.html" text="HistoryEventHandler" >}} interface.
+* Provide a custom implementation of the {{< javadocref page="org/camunda/bpm/engine/impl/history/handler/HistoryEventHandler.html" text="HistoryEventHandler" >}} interface.
 * Wire the custom implementation in the process engine configuration.
 
 {{< note title="Composite History Handling" class="info" >}}

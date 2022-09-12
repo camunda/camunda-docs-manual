@@ -48,7 +48,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>userId</td>
-    <td>The id of the user that will be the assignee of the task.</td>
+    <td>The id of the user that will be the assignee of the task. If userId is empty the task is unassigned.</td>
   </tr>
 </table>
 

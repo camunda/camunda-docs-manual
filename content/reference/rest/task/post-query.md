@@ -466,6 +466,20 @@ A JSON object with the following properties:
     </td>
   </tr>
   <tr>
+    <td>updatedAfter</td>
+    <td>Restrict to tasks that were updated after the given date. Every action that fires a <a href="{{< ref "/user-guide/process-engine/delegation-code.md#task-listener-event-lifecycle" >}}">task update event</a> is considered as updating the task.<br>
+    By default*, the given date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.332+0200</code>.
+    </td>
+  </tr>
+  <tr>
+    <td>updatedAfterExpression</td>
+    <td>Restrict to tasks that were updated after the date described by the given expression. Every action that fires a <a href="{{< ref "/user-guide/process-engine/delegation-code.md#task-listener-event-lifecycle" >}}">task update event</a> is considered as updating the task.<br>
+        See the <a href="{{< ref "/user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
+        user guide</a> for more information on available functions.
+        The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
+    </td>
+  </tr>
+  <tr>
     <td>delegationState</td>
     <td>Restrict to tasks that are in the given delegation state. Valid values are <code>PENDING</code> and <code>RESOLVED</code>.</td>
   </tr>
@@ -559,7 +573,7 @@ A JSON object with the following properties:
         </tr>
         <tr>
           <td>sortBy</td>
-          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>instanceId</code>, <code>caseInstanceId</code>, <code>dueDate</code>, <code>executionId</code>, <code>caseExecutionId</code>,<code>assignee</code>, <code>created</code>, <code>description</code>, <code>id</code>, <code>name</code>, <code>nameCaseInsensitive</code>, <code>priority</code>, <code>processVariable</code>, <code>executionVariable</code>, <code>taskVariable</code>, <code>caseExecutionVariable</code>, and <code>caseInstanceVariable</code>.</td>
+          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>instanceId</code>, <code>caseInstanceId</code>, <code>dueDate</code>, <code>executionId</code>, <code>caseExecutionId</code>,<code>assignee</code>, <code>created</code>, <code>lastUpdated</code>, <code>description</code>, <code>id</code>, <code>name</code>, <code>nameCaseInsensitive</code>, <code>priority</code>, <code>processVariable</code>, <code>executionVariable</code>, <code>taskVariable</code>, <code>caseExecutionVariable</code>, and <code>caseInstanceVariable</code>.</td>
         </tr>
         <tr>
           <td>sortOrder</td>
@@ -623,6 +637,12 @@ Each task object has the following properties:
     <td>followUp</td>
     <td>String</td>
     <td>The follow-up date for the task. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+    <tr>
+    <td>lastUpdated</td>
+    <td>String</td>
+    <td>The date/time when the task was last updated. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.<br>
+    Every action that fires a <a href="{{< ref "/user-guide/process-engine/delegation-code.md#task-listener-event-lifecycle" >}}">task update event</a> is considered as an update to the task. Has the value <code>null</code> if the task was never updated.</td>
   </tr>
   <tr>
     <td>delegationState</td>
@@ -788,6 +808,7 @@ Request Body:
  "created":"2013-01-23T13:42:42.453+0200",
  "due":"2013-01-23T13:49:42.342+0200",
  "followUp:":"2013-01-23T13:44:42.546+0200",
+ "lastUpdated:":"2013-01-23T13:44:42.546+0200",
  "delegationState":"RESOLVED",
  "description":"aDescription",
  "executionId":"anExecution",
@@ -842,6 +863,7 @@ Request Body:
     "assignee": "John Munda",
     "created": "2017-07-10T15:10:54.670+0200",
     "due": "2017-07-17T15:10:54.670+0200",
+    "lastUpdated": "2017-07-17T15:10:54.670+0200",
     "followUp": null,
     "delegationState": null,
     "description": "Approve the invoice (or not).",

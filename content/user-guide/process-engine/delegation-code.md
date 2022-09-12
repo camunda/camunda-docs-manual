@@ -39,7 +39,7 @@ interface, which requires us to implement the `execute(DelegateExecution)`
 method. It's this operation that will be called by the engine and
 which needs to contain the business logic. Process instance
 information such as process variables and other information can be accessed and
-manipulated through the {{< javadocref page="?org/camunda/bpm/engine/delegate/DelegateExecution.html" text="DelegateExecution" >}} interface (click on the link for a detailed Javadoc of its operations).
+manipulated through the {{< javadocref page="org/camunda/bpm/engine/delegate/DelegateExecution.html" text="DelegateExecution" >}} interface (click on the link for a detailed Javadoc of its operations).
 
 ```java
   public class ToUppercase implements JavaDelegate {
@@ -324,13 +324,13 @@ A task listener is used to execute custom Java logic or an expression upon the o
 The execution of Task Listeners is dependent on the order of firing of
 the following task-related events:
 
-The **create** event fires when the task has been created and all task properties are set. No
+The **create** event fires when the task has been created as a transient object with all task properties. No
 other task-related event will be fired before the *create* event. The event allows us to inspect
 all properties of the task when we receive it in the create listener.
 
 The **update** event occurs when a task property (e.g. assignee, owner, priority, etc.) on an already
 created task is changed. This includes attributes of a task  (e.g. assignee, owner, priority, etc.),
-as well as dependent entities (e.g. attachments, comments, task-local variables).
+as well as dependent entities (e.g. attachments, comments, task-local variables). 
 Note that the initialization of a task does not fire an update event (the task is being created).
 This also means that the *update* event will always occur after a *create* event has already occurred.
 
@@ -401,6 +401,7 @@ A task listener supports the following attributes:
 
       public void notify(DelegateTask delegateTask) {
         // Custom logic goes here
+        // The task object is persisted in the database after this method has finished
       }
 
     }
@@ -600,6 +601,53 @@ public class BookOutGoodsDelegate implements JavaDelegate {
 
 }
 ```
+
+# Exception codes
+
+You can throw a `{{< javadocref page="org/camunda/bpm/engine/ProcessEngineException.html" text="ProcessEngineException" >}}`
+from your delegation code and define your custom error code by passing it to the constructor or by
+calling `ProcessEngineException#setCode`.
+
+Also, you can create a custom exception class that extends the `ProcessEngineException`:
+
+```java
+// Defining a custom exception.
+public class MyException extends ProcessEngineException {
+
+  public MyException(String message, int code) {
+    super(message, code);
+  }
+}
+
+// Delegation code that throws MyException with a custom error code.
+public class MyJavaDelegate implements JavaDelegate {
+
+  @Override
+  public void execute(DelegateExecution execution) {
+    String myErrorMessage = "My error message.";
+    int myErrorCode = 22_222;
+    throw new MyException(myErrorMessage, myErrorCode);
+  }
+
+}
+```
+
+Setting a custom error code via Delegation Code allows your business logic to react to it by getting 
+the code via `ProcessEngineException#getCode` when calling Camunda Java API or by evaluating the 
+`code` property in the response of an [erroneous REST API call]({{< ref "/reference/rest/overview/_index.md#exception-codes" >}}).
+
+If you don't set any code, the engine assigns `0`, which a custom or built-in error code provider can override.
+
+Also, you can [register your custom exception code provider]({{< ref "/user-guide/process-engine/error-handling.md#register-a-custom-code-provider" >}}) 
+to assign error codes to exceptions you cannot control via your Delegation Code.
+
+{{< note title="Heads-up!" class="info" >}}
+* A custom error code you define via delegation code has precedence over a custom error code provided 
+by a [Custom Code Provider](#custom-code-provider).
+* If your custom error code violates the [reserved code range](#reserved-code-range), it will be 
+overridden with `0` unless you disable the built-in code provider.
+{{< /note >}}
+
 
 [script-sources]: {{< ref "/user-guide/process-engine/scripting.md#script-source" >}}
 [camunda-script]: {{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#camunda-script" >}}

@@ -38,6 +38,10 @@ A JSON object with the following properties:
     <td>Filter by variable name.</td>
   </tr>
   <tr>
+    <td>variableNameIn</td>
+    <td>A comma-separated list of variable names. Allows restricting the list of requested variables to the variable names in the list.</td>
+  </tr>
+  <tr>
     <td>variableNameLike</td>
     <td>Restrict to variables with a name like the parameter.</td>
   </tr>

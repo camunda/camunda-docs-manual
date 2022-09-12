@@ -96,7 +96,7 @@ In order to configure another database, edit the file named `WEB-INF/application
   <property name="targetDataSource">
     <bean class="com.zaxxer.hikari.HikariDataSource">
       <property name="driverClassName" value="org.h2.Driver" />
-      <property name="jdbcUrl" value="jdbc:h2:./camunda-h2-dbs/process-engine;MVCC=TRUE;TRACE_LEVEL_FILE=0;DB_CLOSE_ON_EXIT=FALSE" />
+      <property name="jdbcUrl" value="jdbc:h2:./camunda-h2-dbs/process-engine;TRACE_LEVEL_FILE=0;DB_CLOSE_ON_EXIT=FALSE" />
       <property name="username" value="sa" />
       <property name="password" value="" />
     </bean>

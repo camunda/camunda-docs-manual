@@ -17,22 +17,23 @@ The Camunda Platform is a Java-based framework.
 
 ## Community Edition
 
-If you are using the community edition, the software is provided under various open source licenses (mainly Apache 2.0 and MIT). Which components are published under an open source license is clearly stated in the licensing header of a source file or a LICENSE file present in the root directory of the software source code repository.
+If you are using the community edition, the entire software is provided under various open source licenses (mainly Apache 2.0 and MIT). Which components are published under an open source license is clearly stated in the licensing header of a source file or a LICENSE file present in the root directory of the software source code repository.
 
 ## Enterprise Edition
 
-If you are using the Enterprise Platform, the software is provided under a license agreement containing restrictions on use and disclosure and is protected by intellectual property laws. Except as expressly permitted in your license agreement or allowed by law, you may not use, copy, reproduce, translate, broadcast, modify, license, transmit, distribute, exhibit, perform, publish, or display any part, in any form, or by any means. Reverse engineering, disassembly, or decompilation of this software, unless required by law for interoperability, is prohibited.
+If you are using the Enterprise Platform, additionally to the Community components, the software contains additional Enterprise components that are protected by intellectual property laws and provided to you under a license agreement containing restrictions on use and disclosure. Except as expressly permitted in your license agreement or allowed by law, you may not use, copy, reproduce, translate, broadcast, modify, license, transmit, distribute, exhibit, perform, publish the Enterprise components, or display any part in any form, or by any means. Reverse engineering, disassembly, or decompilation of the Enterprise components, unless required by law for interoperability, is prohibited.
 
 ## Third-Party Libraries
 
-The Camunda Platform (Community and Enterprise Edition) includes third-party libraries developed by third parties (please see the documentation section [Third-Party Libraries][third-party-libraries]). See the following resources:
+The Camunda Platform (Community and Enterprise Edition) includes libraries developed by third parties. See the following resources:
 
-* [HTML License Book Camunda Platform]({{< ref "/introduction/third-party-libraries/camunda-bpm-platform-license-book.md" >}})
-* [Plain text license book Camunda Platform][license-book]
-* [HTML License Book Camunda Platform RPA Bridge]({{< ref "/introduction/third-party-libraries/camunda-bpm-rpa-bridge-license-book.md" >}})
+* [Third-Party Libraries][third-party-libraries]: An overview of the dependencies Camunda distributes. Additionally, this page points out particularly important third-party licenses to be aware of.
+* [HTML License Book Camunda Platform]({{< ref "/introduction/third-party-libraries/camunda-bpm-platform-license-book.md" >}}): A list of all dependencies Camunda distributes with the Platform 7 artifacts, including their licenses and notices.
+* [Plain text license book Camunda Platform][license-book]: A plain text version of the license book.
+* [HTML License Book Camunda Platform RPA Bridge]({{< ref "/introduction/third-party-libraries/camunda-bpm-rpa-bridge-license-book.md" >}}): A list of all dependencies Camunda distributes with the RPA Bridge.
 
 [third-party-libraries]: {{< ref "/introduction/third-party-libraries/_index.md" >}}
-[license-book]: https://app.camunda.com/nexus/content/repositories/camunda-bpm/org/camunda/bpm/license-book/{{< minor-version >}}.0/license-book-{{< minor-version >}}.0.txt
+[license-book]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/license-book/{{< minor-version >}}.0/license-book-{{< minor-version >}}.0.txt
 
 
 # Camunda Modeler
@@ -41,11 +42,11 @@ The Camunda Modeler is a desktop modeling application.
 
 ## License 
 
-The source code of the Camunda Modeler is licensed under the MIT license as stated in the [`LICENSE` file](https://github.com/camunda/camunda-modeler/blob/master/LICENSE) in the root of the source code repository. This file is also shipped as `LICENSE.camunda-modeler.txt` with each modeler distribution.
+[License information](https://docs.camunda.io/docs/reference/licenses/#camunda-modeler) for Camunda Modeler has moved to [docs.camunda.io](https://docs.camunda.io/).
 
 ## Third-Party Libraries
 
-The application builds upon a number of third party libraries. You find an up-to-date list of third party libraries used and their license terms in the [`THIRD_PARTY_NOTICES` file](https://github.com/camunda/camunda-modeler/blob/master/THIRD_PARTY_NOTICES), located in the root of the source code repository. This file is also shipped with the application distribution as `THIRD_PARTY_NOTICES.camunda-modeler.txt`.
+[Third-Party libraries](https://docs.camunda.io/docs/reference/dependencies/) for Camunda Modeler have moved to [docs.camunda.io](https://docs.camunda.io/).
 
 # GPL Cooperation Commitment
 

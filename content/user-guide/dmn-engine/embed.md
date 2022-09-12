@@ -308,7 +308,7 @@ Just make sure that the corresponding libraries are available on the classpath a
 The default DMN engine resolves the supported expression and script languages
 using different providers.
 
-To evaluate `JUEL` expressions, the DMN engine uses the {{< javadocref page="?org/camunda/bpm/dmn/engine/impl/spi/el/ElProvider.html" text="ElProvider" >}} configured in the
+To evaluate `JUEL` expressions, the DMN engine uses the {{< javadocref page="org/camunda/bpm/dmn/engine/impl/spi/el/ElProvider.html" text="ElProvider" >}} configured in the
 DMN engine configuration. To use another implementation of the Unified Expression Language, replace this implementation.
 
 ```java
@@ -320,7 +320,7 @@ DefaultDmnEngineConfiguration configuration = (DefaultDmnEngineConfiguration) Dm
 configuration.setElProvider(new MyElProvider());
 ```
 
-To configure the `FEEL` engine used you can provide a custom {{< javadocref page="?org/camunda/bpm/dmn/feel/impl/FeelEngineFactory.html" text="FeelEngineFactory" >}}.
+To configure the `FEEL` engine used you can provide a custom {{< javadocref page="org/camunda/bpm/dmn/feel/impl/FeelEngineFactory.html" text="FeelEngineFactory" >}}.
 
 ```java
 // with a default DMN engine configuration
@@ -331,7 +331,7 @@ DefaultDmnEngineConfiguration configuration = (DefaultDmnEngineConfiguration) Dm
 configuration.setFeelEngineFactory(new MyFeelEngineFactory());
 ```
 
-Script languages are resolved by the {{< javadocref page="?org/camunda/bpm/dmn/engine/impl/spi/el/DmnScriptEngineResolver.html" text="DmnScriptEngineResolver" >}}. To customize the script engine resolving, provide an own implementation.
+Script languages are resolved by the {{< javadocref page="org/camunda/bpm/dmn/engine/impl/spi/el/DmnScriptEngineResolver.html" text="DmnScriptEngineResolver" >}}. To customize the script engine resolving, provide an own implementation.
 
 ```java
 // with a default DMN engine configuration
@@ -352,7 +352,7 @@ For more information on how to configure and use SLF4J, please refer to the
 [user manual].
 
 
-[evaluation listener]: {{< javadocref page="?org/camunda/bpm/dmn/engine/delegate/DmnDecisionTableEvaluationListener.html" text="DmnDecisionTableEvaluationListener Interface" >}}
+[evaluation listener]: {{< javadocref page="org/camunda/bpm/dmn/engine/delegate/DmnDecisionTableEvaluationListener.html" text="DmnDecisionTableEvaluationListener Interface" >}}
 [DMN model API]: https://github.com/camunda/camunda-dmn-model
 [data types]: {{< ref "/user-guide/dmn-engine/data-types.md" >}}
 [hit policies]: {{< ref "/reference/dmn/decision-table/hit-policy.md" >}}

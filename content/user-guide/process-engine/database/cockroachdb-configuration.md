@@ -57,17 +57,17 @@ As mentioned in the section above, when using CockroachDB, a selected set of API
 retried using a CRDB-specific mechanism:
 
 * When performing a deployment of BPMN/CMMN/DMN models and associated resources with the following calls:
-  * {{< javadocref page="?org/camunda/bpm/engine/repository/DeploymentBuilder.html#deploy--" text="DeploymentBuilder#deploy()" >}}
-  * {{< javadocref page="?org/camunda/bpm/engine/repository/DeploymentBuilder.html#deployWithResult--" text="DeploymentBuilder#deployWithResult()" >}}
-* By building a process engine with {{< javadocref page="?org/camunda/bpm/engine/ProcessEngineConfiguration.html#buildProcessEngine()" text="ProcessEngineConfiguration#buildProcessEngine--" >}}:
+  * {{< javadocref page="org/camunda/bpm/engine/repository/DeploymentBuilder.html#deploy--" text="DeploymentBuilder#deploy()" >}}
+  * {{< javadocref page="org/camunda/bpm/engine/repository/DeploymentBuilder.html#deployWithResult--" text="DeploymentBuilder#deployWithResult()" >}}
+* By building a process engine with {{< javadocref page="org/camunda/bpm/engine/ProcessEngineConfiguration.html#buildProcessEngine()" text="ProcessEngineConfiguration#buildProcessEngine--" >}}:
   * When the history level is determined.
   * When the history cleanup job is created.
   * When the installation id is set.
   * When the telemetry is configured.
-* When manually triggering history cleanup with {{< javadocref page="?org/camunda/bpm/engine/HistoryService.html#cleanUpHistoryAsync-boolean-" text="HistoryService#cleanUpHistoryAsync(boolean immediatelyDue)" >}}.
+* When manually triggering history cleanup with {{< javadocref page="org/camunda/bpm/engine/HistoryService.html#cleanUpHistoryAsync-boolean-" text="HistoryService#cleanUpHistoryAsync(boolean immediatelyDue)" >}}.
 * When fetching external tasks:
   * With the External Tasks Rest API [endpoint]({{< ref "/reference/rest/external-task/fetch.md" >}}).
-  * With the execution of the {{< javadocref page="??org/camunda/bpm/engine/ExternalTaskService.html" text="ExternalTaskService#fetchAndLock" >}} API calls.
+  * With the execution of the {{< javadocref page="org/camunda/bpm/engine/ExternalTaskService.html" text="ExternalTaskService#fetchAndLock" >}} API calls.
 * When [acquiring jobs]({{< ref "/user-guide/process-engine/the-job-executor.md#job-acquisition" >}}) for execution by the job executor.
 
 It is important to note that the CockroachDB retry mechanism is applied to API calls where an 
@@ -114,14 +114,14 @@ As mentioned [above](#custom-cockroachdb-transaction-retry-mechanism), the Cockr
 mechanism in the process engine replaces the usage of pessimistic locks in the following API calls:
 
 * When performing a deployment of BPMN/CMMN/DMN models and associated resources with the following calls:
-  * {{< javadocref page="?org/camunda/bpm/engine/repository/DeploymentBuilder.html#deploy()" text="DeploymentBuilder#deploy()" >}}
-  * {{< javadocref page="?org/camunda/bpm/engine/repository/DeploymentBuilder.html#deployWithResult()" text="DeploymentBuilder#deployWithResult()" >}}
-* By building a process engine with {{< javadocref page="?org/camunda/bpm/engine/ProcessEngineConfiguration.html#buildProcessEngine()" text="ProcessEngineConfiguration#buildProcessEngine()" >}}:
+  * {{< javadocref page="org/camunda/bpm/engine/repository/DeploymentBuilder.html#deploy()" text="DeploymentBuilder#deploy()" >}}
+  * {{< javadocref page="org/camunda/bpm/engine/repository/DeploymentBuilder.html#deployWithResult()" text="DeploymentBuilder#deployWithResult()" >}}
+* By building a process engine with {{< javadocref page="org/camunda/bpm/engine/ProcessEngineConfiguration.html#buildProcessEngine()" text="ProcessEngineConfiguration#buildProcessEngine()" >}}:
   * When the history level is determined.
   * When the history cleanup job is created.
   * When the installation id is set.
   * When the telemetry is configured.
-* When manually triggering history cleanup with {{< javadocref page="?org/camunda/bpm/engine/HistoryService.html#cleanUpHistoryAsync-boolean-" text="HistoryService#cleanUpHistoryAsync(boolean immediatelyDue)" >}}.
+* When manually triggering history cleanup with {{< javadocref page="org/camunda/bpm/engine/HistoryService.html#cleanUpHistoryAsync-boolean-" text="HistoryService#cleanUpHistoryAsync(boolean immediatelyDue)" >}}.
 
 The role of the pessimistic locks in these API calls is not to prevent concurrent modification on the
 locked data, but to serve as barriers (or flags) to ensure the serialized, single execution of a
@@ -178,7 +178,7 @@ implement.
 
 ### Unsupported Exclusive Message correlation
 
-Exclusive Message correlation (see {{< javadocref page="?org/camunda/bpm/engine/runtime/MessageCorrelationBuilder.html#correlateExclusively()" text="Javadocs" >}}) 
+Exclusive Message correlation (see {{< javadocref page="org/camunda/bpm/engine/runtime/MessageCorrelationBuilder.html#correlateExclusively()" text="Javadocs" >}}) 
 prevents multiple concurrent message correlations to be performed on a single Process execution. 
 When using the process engine with CockroachDB, it is not possible to use Exclusive Message correlation.
 

@@ -7,43 +7,52 @@ menu:
   main:
     identifier: "user-guide-introduction-third-party-libraries-license-book-platform"
     parent: "user-guide-introduction-third-party-libraries"
+    pre: "All third-party dependencies distributed with Camunda Platform 7 artifacts"
 
 ---
 
 # Java Dependencies
-<div><details><summary>logback-classic@1.2.5(<a href="https://opensource.org/licenses/EPL-1.0">EPL 1.0</a>)</summary><pre>Copyright (C) 1999-2015, QOS.ch. All rights reserved.</pre></details></div>
-<div><details><summary>logback-core@1.2.5(<a href="https://opensource.org/licenses/EPL-1.0">EPL 1.0</a>)</summary><pre>Copyright (C) 1999-2015, QOS.ch. All rights reserved.</pre></details></div>
-<div><details><summary>jackson-annotations@2.12.1(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: 2011-2021 contributors: https://github.com/FasterXML/jackson-annotations/graphs/contributors</pre></details></div>
-<div><details><summary>jackson-annotations@2.12.4(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: 2011-2021 contributors: https://github.com/FasterXML/jackson-annotations/graphs/contributors</pre></details></div>
-<div><details><summary>jackson-core@2.12.1(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: https://github.com/FasterXML/jackson-core/blob/master/release-notes/CREDITS-2.x
-</pre></details></div>
-<div><details><summary>jackson-core@2.12.4(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: various contributors: https://github.com/FasterXML/jackson-core/blob/2.13/release-notes/CREDITS-2.x </pre></details></div>
-<div><details><summary>jackson-databind@2.12.1(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: https://github.com/FasterXML/jackson-databind/blob/master/release-notes/CREDITS-2.x</pre></details></div>
-<div><details><summary>jackson-databind@2.12.4(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: https://github.com/FasterXML/jackson-databind/blob/master/release-notes/CREDITS-2.x</pre></details></div>
-<div><details><summary>jackson-datatype-jdk8@2.12.4(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: https://github.com/FasterXML/jackson-modules-java8/blob/master/release-notes/CREDITS-2.x</pre></details></div>
-<div><details><summary>jackson-datatype-jsr310@2.12.4(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright:  https://github.com/FasterXML/jackson-modules-java8/blob/master/release-notes/CREDITS-2.x</pre></details></div>
-<div><details><summary>jackson-jaxrs-base@2.12.1(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: https://github.com/FasterXML/jackson-jaxrs-providers/blob/master/release-notes/CREDITS-2.x</pre></details></div>
-<div><details><summary>jackson-jaxrs-base@2.12.4(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright:   https://github.com/FasterXML/jackson-jaxrs-providers/blob/2.13/release-notes/CREDITS-2.x</pre></details></div>
-<div><details><summary>jackson-jaxrs-json-provider@2.12.1(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: https://github.com/FasterXML/jackson-jaxrs-providers/blob/master/release-notes/CREDITS-2.x</pre></details></div>
-<div><details><summary>jackson-jaxrs-json-provider@2.12.4(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright:   https://github.com/FasterXML/jackson-jaxrs-providers/blob/2.13/release-notes/CREDITS-2.x</pre></details></div>
-<div><details><summary>jackson-module-jaxb-annotations@2.12.1(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: https://github.com/FasterXML/jackson-modules-base/blob/master/release-notes/CREDITS-2.x</pre></details></div>
-<div><details><summary>jackson-module-jaxb-annotations@2.12.4(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright:   https://github.com/FasterXML/jackson-modules-base/blob/master/release-notes/CREDITS-2.x</pre></details></div>
-<div><details><summary>jackson-module-parameter-names@2.12.4(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright:   https://github.com/FasterXML/jackson-modules-java8/blob/master/release-notes/CREDITS-2.x</pre></details></div>
+<div><details><summary>logback-classic@1.2.10(<a href="https://opensource.org/licenses/EPL-1.0">EPL 1.0</a>)</summary><pre>Copyright (C) 1999-2015, QOS.ch. All rights reserved.</pre></details></div>
+<div><details><summary>logback-core@1.2.10(<a href="https://opensource.org/licenses/EPL-1.0">EPL 1.0</a>)</summary><pre>Copyright (C) 1999-2015, QOS.ch. All rights reserved.</pre></details></div>
+<div><details><summary>jackson-annotations@2.13.1(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) 2019 Tatu Saloranta and various contributors (https://github.com/FasterXML/jackson-annotations/graphs/contributors)</pre></details></div>
+<div><details><summary>jackson-core@2.13.1(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) 2007- Tatu Saloranta, tatu.saloranta@iki.fi and various contributors (https://github.com/FasterXML/jackson-core/graphs/contributors)</pre></details></div>
+<div><details><summary>jackson-databind@2.13.1(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) 2007- Tatu Saloranta, tatu.saloranta@iki.fi and various contributors (https://github.com/FasterXML/jackson-databind/graphs/contributors)</pre></details></div>
+<div><details><summary>jackson-dataformat-csv@2.13.1(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) Tatu Saloranta, tatu.saloranta@iki.fi </pre></details></div>
+<div><details><summary>jackson-datatype-jdk8@2.13.1(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) Tatu Saloranta, tatu.saloranta@iki.fi and various contributors (https://github.com/FasterXML/jackson-modules-java8/graphs/contributors)</pre></details></div>
+<div><details><summary>jackson-datatype-jsr310@2.13.1(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) Tatu Saloranta, tatu.saloranta@iki.fi and various contributors (https://github.com/FasterXML/jackson-modules-java8/graphs/contributors)</pre></details></div>
+<div><details><summary>jackson-jaxrs-base@2.13.1(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) Fasterxml 2020
+NOTICE file text:
+# Jackson JSON processor
+Jackson is a high-performance, Free/Open Source JSON processing library.
+It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
+been in development since 2007.
+It is currently developed by a community of developers, as well as supported commercially by FasterXML.com.</pre></details></div>
+<div><details><summary>jackson-jaxrs-json-provider@2.13.1(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) Fasterxml 2020
+NOTICE file text:
+# Jackson JSON processor
+Jackson is a high-performance, Free/Open Source JSON processing library.
+It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
+been in development since 2007.
+It is currently developed by a community of developers, as well as supported commercially by FasterXML.com.</pre></details></div>
+<div><details><summary>jackson-module-jaxb-annotations@2.12.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) Tatu Saloranta, tatu.saloranta@iki.fi and various contributors (https://github.com/FasterXML/jackson-modules-base/graphs/contributors)</pre></details></div>
+<div><details><summary>jackson-module-jaxb-annotations@2.13.1(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) Tatu Saloranta, tatu.saloranta@iki.fi and various contributors (https://github.com/FasterXML/jackson-modules-base/graphs/contributors)</pre></details></div>
+<div><details><summary>jackson-module-parameter-names@2.13.1(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) Tatu Saloranta, tatu.saloranta@iki.fi and various contributors (https://github.com/FasterXML/jackson-modules-java8/graphs/contributors)</pre></details></div>
 <div><details><summary>java-uuid-generator@3.2.0(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: various authors (https://github.com/cowtowncoder/java-uuid-generator/blob/3.0/release-notes/CREDITS)</pre></details></div>
 <div><details><summary>classmate@1.5.1(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: various authors (https://github.com/FasterXML/java-classmate/blob/master/VERSION.txt)						</pre></details></div>
 <div><details><summary>jcip-annotations@1.0-1(<a href="https://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attribution</a>)</summary><pre>Copyright: 2005 Brian Goetz and Tim Peierls</pre></details></div>
-<div><details><summary>gson@2.8.5(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: 2008 Google Inc.</pre></details></div>
-<div><details><summary>h2@1.4.190(<a href="https://opensource.org/licenses/EPL-1.0">EPL 1.0</a>)</summary><pre>Copyright: H2, the Java SQL database (https://h2database.com/html/main.html)         </pre></details></div>
+<div><details><summary>gson@2.8.9(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: 2008 Google Inc.</pre></details></div>
+<div><details><summary>h2@2.0.206(<a href="https://opensource.org/licenses/EPL-1.0">EPL 1.0</a>)</summary><pre>Copyright H2 Group</pre></details></div>
 <div><details><summary>icu4j@68.2(<a href="https://www.unicode.org/license.html">Unicode</a>)</summary><pre>Copyright © 2016 and later Unicode, Inc. and others.
 See this link for third-party software notices and/or additional
 terms for licensed third-party software components included within ICU
 libraries: https://github.com/unicode-org/icu/edit/main/icu4c/LICENSE</pre></details></div>
 <div><details><summary>json-path@2.6.0(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: See list of contributors: https://github.com/json-path/JsonPath/graphs/contributors</pre></details></div>
-<div><details><summary>fastparse_2.13@2.3.1(<a href="https://opensource.org/licenses/MIT">MIT</a>)</summary><pre>Copyright (c) 2014 Li Haoyi (haoyi.sg@gmail.com)</pre></details></div>
-<div><details><summary>geny_2.13@0.6.5(<a href="https://opensource.org/licenses/MIT">MIT</a>)</summary><pre>Copyright (c) 2016 Li Haoyi (haoyi.sg@gmail.com)</pre></details></div>
+<div><details><summary>fastparse_2.13@2.3.2(<a href="https://opensource.org/licenses/MIT">MIT</a>)</summary><pre>Copyright (c) 2014 Li Haoyi (haoyi.sg@gmail.com)</pre></details></div>
+<div><details><summary>geny_2.13@0.6.7(<a href="https://opensource.org/licenses/MIT">MIT</a>)</summary><pre>Copyright (c) 2016 Li Haoyi (haoyi.sg@gmail.com)</pre></details></div>
 <div><details><summary>sourcecode_2.13@0.2.3(<a href="https://opensource.org/licenses/MIT">MIT</a>)</summary><pre>Copyright (c) 2014 Li Haoyi (haoyi.sg@gmail.com)</pre></details></div>
 <div><details><summary>jakarta.activation@1.2.1(<a href="https://opensource.org/licenses/EPL-1.0">EPL 1.0</a>)</summary><pre>Copyright (c) 1997, 2019 Oracle and/or its affiliates. All rights reserved.</pre></details></div>
-<div><details><summary>jaxb-impl@2.2.4(<a href="https://spdx.org/licenses/CDDL-1.1.html">CDDL 1.1</a>)</summary><pre>Copyright: 1997-2017 Oracle and/or its affiliates. All rights reserved.</pre></details></div>
+<div><details><summary>jakarta.activation@1.2.2(<a href="https://www.eclipse.org/org/documents/edl-v10.php">EDL 1.0</a>)</summary><pre>Copyright (c) 2018 Oracle and/or its affiliates. All rights reserved</pre></details></div>
+<div><details><summary>jaxb-impl@2.3.6(<a href="https://www.eclipse.org/org/documents/edl-v10.php">EDL 1.0</a>)</summary><pre>Copyright (c) 2018 Oracle and/or its affiliates. All rights reserved.</pre></details></div>
 <div><details><summary>HikariCP@4.0.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (C) 2013 and later Brett Wooldridge</pre></details></div>
 <div><details><summary>commons-codec@1.15(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Notice file:
 ======================================================================
@@ -162,9 +171,6 @@ Copyright (C) Oracle and/or its affiliates. All rights reserved.																
 <div><details><summary>jakarta.xml.bind-api@2.3.3(<a href="https://www.eclipse.org/org/documents/edl-v10.php">EDL 1.0</a>)</summary><pre>Copyright:(c) 2017, 2018 Oracle and/or its affiliates. All rights reserved.
 Notice file: https://github.com/eclipse-ee4j/jaxb-api/blob/master/NOTICE.md
 </pre></details></div>
-<div><details><summary>activation@1.1(<a href="https://spdx.org/licenses/CDDL-1.1.html">CDDL 1.1</a>)</summary><pre>Copyright: Copyright (c) 1997-2017 Oracle and/or its affiliates. All rights reserved.</pre></details></div>
-<div><details><summary>jaxb-api@2.2.3(<a href="https://spdx.org/licenses/CDDL-1.1.html">CDDL 1.1</a>)</summary><pre>Copyright: Copyright (c) 1997-2017 Oracle and/or its affiliates. All rights reserved.</pre></details></div>
-<div><details><summary>stax-api@1.0-2(<a href="https://spdx.org/licenses/CDDL-1.1.html">CDDL 1.1</a>)</summary><pre>Copyright: Copyright (c) 1997-2017 Oracle and/or its affiliates. All rights reserved.</pre></details></div>
 <div><details><summary>joda-time@2.1(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Notice file: 
 =============================================================================
 = NOTICE file corresponding to section 4d of the Apache License Version 2.0 =
@@ -192,311 +198,12 @@ The Apache Software Foundation (http://www.apache.org/).
 </pre></details></div>
 <div><details><summary>httpcore@4.4.13(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: 2005-2020 The Apache Software Foundation This product includes software developed at
 The Apache Software Foundation (http://www.apache.org/)</pre></details></div>
-<div><details><summary>log4j-api@2.14.1(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: The Apache Software Foundation
-
-Notice file: 
-Apache Commons Lang
-Copyright The Apache Software Foundation
-This product includes software developed at
-The Apache Software Foundation (https://www.apache.org/).</pre></details></div>
-<div><details><summary>log4j-to-slf4j@2.14.1(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: The Apache Software Foundation
-
-Notice file: 
-Apache Commons Lang
-Copyright 2001-2020 The Apache Software Foundation
-This product includes software developed at
-The Apache Software Foundation (https://www.apache.org/).</pre></details></div>
-<div><details><summary>tomcat-embed-core@9.0.52(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright:  Licensed to the Apache Software Foundation (ASF) under one or more
-contributor license agreements.  See the NOTICE file distributed with this work for additional information regarding copyright ownership.
-
-Notice:
-Apache Tomcat
-Copyright 1999-2021 The Apache Software Foundation
-
-This product includes software developed at
-The Apache Software Foundation (https://www.apache.org/).
-
-This software contains code derived from netty-native
-developed by the Netty project
-(https://netty.io, https://github.com/netty/netty-tcnative/)
-and from finagle-native developed at Twitter
-(https://github.com/twitter/finagle).
-
-This software contains code derived from jgroups-kubernetes
-developed by the JGroups project (http://www.jgroups.org/).
-
-The Windows Installer is built with the Nullsoft
-Scriptable Install System (NSIS), which is
-open source software.  The original software and
-related information is available at
-http://nsis.sourceforge.net.
-
-Java compilation software for JSP pages is provided by the Eclipse
-JDT Core Batch Compiler component, which is open source software.
-The original software and related information is available at
-https://www.eclipse.org/jdt/core/.
-
-org.apache.tomcat.util.json.JSONParser.jj is a public domain javacc grammar
-for JSON written by Robert Fischer.
-https://github.com/RobertFischer/json-parser
-
-For portions of the Tomcat JNI OpenSSL API and the OpenSSL JSSE integration
-The org.apache.tomcat.jni and the org.apache.tomcat.net.openssl packages
-are derivative work originating from the Netty project and the finagle-native
-project developed at Twitter
-* Copyright 2014 The Netty Project
-* Copyright 2014 Twitter
-
-For portions of the Tomcat cloud support
-The org.apache.catalina.tribes.membership.cloud package contains derivative
-work originating from the jgroups project.
-https://github.com/jgroups-extras/jgroups-kubernetes
-Copyright 2002-2018 Red Hat Inc.
-
-The original XML Schemas for Java EE Deployment Descriptors:
- - javaee_5.xsd
- - javaee_web_services_1_2.xsd
- - javaee_web_services_client_1_2.xsd
- - javaee_6.xsd
- - javaee_web_services_1_3.xsd
- - javaee_web_services_client_1_3.xsd
- - jsp_2_2.xsd
- - web-app_3_0.xsd
- - web-common_3_0.xsd
- - web-fragment_3_0.xsd
- - javaee_7.xsd
- - javaee_web_services_1_4.xsd
- - javaee_web_services_client_1_4.xsd
- - jsp_2_3.xsd
- - web-app_3_1.xsd
- - web-common_3_1.xsd
- - web-fragment_3_1.xsd
- - javaee_8.xsd
- - web-app_4_0.xsd
- - web-common_4_0.xsd
- - web-fragment_4_0.xsd
-
-may be obtained from:
-http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/javaee/index.html
-</pre></details></div>
-<div><details><summary>tomcat-embed-el@9.0.52(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright:  Licensed to the Apache Software Foundation (ASF) under one or more
-contributor license agreements.  See the NOTICE file distributed with this work for additional information regarding copyright ownership.
-
-Notice:
-Apache Tomcat
-Copyright 1999-2021 The Apache Software Foundation
-
-This product includes software developed at
-The Apache Software Foundation (https://www.apache.org/).
-
-This software contains code derived from netty-native
-developed by the Netty project
-(https://netty.io, https://github.com/netty/netty-tcnative/)
-and from finagle-native developed at Twitter
-(https://github.com/twitter/finagle).
-
-This software contains code derived from jgroups-kubernetes
-developed by the JGroups project (http://www.jgroups.org/).
-
-The Windows Installer is built with the Nullsoft
-Scriptable Install System (NSIS), which is
-open source software.  The original software and
-related information is available at
-http://nsis.sourceforge.net.
-
-Java compilation software for JSP pages is provided by the Eclipse
-JDT Core Batch Compiler component, which is open source software.
-The original software and related information is available at
-https://www.eclipse.org/jdt/core/.
-
-org.apache.tomcat.util.json.JSONParser.jj is a public domain javacc grammar
-for JSON written by Robert Fischer.
-https://github.com/RobertFischer/json-parser
-
-For portions of the Tomcat JNI OpenSSL API and the OpenSSL JSSE integration
-The org.apache.tomcat.jni and the org.apache.tomcat.net.openssl packages
-are derivative work originating from the Netty project and the finagle-native
-project developed at Twitter
-* Copyright 2014 The Netty Project
-* Copyright 2014 Twitter
-
-For portions of the Tomcat cloud support
-The org.apache.catalina.tribes.membership.cloud package contains derivative
-work originating from the jgroups project.
-https://github.com/jgroups-extras/jgroups-kubernetes
-Copyright 2002-2018 Red Hat Inc.
-
-The original XML Schemas for Java EE Deployment Descriptors:
- - javaee_5.xsd
- - javaee_web_services_1_2.xsd
- - javaee_web_services_client_1_2.xsd
- - javaee_6.xsd
- - javaee_web_services_1_3.xsd
- - javaee_web_services_client_1_3.xsd
- - jsp_2_2.xsd
- - web-app_3_0.xsd
- - web-common_3_0.xsd
- - web-fragment_3_0.xsd
- - javaee_7.xsd
- - javaee_web_services_1_4.xsd
- - javaee_web_services_client_1_4.xsd
- - jsp_2_3.xsd
- - web-app_3_1.xsd
- - web-common_3_1.xsd
- - web-fragment_3_1.xsd
- - javaee_8.xsd
- - web-app_4_0.xsd
- - web-common_4_0.xsd
- - web-fragment_4_0.xsd
-
-may be obtained from:
-http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/javaee/index.html
-</pre></details></div>
-<div><details><summary>tomcat-embed-websocket@9.0.52(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright:  Licensed to the Apache Software Foundation (ASF) under one or more
-contributor license agreements.  See the NOTICE file distributed with this work for additional information regarding copyright ownership.
-
-Notice:
-Apache Tomcat
-Copyright 1999-2021 The Apache Software Foundation
-
-This product includes software developed at
-The Apache Software Foundation (https://www.apache.org/).
-
-This software contains code derived from netty-native
-developed by the Netty project
-(https://netty.io, https://github.com/netty/netty-tcnative/)
-and from finagle-native developed at Twitter
-(https://github.com/twitter/finagle).
-
-This software contains code derived from jgroups-kubernetes
-developed by the JGroups project (http://www.jgroups.org/).
-
-The Windows Installer is built with the Nullsoft
-Scriptable Install System (NSIS), which is
-open source software.  The original software and
-related information is available at
-http://nsis.sourceforge.net.
-
-Java compilation software for JSP pages is provided by the Eclipse
-JDT Core Batch Compiler component, which is open source software.
-The original software and related information is available at
-https://www.eclipse.org/jdt/core/.
-
-org.apache.tomcat.util.json.JSONParser.jj is a public domain javacc grammar
-for JSON written by Robert Fischer.
-https://github.com/RobertFischer/json-parser
-
-For portions of the Tomcat JNI OpenSSL API and the OpenSSL JSSE integration
-The org.apache.tomcat.jni and the org.apache.tomcat.net.openssl packages
-are derivative work originating from the Netty project and the finagle-native
-project developed at Twitter
-* Copyright 2014 The Netty Project
-* Copyright 2014 Twitter
-
-For portions of the Tomcat cloud support
-The org.apache.catalina.tribes.membership.cloud package contains derivative
-work originating from the jgroups project.
-https://github.com/jgroups-extras/jgroups-kubernetes
-Copyright 2002-2018 Red Hat Inc.
-
-The original XML Schemas for Java EE Deployment Descriptors:
- - javaee_5.xsd
- - javaee_web_services_1_2.xsd
- - javaee_web_services_client_1_2.xsd
- - javaee_6.xsd
- - javaee_web_services_1_3.xsd
- - javaee_web_services_client_1_3.xsd
- - jsp_2_2.xsd
- - web-app_3_0.xsd
- - web-common_3_0.xsd
- - web-fragment_3_0.xsd
- - javaee_7.xsd
- - javaee_web_services_1_4.xsd
- - javaee_web_services_client_1_4.xsd
- - jsp_2_3.xsd
- - web-app_3_1.xsd
- - web-common_3_1.xsd
- - web-fragment_3_1.xsd
- - javaee_8.xsd
- - web-app_4_0.xsd
- - web-common_4_0.xsd
- - web-fragment_4_0.xsd
-
-may be obtained from:
-http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/javaee/index.html
-</pre></details></div>
-<div><details><summary>tomcat@9.0.52(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright:  Licensed to the Apache Software Foundation (ASF) under one or more
-contributor license agreements.  See the NOTICE file distributed with this work for additional information regarding copyright ownership.
-
-Notice:
-Apache Tomcat
-Copyright 1999-2021 The Apache Software Foundation
-
-This product includes software developed at
-The Apache Software Foundation (https://www.apache.org/).
-
-This software contains code derived from netty-native
-developed by the Netty project
-(https://netty.io, https://github.com/netty/netty-tcnative/)
-and from finagle-native developed at Twitter
-(https://github.com/twitter/finagle).
-
-This software contains code derived from jgroups-kubernetes
-developed by the JGroups project (http://www.jgroups.org/).
-
-The Windows Installer is built with the Nullsoft
-Scriptable Install System (NSIS), which is
-open source software.  The original software and
-related information is available at
-http://nsis.sourceforge.net.
-
-Java compilation software for JSP pages is provided by the Eclipse
-JDT Core Batch Compiler component, which is open source software.
-The original software and related information is available at
-https://www.eclipse.org/jdt/core/.
-
-org.apache.tomcat.util.json.JSONParser.jj is a public domain javacc grammar
-for JSON written by Robert Fischer.
-https://github.com/RobertFischer/json-parser
-
-For portions of the Tomcat JNI OpenSSL API and the OpenSSL JSSE integration
-The org.apache.tomcat.jni and the org.apache.tomcat.net.openssl packages
-are derivative work originating from the Netty project and the finagle-native
-project developed at Twitter
-* Copyright 2014 The Netty Project
-* Copyright 2014 Twitter
-
-For portions of the Tomcat cloud support
-The org.apache.catalina.tribes.membership.cloud package contains derivative
-work originating from the jgroups project.
-https://github.com/jgroups-extras/jgroups-kubernetes
-Copyright 2002-2018 Red Hat Inc.
-
-The original XML Schemas for Java EE Deployment Descriptors:
- - javaee_5.xsd
- - javaee_web_services_1_2.xsd
- - javaee_web_services_client_1_2.xsd
- - javaee_6.xsd
- - javaee_web_services_1_3.xsd
- - javaee_web_services_client_1_3.xsd
- - jsp_2_2.xsd
- - web-app_3_0.xsd
- - web-common_3_0.xsd
- - web-fragment_3_0.xsd
- - javaee_7.xsd
- - javaee_web_services_1_4.xsd
- - javaee_web_services_client_1_4.xsd
- - jsp_2_3.xsd
- - web-app_3_1.xsd
- - web-common_3_1.xsd
- - web-fragment_3_1.xsd
- - javaee_8.xsd
- - web-app_4_0.xsd
- - web-common_4_0.xsd
- - web-fragment_4_0.xsd
-
-may be obtained from:
-http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/javaee/index.html
+<div><details><summary>log4j-api@2.17.1(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>COPYRIGHT: Copyright 1999-2019 Apache Software Foundation</pre></details></div>
+<div><details><summary>log4j-to-slf4j@2.17.1(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>COPYRIGHT: Copyright 1999-2019 Apache Software Foundation</pre></details></div>
+<div><details><summary>tomcat-embed-core@9.0.58(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 1999-2022 The Apache Software Foundation</pre></details></div>
+<div><details><summary>tomcat-embed-el@9.0.58(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 1999-2022 The Apache Software Foundation</pre></details></div>
+<div><details><summary>tomcat-embed-websocket@9.0.58(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 1999-2022 The Apache Software Foundation</pre></details></div>
+<div><details><summary>tomcat@9.0.58(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 1999-2022 The Apache Software Foundation
 </pre></details></div>
 <div><details><summary>groovy-all@2.4.13(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Notice file:
 ================================================================================
@@ -560,11 +267,11 @@ See this link for third-party software notices and/or additional
 terms for licensed third-party software components included within the LLVM Project. The LLVM Project is under the Apache License v2.0 with LLVM Exceptions:https://github.com/oracle/graal/blob/master/sdk/3rd_party_license_llvm-toolchain.txt 
 </pre></details></div>
 <div><details><summary>truffle-api@21.1.0(<a href="https://opensource.org/licenses/UPL">UPL</a>)</summary><pre>Copyright (c) Oracle and/or its affiliates.</pre></details></div>
-<div><details><summary>hibernate-validator@6.2.0.Final(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) various authors: https://github.com/hibernate/hibernate-validator/blob/main/copyright.txt</pre></details></div>
+<div><details><summary>hibernate-validator@6.2.2.Final(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: various authors (https://github.com/hibernate/hibernate-validator/blob/main/copyright.txt)</pre></details></div>
 <div><details><summary>javassist@3.25.0-GA(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: (C) 1999-2020 by Shigeru Chiba, All rights reserved.</pre></details></div>
 <div><details><summary>jboss-logging@3.4.1.Final(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright JBoss, Home of Professional Open Source
 Copyright 2010 Red Hat, Inc., and individual contributorsas indicated by the @author tags.</pre></details></div>
-<div><details><summary>jboss-logging@3.4.2.Final(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright Red Hat, Inc.</pre></details></div>
+<div><details><summary>jboss-logging@3.4.3.Final(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright Red Hat, Inc.</pre></details></div>
 <div><details><summary>resteasy-jaxrs@3.14.0.Final(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright https://github.com/resteasy/Resteasy/graphs/contributors</pre></details></div>
 <div><details><summary>jboss-annotations-api_1.3_spec@2.0.1.Final(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Copyright (c) 2012, 2019 Oracle and/or its affiliates. All rights reserved.</pre></details></div>
 <div><details><summary>jboss-jaxrs-api_2.1_spec@2.0.1.Final(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Notice file: 
@@ -739,70 +446,89 @@ you may not use this file except in compliance with the License. You may obtain 
 <div><details><summary>asm-util@7.1(<a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a>)</summary><pre>Copyright (c) 2000-2011 INRIA, France Telecom</pre></details></div>
 <div><details><summary>asm@7.1(<a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a>)</summary><pre>Copyright (c) 2000-2011 INRIA, France Telecom</pre></details></div>
 <div><details><summary>reactive-streams@1.0.3(<a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0</a>)</summary><pre>CopyrightWaiver:https://github.com/reactive-streams/reactive-streams-jvm/blob/master/CopyrightWaivers.txt</pre></details></div>
-<div><details><summary>scala-library@2.13.5(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Notice file
-======================================================================
-Scala
-Copyright (c) 2002-2020 EPFL
-Copyright (c) 2011-2020 Lightbend, Inc.
-Scala includes software developed at
-LAMP/EPFL (https://lamp.epfl.ch/) and
-Lightbend, Inc. (https://www.lightbend.com/).
-Licensed under the Apache License, Version 2.0 (the "License").
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-This software includes projects with other licenses -- see `doc/LICENSE.md`.
-======================================================================
-</pre></details></div>
-<div><details><summary>jul-to-slf4j@1.7.32(<a href="https://opensource.org/licenses/MIT">MIT</a>)</summary><pre>Copyright © 2004-2021 QOS.ch</pre></details></div>
+<div><details><summary>scala-library@2.13.6(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) 2002-2022 EPFL
+Copyright (c) 2011-2022 Lightbend, Inc.
+Notice: 
+Scala includes software developed at LAMP/EPFL (https://lamp.epfl.ch/) and Lightbend, Inc. (https://www.lightbend.com/).</pre></details></div>
+<div><details><summary>jul-to-slf4j@1.7.36(<a href="https://opensource.org/licenses/MIT">MIT</a>)</summary><pre>Copyright (c) 2004-2017 QOS.ch</pre></details></div>
 <div><details><summary>slf4j-api@1.7.25(<a href="https://opensource.org/licenses/MIT">MIT</a>)</summary><pre>Copyright (c) 2004-2017 QOS.ch</pre></details></div>
 <div><details><summary>slf4j-api@1.7.26(<a href="https://opensource.org/licenses/MIT">MIT</a>)</summary><pre>Copyright: (c) 2004-2017 QOS.ch</pre></details></div>
-<div><details><summary>slf4j-api@1.7.32(<a href="https://opensource.org/licenses/MIT">MIT</a>)</summary><pre>Copyright © 2004-2021 QOS.ch</pre></details></div>
+<div><details><summary>slf4j-api@1.7.36(<a href="https://opensource.org/licenses/MIT">MIT</a>)</summary><pre>Copyright (c) 2004-2017 QOS.ch</pre></details></div>
 <div><details><summary>slf4j-jdk14@1.7.26(<a href="https://opensource.org/licenses/MIT">MIT</a>)</summary><pre>Copyright (c) 2004-2017 QOS.ch</pre></details></div>
-<div><details><summary>spring-boot-autoconfigure@2.5.4(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: the original author or authors</pre></details></div>
-<div><details><summary>spring-boot-starter-jdbc@2.5.4(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: the original author or authors</pre></details></div>
-<div><details><summary>spring-boot-starter-jersey@2.5.4(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: the original author or authors</pre></details></div>
-<div><details><summary>spring-boot-starter-json@2.5.4(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: the original author or authors</pre></details></div>
-<div><details><summary>spring-boot-starter-logging@2.5.4(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: the original author or authors</pre></details></div>
-<div><details><summary>spring-boot-starter-tomcat@2.5.4(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: the original author or authors</pre></details></div>
-<div><details><summary>spring-boot-starter-validation@2.5.4(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: the original author or authors</pre></details></div>
-<div><details><summary>spring-boot-starter-web@2.5.4(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: the original author or authors</pre></details></div>
-<div><details><summary>spring-boot-starter@2.5.4(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: the original author or authors</pre></details></div>
-<div><details><summary>spring-boot@2.5.4(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: the original author or authors</pre></details></div>
-<div><details><summary>spring-aop@5.2.14.RELEASE(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: the original author or authors</pre></details></div>
-<div><details><summary>spring-aop@5.3.9(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: the original author or authors</pre></details></div>
-<div><details><summary>spring-beans@5.2.14.RELEASE(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: the original author or authors</pre></details></div>
-<div><details><summary>spring-beans@5.3.9(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: the original author or authors</pre></details></div>
-<div><details><summary>spring-context@5.2.14.RELEASE(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: the original author or authors</pre></details></div>
-<div><details><summary>spring-context@5.3.9(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: the original author or authors</pre></details></div>
-<div><details><summary>spring-core@5.2.14.RELEASE(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: the original author or authors</pre></details></div>
-<div><details><summary>spring-core@5.3.9(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: the original author or authors</pre></details></div>
-<div><details><summary>spring-expression@5.2.14.RELEASE(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: the original author or authors</pre></details></div>
-<div><details><summary>spring-expression@5.3.9(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: the original author or authors</pre></details></div>
-<div><details><summary>spring-jcl@5.2.14.RELEASE(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: the original author or authors</pre></details></div>
-<div><details><summary>spring-jcl@5.3.9(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: the original author or authors</pre></details></div>
-<div><details><summary>spring-jdbc@5.2.14.RELEASE(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: the original author or authors</pre></details></div>
-<div><details><summary>spring-jdbc@5.3.9(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: the original author or authors</pre></details></div>
-<div><details><summary>spring-orm@5.2.14.RELEASE(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: the original author or authors</pre></details></div>
-<div><details><summary>spring-orm@5.3.9(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: the original author or authors</pre></details></div>
-<div><details><summary>spring-tx@5.2.14.RELEASE(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: the original author or authors</pre></details></div>
-<div><details><summary>spring-tx@5.3.9(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: the original author or authors</pre></details></div>
-<div><details><summary>spring-web@5.2.14.RELEASE(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: the original author or authors</pre></details></div>
-<div><details><summary>spring-web@5.3.9(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: the original author or authors</pre></details></div>
-<div><details><summary>spring-webmvc@5.3.9(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: the original author or authors</pre></details></div>
-<div><details><summary>wildfly-dist@23.0.2.Final(<a href="https://opensource.org/licenses/LGPL-2.1">LGPL 2.1</a>)</summary><pre>Copyright 2010, Red Hat, Inc., and individual contributors
-  ~ as indicated by the @author tags. See the copyright.txt file in the
-  ~ distribution for a full listing of individual contributors.</pre></details></div>
-<div><details><summary>wildfly-galleon-pack@23.0.2.Final(<a href="https://opensource.org/licenses/LGPL-2.1">LGPL 2.1</a>)</summary><pre>Copyright 2020, Red Hat, Inc., and individual contributors
-  ~ as indicated by the @author tags. See the copyright.txt file in the
-  ~ distribution for a full listing of individual contributors.</pre></details></div>
-<div><details><summary>snakeyaml@1.28(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) http://www.snakeyaml.org</pre></details></div>
+<div><details><summary>spring-boot-autoconfigure@2.6.4(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2002 - 2021 Pivotal, Inc. All Rights Reserved (https://docs.spring.io/spring-framework/docs/current/reference/html/)
+Copyright the original author or authors</pre></details></div>
+<div><details><summary>spring-boot-starter-jdbc@2.6.4(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2002 - 2021 Pivotal, Inc. All Rights Reserved (https://docs.spring.io/spring-framework/docs/current/reference/html/)
+Copyright the original author or authors</pre></details></div>
+<div><details><summary>spring-boot-starter-jersey@2.6.4(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2002 - 2021 Pivotal, Inc. All Rights Reserved (https://docs.spring.io/spring-framework/docs/current/reference/html/)
+Copyright the original author or authors</pre></details></div>
+<div><details><summary>spring-boot-starter-json@2.6.4(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2002 - 2021 Pivotal, Inc. All Rights Reserved (https://docs.spring.io/spring-framework/docs/current/reference/html/)
+Copyright the original author or authors</pre></details></div>
+<div><details><summary>spring-boot-starter-logging@2.6.4(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2002 - 2021 Pivotal, Inc. All Rights Reserved (https://docs.spring.io/spring-framework/docs/current/reference/html/)
+Copyright the original author or authors</pre></details></div>
+<div><details><summary>spring-boot-starter-tomcat@2.6.4(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2002 - 2021 Pivotal, Inc. All Rights Reserved (https://docs.spring.io/spring-framework/docs/current/reference/html/)
+Copyright the original author or authors</pre></details></div>
+<div><details><summary>spring-boot-starter-validation@2.6.4(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2002 - 2021 Pivotal, Inc. All Rights Reserved (https://docs.spring.io/spring-framework/docs/current/reference/html/)
+Copyright the original author or authors</pre></details></div>
+<div><details><summary>spring-boot-starter-web@2.6.4(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2002 - 2021 Pivotal, Inc. All Rights Reserved (https://docs.spring.io/spring-framework/docs/current/reference/html/)
+Copyright the original author or authors</pre></details></div>
+<div><details><summary>spring-boot-starter@2.6.4(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2002 - 2021 Pivotal, Inc. All Rights Reserved (https://docs.spring.io/spring-framework/docs/current/reference/html/)
+Copyright the original author or authors
+</pre></details></div>
+<div><details><summary>spring-boot@2.6.4(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2002 - 2021 Pivotal, Inc. All Rights Reserved (https://docs.spring.io/spring-framework/docs/current/reference/html/)
+Copyright the original author or authors</pre></details></div>
+<div><details><summary>spring-aop@5.2.19.RELEASE(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2002 - 2021 Pivotal, Inc. All Rights Reserved (https://docs.spring.io/spring-framework/docs/current/reference/html/)
+Copyright the original author or authors</pre></details></div>
+<div><details><summary>spring-aop@5.3.16(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2002 - 2021 Pivotal, Inc. All Rights Reserved (https://docs.spring.io/spring-framework/docs/current/reference/html/)
+Copyright the original author or authors</pre></details></div>
+<div><details><summary>spring-beans@5.2.19.RELEASE(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2002 - 2021 Pivotal, Inc. All Rights Reserved (https://docs.spring.io/spring-framework/docs/current/reference/html/)
+Copyright the original author or authors
+</pre></details></div>
+<div><details><summary>spring-beans@5.3.16(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2002 - 2021 Pivotal, Inc. All Rights Reserved (https://docs.spring.io/spring-framework/docs/current/reference/html/)
+Copyright the original author or authors
+</pre></details></div>
+<div><details><summary>spring-context@5.2.19.RELEASE(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2002 - 2021 Pivotal, Inc. All Rights Reserved (https://docs.spring.io/spring-framework/docs/current/reference/html/)
+Copyright the original author or authors</pre></details></div>
+<div><details><summary>spring-context@5.3.16(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2002 - 2021 Pivotal, Inc. All Rights Reserved (https://docs.spring.io/spring-framework/docs/current/reference/html/)
+Copyright the original author or authors</pre></details></div>
+<div><details><summary>spring-core@5.2.19.RELEASE(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2002 - 2021 Pivotal, Inc. All Rights Reserved (https://docs.spring.io/spring-framework/docs/current/reference/html/)
+Copyright the original author or authors</pre></details></div>
+<div><details><summary>spring-core@5.3.16(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2002 - 2021 Pivotal, Inc. All Rights Reserved (https://docs.spring.io/spring-framework/docs/current/reference/html/)
+Copyright the original author or authors</pre></details></div>
+<div><details><summary>spring-expression@5.2.19.RELEASE(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2002 - 2021 Pivotal, Inc. All Rights Reserved (https://docs.spring.io/spring-framework/docs/current/reference/html/)
+Copyright the original author or authors</pre></details></div>
+<div><details><summary>spring-expression@5.3.16(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2002 - 2021 Pivotal, Inc. All Rights Reserved (https://docs.spring.io/spring-framework/docs/current/reference/html/)
+Copyright the original author or authors</pre></details></div>
+<div><details><summary>spring-jcl@5.2.19.RELEASE(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2002 - 2021 Pivotal, Inc. All Rights Reserved (https://docs.spring.io/spring-framework/docs/current/reference/html/)
+Copyright the original author or authors</pre></details></div>
+<div><details><summary>spring-jcl@5.3.16(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2002 - 2021 Pivotal, Inc. All Rights Reserved (https://docs.spring.io/spring-framework/docs/current/reference/html/)
+Copyright the original author or authors</pre></details></div>
+<div><details><summary>spring-jdbc@5.2.19.RELEASE(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2002 - 2021 Pivotal, Inc. All Rights Reserved (https://docs.spring.io/spring-framework/docs/current/reference/html/)
+Copyright the original author or authors</pre></details></div>
+<div><details><summary>spring-jdbc@5.3.16(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2002 - 2021 Pivotal, Inc. All Rights Reserved (https://docs.spring.io/spring-framework/docs/current/reference/html/)
+Copyright the original author or authors</pre></details></div>
+<div><details><summary>spring-orm@5.2.19.RELEASE(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2002 - 2021 Pivotal, Inc. All Rights Reserved (https://docs.spring.io/spring-framework/docs/current/reference/html/)
+Copyright the original author or authors</pre></details></div>
+<div><details><summary>spring-orm@5.3.16(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2002 - 2021 Pivotal, Inc. All Rights Reserved (https://docs.spring.io/spring-framework/docs/current/reference/html/)
+Copyright the original author or authors</pre></details></div>
+<div><details><summary>spring-tx@5.2.19.RELEASE(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2002 - 2021 Pivotal, Inc. All Rights Reserved (https://docs.spring.io/spring-framework/docs/current/reference/html/)
+Copyright the original author or authors</pre></details></div>
+<div><details><summary>spring-tx@5.3.16(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2002 - 2021 Pivotal, Inc. All Rights Reserved (https://docs.spring.io/spring-framework/docs/current/reference/html/)
+Copyright the original author or authors</pre></details></div>
+<div><details><summary>spring-web@5.2.19.RELEASE(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2002 - 2021 Pivotal, Inc. All Rights Reserved (https://docs.spring.io/spring-framework/docs/current/reference/html/)
+Copyright the original author or authors</pre></details></div>
+<div><details><summary>spring-web@5.3.16(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2002 - 2021 Pivotal, Inc. All Rights Reserved (https://docs.spring.io/spring-framework/docs/current/reference/html/)
+Copyright the original author or authors</pre></details></div>
+<div><details><summary>spring-webmvc@5.3.16(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2002 - 2021 Pivotal, Inc. All Rights Reserved (https://docs.spring.io/spring-framework/docs/current/reference/html/)
+Copyright the original author or authors</pre></details></div>
+<div><details><summary>wildfly-dist@26.0.1.Final(<a href="https://opensource.org/licenses/LGPL-2.1">LGPL 2.1</a>)</summary><pre>JBoss, Home of Professional Open Source
+Copyright 2010, Red Hat, Inc., and individual contributors as indicated by the @author tags. See the copyright.txt file in the distribution for a full listing of individual contributors</pre></details></div>
+<div><details><summary>wildfly-galleon-pack@26.0.1.Final(<a href="https://opensource.org/licenses/LGPL-2.1">LGPL 2.1</a>)</summary><pre>JBoss, Home of Professional Open Source
+Copyright 2014, Red Hat, Inc., and individual contributors as indicated by the @author tags. See the copyright.txt file in the distribution for a full listing of individual contributors</pre></details></div>
+<div><details><summary>snakeyaml@1.29(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright ©  The SnakeYAML library is developed by the team of developers and it is based on PyYAML module written by Kirill Simonov.</pre></details></div>
 
 # Camunda Web Applications Javascript Dependencies
 
-<div><details><summary><a href="https://github.com/bpmn-io/dmn-migrate#readme">@bpmn-io\dmn-migrate@0.4.3</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="git+https://github.com/bpmn-io/dmn-migrate.git">@bpmn-io/dmn-migrate@0.4.3</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2020-present Camunda Services GmbH
 
@@ -824,7 +550,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/form-js#readme">@bpmn-io\form-js-editor@0.4.4</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2021-present Camunda Services GmbH
+<div><details><summary><a href="git+https://github.com/bpmn-io/form-js.git">@bpmn-io/form-js-editor@0.7.0</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2021-present Camunda Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in the
@@ -847,7 +573,7 @@ PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS 
 LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
 OR OTHER DEALINGS IN THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/form-js#readme">@bpmn-io\form-js-viewer@0.4.4</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2021-present Camunda Services GmbH
+<div><details><summary><a href="git+https://github.com/bpmn-io/form-js.git">@bpmn-io/form-js-viewer@0.7.0</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2021-present Camunda Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in the
@@ -870,7 +596,7 @@ PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS 
 LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
 OR OTHER DEALINGS IN THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/form-js#readme">@bpmn-io\form-js@0.4.1</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2021-present Camunda Services GmbH
+<div><details><summary><a href="git+https://github.com/bpmn-io/form-js.git">@bpmn-io/form-js@0.7.0</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2021-present Camunda Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in the
@@ -893,7 +619,7 @@ PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS 
 LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
 OR OTHER DEALINGS IN THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/snarkdown">@bpmn-io\snarkdown@2.1.0</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/bpmn-io/snarkdown">@bpmn-io/snarkdown@2.1.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2017 Jason Miller
 
@@ -1007,31 +733,18 @@ INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
 DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
 OTHER DEALINGS IN THE FONT SOFTWARE.</pre></details></div>
-<div><details><summary><a href="http://angularjs.org">angular-animate@1.8.2</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://xlts.dev/angularjs">angular-animate@1.8.8</a> (MIT and updates for XLTS for AngularJS under the XLTS EULA)</summary><pre># The code in this repository is governed by two licenses
 
-Copyright (c) 2016 Angular
+Portions of the code found here was obtained from Google and is provided under and subject to the
+terms of the MIT License set forth below and all other portions of the code are original works of
+XLTS.dev and are provided subject to the terms of an end user license agreement, which may be
+obtained from XLTS.dev. Find more details at https://xlts.dev/angularjs.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+## For code sourced from https://github.com/angular/angular.js
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+The MIT License
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-</pre></details></div>
-<div><details><summary><a href="http://angularjs.org">angular-cookies@1.8.2</a> (MIT)</summary><pre>The MIT License (MIT)
-
-Copyright (c) 2016 Angular
+Copyright (c) 2010-2021 Google LLC. http://angularjs.org
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -1040,20 +753,41 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-</pre></details></div>
-<div><details><summary><a href="http://angularjs.org">angular-resource@1.8.2</a> (MIT)</summary><pre>The MIT License (MIT)
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 
-Copyright (c) 2016 Angular
+## For all other code
+
+The XLTS for AngularJS Software End User License Agreement
+
+Copyright (c) 2022 XLTS.dev All Rights Reserved.
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+Use of this source code is governed by a commercial license that must be obtained from XLTS.dev.
+Find more details at https://xlts.dev/angularjs.
+</pre></details></div>
+<div><details><summary><a href="https://xlts.dev/angularjs">angular-cookies@1.8.8</a> (MIT and updates for XLTS for AngularJS under the XLTS EULA)</summary><pre># The code in this repository is governed by two licenses
+
+Portions of the code found here was obtained from Google and is provided under and subject to the
+terms of the MIT License set forth below and all other portions of the code are original works of
+XLTS.dev and are provided subject to the terms of an end user license agreement, which may be
+obtained from XLTS.dev. Find more details at https://xlts.dev/angularjs.
+
+## For code sourced from https://github.com/angular/angular.js
+
+The MIT License
+
+Copyright (c) 2010-2021 Google LLC. http://angularjs.org
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -1062,20 +796,41 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-</pre></details></div>
-<div><details><summary><a href="http://angularjs.org">angular-route@1.8.2</a> (MIT)</summary><pre>The MIT License (MIT)
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 
-Copyright (c) 2016 Angular
+## For all other code
+
+The XLTS for AngularJS Software End User License Agreement
+
+Copyright (c) 2022 XLTS.dev All Rights Reserved.
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+Use of this source code is governed by a commercial license that must be obtained from XLTS.dev.
+Find more details at https://xlts.dev/angularjs.
+</pre></details></div>
+<div><details><summary><a href="https://xlts.dev/angularjs">angular-resource@1.8.8</a> (MIT and updates for XLTS for AngularJS under the XLTS EULA)</summary><pre># The code in this repository is governed by two licenses
+
+Portions of the code found here was obtained from Google and is provided under and subject to the
+terms of the MIT License set forth below and all other portions of the code are original works of
+XLTS.dev and are provided subject to the terms of an end user license agreement, which may be
+obtained from XLTS.dev. Find more details at https://xlts.dev/angularjs.
+
+## For code sourced from https://github.com/angular/angular.js
+
+The MIT License
+
+Copyright (c) 2010-2021 Google LLC. http://angularjs.org
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -1084,20 +839,41 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-</pre></details></div>
-<div><details><summary><a href="http://angularjs.org">angular-sanitize@1.8.2</a> (MIT)</summary><pre>The MIT License (MIT)
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 
-Copyright (c) 2016 Angular
+## For all other code
+
+The XLTS for AngularJS Software End User License Agreement
+
+Copyright (c) 2022 XLTS.dev All Rights Reserved.
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+Use of this source code is governed by a commercial license that must be obtained from XLTS.dev.
+Find more details at https://xlts.dev/angularjs.
+</pre></details></div>
+<div><details><summary><a href="https://xlts.dev/angularjs">angular-route@1.8.8</a> (MIT and updates for XLTS for AngularJS under the XLTS EULA)</summary><pre># The code in this repository is governed by two licenses
+
+Portions of the code found here was obtained from Google and is provided under and subject to the
+terms of the MIT License set forth below and all other portions of the code are original works of
+XLTS.dev and are provided subject to the terms of an end user license agreement, which may be
+obtained from XLTS.dev. Find more details at https://xlts.dev/angularjs.
+
+## For code sourced from https://github.com/angular/angular.js
+
+The MIT License
+
+Copyright (c) 2010-2021 Google LLC. http://angularjs.org
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -1106,20 +882,41 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-</pre></details></div>
-<div><details><summary><a href="http://angularjs.org">angular-touch@1.8.2</a> (MIT)</summary><pre>The MIT License (MIT)
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 
-Copyright (c) 2016 Angular
+## For all other code
+
+The XLTS for AngularJS Software End User License Agreement
+
+Copyright (c) 2022 XLTS.dev All Rights Reserved.
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+Use of this source code is governed by a commercial license that must be obtained from XLTS.dev.
+Find more details at https://xlts.dev/angularjs.
+</pre></details></div>
+<div><details><summary><a href="https://xlts.dev/angularjs">angular-sanitize@1.8.8</a> (MIT and updates for XLTS for AngularJS under the XLTS EULA)</summary><pre># The code in this repository is governed by two licenses
+
+Portions of the code found here was obtained from Google and is provided under and subject to the
+terms of the MIT License set forth below and all other portions of the code are original works of
+XLTS.dev and are provided subject to the terms of an end user license agreement, which may be
+obtained from XLTS.dev. Find more details at https://xlts.dev/angularjs.
+
+## For code sourced from https://github.com/angular/angular.js
+
+The MIT License
+
+Copyright (c) 2010-2021 Google LLC. http://angularjs.org
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -1128,20 +925,41 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-</pre></details></div>
-<div><details><summary><a href="http://angularjs.org">angular@1.8.2</a> (MIT)</summary><pre>The MIT License (MIT)
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 
-Copyright (c) 2016 Angular
+## For all other code
+
+The XLTS for AngularJS Software End User License Agreement
+
+Copyright (c) 2022 XLTS.dev All Rights Reserved.
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+Use of this source code is governed by a commercial license that must be obtained from XLTS.dev.
+Find more details at https://xlts.dev/angularjs.
+</pre></details></div>
+<div><details><summary><a href="https://xlts.dev/angularjs">angular-touch@1.8.8</a> (MIT and updates for XLTS for AngularJS under the XLTS EULA)</summary><pre># The code in this repository is governed by two licenses
+
+Portions of the code found here was obtained from Google and is provided under and subject to the
+terms of the MIT License set forth below and all other portions of the code are original works of
+XLTS.dev and are provided subject to the terms of an end user license agreement, which may be
+obtained from XLTS.dev. Find more details at https://xlts.dev/angularjs.
+
+## For code sourced from https://github.com/angular/angular.js
+
+The MIT License
+
+Copyright (c) 2010-2021 Google LLC. http://angularjs.org
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -1150,18 +968,73 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+## For all other code
+
+The XLTS for AngularJS Software End User License Agreement
+
+Copyright (c) 2022 XLTS.dev All Rights Reserved.
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+Use of this source code is governed by a commercial license that must be obtained from XLTS.dev.
+Find more details at https://xlts.dev/angularjs.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/sindresorhus/array-move#readme">array-move@3.0.1</a> (MIT)</summary><pre>MIT License
+<div><details><summary><a href="https://xlts.dev/angularjs">angular@1.8.8</a> (MIT and updates for XLTS for AngularJS under the XLTS EULA)</summary><pre># The code in this repository is governed by two licenses
+
+Portions of the code found here was obtained from Google and is provided under and subject to the
+terms of the MIT License set forth below and all other portions of the code are original works of
+XLTS.dev and are provided subject to the terms of an end user license agreement, which may be
+obtained from XLTS.dev. Find more details at https://xlts.dev/angularjs.
+
+## For code sourced from https://github.com/angular/angular.js
+
+The MIT License
+
+Copyright (c) 2010-2021 Google LLC. http://angularjs.org
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+## For all other code
+
+The XLTS for AngularJS Software End User License Agreement
+
+Copyright (c) 2022 XLTS.dev All Rights Reserved.
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+Use of this source code is governed by a commercial license that must be obtained from XLTS.dev.
+Find more details at https://xlts.dev/angularjs.
+</pre></details></div>
+<div><details><summary><a href="https://github.com/sindresorhus/array-move">array-move@3.0.1</a> (MIT)</summary><pre>MIT License
 
 Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
 
@@ -1329,7 +1202,7 @@ INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
 DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
 OTHER DEALINGS IN THE FONT SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/bpmn-js#readme">bpmn-js@8.1.0</a> (The bpmn.io-License)</summary><pre>Copyright (c) 2014-present Camunda Services GmbH
+<div><details><summary><a href="https://github.com/bpmn-io/bpmn-js">bpmn-js@9.0.3</a> (The bpmn.io-License)</summary><pre>Copyright (c) 2014-present Camunda Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in the
@@ -1353,7 +1226,7 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRA
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
 OR OTHER DEALINGS IN THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/bpmn-moddle#readme">bpmn-moddle@7.1.2</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/bpmn-io/bpmn-moddle">bpmn-moddle@7.1.2</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2014 camunda Services GmbH
 
@@ -1396,7 +1269,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/camunda/camunda-dmn-moddle#readme">camunda-dmn-moddle@1.1.0</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/camunda/camunda-dmn-moddle">camunda-dmn-moddle@1.1.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2014-2018 camunda Services GmbH
 
@@ -1427,7 +1300,7 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/cmmn-js#readme">cmmn-js@0.20.0</a> (The bpmn.io-License)</summary><pre>Copyright (c) 2014-present Camunda Services GmbH
+<div><details><summary><a href="https://github.com/bpmn-io/cmmn-js">cmmn-js@0.20.0</a> (The bpmn.io-License)</summary><pre>Copyright (c) 2014-present Camunda Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in the
@@ -1451,7 +1324,7 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRA
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
 OR OTHER DEALINGS IN THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/cmmn-moddle#readme">cmmn-moddle@5.0.0</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/bpmn-io/cmmn-moddle">cmmn-moddle@5.0.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2014 camunda Services GmbH
 
@@ -1518,7 +1391,7 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/zloirock/core-js#readme">core-js@3.12.1</a> (MIT)</summary><pre>Copyright (c) 2014-2021 Denis Pushkarev
+<div><details><summary><a href="https://github.com/zloirock/core-js.git">core-js@3.12.1</a> (MIT)</summary><pre>Copyright (c) 2014-2021 Denis Pushkarev
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -1600,7 +1473,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 IN THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/diagram-js-direct-editing#readme">diagram-js-direct-editing@1.6.3</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/bpmn-io/diagram-js-direct-editing">diagram-js-direct-editing@1.6.3</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2014-2017 camunda Services GmbH
 
@@ -1621,7 +1494,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/diagram-js#readme">diagram-js@4.0.3</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/bpmn-io/diagram-js">diagram-js@4.0.3</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2014-present Camunda Services GmbH
 
@@ -1642,7 +1515,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/diagram-js#readme">diagram-js@7.4.1</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/bpmn-io/diagram-js">diagram-js@7.8.1</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2014-present Camunda Services GmbH
 
@@ -1663,7 +1536,28 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/nikku/didi#readme">didi@4.0.0</a> (MIT)</summary><pre>The MIT License
+<div><details><summary><a href="https://github.com/bpmn-io/diagram-js">diagram-js@8.2.0</a> (MIT)</summary><pre>The MIT License (MIT)
+
+Copyright (c) 2014-present Camunda Services GmbH
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.</pre></details></div>
+<div><details><summary><a href="git://github.com/nikku/didi.git">didi@4.0.0</a> (MIT)</summary><pre>The MIT License
 
 Copyright (C) 2013 Vojta Jína.
 Copyright (C) 2015-present Nico Rehwaldt.
@@ -1685,7 +1579,7 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/nikku/didi#readme">didi@5.2.1</a> (MIT)</summary><pre>The MIT License
+<div><details><summary><a href="git://github.com/nikku/didi.git">didi@5.2.1</a> (MIT)</summary><pre>The MIT License
 
 Copyright (C) 2013 Vojta Jína.
 Copyright (C) 2015-present Nico Rehwaldt.
@@ -1800,7 +1694,7 @@ INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
 DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
 OTHER DEALINGS IN THE FONT SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/dmn-js#readme">dmn-js@10.0.0</a> (The bpmn.io-License)</summary><pre>Copyright (c) 2014-present Camunda Services GmbH
+<div><details><summary><a href="https://github.com/bpmn-io/dmn-js">dmn-js@10.0.0</a> (The bpmn.io-License)</summary><pre>Copyright (c) 2014-present Camunda Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in the
@@ -1824,7 +1718,7 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRA
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
 OR OTHER DEALINGS IN THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/dmn-moddle#readme">dmn-moddle@8.0.4</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/bpmn-io/dmn-moddle">dmn-moddle@8.0.4</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2015-2017 camunda Services GmbH
 
@@ -1846,7 +1740,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/dmn-moddle#readme">dmn-moddle@9.1.0</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/bpmn-io/dmn-moddle">dmn-moddle@9.1.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2015-2017 camunda Services GmbH
 
@@ -1934,7 +1828,7 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/Gozala/events#readme">events@3.3.0</a> (MIT)</summary><pre>MIT
+<div><details><summary><a href="git://github.com/Gozala/events.git">events@3.3.0</a> (MIT)</summary><pre>MIT
 
 Copyright Joyent, Inc. and other Node contributors.
 
@@ -1957,7 +1851,7 @@ DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
 OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
 USE OR OTHER DEALINGS IN THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/NaturalIntelligence/fast-xml-parser#readme">fast-xml-parser@3.17.6</a> (MIT Modified)</summary><pre>Modified MIT License
+<div><details><summary><a href="https://github.com/NaturalIntelligence/fast-xml-parser">fast-xml-parser@3.17.6</a> (MIT Modified)</summary><pre>Modified MIT License
 
 Copyright (c) 2017 Amit Kumar Gupta
 
@@ -2012,7 +1906,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 </pre></details></div>
 <div><details><summary><a href="http://github.com/substack/node-hat.git">hat@0.0.3</a> (MIT/X11)</summary><pre>(MIT/X11) Copyright: James Halliday</pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/ids#readme">ids@0.2.2</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/bpmn-io/ids">ids@0.2.2</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2014 camunda Services GmbH
 
@@ -2033,7 +1927,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/ids#readme">ids@1.0.0</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/bpmn-io/ids">ids@1.0.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2014 camunda Services GmbH
 
@@ -2054,7 +1948,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/feross/ieee754#readme">ieee754@1.2.1</a> (BSD-3-Clause)</summary><pre>Copyright 2008 Fair Oaks Labs, Inc.
+<div><details><summary><a href="git://github.com/feross/ieee754.git">ieee754@1.2.1</a> (BSD-3-Clause)</summary><pre>Copyright 2008 Fair Oaks Labs, Inc.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 
@@ -2147,7 +2041,7 @@ externally maintained libraries used by this software which have their
 own licenses; we recommend you read them, as their terms may differ from
 the terms above.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/min-dash">min-dash@3.8.0</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/bpmn-io/min-dash">min-dash@3.8.1</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2017-present camunda Services GmbH
 
@@ -2168,7 +2062,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/min-dom#readme">min-dom@3.1.3</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/bpmn-io/min-dom">min-dom@3.1.3</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2014 Nico Rehwaldt
 Copyright (c) 2015-present camunda Services GmbH
@@ -2190,7 +2084,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/moddle-xml#readme">moddle-xml@7.5.0</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/bpmn-io/moddle-xml">moddle-xml@7.5.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2014-present Camunda Services GmbH
 
@@ -2211,7 +2105,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/moddle-xml#readme">moddle-xml@8.0.8</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/bpmn-io/moddle-xml">moddle-xml@8.0.8</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2014-present Camunda Services GmbH
 
@@ -2232,7 +2126,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/moddle-xml#readme">moddle-xml@9.0.5</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/bpmn-io/moddle-xml">moddle-xml@9.0.5</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2014-present Camunda Services GmbH
 
@@ -2253,7 +2147,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/moddle#readme">moddle@4.1.0</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/bpmn-io/moddle">moddle@4.1.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2014 camunda Services GmbH
 
@@ -2274,7 +2168,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/moddle#readme">moddle@5.0.2</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/bpmn-io/moddle">moddle@5.0.2</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2014-present Camunda Services GmbH
 
@@ -2295,7 +2189,28 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/ccampbell/mousetrap#readme">mousetrap@1.6.5</a> (Apache-2.0 WITH LLVM-exception)</summary><pre>
+<div><details><summary><a href="https://github.com/bpmn-io/moddle">moddle@5.0.3</a> (MIT)</summary><pre>The MIT License (MIT)
+
+Copyright (c) 2014-present Camunda Services GmbH
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.</pre></details></div>
+<div><details><summary><a href="git://github.com/ccampbell/mousetrap.git">mousetrap@1.6.5</a> (Apache-2.0 WITH LLVM-exception)</summary><pre>
                               Apache License
                         Version 2.0, January 2004
                      http://www.apache.org/licenses/
@@ -2489,7 +2404,7 @@ prospectively choose to deem waived or otherwise exclude such Section(s) of
 the License, but only in their entirety and only with respect to the Combined
 Software.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/object-refs#readme">object-refs@0.3.0</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/bpmn-io/object-refs">object-refs@0.3.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2014-present camunda Services GmbH
 
@@ -2510,7 +2425,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/path-intersection#readme">path-intersection@2.2.1</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/bpmn-io/path-intersection">path-intersection@2.2.1</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2017 camunda Services GmbH
 
@@ -2553,7 +2468,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="https://preactjs.com">preact@10.5.14</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://preactjs.com">preact@10.6.6</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2015-present Jason Miller
 
@@ -2630,7 +2545,29 @@ following expression:
 require("regenerator-runtime/path").path
 ```
 </pre></details></div>
-<div><details><summary><a href="https://github.com/nikku/saxen#readme">saxen@8.1.2</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/facebook/regenerator/tree/master/packages/runtime">regenerator-runtime@0.13.9</a> (MIT)</summary><pre>MIT License
+
+Copyright (c) 2014-present, Facebook, Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+</pre></details></div>
+<div><details><summary><a href="https://github.com/nikku/saxen">saxen@8.1.2</a> (MIT)</summary><pre>The MIT License (MIT)
 Copyright (c) 2012 Vopilovskii Konstantin   <flash.vkv@gmail.com>
 Copyright (c) 2017-present Nico Rehwaldt
 
@@ -2652,7 +2589,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/nikku/selection-ranges#readme">selection-ranges@3.0.3</a> (MIT)</summary><pre>Copyright (c) 2017-present Nico Rehwaldt
+<div><details><summary><a href="git+ssh://git@github.com/nikku/selection-ranges.git">selection-ranges@3.0.3</a> (MIT)</summary><pre>Copyright (c) 2017-present Nico Rehwaldt
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -2693,7 +2630,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/visionmedia/superagent#readme">superagent@4.1.0</a> (MIT)</summary><pre>(The MIT License)
+<div><details><summary><a href="git://github.com/visionmedia/superagent.git">superagent@4.1.0</a> (MIT)</summary><pre>(The MIT License)
 
 Copyright (c) 2014-2016 TJ Holowaychuk <tj@vision-media.ca>
 
@@ -2716,7 +2653,7 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/table-js#readme">table-js@7.2.0</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/bpmn-io/table-js">table-js@7.2.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2017-present camunda Services GmbH
 
@@ -2805,7 +2742,29 @@ The `lib/node` directory borrows files from joyent/node which uses the following
     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
     IN THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/tiny-svg#readme">tiny-svg@2.2.2</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/bpmn-io/tiny-svg">tiny-svg@2.2.2</a> (MIT)</summary><pre>The MIT License (MIT)
+
+Copyright (c) 2014 Nico Rehwaldt
+Copyright (c) 2015-present camunda Services GmbH
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.</pre></details></div>
+<div><details><summary><a href="https://github.com/bpmn-io/tiny-svg">tiny-svg@2.2.3</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2014 Nico Rehwaldt
 Copyright (c) 2015-present camunda Services GmbH

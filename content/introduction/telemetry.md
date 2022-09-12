@@ -15,31 +15,9 @@ At Camunda, we strive to offer an excellent user experience at a high and stable
 
 ## Design
 
-The process engine has a dedicated thread called the *Telemetry Reporter* to periodically report telemetry data to Camunda. By default, this thread is always running, but only collects and reports data if telemetry is explicitly enabled. See the [how to enable telemetry]({{< ref "#how-to-enable-telemetry" >}}) section for how to do this. The collected data is available through multiple APIs, even if sending the data to Camunda is not enabled. See [how to access the data]({{< ref "#how-to-access-the-data" >}}) for more information on how to do this.
+The process engine has a dedicated thread called the **Telemetry Reporter** to periodically report telemetry data to Camunda. By default, this thread is always running, but only reports data if telemetry is explicitly enabled. See the [how to enable telemetry]({{< ref "#how-to-enable-telemetry" >}}) section for how to do this. The collected data is available through multiple APIs, even if sending the data to Camunda is not enabled. See [how to access the data]({{< ref "#how-to-access-the-data" >}}) for more information on how to do this.
 
-When enabled, the collected data is sent once in 24 hours via HTTPS (please also have a look at [Initial Data Report][]). The telemetry reporter is designed so that your implemented processes are not negatively affected in case the reporter suddenly faces an unexpected error. The telemetry reporter stops in any case when the process engine is stopped.
-
-## Initial data report
-
-To support the understanding of typical use cases and the overall distribution of our products, the installation sends an anonymized one-time initial report to Camunda via HTTPS. This report contains no specifics that would allow any direct link to an outside entity and is limited to the following data:
-
-```
-{
-  "installation": "b647de4d-e557-455a-a64f-feaecd55f53c",
-  "product": {
-    "name": "Camunda BPM Runtime",
-    "version": "7.14.0",
-    "edition": "community".
-    "internals": { "telemetry-enabled": false}
-  }
-}
-```
-The telemetry service that receives this report also stores a hash of the IP address from which the report is sent. That hash of the IP address is stored to filter duplicate data and detect malicious access.
-No other information will be included in that report. Furthermore, this report will be sent exactly once on the first run of your installation.
-In case you disabled telemetry explicitly or did not configure it at all, this is the only report that will ever be sent to Camunda.
-
-If there is the necessity to also prevent this anonymized report from being sent to us, you can set the `telemetryReporterActivate` configuration [flag][engine-config-telemetryReporterActivate] to `false`.
-With this, the reporter thread will not be started and no request will ever be sent to Camunda. See the [How to Enable Telemetry]({{< ref "#how-to-enable-telemetry" >}}) section for how to do this.
+When enabled, the collected data is sent once every 24 hours via HTTPS. The telemetry reporter is designed so that your implemented processes are not negatively affected in case the reporter suddenly faces an unexpected error. The telemetry reporter stops in any case when the process engine is stopped.
 
 ## Collected data
 
@@ -112,9 +90,9 @@ The counts are collected from the start of the engine or the last reported time 
           "FetchExternalTasksCmd":  {"count": 100}
         },
         "metrics": {
-          "root-process-instance-start": { "count": 936 },
-          "activity-instance-start": { "count": 6125 },
-          "executed-decision-instances": { "count": 140 },
+          "process-instances": { "count": 936 },
+          "flow-node-instances": { "count": 6125 },
+          "decision-instances": { "count": 140 },
           "executed-decision-elements": { "count": 732 }
         },
         "camunda-integration": [
@@ -212,9 +190,43 @@ Camunda cannot be held responsible in the event of unauthorized installation or 
 
 In case you want further details, you can have a look at the implementation of the telemetry topic in [our codebase](https://github.com/camunda/camunda-bpm-platform/blob/master/engine/src/main/java/org/camunda/bpm/engine/impl/telemetry/reporter/TelemetrySendingTask.java). The link leads you to the current `master` version of the feature. In case you would like to check the implementation of an old version, adjust the `master` branch to a released tag version, e.g. `7.14.0`.
 
+## Initial data report
+
+{{< note title="Previous Camunda versions only" class="info" >}}
+In previous Camunda versions, the installation sends an anonymized one-time initial report to Camunda. This applies to the following versions:
+
+* 7.17: All versions before 7.17.0
+* 7.16: 7.16.6 and lower
+* 7.15: 7.15.12 and lower
+* 7.14: 7.14.18 and lower
+* 7.13 / 7.12 / 7.11: all versions
+
+In higher versions, the installation no longer sends this initial message.
+{{< /note >}}
+
+To support the understanding of typical use cases and the overall distribution of our products, the installation sends an anonymized one-time initial report to Camunda via HTTPS. This report contains no specifics that would allow any direct link to an outside entity and is limited to the following data:
+
+```
+{
+  "installation": "b647de4d-e557-455a-a64f-feaecd55f53c",
+  "product": {
+    "name": "Camunda BPM Runtime",
+    "version": "7.14.0",
+    "edition": "community".
+    "internals": { "telemetry-enabled": false}
+  }
+}
+```
+The telemetry service that receives this report also stores a hash of the IP address from which the report is sent. That hash of the IP address is stored to filter duplicate data and detect malicious access.
+No other information will be included in that report. Furthermore, this report will be sent exactly once on the first run of your installation.
+In case you disabled telemetry explicitly or did not configure it at all, this is the only report that will ever be sent to Camunda.
+
+If there is the necessity to also prevent this anonymized report from being sent to us, you can set the `telemetryReporterActivate` configuration [flag][engine-config-telemetryReporterActivate] to `false`.
+With this, the reporter thread will not be started and no request will ever be sent to Camunda. See the [how to enable telemetry]({{< ref "#how-to-enable-telemetry" >}}) section on how to do this.
+
+
 [engine-config-initializeTelemetry]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#initializeTelemetry" >}}
 [engine-config-telemetryReporterActivate]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#telemetryReporterActivate" >}}
 [telemetry-config-rest]: {{< ref "/reference/rest/telemetry/post-telemetry-config.md" >}}
 [telemetry-data-rest]: {{< ref "/reference/rest/telemetry/get-telemetry-data.md" >}}
 [system-management]: {{< ref "/webapps/admin/system-management.md" >}}
-[Initial Data Report]: {{< ref "#initial-data-report" >}}

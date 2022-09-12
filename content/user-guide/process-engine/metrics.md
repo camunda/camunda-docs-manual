@@ -14,7 +14,7 @@ The process engine reports runtime metrics to the database that can help draw co
 
 # Built-in Metrics
 
-The following table describes the built-in metrics. The identifiers of all built-in metrics are available as constants of the class {{< javadocref page="?org/camunda/bpm/engine/management/Metrics.html" text="org.camunda.bpm.engine.management.Metrics" >}}.
+The following table describes the built-in metrics. The identifiers of all built-in metrics are available as constants of the class {{< javadocref page="org/camunda/bpm/engine/management/Metrics.html" text="org.camunda.bpm.engine.management.Metrics" >}}.
 {{< note title="Heads Up!" class="warning" >}}
 If you are an enterprise customer, your license agreement might require you to report some metrics annually. Please store `root-process-instance-start`, `activity-instance-start`, `executed-decision-instances` and `executed-decision-elements` metrics from `ACT_RU_METER_LOG` as well as task metrics from `ACT_RU_TASK_METER_LOG` for at least 18 months until they were reported.
 {{< /note >}}
@@ -28,24 +28,24 @@ If you are an enterprise customer, your license agreement might require you to r
   <tr>
     <td><b>BPMN Execution</b></td>
     <td>root-process-instance-start*</td>
-    <td>The number of root process instance executions started. This is also known as <b>Root Process Instances (RPI)</b>.
+    <td>The number of root process instance executions started. This is also known as <b>Process Instances (PI)</b>.
     A root process instance has no parent process instance, i.e. it is a top-level execution.
     </td>
   </tr>
   <tr>
     <td></td>
     <td>activity-instance-start*</td>
-    <td>The number of activity instances started. This is also known as <b>flow node instances (FNI)</b>.</td>
+    <td>The number of flow node instances (activity instances) started (FNI).</td>
   </tr>
   <tr>
     <td></td>
     <td>activity-instance-end</td>
-    <td>The number of activity instances ended.</td>
+    <td>The number of flow node instances (activity instances) ended.</td>
   </tr>
   <tr>
     <td><b>DMN Execution</b></td>
     <td>executed-decision-instances*</td>
-    <td>The number of evaluated decision instances (EDI). A decision instance is a DMN decision table or a DMN Literal Expression.</td>
+    <td>The number of evaluated decision instances (DI). A decision instance is a DMN decision table or a DMN Literal Expression.</td>
   </tr>
   <tr>
     <td></td>
@@ -90,7 +90,7 @@ If you are an enterprise customer, your license agreement might require you to r
   <tr>
     <td><b>Task Metrics</b></td>
     <td>unique-task-workers*</td>
-    <td>The number of unique task workers that have served as assignees.</td>
+    <td>The number of task users (TU) that have served as assignees.</td>
   </tr>
   <tr>
     <td><b>History Clean up</b></td>
@@ -123,7 +123,7 @@ If you are an enterprise customer, your license agreement might require you to r
 
 # Querying
 
-Metrics can be queried by making a {{< javadocref page="?org/camunda/bpm/engine/management/MetricsQuery.html" text="MetricsQuery" >}} offered by the `ManagementService`. For example, the following query retrieves the number of all executed activity instances throughout the entire history of reporting:
+Metrics can be queried by making a {{< javadocref page="org/camunda/bpm/engine/management/MetricsQuery.html" text="MetricsQuery" >}} offered by the `ManagementService`. For example, the following query retrieves the number of all executed activity instances throughout the entire history of reporting:
 
 ```java
 long numCompletedActivityInstances = managementService
@@ -176,12 +176,12 @@ Metrics are reported with an identifier of the reporting party. This identifier 
 reports to individual engine instances when making a metrics query. For example in a cluster, load 
 metrics can be related to individual cluster nodes. By default the process engine generates a 
 reporter id as `<local IP>$<engine name>`. The generation can be customized by implementing the 
-interface {{< javadocref page="?org/camunda/bpm/engine/impl/history/event/HostnameProvider.html" text="org.camunda.bpm.engine.impl.history.event.HostnameProvider" >}}
+interface {{< javadocref page="org/camunda/bpm/engine/impl/history/event/HostnameProvider.html" text="org.camunda.bpm.engine.impl.history.event.HostnameProvider" >}}
 and setting the engine property `hostnameProvider` to an instance of that class.
 
 {{< note title="Heads Up!" class="info" >}}
 The 
-{{< javadocref page="?org/camunda/bpm/engine/impl/metrics/MetricsReporterIdProvider.html" text="org.camunda.bpm.engine.impl.metrics.MetricsReporterIdProvider" >}}
+{{< javadocref page="org/camunda/bpm/engine/impl/metrics/MetricsReporterIdProvider.html" text="org.camunda.bpm.engine.impl.metrics.MetricsReporterIdProvider" >}}
 interface and the corresponding `metricsReporterIdProvider` engine property have been deprecated. 
 {{< /note >}}
 

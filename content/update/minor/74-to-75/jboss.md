@@ -234,11 +234,11 @@ The interface of an [Incident Handler]({{< ref "/user-guide/process-engine/incid
 
 ## Correlation Handler
 
-A new method has been added to the interface of a {{< javadocref page="?org/camunda/bpm/engine/impl/runtime/CorrelationHandler.html" text="Correlation Handler" >}}. The new method `correlateStartMessage()` allows to explicitly trigger a message start event of a process definition. If the default implementation is replaced by a custom one then it has to be adjusted.
+A new method has been added to the interface of a {{< javadocref page="org/camunda/bpm/engine/impl/runtime/CorrelationHandler.html" text="Correlation Handler" >}}. The new method `correlateStartMessage()` allows to explicitly trigger a message start event of a process definition. If the default implementation is replaced by a custom one then it has to be adjusted.
 
 ## Job Handler
 
-The interface of a {{< javadocref page="?org/camunda/bpm/engine/impl/jobexecutor/JobHandler.html" text="Job Handler" >}} has changed to support multi-tenancy and separate the parsing of the configuration. 
+The interface of a {{< javadocref page="org/camunda/bpm/engine/impl/jobexecutor/JobHandler.html" text="Job Handler" >}} has changed to support multi-tenancy and separate the parsing of the configuration. 
 
 # 5. Update Camunda Web Applications
 
@@ -264,8 +264,8 @@ The following steps are required to update the Camunda web applications Cockpit,
 
 [jboss-threads-to-camunda-mapping-table]: {{< ref "/update/minor/74-to-75/jboss.md#jboss-threads-to-camunda-subsystem-mapping-table" >}}
 [update-guide]: {{< ref "/update/minor/74-to-75/_index.md" >}}
-[jboss-distro]: https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/jboss/camunda-bpm-jboss/
-[wildfly-distro]: https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/wildfly/camunda-bpm-wildfly/
-[engine-rest]: https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/camunda-engine-rest/
-[webapp-jboss]: https://app.camunda.com/nexus/service/rest/repository/browse/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-jboss/
+[jboss-distro]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/jboss/camunda-bpm-jboss/
+[wildfly-distro]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/wildfly/camunda-bpm-wildfly/
+[engine-rest]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/camunda-engine-rest/
+[webapp-jboss]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-jboss/
 [jboss-container-integration]: {{< ref "/user-guide/runtime-container-integration/jboss.md" >}}

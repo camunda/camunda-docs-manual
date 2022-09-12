@@ -293,6 +293,72 @@ Therefore, the REST API and web applications now register an appropriate module.
 This allows you to keep using Java 8 date and time data types when updating to a newer Jackson version. 
 However, this can also lead to changed serialized data for such values.
 
+## 7.16.3 to 7.16.4 / 7.15.9 to 7.15.10 / 7.14.15 to 7.14.16
+
+### Spin configuration properties
+
+This set of patches introduce configuration properties for the Spin `DomXmlDataFormat` module. The `DomXmlDataFormat`
+configuration properties provide options to toggle **External XML Entity (XXE)** processing, as well as secure processing
+for the Spin XML parser.
+
+By default, we disabled XXE processing, and enabled secure processing of XML documents to protect the Spin XML 
+parser against [XXE attacks](https://en.wikipedia.org/wiki/XML_external_entity_attack) and 
+[Billion laughs attacks](https://en.wikipedia.org/wiki/Billion_laughs_attack).
+
+You can restore the old behavior by passing the appropriate [configuration properties to the Spin process engine plugin][spin-config].
+
+[spin-config]: {{< ref "/user-guide/data-formats/configuring-spin-integration.md#configuration-properties-of-the-spin-plugin" >}}
+
+## 7.16.5 to 7.16.6 / 7.15.11 to 7.15.12 / 7.14.17 to 7.14.18
+
+This set of patches deactivates remote access to the H2 console application in the Tomcat and Wildfly distributions. The H2 application accepts only localhost connections moving forward.
+
+To restore remote access, add the following initialization parameter to the `org.h2.server.web.WebServlet` servlet defined in the `web.xml` file of the h2 web application:
+
+```
+<init-param>
+  <param-name>webAllowOthers</param-name>
+  <param-value>true</param-value>
+</init-param>
+```
+
+You can find the `web.xml` at the following paths:
+
+* Tomcat distribution: `server/apache-tomcat-${TOMCAT_VERSION}/webapps/h2/WEB-INF`
+* Wildfly distribution: `server/wildfly-${WILDFLY_VERSION}/standalone/deployments/camunda-h2-webapp-${CAMUNDA_VERSION}.war/WEB-INF`
+* Docker container Tomcat: `/camunda/webapps/h2/WEB-INF`
+* Docker container Wildfly: `/camunda/standalone/deployments/camunda-h2-webapp-${CAMUNDA_VERSION}.war/WEB-INF`
+
+Please note that we strongly discourage enabling remote access because it creates a security risk.
+
+## 7.17.1 to 7.17.2 / 7.16.8 to 7.16.9 / 7.15.14 to 7.15.15
+
+### Groovy version
+
+The pre-built Camunda distributions of versions `7.15.14`, `7.16.8`, and `7.17.1` provide version `2.4.13` of the Groovy library, whereas newer versions come with Groovy `2.4.21`.
+
+Update the library `groovy-all-$GROOVY_VERSION.jar` in the `lib` folder of your application server.
+
+### Camunda Docker Images: Base image updated to Alpine 3.15
+
+With 7.17.2, 7.16.9, and 7.15.15, Alpine, the base image in Camunda’s Docker images, has been updated from version 3.13 to 3.15.
+
+We went through the release notes to identify breaking changes and could identify the following:
+
+> The faccessat2 syscall has been enabled in musl. This can result in issues on docker hosts with older versions of docker (<20.10.0) and libseccomp (<2.4.4), which blocks this syscall.
+
+Besides Docker runtime versions < 20.10.0, alternative docker runtimes like containerd.io are also affected by this. 
+Read more about it in the [Alpine 3.14 Release Notes](https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.14.0#faccessat2).
+
+If you have extended the Camunda docker images yourself, please read the release notes of Alpine 3.14 and 3.15 carefully:
+
+* https://alpinelinux.org/posts/Alpine-3.14.0-released.html
+* https://alpinelinux.org/posts/Alpine-3.15.0-released.html
+
+### XLTS for AngularJS
+
+These patches replace the AngularJS libraries with XLTS for AngularJS. Where AngularJS was licensed entirely under the MIT license, XLTS for AngularJS licenses additional parts under the XLTS for AngularJS – EULA. By downloading and using Camunda with XLTS for AngularJS, you agree to the terms of the XLTS for AngularJS – EULA. Please see our [third-Party libraries documentation]({{< ref "/introduction/third-party-libraries/_index.md#xlts-for-angularjs" >}}) for details and the terms of the EULA.
+
 # Full Distribution
 
 This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.

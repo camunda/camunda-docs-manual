@@ -61,7 +61,7 @@ GET `/batch/statistics`
     <td>sortBy</td>
     <td>
       Sort the results lexicographically by a given criterion.
-      Valid values are <code>batchId</code> and <code>tenantId</code>.
+      Valid values are <code>batchId</code>, <code>tenantId</code> and <code>startTime</code>.
       Must be used in conjunction with the <code>sortOrder</code> parameter.
     </td>
   </tr>
@@ -167,6 +167,11 @@ Each batch statistics object has the following properties:
     <td>The batch creator's user id.</td>
   </tr>
   <tr>
+    <td>startTime</td>
+    <td>String</td>
+    <td>The time the batch was started. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+  <tr>
     <td>remainingJobs</td>
     <td>Number</td>
     <td>
@@ -193,6 +198,7 @@ Each batch statistics object has the following properties:
   </tr>
 </table>
 
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 ## Response codes
 
@@ -243,6 +249,7 @@ Status 200.
     "suspened": false,
     "tenantId": "aTenantId",
     "createUserId": "aUserId",
+    "startTime":"2013-01-23T13:42:42.000+0200",
     "remainingJobs": 3,
     "completedJobs": 7,
     "failedJobs": 1

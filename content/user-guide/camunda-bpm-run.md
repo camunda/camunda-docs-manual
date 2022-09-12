@@ -50,8 +50,71 @@ camunda-bpm-run
 ├── internal/
 ├── start.bat
 └── start.sh
+└── shutdown.sh
+└── shutdown.bat
 ```
-Execute one of the two start scripts (`start.bat` for Windows, `start.sh` for Linux/Mac). After a few seconds, you will be able to access the Camunda webapps via http://localhost:8080/camunda/app/, the REST API via http://localhost:8080/engine-rest/ and Swagger UI via http://localhost:8080/swaggerui/.
+
+Execute one of the two start scripts (`start.bat` for Windows, `start.sh` for Linux/Mac). After a few seconds, you can 
+access the Camunda web apps via http://localhost:8080/camunda/app/, the REST API via 
+http://localhost:8080/engine-rest/, and Swagger UI via http://localhost:8080/swaggerui/.
+
+When executing one of the two start scripts without any arguments, Camunda Run will start with a default configuration 
+as a detached process. To shut down Camunda Run in "detached" mode, use one of the two shutdown scripts (`shutdown.bat` 
+for Windows, `shutdown.sh` for Linux/Mac).
+
+By explicitly passing arguments to one of the two Camunda Run start scripts, the default detached mode is disabled and
+you can configure Camunda Run according to your needs. Furthermore, Camunda Run will start as a foreground process
+unless the `--detached` argument is explicitly passed to the `start.bat` or `start.sh` script.
+
+## Start script arguments
+
+The start scripts (`start.bat` for Windows, `start.sh` for Linux/Mac) accept the following arguments:
+
+<table class="table desc-table">
+  <tr>
+      <th>Argument</th>
+      <th>Description</th>
+      <th>Default state</th>
+  </tr>
+  <tr>
+      <td><code>--webapps</code></td>
+      <td>Enables the Camunda Platform web apps</td>
+      <td><code>enabled</code></td>
+  </tr>
+  <tr>
+      <td><code>--rest</code></td>
+      <td>Enables the REST API</td>
+      <td><code>enabled</code></td>
+  </tr>
+  <tr>
+      <td><code>--swaggerui</code></td>
+      <td>Enables the Swagger UI</td>
+      <td><code>enabled</code></td>
+  </tr>
+  <tr>
+      <td><code>--example</code></td>
+      <td>Enables the example application.</td>
+      <td><code>enabled</code></td>
+  </tr>
+  <tr>
+      <td><code>--production</code></td>
+      <td>Applies the `production.yaml` configuration file.</td>
+      <td><code>disabled</code></td>
+  </tr>
+  <tr>
+      <td><code>--detached</code></td>
+      <td>
+        Starts Camunda Run as a detached process. This is the default behavior of the start scripts. To disable it, 
+        explicitly pass a valid argument to the script.
+      </td>
+      <td><code>enabled</code></td>
+  </tr>
+  <tr>
+      <td><code>--help</code></td>
+      <td>Prints a message showing the available start script arguments.</td>
+      <td><code>-</code></td>
+  </tr>
+</table>
 
 ## Starting Camunda Platform Run using Docker
 
@@ -203,7 +266,29 @@ If you want to allow cross-origin requests to the [REST API]({{< ref "/reference
   <tr>
       <td><code>.allowed-origins</code></td>
       <td>Origins that are allowed to make CORS requests. Multiple origins can be separated with commas. To support both HTTP authentication and CORS, <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSNotSupportingCredentials"><code>allowed-origins</code> must not be</a> <code>\*</code>. To allow Camunda Modeler to deploy with authentication, including <code>file://</code> in the allowed origins.</td>
-    <td><code>\*</code> (all origins, including <code>file://</code>)</td>
+      <td><code>\*</code> (all origins, including <code>file://</code>)</td>
+  </tr>
+  <tr>
+      <td><code>.allowed-headers</code></td>
+      <td>Headers that are allowed to be passed with CORS requests. Multiple headers can be separated with commas.</td>
+      <td><code>Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers</code></td>
+  </tr>
+  <tr>
+      <td><code>.exposed-headers</code></td>
+      <td>Headers that can be read by browsers from a CORS response. Simple response headers should not be 
+          included in this list. Multiple headers can be separated with commas.
+      </td>
+      <td>None</td>
+  </tr>
+  <tr>
+      <td><code>.allow-credentials</code></td>
+      <td>A boolean flag that helps a browser determine it can make a CORS request using credentials.</td>
+      <td><code>false</code></td>
+  </tr>
+  <tr>
+      <td><code>.preflight-maxage</code></td>
+      <td>Determines how long a browser can cache the result of a pre-flight request in seconds.</td>
+      <td><code>1800</code></td>
   </tr>
 </table>
 
@@ -228,6 +313,129 @@ Find all available configuration properties in the [LDAP Plugin Guide]({{< ref "
       <td><code>false</code></td>
   </tr>
 </table>
+
+### LDAP Administrator Authorization
+
+You can also use the [Administrator Authorization plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}) 
+to ensure the appropriate LDAP user or group gains administrative access. Review all the available 
+configuration options in the [Administrator Authorization plugin section]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}})
+of our documentation.
+
+In the table below, observe the Camunda Run-specific properties for the Administrator Authorization plugin.
+
+<table class="table desc-table">
+  <tr>
+      <th>Prefix</th>
+      <th>Property name</th>
+      <th>Description</th>
+      <th>Default value</th>
+  </tr>
+  <tr>
+      <td rowspan="15"><code>camunda.bpm.run.admin-auth</code></td>
+      <td><code>.enabled</code></td>
+      <td>Switch to enable the Administrator Authorization plugin.</td>
+      <td><code>false</code></td>
+  </tr>
+</table>
+
+## Process engine plugin registration
+
+Camunda Platform provides a process engine plugin mechanism to enable users to add and adjust
+process engine features by extending the process engine configuration. You can use plugins developed by Camunda, or by
+third-party developers.
+
+Get more details on how process engine plugins work on the dedicated [process engine plugins][engine-plugins] 
+documentation section.
+
+In the table below, observe the Camunda Run-specific properties for registering process engine plugins.
+
+<table class="table desc-table">
+  <tr>
+      <th>Prefix</th>
+      <th>Property name</th>
+      <th>Description</th>
+      <th>Default value</th>
+  </tr>
+  <tr>
+      <td><code>camunda.bpm.run</code></td>
+      <td><code>.process-engine-plugins</code></td>
+      <td>Define your process engine plugin configurations under this YAML property.</td>
+      <td>Empty <code>List</code></td>
+  </tr>
+  <tr>
+      <td rowspan="15"><code>camunda.bpm.run.process-engine-plugins</code></td>
+      <td><code>.plugin-class</code></td>
+      <td>Part of a <code>process-engine-plugins</code> list item. Defines the process engine plugin class.</td>
+      <td>none</td>
+  </tr>
+  <tr>
+      <td><code>.plugin-parameters</code></td>
+      <td>
+          Part of a <code>process-engine-plugins</code> list item. Defines the process engine plugin parameters 
+          as <code>key:value</code> pairs.
+      </td>
+      <td>Empty <code>Map</code></td>
+  </tr>
+</table>
+
+Perform the following steps in Camunda Run to register process engine plugins:
+
+1. Find and read the process engine plugin documentation.
+  * Find the canonical name of the process engine plugin Java class that implements the `ProcessEnginePlugin` interface.
+  * Find out if the process engine plugin provides any configuration parameters. You will be able to configure your plugin using those parameters. If the plugin does not provide any properties, skip this step.
+1. Download the process engine plugin `.jar` file and place it to the `${RUN_HOME}/configuration/userlib/` directory.
+1. In your Camunda Run configuration file, add the process engine plugin class and any configuration parameters as 
+   list items under the `process-engine-plugins` YAML property.
+
+Once complete, your YAML configuration file should look similar to the following:
+
+```yaml
+  camunda.bpm.run.process-engine-plugins:
+    - plugin-class: canonical.name.of.the.PluginClass
+```
+
+### Example process engine plugin registration
+
+Let's say that you want to register a process engine plugin called `TestPlugin`. The following information is 
+available:
+
+* The plugin is provided in a `.jar` archive called `camunda-bpm-test-plugin.jar`. 
+* The name of the Java class that implements the `ProcessEnginePlugin` interface is `TestPlugin`. The canonical name of this class is 
+`org.camunda.bpm.run.test.plugins.TestPlugin`.
+* The `TestPlugin` exposes the following two configuration parameters:
+  * `parameterOne` - a `String` value
+  * `parameterTwo` - a `Boolean` value
+
+We'll take the following steps:
+
+1. Place the `camunda-bpm-test-first-plugin.jar` archive in 
+the `${RUN_HOME}/configuration/userlib/` directory.
+
+2. Add the following content to your Camunda Run YAML configuration file.
+
+```yaml
+camunda.bpm.run.process-engine-plugins:
+  - plugin-class: org.camunda.bpm.run.test.plugins.TestPlugin
+    plugin-parameters:
+      parameterOne: valueOne
+      parameterTwo: true
+```
+
+In the example above, we use the `TestPlugin` canonical name as a YAML key. The YAML value consists of a 
+collection of key-value pairs that represent the configuration parameters for the `TestPlugin` and their values.
+Some process engine plugins don't have configuration parameters. For these, you only need to define the `plugin-class` 
+YAML property, like so:
+
+```yaml
+camunda.bpm.run.process-engine-plugins:
+  - plugin-class: org.camunda.bpm.run.test.plugins.TestPlugin
+  - plugin-class: org.camunda.bpm.run.test.plugins.AnotherPlugin
+```
+
+3. Start Camunda Run. The `TestPlugin` will be read from the YAML configuration and registered with the
+process engine.
+
+[engine-plugins]: {{< ref "/user-guide/process-engine/process-engine-plugins.md" >}}
 
 ## Example application launch
 

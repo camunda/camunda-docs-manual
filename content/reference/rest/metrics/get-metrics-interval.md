@@ -30,24 +30,28 @@ GET `/metrics`
   <tr>
     <td>name</td>
     <td>The name of the metric. Supported names:
-      <code>activity-instance-start</code>,
-      <code>activity-instance-end</code>,
-      <code>job-acquisition-attempt</code>,
-      <code>job-acquired-success</code>,
-      <code>job-acquired-failure</code>,
-      <code>job-execution-rejected</code>,
-      <code>job-successful</code>,
-      <code>job-failed</code>,
-      <code>job-locked-exclusive</code>,
-      <code>executed-decision-elements</code>,
-      <code>executed-decision-instances</code>,
-      <code>history-cleanup-removed-process-instances</code>,
-      <code>history-cleanup-removed-case-instances</code>,
-      <code>history-cleanup-removed-decision-instances</code>,
-      <code>history-cleanup-removed-batch-operations</code>,
-      <code>history-cleanup-removed-task-metrics</code>,
-      <code>root-process-instance-start</code>,
-      <code>unique-task-workers</code>
+      <ul>
+        <li>activity-instance-start (flow-node-instances)</li>
+        <li>activity-instance-end</li>
+        <li>flow-node-instances</li>
+        <li>job-acquisition-attempt</li>
+        <li>job-acquired-success</li>
+        <li>job-acquired-failure</li>
+        <li>job-execution-rejected</li>
+        <li>job-successful</li>
+        <li>job-failed</li>
+        <li>job-locked-exclusive</li>
+        <li>executed-decision-elements</li>
+        <li>executed-decision-instances (decision-instances)</li>
+        <li>decision-instances</li>
+        <li>history-cleanup-removed-process-instances</li>
+        <li>history-cleanup-removed-case-instances</li>
+        <li>history-cleanup-removed-decision-instances</li>
+        <li>history-cleanup-removed-batch-operations</li>
+        <li>history-cleanup-removed-task-metrics</li>
+        <li>process-instances</li>
+        <li>root-process-instance-start (process-instances)</li>
+      </ul>
     </td>
   </tr>
   <tr>
