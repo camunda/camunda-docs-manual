@@ -156,12 +156,12 @@ In WebSphere Liberty, you can configure the **Session Cookie** per Liberty serve
 </server>
 ```
 
-* To ensure that session cookies are `HTTPOnly`, set the `httpSession#cookieHttpOnly` attribute to `true`.
+* To ensure session cookies are `HTTPOnly`, set the `httpSession#cookieHttpOnly` attribute to `true`.
 * To restrict session cookies to HTTPS sessions, set the `httpSession#cookieSecure` attribute to `true`.
 * To confgiure the session cookies' SameSite policy, set the `httpSession#cookieSameSite` attribute to one of the 
   [available policies](https://www.ibm.com/docs/en/was-liberty/core?topic=configuration-httpsession). 
   The default policy is `Disabled`.
-* To ensure that the session cookie expires once the current browser session ends, set the `httpSession#cookieMaxAge` 
+* To ensure the session cookie expires once the current browser session ends, set the `httpSession#cookieMaxAge` 
   attribute to -1.
 
 You can find more details in the [Liberty configuring cookies](https://www.ibm.com/docs/en/was-liberty/core?topic=configuration-httpsession) 

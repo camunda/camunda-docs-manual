@@ -394,7 +394,7 @@ To fully install Camunda Platform 7 on WebSphere Liberty, you need to configure 
 * Datasource
 * Work Manager
 * Camunda EAR and shared libraries
-* Optional components - Camunda Webapps, REST API, etc.
+* Optional components: Camunda web apps, REST API, etc.
 
 ## Server configuration
 
@@ -561,11 +561,11 @@ Liberty, this is done in the `bpm-platform.xml`, located in the
 Camunda Platform uses one or multiple process engines which must be connected to a datasource. To configure a 
 datasource in WebSphere Liberty, you need perform the following:
 
-1. Add a JDBC driver library to the `$SERVER_CONFIG_DIR/lib` folder
-2. Add the `jdbc-4.2` and `jndi-1.0` Liberty features to the `server.xml`
-2. Define a JDBC shared library in the `server.xml`
-3. Configure a datasource element in the `server.xml`
-4. Set a JNDI name for the datasource element in the `server.xml`
+1. Add a JDBC driver library to the `$SERVER_CONFIG_DIR/lib` folder.
+2. Add the `jdbc-4.2` and `jndi-1.0` Liberty features to the `server.xml`.
+2. Define a JDBC shared library in the `server.xml`.
+3. Configure a datasource element in the `server.xml`.
+4. Set a JNDI name for the datasource element in the `server.xml`.
 
 For example, to use an Oracle DB as the datasource, you should first place the Oracle JDBC driver `.jar` archive in
 `$SERVER_CONFIG_DIR/lib`. Next, you should add the following to the `server.xml` file:
@@ -633,9 +633,9 @@ The Camunda Platform Job Executor integration with Liberty requires the followin
 To correctly configure the Camunda Platfom 7 Job Executor in WebSphere Liberty, you need to define the following
 elements in the `server.xml` file:
 
-* `managedExecutorService` - use to configure the thread pool
-* `connectionFactory` - used to correctly instantiate a JCA connection factory for the executor service
-* `activationSpec` - used to correctly instantiate an MDB activation specification
+* `managedExecutorService` - used to configure the thread pool.
+* `connectionFactory` - used to correctly instantiate a JCA connection factory for the executor service.
+* `activationSpec` - used to correctly instantiate an MDB activation specification.
 
 The `server.xml` should look like the following example:
 
@@ -760,8 +760,8 @@ the name of the EAR JCA Resource Adapter camunda-ibm-websphere-rar module, and s
 
 To correctly install Camunda Platform 7 process engine, you need to perform the following steps:
 
-1. Configure the Camunda shared library
-2. Configure the Camunda Platform EAR deployment
+1. Configure the Camunda shared library.
+2. Configure the Camunda Platform EAR deployment.
 
 ### Camunda shared library
 
@@ -772,13 +772,13 @@ important to configure it correctly.
 To configure the Camunda shared library, you need to perform the following steps:
 
 1. Add the `.jar` artifacts from the `$WAS_DISTRIBUTION/modules/lib/` folder to the
-   `$SERVER_CONFIG_DIR/lib` folder
-2. Add the `bells-1.0` feature to the `server.xml`
-3. Define a `library` element in the `server.xml`
-  * The `library#id` attribute should be set to `Camunda`
-  * All the `.jar` artifacts should be included. See the [Liberty shared lib][liberty-lib-conf] page for more details
-4. Define a `bell` element in the `server.xml`
-  * The `bell#libraryRef` attribute should be set to the value of the `library#id` attribute, i.e. `Camunda`
+   `$SERVER_CONFIG_DIR/lib` folder.
+2. Add the `bells-1.0` feature to the `server.xml`.
+3. Define a `library` element in the `server.xml`.
+  * The `library#id` attribute should be set to `Camunda`.
+  * All the `.jar` artifacts should be included. See the [Liberty shared lib][liberty-lib-conf] page for more details.
+4. Define a `bell` element in the `server.xml`.
+  * The `bell#libraryRef` attribute should be set to the value of the `library#id` attribute, i.e. `Camunda`.
 
 Once you perform all the steps, the `server.xml` should have the following content:
 
@@ -802,7 +802,7 @@ Once you perform all the steps, the `server.xml` should have the following conte
 {{< note title="WebSphere Liberty SPI discovery" class="info" >}}
 WebSphere Liberty doesn't perform SPI discovery by default. Since Camunda Platform 7 uses SPI for certain features,
 you need to enable SPI discovery by adding the `bells-1.0` Liberty feature, and use the `bell` element in the 
-`server.xml` to specify  any shared libraries that rely on SPI.
+`server.xml` to specify any shared libraries that rely on SPI.
 {{< /note >}}
 
 ### Camunda Platform EAR
@@ -814,12 +814,12 @@ It contains an embedded rar module. This camunda-ibm-websphere-rar module is a J
 You need to perform the following steps to install the EAR archive on WebSphere Liberty:
 
 1. Add the `camunda-ibm-websphere-ear-$PLATFORM_VERSION.ear` from the `$WAS_DISTRIBUTION/modules/lib/` folder to 
-   the `$SERVER_CONFIG_DIR/apps` folder
-2. Add the `servlet-4.0` Liberty feature to the `server.xml`
-3. Define an `enterpriseApplication` element in the `server.xml`
-4. Reference the Camunda shared library in the `enterpriseApplication` inside the `server.xml`
+   the `$SERVER_CONFIG_DIR/apps` folder.
+2. Add the `servlet-4.0` Liberty feature to the `server.xml`.
+3. Define an `enterpriseApplication` element in the `server.xml`.
+4. Reference the Camunda shared library in the `enterpriseApplication` inside the `server.xml`.
   * The Camunda shared library is referenced by adding a `classloader` element.
-5. (optional) [Configure location of the bpm-platform.xml file][bpm-platform-xml-config]
+5. (optional) [Configure location of the bpm-platform.xml file][bpm-platform-xml-config].
 
 After performing the steps above, the `server.xml` should contain the following:
 
@@ -860,9 +860,9 @@ distribution archive.
 You need to perform the following steps to install the WAR archive on WebSphere Liberty:
 
 1. Add the `camunda-webapp-ee-was-$PLATFORM_VERSION.war` from the `$WAS_DISTRIBUTION/webapps/` folder to
-   the `$SERVER_CONFIG_DIR/apps` folder
-2. Add the `jaxrs-2.1` Liberty feature to the `server.xml`
-3. Define a `webApplication` element in the `server.xml`
+   the `$SERVER_CONFIG_DIR/apps` folder.
+2. Add the `jaxrs-2.1` Liberty feature to the `server.xml`.
+3. Define a `webApplication` element in the `server.xml`.
 4. Reference the Camunda shared library in the `webApplication` inside the `server.xml`
   * The Camunda shared library is referenced by adding a `classloader` element.
 
@@ -901,9 +901,9 @@ in the IBM WebSphere Application Server distribution archive.
 You need to perform the following steps to install the WAR archive on WebSphere Liberty:
 
 1. Add the `camunda-engine-rest-$PLATFORM_VERSION-was.war` from the `$WAS_DISTRIBUTION/webapps/` folder to
-   the `$SERVER_CONFIG_DIR/apps` folder
-2. Add the `jaxrs-2.1` Liberty feature to the `server.xml`
-3. Define a `webApplication` element in the `server.xml`
+   the `$SERVER_CONFIG_DIR/apps` folder.
+2. Add the `jaxrs-2.1` Liberty feature to the `server.xml`.
+3. Define a `webApplication` element in the `server.xml`.
 4. Reference the Camunda shared library in the `webApplication` inside the `server.xml`
   * The Camunda shared library is referenced by adding a `classloader` element.
 
@@ -1017,7 +1017,7 @@ Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION
 ## Process Applications
 
 After installing a Process Application (PA) in your IBM WebSphere Liberty Server, which **does not** include the 
-Camunda Platform dependencies, you must reference  the previously created [**"Camunda"** shared library](#camunda-shared-library) 
+Camunda Platform dependencies, you must reference the previously created [**"Camunda"** shared library](#camunda-shared-library) 
 with the Process Application deployment. This should only be necessary when you use the **"shared"** engine deployment 
 approach and not the **"embedded"** process engine one (aka self-contained Process Application).
 
