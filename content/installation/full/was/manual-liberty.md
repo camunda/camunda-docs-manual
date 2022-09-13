@@ -15,7 +15,8 @@ menu:
 This section will describe how you can install Camunda Platform 7 and its components on an [IBM WebSphere
 Application Server Liberty][liberty]. To perform the Camunda Platform 7 installation on WebSphere Liberty
 you need to have a basic understanding on [how to create a WebSphere Liberty server][liberty-server-create] and 
-[how to deploy applications in Websphere Liberty][liberty-app-deploy]. 
+[how to deploy applications in Websphere Liberty][liberty-app-deploy]. You should also consider the [WebSphere Liberty
+Java support documentation][liberty-java].
 
 {{< note title="Reading this Guide" class="info" >}}
 Throughout this section we will use a number of variables to denote common path names and constants.
@@ -680,6 +681,7 @@ You can check the [Liberty `application` docs][liberty-app] for more details on 
 deployment.
 
 [liberty]: https://www.ibm.com/cloud/websphere-liberty
+[liberty-java]: https://www.ibm.com/docs/en/was-liberty/base?topic=liberty-runtime-environment-known-restrictions#d127870e215
 [liberty-server-create]: https://www.ibm.com/docs/en/was-liberty/base?topic=liberty-creating-server-manually
 [liberty-app-deploy]: https://www.ibm.com/docs/en/was-liberty/base?topic=deploying-applications-in-liberty
 [liberty-features]: https://www.ibm.com/docs/en/was-liberty/core?topic=management-liberty-features
