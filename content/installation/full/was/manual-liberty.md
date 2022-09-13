@@ -19,11 +19,12 @@ you need to have a basic understanding on [how to create a WebSphere Liberty ser
 Java support documentation][liberty-java].
 
 {{< note title="Reading this Guide" class="info" >}}
-Throughout this section we will use a number of variables to denote common path names and constants.
-You don't have to create these variables in your environment.
-They are just used in this guide to make it more readable.
+This section provides examples for Camuna Platform `{{< minor-version >}}.0-ee`. If you are installing a patch version
+please replace the version numbers in the examples with the patch version you are using.
 
-* `{{< minor-version >}}.0-ee` denotes the version of the Camunda Platform you want to install or already have installed, e.g., `7.15.6-ee`.
+Throughout this section we will use a number of variables to denote common path names and constants.
+You don't have to create these variables in your environment. They are just used in this guide to make it more readable.
+
 * `$WAS_DISTRIBUTION` represents the downloaded Camunda Platform distribution for the IBM WebSphere Application Server, e.g., `camunda-ee-ibm-was9-{{< minor-version >}}.0-ee.zip`.
 * `$SERVER_CONFIG_DIR` points to the IBM WebSphere Liberty server configuration directory like `wlp/usr/servers/camundaServer`.
 
