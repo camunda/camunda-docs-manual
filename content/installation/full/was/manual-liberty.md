@@ -481,7 +481,7 @@ following empty XML sub-element:
 ```
 
 In the code snippet above, the `camunda-bpm-platform` segment of the `properties` element is defined by the `name`
-attribute of the [Camunda Platform EAR application](camunda-platform-ear-1), while the `camunda-ibm-websphere-rar` is
+attribute of the [Camunda Platform EAR application](#camunda-platform-ear), while the `camunda-ibm-websphere-rar` is
 the name of the EAR JCA Resource Adapter camunda-ibm-websphere-rar module, and shouldn't be changed.
 
 ## Optional components
