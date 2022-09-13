@@ -1,7 +1,7 @@
 ---
 
 title: 'Configure the Full Distribution for IBM WebSphere'
-weight: 30
+weight: 40
 
 menu:
   main:

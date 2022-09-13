@@ -54,7 +54,22 @@ public class MyBean {
 }
 ```
 
-## Using JTA Transaction Integration with CockroachDB
+## Using JTA transaction integration with CockroachDB
 
 Please see the documentation section on [external transaction management with CockroachDB]({{< ref "/user-guide/process-engine/database/cockroachdb-configuration.md#using-external-transaction-management-with-the-spring-java-ee-integrations" >}})
 to understand how to use the JTA Transaction Integration with CockroachDB.
+
+## Using JTA transaction integration with WebSphere Liberty
+
+Camunda Platform 7 allows to mark a transaction as "rollback only" by calling `UserTransaction#setRollbackOnly()`.
+If this code is executed within a Camunda Platform 7 Job, the Job is marked as failed, and can be retried.
+
+WebSphere Liberty doesn't support this behavior of Camunda Platform 7. When calling `UserTransaction#setRollbackOnly()`
+in WebSphere Liberty, the transaction is rolled back silently, and the Camunda process engine is unable to unlock the
+job and decrease the job retry count.
+
+As a workaround, you can throw a `RuntimeException` after invoking the `UserTransaction#setRollbackOnly()`. The Camunda
+process engine will catch this `Exception` and handle the transaction rollback inside a job correctly.
+
+For more details on the WebSphere Liberty Camunda Platform 7 integration, check
+out the [WebSphere Liberty installation guide]({{< ref "/installation/full/was/manual-liberty.md" >}}) section.
