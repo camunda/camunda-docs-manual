@@ -484,11 +484,11 @@ In the code snippet above, the `camunda-bpm-platform` segment of the `properties
 attribute of the [Camunda Platform EAR application](#camunda-platform-ear), while the `camunda-ibm-websphere-rar` is
 the name of the EAR JCA Resource Adapter camunda-ibm-websphere-rar module, and shouldn't be changed.
 
-## Optional components
+# Optional components
 
 This section describes how to install optional components. None of these are required to work with the core platform.
 
-### Cockpit, Tasklist, and Admin
+## Cockpit, Tasklist, and Admin
 
 The web application archive that contains Camunda Cockpit, Camunda Admin, and Camunda Tasklist resides under
 `$WAS_DISTRIBUTION/webapps/camunda-webapp-ee-was9-{{< minor-version >}}.0-ee.war` in the IBM WebSphere Application Server
@@ -530,7 +530,7 @@ You can check if everything went well by accessing Cockpit, Admin, and Tasklist 
 You can check the [Liberty `webApplication` docs][liberty-webapp] for more details on how to configure a WAR
 application deployment.
 
-### REST API
+## REST API
 
 The Camunda REST API WAR file resides under `$WAS_DISTRIBUTION/webapps/camunda-engine-rest-{{< minor-version >}}.0-ee-was9.war`
 in the IBM WebSphere Application Server distribution archive.
@@ -569,7 +569,7 @@ After performing the steps above, the `server.xml` should contain the following:
 You can check the [Liberty `webApplication` docs][liberty-webapp] for more details on how to configure a WAR
 application deployment.
 
-### Camunda Connect plugin
+## Camunda Connect plugin
 
 Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION/modules/lib` to the
 `$SERVER_CONFIG_DIR/lib` folder:
@@ -598,7 +598,7 @@ in the Camunda Platform configuration as follows:
 
 Note that this requires a custom `bpm-platform.xml` file.
 
-### Camunda Spin
+## Camunda Spin
 
 Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION/modules/lib/` to the
 `$SERVER_CONFIG_DIR/lib` folder:
@@ -629,7 +629,7 @@ in the Camunda Platform configuration as follows:
 
 Note that this requires a custom `bpm-platform.xml` file.
 
-### Groovy scripting
+## Groovy scripting
 
 Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION/modules/lib/` to the
 `$SERVER_CONFIG_DIR/lib` folder:
@@ -640,7 +640,7 @@ Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION
 * `groovy-xml-$GROOVY_VERSION.jar`
 * `groovy-templates-$GROOVY_VERSION.jar`
 
-### GraalVM JavaScript integration
+## GraalVM JavaScript integration
 
 Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION/modules/lib/` to the
 `$SERVER_CONFIG_DIR/lib` folder:
@@ -652,7 +652,7 @@ Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION
 * `regex-21.1.0.jar`
 * `truffle-api-21.1.0.jar`
 
-## Process Applications
+# Process Applications
 
 After installing a Process Application (PA) in your IBM WebSphere Liberty Server, which **does not** include the
 Camunda Platform dependencies, you must reference the previously created [**"Camunda"** shared library](#camunda-shared-library)
