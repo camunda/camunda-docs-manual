@@ -23,8 +23,8 @@ Throughout this section we will use a number of variables to denote common path 
 You don't have to create these variables in your environment.
 They are just used in this guide to make it more readable.
 
-* `$PLATFORM_VERSION` denotes the version of the Camunda Platform you want to install or already have installed, e.g., `7.15.6-ee`.
-* `$WAS_DISTRIBUTION` represents the downloaded Camunda Platform distribution for the IBM WebSphere Application Server, e.g., `camunda-ee-ibm-was-$PLATFORM_VERSION.zip`.
+* `{{< minor-version >}}.0-ee` denotes the version of the Camunda Platform you want to install or already have installed, e.g., `7.15.6-ee`.
+* `$WAS_DISTRIBUTION` represents the downloaded Camunda Platform distribution for the IBM WebSphere Application Server, e.g., `camunda-ee-ibm-was9-{{< minor-version >}}.0-ee.zip`.
 * `$SERVER_CONFIG_DIR` points to the IBM WebSphere Liberty server configuration directory like `wlp/usr/servers/camundaServer`.
 
 The distribution is available at the [Camunda enterprise release page](https://downloads.camunda.cloud/enterprise-release/camunda-bpm/ibm-was9/).
@@ -73,14 +73,14 @@ At the end of the installation, your Liberty server folder should have the follo
 wlp/usr/servers/
 |-- camundaServer/
       |-- lib/  <-- The shared libs
-           |-- camunda-engine-$PLATFORM_VERSION.jar
+           |-- camunda-engine-{{< minor-version >}}.0-ee.jar
            |-- java-uuid-generator-XX.jar
            |-- mybatis-XX.jar
            |-- joda-time-XX.jar
            |-- ...
            |-- JDBC_DRIVER.jar
       |-- apps/ <-- EAR & WAR applications
-           |-- camunda-ibm-websphere-ear-$PLATFORM_VERSION.ear
+           |-- camunda-ibm-websphere-ear-{{< minor-version >}}.0-ee.ear
            |-- ..
       |-- server.xml <-- configuration file
 ```
@@ -165,7 +165,7 @@ following content:
   <!-- applications definition -->
   <enterpriseApplication id="camundaBpmPlatform"
                          name="camunda-bpm-platform"
-                         location="${server.config.dir}/apps/camunda-ibm-websphere-ear-$PLATFORM_VERSION.ear" >
+                         location="${server.config.dir}/apps/camunda-ibm-websphere-ear-{{< minor-version >}}.0-ee.ear" >
     <classloader commonLibraryRef="Camunda"/>
   </enterpriseApplication>
 
@@ -237,7 +237,7 @@ It contains an embedded rar module. This camunda-ibm-websphere-rar module is a J
 
 You need to perform the following steps to install the EAR archive on WebSphere Liberty:
 
-1. Add the `camunda-ibm-websphere-ear-$PLATFORM_VERSION.ear` from the `$WAS_DISTRIBUTION/modules/lib/` folder to
+1. Add the `camunda-ibm-websphere-ear-{{< minor-version >}}.0-ee.ear` from the `$WAS_DISTRIBUTION/modules/lib/` folder to
    the `$SERVER_CONFIG_DIR/apps` folder.
 2. Add the `servlet-4.0` Liberty feature to the `server.xml`.
 3. Define an `enterpriseApplication` element in the `server.xml`.
@@ -258,7 +258,7 @@ After performing the steps above, the `server.xml` should contain the following:
   <!-- EAR application definition -->
   <enterpriseApplication id="camundaBpmPlatform"
                          name="camunda-bpm-platform"
-                         location="${server.config.dir}/apps/camunda-ibm-websphere-ear-$PLATFORM_VERSION.ear" >
+                         location="${server.config.dir}/apps/camunda-ibm-websphere-ear-{{< minor-version >}}.0-ee.ear" >
     <classloader commonLibraryRef="Camunda"/>
   </enterpriseApplication>
 
@@ -292,13 +292,13 @@ automatically created, you have to perform the following:
 When you create the tables manually, you have to configure the engine to **not** create tables at startup by
 setting the `databaseSchemaUpdate` property to `false` (or, in case you are using Oracle, to `noop`). In WebSphere
 Liberty, this is done in the `bpm-platform.xml`, located in the
-`$WAS_DISTRIBUTION\modules\camunda-ibm-websphere-ear-$PLATFORM_VERSION.ear\camunda-ibm-websphere-service.jar\META-INF\` 
+`$WAS_DISTRIBUTION\modules\camunda-ibm-websphere-ear-{{< minor-version >}}.0-ee.ear\camunda-ibm-websphere-service.jar\META-INF\` 
 folder.
 
 ### Configure a datasource
 
 Camunda Platform uses one or multiple process engines which must be connected to a datasource. To configure a
-datasource in WebSphere Liberty, you need perform the following:
+datasource in WebSphere Liberty, you need to perform the following:
 
 1. Add a JDBC driver library to the `$SERVER_CONFIG_DIR/lib` folder.
 1. Add the `jdbc-4.2` and `jndi-1.0` Liberty features to the `server.xml`.
@@ -421,9 +421,7 @@ You can use the following attributes of the `concurrencyPolicy` element to confi
     <tr>
       <td>max</td>
       <td>4</td>
-      <td>Specifies the maximum number of threads that are available in this work manager used by the JobExecutor. 
-          The default value is 4.
-      </td>
+      <td>Specifies the maximum number of threads that are available in this work manager used by the JobExecutor.</td>
     </tr>
     <tr>
       <td>maxQueueSize</td>
@@ -492,12 +490,12 @@ This section describes how to install optional components. None of these are req
 ### Cockpit, Tasklist, and Admin
 
 The web application archive that contains Camunda Cockpit, Camunda Admin, and Camunda Tasklist resides under
-`$WAS_DISTRIBUTION/webapps/camunda-webapp-ee-was9-$PLATFORM_VERSION.war` in the IBM WebSphere Application Server
+`$WAS_DISTRIBUTION/webapps/camunda-webapp-ee-was9-{{< minor-version >}}.0-ee.war` in the IBM WebSphere Application Server
 distribution archive.
 
 You need to perform the following steps to install the WAR archive on WebSphere Liberty:
 
-1. Add the `camunda-webapp-ee-was9-$PLATFORM_VERSION.war` from the `$WAS_DISTRIBUTION/webapps/` folder to
+1. Add the `camunda-webapp-ee-was9-{{< minor-version >}}.0-ee.war` from the `$WAS_DISTRIBUTION/webapps/` folder to
    the `$SERVER_CONFIG_DIR/apps` folder
 2. Add the `jaxrs-2.1` Liberty feature to the `server.xml`
 3. Define a `webApplication` element in the `server.xml`
@@ -518,7 +516,7 @@ After performing the steps above, the `server.xml` should contain the following:
   <webApplication id="camundaBpmPlatformWebapps"
                   name="camunda"
                   startAfterRef="camundaBpmPlatform"
-                  location="${server.config.dir}/apps/camunda-webapp-ee-$PLATFORM_VERSION-was9.war" >
+                  location="${server.config.dir}/apps/camunda-webapp-ee-{{< minor-version >}}.0-ee-was9.war" >
     <classloader commonLibraryRef="Camunda"/>
   </webApplication>
 
@@ -533,12 +531,12 @@ application deployment.
 
 ### REST API
 
-The Camunda REST API WAR file resides under `$WAS_DISTRIBUTION/webapps/camunda-engine-rest-$PLATFORM_VERSION-was9.war`
+The Camunda REST API WAR file resides under `$WAS_DISTRIBUTION/webapps/camunda-engine-rest-{{< minor-version >}}.0-ee-was9.war`
 in the IBM WebSphere Application Server distribution archive.
 
 You need to perform the following steps to install the WAR archive on WebSphere Liberty:
 
-1. Add the `camunda-engine-rest-$PLATFORM_VERSION-was9.war` from the `$WAS_DISTRIBUTION/webapps/` folder to
+1. Add the `camunda-engine-rest-{{< minor-version >}}.0-ee-was9.war` from the `$WAS_DISTRIBUTION/webapps/` folder to
    the `$SERVER_CONFIG_DIR/apps` folder.
 2. Add the `jaxrs-2.1` and `beanValidation-2.0` Liberty features to the `server.xml`.
 3. Define a `webApplication` element in the `server.xml`.
@@ -560,7 +558,7 @@ After performing the steps above, the `server.xml` should contain the following:
   <webApplication id="camundaBpmPlatformRestApi"
                   name="engine-rest"
                   startAfterRef="camundaBpmPlatform"
-                  location="${server.config.dir}/apps/camunda-engine-rest-$PLATFORM_VERSION-was9.war" >
+                  location="${server.config.dir}/apps/camunda-engine-rest-{{< minor-version >}}.0-ee-was9.war" >
     <classloader commonLibraryRef="Camunda"/>
   </webApplication>
 
@@ -657,8 +655,7 @@ Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION
 
 After installing a Process Application (PA) in your IBM WebSphere Liberty Server, which **does not** include the
 Camunda Platform dependencies, you must reference the previously created [**"Camunda"** shared library](#camunda-shared-library)
-with the Process Application deployment. This should only be necessary when you use the **"shared"** engine deployment
-approach and not the **"embedded"** process engine one (aka self-contained Process Application).
+with the Process Application deployment.
 
 Your Process Application deployment in the `server.xml` file should look like the following example:
 
