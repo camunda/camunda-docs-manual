@@ -361,6 +361,12 @@ If you have extended the Camunda docker images yourself, please read the release
 
 These patches replace the AngularJS libraries with XLTS for AngularJS. Where AngularJS was licensed entirely under the MIT license, XLTS for AngularJS licenses additional parts under the XLTS for AngularJS – EULA. By downloading and using Camunda with XLTS for AngularJS, you agree to the terms of the XLTS for AngularJS – EULA. Please see our [third-Party libraries documentation]({{< ref "/introduction/third-party-libraries/_index.md#xlts-for-angularjs" >}}) for details and the terms of the EULA.
 
+## 7.17.3 to 7.17.4 / 7.17.5
+
+The 7.17.3 release contains a regression in Cockpit where DMN diagrams are not or only partially rendered. Please don't use this patch release unless you know what you are doing. The 7.17.5 release contains a fix for this regression.
+
+For more information, please see the ticket: [CAM-14858](https://jira.camunda.com/browse/CAM-14858).
+
 ## 7.17.5 to 7.17.6
 
 ### Discontinue Camunda H2 console web app
