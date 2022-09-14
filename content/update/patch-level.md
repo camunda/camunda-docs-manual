@@ -358,6 +358,22 @@ If you have extended the Camunda docker images yourself, please read the release
 
 These patches replace the AngularJS libraries with XLTS for AngularJS. Where AngularJS was licensed entirely under the MIT license, XLTS for AngularJS licenses additional parts under the XLTS for AngularJS – EULA. By downloading and using Camunda with XLTS for AngularJS, you agree to the terms of the XLTS for AngularJS – EULA. Please see our [third-Party libraries documentation]({{< ref "/introduction/third-party-libraries/_index.md#xlts-for-angularjs" >}}) for details and the terms of the EULA.
 
+## 7.16.12 to 7.16.13
+
+### Discontinue Camunda H2 console web app
+
+The Camunda Platform 7.16.13 release removes the H2 console application from the Tomcat and WildFly distributions. There will not be any further releases of the Camunda H2 console web app going forward.
+
+#### Removed the H2 console app from Camunda distributions
+
+The H2 console web app was included in all Camunda Tomcat and WildFly distributions. Considering H2 is widely discouraged for use in production, this web app was only ever meant as a development and debugging tool.
+Including it in a ready-to-use distribution means an additional step for end users since the app should be removed before using the Camunda distribution in production.
+
+#### End of life for the Camunda H2 console web app project
+
+Going forward we will not further develop the Camunda H2 console app. This also means there will not be any more releases for this project.
+If you need to connect to the default file-based H2 database during development, we encourage you to use third-party tools like [DBeaver](https://dbeaver.io/).
+
 # Full Distribution
 
 This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.
