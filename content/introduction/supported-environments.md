@@ -36,7 +36,8 @@ Run the Camunda Platform in every Java-runnable environment. Camunda Platform is
 * JBoss EAP 7.2 / 7.3 / 7.4
 * Wildfly Application Server 13.0 / 14.0 / 15.0 / 16.0 / 17.0 / 18.0 / 19.0 / 20.0 / 21.0 / 22.0 / 23.0 / 24.0 / 25.0 / 26.0
 * IBM WebSphere Application Server 9.0 ([Enterprise Edition only](http://camunda.com/enterprise/))
-* IBM WebSphere Liberty 22.0.0 ([Enterprise Edition only](http://camunda.com/enterprise/))
+* IBM WebSphere Liberty 22 with Java EE 8 features ([Enterprise Edition only](http://camunda.com/enterprise/), 
+  see [Installation guide]({{< ref "/installation/full/was/manual-liberty.md" >}}))
 * Oracle WebLogic Server 12c (12R2) / 14c (14R1) ([Enterprise Edition only](http://camunda.com/enterprise/))
 
 
