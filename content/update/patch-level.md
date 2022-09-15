@@ -363,7 +363,7 @@ These patches replace the AngularJS libraries with XLTS for AngularJS. Where Ang
 
 ## 7.17.3 to 7.17.4 / 7.17.5
 
-The 7.17.3 release contains a regression in Cockpit where DMN diagrams are not or only partially rendered. Please don't use this patch release unless you know what you are doing. The 7.17.5 release contains a fix for this regression.
+The 7.17.4 release contains a regression in Cockpit where DMN diagrams are not or only partially rendered. Please don't use this patch release unless you know what you are doing. The 7.17.5 release contains a fix for this regression.
 
 For more information, please see the ticket: [CAM-14858](https://jira.camunda.com/browse/CAM-14858).
 
