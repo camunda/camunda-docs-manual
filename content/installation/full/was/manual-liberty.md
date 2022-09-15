@@ -14,9 +14,13 @@ menu:
 
 This section will describe how you can install Camunda Platform 7 and its components on an [IBM WebSphere
 Application Server Liberty][liberty]. To perform the Camunda Platform 7 installation on WebSphere Liberty
-you need to have a basic understanding on [how to create a WebSphere Liberty server][liberty-server-create] and 
-[how to deploy applications in Websphere Liberty][liberty-app-deploy]. You should also consider the [WebSphere Liberty
-Java support documentation][liberty-java].
+you will need the following:
+
+* The `camunda-ee-ibm-was9-{{< minor-version >}}.0-ee` `.tar.gz` or `.zip` archive available from
+  [the enterprise downloads page][ee-downloads]. 
+* A basic understanding on [how to create a WebSphere Liberty server][liberty-server-create].
+* A basic understanding on [how to deploy applications in Websphere Liberty][liberty-app-deploy]. 
+* You should also consider the [WebSphere Liberty Java support documentation][liberty-java].
 
 {{< note title="Reading this Guide" class="info" >}}
 This section provides examples for Camuna Platform `{{< minor-version >}}.0-ee`. If you are installing a patch version
@@ -54,11 +58,10 @@ result, Open Liberty is not supported by Camunda Platform 7.
 Liberty supports multiple Java/Jakarta EE versions through features with multiple versions (ex. `cdi-1.0`, `cdi-1.2`,
 `cdi-2.0`, etc.).
 
-Camunda Platform 7 doesn't support Java EE 6, or Jakarta EE 9+ features since they don't provide all the APIs required
-to run Camunda Platform 7 correctly.
+Camunda Platform 7 doesn't support Java EE 6, Java EE 7, or Jakarta EE 9+ features since they don't provide all the APIs 
+required to run Camunda Platform 7 correctly.
 
-We recommend using Java EE 8 Liberty features to run Camunda Platform 7 on WebSphere Liberty. Java EE 7 Liberty features
-are supported, but not recommended as they use older implementations that are close to end-of-life.
+We recommend using Java EE 8 Liberty features to run Camunda Platform 7 on WebSphere Liberty.
 
 If you decide to mix Liberty features from different Java EE versions, check the
 <a href="https://www.ibm.com/docs/en/was-liberty/base?topic=architecture-supported-java-ee-7-8-feature-combinations" >Java EE feature combinations page</a>
@@ -692,5 +695,6 @@ deployment.
 [liberty-datasource-opts]: https://www.ibm.com/docs/en/was-liberty/base?topic=SSEQTP_liberty/com.ibm.websphere.liberty.autogen.nd.doc/ae/rwlp_config_dataSource.html
 [liberty-datasource-conf]: https://www.ibm.com/docs/en/was-liberty/base?topic=liberty-configuring-default-data-source
 
+[ee-downloads]: /enterprise/download
 [bpm-platform-xml-config]: {{< ref "/reference/deployment-descriptors/descriptors/bpm-platform-xml.md#configure-location-of-the-bpm-platform-xml-file" >}}
 [db-schema-install]: {{< ref "/installation/database-schema.md" >}}
