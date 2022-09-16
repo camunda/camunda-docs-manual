@@ -153,7 +153,7 @@ Camunda Platform Run ships with two different configuration files which are both
 
 By default, Run launches with the `default.yml` configuration. To enable the `production.yml` configuration, execute the start script with the `--production` property.
 Using `--production` disables Swagger UI and the example application. They can be enabled by explicitly passing `--swaggerui` and `--example` to the start script.
-However, we do not recommended to use Swagger UI and the exmaple application in production.
+However, we do not recommended to use Swagger UI and the example application in production.
 
 ## Connect to a Database
 

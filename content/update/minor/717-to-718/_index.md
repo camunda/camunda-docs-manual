@@ -25,6 +25,8 @@ This document guides you through the update from Camunda Platform `7.17.x` to `7
 1. For administrators: [Log level configuration for BPMN stack trace](#log-level-configuration-for-bpmn-stack-trace)
 1. For developers: [Adjusted class structure for Expression Language handling](#adjusted-class-structure-for-expression-language-handling)
 1. For developers: [Adjusted exception handling in the Java External Task Client](#adjusted-exception-handling-in-the-java-external-task-client)
+1. For administrators: [Batch execution start time](#batch-execution-start-time)
+1. For developers: [Discontinue Camunda H2 console webapp](#discontinue-camunda-h2-console-webapp)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.18.
 
@@ -123,13 +125,14 @@ The default **Content Security Policy** configuration is changing from version 7
 In older versions, the default policy was a very minimal configuration and explicitly strengthened according to our recommendations.
 With this version, we make the previously recommended **Content Security Policy** the default policy, and even stricter by introducing the `strict-dynamic` directive.
 If you have added custom script tags in one of the `index.html` files of the web apps, add the `nonce` attribute to the opening script tag:
+
 ```html
 <script type="application/javascript" nonce="$CSP_NONCE">
 ```
+
 You don't need to worry about whitelisting for scripts you load via our plugin system.
 
 Find the details in the [Content Security Policy]({{< ref "/webapps/shared-options/header-security.md#content-security-policy" >}}) section.
-
 
 # Log level configuration for BPMN stack trace
 
@@ -178,3 +181,30 @@ Before 7.18, the exception cause was wrapped in a `FetchAndLockException` and pa
 With this version, we streamlined the exception types thrown when calling operations on the `ExternalTaskService` with 
 the exceptions passed to `#reconfigure(List, ExternalTaskClientException)` in case a "fetch and lock" request fails.
 This is why we removed the `FetchAndLockException` and replaced it with an `ExternalTaskClientException`.
+
+# Batch execution start time
+
+We are introducing a few new features for the cockpit's batches page, one of which is a field called
+execution start time. The execution start time is displayed in the batch details view on the batches
+page, and it shows the time when the first job's execution of the batch began.
+
+If you have batch jobs started but not finished before the 7.18 update then this new field on the
+batch page could either show incorrect or empty value. This is due to the fact that the batch has
+been started before the update.
+
+There is no need for any action and this won't influence the batch execution in any way.
+All the batch jobs started after the update will populate this field properly.
+
+# Discontinue Camunda H2 console web app
+
+The Camunda Platform 7.18.0 release removes the H2 console application from the Tomcat and WildFly distributions. There will not be any further releases of the Camunda H2 console web app going forward.
+
+## Removed the H2 console app from Camunda distributions
+
+The H2 console web app was included in all Camunda Tomcat and WildFly distributions. Considering H2 is widely discouraged for use in production, this web app was only ever meant as a development and debugging tool.
+Including it in a ready-to-use distribution means an additional step for end users since the app should be removed before using the Camunda distribution in production.
+
+## End of life for the Camunda H2 console web app project
+
+Going forward we will not further develop the Camunda H2 console app. This also means there will not be any more releases for this project.
+If you need to connect to the default file-based H2 database during development, we encourage you to use third-party tools like [DBeaver](https://dbeaver.io/).
