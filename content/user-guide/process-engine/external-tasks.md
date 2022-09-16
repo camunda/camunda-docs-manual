@@ -108,10 +108,6 @@ the server and the client side.
 
 Please also see the [REST API documentation]({{< ref "/reference/rest/external-task/fetch.md" >}}).
 
-{{< note title="Heads Up!" class="info" >}}
-This feature is based on JAX-RS 2.0 and is therefore not available on **IBM WebSphere Application Server 8.5**.
-{{< /note >}}
-
 #### Unique Worker Request
 By default, multiple workers can use the same `workerId`. In order to ensure `workerId` uniqueness on server-side, the 
 'Unique Worker Request' flag can be activated. This configuration flag effects only long-polling requests and not ordinary 
