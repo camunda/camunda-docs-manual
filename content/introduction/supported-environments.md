@@ -101,7 +101,7 @@ Whenever a new version of one of the following environments is released, we targ
 
 * Java Language (LTS)
 * Wildfly Application Server
-* Oracle Database
+* Oracle Database (LTS)
 * PostgreSQL
 
 The exact release in which we support a new environment depends on factors such as the release date of the environment and the required implementation effort.
