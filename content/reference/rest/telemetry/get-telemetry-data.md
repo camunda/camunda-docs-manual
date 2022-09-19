@@ -139,6 +139,25 @@ A JSON object containing all collected telemetry data.
       Information about the installed Java runtime environment. See the <a href="#jdk">JDK description</a> for its properties.      
     </td>
   </tr>
+  <tr>
+    <td>data-collection-start-date</td>
+    <td>String</td>
+    <td>
+      The date when the engine started to collect dynamic data, such as command executions and metrics. If telemetry sending is enabled, dynamic data resets on sending the data to Camunda.
+      Dynamic data and the date returned by this method are reset in three cases:
+      <ul>
+        <li>At engine startup, the date is set to the current time, even if telemetry is disabled.
+            It is then only used by the telemetry Query API that returns the currently collected
+            data but sending telemetry to Camunda is disabled.</li>
+        <li>When sending telemetry to Camunda is enabled after engine start via API.
+            This call causes the engine to wipe all dynamic data and therefore the collection date
+            is reset to the current time.</li>
+        <li>When sending telemetry to Camunda is enabled, after sending the data, all existing dynamic
+            data is wiped and therefore the collection date is reset to the current time.</li>
+      </ul>
+     The date is in the format <code>Mon DD, YYYY HH:MM::SS XM</code>.
+    </td>
+  </tr>
 </table>
 
 ## Database
@@ -297,6 +316,7 @@ GET `/telemetry/data`
           "decision-instances": { "count": 140 },
           "executed-decision-elements": { "count": 732 }
         },
+        "data-collection-start-date": "Nov 16, 2022 11:41:58 AM",
         "camunda-integration": [
           "spring-boot-starter",
           "camunda-bpm-run"

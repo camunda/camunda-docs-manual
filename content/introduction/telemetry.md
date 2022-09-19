@@ -95,6 +95,7 @@ The counts are collected from the start of the engine or the last reported time 
           "decision-instances": { "count": 140 },
           "executed-decision-elements": { "count": 732 }
         },
+        "data-collection-start-date": "Nov 16, 2022 11:41:58 AM",
         "camunda-integration": [
           "spring-boot-starter",
           "camunda-bpm-run"
