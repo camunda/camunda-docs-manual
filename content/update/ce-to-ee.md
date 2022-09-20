@@ -45,13 +45,9 @@ Click **Cockpit**, where you’ll notice the four appropriate process instances 
 To officially begin migrating from Camunda Platform 7 Community Edition to the Enterprise Edition, take the following steps:
 
 1. Return to the example repository you cloned in your preferred IDE.
-2. (Optional) Update to the [latest minor version](https://docs.camunda.org/manual/latest/update/minor/) if you’re executing this on a live system. To do this, click on the `pom.xml` file. Then, adjust all Camunda dependency references in the `<version>` elements to the latest version. For example, you may adjust `<version>7.17.0</version>` to `<version>7.18.0</version>`:
-{{< img src="../img/version-change-code-snippet.png" title="Updating Versions" >}}
-{{< note class="warning" >}}
-You must update versions sequentially, meaning you are unable to update `7.15.0` directly to `7.18.0`, for example. Instead, you must update sequentially from `7.15.0` to `7.16.0`, and then `7.16.0` to `7.17.0`, and so on.
-{{< /note >}}
-3. Re-run the `Application.java` application to note the version update.
-4. Return to your `pom.xml` file. Next to the versions you just updated, add `-ee` to the version. For example, `<version>7.16.0-ee</version>`. You’ll need to make these changes below the following `artifactIds`: `camunda-bom`, `camunda-bpm-spring-boot-starter-rest`, `camunda-bpm-spring-boot-starter-webapp` (you’ll also adjust this particular artifactID itself to `camunda-bpm-spring-boot-starter-webapp-ee`.)
+2. Run the `Application.java` application.
+3. Navigate to your `pom.xml` file.
+4. Add `-ee` to the version. For example, `<version>7.16.0-ee</version>`. You’ll need to make these changes below the following `artifactIds`: `camunda-bom`, `camunda-bpm-spring-boot-starter-rest`, `camunda-bpm-spring-boot-starter-webapp` (you’ll also adjust this particular artifactID itself to `camunda-bpm-spring-boot-starter-webapp-ee`.)
 {{< img src="../img/ee-add-code-snippet.png" title="Changing to Enterprise Edition" >}}
 5. We need to tell it where to find these new dependencies. Therefore, we’ll add the location of the repository at the end of the dependencies in the `pom.xml` file as follows:
 ```xml
@@ -84,7 +80,7 @@ You can find more details on this step [here](https://maven.apache.org/settings.
 Now that you’ve made the physical adjustments in your IDE to update to Enterprise Edition, let’s make a few final changes in Camunda Platform 7.
 
 1. Return to [http://localhost:8080/](http://localhost:8080/) and refresh the page.
-2. If you don't see the version `7.18-ee` in the bottom corner, clear your browser cache.
+2. If you don't see the version `{{< minor-version >}}-ee` in the bottom corner, clear your browser cache.
 3. Enter your credentials once more to update. You’ll notice you’re updated successfully when you reopen **Cockpit** and see a request message in the middle of the page for a license key.
 4. Click **Enter your license key now**.
 5. Paste your license key into the prompted text field, or if you haven’t already, obtain a license key and [start a 30-day trial](https://camunda.com/download/enterprise/) of Camunda Platform Enterprise Edition.
