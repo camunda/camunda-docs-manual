@@ -154,6 +154,44 @@ The submitted values of a form are returned as variables to the process engine:
 * When the User Task has an Input Parameter defined with the same name as the form field key, then this local variable will be used. In this case, an [Output Parameter](../process-engine/variables/#input-output-variable-mapping) needs to be defined to map the local variable to a process variable for usage in other process elements.
 * When no variable exists with the same name as the form field key, then a new process variable will be created and gets the value from the submission.
 
+## Dynamic Components
+
+You can bind the available options of some component types (Select, Radio Buttons, Checklist, and Taglist) to a variable.
+Like this, Camunda Forms show available options dynamically based on process data (variables).
+
+If you want to bind a variable to a dynamic component, define its name in the `valuesKey` field 
+of Camunda Modelers form builder for the respective component.
+
+Camunda Forms support the following variable types that can represent JSON:
+
+* `Json`.
+* `Object` with the `serializationDataFormat: application/json`.
+
+Camunda Forms store and retrieve user selections for each component in a variable whose name equals the component key.
+If a variable that is supposed to store the user selection for multi-select components (Checklist or Taglist) doesn't exist yet,
+a new one is created on form submission with the same type as the variable that defines the available options.
+
+The format to define available options looks as follows:
+
+```json
+[
+  {
+    "label": "Dynamic Value 1",
+    "value": "dynamicValue1"
+  },
+  {
+    "label": "Dynamic Value 2",
+    "value": "dynamicValue2"
+  }
+]
+```
+
+If you are about to prototype your application, you can also use the shortcut format:
+
+```json
+["Dynamic Value 2", "Dynamic Value 2"]
+```
+
 ## Deployment
 
 You can deploy each single Camunda Form directly from the Modeler (since Modeler Version 5.0.0).
