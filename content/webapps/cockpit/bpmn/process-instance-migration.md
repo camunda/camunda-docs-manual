@@ -105,7 +105,15 @@ You can still edit the variables you have just added. For instance, if a variabl
 
 {{< img src="../../img/migration/step3.png" title="Select instances for migration" >}}
 
-After finishing the **Set Variables** step, click the `Select Instances` button to proceed to instance selection. Initially, all instances of the source process definition version are displayed. You can use the filter bar above the list of instances to filter the displayed instances. Furthermore, you can copy a link to the current filter query to your clipboard by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-link"></i></button> button and you can save filter queries to your local browser storage by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and inserting a name in the drop down menu that appears. You can then retrieve the filter query by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and selecting the chosen name in the drop down menu.
+After finishing the **Set Variables** step, click the `Select Instances` button to proceed to instance selection. 
+Initially, all instances of the source process definition version are displayed. You can use the filter bar above the list of instances to filter the displayed instances.
+You can select specific instances or click on the "Query" radio button to select all instances matching the filter.
+
+{{< note title="Warning" class="warning">}}
+Selecting all instances might create a high load on the database and application runtime/server if the query has a high number of results.
+{{< /note >}}
+
+Furthermore, you can copy a link to the current filter query to your clipboard by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-link"></i></button> button and you can save filter queries to your local browser storage by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and inserting a name in the drop down menu that appears. You can then retrieve the filter query by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and selecting the chosen name in the drop down menu.
 
 Using the checkboxes to the left of the instances, you can mark them for migration. All instances you select on this page are migrated.
 

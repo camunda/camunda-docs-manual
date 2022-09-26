@@ -45,7 +45,15 @@ When restarting a process instance, you have the option to *start before* or *st
 
 {{< img src="../../img/cockpit-restart-instance-selection.png" title="Instance Selection" >}}
 
-When you click on *Select Instances* a modal opens which allows you to select a single or a batch of process instances which should be restarted. Note, in order to find the relevant instances, you can apply filters. When you have made your selection you can proceed by clicking the red button. This leads you to the *Confirm Restart* modal.  
+When you click on *Select Instances*, a modal opens. Initially, all instances are displayed. 
+You can use the filter bar above the list of instances to filter the displayed instances.
+You can select specific instances or click on the "Query" radio button to select all instances matching the filter.
+
+{{< note title="Warning" class="warning">}}
+Selecting all instances might create a high load on the database and application runtime/server if the query has a high number of results.
+{{< /note >}}
+
+When you have made your selection you can proceed by clicking the red button. This leads you to the *Confirm Restart* modal.  
 
 
 ## Confirm Restart 
