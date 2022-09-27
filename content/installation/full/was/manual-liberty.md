@@ -241,7 +241,7 @@ It contains an embedded rar module. This camunda-ibm-websphere-rar module is a J
 
 You need to perform the following steps to install the EAR archive on WebSphere Liberty:
 
-1. Add the `camunda-ibm-websphere-ear-{{< minor-version >}}.0-ee.ear` from the `$WAS_DISTRIBUTION/modules/lib/` folder to
+1. Add the `camunda-ibm-websphere-ear-{{< minor-version >}}.0-ee.ear` from the `$WAS_DISTRIBUTION/modules/` folder to
    the `$SERVER_CONFIG_DIR/apps` folder.
 2. Add the `servlet-4.0` Liberty feature to the `server.xml`.
 3. Define an `enterpriseApplication` element in the `server.xml`.
@@ -520,7 +520,7 @@ After performing the steps above, the `server.xml` should contain the following:
   <webApplication id="camundaBpmPlatformWebapps"
                   name="camunda"
                   startAfterRef="camundaBpmPlatform"
-                  location="${server.config.dir}/apps/camunda-webapp-ee-{{< minor-version >}}.0-ee-was9.war" >
+                  location="${server.config.dir}/apps/camunda-webapp-ee-was9-{{< minor-version >}}.0-ee.war" >
     <classloader commonLibraryRef="Camunda"/>
   </webApplication>
 
