@@ -105,7 +105,7 @@ You can still edit the variables you have just added. For instance, if a variabl
 
 {{< img src="../../img/migration/step3.png" title="Select instances for migration" >}}
 
-After finishing the **Set Variables** step, click the `Select Instances` button to proceed to instance selection. 
+After finishing the **Set Variables** step, click the **Select Instances** button to proceed to instance selection. 
 Initially, all instances of the source process definition version are displayed. You can use the filter bar above the list of instances to filter the displayed instances.
 You can select specific instances or click on the **Query** radio button to select all instances matching the filter.
 
