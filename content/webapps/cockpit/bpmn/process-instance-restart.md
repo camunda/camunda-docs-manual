@@ -47,7 +47,7 @@ When restarting a process instance, you have the option to *start before* or *st
 
 When you click on *Select Instances*, a modal opens. Initially, all instances are displayed. 
 You can use the filter bar above the list of instances to filter the displayed instances.
-You can select specific instances or click on the "Query" radio button to select all instances matching the filter.
+You can select specific instances or click on the **Query** radio button to select all instances matching the filter.
 
 {{< note title="Warning" class="warning">}}
 Selecting all instances might create a high load on the database and application runtime/server if the query has a high number of results.

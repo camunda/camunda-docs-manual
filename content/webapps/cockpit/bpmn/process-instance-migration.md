@@ -107,7 +107,7 @@ You can still edit the variables you have just added. For instance, if a variabl
 
 After finishing the **Set Variables** step, click the `Select Instances` button to proceed to instance selection. 
 Initially, all instances of the source process definition version are displayed. You can use the filter bar above the list of instances to filter the displayed instances.
-You can select specific instances or click on the "Query" radio button to select all instances matching the filter.
+You can select specific instances or click on the **Query** radio button to select all instances matching the filter.
 
 {{< note title="Warning" class="warning">}}
 Selecting all instances might create a high load on the database and application runtime/server if the query has a high number of results.

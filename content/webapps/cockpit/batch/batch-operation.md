@@ -39,7 +39,7 @@ When canceling running process instances, you can optionally select to skip cust
 
 Next, you can define the instances affected by the batch operation.
 Initially, all instances are displayed. You can use the filter bar above the list of instances to filter the displayed instances.
-You can select specific instances or click on the "Query" radio button to select all instances matching the filter.
+You can select specific instances or click on the **Query** radio button to select all instances matching the filter.
 
 {{< note title="Warning" class="warning">}}
 Selecting all instances might create a high load on the database and application runtime/server if the query has a high number of results.
