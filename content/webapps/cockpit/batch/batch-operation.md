@@ -34,11 +34,9 @@ It is possible to execute the following batch operations:
 - Set a Removal Time to Historic Batches.
 - Correlate Message.
 
-After selecting the operation, fields may appear with additional data that is either optional or required to perform the operation. 
-When canceling running process instances, you can optionally select to skip custom listeners and provide a cancellation reason. 
+After selecting the operation, fields may appear with additional data that is either optional or required to perform the operation. When canceling running process instances, you can optionally select to skip custom listeners and provide a cancelation reason. 
 
-Next, you can define the instances affected by the batch operation.
-Initially, all instances are displayed. You can use the filter bar above the list of instances to filter the displayed instances.
+Next, you can define the instances affected by the batch operation. Initially, all instances are displayed. You can use the filter bar above the list of instances to filter the displayed instances.
 You can select specific instances or click on the **Query** radio button to select all instances matching the filter.
 
 {{< note title="Warning" class="warning">}}

@@ -85,9 +85,9 @@ The batch modification operation is handled similarly to the modification of a s
 
 {{< img src="../../img/cockpit-batch-modification-instance-selection.png" title="Instance Selection" >}}
 
-However, to get to the **Apply Modifications** modal first you have to click **Select Instances** which opens another modal which allows you to select the process instances the modification should be applied to.
-Initially, all instances are displayed. You can use the filter bar above the list of instances to filter the displayed instances.
-You can select specific instances or click on the **Query** radio button to select all instances matching the filter.
+However, to get to the **Apply Modifications** modal, first click **Select Instances**. This opens another modal which allows you to select the process instances the modification should be applied to.
+
+Initially, all instances are displayed. You can use the filter bar above the list of instances to filter the displayed instances. You can select specific instances or click on the **Query** radio button to select all instances matching the filter.
 
 {{< note title="Warning" class="warning">}}
 Selecting all instances might create a high load on the database and application runtime/server if the query has a high number of results.
