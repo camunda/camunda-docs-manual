@@ -1,17 +1,17 @@
 ---
 
-title: "Update a JBoss EAP 6 or Wildfly / JBoss EAP 7 Installation from 7.17 to 7.18"
+title: "Update a Wildfly / JBoss EAP 7 Installation from 7.17 to 7.18"
 
 menu:
   main:
-    name: "JBoss EAP 6 or Wildfly / JBoss EAP 7"
+    name: "Wildfly / JBoss EAP 7"
     identifier: "migration-guide-718-jboss"
     parent: "migration-guide-718"
 
 ---
 
-The following steps describe how to update the Camunda artifacts on a JBoss EAP 6 or
-Wildfly/JBoss EAP 7 in a shared process engine scenario. Throughout the procedure, refer to the [update guide][update-guide].
+The following steps describe how to update the Camunda artifacts on a Wildfly/JBoss EAP 7 in a 
+shared process engine scenario. Throughout the procedure, refer to the [update guide][update-guide].
 
 If not already done, download the [Camunda Platform 7.18 JBoss distribution](https://downloads.camunda.cloud/release/camunda-bpm/jboss/7.18/)
 or [Camunda Platform 7.18 Wildfly distribution](https://downloads.camunda.cloud/release/camunda-bpm/wildfly/7.18/). In the following instructions,
@@ -97,10 +97,15 @@ Additionally, replace the following dependent modules:
 
 ## Groovy
 
-Replace the following module from the folder `$APP_SERVER_HOME/modules/` with the new version from the 
-folder `$APP_SERVER_DISTRIBUTION/modules/`, if present:
+Replace the 'org/codehaus/groovy/groovy-all' module from the folder `$APP_SERVER_HOME/modules/` with the following 
+modules from the folder `$APP_SERVER_DISTRIBUTION/modules/`, if present:
 
 * `org/codehaus/groovy/groovy-all`
+* `org/codehaus/groovy/groovy`
+* `org/codehaus/groovy/groovy-jsr223`
+* `org/codehaus/groovy/groovy-json`
+* `org/codehaus/groovy/groovy-xml`
+* `org/codehaus/groovy/groovy-templates`
 
 # 3. Update Camunda web applications
 
