@@ -133,7 +133,7 @@ The following steps are required to update the Camunda REST API on an IBM WebSph
   1. Deploy the web application `$WAS_DISTRIBUTION/webapps/camunda-engine-rest-{{< minor-version >}}.0-ee-was.war` to your IBM WebSphere instance.
   2. Associate the web application with the `Camunda` shared library.
 * On WebSphere Liberty:
-  1. Place the web application `$WAS_DISTRIBUTION/webapps/camunda-engine-rest-{{< minor-version >}}.0-ee-was.war` on you Liberty `$YOUR_SERVER/apps/` directory/.
+  1. Place the web application `$WAS_DISTRIBUTION/webapps/camunda-engine-rest-{{< minor-version >}}.0-ee-was.war` in the Liberty `$YOUR_SERVER/apps/` directory.
   2. Configure the `server.xml` as described in [the Liberty installation guide]({{< ref "installation/full/was/manual-liberty.md#rest-api" >}}).
 
 ## Cockpit, Tasklist, and Admin
