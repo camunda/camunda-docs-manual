@@ -412,6 +412,12 @@ With Camunda Platform 7.17.0 the project was moved into the [Camunda Platform re
     <td>7.17.0</td>
     <td>7.17.0</td>
   </tr>
+  <tr>
+    <td>camunda-bpm-assert</td>
+    <td>3.21.0</td>
+    <td>7.18.0</td>
+    <td>7.18.0</td>
+  </tr>
 </table>
 
 \* For these versions, use the following Maven coordinates:
