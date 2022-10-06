@@ -144,7 +144,7 @@ The following steps are required to update the Camunda web applications Cockpit,
   1. Deploy the web application `$WAS_DISTRIBUTION/webapps/camunda-webapp-ee-was-{{< minor-version >}}.0-ee.war` to your IBM WebSphere instance.
   2. Associate the web application with the `Camunda` shared library.
 * On WebSphere Liberty:
-  1. Place the web application `$WAS_DISTRIBUTION/webapps/camunda-webapp-ee-was-{{< minor-version >}}.0-ee.war` on you Liberty `$YOUR_SERVER/apps/` directory/.
+  1. Place the web application `$WAS_DISTRIBUTION/webapps/camunda-webapp-ee-was-{{< minor-version >}}.0-ee.war` in the Liberty `$YOUR_SERVER/apps/` directory.
   2. Configure the `server.xml` as described in [the Liberty installation guide]({{< ref "installation/full/was/manual-liberty.md#cockpit-tasklist-and-admin" >}}).
 
 [configuration-location]: {{< ref "/reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}
