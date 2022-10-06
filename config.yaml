@@ -33,6 +33,7 @@ params:
     versionAlias: "7.17"
     versions:
       - "latest"
+      - "7.18"
       - "7.17"
       - "7.16"
       - "7.15"
