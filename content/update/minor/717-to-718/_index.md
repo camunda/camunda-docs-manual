@@ -26,7 +26,7 @@ This document guides you through the update from Camunda Platform `7.17.x` to `7
 1. For developers: [Adjusted class structure for Expression Language handling](#adjusted-class-structure-for-expression-language-handling)
 1. For developers: [Adjusted exception handling in the Java External Task Client](#adjusted-exception-handling-in-the-java-external-task-client)
 1. For administrators: [Batch execution start time](#batch-execution-start-time)
-1. For developers: [Discontinue Camunda H2 console webapp](#discontinue-camunda-h2-console-webapp)
+1. For developers: [Discontinue Camunda H2 console webapp](#discontinue-camunda-h2-console-web-app)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.18.
 
