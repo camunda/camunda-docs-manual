@@ -70,7 +70,7 @@ Each version of the Camunda Platform is bound to a specific version of the **Ext
   </tr>
   <tr>
     <td>7.18.x</td>
-    <td>2.2.x</td>
+    <td>2.3.x</td>
     <td>7.18.x</td>
   </tr>
 </table>
