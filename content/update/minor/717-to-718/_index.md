@@ -26,7 +26,8 @@ This document guides you through the update from Camunda Platform `7.17.x` to `7
 1. For developers: [Adjusted class structure for Expression Language handling](#adjusted-class-structure-for-expression-language-handling)
 1. For developers: [Adjusted exception handling in the Java External Task Client](#adjusted-exception-handling-in-the-java-external-task-client)
 1. For administrators: [Batch execution start time](#batch-execution-start-time)
-1. For developers: [Discontinue Camunda H2 console webapp](#discontinue-camunda-h2-console-webapp)
+1. For developers: [Discontinue Camunda H2 console webapp](#discontinue-camunda-h2-console-web-app)
+1. For administrators and developers: [REST API artifact `camunda-engine-rest-jaxrs2` discontinued](#rest-api-artifact-camunda-engine-rest-jaxrs2-discontinued)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.18.
 
@@ -208,3 +209,9 @@ Including it in a ready-to-use distribution means an additional step for end use
 
 Going forward we will not further develop the Camunda H2 console app. This also means there will not be any more releases for this project.
 If you need to connect to the default file-based H2 database during development, we encourage you to use third-party tools like [DBeaver](https://dbeaver.io/).
+
+# REST API artifact `camunda-engine-rest-jaxrs2` discontinued
+
+Starting with 7.18.0, we discontinue the REST API artifact `org.camunda.bpm:camunda-engine-rest-jaxrs2`. We provided this artifact to allow long-polling on the REST API endpoint `/external-task/fetchAndLock` for application servers/runtimes that support the JAX-RS 2.0 specification. Application servers/runtimes only supporting JAX-RS 1.0 had to use the artifact `org.camunda.bpm:camunda-engine-rest-core`, excluding the long-polling capability. 
+
+Since we dropped support for IBM WebSphere 8.5 with the 7.17.0 release, we could consolidate both artifacts again into the `org.camunda.bpm:camunda-engine-rest-core` artifact, which is now based on the JAX-RS 2.0 specification and provides support for long-polling.

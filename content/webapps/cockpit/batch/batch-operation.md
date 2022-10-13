@@ -34,9 +34,14 @@ It is possible to execute the following batch operations:
 - Set a Removal Time to Historic Batches.
 - Correlate Message.
 
-After selecting the operation, fields may appear with additional data that is either optional or required to perform the operation. 
-When canceling running process instances, you can optionally select to skip custom listeners and provide a cancellation reason. In addition to the
-ability to specify the desired operation, a search query can be specified which defines the affected process instances.
+After selecting the operation, fields may appear with additional data that is either optional or required to perform the operation. When canceling running process instances, you can optionally select to skip custom listeners and provide a cancelation reason. 
+
+Next, you can define the instances affected by the batch operation. Initially, all instances are displayed. You can use the filter bar above the list of instances to filter the displayed instances.
+You can select specific instances or click on the **Query** radio button to select all instances matching the filter.
+
+{{< note title="Warning" class="warning">}}
+Selecting all instances might create a high load on the database and application runtime/server if the query has a high number of results.
+{{< /note >}}
 
 You can copy a link to the current search query to your clipboard by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-link"></i></button> button and you can save search queries to your local browser storage by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and inserting a name in the drop down menu that appears. You can then retrieve the search query by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and selecting the chosen name in the drop down menu.
 

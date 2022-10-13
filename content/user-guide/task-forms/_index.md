@@ -168,8 +168,7 @@ Camunda Forms support the following variable types that can represent JSON:
 * `Object` with the `serializationDataFormat: application/json`
 
 Camunda Forms store and retrieve user selections for each component in a variable whose name equals the component key.
-If a variable supposed to store the user selection for multi-select components (Checklist or Taglist) doesn't exist yet,
-a new one is created on form submission with the same type as the variable that defines the available options.
+If a variable supposed to store the user selection for multi-select components (Checklist or Taglist) doesn't exist yet, a new one is created on form submission with the same type as the variable that defines the available options.
 
 The format to define available options looks as follows:
 
