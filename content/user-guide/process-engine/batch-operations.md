@@ -169,6 +169,7 @@ The following modes can be chosen:
 
 Historic process and decision instances can be part of a hierarchy. To set the same removal time for all instances within
 a hierarchy, the method `.hierarchical()` needs to be called.
+Setting removal time to running process instances would delete data from historic database tables (i.e. tables starting with `ACT_HI_*`), but not from runtime database tables (i.e. tables starting with `ACT_RU_*`).
 
 ### Historic Process Instances
 
