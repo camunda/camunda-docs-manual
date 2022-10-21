@@ -68,6 +68,11 @@ Each version of the Camunda Platform is bound to a specific version of the **Ext
     <td>2.2.x</td>
     <td>7.17.x</td>
   </tr>
+  <tr>
+    <td>7.18.x</td>
+    <td>2.3.x</td>
+    <td>7.18.x</td>
+  </tr>
 </table>
 
 Only these default combinations are recommended (and supported) by Camunda. Nevertheless, each version of the External

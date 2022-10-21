@@ -32,7 +32,7 @@ the artifacts.
 First, uninstall the Camunda web applications, namely the Camunda REST API (artifact name like `camunda-engine-rest`) 
 and the Camunda applications Cockpit, Tasklist, and Admin (artifact name like `camunda-webapp`).
 
-Uninstall the Camunda EAR; its name should be `camunda-ibm-websphere-ear-{{< minor-version >}}.0-ee.ear`.
+Uninstall the Camunda EAR; its name should be `camunda-ibm-websphere-ear-7.17.0-ee.ear`.
 
 {{< note title="WebSphere Liberty steps" class="info" >}}
 If you are using WebSphere Liberty, you just need to remove the Camunda EAR, REST API, and web applications from the
@@ -47,17 +47,17 @@ the folder to this shared library as `$SHARED_LIBRARY_PATH`.
 After shutting down the server, replace the following libraries in `$SHARED_LIBRARY_PATH` with the equivalents 
 from `$WAS_DISTRIBUTION/modules/lib`:
 
-* `camunda-engine-{{< minor-version >}}.0-ee.jar`
-* `camunda-bpmn-model-{{< minor-version >}}.0-ee.jar`
-* `camunda-cmmn-model-{{< minor-version >}}.0-ee.jar`
-* `camunda-dmn-model-{{< minor-version >}}.0-ee.jar`
-* `camunda-xml-model-{{< minor-version >}}.0-ee.jar`
-* `camunda-engine-dmn-{{< minor-version >}}.0-ee.jar`
-* `camunda-engine-feel-api-{{< minor-version >}}.0-ee.jar`
-* `camunda-engine-feel-juel-{{< minor-version >}}.0-ee.jar`
-* `camunda-engine-feel-scala-{{< minor-version >}}.0-ee.jar`
+* `camunda-engine-7.17.0-ee.jar`
+* `camunda-bpmn-model-7.17.0-ee.jar`
+* `camunda-cmmn-model-7.17.0-ee.jar`
+* `camunda-dmn-model-7.17.0-ee.jar`
+* `camunda-xml-model-7.17.0-ee.jar`
+* `camunda-engine-dmn-7.17.0-ee.jar`
+* `camunda-engine-feel-api-7.17.0-ee.jar`
+* `camunda-engine-feel-juel-7.17.0-ee.jar`
+* `camunda-engine-feel-scala-7.17.0-ee.jar`
 * `camunda-commons-logging-$COMMONS_VERSION.jar`
-* `camunda-commons-typed-values-{{< minor-version >}}.0-ee.jar`
+* `camunda-commons-typed-values-7.17.0-ee.jar`
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
 * `camunda-connect-connectors-all-$CONNECT_VERSION.jar`
 * `camunda-connect-core-$CONNECT_VERSION.jar`
@@ -117,7 +117,7 @@ this configuration. This can be done by repeating the configuration replacement 
 
 # 5. Install the Camunda Archive
 
-Install the Camunda EAR, or the file `$WAS_DISTRIBUTION/modules/camunda-ibm-websphere-ear-{{< minor-version >}}.0-ee.ear`.
+Install the Camunda EAR, or the file `$WAS_DISTRIBUTION/modules/camunda-ibm-websphere-ear-7.18.0-ee.ear`.
 
 * During the installation on WebSphere 9, the EAR will try to reference the `Camunda` shared library.
 * On WebSphere Liberty, please follow [the EAR installation guide]({{< ref "installation/full/was/manual-liberty.md#camunda-platform-ear" >}}) 
@@ -130,10 +130,10 @@ to deploy the Camunda EAR correctly.
 The following steps are required to update the Camunda REST API on an IBM WebSphere instance:
 
 * On WebSphere 9:
-  1. Deploy the web application `$WAS_DISTRIBUTION/webapps/camunda-engine-rest-{{< minor-version >}}.0-ee-was.war` to your IBM WebSphere instance.
+  1. Deploy the web application `$WAS_DISTRIBUTION/webapps/camunda-engine-rest-7.18.0-ee-was.war` to your IBM WebSphere instance.
   2. Associate the web application with the `Camunda` shared library.
 * On WebSphere Liberty:
-  1. Place the web application `$WAS_DISTRIBUTION/webapps/camunda-engine-rest-{{< minor-version >}}.0-ee-was.war` in the Liberty `$YOUR_SERVER/apps/` directory.
+  1. Place the web application `$WAS_DISTRIBUTION/webapps/camunda-engine-rest-7.18.0-ee-was.war` in the Liberty `$YOUR_SERVER/apps/` directory.
   2. Configure the `server.xml` as described in [the Liberty installation guide]({{< ref "installation/full/was/manual-liberty.md#rest-api" >}}).
 
 ## Cockpit, Tasklist, and Admin
@@ -141,10 +141,10 @@ The following steps are required to update the Camunda REST API on an IBM WebSph
 The following steps are required to update the Camunda web applications Cockpit, Tasklist, and Admin on an IBM WebSphere instance:
 
 * On WebSphere 9:
-  1. Deploy the web application `$WAS_DISTRIBUTION/webapps/camunda-webapp-ee-was-{{< minor-version >}}.0-ee.war` to your IBM WebSphere instance.
+  1. Deploy the web application `$WAS_DISTRIBUTION/webapps/camunda-webapp-ee-was-7.18.0-ee.war` to your IBM WebSphere instance.
   2. Associate the web application with the `Camunda` shared library.
 * On WebSphere Liberty:
-  1. Place the web application `$WAS_DISTRIBUTION/webapps/camunda-webapp-ee-was-{{< minor-version >}}.0-ee.war` in the Liberty `$YOUR_SERVER/apps/` directory.
+  1. Place the web application `$WAS_DISTRIBUTION/webapps/camunda-webapp-ee-was-7.18.0-ee.war` in the Liberty `$YOUR_SERVER/apps/` directory.
   2. Configure the `server.xml` as described in [the Liberty installation guide]({{< ref "installation/full/was/manual-liberty.md#cockpit-tasklist-and-admin" >}}).
 
 [configuration-location]: {{< ref "/reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}

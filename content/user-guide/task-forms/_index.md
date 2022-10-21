@@ -88,7 +88,7 @@ The form key for this file could be `embedded:deployment:FORM_NAME.html` or `emb
 
 # Camunda Forms
 
-Camunda Forms are created as separate files using the Camunda Modeler and can be deployed together with the process models. The form schema is stored in `.form` files.  You can find out how to build Camunda Forms in the [Camunda Modeler documentation]({{< ref "/modeler/forms.md" >}}) or refer to the [Camunda Forms Reference]({{< ref "/reference/forms/camunda-forms/_index.md#configuration" >}}) to explore all configuration options for form elements.
+Camunda Forms are created as separate files using the Camunda Modeler and can be deployed together with the process models. The form schema is stored in `.form` files.  You can find out how to build Camunda Forms in the [Camunda Modeler documentation]({{< ref "/modeler/forms.md" >}}) or refer to the [Camunda Forms Reference](https://docs.camunda.io/docs/guides/utilizing-forms/) to explore all configuration options for form elements.
 
 [Process variables]({{< ref "/user-guide/process-engine/variables.md" >}}) are mapped to form fields where the field's key matches the variable name.
 
@@ -157,19 +157,18 @@ The submitted values of a form are returned as variables to the process engine:
 ## Dynamic Components
 
 You can bind the available options of some component types (Select, Radio Buttons, Checklist, and Taglist) to a variable.
-Like this, Camunda Forms shows available options dynamically based on process data (variables).
+Like this, Camunda Forms show available options dynamically based on process data (variables).
 
-If you want to bind a variable to a dynamic component, define its name in the `valuesKey` field 
-of Camunda Modelers form builder for the respective component.
+To bind a variable to a dynamic component, define its name in the `valuesKey` field 
+of Camunda Modeler's form builder for the respective component.
 
-Camunda Forms supports the following variable types that can represent JSON:
+Camunda Forms support the following variable types that can represent JSON:
 
-* `Json`.
-* `Object` with the `serializationDataFormat: application/json`.
+* `Json`
+* `Object` with the `serializationDataFormat: application/json`
 
-Camunda Forms stores and retrieves user selections for each component in a variable whose name equals the component key.
-If a variable that is supposed to store the user selection for multi-select components (Checklist or Taglist) doesn't exist yet,
-a new one is created on form submission with the same type as the variable that defines the available options.
+Camunda Forms store and retrieve user selections for each component in a variable whose name equals the component key.
+If a variable supposed to store the user selection for multi-select components (Checklist or Taglist) doesn't exist yet, a new one is created on form submission with the same type as the variable that defines the available options.
 
 The format to define available options looks as follows:
 
