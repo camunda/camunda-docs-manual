@@ -8,7 +8,7 @@ menu:
     name: "Get Error Details"
     identifier: "rest-api-external-task-get-error-details"
     parent: "rest-api-external-task"
-    pre: "POST `/external-task/{id}/errorDetails`"
+    pre: "GET `/external-task/{id}/errorDetails`"
 
 ---
 
@@ -17,7 +17,7 @@ Retrieves the error details in the context of a running external task by id.
 
 # Method
 
-POST `/external-task/{id}/errorDetails`
+GET `/external-task/{id}/errorDetails`
 
 
 # Parameters
