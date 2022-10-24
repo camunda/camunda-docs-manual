@@ -8,7 +8,7 @@ menu:
     name: "Get External Task Topic Names"
     identifier: "rest-api-external-task-get-topic-names"
     parent: "rest-api-external-task"
-    pre: "POST `/external-task/topic-names`"
+    pre: "GET `/external-task/topic-names`"
 
 ---
 

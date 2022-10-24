@@ -8,7 +8,7 @@ menu:
     name: "Get Duration Report"
     identifier: "rest-api-history-get-duration-report"
     parent: "rest-api-history-process-instance"
-    pre: "GET `/history/process-instance/report?reportType=duration&periodUnit=month`"
+    pre: "GET `/history/process-instance/report`"
 
 ---
 
@@ -18,7 +18,7 @@ Retrieves a report about the duration of completed process instances, grouped by
 
 # Method
 
-GET `/history/process-instance/report?reportType=duration`
+GET `/history/process-instance/report`
 
 
 # Parameters

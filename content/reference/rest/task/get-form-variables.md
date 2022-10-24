@@ -5,7 +5,7 @@ weight: 310
 
 menu:
   main:
-    pre: "Get Form Variables"
+    name: "Get Form Variables"
     identifier: "rest-api-task-get-form-variables"
     parent: "rest-api-task"
     pre: "GET `/task/{id}/form-variables`"
