@@ -185,7 +185,7 @@ of the docs, to learn more.
 Just like all the other distros, you can tailor Camunda Platform Run to your needs. To do this, you only have to edit one of the [configuration files](#choose-between-default-and-production-configuration) that you can find in the configuration folder.
 
 {{< note title="Note:" class="info" >}}
-Camunda Platform Run is based on the [Camunda Spring Boot Starter](https://github.com/camunda/camunda-bpm-spring-boot-starter). 
+Camunda Platform Run is based on the [Camunda Spring Boot Starter](https://github.com/camunda/camunda-bpm-platform/tree/master/spring-boot-starter). 
 All [configuration properties]({{< ref "/user-guide/spring-boot-integration/configuration.md#camunda-engine-properties" >}}) from the camunda-spring-boot-starter are available to customize Camunda Platform Run.
 {{< /note >}}
 
