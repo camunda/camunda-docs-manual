@@ -214,4 +214,4 @@ If you need to connect to the default file-based H2 database during development,
 
 Starting with 7.18.0, we discontinue the REST API artifact `org.camunda.bpm:camunda-engine-rest-jaxrs2`. We provided this artifact to allow long-polling on the REST API endpoint `/external-task/fetchAndLock` for application servers/runtimes that support the JAX-RS 2.0 specification. Application servers/runtimes only supporting JAX-RS 1.0 had to use the artifact `org.camunda.bpm:camunda-engine-rest-core`, excluding the long-polling capability. 
 
-Since we dropped support for IBM WebSphere 8.5 with the 7.17.0 release, we could consolidate both artifacts again into the `org.camunda.bpm:camunda-engine-rest-core` artifact, which is now based on the JAX-RS 2.0 specification and provides support for long-polling.
+Since we dropped support for IBM WebSphere 8.5 with the 7.17.0 release, with this release we consolidated both artifacts into `org.camunda.bpm:camunda-engine-rest-core`, which is now based on the JAX-RS 2.0 specification and provides support for long-polling.
