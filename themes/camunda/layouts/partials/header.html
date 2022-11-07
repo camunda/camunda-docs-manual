@@ -34,6 +34,7 @@
   {{ $styles := resources.Get "css/docs.css" | fingerprint }}
 
   <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}">
+  <link rel="canonical" href="{{ $.Site.Params.canonicalBasePath }}{{ .Permalink | replaceRE `(\/manual\/)([^\/]*\/)(.*)` `$1$3` }}" />
 </head>
 <body class="{{ .Params.bodyclass }}">
 
