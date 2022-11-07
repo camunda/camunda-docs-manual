@@ -9,7 +9,7 @@ blackfriday:
 
 params:
   canonicalBasePath: "https://docs.camunda.org"
-    sections:
+  sections:
     - id: "get-started"
       name: "Get Started"
       url: "/get-started"
