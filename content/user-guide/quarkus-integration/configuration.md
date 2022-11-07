@@ -194,13 +194,8 @@ the Quarkus-specific properties in the following table:
 
 The Engine Extension integrates with a JDBC Connection Pool and a Jakarta Transaction Manager provided 
 by [Quarkus][quarkus-datasource]. The latter allows you to integrate your business logic into database 
-transactions of the Engine. Read more about it under [JTA Transaction Integration][jta-transaction-integration].
-
-### Default Datasource
-
-To get started quickly, the Engine Extension sets an embedded (local) on-disk H2 database as the primary/default 
-Quarkus datasource, which you can override in your Quarkus application. You can find the default configuration 
-properties on [GitHub][datasource-defaults].
+transactions of the Engine. Read more about it under [JTA Transaction Integration][jta-transaction-integration]. 
+A datasource is required to run the Camunda process engine.
 
 ### Choose from multiple datasources
 
@@ -263,5 +258,3 @@ quarkus.camunda.datasource=my-datasource
 [mp-config]: https://www.eclipse.org/community/eclipse_newsletter/2017/september/article3.php
 
 [jta-transaction-integration]: {{< ref "/user-guide/cdi-java-ee-integration/jta-transaction-integration.md">}}
-
-[datasource-defaults]: https://github.com/camunda/camunda-bpm-platform/blob/{{< minor-version >}}.0/quarkus-extension/engine/runtime/src/main/resources/application.properties
