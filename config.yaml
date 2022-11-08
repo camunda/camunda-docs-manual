@@ -1,5 +1,5 @@
 ---
-baseURL: "/manual/7.13/"
+baseURL: "https://docs.camunda.org/manual/7.13/"
 languageCode: "en-us"
 title: "Camunda Platform documentation"
 theme: "camunda"
