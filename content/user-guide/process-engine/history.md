@@ -1904,6 +1904,8 @@ Removal time is defined per instance as `removal time = base time + TTL`. `base 
 
 Valid values are `start`, `end` and `none`. `end` is the default value and the recommended option. `start` is a bit more efficient when the process engine populates the history tables, because it does not have to make extra `UPDATE` statements when an instance finishes.
 
+**Note:**: With `historyRemovalTimeStrategy` set to `start`, it is possible to delete historic data of running process instances. When a process is started the removal time will be calculated (start+TTL) and will be set for all the activities of the process. As soon as removal time is reached data from historic tables gets cleaned up irrespective of whether the instance is running or completed. This may lead to the removal of the historic data before the process instance is finished resulting in no available history in Cockpit or history tables. A mitigation strategy is to choose a longer TTL value or set `historyRemovalTimeStrategy` to `end`.
+
 {{< note title="Heads-up!" class="info" >}}
 The calculation of the removal time can be enabled independently of the selected cleanup strategy of the process engine.
 This allows to perform a custom cleanup procedure outside the process engine by leveraging database capabilities (e.g. via table partitioning by removal time).
