@@ -31,7 +31,7 @@ The `cam-variable-name` directive allows providing the name of a process / task 
 
 # The `cam-business-key` Directive
 
-The `cam-business-key` is aimed to be used on a free text input field in order to define a businessKey at the [start of a process]({{< ref "/reference/rest/process-definition/post-submit-form.md" >}}).  
+The `cam-business-key` is aimed to be used on a free text input field in order to define a businessKey at the {{< restref page="submitForm" text="start of a process" tag="Process-Definition" >}}.
 This attribute is only relevant when the form is aimed to start a process.
 
 ```html

@@ -439,7 +439,7 @@ If it is desired that operations are logged regardless whether they are performe
 
 ## Access the User Operation Log
 
-The user operation log can be accessed via the Java API. The history service can be used to execute a `UserOperationLogQuery` by calling `historyService.createUserOperationLogQuery().execute()`. The query can be restricted with various filtering options. The query is also [exposed in the REST API]({{< ref "/reference/rest/history/user-operation-log/get-user-operation-log-query.md" >}}).
+The user operation log can be accessed via the Java API. The history service can be used to execute a `UserOperationLogQuery` by calling `historyService.createUserOperationLogQuery().execute()`. The query can be restricted with various filtering options. The query is also {{< restref page="queryUserOperationEntries" text="exposed in the REST API" tag="Historic-User-Operation-Log" >}}.
 
 
 ## User Operation Log Entries
@@ -488,8 +488,8 @@ historyService.clearAnnotationForOperationLogById(operationId);
 
 **Please note:** Annotations are present on all entries that belong to an operation log.
 
-Please also see the REST API reference for [setting][op-log-set-annotation-rest] and 
-[clearing][op-log-clear-annotation-rest] annotations.
+Please also see the REST API reference for {{< restref page="setAnnotationUserOperationLog" text="setting" tag="Historic-User-Operation-Log" >}} and 
+{{< restref page="clearAnnotationUserOperationLog" text="clearing" tag="Historic-User-Operation-Log" >}} annotations.
 
 ## Glossary of Operations Logged in the User Operation Log
 
@@ -1781,7 +1781,7 @@ Once deployed, TTL can be updated via Java API:
   processEngine.getRepositoryService().updateProcessDefinitionHistoryTimeToLive(processDefinitionId, 5);
 ```
 
-Setting the value to `null` clears the TTL. The same can be done via [REST API]({{< ref "/reference/rest/process-definition/put-history-time-to-live.md">}}).
+Setting the value to `null` clears the TTL. The same can be done via {{< restref page="updateHistoryTimeToLiveByProcessDefinitionKeyAndTenantId" text="REST API" tag="Process-Definition" >}}.
 
 For decision and case definitions, TTL can be defined in a similar way.
 
@@ -1958,7 +1958,5 @@ time to live, removal time strategy) still need to be defined among all nodes.
 [configuration-options]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#history-cleanup-configuration-parameters">}}
 [1]: http://docs.camunda.org/latest/api-references/javadoc/org/camunda/bpm/engine/impl/history/event/HistoryEventTypes.html
 [2]: https://github.com/camunda/camunda-bpm-examples/tree/master/process-engine-plugin/custom-history-level
-[op-log-set-annotation-rest]: {{< ref "/reference/rest/history/user-operation-log/set-annotation.md" >}}
-[op-log-clear-annotation-rest]: {{< ref "/reference/rest/history/user-operation-log/clear-annotation.md" >}}
 [op-log-set-annotation-instance-mod]: {{< ref "/user-guide/process-engine/process-instance-modification.md#annotation" >}}
 [Historic Instance Permissions]: {{< ref "/user-guide/process-engine/authorization-service.md#historic-instance-permissions" >}}
