@@ -46,6 +46,8 @@ Optional configuration elements are:
 
 Shown values are the default ones.
 
+For a complete list of all configuration options, please refer to the [Job Executor Configuration]({{< ref "/reference/deployment-descriptors/tags/job-executor.md" >}}).
+
 # Configure a Process Engine in standalone.xml/domain.xml
 
 
@@ -85,6 +87,8 @@ Using the Camunda Wildfly subsystem, it is possible to configure and manage the 
 It should be easy to see that the configuration consists of a single process engine which uses the Datasource `java:jboss/datasources/ProcessEngine` and is configured to be the `default` process engine. In addition, the job executor currently uses a single Job Acquisition, also named default.
 
 If you start up your Wildfly server with this configuration, it will automatically create the corresponding services and expose them through the management model.
+
+For a complete list of all configuration options, please refer to the [Process Engine Configuration]({{< ref "/reference/deployment-descriptors/tags/process-engine.md" >}}).
 
 
 # Provide a Custom Process Engine Configuration Class
