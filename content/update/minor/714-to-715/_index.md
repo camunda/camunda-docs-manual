@@ -197,7 +197,7 @@ Since the metrics data accumulated over time can become substantial, it is possi
 * configure a history time live for the task metrics data so it is picked up by [History Cleanup]({{< ref "/user-guide/process-engine/history.md#task-metrics" >}})
 * manually clean up the task metrics data through API
 
-Manually deleting task metrics data can be done via [REST API]({{< ref "/reference/rest/metrics/delete-metrics-task-worker" >}}) or Java API by using the `deleteTaskMetrics` method provided by the `ManagementService`.
+Manually deleting task metrics data can be done via {{< restref page="deleteTaskMetrics" text="REST API" tag="Metrics" >}} or Java API by using the `deleteTaskMetrics` method provided by the `ManagementService`.
 Both APIs allow to provide a date, prior to which all task metrics data will be deleted. Please note that only users of the `camunda-admin` group can manually delete task metrics.
 
 Reporting task metrics can also be explicitly disabled via engine configuration by either adding a `taskMetricsEnabled` property with value `false` to the configuration or by setting the flag`isTaskMetricsEnabled` to `false` via Java API.

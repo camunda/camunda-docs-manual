@@ -140,7 +140,7 @@ However, the example application will not be started.
 
 Disabling the example application with any of those mechanisms will **NOT** delete any deployments or process instances from Camunda Run once they are created.
 You have to delete this data manually through the [web apps]({{< ref "/webapps/cockpit/deployment-view.md#delete" >}}), the 
-[REST API]({{< ref "/reference/rest/deployment/delete-deployment.md" >}}), or by cleaning the database 
+{{< restref page="deleteDeployment" text="REST API" tag="Deployment" >}}, or by cleaning the database 
 [configured in the application properties](#database).
 
 ## Choose between default and production configuration
@@ -172,7 +172,7 @@ In the unpacked distro, you will find a `resources` folder. All files (including
 
 You can reference forms and scripts in the BPMN diagram with `embedded:deployment:/my-form.html`, `camunda-forms:deployment:/myform.form`, or `deployment:/my-script.js`. The deployment requires adding an extra `/` as a prefix to the filename.
 
-Deployments via the [REST API]({{< ref "/reference/rest/deployment/post-deployment.md" >}}) are still possible.
+Deployments via the {{< restref page="createDeployment" text="REST API" tag="Deployment" >}} are still possible.
 
 ## Automatic License Pickup
 

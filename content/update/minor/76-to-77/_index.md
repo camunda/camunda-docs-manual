@@ -32,7 +32,7 @@ Noteworthy new Features and Changes in 7.7:
 * [Process instance restart + Batch API]({{< ref "/user-guide/process-engine/process-instance-restart.md" >}})
 * [Automatic cleanup of historic data based on TTL]({{< ref "/user-guide/process-engine/history.md#history-cleanup" >}})
 * [New cryptographic hash function with salt] ({{< ref "/user-guide/process-engine/password-hashing.md" >}})
-* [External tasks history]({{< ref "/reference/rest/history/external-task-log/_index.md" >}})
+* {{< restref text="External tasks history" tag="Historic-External-Task-Log" >}}
 
 # Database Updates
 
