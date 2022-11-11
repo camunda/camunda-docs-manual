@@ -350,6 +350,18 @@ The LDAP Identity Provider provides the following configuration properties:
       </p>
     </td>
   </tr>
+   <tr>
+   <td><code>pageSize</code></td>
+   <td>
+      <p>
+        If this property is set with a number upper than 0, then the query sent to LDAP requires a Pagination, and results are loaded page par page. Some LDAP refuse to serve a large number of results in one set.
+        <em>Default:</em> <code>undefined</code> (no pagination)        
+      </p>
+      <p>
+        <strong>Note:</strong> This parameter does not affect the UI, which manipulates its own page size system. If your LDAP refuses to return to more than limited results, then the pagination must be activated.
+      </p>
+   </td>
+  </tr>
 </table>
 
 # Throttle login attempts
