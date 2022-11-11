@@ -95,7 +95,7 @@ Camunda Forms are created as separate files using the Camunda Modeler and can be
 {{< note title="Process variables access" class="warning" >}}
 Defining forms does not introduce any permissions on process variables.
 Users can still submit any variables via APIs for form completion like the
-[Submit Task Form]({{< ref "/reference/rest/task/post-submit-form.md" >}}) REST API.
+{{< restref page="submit" text="Submit Task Form" tag="Task" >}} REST API.
 Forms can be used on top of the task completion API to render form fields and validate submitted values.
 {{< /note >}}
 
@@ -311,7 +311,7 @@ A form data can have following attributes:
 {{< note title="Process variables access" class="warning" >}}
 Defining form fields does not introduce any permissions on process variables.
 Users can still submit any variables via APIs for form completion like the
-[Submit Task Form]({{< ref "/reference/rest/task/post-submit-form.md" >}}) REST API.
+{{< restref page="submit" text="Submit Task Form" tag="Task" >}} REST API.
 Form fields can be used on top of the task completion API to render forms and validate submitted values.
 {{< /note >}}
 

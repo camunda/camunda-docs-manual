@@ -43,7 +43,7 @@ List<ProcessDefinition> processDefinitions = repositoryService.createProcessDefi
 
 The above query returns all deployed process definitions for the key `invoice` ordered by their `version` property.
 
-You can also [query for process definitions using the REST API]({{< ref "/reference/rest/process-definition/get-query.md" >}}).
+You can also {{< restref page="getProcessDefinitions" text="query for process definitions using the REST API" tag="Process-Definition" >}}.
 
 
 ## Keys and Versions
@@ -85,7 +85,7 @@ You may optionally pass in a couple of variables:
 
 Process variables are available to all tasks in a process instance and are automatically persisted to the database in case the process instance reaches a wait state.
 
-It is also possible to [start a process instance using the REST API]({{< ref "/reference/rest/process-definition/post-start-process-instance.md" >}}).
+It is also possible to {{< restref page="startProcessInstance" text="start a process instance using the REST API" tag="Process-Definition" >}}.
 
 ### Start Process Instances via Tasklist
 
@@ -149,7 +149,7 @@ You can query for all currently running process instances using the `ProcessInst
 
 The above query would select all process instances for the `invoice` process where the `creditor` is `Nice Pizza Inc.`.
 
-You can also [query for process instances using the REST API]({{< ref "/reference/rest/process-instance/get-query.md" >}}).
+You can also {{< restref page="getProcessInstances" text="query for process instances using the REST API" tag="Process-Instance" >}}.
 
 
 ## Interact With a Process Instance
@@ -203,7 +203,7 @@ runtimeService.createExecutionQuery()
 
 The above query returns all executions for a given process instance.
 
-You can also [query for executions using the REST API]({{< ref "/reference/rest/execution/get.md" >}}).
+You can also {{< restref page="getExecutions" text="query for executions using the REST API" tag="Execution" >}}.
 
 
 # Activity Instances
@@ -269,7 +269,7 @@ Currently, activity instances can only be retrieved for a process instance:
 ActivityInstance rootActivityInstance = runtimeService.getActivityInstance(processInstance.getProcessInstanceId());
 ```
 
-You can [retrieve the activity instance tree using the REST API]({{< ref "/reference/rest/process-instance/get-activity-instances.md" >}}) as well.
+You can {{< restref page="getActivityInstanceTree" text="retrieve the activity instance tree using the REST API" tag="Process-Instance" >}} as well.
 
 
 ## Identity & Uniqueness
