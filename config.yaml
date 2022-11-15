@@ -8,6 +8,7 @@ blackfriday:
   plainIDAnchors: true
 
 params:
+  canonicalBasePath: "https://docs.camunda.org"
   sections:
     - id: "get-started"
       name: "Get Started"
