@@ -155,7 +155,7 @@ A JSON object containing all collected telemetry data.
         <li>When sending telemetry to Camunda is enabled, after sending the data, all existing dynamic
             data is wiped and therefore the collection date is reset to the current time.</li>
       </ul>
-     The date is in the format <code>Mon DD, YYYY HH:MM::SS XM</code>.
+     The date is in the format <code>YYYY-MM-DD'T'HH:mm:ss.SSSZ</code>.
     </td>
   </tr>
 </table>
@@ -316,7 +316,7 @@ GET `/telemetry/data`
           "decision-instances": { "count": 140 },
           "executed-decision-elements": { "count": 732 }
         },
-        "data-collection-start-date": "Nov 16, 2022 11:41:58 AM",
+        "data-collection-start-date": "2022-11-320T15:53:20.386+0100",
         "camunda-integration": [
           "spring-boot-starter",
           "camunda-bpm-run"
