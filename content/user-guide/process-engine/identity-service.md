@@ -354,13 +354,13 @@ The LDAP Identity Provider provides the following configuration properties:
    <td id="page-size"><code>pageSize</code></td>
    <td>
       <p>
-        When you define a number higher or equal to 1, pagination is enabled, and results are loaded page par page. This means that the query sent to LDAP Server expects support for the LDAPv3 Control for paged results as defined in <a href="http://www.ietf.org/rfc/rfc2696.txt">RFC 2696</a>.<br>
+        When you define a number higher or equal to 1, pagination is enabled, and results are loaded page per page. Therefore, the query sent to the LDAP Server expects support for the LDAPv3 Control for paged results as defined in <a href="http://www.ietf.org/rfc/rfc2696.txt">RFC 2696</a>.<br>
         <em>Default:</em> <code>null</code> (no pagination)
       </p>
       <p>
         <strong>Note:</strong> 
         <ul>
-          <li>By default, some LDAP Server implementations refuse to serve an unbounded number of results in one response, which means configuring this property is mandatory to circumvent the limit of results.</li>
+          <li>By default, some LDAP Server implementations refuse to serve an unbounded number of results in one response. Therefore, configuring this property is mandatory to circumvent the limit of results.</li>
           <li>This parameter does not affect the UI or the number of results returned via Java or REST API since it uses an auto-pagination approach.</li>
         </ul>
       </p>
