@@ -43,7 +43,6 @@ Run the Camunda Platform in every Java-runnable environment. Camunda Platform is
 * Oracle 11g / 12c / 18c / 19c
 * IBM DB2 10.5 / 11.1 (excluding IBM z/OS for all versions)
 * PostgreSQL 9.4 / 9.6 / 10 / 11 / 12
-* Amazon Aurora PostgreSQL compatible with PostgreSQL 9.6 / 10.4 / 10.7 / 10.13
 * Microsoft SQL Server 2012/2014/2016/2017 (see [Configuration Note]({{< ref "/user-guide/process-engine/database.md#configuration-for-microsoft-sql-server" >}}))
 * H2 1.4 (not recommended for [Cluster Mode]({{< ref "/introduction/architecture.md#clustering-model" >}}) - see [Deployment Note]({{< ref "/user-guide/process-engine/deployments.md" >}}))
 
