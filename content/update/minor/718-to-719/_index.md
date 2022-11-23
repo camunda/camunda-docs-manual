@@ -72,16 +72,14 @@ Take the following steps to complete the update:
 
 # Camunda external task client JS update
 
-During updating the dependencies of the JS client we have realized that all the packages our client
-uses as dependency already switched to ECMAScript modules (ESM). Since our project still used
-CommonJS modules, this meant that we were unable to update to their latest versions. Because of this
-reason we have decided to also update our project to ESM.
+We always strive to keep up with established standards and reduce technical debt which is why we
+decided to move away from CommonJS in favor of ECMAScript modules (ESM).
 
 This means that the latest 3.0 version of the [Camunda external task client JS](https://github.com/camunda/camunda-external-task-client-js/)
-is now a pure ECMAScript module (ESM). If your project is already using ECMAScript modules then you
-can update to this version without any problems.
+is now a pure ECMAScript module. Furthermore, the minimum required NodeJS to run the client is version 18.\
+If your project is already using ECMAScript modules then you can update to this version without any problems.
 
 However, if your project uses the CommonJS module system then you have the following choices:
-- Stay on the latest supported patch versions.
 - If the package is used in an async context, you could use `await import(…)` from CommonJS instead of `require(…)`.
+- Transpile the module into CommonJS using babel for instance.
 - Convert your project to ECMAScript Modules.
