@@ -222,7 +222,7 @@ about the several headers, the defaults and how to configure the HTTP headers ac
 ## Variable Values from Untrusted Sources
 
 Process variables can be submitted as Java objects using the JDK built-in `application/x-java-serialized-object` data format, JSON or XML along with a Java class name via the Camunda REST API and web applications.
-On server side, they can then be deserialized into Java objects, so that Java code can work with them in a native way. See [Camunda Spin]({{< ref "/user-guide/data-formats/configuring-spin-integration.md" >}}) for details and this {{< restref page="putLocalExecutionVariable" text="REST API endpoint" tag="Execution" >}} for an example.
+On server side, they can then be deserialized into Java objects, so that Java code can work with them in a native way. See [Camunda Spin]({{< ref "/user-guide/data-formats/configuring-spin-integration.md" >}}) for details and this [REST API endpoint]({{< ref "/reference/rest/execution/local-variables/put-local-variable.md#example-2" >}}) for an example.
 
 If an attacker can access these endpoints, they can exploit so-called _serialization gadgets_, i.e. classes that run vulnerable code during deserialization resulting in remote code execution in the general case. For example, consider a class constructor that makes a REST request based on a field value. An attacker could submit a forged variable value so that during deserialization, when the constructor is called, the application server would make an arbitrary REST request to a destination of the attacker's choice. For details, see [OWASP's description of Deserialization of untrusted data](https://www.owasp.org/index.php/Deserialization_of_untrusted_data).
 

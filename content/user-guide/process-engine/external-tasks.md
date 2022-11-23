@@ -89,7 +89,7 @@ Further information on the functionality of error event definitions on external 
 
 ## Rest API
 
-See the {{< restref text="REST API documentation" tag="External-Task" >}} for how the API operations can be accessed via HTTP.
+See the [REST API documentation]({{< ref "/reference/rest/external-task/_index.md" >}}) for how the API operations can be accessed via HTTP.
 
 ### Long Polling to Fetch and Lock External Tasks
 
@@ -106,7 +106,7 @@ configurable period of time (timeout).
 Long polling significantly reduces the number of requests and enables using resources more efficiently on both 
 the server and the client side.
 
-Please also see the {{< restref page="fetchAndLock" text="REST API documentation" tag="External-Task" >}}.
+Please also see the [REST API documentation]({{< ref "/reference/rest/external-task/fetch.md" >}}).
 
 #### Unique Worker Request
 By default, multiple workers can use the same `workerId`. In order to ensure `workerId` uniqueness on server-side, the 

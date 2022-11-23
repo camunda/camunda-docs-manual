@@ -149,7 +149,7 @@ To enable/disable telemetry via Java API:
   managementService.toggleTelemetry(true);
 ```
 
-To achieve the same, you can also use the respective REST API request. For more information, have a look at the {{< restref page="configureTelemetry" text="telemetry" tag="Telemetry" >}} page in the REST API documentation.
+To achieve the same, you can also use the respective REST API request. For more information, have a look at the [telemetry][telemetry-config-rest] page in the REST API documentation.
 
 ### Admin webapp
 
@@ -179,7 +179,7 @@ String jdkVersion = productInternals.getJdk().getVersion();
 
 ### REST API
 
-You can fetch the collected data via the REST API by calling the {{< restref page="getTelemetryData" text="Get Telemetry Data" tag="Telemetry" >}} endpoint.
+You can fetch the collected data via the REST API by calling the [Get Telemetry Data][telemetry-data-rest] endpoint.
 
 ## Legal note
 
@@ -228,4 +228,6 @@ With this, the reporter thread will not be started and no request will ever be s
 
 [engine-config-initializeTelemetry]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#initializeTelemetry" >}}
 [engine-config-telemetryReporterActivate]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#telemetryReporterActivate" >}}
+[telemetry-config-rest]: {{< ref "/reference/rest/telemetry/post-telemetry-config.md" >}}
+[telemetry-data-rest]: {{< ref "/reference/rest/telemetry/get-telemetry-data.md" >}}
 [system-management]: {{< ref "/webapps/admin/system-management.md" >}}
