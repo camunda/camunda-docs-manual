@@ -13,7 +13,7 @@ menu:
 
 The following steps describe how to update the Camunda artifacts on an IBM WebSphere application server 9 or
 IBM WebSphere application server Liberty in a shared process engine setting. Throughout the procedure, refer 
-to the [update guide][update-guide]. If not already done, download the [Camunda Platform 7.19 IBM WebSphere distribution](https://artifacts.camunda.com/artifactory/camunda-bpm-ee/org/camunda/bpm/websphere/camunda-bpm-websphere9/7.19.0-ee/).
+to the [update guide][update-guide]. If not already done, download the [Camunda Platform 7.19 IBM WebSphere distribution][was-distribution].
 
 The update procedure takes the following steps:
 
@@ -120,7 +120,7 @@ this configuration. This can be done by repeating the configuration replacement 
 Install the Camunda EAR, or the file `$WAS_DISTRIBUTION/modules/camunda-ibm-websphere-ear-7.19.0-ee.ear`.
 
 * During the installation on WebSphere 9, the EAR will try to reference the `Camunda` shared library.
-* On WebSphere Liberty, please follow [the EAR installation guide]({{< ref "installation/full/was/manual-liberty.md#camunda-platform-ear" >}}) 
+* On WebSphere Liberty, please follow [the EAR installation guide]({{< ref "/installation/full/was/manual-liberty.md#camunda-platform-ear" >}})
 to deploy the Camunda EAR correctly.
 
 # 6. Install the web applications
@@ -134,7 +134,7 @@ The following steps are required to update the Camunda REST API on an IBM WebSph
   2. Associate the web application with the `Camunda` shared library.
 * On WebSphere Liberty:
   1. Place the web application `$WAS_DISTRIBUTION/webapps/camunda-engine-rest-7.19.0-ee-was.war` in the Liberty `$YOUR_SERVER/apps/` directory.
-  2. Configure the `server.xml` as described in [the Liberty installation guide]({{< ref "installation/full/was/manual-liberty.md#rest-api" >}}).
+  2. Configure the `server.xml` as described in [the Liberty installation guide]({{< ref "/installation/full/was/manual-liberty.md#rest-api" >}}).
 
 ## Cockpit, Tasklist, and Admin
 
@@ -145,7 +145,8 @@ The following steps are required to update the Camunda web applications Cockpit,
   2. Associate the web application with the `Camunda` shared library.
 * On WebSphere Liberty:
   1. Place the web application `$WAS_DISTRIBUTION/webapps/camunda-webapp-ee-was-7.19.0-ee.war` in the Liberty `$YOUR_SERVER/apps/` directory.
-  2. Configure the `server.xml` as described in [the Liberty installation guide]({{< ref "installation/full/was/manual-liberty.md#cockpit-tasklist-and-admin" >}}).
+  2. Configure the `server.xml` as described in [the Liberty installation guide]({{< ref "/installation/full/was/manual-liberty.md#cockpit-tasklist-and-admin" >}}).
 
 [configuration-location]: {{< ref "/reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}
 [update-guide]: {{< ref "/update/minor/718-to-719/_index.md" >}}
+[was-distribution]: https://artifacts.camunda.com/artifactory/camunda-bpm-ee/org/camunda/bpm/websphere/camunda-bpm-websphere9/7.19.0-ee/
