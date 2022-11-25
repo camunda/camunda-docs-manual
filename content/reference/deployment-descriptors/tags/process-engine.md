@@ -626,7 +626,7 @@ The following is a list with the most commonly used process engine configuration
         You can combine this property with <code>jobExecutorPriorityRangeMax</code> to specify a job priority range for the job executor.
         Note, that you can configure the priority of batch jobs and history cleanup jobs via the <code>batchJobPriority</code> and <code>historyCleanupJobPriority</code> properties. Both default to <code>0</code>.
       <p>
-        <strong>Default value:</strong> <code>null</code>
+        <strong>Default value:</strong> <code>0</code>
       </p>
   </td>
 
@@ -638,7 +638,7 @@ The following is a list with the most commonly used process engine configuration
         You can combine this property with <code>jobExecutorPriorityRangeMin</code> to specify a job priority range for the job executor.
         Note, that you can configure the priority of batch jobs and history cleanup jobs via the <code>batchJobPriority</code> and <code>historyCleanupJobPriority</code> properties. Both default to <code>0</code>.
       <p>
-        <strong>Default value:</strong> <code>null</code>
+        <strong>Default value:</strong> <code>2<sup>63</sup>-1</code>
       </p>
   </td>
 
