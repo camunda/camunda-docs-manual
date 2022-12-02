@@ -19,6 +19,7 @@ This document guides you through the update from Camunda Platform `7.18.x` to `7
 1. For administrators and developers: [Full distribution update](#full-distribution)
 1. For administrators: [Standalone web application](#standalone-web-application)
 1. For developers: [Camunda external task client JS update](#camunda-external-task-client-js-update)
+1. For developers: [Job executor priority range properties type changed](#job-executor-priority-range-properties-type-changed)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.18.
 
@@ -83,3 +84,7 @@ However, if your project uses the CommonJS module system then you have the follo
 - If the package is used in an async context, you could use `await import(…)` from CommonJS instead of `require(…)`.
 - Transpile the module into CommonJS using babel for instance.
 - Convert your project to ECMAScript Modules.
+
+# Job executor priority range properties type changed
+
+The two dedicated job executor priority range properties [jobExecutorPriorityRangeMin]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#jobExecutorPriorityRangeMin" >}}) and [jobExecutorPriorityRangeMax]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#jobExecutorPriorityRangeMax" >}}) have been change to primitive type <code>long</code>. That allows for the properties to be configured for every process engine configuration. Respectively their default values changed to <code>0</code> and <code>2<sup>63</sup>-1</code>.
