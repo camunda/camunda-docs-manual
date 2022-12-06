@@ -76,7 +76,7 @@ Process variables: When compensating an embedded subprocess, the execution used 
 Current limitations:
 
 *   `waitForCompletion="false"` is currently unsupported. When compensation is triggered using the intermediate throwing compensation event, the event is only left after compensation completed successfully.
-*   Compensation itself is currently performed by concurrent executions. The concurrent executions are started in reverse order to which the compensated activities completed. Future versions of activity might include an option to perform compensation sequentially.
+*   Compensation itself is currently performed by concurrent executions. The concurrent executions are started in reverse order to which the compensated activities completed. Future versions of camunda might include an option to perform compensation sequentially.
 *   Compensation is not propagated to sub process instances spawned by call activities.
 
 A compensation intermediate event is defined as an intermediate throwing event. The specific type sub-element in this case is a compensateEventDefinition element.
