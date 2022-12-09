@@ -34,6 +34,13 @@
   {{ $styles := resources.Get "css/docs.css" | fingerprint }}
 
   <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}">
+  {{- $permalink := .Permalink }}
+  {{- if ($.Site.Params.section.versions) }}
+    {{- $latestVersion := (index $.Site.Params.section.versions 1) }}
+    {{- $replacementPattern := print "${1}" $latestVersion "/${3}" }}
+    {{- $permalink = $permalink | replaceRE `(\/manual\/)([^\/]*\/)(.*)` $replacementPattern }}
+  {{- end }}
+  <link rel="canonical" href="{{ $.Site.Params.canonicalBasePath }}{{ $permalink }}" />
 </head>
 <body class="{{ .Params.bodyclass }}">
 
@@ -94,9 +101,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="search-underlay"></div>
 
-<div class="site-menu">
+<nav class="site-menu">
   {{ partialCached "menu.html" . }}
-</div>
+</nav>
 
 
 <div class="page-wrapper">
