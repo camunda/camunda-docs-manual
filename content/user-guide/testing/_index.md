@@ -256,7 +256,7 @@ You can now see the engine database and use it to understand how and why your un
 
 # Camunda Assertions
 
-Additional to normal JUnit assertions, [Camunda Platform Assert](https://github.com/camunda/camunda-bpm-platform/tree/{{< minor-version >}}/test-utils/assert) adds a fluent API for asserting typical scenarios in a process integrating with [AssertJ](https://joel-costigliola.github.io/assertj/).
+Additional to normal JUnit assertions, [Camunda Platform Assert](https://github.com/camunda/camunda-bpm-platform/tree/{{< minor-version >}}.0/test-utils/assert) adds a fluent API for asserting typical scenarios in a process integrating with [AssertJ](https://joel-costigliola.github.io/assertj/).
 
 ```java
 assertThat(processInstance).isWaitingAt("UserTask_InformCustomer");
