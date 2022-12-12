@@ -159,8 +159,7 @@ The submitted values of a form are returned as variables to the process engine:
 You can bind the available options of some component types (Select, Radio Buttons, Checklist, and Taglist) to a variable.
 Like this, Camunda Forms show available options dynamically based on process data (variables).
 
-To bind a variable to a dynamic component, define its name in the `valuesKey` field 
-of Camunda Modeler's form builder for the respective component.
+To bind a variable to a dynamic component, define its name in Camunda Modeler's form builder in the Properties Panel under **Options Source** -> **Type** -> **Input Data** -> **Dynamic options** -> **Input values key** for the respective component.
 
 Camunda Forms support the following variable types that can represent JSON:
 
