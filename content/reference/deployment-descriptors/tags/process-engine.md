@@ -1035,6 +1035,19 @@ The following is a list with the most commonly used process engine configuration
       </p>
     </td>
   </tr>
+  <tr>
+    <td><code>implicitVariableUpdateDetectionEnabled</code></td>
+    <td>Boolean</td>
+    <td>
+      Enables detection of implicit updates to process variables of type object.
+      <p>
+        Default value is <code>true</code>.
+      </p>
+      <p>
+        <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
+      </p>
+    </td>
+  </tr>
 
 </table>
 
