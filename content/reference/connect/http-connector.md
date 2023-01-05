@@ -25,8 +25,7 @@ Camunda Connect HTTP client uses the Apache HTTP client to make HTTP requests. A
 
 ## Default Configuration
 
-By default, the HTTP client uses Apache's default configuration and respects the [system properties that are supported by HTTP client](https://hc.apache.org/httpcomponents-client-4.3.x/httpclient/apidocs/org/apache/http/impl/client/HttpClientBuilder.html).
-
+By default, the HTTP client uses Apache's default configuration and respects the [system properties that are supported by HTTP client](https://hc.apache.org/httpcomponents-client-4.5.x/current/httpclient/apidocs/org/apache/http/impl/client/HttpClientBuilder.html).
 ## Custom Configuration
 
 If you want to reconfigure the client going beyond the default configuration options, e.g. you want to configure another connection manager, the easiest way is to register
