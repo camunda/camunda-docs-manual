@@ -16,10 +16,11 @@ menu:
 This document guides you through the update from Camunda Platform `7.18.x` to `7.19.0` and covers the following use cases:
 
 1. For administrators and developers: [Database updates](#database-updates)
-1. For administrators and developers: [Full distribution update](#full-distribution)
-1. For administrators: [Standalone web application](#standalone-web-application)
-1. For developers: [Camunda external task client JS update](#camunda-external-task-client-js-update)
-1. For developers: [Job executor priority range properties type changed](#job-executor-priority-range-properties-type-changed)
+2. For administrators and developers: [Full distribution update](#full-distribution)
+3. For administrators: [Standalone web application](#standalone-web-application)
+4. For developers: [Camunda external task client JS update](#camunda-external-task-client-js-update)
+5. For developers: [Job executor priority range properties type changed](#job-executor-priority-range-properties-type-changed)
+6. For developers: [Java External Task Client: Deprecated exception types removed](#java-external-task-client-deprecated-exception-types-removed)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.18.
 
@@ -88,3 +89,10 @@ However, if your project uses the CommonJS module system then you have the follo
 # Job executor priority range properties type changed
 
 The two dedicated job executor priority range properties [jobExecutorPriorityRangeMin]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#jobExecutorPriorityRangeMin" >}}) and [jobExecutorPriorityRangeMax]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#jobExecutorPriorityRangeMax" >}}) have been change to primitive type <code>long</code>. That allows for the properties to be configured for every process engine configuration. Respectively their default values changed to <code>0</code> and <code>2<sup>63</sup>-1</code>.
+
+# Java External Task Client: Deprecated exception types removed
+
+In 7.18, we deprecated the exception types `NotResumedException` and `NotAcquiredException`.
+With this release, we removed the exception types as announced in the [migration guide from 7.17 to 7.18]({{< ref "/update/minor/717-to-718/_index.md#deprecated-exception-types" >}}).
+
+Please make sure to adjust your business logic accordingly.
