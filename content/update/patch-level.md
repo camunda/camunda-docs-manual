@@ -370,7 +370,7 @@ Note: this behavior is slightly changed with the [next patch]({{< ref "#job-exec
 
 ### Job executor priority range properties default changed
 
-The default value for the job executor priority range property [jobExecutorPriorityRangeMin]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#jobExecutorPriorityRangeMin" >}}) has changed from 0 to <code>-2<sup>63</sup>-1</code> (`Long.MIN_VALUE`). This property and its counterpart ([jobExecutorPriorityRangeMax]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#jobExecutorPriorityRangeMax" >}})) only have an effect if [jobExecutorAcquireByPriority]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#jobExecutorAcquireByPriority" >}}) is set to true.
+The default value for the job executor priority range property [jobExecutorPriorityRangeMin]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#jobExecutorPriorityRangeMin" >}}) has changed from 0 to <code>-2<sup>63</sup></code> (`Long.MIN_VALUE`). This property and its counterpart ([jobExecutorPriorityRangeMax]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#jobExecutorPriorityRangeMax" >}})) only have an effect if [jobExecutorAcquireByPriority]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#jobExecutorAcquireByPriority" >}}) is set to true.
 
 # Full Distribution
 
