@@ -582,6 +582,19 @@ The following is a list with the most commonly used process engine configuration
     </td>
   </tr>
 
+  <tr id="jobExecutorAcquireByPriority">
+    <td><code>jobExecutorAcquireByPriority</code></td>
+    <td>Boolean</td>
+    <td>
+        Controls whether the job executor acquires the next jobs to execute ordered by job priority. Default value is <code>false</code>. See the
+        <a href="{{< ref "/user-guide/process-engine/the-job-executor.md#the-job-order-of-job-acquisition" >}}">user guide</a>
+        for more details on this setting.
+      <p>
+        <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
+      </p>
+    </td>
+  </tr>
+
   <tr>
     <td><code>jobExecutorActivate</code></td>
     <td>Boolean</td>
@@ -626,7 +639,7 @@ The following is a list with the most commonly used process engine configuration
         You can combine this property with <code>jobExecutorPriorityRangeMax</code> to specify a job priority range for the job executor.
         Note, that you can configure the priority of batch jobs and history cleanup jobs via the <code>batchJobPriority</code> and <code>historyCleanupJobPriority</code> properties. Both default to <code>0</code>.
       <p>
-        <strong>Default value:</strong> <code>0</code>
+        <strong>Default value:</strong> <code>-2<sup>63</sup></code> (<code>Long.MIN_VALUE</code>)
       </p>
   </td>
 
@@ -638,7 +651,7 @@ The following is a list with the most commonly used process engine configuration
         You can combine this property with <code>jobExecutorPriorityRangeMin</code> to specify a job priority range for the job executor.
         Note, that you can configure the priority of batch jobs and history cleanup jobs via the <code>batchJobPriority</code> and <code>historyCleanupJobPriority</code> properties. Both default to <code>0</code>.
       <p>
-        <strong>Default value:</strong> <code>2<sup>63</sup>-1</code>
+        <strong>Default value:</strong> <code>2<sup>63</sup>-1</code> (<code>Long.MAX_VALUE</code>)
       </p>
   </td>
 
