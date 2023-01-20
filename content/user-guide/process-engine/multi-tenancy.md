@@ -330,9 +330,9 @@ Note that the restrictions can't be enabled for a command if they are disabled i
 
 ### Access all Tenants as Administrator
 
-The admin user or users who are a member of the admin group can access the data of all tenants, even if they don't belong to the tenants. This is useful for an administrator of a multi-tenancy application since he has to manage the data of all tenants.
+The admin user or users who are a member of the admin group can access the data of all tenants, even if they don't belong to the tenants. This is useful for an administrator of a multi-tenancy application as they must manage the data of all tenants.
 
-You can define admin users by making them a member of the group `camunda-admin` or with the help of the [Admin Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}). The Admin Authorization Plugin allows granting admin privileges to a custom user or group.
+Define admin users by making them a member of the group `camunda-admin` or with the help of the [Admin Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}). The Admin Authorization Plugin allows granting admin privileges to a custom user or group.
 
 ## Shared Definitions for all Tenants
 
