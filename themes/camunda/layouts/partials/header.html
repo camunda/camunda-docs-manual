@@ -20,10 +20,9 @@
   <meta name="description" content="documentation of the Camunda Platform 7" />
   <meta name="keywords" content="camunda, open source, free, Apache License, Apache 2.0, workflow, BPMN, BPMN 2.0, camunda.org, bpm, BPMS, engine, platform, process, automation, community, documentation" />
   <meta name="author" content="Camunda Platform 7 community" />
-  {{- $skipNoIndexPages := slice "/manual/7.17/reference/rest/case-instance/variables/get-variable-binary/" "/manual/7.17/reference/rest/process-definition/delete-process-definition/" "/manual/7.17/update/minor/71-to-72/glassfish/" }}
   {{ if ($.Site.Params.section.versions)}}
     {{ if (not (eq (index $.Site.Params.section.versions 1) $.Site.Params.section.version))}}
-      {{- if (not (in $skipNoIndexPages .Permalink)) }}
+      {{- if (not (in $.Site.Params.skipNoIndexPages .Permalink)) }}
         <meta name="robots" content="noindex" />
       {{- end }}
     {{ end }}
