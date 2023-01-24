@@ -75,7 +75,7 @@ To set the [update event trigger flag]({{< ref "/user-guide/process-engine/proce
 
 {{< note title="Heads Up!" class="warning" >}}
 By default, the update event trigger flag in cockpit migration is set for activities with message references.
-That is, for activities containing message boundary event, message boundary interrupting event, message intermediate catch event and for the receive task activity.
+I.e., for interrupting/non-interrupting message boundary events, message intermediate catch events, and receive tasks.
 {{< /note >}}
 
 ## Show migration plan
