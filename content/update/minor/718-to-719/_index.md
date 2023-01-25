@@ -21,6 +21,7 @@ This document guides you through the update from Camunda Platform `7.18.x` to `7
 4. For developers: [Camunda external task client JS update](#camunda-external-task-client-js-update)
 5. For developers: [Job executor priority range properties type changed](#job-executor-priority-range-properties-type-changed)
 6. For developers: [Java External Task Client: Deprecated exception types removed](#java-external-task-client-deprecated-exception-types-removed)
+7. For developers: [Consolidated REST API responses for a missing process engine](#consolidated-rest-api-responses-for-a-missing-process-engine)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.18.
 
@@ -96,3 +97,8 @@ In 7.18, we deprecated the exception types `NotResumedException` and `NotAcquire
 With this release, we removed the exception types as announced in the [migration guide from 7.17 to 7.18]({{< ref "/update/minor/717-to-718/_index.md#deprecated-exception-types" >}}).
 
 Please make sure to adjust your business logic accordingly.
+
+# Consolidated REST API responses for a missing process engine
+
+Up until 7.19, the behavior of the REST API varied from endpoint to endpoint regarding the error message you receive when the defined named process engine cannot be found.
+We consolidated this behavior, so every endpoint now issues the same exception with status code 400 and the message "No process engine available".
