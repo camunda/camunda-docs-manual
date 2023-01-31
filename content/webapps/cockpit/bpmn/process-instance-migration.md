@@ -73,6 +73,10 @@ If you create a mapping that is incorrect, a red error indicator <span class="ba
 
 To set the [update event trigger flag]({{< ref "/user-guide/process-engine/process-instance-migration.md#events" >}}) for events, first create a mapping for the event. Then click on the green checkmark indicator to open the details tooltip. The opened popup contains a checkbox to update the event trigger.
 
+{{< note title="Heads Up!" class="warning" >}}
+By default, the update event trigger flag in cockpit migration is set for activities with message references.
+I.e., for interrupting/non-interrupting message boundary events, message intermediate catch events, and receive tasks.
+{{< /note >}}
 
 ## Show migration plan
 
