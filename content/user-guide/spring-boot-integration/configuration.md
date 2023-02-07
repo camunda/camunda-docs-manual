@@ -38,8 +38,8 @@ Sets the process engine name and automatically adds all `ProcessEnginePlugin` be
 
 Configures the Camunda data source and enables [transaction integration]({{< ref "/user-guide/spring-framework-integration/transactions.md" >}}). By default, the primary `DataSource` and `PlatformTransactionManager` beans are wired with the process engine configuration.
 
-If you want to [configure more than one datasource](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-two-datasources) 
-and don't want to use the `@Primary` one for the process engine, then you can create a separate 
+If you want to [configure more than one datasource](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-two-datasources)
+and don't want to use the `@Primary` one for the process engine, then you can create a separate
 data source with name `camundaBpmDataSource` that will be automatically wired with Camunda instead.
 
 ```java
@@ -59,7 +59,7 @@ public DataSource secondaryDataSource() {
 
 If you don't want to use the `@Primary` transaction manager, it is possible to create a separate
 transaction manager with the name `camundaBpmTransactionManager` that will be wired with the data
-source used for Camunda (either `@Primary` or `camundaBpmDataSource`): 
+source used for Camunda (either `@Primary` or `camundaBpmDataSource`):
 
 ```java
 @Bean
@@ -285,7 +285,7 @@ The available properties are as follows:
   <li>from the file with the name <code>camunda-license.txt</code> from the classpath (if present)</li>
   <li>from path <i>${user.home}/.camunda/license.txt</i> (if present)</li>
  </ol>
- The license must be exactly in the format as we sent it to you including the header and footer line. Bear in mind 
+ The license must be exactly in the format as we sent it to you including the header and footer line. Bear in mind
  that for some licenses there is a minimum <a href="{{<ref "/user-guide/license-use.md#license-compatibility" >}}">version requirement</a>.
 </td>
 </tr>
@@ -426,7 +426,7 @@ See the <a href="{{<ref "/user-guide/process-engine/database/database-configurat
 
 <tr><td colspan="4"><b>Eventing</b></td></tr>
 <tr>
-<td rowspan="3"><code>camunda.bpm.eventing</code></td>
+<td rowspan="4"><code>camunda.bpm.eventing</code></td>
 <td><code>.execution</code></td>
 <td>Enables eventing of delegate execution events.
 See the <a href="{{<ref "/user-guide/spring-boot-integration/the-spring-event-bridge.md" >}}">user guide</a> for further details.</td>
@@ -443,6 +443,13 @@ See the <a href="{{<ref "/user-guide/spring-boot-integration/the-spring-event-br
 <tr>
 <td><code>.task</code></td>
 <td>Enables eventing of task events.
+See the <a href="{{<ref "/user-guide/spring-boot-integration/the-spring-event-bridge.md" >}}">user guide</a> for further details.</td>
+<td><code>true</code></td>
+</tr>
+
+<tr>
+<td><code>.skippable</code></td>
+<td>Controls if listeners are registered as built-in (<code>false</code>) or are skippable (<code>true</code>).
 See the <a href="{{<ref "/user-guide/spring-boot-integration/the-spring-event-bridge.md" >}}">user guide</a> for further details.</td>
 <td><code>true</code></td>
 </tr>
@@ -589,7 +596,7 @@ When setting to <code>/</code>, the legacy behavior of Camunda Spring Boot Start
   <td><code>.cookie-name</code></td>
   <td>
       A custom value to change the cookie name.<br>
-      <strong>Note:</strong> Please make sure to additionally change the cookie name for each webapp 
+      <strong>Note:</strong> Please make sure to additionally change the cookie name for each webapp
       (e. g. <a href="{{< ref "/webapps/cockpit/extend/configuration.md#change-csrf-cookie-name" >}}">Cockpit
       </a>) separately.
   </td>
@@ -602,7 +609,7 @@ When setting to <code>/</code>, the legacy behavior of Camunda Spring Boot Start
 <tr>
   <td><code>.enable-secure-cookie</code></td>
   <td>
-    If set to <code>true</code>, the cookie flag <a href="{{< ref "/webapps/shared-options/cookie-security.md#secure" >}}">Secure</a> is enabled for the 
+    If set to <code>true</code>, the cookie flag <a href="{{< ref "/webapps/shared-options/cookie-security.md#secure" >}}">Secure</a> is enabled for the
       <a href="{{< ref "/webapps/shared-options/cookie-security.md" >}}">Session Cookie</a>.<br><br>
     <strong>Note:</strong> If the <code>Secure</code> flag is set in the cookie by any other means already, this property will not remove it by setting it to <code>false</code>.
   </td>
@@ -725,7 +732,7 @@ When setting to <code>/</code>, the legacy behavior of Camunda Spring Boot Start
   <td><code>.hsts-disabled</code></td>
   <td>
       Set to <code>false</code> to enable the header. The header is disabled by default.<br>
-      Allowed set of values is <code>true</code> and <code>false</code>. 
+      Allowed set of values is <code>true</code> and <code>false</code>.
   </td>
   <td><code>true</code></td>
 </tr>
@@ -762,7 +769,7 @@ When setting to <code>/</code>, the legacy behavior of Camunda Spring Boot Start
       <strong>Note:</strong>
       <ul>
         <li>Is ignored when <code>hstsDisabled</code> is <code>true</code></li>
-        <li>Cannot be set in conjunction with <code>hstsMaxAge</code> or 
+        <li>Cannot be set in conjunction with <code>hstsMaxAge</code> or
         <code>hstsIncludeSubdomainsDisabled</code></li>
       </ul>
   </td>
@@ -892,7 +899,7 @@ server:
         http-only: true # Not possible for versions before 2.0.3
 ```
 
-Further details of the session cookie like the `SameSite` flag can be configured via 
+Further details of the session cookie like the `SameSite` flag can be configured via
 [camunda.bpm.webapp.session-cookie]({{< ref "/user-guide/spring-boot-integration/configuration.md#session-cookie" >}}) in the `application.yaml`.
 
 # Configuring Spin DataFormats
@@ -910,17 +917,17 @@ Auto-configuration is currently supported for the following [Jackson Java 8 modu
 3. Java 8 Datatypes (`jackson-datatype-jsr310`)
 
 {{< note title="Heads Up!" class="warning" >}}
-The Spin Jackson Json DataFormat auto-configuration is disabled when using 
+The Spin Jackson Json DataFormat auto-configuration is disabled when using
 `camunda-spin-dataformat-all` as a dependency. The `camunda-spin-dataformat-all` artifact shades the
-Jackson libraries, which breaks compatibility with the regular Jackson modules. If usage of 
-`camunda-spin-dataformat-all` is necessary, please use the standard method for 
+Jackson libraries, which breaks compatibility with the regular Jackson modules. If usage of
+`camunda-spin-dataformat-all` is necessary, please use the standard method for
 [Spin Custom DataFormat configuration]({{< ref "/reference/spin/extending-spin.md#custom-dataformats" >}}).
 {{< /note >}}
 
-For example, to provide support for Java 8 Date/time types in Spin, the following dependencies, with their 
+For example, to provide support for Java 8 Date/time types in Spin, the following dependencies, with their
 appropriate version tags, will need to be added in the Spring Boot Application's
 `pom.xml` file:
- 
+
  ```xml
 <dependencies>
     <dependency>
@@ -947,4 +954,3 @@ To provide additional configurations, the following actions need to be performed
 1. Add the appropriate key-value pair of the fully qualified classnames of the interface and the
    implementation to the `META-INF/spring.factories` file;
 1. Ensure that the artifact containing the configurator is reachable from Spin’s classloader.
- 

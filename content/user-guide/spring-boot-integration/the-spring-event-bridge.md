@@ -11,18 +11,21 @@ menu:
 ---
 
 
-The process engine can be hooked-up to the Spring event bus. We call this the "Spring Eventing Bridge". This allows us to be notified of process events using standard Spring eventing mechanisms. By default, the Spring eventing is enabled by a engine plugin. The eventing is controlled by three `camunda.bpm.eventing` properties. These are:
+The process engine can be hooked-up to the Spring event bus. We call this the "Spring Eventing Bridge". This allows us to be notified of process events using standard Spring eventing mechanisms. By default, the Spring eventing is enabled by a engine plugin. The eventing is controlled by four `camunda.bpm.eventing` properties. These are:
 
 ```
 camunda.bpm.eventing.execution=true
 camunda.bpm.eventing.history=true
 camunda.bpm.eventing.task=true
+camunda.bpm.eventing.skippable=true
 ```
-The properties control three event streams for execution, task and history events respectively.
-Listeners can subscribe to streams of mutable or immutable event objects.
-The latter of those are particularly useful
-in asynchronous listener scenarios - e.g. when using `TransactionalEventListener`. 
-The mutable event stream objects can be modified multiple times between the creation and the reception 
+
+The first three properties control three event streams for execution, task and history events respectively. The last property `camunda.bpm.eventing.skippable` is responsible
+for the registration of the event listeners. If its value is `true`, the execution of the listners can be skipped via API or in Camunda Cockpit by activating "skip listners" flag. Otherwise, the listeners are registered as built-in listeners and are executed unconditionally.
+
+Listeners can subscribe to streams of mutable or immutable event objects. The latter of those are particularly useful
+in asynchronous listener scenarios - e.g. when using `TransactionalEventListener`.
+The mutable event stream objects can be modified multiple times between the creation and the reception
 of the event the listener has asynchronously subscribed to. Immutable event objects reflect the data
 at the creation time of the event, regardless of the time they are finally received by the listener.
 
@@ -63,7 +66,7 @@ class MyListener {
   public void onExecutionEvent(ExecutionEvent executionEvent) {
     // handle immutable execution event
   }
-  
+
   @EventListener
   public void onHistoryEvent(HistoryEvent historyEvent) {
     // handle history event
