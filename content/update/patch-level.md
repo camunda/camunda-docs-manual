@@ -372,6 +372,18 @@ Note: this behavior is slightly changed with the [next patch]({{< ref "#job-exec
 
 The default value for the job executor priority range property [jobExecutorPriorityRangeMin]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#jobExecutorPriorityRangeMin" >}}) has changed from 0 to <code>-2<sup>63</sup></code> (`Long.MIN_VALUE`). This property and its counterpart ([jobExecutorPriorityRangeMax]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#jobExecutorPriorityRangeMax" >}})) only have an effect if [jobExecutorAcquireByPriority]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#jobExecutorAcquireByPriority" >}}) is set to true.
 
+## 7.18.4 to 7.18.5
+
+### Multi-Tenancy enabled for User operation logs
+
+Tenant information is populated for User operation logs from 7.18.5 onwards, user operation logs created prior will stay as they are. If [tenant check]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#tenantCheckEnabled" >}}) is enabled in the process engine, a tenant membership check will be performed for the following operations:
+
+* User operation log query
+* Deleting a user operation log
+* Adding/Clearing a user operation log annotation
+
+In case you want to avoid tenant checks, please refer to [Disable the transparent access restrictions]({{< ref "/user-guide/process-engine/multi-tenancy.md#disable-the-transparent-access-restrictions" >}}).
+
 # Full Distribution
 
 This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.
