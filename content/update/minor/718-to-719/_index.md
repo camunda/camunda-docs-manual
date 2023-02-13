@@ -22,6 +22,7 @@ This document guides you through the update from Camunda Platform `7.18.x` to `7
 5. For developers: [Job executor priority range properties type changed](#job-executor-priority-range-properties-type-changed)
 6. For developers: [Java External Task Client: Deprecated exception types removed](#java-external-task-client-deprecated-exception-types-removed)
 7. For developers: [Consolidated REST API responses for a missing process engine](#consolidated-rest-api-responses-for-a-missing-process-engine)
+8. For developers: [Multi-Tenancy enabled for User operation logs](#multi-tenancy-enabled-for-user-operation-logs)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.18.
 
@@ -102,3 +103,13 @@ Please make sure to adjust your business logic accordingly.
 
 Up until 7.19, the behavior of the REST API varied from endpoint to endpoint regarding the error message you receive when the defined named process engine cannot be found.
 We consolidated this behavior, so every endpoint now issues the same exception with status code 400 and the message "No process engine available".
+
+# Multi-Tenancy enabled for User operation logs
+
+Tenant information is populated for User operation logs from 7.19 onwards, user operation logs created prior will stay as they are. If [tenant check]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#tenantCheckEnabled" >}}) is enabled in the process engine, a tenant membership check will be performed for the following operations:
+
+* User operation log query
+* Deleting a user operation log
+* Adding/Clearing a user operation log annotation
+
+In case you want to avoid tenant check, please refer to [Disable the transparent access restrictions]({{< ref "/user-guide/process-engine/multi-tenancy.md#disable-the-transparent-access-restrictions" >}}).
