@@ -681,7 +681,7 @@ The following is a list with the most commonly used process engine configuration
     </td>
   </tr>
   
-  <tr>
+  <tr id="tenantCheckEnabled">
     <td><code>tenantCheckEnabled</code></td>
     <td>Boolean</td>
     <td>
