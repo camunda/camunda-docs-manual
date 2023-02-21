@@ -396,6 +396,18 @@ Note: this behavior is slightly changed with the [next patch]({{< ref "#job-exec
 
 The default value for the job executor priority range property [jobExecutorPriorityRangeMin]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#jobExecutorPriorityRangeMin" >}}) has changed from 0 to <code>-2<sup>63</sup></code> (`Long.MIN_VALUE`). This property and its counterpart ([jobExecutorPriorityRangeMax]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#jobExecutorPriorityRangeMax" >}})) only have an effect if [jobExecutorAcquireByPriority]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#jobExecutorAcquireByPriority" >}}) is set to true.
 
+## 7.17.10 to 7.17.11 / 7.16.17 to 7.16.18
+
+### Web apps revalidate authentications every five minutes
+
+Previously, after a user logged into the web apps, the [authentication cache]({{< ref "/webapps/shared-options/authentication.md#cache" >}})
+was valid for the lifetime of the HTTP session, which has [security implications]({{< ref "/user-guide/security.md#authentication-cache" >}}).
+
+With this release, we introduced a time to live for the authentication cache, configured to five minutes by default.
+This new default might lead to a higher load on your database.
+
+You can read how to configure the time to live to a smaller interval or restore the legacy behavior (disable the authentication cache time to live) in the documentation about [Web Applications]({{< ref "/webapps/shared-options/authentication.md#time-to-live" >}}).
+
 # Full Distribution
 
 This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.
