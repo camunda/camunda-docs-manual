@@ -56,13 +56,34 @@ For ease of use by developers, the REST API's authentication is disabled by defa
 
 ### Authentication in the Web Applications
 
-For the web applications, authentication is enabled by default and it is not possible to disable it.
+For the web applications, authentication is enabled by default, and it is not possible to disable it.
+
+#### Authentication Cache
+
+Due to the [authentication cache]({{< ref "/webapps/shared-options/authentication.md#cache" >}}), by default, the following user management **actions don't have an immediate effect** on currently active user sessions:
+
+* A user account is deleted.
+* A tenant/group membership or authorized application is added to or removed from a user account.
+
+{{< note title="Heads-up!" class="warning" >}}
+The user management actions mentioned above can lead to the situation that the affected (deleted or unauthorized) user 
+can potentially continue to read sensitive data or perform security-sensitive operations until the 
+authentication cache time to live is due. By default, for a maximum of five minutes.
+
+If that's not acceptable to you, you can:
+
+* Set the time to live to a lower value.
+* Disable the cache entirely (set the time to live to `0`), which leads
+to querying for the authentication information on each REST API request.
+
+Please bear in mind that changing the time to live to a lower value can harm the performance of your database server.
+{{< /note >}}
 
 ### Internal (database backed) User Management
 
 To perform authentication, Camunda can use two sources: a database or LDAP.
 
-When using the the database, usernames and passwords are stored inside the `ACT_ID_USER` table (see [documentation on database schema]({{< ref "/user-guide/process-engine/database/database-schema.md#identity" >}})). To protect the passwords stored in the database, Camunda uses two concepts:
+When using the database, usernames and passwords are stored inside the `ACT_ID_USER` table (see [documentation on database schema]({{< ref "/user-guide/process-engine/database/database-schema.md#identity" >}})). To protect the passwords stored in the database, Camunda uses two concepts:
 
 * **hashing**: instead of storing the password in plain text, a hash is stored. When authenticating, the same hash is generated from the user's input and compared against the hash in the database. If both hashes are equal the authentication attempt is successful. Camunda allows users to configure and customize the hash function used. Please refer the [documentation section on password hashing]({{< ref "/user-guide/process-engine/password-hashing.md" >}}) for details.
 * **salted hashes** to protect the database against rainbow table attacks, Camunda uses salted hashes. Similar to hashing itself, this function can be configured and extended to a user's needs. Please refer the [documentation section on password hashing]({{< ref "/user-guide/process-engine/password-hashing.md" >}}) for details.

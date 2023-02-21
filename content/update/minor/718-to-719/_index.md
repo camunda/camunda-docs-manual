@@ -23,6 +23,7 @@ This document guides you through the update from Camunda Platform `7.18.x` to `7
 6. For developers: [Java External Task Client: Deprecated exception types removed](#java-external-task-client-deprecated-exception-types-removed)
 7. For developers: [Consolidated REST API responses for a missing process engine](#consolidated-rest-api-responses-for-a-missing-process-engine)
 8. For developers: [Multi-Tenancy enabled for User operation logs](#multi-tenancy-enabled-for-user-operation-logs)
+9. For administrators: [Webapps revalidate authentications every five minutes](#webapps-revalidate-authentications-every-five-minutes)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.18.
 
@@ -113,3 +114,13 @@ Tenant information is populated for User operation logs from 7.19 onwards, user 
 * Adding/Clearing a user operation log annotation
 
 In case you want to avoid tenant check, please refer to [Disable the transparent access restrictions]({{< ref "/user-guide/process-engine/multi-tenancy.md#disable-the-transparent-access-restrictions" >}}).
+
+# Webapps revalidate authentications every five minutes
+
+Previously, after a user logged into the Webapps, the [authentication cache]({{< ref "/webapps/shared-options/authentication.md#cache" >}}) 
+was valid for the lifetime of the HTTP session, which has [security implications]({{< ref "/user-guide/security.md#authentication-cache" >}}).
+
+With this release, we introduced a time to live for the authentication cache, configured to five minutes by default.
+This new default might lead to a higher load on your database.
+
+You can read how to configure the time to live to a smaller interval or restore the legacy behavior (disable the authentication cache time to live) in the documentation about [Web Applications]({{< ref "/webapps/shared-options/authentication.md#time-to-live" >}}).
