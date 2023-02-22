@@ -430,7 +430,7 @@ The following is a list with the most commonly used process engine configuration
     <td><code>ensureJobDueDateNotNull</code></td>
     <td>Boolean</td>
     <td>
-        Ensures that each job has it's <code>DueDate</code> property set. If the Job <code>DueDate</code> property hasn't been explicitly set, the current time is added. Default value is <code>true</code>.
+        Ensures that each job has it's <code>DueDate</code> property set. If the Job <code>DueDate</code> property hasn't been explicitly set, the current time is added. Default value is <code>false</code>.
         <p>
             <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
         </p>
