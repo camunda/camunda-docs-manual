@@ -138,7 +138,7 @@ language, which is set on the `definitions` XML element, is used.
 ```
 
 In case no global expression language is set, the default expression language
-is used instead. The default expression language for input expressions is JUEL.
+is used instead. The default expression language for input expressions is FEEL.
 Please refer to the [User Guide][default EL] to read more about expression
 languages.
 
@@ -172,7 +172,7 @@ To use the attribute you have to define the Camunda DMN namespace
 ```
 
 The variable can be used in an expression of an [input entry]. For example, the
-JUEL expression `currentSeason != "Fall"` checks if the season input is not
+FEEL expression `currentSeason != "Fall"` checks if the season input is not
 `"Fall"`.
 
 [supported EL]: {{< ref "/user-guide/dmn-engine/expressions-and-scripts.md#supported-expression-languages" >}}
