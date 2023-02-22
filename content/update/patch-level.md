@@ -386,9 +386,9 @@ In case you want to avoid tenant checks, please refer to [Disable the transparen
 
 ## 7.18.5 to 7.18.6 / 7.17.10 to 7.17.11 / 7.16.17 to 7.16.18
 
-### Webapps revalidate authentications every five minutes
+### Web apps revalidate authentications every five minutes
 
-Previously, after a user logged into the Webapps, the [authentication cache]({{< ref "/webapps/shared-options/authentication.md#cache" >}})
+Previously, after a user logged into the web apps, the [authentication cache]({{< ref "/webapps/shared-options/authentication.md#cache" >}})
 was valid for the lifetime of the HTTP session, which has [security implications]({{< ref "/user-guide/security.md#authentication-cache" >}}).
 
 With this release, we introduced a time to live for the authentication cache, configured to five minutes by default.

@@ -60,23 +60,23 @@ For the web applications, authentication is enabled by default, and it is not po
 
 #### Authentication Cache
 
-Due to the [authentication cache]({{< ref "/webapps/shared-options/authentication.md#cache" >}}), by default, the following user management **actions don't have an immediate effect** on currently active user sessions:
+Due to the [authentication cache]({{< ref "/webapps/shared-options/authentication.md#cache" >}}), by default, **the following user management actions don't have an immediate effect** on currently active user sessions:
 
 * A user account is deleted.
 * A tenant/group membership or authorized application is added to or removed from a user account.
 
 {{< note title="Heads-up!" class="warning" >}}
-The user management actions mentioned above can lead to the situation that the affected (deleted or unauthorized) user 
-can potentially continue to read sensitive data or perform security-sensitive operations until the 
-authentication cache time to live is due. By default, for a maximum of five minutes.
+The user management actions mentioned above can allow the (deleted or unauthorized) user 
+to continue to read sensitive data or perform security-sensitive operations until the 
+authentication cache time to live is due; by default, this is for a maximum of five minutes.
 
-If that's not acceptable to you, you can:
+To prevent this, you can:
 
 * Set the time to live to a lower value.
 * Disable the cache entirely (set the time to live to `0`), which leads
 to querying for the authentication information on each REST API request.
 
-Please bear in mind that changing the time to live to a lower value can harm the performance of your database server.
+Note that changing the time to live to a lower value can harm the performance of your database server.
 {{< /note >}}
 
 ### Internal (database backed) User Management

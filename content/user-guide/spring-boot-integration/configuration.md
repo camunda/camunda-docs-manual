@@ -790,7 +790,7 @@ When setting to <code>/</code>, the legacy behavior of Camunda Spring Boot Start
 <tr>
   <td><code>.time-to-live</code></td>
   <td>
-    A number of milliseconds, while the Webapps reuse the cache for an HTTP session before they recreate it and query for the authentication information again from the database.<br><br>
+    A number of milliseconds, while the web apps reuse the cache for an HTTP session before they recreate it and query for the authentication information again from the database.<br><br>
     The allowed set of values:
     <ul>
       <li>a time duration in milliseconds between <code>1</code> and <code>2<sup>63</sup>-1</code></li>

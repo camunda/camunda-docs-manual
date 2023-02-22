@@ -10,11 +10,11 @@ menu:
     pre: "Get more insights on authentication"
 ---
 
-Authentication means verifying a user's identity against the Camunda Webapps. 
+Authentication means verifying a user's identity against the Camunda web apps. 
 
-A user authenticates against the Webapps on the login page by providing a username and password. If the 
-authentication is successful, the user gets access to the Webapps and can, for instance, work on tasks 
-in Tasklist or perform operations in Cockpit.
+A user authenticates against the web apps on the login page by providing a username and password. If the 
+authentication is successful, the user gets access to the web apps and can work on tasks 
+in Tasklist or perform operations in Cockpit, for example.
 
 The authentication information consists of the following:
 
@@ -24,32 +24,31 @@ The authentication information consists of the following:
 * Tenant memberships 
 * Authorized applications (Tasklist, Cockpit, Admin) 
 
-The Camunda Webapps correlate the authentication information against [authorizations]({{< ref "/user-guide/process-engine/authorization-service.md" >}}) to determine 
+The Camunda web apps correlate the authentication information against [authorizations]({{< ref "/user-guide/process-engine/authorization-service.md" >}}) to determine 
 what data the user can query for and which operations the user can perform.
 
-Technically, we implemented authentication with the help of a Java EE/Jakarta `ServletFilter`.
+We implemented authentication with the help of a Java EE/Jakarta `ServletFilter`.
 
 ## Cache
 
-By default, after a successful login, the Webapps keep a copy of the authentication information in memory for five minutes (the information is cached).
-In the following, we call this behavior *authentication cache*. 
+By default, after a successful login, the web apps keep a copy of the authentication information in memory for five minutes. This information is cached, and therefore we call this behavior **authentication cache**. 
 
 The authentication cache is a performance optimization to prevent performing for each REST API request 
 multiple database queries that potentially retrieve the same authentication information repeatedly
-since it didn't change.
+given it didn't change.
 
-Please read the security implications of the [authentication cache]({{< ref "/user-guide/security.md#authentication-cache" >}}) in our Security Instructions.
+Read the security implications of the [authentication cache]({{< ref "/user-guide/security.md#authentication-cache" >}}) in our Security Instructions.
 
 ### Time to live
 
-The time to live defines how long the cache is used for an HTTP session by the Webapps before 
+The time to live defines how long the cache is used for an HTTP session by the web apps before 
 they recreate it and query for the authentication information again from the database.
 
 You can change the `cacheTimeToLive` configuration property as follows:
 
-* Set the parameter value to a time duration in milliseconds between `1` and <code>2<sup>63</sup>-1</code>.
-* Set the parameter value to `0`, effectively leading to querying for the authentication information on each REST API request.
-* Remove the `<init-param>...</init-param>` entirely or change the parameter value to `<param-value/>` to keep the cache for the lifetime of the HTTP session.
+1. Set the parameter value to a time duration in milliseconds between `1` and <code>2<sup>63</sup>-1</code>.
+2. Set the parameter value to `0`, effectively leading to querying for the authentication information on each REST API request.
+3. Remove the `<init-param>...</init-param>` entirely or change the parameter value to `<param-value/>` to keep the cache for the lifetime of the HTTP session.
 
 #### Configuration
 
