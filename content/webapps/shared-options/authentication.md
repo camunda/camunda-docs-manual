@@ -37,18 +37,18 @@ The authentication cache is a performance optimization to prevent performing for
 multiple database queries that potentially retrieve the same authentication information repeatedly
 given it didn't change.
 
-Read the security implications of the [authentication cache]({{< ref "/user-guide/security.md#authentication-cache" >}}) in our Security Instructions.
+Read the security implications of the authentication cache in our [Security Instructions]({{< ref "/user-guide/security.md#authentication-cache" >}}).
 
 ### Time to live
 
 The time to live defines how long the cache is used for an HTTP session by the web apps before 
 they recreate it and query for the authentication information again from the database.
 
-You can change the `cacheTimeToLive` configuration property as follows:
+You can change the `cacheTimeToLive` configuration property with the following allowed values:
 
-1. Set the parameter value to a time duration in milliseconds between `1` and <code>2<sup>63</sup>-1</code>.
-2. Set the parameter value to `0`, effectively leading to querying for the authentication information on each REST API request.
-3. Remove the `<init-param>...</init-param>` entirely or change the parameter value to `<param-value/>` to keep the cache for the lifetime of the HTTP session.
+* Set the parameter value to a time duration in milliseconds between `1` and <code>2<sup>63</sup>-1</code>.
+* Set the parameter value to `0`, effectively leading to querying for the authentication information on each REST API request. 
+* Remove the `<init-param>...</init-param>` entirely or change the parameter value to `<param-value/>` to keep the cache for the lifetime of the HTTP session.
 
 #### Configuration
 
