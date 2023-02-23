@@ -23,6 +23,7 @@ This document guides you through the update from Camunda Platform `7.18.x` to `7
 6. For developers: [Java External Task Client: Deprecated exception types removed](#java-external-task-client-deprecated-exception-types-removed)
 7. For developers: [Consolidated REST API responses for a missing process engine](#consolidated-rest-api-responses-for-a-missing-process-engine)
 8. For developers: [Multi-Tenancy enabled for User operation logs](#multi-tenancy-enabled-for-user-operation-logs)
+9. For administrators: [Set Job Retries Asynchronously](#set-job-retries-asynchronously)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.18.
 
@@ -113,3 +114,11 @@ Tenant information is populated for User operation logs from 7.19 onwards, user 
 * Adding/Clearing a user operation log annotation
 
 In case you want to avoid tenant check, please refer to [Disable the transparent access restrictions]({{< ref "/user-guide/process-engine/multi-tenancy.md#disable-the-transparent-access-restrictions" >}}).
+
+# Set Job Retries Asynchronously
+
+We have extended the [Set Job Retries Batch Operation]({{< ref "/user-guide/process-engine/batch-operations.md#setting-retries-and-due-dates-of-jobs-using-the-builder-pattern" >}}).
+There are now new options that allow to set the due date of a job while also setting the number of retries.
+Please bear in mind that the [usage of new features]({{< ref "/rolling-update.md#usage-of-new-features" >}}) during a rolling update 
+leads to unexpected behavior and therefore must be avoided: When a set retries batch with due date is 
+created during a rolling update, due dates might or might not be set depending on the executing engine (old/new engine).

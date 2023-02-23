@@ -256,13 +256,13 @@ A job is acquirable, i.e., a candidate for execution, if it fulfills all followi
 
 In addition, the process engine has a concept of job suspension. For example, a job gets suspended when the process instance it belongs gets suspended. A job is only acquirable if it is not suspended.
 
-### Job Acquisition performance optimisation
+### Job Acquisition performance optimization
 
 To optimize the acquisition of jobs that need to be executed immediately, the `DUEDATE_` column is not set (`null`) and a (positive) null check is added as a condition for acquisition.
 
-In case each job must have a `DUEDATE_` set, the optimisation can be disabled. This can be done by setting the `ensureJobDueDateNotNull` [process engine configuration flag]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#ensureJobDueDateNotNull" >}}) to `true`.
+In case each job must have a `DUEDATE_` set, the optimization can be disabled. This can be done by setting the `ensureJobDueDateNotNull` [process engine configuration flag]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#ensureJobDueDateNotNull" >}}) to `true`.
 
-However, any jobs created with a `null` value for `DUEDATE_` before disabling the optimisation will not be picked up by the Job Acquisition phase, unless the jobs are explicitly updated with a due date through the {{< javadocref page="org/camunda/bpm/engine/ManagementService.html#setJobDuedate-java.lang.String-java.util.Date-" text="Java" >}}/{{< restref page="setJobDuedate" text="REST" tag="Job" >}} API.
+However, any jobs created with a `null` value for `DUEDATE_` before disabling the optimization will not be picked up by the Job Acquisition phase, unless the jobs are explicitly updated with a due date through the **Set Due Date** {{< javadocref page="org/camunda/bpm/engine/ManagementService.html#setJobDuedate(java.lang.String,java.util.Date)" text="Java" >}}/{{< restref page="setJobDuedate" text="REST" tag="Job" >}} or **Set Retries** {{< javadocref page="org/camunda/bpm/engine/ManagementService.html#setJobRetries(int)" text="Java" >}}/{{< restref page="setJobRetries" text="REST" tag="Job" >}} APIs.
 
 ## The Two Phases of Job Acquisition
 
@@ -532,7 +532,7 @@ The retry times would be three and the behaviour for this example would be the f
 * A job fails for the third time: the job will be retried in 20 minutes (PT20M is applied).
 * A job fails for the fourth time: the job will **NOT** be retried again and the next due date is in 20 minutes (PT20M is applied again).
 
-If the user decides to increase the retry number during retries, the last interval of the list would be applied within the difference of the new value and the size of the list. After that it would continue with the normal flow as above.
+If the user decides to increase the retry number during retries, the last interval of the list would be applied within the difference between the new value and the size of the list. After that, it would continue with the normal flow as above. The API to increase the number of retries also supports passing a new due date for the job which will determine when the job will be picked up again. This is useful in cases where you want to control when a failed job should be tried again. For example, an incident has been resolved and the job should run as soon as possible instead of waiting for the next retry cycle. In this case, setting the job due date to the current date or a date in the past would make the job executor pick up the job immediately.
 
 ### Custom Retry Configuration
 
