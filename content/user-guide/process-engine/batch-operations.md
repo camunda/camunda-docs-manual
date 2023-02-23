@@ -16,6 +16,7 @@ The following operations can be executed asynchronously
 - [Cancellation of running Process Instances](#cancellation-of-running-process-instances)
 - [Deletion of Historic Process Instances](#deletion-of-historic-process-instances)
 - [Update suspend state of process instances](#update-suspend-state-of-process-instances)
+- [Setting retries and due dates of jobs using the builder pattern](#setting-retries-and-due-dates-of-jobs-using-the-builder-pattern)
 - [Setting retries of jobs associated with Process Instances](#setting-retries-of-jobs-associated-with-process-instances)
 - [Process Instance Modification]({{< ref "/user-guide/process-engine/process-instance-modification.md#modification-of-multiple-process-instances" >}})
 - [Process Instance Restart]({{< ref "/user-guide/process-engine/process-instance-restart.md#asynchronous-batch-execution" >}})
@@ -71,6 +72,28 @@ Update the suspension state of multiple process instances asynchronously using t
 List<String> processInstanceIds = ...;
 runtimeService.updateProcessInstanceSuspensionState().byProcessInstanceIds(
   processInstanceIds).suspendAsync();
+```
+
+## Setting retries and due dates of jobs using the builder pattern
+
+Setting retries of jobs can be performed asynchronously using a builder. There are two general ways to reference jobs: by job ids/job queries or by process.
+Here are demonstrations of how to use both APIs:
+
+```java
+managementService.setJobRetriesByJobsAsync(retries)
+  .jobIds(myJobIdList)
+  .jobQuery(myJobQuery)
+  .dueDate(myDueDate)
+  .executeAsync();
+```
+
+```java
+managementService.setJobRetriesByProcessAsync(retries)
+  .processInstanceIds(myProcessInstanceIdsList)
+  .processInstanceQuery(myProcessInstanceQuery)
+  .historicProcessInstanceQuery(myHistoricProcessInstanceQuery)
+  .dueDate(myDueDate)
+  .executeAsync();
 ```
 
 ## Setting Retries Of Jobs Associated With Process Instances
