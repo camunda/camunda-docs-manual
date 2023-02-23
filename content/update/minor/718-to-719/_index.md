@@ -76,6 +76,24 @@ Take the following steps to complete the update:
 3. Configure the database as described in the [installation]({{< ref "/installation/standalone-webapplication.md#database-configuration" >}}) section.
 4. Deploy the new and configured standalone web application to the server.
 
+# Web apps revalidate authentications every five minutes
+
+Previously, after a user logged into the web apps, the [authentication cache]({{< ref "/webapps/shared-options/authentication.md#cache" >}}) 
+was valid for the lifetime of the HTTP session, which has [security implications]({{< ref "/user-guide/security.md#authentication-cache" >}}).
+
+With this release, we introduced a time to live for the authentication cache, configured to five minutes by default.
+This new default might lead to a higher load on your database.
+
+You can read how to configure the time to live to a smaller interval or restore the legacy behavior (disable the authentication cache time to live) in the documentation about [Web Applications]({{< ref "/webapps/shared-options/authentication.md#time-to-live" >}}).
+
+# Set Job Retries Asynchronously
+
+We have extended the [Set Job Retries Batch Operation]({{< ref "/user-guide/process-engine/batch-operations.md#setting-retries-and-due-dates-of-jobs-using-the-builder-pattern" >}}).
+There are now new options that allow to set the due date of a job while also setting the number of retries.
+Please bear in mind that the [usage of new features]({{< ref "/rolling-update.md#usage-of-new-features" >}}) during a rolling update 
+leads to unexpected behavior and therefore must be avoided: When a set retries batch with due date is 
+created during a rolling update, due dates might or might not be set depending on the executing engine (old/new engine).
+
 # Camunda external task client JS update
 
 We always strive to keep up with established standards and reduce technical debt which is why we
@@ -115,21 +133,3 @@ Tenant information is populated for User operation logs from 7.19 onwards, user 
 * Adding/Clearing a user operation log annotation
 
 In case you want to avoid tenant check, please refer to [Disable the transparent access restrictions]({{< ref "/user-guide/process-engine/multi-tenancy.md#disable-the-transparent-access-restrictions" >}}).
-
-# Web apps revalidate authentications every five minutes
-
-Previously, after a user logged into the web apps, the [authentication cache]({{< ref "/webapps/shared-options/authentication.md#cache" >}}) 
-was valid for the lifetime of the HTTP session, which has [security implications]({{< ref "/user-guide/security.md#authentication-cache" >}}).
-
-With this release, we introduced a time to live for the authentication cache, configured to five minutes by default.
-This new default might lead to a higher load on your database.
-
-You can read how to configure the time to live to a smaller interval or restore the legacy behavior (disable the authentication cache time to live) in the documentation about [Web Applications]({{< ref "/webapps/shared-options/authentication.md#time-to-live" >}}).
-
-# Set Job Retries Asynchronously
-
-We have extended the [Set Job Retries Batch Operation]({{< ref "/user-guide/process-engine/batch-operations.md#setting-retries-and-due-dates-of-jobs-using-the-builder-pattern" >}}).
-There are now new options that allow to set the due date of a job while also setting the number of retries.
-Please bear in mind that the [usage of new features]({{< ref "/rolling-update.md#usage-of-new-features" >}}) during a rolling update 
-leads to unexpected behavior and therefore must be avoided: When a set retries batch with due date is 
-created during a rolling update, due dates might or might not be set depending on the executing engine (old/new engine).
