@@ -776,6 +776,31 @@ When setting to <code>/</code>, the legacy behavior of Camunda Spring Boot Start
   <td><code>max-age=31536000</code></td>
 </tr>
 
+<tr id="auth-cache">
+  <td rowspan="3"><code>camunda.bpm.webapp.auth.cache</code></td>
+</tr>
+<tr>
+  <td><code>.ttl-enabled</code></td>
+  <td>
+    The <a href="{{< ref "/webapps/shared-options/authentication.md#time-to-live" >}}">authentication cache time to live</a> can be entirely disabled if set to <code>false</code>. I. e., authentication information is cached for the lifetime of the HTTP session.<br>
+    Allowed set of values is <code>true</code> and <code>false</code>.
+  </td>
+  <td><code>true</code></td>
+</tr>
+<tr>
+  <td><code>.time-to-live</code></td>
+  <td>
+    A number of milliseconds, while the web apps reuse the cache for an HTTP session before they recreate it and query for the authentication information again from the database.<br><br>
+    The allowed set of values:
+    <ul>
+      <li>a time duration in milliseconds between <code>1</code> and <code>2<sup>63</sup>-1</code></li>
+      <li><code>0</code> which effectively leads to querying for the authentication information on each REST API request</li>
+    </ul>
+    <strong>Note:</strong> Ignored when <code>.enabled</code> is set to <code>false</code></li>
+  </td>
+  <td><code>300,000</code></td>
+</tr>
+
 <tr><td colspan="4"><b>Authorization</b></td></tr>
 <tr>
 <td rowspan="4"><code>camunda.bpm.authorization</code></td>

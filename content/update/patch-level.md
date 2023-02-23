@@ -384,6 +384,18 @@ Tenant information is populated for User operation logs from 7.18.5 onwards, use
 
 In case you want to avoid tenant checks, please refer to [Disable the transparent access restrictions]({{< ref "/user-guide/process-engine/multi-tenancy.md#disable-the-transparent-access-restrictions" >}}).
 
+## 7.18.5 to 7.18.6 / 7.17.10 to 7.17.11 / 7.16.17 to 7.16.18
+
+### Web apps revalidate authentications every five minutes
+
+Previously, after a user logged into the web apps, the [authentication cache]({{< ref "/webapps/shared-options/authentication.md#cache" >}})
+was valid for the lifetime of the HTTP session, which has [security implications]({{< ref "/user-guide/security.md#authentication-cache" >}}).
+
+With this release, we introduced a time to live for the authentication cache, configured to five minutes by default.
+This new default might lead to a higher load on your database.
+
+You can read how to configure the time to live to a smaller interval or restore the legacy behavior (disable the authentication cache time to live) in the documentation about [Web Applications]({{< ref "/webapps/shared-options/authentication.md#time-to-live" >}}).
+
 # Full Distribution
 
 This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.

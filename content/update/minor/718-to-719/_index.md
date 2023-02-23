@@ -18,12 +18,13 @@ This document guides you through the update from Camunda Platform `7.18.x` to `7
 1. For administrators and developers: [Database updates](#database-updates)
 2. For administrators and developers: [Full distribution update](#full-distribution)
 3. For administrators: [Standalone web application](#standalone-web-application)
-4. For developers: [Camunda external task client JS update](#camunda-external-task-client-js-update)
-5. For developers: [Job executor priority range properties type changed](#job-executor-priority-range-properties-type-changed)
-6. For developers: [Java External Task Client: Deprecated exception types removed](#java-external-task-client-deprecated-exception-types-removed)
-7. For developers: [Consolidated REST API responses for a missing process engine](#consolidated-rest-api-responses-for-a-missing-process-engine)
-8. For developers: [Multi-Tenancy enabled for User operation logs](#multi-tenancy-enabled-for-user-operation-logs)
-9. For administrators: [Set Job Retries Asynchronously](#set-job-retries-asynchronously)
+4. For administrators: [Web apps revalidate authentications every five minutes](#webapps-revalidate-authentications-every-five-minutes)
+5. For administrators: [Set Job Retries Asynchronously](#set-job-retries-asynchronously)
+6. For developers: [Camunda external task client JS update](#camunda-external-task-client-js-update)
+7. For developers: [Job executor priority range properties type changed](#job-executor-priority-range-properties-type-changed)
+8. For developers: [Java External Task Client: Deprecated exception types removed](#java-external-task-client-deprecated-exception-types-removed)
+9. For developers: [Consolidated REST API responses for a missing process engine](#consolidated-rest-api-responses-for-a-missing-process-engine)
+10. For developers: [Multi-Tenancy enabled for User operation logs](#multi-tenancy-enabled-for-user-operation-logs)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.18.
 
@@ -114,6 +115,16 @@ Tenant information is populated for User operation logs from 7.19 onwards, user 
 * Adding/Clearing a user operation log annotation
 
 In case you want to avoid tenant check, please refer to [Disable the transparent access restrictions]({{< ref "/user-guide/process-engine/multi-tenancy.md#disable-the-transparent-access-restrictions" >}}).
+
+# Web apps revalidate authentications every five minutes
+
+Previously, after a user logged into the web apps, the [authentication cache]({{< ref "/webapps/shared-options/authentication.md#cache" >}}) 
+was valid for the lifetime of the HTTP session, which has [security implications]({{< ref "/user-guide/security.md#authentication-cache" >}}).
+
+With this release, we introduced a time to live for the authentication cache, configured to five minutes by default.
+This new default might lead to a higher load on your database.
+
+You can read how to configure the time to live to a smaller interval or restore the legacy behavior (disable the authentication cache time to live) in the documentation about [Web Applications]({{< ref "/webapps/shared-options/authentication.md#time-to-live" >}}).
 
 # Set Job Retries Asynchronously
 
