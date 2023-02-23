@@ -18,12 +18,13 @@ This document guides you through the update from Camunda Platform `7.18.x` to `7
 1. For administrators and developers: [Database updates](#database-updates)
 2. For administrators and developers: [Full distribution update](#full-distribution)
 3. For administrators: [Standalone web application](#standalone-web-application)
-4. For developers: [Camunda external task client JS update](#camunda-external-task-client-js-update)
-5. For developers: [Job executor priority range properties type changed](#job-executor-priority-range-properties-type-changed)
-6. For developers: [Java External Task Client: Deprecated exception types removed](#java-external-task-client-deprecated-exception-types-removed)
-7. For developers: [Consolidated REST API responses for a missing process engine](#consolidated-rest-api-responses-for-a-missing-process-engine)
-8. For developers: [Multi-Tenancy enabled for User operation logs](#multi-tenancy-enabled-for-user-operation-logs)
-9. For administrators: [Web apps revalidate authentications every five minutes](#webapps-revalidate-authentications-every-five-minutes)
+4. For administrators: [Web apps revalidate authentications every five minutes](#webapps-revalidate-authentications-every-five-minutes)
+5. For administrators: [Set Job Retries Asynchronously](#set-job-retries-asynchronously)
+6. For developers: [Camunda external task client JS update](#camunda-external-task-client-js-update)
+7. For developers: [Job executor priority range properties type changed](#job-executor-priority-range-properties-type-changed)
+8. For developers: [Java External Task Client: Deprecated exception types removed](#java-external-task-client-deprecated-exception-types-removed)
+9. For developers: [Consolidated REST API responses for a missing process engine](#consolidated-rest-api-responses-for-a-missing-process-engine)
+10. For developers: [Multi-Tenancy enabled for User operation logs](#multi-tenancy-enabled-for-user-operation-logs)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.18.
 
@@ -124,3 +125,11 @@ With this release, we introduced a time to live for the authentication cache, co
 This new default might lead to a higher load on your database.
 
 You can read how to configure the time to live to a smaller interval or restore the legacy behavior (disable the authentication cache time to live) in the documentation about [Web Applications]({{< ref "/webapps/shared-options/authentication.md#time-to-live" >}}).
+
+# Set Job Retries Asynchronously
+
+We have extended the [Set Job Retries Batch Operation]({{< ref "/user-guide/process-engine/batch-operations.md#setting-retries-and-due-dates-of-jobs-using-the-builder-pattern" >}}).
+There are now new options that allow to set the due date of a job while also setting the number of retries.
+Please bear in mind that the [usage of new features]({{< ref "/rolling-update.md#usage-of-new-features" >}}) during a rolling update 
+leads to unexpected behavior and therefore must be avoided: When a set retries batch with due date is 
+created during a rolling update, due dates might or might not be set depending on the executing engine (old/new engine).
