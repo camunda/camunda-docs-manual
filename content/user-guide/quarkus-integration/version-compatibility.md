@@ -21,11 +21,11 @@ Only these default combinations are recommended (and supported) by Camunda.
   </tr>
   <tr>
     <td>7.16.x, 7.17.x</td>
-    <td>2.1.2.Final</td>
+    <td>2.1.4.Final</td>
   </tr>
   <tr>
     <td>7.18.x</td>
-    <td>2.8.2.Final</td>
+    <td>2.8.3.Final</td>
   </tr>
 </table>
 
