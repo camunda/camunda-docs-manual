@@ -384,7 +384,7 @@ Tenant information is populated for User operation logs from 7.18.5 onwards, use
 
 In case you want to avoid tenant checks, please refer to [Disable the transparent access restrictions]({{< ref "/user-guide/process-engine/multi-tenancy.md#disable-the-transparent-access-restrictions" >}}).
 
-## 7.18.7 to 7.18.8 / 7.17.10 to 7.17.11 / 7.16.17 to 7.16.18
+## 7.18.5 to 7.18.6 / 7.17.10 to 7.17.11 / 7.16.17 to 7.16.18
 
 ### Web apps revalidate authentications every five minutes
 
