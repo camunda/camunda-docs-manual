@@ -380,6 +380,18 @@ Including it in a ready-to-use distribution means an additional step for end use
 Going forward we will not further develop the Camunda H2 console app. This also means there will not be any more releases for this project.
 If you need to connect to the default file-based H2 database during development, we encourage you to use third-party tools like [DBeaver](https://dbeaver.io/).
 
+## 7.16.17 to 7.16.18
+
+### Web apps revalidate authentications every five minutes
+
+Previously, after a user logged into the web apps, the [authentication cache]({{< ref "/webapps/shared-options/authentication.md#cache" >}})
+was valid for the lifetime of the HTTP session, which has [security implications]({{< ref "/user-guide/security.md#authentication-cache" >}}).
+
+With this release, we introduced a time to live for the authentication cache, configured to five minutes by default.
+This new default might lead to a higher load on your database.
+
+You can read how to configure the time to live to a smaller interval or restore the legacy behavior (disable the authentication cache time to live) in the documentation about [Web Applications]({{< ref "/webapps/shared-options/authentication.md#time-to-live" >}}).
+
 # Full Distribution
 
 This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.
