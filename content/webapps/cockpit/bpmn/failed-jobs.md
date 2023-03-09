@@ -23,7 +23,7 @@ On the [process instance view]({{< ref "/webapps/cockpit/bpmn/process-instance-v
 
 A modal dialog opens where you can: 
 
-1. Choose whether the job's due date should be reset to be executed immediately or set to an absolute date/time of your choice.
+1. Choose whether the previous due date should be kept or set to an absolute date/time of your choice.
 2. Select the failed jobs to be retried.
 
 After clicking on **Retry**, the engine will re-trigger the jobs and increment their retry values in the database so the Job Executor can acquire and execute the jobs again.
