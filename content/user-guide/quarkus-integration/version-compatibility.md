@@ -21,7 +21,7 @@ Only these default combinations are recommended (and supported) by Camunda.
   </tr>
   <tr>
     <td>7.16.x</td>
-    <td>2.1.4.Final</td>
+    <td>2.1.x.Final</td>
   </tr>
 </table>
 
