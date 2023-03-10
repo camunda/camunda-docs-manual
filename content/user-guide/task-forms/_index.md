@@ -153,8 +153,14 @@ The submitted values of a form are returned as variables to the process engine:
 * When no variable exists with the same name as the form field key, then a new process variable will be created and gets the value from the submission.
 
 ## Deployment
+If you want to include your Camunda Form as part of the `deployment`, then you need to deploy the `.form` file in the same deployment as the respective `.bpmn` diagram - for example using the Camunda Modeler (since Modeler Version 5.0.0).
 
-If you want to include your Camunda Form as part of the `deployment`, then you need to deploy the `.form` file in the same deployment as the respective `.bpmn` diagram - for example using the Camunda Modeler.
+{{< note title="Automatic deployment" class="warning" >}}
+Camunda Forms are not automatically deployed as part of a [process archive]({{< ref "/reference/deployment-descriptors/tags/process-archive.md" >}}) by default. 
+You need to configure it accordingly by adding it as a resource directly or by adding `form` to the list of `additionalResourceSuffixes`.
+Using [Camunda Platform Run]({{< ref "/user-guide/camunda-bpm-run.md#starting-with-camunda-platform-run" >}}), all additional resources - including Camunda Forms - 
+placed inside the `configuration/resources/` directory are automatically deployed.
+{{< /note >}}
 
 {{< img src="img/deploy-form.png" title="Deploy your Camunda Form file" >}}
 
