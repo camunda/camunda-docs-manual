@@ -29,3 +29,10 @@ You can use a local DMN file from your computer to overwrite the table. Clicking
 By clicking `Proceed`, a new dialog opens containing the changed table. The changes should be carefully reviewed as confirming the change and clicking `Deploy` will immediately create a new deployment containing the new DMN file as resource. All process and case definitions which use the latest version of the decision definition will then use the new version.
 
 The new deployment will have the name provided in the confirmation dialog and will also have the string `cockpit` set as deployment source.
+
+{{< note title="Heads-up!" class="warning" >}}
+Ensure to sync live-edited DMN files with other deployment sources (e.g. process applications).
+
+In case DMN tables in Cockpit and a process application go out of sync, they might overwrite each other leading to unwanted outcome.
+{{< /note >}}
+
