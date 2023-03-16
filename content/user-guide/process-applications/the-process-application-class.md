@@ -12,15 +12,21 @@ menu:
 
 You can delegate the bootstrapping of the process engine and process deployment to a process application class. The basic ProcessApplication functionality is provided by the `org.camunda.bpm.application.AbstractProcessApplication` base class. Based on this class there is a set of environment-specific sub classes that realize integration within a specific environment:
 
-* **ServletProcessApplication**: To be used for process applications in a Servlet Container like Apache Tomcat.
-* **EjbProcessApplication**: To be used in a Java EE application server like Wildfly or IBM WebSphere Application Server.
+* **ServletProcessApplication**: To be used for process applications in a Servlet container like Apache Tomcat.
+* **JakartaServletProcessApplication**: To be used for process applications in a Jakarta Servlet 5.0+ container like WildFly 27 and above.
+* **EjbProcessApplication**: To be used in a Java EE application server like IBM WebSphere Application Server.
+* **JakartaEjbProcessApplication**: To be used in a Jakarta EE 9+ application server like Wildfly 27+.
 * **EmbeddedProcessApplication**: To be used when embedding the process engine in an ordinary Java SE application.
 * **SpringProcessApplication**: To be used for bootstrapping the process application from a Spring Application Context.
 
 In the following section, we walk through the different implementations and discuss where and how they can be used.
 
+# The ServletProcessApplication and JakartaServletProcessApplication
 
-# The ServletProcessApplication
+{{< note title="Jakarta Servlet environments" class="info" >}}
+  The `JakartaServletProcessApplication` can only be used in environments working with Jakarta Servlet 5.0 and above like WildFly 27+.
+  The mechanisms described herein for the `ServletProcessApplication` apply in the same way.
+{{< /note >}}
 
 **Supported on:** Apache Tomcat, Wildfly. The Servlet process application is supported on all containers. Read the [note about Servlet Process Application and EJB/Java EE containers]({{< relref "#using-the-servletprocessapplication-inside-an-ejb-java-ee-container-such-as-wildfly" >}})
 
@@ -44,8 +50,8 @@ public class LoanApprovalApplication extends ServletProcessApplication {
 
 Notice the `@ProcessApplication` annotation. This annotation fulfills two purposes:
 
-  * **provide the name of the ProcessApplication**: You can provide a custom name for your process application using the annotation: `@ProcessApplication("Loan Approval App")`. If no name is provided, a name is automatically detected. In case of a ServletProcessApplication, the name of the ServletContext is used.
-  * **trigger auto-deployment**. In a Servlet 3.0 container, the annotation is sufficient for making sure that the process application is automatically picked up by the servlet container and automatically added as a ServletContextListener to the Servlet Container deployment. This functionality is realized by a `javax.servlet.ServletContainerInitializer` implementation named `org.camunda.bpm.application.impl.ServletProcessApplicationDeployer` which is located in the camunda-engine module. The implementation works for both embedded deployment of the camunda-engine.jar as a web application library in the `WEB-INF/lib` folder of your WAR file, or for the deployment of the camunda-engine.jar as a shared library in the shared library (e.g., Apache Tomcat global `lib/` folder) directory of your application server. The Servlet 3.0 Specification foresees both deployment scenarios. In case of embedded deployment, the `ServletProcessApplicationDeployer` is notified once, when the web application is deployed. In case of deployment as a shared library, the `ServletProcessApplicationDeployer` is notified for each WAR file containing a class annotated with `@ProcessApplication` (as required by the Servlet 3.0 Specification).
+* **provide the name of the ProcessApplication**: You can provide a custom name for your process application using the annotation: `@ProcessApplication("Loan Approval App")`. If no name is provided, a name is automatically detected. In case of a ServletProcessApplication, the name of the ServletContext is used.
+* **trigger auto-deployment**. In a Servlet 3.0 container, the annotation is sufficient for making sure that the process application is automatically picked up by the servlet container and automatically added as a ServletContextListener to the Servlet Container deployment. This functionality is realized by a `javax.servlet.ServletContainerInitializer` implementation named `org.camunda.bpm.application.impl.ServletProcessApplicationDeployer` which is located in the camunda-engine module. The implementation works for both embedded deployment of the camunda-engine.jar as a web application library in the `WEB-INF/lib` folder of your WAR file, or for the deployment of the camunda-engine.jar as a shared library in the shared library (e.g., Apache Tomcat global `lib/` folder) directory of your application server. The Servlet 3.0 Specification foresees both deployment scenarios. In case of embedded deployment, the `ServletProcessApplicationDeployer` is notified once, when the web application is deployed. In case of deployment as a shared library, the `ServletProcessApplicationDeployer` is notified for each WAR file containing a class annotated with `@ProcessApplication` (as required by the Servlet 3.0 Specification).
 
 This means that in case you deploy to a Servlet 3.0 compliant container (such as Apache Tomcat) annotating your class with `@ProcessApplication` is sufficient.
 
@@ -53,37 +59,53 @@ This means that in case you deploy to a Servlet 3.0 compliant container (such as
   There is a [project template for Maven]({{< ref "/user-guide/process-applications/maven-archetypes.md" >}}) called ```camunda-archetype-servlet-war```, which gives you a complete running project based on a ServletProcessApplication.
 {{< /note >}}
 
+## Using Servlet process applications inside an EJB/Jakarta EE/Java EE container such as Wildfly
 
-## Using the ServletProcessApplication Inside an EJB/Java EE Container such as Wildfly
+You can use the `ServletProcessApplication` inside an EJB / Java EE container such as Wildfly 26 and below.
+In Jakarta EE 9+ containers like WildFly 27 and above, you need to use the `JakartaServletProcessApplication`.
 
-You can use the ServletProcessApplication inside an EJB / Java EE Container such as Wildfly. Process application bootstrapping and deployment will work in the same way. However, you will not be able to use all Java EE features at runtime. In contrast to the `EjbProcessApplication` (see the next section), the `ServletProcessApplication` does not perform proper Java EE cross-application context switching. When the process engine invokes Java Delegates from your application, only the Context Class Loader of the current Thread is set to the classloader of your application. This does allow the process engine to resolve Java Delegate implementations from your application but the container will not perform an EE context switch to your application. As a consequence, if you use the ServletProcessApplciation inside a Java EE container, you will not be able to use features like:
+Process application bootstrapping and deployment will work in the same way as in a Servlet container.
+However, you will not be able to use all Jakarta EE/Java EE features at runtime. In contrast to the
+`EjbProcessApplication` (see the next section), the `ServletProcessApplication` and `JakartaServletProcessApplication`
+do not perform proper Jakarta EE/Java EE cross-application context switching. When the process engine invokes Java
+Delegates from your application, only the Context Class Loader of the current Thread is set to the classloader of your application.
+This does allow the process engine to resolve Java Delegate implementations from your application but the container will not
+perform an EE context switch to your application. As a consequence, if you use the Servlet process applciation inside a
+Jakarta EE/Java EE container, you will not be able to use features like:
 
-  * using CDI beans and EJBs as JavaDelegate implementations in combination with the Job Executor,
-  * using @RequestScoped CDI Beans with the Job Executor,
-  * looking up JNDI resources from the application's naming scope
+* Using CDI beans and EJBs as JavaDelegate implementations in combination with the Job Executor.
+* Uusing `@RequestScoped` CDI Beans with the Job Executor.
+* Looking up JNDI resources from the application's naming scope.
 
-If your application does not use such features, it is perfectly fine to use the ServletProcessApplication inside an EE container. In that case you only get servlet specification guarantees.
+If your application does not use such features, it is perfectly fine to use the servlet process application inside an EE container.
+In that case you only get servlet specification guarantees.
 
+# The EjbProcessApplication and JakartaEjbProcessApplication
 
-# The EjbProcessApplication
-
-**Supported on:** Wildfly. The EjbProcessApplication is supported on Java EE 6 containers or higher. It is not supported on Servlet Containers like Apache Tomcat. It may be adapted to work inside Java EE 5 Containers.
+**Supported on:** Wildfly. The `EjbProcessApplication` is supported on Java EE 6 to Java EE 8 containers like WildFly 26 and below.
+The `JakartaEjbProcessApplication` is supported on Jakarta EE 9+ containers like WildFly 27 and above.
+It is not supported on Servlet Containers like Apache Tomcat. It may be adapted to work inside Java EE 5 Containers.
 
 **Packaging:** JAR, WAR, EAR
 
-The EjbProcessApplication is the base class for developing Java EE based process applications. An Ejb process application class itself must be deployed as an EJB.
+The `EjbProcessApplication` and `JakartaEjbProcessApplication` are the base classes for developing Jakarta EE/Java EE-based process applications.
+An EJB process application class itself must be deployed as an EJB.
 
-To add an Ejb process application to your Java Application, you have two options:
+To add an EJB process application to your Java application, you have two options:
 
-  * **Bundle the camunda-ejb-client**: we provide a generic, reusable EjbProcessApplication implementation (named `org.camunda.bpm.application.impl.ejb.DefaultEjbProcessApplication`) bundled as a maven artifact. The simplest possibility is to add this implementation to your application as a maven dependency.
-  * **Write a custom EjbProcessApplication**: if you want to customize the behavior of the EjbProcessApplication, you can write a custom subclass of the EjbProcessApplication class and add it to your application.
+* **Bundle the Camunda EJB Client**: we provide a generic, reusable EJB process application implementation (named 
+`org.camunda.bpm.application.impl.ejb.DefaultEjbProcessApplication`) bundled as a maven artifact. You can add this
+implementation to your application as a maven dependency. Use the `camunda-ejb-client` artifact for Java EE or
+the `camunda-ejb-client-jakarta` artifact for Jakarta EE 9+ applications.
+* **Write a custom EJB process application**: if you want to customize the behavior of the `EjbProcessApplication`
+or `JakartaEjbProcessApplication`, you can write a custom subclass of the respective class and add it to your application.
 
 Both options are explained in greater detail below.
 
 
-## Bundling the camunda-ejb-client Jar
+## Bundling the Camunda EJB Client Jar
 
-The most convenient option for deploying a process application to an Ejb Container is by adding the following maven dependency to your maven project:
+The most convenient option for deploying a process application to a Java EE EJB container is by adding the following maven dependency to your maven project:
 
 {{< note title="" class="info" >}}
   Please import the [Camunda BOM](/get-started/apache-maven/) to ensure correct versions for every Camunda project.
@@ -96,9 +118,19 @@ The most convenient option for deploying a process application to an Ejb Contain
 </dependency>
 ```
 
-The camunda-ejb-client contains a reusable default implementation of the EjbProcessApplication as a Singleton Session Bean with auto-activation.
+For Jakarta EE 9+ EJB containers, use the following dependency instead:
 
-This deployment option requires that your project is a composite deployment (such as a WAR or EAR) since you need to add a library JAR file. You could of course use something like the maven shade plugin for adding the class contained in the camunda-ejb-client artifact to a JAR-based deployment.
+```xml
+<dependency>
+  <groupId>org.camunda.bpm.javaee</groupId>
+  <artifactId>camunda-ejb-client-jakarta</artifactId>
+</dependency>
+```
+
+The Camunda EJB Client contains a reusable default implementation of the respective EJB process application as a Singleton Session Bean with auto-activation.
+
+This deployment option requires that your project is a composite deployment (such as a WAR or EAR) since you need to add a library JAR file.
+You could of course use something like the maven shade plugin for adding the class contained in the camunda-ejb-client artifact to a JAR-based deployment.
 
 {{< note title="" class="info" >}}
   We always recommend using the camunda-ejb-client over deploying a custom EjbProcessApplication class unless you want to customize the behavior of the EjbProcessApplication.
