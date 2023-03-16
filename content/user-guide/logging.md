@@ -268,6 +268,10 @@ The process engine logs on the following categories
     <td><code>org.camunda.bpm.engine.util</code></td>
     <td>logs engine utility operations like xml parsing, reading streams, class loading issues, parsing intervals/duration, etc.</td>
   </tr>
+  <tr>
+    <td><code>org.camunda.bpm.webapp</code></td>
+    <td>logs events from the Camunda Webapps (Cockpit, Tasklist, and Admin), like user-initiated log in and logout events and cache validation time information.</td>
+  </tr>
 </table>
 
 By default, the engine output contains logs with level `ERROR`, `WARNING`, and `INFO`. To enable more log output, e.g. for the purpose of debugging, configure the level of a logger to `DEBUG` or `TRACE`.
