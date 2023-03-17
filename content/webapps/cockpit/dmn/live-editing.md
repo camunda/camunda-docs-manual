@@ -33,6 +33,6 @@ The new deployment will have the name provided in the confirmation dialog and wi
 {{< note title="Heads-up!" class="warning" >}}
 Ensure to sync live-edited DMN files with other deployment sources (e.g. process applications).
 
-In case DMN tables in Cockpit and a process application go out of sync, they might overwrite each other leading to unwanted outcome.
+If DMN tables in Cockpit and a process application go out of sync, they might overwrite each other, leading to an unwanted outcome.
 {{< /note >}}
 
