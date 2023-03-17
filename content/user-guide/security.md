@@ -79,19 +79,19 @@ to querying for the authentication information on each REST API request.
 Note that changing the time to live to a lower value can harm the performance of your database server.
 {{< /note >}}
 
-#### Enable authentication logging in the Camunda Webapps
+#### Enable authentication logging in the Camunda web apps
 
 It is generally recommended to enable logging of log in attempts (successful and failed) as well as log out events.
-In Camunda you can enable authentication logging in the Camunda webapps by setting the `webappsAuthenticationLoggingEnabled` process engine configuration flag to true. All user-initiated log in and log out events will then be logged to the application log using the `org.camunda.bpm.webapp` [logger]({{< ref "/user-guide/logging.md#process-engine">}}).
+In Camunda, you can enable authentication logging in the Camunda web apps by setting the `webappsAuthenticationLoggingEnabled` process engine configuration flag to true. All user-initiated log in and log out events will then be logged to the application log using the `org.camunda.bpm.webapp` [logger]({{< ref "/user-guide/logging.md#process-engine">}}).
 
-The following events produce log statemens:
-* successful login with valid credentials
-* failed login with wrong password
-* failed login with non-existing username
-* successful logout
+The following events produce log statements:
+* Successful log in with valid credentials
+* Failed log in with wrong password
+* Failed log in with non-existing username
+* Successful log out
 
 {{< note title="Heads-up!" class="warning" >}}
-Bear in mind, that someone could use brute forcing to produce arbitrary amounts of log statements and potentially reduce disc space available for logging. This could theoretically lead to a denial of service if the logs are stored on the same partition as the application. Camunda does not handle such cases and the users are responsible to mitigate this risk, e.g. by [limiting log in attempts]({{< ref "/user-guide/process-engine/identity-service.md#throttle-login-attempts" >}}).
+Someone could use brute force to produce arbitrary amounts of log statements and potentially reduce disc space available for logging. This could theoretically lead to a denial of service if the logs are stored on the same partition as the application. Camunda does not handle such cases and the users are responsible to mitigate this risk, e.g. by [limiting log in attempts]({{< ref "/user-guide/process-engine/identity-service.md#throttle-login-attempts" >}}).
 {{< /note >}}
 
 ### Internal (database backed) User Management

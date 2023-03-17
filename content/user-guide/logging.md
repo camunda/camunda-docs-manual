@@ -270,7 +270,7 @@ The process engine logs on the following categories
   </tr>
   <tr>
     <td><code>org.camunda.bpm.webapp</code></td>
-    <td>logs events from the Camunda Webapps (Cockpit, Tasklist, and Admin), like user-initiated log in and logout events and cache validation time information.</td>
+    <td>logs events from the Camunda web apps (Cockpit, Tasklist, and Admin), like user-initiated log in and log out events and cache validation time information.</td>
   </tr>
 </table>
 
