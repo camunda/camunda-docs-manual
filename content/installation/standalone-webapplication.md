@@ -48,7 +48,7 @@ As a **Community Edition** user you can download the Camunda standalone webapp m
       </td>
     </tr>
     <tr>
-      <td>WildFly</td>
+      <td>WildFly ≤26 / JBoss EAP 7</td>
       <td>
         <a href="//downloads.camunda.cloud/release/camunda-bpm/jboss/{{< minor-version >}}/camunda-webapp-jboss-standalone-{{< minor-version >}}.0.war">
           camunda-webapp-jboss-standalone-{{< minor-version >}}.0.war

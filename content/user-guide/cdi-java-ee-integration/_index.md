@@ -32,13 +32,21 @@ To use the `camunda-engine-cdi` module inside your application, you must include
 
 {{< note title="" class="info" >}}
   Please import the [Camunda BOM](/get-started/apache-maven/) to ensure correct versions for every Camunda project.
-  In Jakarta EE 9+ environments, use the `camunda-engine-cdi-jakarta` artifact instead.
 {{< /note >}}
 
 ```xml
 <dependency>
   <groupId>org.camunda.bpm</groupId>
   <artifactId>camunda-engine-cdi</artifactId>
+</dependency>
+```
+
+For Jakarta EE 9+ containers, use the following dependency instead:
+
+```xml
+<dependency>
+  <groupId>org.camunda.bpm</groupId>
+  <artifactId>camunda-engine-cdi-jakarta</artifactId>
 </dependency>
 ```
 
