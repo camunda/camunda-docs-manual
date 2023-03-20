@@ -152,7 +152,7 @@ public class InvoiceProcessApplication extends ServletProcessApplication {
 }
 ```
 
-Example configuration for [Ejb Process Application]({{< ref "/user-guide/process-applications/the-process-application-class.md#the-ejbprocessapplication" >}}):
+Example configuration for [EJB Process Application]({{< ref "/user-guide/process-applications/the-process-application-class.md#the-ejbprocessapplication" >}}):
 
 ```java
 @Singleton
