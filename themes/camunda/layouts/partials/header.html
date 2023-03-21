@@ -22,9 +22,7 @@
   <meta name="author" content="Camunda Platform 7 community" />
   {{ if ($.Site.Params.section.versions)}}
     {{ if (not (eq (index $.Site.Params.section.versions 1) $.Site.Params.section.version))}}
-      {{- if (not (in $.Site.Params.skipNoIndexPages .Permalink)) }}
-        <meta name="robots" content="noindex" />
-      {{- end }}
+      <meta name="robots" content="noindex" />
     {{ end }}
   {{ end }}
 

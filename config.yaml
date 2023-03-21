@@ -9,10 +9,6 @@ blackfriday:
 
 params:
   canonicalBasePath: "https://docs.camunda.org"
-  skipNoIndexPages:
-    - "/manual/7.17/reference/rest/case-instance/variables/get-variable-binary/"
-    - "/manual/7.17/reference/rest/process-definition/delete-process-definition/"
-    - "/manual/7.17/update/minor/71-to-72/glassfish/"
   sections:
     - id: "get-started"
       name: "Get Started"
