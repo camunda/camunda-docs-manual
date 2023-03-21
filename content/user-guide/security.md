@@ -82,7 +82,7 @@ Note that changing the time to live to a lower value can harm the performance of
 #### Enable authentication logging in the Camunda web apps
 
 It is generally recommended to enable logging of log in attempts (successful and failed) as well as log out events.
-In Camunda, you can enable authentication logging in the Camunda web apps by setting the `webappsAuthenticationLoggingEnabled` process engine configuration flag to true. All user-initiated log in and log out events will then be logged to the application log using the `org.camunda.bpm.webapp` [logger]({{< ref "/user-guide/logging.md#process-engine">}}).
+In Camunda, you can enable authentication logging in the Camunda web apps by setting the `webappsAuthenticationLoggingEnabled` process engine [configuration flag]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#webappsAuthenticationLoggingEnabled" >}}) to true. All user-initiated log in and log out events will then be logged to the application log using the `org.camunda.bpm.webapp` [logger]({{< ref "/user-guide/logging.md#process-engine">}}).
 
 The following events produce log statements:
 * Successful log in with valid credentials
