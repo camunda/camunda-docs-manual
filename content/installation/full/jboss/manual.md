@@ -17,19 +17,17 @@ This document describes the installation of Camunda Platform and its components 
 
 {{< note title="Reading this Guide" class="info" >}}
 This guide uses a number of variables to denote common path names and constants:
-`$WILDFLY_HOME` points to the JBoss EAP/Wildfly application server main directory.
-`$PLATFORM_VERSION` denotes the version of the Camunda Platform you want to install or already have installed, e.g. `7.0.0`.
+
+* `$WILDFLY_HOME` points to the JBoss EAP/Wildfly application server main directory.
+* `$WILDFLY_VERSION` denotes the version of Wildfly application server.
+* `$WILDFLY_DISTRIBUTION` represents the downloaded pre-packaged Camunda Platform distribution for Wildfly, e.g. `camunda-bpm-wildfly-$PLATFORM_VERSION.zip` or `camunda-bpm-wildfly-$PLATFORM_VERSION.tar.gz`.
+* `$PLATFORM_VERSION` denotes the version of the Camunda Platform you want to install or already have installed, e.g. `7.0.0`.
 {{< /note >}}
 
-## Required Setup
+## Setup
 
-### Wildfly 27+
-
-For Wildfly 27  and above, please download the [Camunda WildFly distribution](https://downloads.camunda.cloud/release/camunda-bpm/wildfly/).
-
-### Wildfly ≤26 / JBoss EAP 7
-
-For Wildfly ≤26 / JBoss EAP 7, please download the [`camunda-wildfly26-modules`](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/wildfly/camunda-wildfly26-modules/).
+* For Wildfly 27  and above, please download the [Camunda WildFly distribution](https://downloads.camunda.cloud/release/camunda-bpm/wildfly/).
+* For Wildfly ≤26 / JBoss EAP 7, please download the [`camunda-wildfly26-modules`](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/wildfly/camunda-wildfly26-modules/).
 
 ### Copy Modules
 
@@ -121,7 +119,7 @@ By default, the database schema is automatically created in an H2 database when 
 * Create a database schema for the Camunda Platform yourself.
 * Install the database schema to create all required tables and default indices using our [database schema installation guide]({{< ref "/installation/database-schema.md" >}}).
 
-When you create the tables manually, then you can also configure the engine to **not** create tables at startup by setting the `isAutoSchemaUpdate` property to `false` (or, in case you are using Oracle, to `noop`). In WildFly, this is done in the `standalone.xml`, located in the `$WILDFLY_DISTRIBUTION\server\wildfly-$VERSION\standalone\configuration\` folder.
+When you create the tables manually, then you can also configure the engine to **not** create tables at startup by setting the `isAutoSchemaUpdate` property to `false` (or, in case you are using Oracle, to `noop`). In WildFly, this is done in the `standalone.xml`, located in the `$WILDFLY_DISTRIBUTION\server\wildfly-$WILDFLY_VERSION\standalone\configuration\` folder.
 
 ### Create a Datasource
 
@@ -149,7 +147,7 @@ These links point you to resources for other databases:
 
 ## Optional Components
 
-This section describes how to install optional dependencies. None of these are required to work with the core platform. Before continuing, make sure that the Camunda Platform is already installed according to [this step]({{< relref "#required-setup" >}}) for WildFly / JBoss EAP 7.
+This section describes how to install optional dependencies. None of these are required to work with the core platform. Before continuing, make sure that the Camunda Platform is already installed according to [this step]({{< relref "#setup" >}}) for WildFly / JBoss EAP 7.
 
 
 ### Cockpit, Tasklist and Admin
@@ -215,7 +213,7 @@ To activate Camunda Connect functionality for a process engine, a process engine
 
 ### Camunda Spin
 
-The Camunda Spin plugin can be used to extend the engine functionality to de-/serialize object variables from and to JSON and XML. For more information, see the [Spin Reference]({{< ref "/reference/spin/_index.md" >}}).
+You can use the Camunda Spin plugin to extend the engine functionality to de-/serialize object variables from and to JSON and XML. For more information, see the [Spin Reference]({{< ref "/reference/spin/_index.md" >}}).
 
 #### Setup Spin
 

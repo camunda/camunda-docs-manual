@@ -367,7 +367,7 @@ The following shows an example of how to bootstrap a SpringProcessApplication in
 </beans>
 ```
 
-Remember that you additionally need a `META-INF/processes.xml` file.
+Remember to additionally add a `META-INF/processes.xml` file.
 
 > If you are manually managing your processEngine, you will have to register it on the RuntimeContainerDelegate as described in the EmbeddedProcessEngine section.
 

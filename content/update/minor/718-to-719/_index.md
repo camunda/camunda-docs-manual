@@ -137,8 +137,14 @@ In case you want to avoid tenant check, please refer to [Disable the transparent
 
 # Update to Wildfly 27 Application Server
 
-With this release, you can run Camunda 7 as shared-engine on the [WildFly 27 application server](https://www.wildfly.org/news/2022/11/09/WildFly27-Final-Released/).
-Since Wildfly 27 drops support for Java EE in favor of Jakarta EE, you need to migrate your process applications and replace some artifacts on the application server.
+With this release, we support WildFly 27, the new default pre-packaged WildFly distro. It replaces Java EE with Jakarta EE APIs. 
+If you prefer to stay on WildFly ≤26 or JBoss EAP 7, you can still download the Java EE compliant [modules][wildfly26-modules], [web application][wildfly26-webapp], and [REST API][wildfly26-rest-api]. 
+
+If you want to move on with Wildfly 27, here are the things to consider when migrating your process applications and replacing artifacts on the application server.
+
+[wildfly26-modules]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/wildfly/camunda-wildfly26-modules/
+[wildfly26-webapp]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-jboss/
+[wildfly26-rest-api]: https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/camunda-engine-rest/
 
 ## Migrate process applications
 
@@ -148,15 +154,15 @@ Since Wildfly 27 drops support for Java EE in favor of Jakarta EE, you need to m
   * `org.camunda.bpm.application.impl.EjbProcessApplication` → `org.camunda.bpm.application.impl.JakartaEjbProcessApplication`
   * `org.camunda.bpm.application.impl.ServletProcessApplicationDeployer` → `org.camunda.bpm.application.impl.JakartaServletProcessApplicationDeployer`
   * `org.camunda.bpm.application.impl.ServletProcessApplication` → `org.camunda.bpm.application.impl.JakartaServletProcessApplication`
-  * `org.camunda.bpm.engine.impl.cfg.jta.JtaTransactionContextFactory` → `org.camunda.bpm.engine.impl.cfg.jta.JakartaTransactionContext`
-  * `org.camunda.bpm.engine.impl.cfg.jta.JtaTransactionContext` → `org.camunda.bpm.engine.impl.cfg.jta.JakartaTransactionContextFactory`
+  * `org.camunda.bpm.engine.impl.cfg.jta.JtaTransactionContext` → `org.camunda.bpm.engine.impl.cfg.jta.JakartaTransactionContext`
+  * `org.camunda.bpm.engine.impl.cfg.jta.JtaTransactionContextFactory` → `org.camunda.bpm.engine.impl.cfg.jta.JakartaTransactionContextFactory`
   * `org.camunda.bpm.engine.impl.cfg.JtaProcessEngineConfiguration` → `org.camunda.bpm.engine.impl.cfg.JakartaTransactionProcessEngineConfiguration`
   * `org.camunda.bpm.engine.impl.interceptor.JtaTransactionInterceptor` → `org.camunda.bpm.engine.impl.interceptor.JakartaTransactionInterceptor`
 * Replace Camunda Maven dependencies:
   * `org.camunda.bpm.javaee:camunda-ejb-client` → `org.camunda.bpm.javaee:camunda-ejb-client-jakarta`
   * `org.camunda.bpm:camunda-engine-cdi` → `org.camunda.bpm:camunda-engine-cdi-jakarta`
 
-## Migrate from Wildfly ≤26 (JBoss EAP 7)
+## Replace artifacts on the application server
 
 You can find the new artifacts either in the current Wildfly distribution or in the [`camunda-wildfly-modules`](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/wildfly/camunda-wildfly-modules/).
 
@@ -165,7 +171,7 @@ You can find the new artifacts either in the current Wildfly distribution or in 
 * `$WILDFLY_HOME/modules/org/camunda/spin/camunda-spin-dataformat-xml-dom` → `$WILDFLY_HOME/modules/org/camunda/spin/camunda-spin-dataformat-xml-dom-jakarta`
 * Camunda Wildfly Subsystem under `$WILDFLY_HOME/modules/org/camunda/bpm/$APP_SERVER/camunda-wildfly-subsystem`
   
-### Replace Webapps (Cockpit, Admin, Tasklist, Welcome) deployment
+### Replace web application (Cockpit, Admin, Tasklist, Welcome) deployment
 
 Replace the artifact `camunda-webapp-jboss-$PLATFORM_VERSION.war` with `camunda-webapp-wildfly-$PLATFORM_VERSION.war` under `$WILDFLY_HOME/standalone/deployments`.
 

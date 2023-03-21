@@ -13,9 +13,16 @@ menu:
 The following steps describe how to update the Camunda artifacts on a Wildfly/JBoss EAP 7 in a 
 shared process engine scenario. Throughout the procedure, refer to the [update guide][update-guide].
 
+{{< note title="Reading this Guide" class="info" >}}
+This guide uses a number of variables to denote common path names and constants:
+
+* `$WILDFLY_HOME` points to the JBoss EAP/Wildfly application server main directory.
+* `$WILDFLY_DISTRIBUTION` represents the downloaded pre-packaged Camunda Platform distribution for Wildfly, e.g. `camunda-bpm-wildfly-$PLATFORM_VERSION.zip` or `camunda-bpm-wildfly-$PLATFORM_VERSION.tar.gz`.
+* `$PLATFORM_VERSION` denotes the version of the Camunda Platform you want to install or already have installed, e.g. `7.0.0`.
+{{< /note >}}
+
 If not already done, download the [Camunda Platform 7.19 JBoss distribution](https://downloads.camunda.cloud/release/camunda-bpm/jboss/7.19/)
 or [Camunda Platform 7.19 Wildfly ≤26 Modules](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/wildfly/camunda-wildfly26-modules/). 
-In the following instructions, `$APP_SERVER` should be replaced with either `jboss` or `wildfly`, depending on the used application server.
 
 The update procedure takes the following steps:
 
@@ -27,10 +34,10 @@ Whenever the instructions are to *replace* a module, delete the previous version
 
 # 1. Update the Camunda Platform modules
 
-Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with the new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/`:
+Replace the following modules from the folder `$WILDFLY_HOME/modules/` with the new versions from the folder `$WILDFLY_DISTRIBUTION/modules/`:
 
 * `org/camunda/bpm/camunda-engine`
-* `org/camunda/bpm/$APP_SERVER/camunda-wildfly-subsystem`
+* `org/camunda/bpm/wildfly/camunda-wildfly-subsystem`
 * `org/camunda/bpm/model/camunda-bpmn-model`
 * `org/camunda/bpm/model/camunda-cmmn-model`
 * `org/camunda/bpm/model/camunda-dmn-model`
@@ -61,24 +68,24 @@ Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with t
 
 # 2. Update optional Camunda Platform modules
 
-In addition to the core modules, there may be optional artifacts in `$APP_SERVER_HOME/modules/` for LDAP integration, Camunda Connect, Camunda Spin, and Groovy scripting.
+In addition to the core modules, there may be optional artifacts in `$WILDFLY_HOME/modules/` for LDAP integration, Camunda Connect, Camunda Spin, and Groovy scripting.
 If you use any of these extensions, the following update steps apply:
 
 ## LDAP integration
 
-Replace the following module from the folder `$APP_SERVER_HOME/modules/` with its new version from the folder `$APP_SERVER_DISTRIBUTION/modules/`, if present:
+Replace the following module from the folder `$WILDFLY_HOME/modules/` with its new version from the folder `$WILDFLY_DISTRIBUTION/modules/`, if present:
 
 * `org/camunda/bpm/identity/camunda-identity-ldap`
 
 ## Camunda Connect plugin
 
-Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with the new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/`, if present:
+Replace the following modules from the folder `$WILDFLY_HOME/modules/` with the new versions from the folder `$WILDFLY_DISTRIBUTION/modules/`, if present:
 
 * `org/camunda/bpm/camunda-engine-plugin-connect`
 
 ## Camunda Spin
 
-Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with the new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/`, if present:
+Replace the following modules from the folder `$WILDFLY_HOME/modules/` with the new versions from the folder `$WILDFLY_DISTRIBUTION/modules/`, if present:
 
 * `org/camunda/spin/camunda-spin-core`
 * `org/camunda/spin/camunda-spin-dataformat-json-jackson`
@@ -99,8 +106,8 @@ Additionally, replace the following dependent modules:
 
 ## Groovy
 
-Replace the 'org/codehaus/groovy/groovy-all' module from the folder `$APP_SERVER_HOME/modules/` with the following 
-modules from the folder `$APP_SERVER_DISTRIBUTION/modules/`, if present:
+Replace the 'org/codehaus/groovy/groovy-all' module from the folder `$WILDFLY_HOME/modules/` with the following 
+modules from the folder `$WILDFLY_DISTRIBUTION/modules/`, if present:
 
 * `org/codehaus/groovy/groovy-all`
 * `org/codehaus/groovy/groovy`
