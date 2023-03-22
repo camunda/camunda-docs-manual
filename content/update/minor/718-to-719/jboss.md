@@ -16,13 +16,13 @@ shared process engine scenario. Throughout the procedure, refer to the [update g
 {{< note title="Reading this Guide" class="info" >}}
 This guide uses a number of variables to denote common path names and constants:
 
-* `$WILDFLY_HOME` points to the JBoss EAP/Wildfly application server main directory.
-* `$WILDFLY_DISTRIBUTION` represents the downloaded pre-packaged Camunda Platform distribution for Wildfly, e.g. `camunda-bpm-wildfly-$PLATFORM_VERSION.zip` or `camunda-bpm-wildfly-$PLATFORM_VERSION.tar.gz`.
+* `$WILDFLY_HOME` points to the JBoss EAP/WildFly application server main directory.
+* `$WILDFLY_DISTRIBUTION` represents the downloaded pre-packaged Camunda Platform distribution for WildFly, e.g. `camunda-bpm-wildfly-$PLATFORM_VERSION.zip` or `camunda-bpm-wildfly-$PLATFORM_VERSION.tar.gz`.
 * `$PLATFORM_VERSION` denotes the version of the Camunda Platform you want to install or already have installed, e.g. `7.0.0`.
 {{< /note >}}
 
 If not already done, download the [Camunda Platform 7.19 JBoss distribution](https://downloads.camunda.cloud/release/camunda-bpm/jboss/7.19/)
-or [Camunda Platform 7.19 Wildfly ≤26 Modules](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/wildfly/camunda-wildfly26-modules/). 
+or [Camunda Platform 7.19 WildFly ≤26 Modules](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/wildfly/camunda-wildfly26-modules/). 
 
 The update procedure takes the following steps:
 
@@ -90,9 +90,9 @@ Replace the following modules from the folder `$WILDFLY_HOME/modules/` with the 
 * `org/camunda/spin/camunda-spin-core`
 * `org/camunda/spin/camunda-spin-dataformat-json-jackson`
 * `org/camunda/spin/camunda-spin-dataformat-xml-dom-jakarta`
-    * **Heads-up:** add this module only for Wildfly 27+.
+    * **Heads-up:** add this module only for WildFly 27+.
 * `org/camunda/spin/camunda-spin-dataformat-xml-dom`
-    * **Heads-up:** add this module only for Wildfly ≤26 / JBoss EAP 7.
+    * **Heads-up:** add this module only for WildFly ≤26 / JBoss EAP 7.
 * `org/camunda/bpm/camunda-engine-plugin-spin`
 
 Additionally, replace the following dependent modules:
@@ -125,19 +125,19 @@ The following steps are required to update the Camunda REST API on a JBoss/Wildf
 1. Undeploy an existing web application with a name like `camunda-engine-rest`.
 2. Download the REST API web application archive from our Maven Artifactory.
    Alternatively, switch to the private repository for the enterprise version (credentials from license required).
-    * For [Wildfly 27+](https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/camunda-engine-rest-jakarta/), the name of the artifact is `$PLATFORM_VERSION/camunda-engine-rest-jakarta-$PLATFORM_VERSION-wildfly.war`.
-    * For [Wildfly ≤26 / JBoss EAP 7](https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/camunda-engine-rest/), the name of the artifact is `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION-wildfly.war`.
-3. Deploy the web application archive to your JBoss/Wildfly instance.
+    * For [WildFly 27+](https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/camunda-engine-rest-jakarta/), the name of the artifact is `$PLATFORM_VERSION/camunda-engine-rest-jakarta-$PLATFORM_VERSION-wildfly.war`.
+    * For [WildFly ≤26 / JBoss EAP 7](https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/camunda-engine-rest/), the name of the artifact is `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION-wildfly.war`.
+3. Deploy the web application archive to your JBoss/WildFly instance.
 
 ## Update Cockpit, Tasklist, and Admin
 
-The following steps are required to update the Camunda web applications Cockpit, Tasklist, and Admin on a JBoss/Wildfly instance:
+The following steps are required to update the Camunda web applications Cockpit, Tasklist, and Admin on a JBoss/WildFly instance:
 
-1. Undeploy an existing web application with a name like `camunda-webapp`.
+1. Un-deploy an existing web application with a name like `camunda-webapp`.
 2. Download the Camunda web application that contains the web applications from our Maven Artifactory.
    Alternatively, switch to the private repository for the enterprise version (credentials from license required).
-    * For [Wildfly 27+](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-wildfly/), the name of the artifact is `$PLATFORM_VERSION/camunda-webapp-wildfly-$PLATFORM_VERSION.war`.
-    * For [Wildfly ≤26 / JBoss EAP 7](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-jboss/), the name of the artifact is `$PLATFORM_VERSION/camunda-webapp-jboss-$PLATFORM_VERSION.war`.
-3. Deploy the web application archive to your JBoss/Wildfly instance.
+    * For [WildFly 27+](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-wildfly/), the name of the artifact is `$PLATFORM_VERSION/camunda-webapp-wildfly-$PLATFORM_VERSION.war`.
+    * For [WildFly ≤26 / JBoss EAP 7](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-jboss/), the name of the artifact is `$PLATFORM_VERSION/camunda-webapp-jboss-$PLATFORM_VERSION.war`.
+3. Deploy the web application archive to your JBoss/WildFly instance.
 
 [update-guide]: {{< ref "/update/minor/718-to-719/_index.md" >}}

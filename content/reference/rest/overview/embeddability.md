@@ -34,7 +34,7 @@ Furthermore, the engine classes and Jackson's `com.fasterxml.jackson.jaxrs:jacks
   <classifier>classes</classifier>
 </dependency>
 ```
-For Jakarta EE 9+ containers (like Wildfly 27+), use the following dependency instead:
+For Jakarta EE 9+ containers (like WildFly 27+), use the following dependency instead:
 
 ```xml
 <dependency>

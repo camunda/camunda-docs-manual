@@ -16,7 +16,7 @@ A BPMN business process is typically a long-running interaction, comprised of bo
 At runtime, a process is split-up into a set of individual units of work, performed by users and/or application logic.
 
 In Camunda CDI, a process instance can be associated with a CDI scope, the association representing a unit of work.
-This is particularly useful if a unit of work is complex, for instance if the implementation of a User Task is a complex sequence
+This is particularly useful if a unit of work is complex, for instance if the implementation of a user task is a complex sequence
 of different forms and "non-process-scoped" state needs to be kept during this interaction. In the default configuration,
 process instances are associated with the "broadest" active scope, starting with the conversation and falling back to the request
 if the conversation context is not active.
@@ -30,7 +30,7 @@ The Camunda CDI integration provides the `org.camunda.bpm.engine.cdi.BusinessPro
 * The `resumeProcessById(String processInstanceId)`, allowing to associate the process instance with the provided Id.
 * The `resumeTaskById(String taskId)`, allowing to associate the task with the provided Id (and by extension, the corresponding process instance).
 
-Once a unit of work like a User Task is completed, the `completeTask()` method can be called to disassociate the conversation/request from the process instance.
+Once a unit of work like a user task is completed, the `completeTask()` method can be called to disassociate the conversation/request from the process instance.
 This signals the engine that the current task is completed and makes the process instance proceed.
 
 Note that the `BusinessProcess`-bean is a `@Named` bean, which means that the exposed methods can be invoked using expression language, for example from a JSF page.

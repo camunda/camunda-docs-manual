@@ -1,6 +1,6 @@
 ---
 
-title: 'Install the Full Distribution on a JBoss EAP/Wildfly Application Server manually '
+title: 'Install the Full Distribution on a JBoss EAP/WildFly Application Server manually '
 weight: 20
 
 menu:
@@ -8,30 +8,30 @@ menu:
     name: "Manual Installation"
     identifier: "installation-guide-full-jboss-install-vanilla"
     parent: "installation-guide-full-jboss"
-    pre: "Install and configure the Full Distribution on a vanilla Wildfly Application Server."
+    pre: "Install and configure the Full Distribution on a vanilla WildFly Application Server."
 
 ---
 
 
-This document describes the installation of Camunda Platform and its components on a vanilla [Wildfly Application Server](http://www.wildfly.org) or JBoss EAP 7.
+This document describes the installation of Camunda Platform and its components on a vanilla [WildFly Application Server](http://www.wildfly.org) or JBoss EAP 7.
 
 {{< note title="Reading this Guide" class="info" >}}
 This guide uses a number of variables to denote common path names and constants:
 
-* `$WILDFLY_HOME` points to the JBoss EAP/Wildfly application server main directory.
-* `$WILDFLY_VERSION` denotes the version of Wildfly application server.
-* `$WILDFLY_DISTRIBUTION` represents the downloaded pre-packaged Camunda Platform distribution for Wildfly, e.g. `camunda-bpm-wildfly-$PLATFORM_VERSION.zip` or `camunda-bpm-wildfly-$PLATFORM_VERSION.tar.gz`.
+* `$WILDFLY_HOME` points to the JBoss EAP/WildFly application server main directory.
+* `$WILDFLY_VERSION` denotes the version of WildFly application server.
+* `$WILDFLY_DISTRIBUTION` represents the downloaded pre-packaged Camunda Platform distribution for WildFly, e.g. `camunda-bpm-wildfly-$PLATFORM_VERSION.zip` or `camunda-bpm-wildfly-$PLATFORM_VERSION.tar.gz`.
 * `$PLATFORM_VERSION` denotes the version of the Camunda Platform you want to install or already have installed, e.g. `7.0.0`.
 {{< /note >}}
 
 ## Setup
 
-* For Wildfly 27  and above, please download the [Camunda WildFly distribution](https://downloads.camunda.cloud/release/camunda-bpm/wildfly/).
-* For Wildfly ≤26 / JBoss EAP 7, please download the [`camunda-wildfly26-modules`](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/wildfly/camunda-wildfly26-modules/).
+* For WildFly 27 and above, download the [Camunda WildFly distribution](https://downloads.camunda.cloud/release/camunda-bpm/wildfly/).
+* For WildFly ≤26 / JBoss EAP 7, download the [`camunda-wildfly26-modules`](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/wildfly/camunda-wildfly26-modules/).
 
 ### Copy Modules
 
-Copy the modules from the `modules/` folder of the Camunda distribution, or extract the `camunda-wildfly-modules` archive, to the `$WILDFLY_HOME/modules/` of your Wildfly application server.
+Copy the modules from the `modules/` folder of the Camunda distribution, or extract the `camunda-wildfly-modules` archive, to the `$WILDFLY_HOME/modules/` of your WildFly application server.
 
 {{< note title="Replace H2 Database" >}}
 The WildFly distribution ships a different version of the H2 database than the one that is shipped with Wildfly itself.
@@ -150,19 +150,19 @@ These links point you to resources for other databases:
 This section describes how to install optional dependencies. None of these are required to work with the core platform. Before continuing, make sure that the Camunda Platform is already installed according to [this step]({{< relref "#setup" >}}) for WildFly / JBoss EAP 7.
 
 
-### Cockpit, Tasklist and Admin
+### Cockpit, Tasklist, and Admin
 
 The following steps are required to deploy the web application:
 
 1. Download the Camunda web application that contains the web applications from our Maven Artifactory.
     Alternatively, switch to the private repository for the enterprise version (credentials from license required).
-    * For [Wildfly 27+](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-wildfly/), the name of the artifact is `$PLATFORM_VERSION/camunda-webapp-wildfly-$PLATFORM_VERSION.war`.
-    * For [Wildfly ≤26 / JBoss EAP 7](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-jboss/), the name of the artifact is `$PLATFORM_VERSION/camunda-webapp-jboss-$PLATFORM_VERSION.war`.
+    * For [WildFly 27+](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-wildfly/), the name of the artifact is `$PLATFORM_VERSION/camunda-webapp-wildfly-$PLATFORM_VERSION.war`.
+    * For [WildFly ≤26 / JBoss EAP 7](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-jboss/), the name of the artifact is `$PLATFORM_VERSION/camunda-webapp-jboss-$PLATFORM_VERSION.war`.
 2. Optionally, you may change the context path to which the application will be deployed (default is `/camunda`).
     Edit the file `WEB-INF/jboss-web.xml` in the war file and update the `context-root` element accordingly.
 3. Copy the war file to `$WILDFLY_HOME/standalone/deployments`.
-4. Startup Wildfly.
-5. Access Cockpit, Tasklist and Admin via `/camunda/app/cockpit`, `/camunda/app/tasklist` and `/camunda/app/admin`, or under the context path you configured.
+4. Startup WildFly.
+5. Access Cockpit, Tasklist, and Admin via `/camunda/app/cockpit`, `/camunda/app/tasklist` and `/camunda/app/admin`, or under the context path you configured.
 
 
 ### REST API
@@ -171,12 +171,12 @@ The following steps are required to deploy the REST API:
 
 1. Download the REST API web application archive from our Maven Artifactory.
    Alternatively, switch to the private repository for the enterprise version (credentials from license required).
-    * For [Wildfly 27+](https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/camunda-engine-rest-jakarta/), the name of the artifact is `$PLATFORM_VERSION/camunda-engine-rest-jakarta-$PLATFORM_VERSION-wildfly.war`.
-    * For [Wildfly ≤26 / JBoss EAP 7](https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/camunda-engine-rest/), the name of the artifact is `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION-wildfly.war`.
+    * For [WildFly 27+](https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/camunda-engine-rest-jakarta/), the name of the artifact is `$PLATFORM_VERSION/camunda-engine-rest-jakarta-$PLATFORM_VERSION-wildfly.war`.
+    * For [WildFly ≤26 / JBoss EAP 7](https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/camunda-engine-rest/), the name of the artifact is `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION-wildfly.war`.
 2. Optionally, you may change the context path to which the REST API will be deployed (default is `/engine-rest`).
    Edit the file `WEB-INF/jboss-web.xml` in the war file and update the `context-root` element accordingly.
 3. Copy the war file to `$WILDFLY_HOME/standalone/deployments`.
-4. Startup Wildfly.
+4. Startup WildFly.
 5. Access the REST API on the context path you configured.
    For example, <a href="http://localhost:8080/engine-rest/engine">http://localhost:8080/engine-rest/engine</a> should return the names of all engines of the platform,
    provided that you deployed the application in the context `/engine-rest`.
