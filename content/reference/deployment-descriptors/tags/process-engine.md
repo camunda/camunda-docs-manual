@@ -838,6 +838,13 @@ The following is a list with the most commonly used process engine configuration
     </td>
   </tr>
 
+  <tr id="webappsAuthenticationLoggingEnabled">
+    <td><a name="webappsAuthenticationLoggingEnabled"></a><code>webappsAuthenticationLoggingEnabled</code></td>
+    <td>Boolean</td>
+    <td>Set to <code>true</code> to enable authentication logging in the Camunda web apps (Cockpit, Tasklist, and Admin). When enabled, the Camunda web apps will produce log statements in the application log for each user initiated log in and log out event. The name of the logger is <code>org.camunda.bpm.webapp</code>.
+    </td>
+  </tr>
+
   <tr>
     <td><a name="queryMaxResultsLimit"></a><code>queryMaxResultsLimit</code></td>
     <td>Integer</td>
