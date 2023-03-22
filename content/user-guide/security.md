@@ -87,6 +87,7 @@ In Camunda, you can enable authentication logging in the Camunda web apps by set
 The following events produce log statements:
 * Successful log in with valid credentials
 * Failed log in with wrong password
+* Failed log in with insufficient authorization
 * Failed log in with non-existing username
 * Successful log out
 
