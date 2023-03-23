@@ -34,6 +34,15 @@ Furthermore, the engine classes and Jackson's `com.fasterxml.jackson.jaxrs:jacks
   <classifier>classes</classifier>
 </dependency>
 ```
+For Jakarta EE 9+ containers (like WildFly 27+), use the following dependency instead:
+
+```xml
+<dependency>
+  <groupId>org.camunda.bpm</groupId>
+  <artifactId>camunda-engine-rest-jakarta</artifactId>
+  <classifier>classes</classifier>
+</dependency>
+```
 
 **Step 2:** Add the REST resources that you need to your JAX-RS application. Example:
 

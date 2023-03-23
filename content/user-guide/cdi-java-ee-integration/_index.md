@@ -10,13 +10,15 @@ menu:
 
 ---
 
-The camunda-engine-cdi module provides programming model integration with CDI (Context and Dependency Injection). CDI is the Java EE 6 standard for Dependency Injection. The camunda-engine-cdi integration leverages both the configuration of the Camunda engine and the extensibility of CDI. The most prominent features are:
+The `camunda-engine-cdi` and `camunda-engine-cdi-jakarta` modules provide programming model integration with CDI (Context and Dependency Injection).
+CDI is the Jakarta EE/Java EE standard for Dependency Injection. The Camunda CDI integration leverages both the configuration of the Camunda engine
+and the extensibility of CDI. The most prominent features are:
 
- * A custom El-Resolver for resolving CDI beans (including EJBs) from the process,
- * Support for @BusinessProcessScoped beans (CDI beans, the lifecycle of which are bound to a process instance),
- * Declarative control over a process instance using annotations,
- * The Process Engine is hooked-up to the CDI event bus,
- * Works with both Java EE and Java SE,
+ * A custom El-Resolver for resolving CDI beans (including EJBs) from the process.
+ * Support for `@BusinessProcessScoped` beans (CDI beans, the lifecycle of which are bound to a process instance).
+ * Declarative control over a process instance using annotations.
+ * The Process Engine is hooked-up to the CDI event bus.
+ * Works with Jakarta EE, Java EE, and Java SE.
  * Support for unit testing.
 
 {{< note title="Quarkus Engine Extension" class="info" >}}
@@ -26,7 +28,7 @@ Read about the limitations in the [Quarkus Integration]({{< ref "/user-guide/qua
 
 # Maven Dependency
 
-To use the camunda-engine-cdi module inside your application, you must include the following Maven dependency:
+To use the `camunda-engine-cdi` module inside your application, you must include the following Maven dependency:
 
 {{< note title="" class="info" >}}
   Please import the [Camunda BOM](/get-started/apache-maven/) to ensure correct versions for every Camunda project.
@@ -39,7 +41,14 @@ To use the camunda-engine-cdi module inside your application, you must include t
 </dependency>
 ```
 
-Replace 'x' with your Camunda Platform version.
+For Jakarta EE 9+ containers, use the following dependency instead:
+
+```xml
+<dependency>
+  <groupId>org.camunda.bpm</groupId>
+  <artifactId>camunda-engine-cdi-jakarta</artifactId>
+</dependency>
+```
 
 {{< note title="" class="info" >}}
   There is a [project template for Maven]({{< ref "/user-guide/process-applications/maven-archetypes.md" >}}) called `camunda-archetype-ejb-war`, which gives you a complete running project, including CDI integration.

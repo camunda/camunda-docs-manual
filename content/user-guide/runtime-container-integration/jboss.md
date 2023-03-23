@@ -126,9 +126,9 @@ public void setMyCustomProperty(boolean boolean) {
 
   ```console
   Caused by: org.camunda.bpm.engine.ProcessEngineException: Could not load 'foo.bar': the class must be visible from the camunda-wildfly-subsystem module.
-      at org.camunda.bpm.container.impl.jboss.service.MscManagedProcessEngineController.createProcessEngineConfiguration(MscManagedProcessEngineController.java:187) [camunda-wildfly-subsystem-7.16.0.jar:]
-      at org.camunda.bpm.container.impl.jboss.service.MscManagedProcessEngineController.startProcessEngine(MscManagedProcessEngineController.java:138) [camunda-wildfly-subsystem-7.16.0.jar:]
-      at org.camunda.bpm.container.impl.jboss.service.MscManagedProcessEngineController$3.run(MscManagedProcessEngineController.java:126) [camunda-wildfly-subsystem-7.16.0.jar:]
+      at org.camunda.bpm.container.impl.jboss.service.MscManagedProcessEngineController.createProcessEngineConfiguration(MscManagedProcessEngineController.java:187) [camunda-wildfly-subsystem-{{< minor-version >}}.0.jar:]
+      at org.camunda.bpm.container.impl.jboss.service.MscManagedProcessEngineController.startProcessEngine(MscManagedProcessEngineController.java:138) [camunda-wildfly-subsystem-{{< minor-version >}}.0.jar:]
+      at org.camunda.bpm.container.impl.jboss.service.MscManagedProcessEngineController$3.run(MscManagedProcessEngineController.java:126) [camunda-wildfly-subsystem-{{< minor-version >}}.0.jar:]
   ```
 
 {{< /note >}}
@@ -206,7 +206,9 @@ If a process engine is named "engine1", it will be available using the name `jav
 Note that when looking up the process engine, using a declarative mechanism (like `@Resource` or referencing the resource in a deployment descriptor) is preferred over a programmatic way. The declarative mechanism makes the application server aware of our dependency on the Process Engine Service and allows it to manage that dependency for us. See also: [Managing Service Dependencies]({{< relref "#explicit-service-dependencies" >}}).
 A declarative mechanism like `@Resource` could be
 
-    @Resource(mappedName = "java:global/camunda-bpm-platform/process-engine/$PROCESS_ENGINE_NAME"
+```java
+@Resource(mappedName = "java:global/camunda-bpm-platform/process-engine/$PROCESS_ENGINE_NAME")
+```
 
 {{< note title="Look Up a Process Engine From JNDI Using Spring" class="warning" >}}
   On Wildfly, Spring users should always [create a resource-ref for the process engine in web.xml]({{< relref "#manage-service-dependencies" >}})</a> and then lookup the local name in the `java:comp/env/` namespace. [For an example, see this Quickstart](https://github.com/camunda/camunda-bpm-examples/tree/master/deployment/spring-wildfly-non-pa)</a>
@@ -313,7 +315,7 @@ By default, the application server will not add this module to the classpath of 
 
 ## Implicit Module Dependencies with the Process Application API
 
-When using the Process Application API (i.e., when deploying either a ServletProcessApplication or an EjbProcessApplication), the Camunda Wildfly subsystem will detect the `@ProcessApplication` class in the deployment and automatically add a module dependency between the application and the process engine module. As a result, we don't have to declare the dependency ourselves. It is called an [implicit module dependency](https://docs.wildfly.org/23/Developer_Guide.html#Implicit_module_dependencies_for_deployments) because it is not explicitly declared but can be derived by inspecting the application and seeing that it provides a `@ProcessApplication` class.
+When using the Process Application API (i.e., when deploying either a servlet process application or an EJB process application), the Camunda Wildfly subsystem will detect the `@ProcessApplication` class in the deployment and automatically add a module dependency between the application and the process engine module. As a result, we don't have to declare the dependency ourselves. It is called an [implicit module dependency](https://docs.wildfly.org/23/Developer_Guide.html#Implicit_module_dependencies_for_deployments) because it is not explicitly declared but can be derived by inspecting the application and seeing that it provides a `@ProcessApplication` class.
 
 
 ## Explicit Module Dependencies
@@ -321,22 +323,24 @@ When using the Process Application API (i.e., when deploying either a ServletPro
 If an application does not use the Process Application API but still needs the process engine classes to be added to its classpath, an explicit module dependency is required.
 Wildfly offers multiple [different mechanisms for achieving this](https://docs.wildfly.org/23/Developer_Guide.html#Class_Loading_in_WildFly). The simplest way is to add a manifest entry to the MANIFEST.MF file of the deployment. The following example illustrates how to generate such a dependency using the maven WAR plugin:
 
-    <build>
-       ...
-       <plugins>
-         <plugin>
-           <groupId>org.apache.maven.plugins</groupId>
-           <artifactId>maven-war-plugin</artifactId>
-           <configuration>
-              <archive>
-                 <manifestEntries>
-                    <Dependencies>org.camunda.bpm.camunda-engine</Dependencies>
-                 </manifestEntries>
-              </archive>
-           </configuration>
-         </plugin>
-       </plugins>
-    </build>
+```xml
+<build>
+   ...
+   <plugins>
+     <plugin>
+       <groupId>org.apache.maven.plugins</groupId>
+       <artifactId>maven-war-plugin</artifactId>
+       <configuration>
+          <archive>
+             <manifestEntries>
+                <Dependencies>org.camunda.bpm.camunda-engine</Dependencies>
+             </manifestEntries>
+          </archive>
+       </configuration>
+     </plugin>
+   </plugins>
+</build>
+```
 
 As a result, the Application Service will add the process engine module to the classpath of the application.
 
@@ -356,7 +360,7 @@ There are three applications deployed and two process engine services exist. App
 
 ## Implicit Service Dependencies
 
-When using the Process Application API (i.e., when deploying either a ServletProcessApplication or an EjbProcessApplication), the Camunda Wildfly subsystem will detect the `@ProcessApplication` class in the deployment and automatically add a service dependency between the process application component and the process engine module. This ensures that the process engine is available when the process application is deployed.
+When using the Process Application API (i.e., when deploying either a servlet process application or an EJB process application), the Camunda Wildfly subsystem will detect the `@ProcessApplication` class in the deployment and automatically add a service dependency between the process application component and the process engine module. This ensures that the process engine is available when the process application is deployed.
 
 
 ## Explicit Service Dependencies
@@ -368,25 +372,29 @@ If an application does not use the Process Application API but still needs to in
 
 The simplest way to add an explicit dependency on the process engine is to bind the process engine in the application's local naming space. For instance, we can add the following resource reference to the `web.xml` file of a web application:
 
-    <resource-ref>
-      <res-ref-name>processEngine/default</res-ref-name>
-      <res-type>org.camunda.bpm.engine.ProcessEngine</res-type>
-      <mapped-name>java:global/camunda-bpm-platform/process-engine/default</mapped-name>
-    </resource-ref>
+```xml
+<resource-ref>
+  <res-ref-name>processEngine/default</res-ref-name>
+  <res-type>org.camunda.bpm.engine.ProcessEngine</res-type>
+  <mapped-name>java:global/camunda-bpm-platform/process-engine/default</mapped-name>
+</resource-ref>
+```
 
 This way, the global process engine resource `java:global/camunda-bpm-platform/process-engine/default` is available locally under the name `processEngine/default`. Since the application server is aware of this dependency, it will make sure the Process Engine Service exists before starting the application and it will stop the application if the process engine is removed.
 
-The same effect can be achieved using the @Resource Annotation:
+The same effect can be achieved using the `@Resource` Annotation:
 
-    @Stateless
-    public class PaComponent {
+```java
+@Stateless
+public class PaComponent {
 
-      @Resource(mappedName="java:global/camunda-bpm-platform/process-engine/default")
-      private ProcessEngine processEngine;
+  @Resource(mappedName="java:global/camunda-bpm-platform/process-engine/default")
+  private ProcessEngine processEngine;
 
-      @Produces
-      public ProcessEngine getProcessEngine() {
-        return processEngine;
-      }
+  @Produces
+  public ProcessEngine getProcessEngine() {
+    return processEngine;
+  }
 
-    }
+}
+```

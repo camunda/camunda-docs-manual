@@ -25,6 +25,7 @@ This document guides you through the update from Camunda Platform `7.18.x` to `7
 8. For developers: [Java External Task Client: Deprecated exception types removed](#java-external-task-client-deprecated-exception-types-removed)
 9. For developers: [Consolidated REST API responses for a missing process engine](#consolidated-rest-api-responses-for-a-missing-process-engine)
 10. For developers: [Multi-Tenancy enabled for User operation logs](#multi-tenancy-enabled-for-user-operation-logs)
+11. For administrators and developers: [Update to WildFly 27 Application Server](#update-to-wildfly-27-application-server)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.18.
 
@@ -133,3 +134,47 @@ Tenant information is populated for User operation logs from 7.19 onwards, user 
 * Adding/Clearing a user operation log annotation
 
 In case you want to avoid tenant check, please refer to [Disable the transparent access restrictions]({{< ref "/user-guide/process-engine/multi-tenancy.md#disable-the-transparent-access-restrictions" >}}).
+
+# Update to WildFly 27 Application Server
+
+With this release, we support WildFly 27, the new default pre-packaged WildFly distro. It replaces Java EE with Jakarta EE APIs. 
+If you prefer to stay on WildFly ≤26 or JBoss EAP 7, you can still download the Java EE compliant [modules][wildfly26-modules], [web application][wildfly26-webapp], and [REST API][wildfly26-rest-api]. 
+
+To work with Wildfly 27, consider the following when migrating your process applications and replacing artifacts on the application server:
+
+[wildfly26-modules]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/wildfly/camunda-wildfly26-modules/
+[wildfly26-webapp]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-jboss/
+[wildfly26-rest-api]: https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/camunda-engine-rest/
+
+## Migrate process applications
+
+* Replace Java EE class references (`javax.*`) with Jakarta class references (`jakarta.*`)
+  * You might have a look at [`org.eclipse.transformer:transformer-maven-plugin`](https://github.com/eclipse/transformer)
+* Replace Camunda class references:
+  * `org.camunda.bpm.application.impl.EjbProcessApplication` → `org.camunda.bpm.application.impl.JakartaEjbProcessApplication`
+  * `org.camunda.bpm.application.impl.ServletProcessApplicationDeployer` → `org.camunda.bpm.application.impl.JakartaServletProcessApplicationDeployer`
+  * `org.camunda.bpm.application.impl.ServletProcessApplication` → `org.camunda.bpm.application.impl.JakartaServletProcessApplication`
+  * `org.camunda.bpm.engine.impl.cfg.jta.JtaTransactionContext` → `org.camunda.bpm.engine.impl.cfg.jta.JakartaTransactionContext`
+  * `org.camunda.bpm.engine.impl.cfg.jta.JtaTransactionContextFactory` → `org.camunda.bpm.engine.impl.cfg.jta.JakartaTransactionContextFactory`
+  * `org.camunda.bpm.engine.impl.cfg.JtaProcessEngineConfiguration` → `org.camunda.bpm.engine.impl.cfg.JakartaTransactionProcessEngineConfiguration`
+  * `org.camunda.bpm.engine.impl.interceptor.JtaTransactionInterceptor` → `org.camunda.bpm.engine.impl.interceptor.JakartaTransactionInterceptor`
+* Replace Camunda Maven dependencies:
+  * `org.camunda.bpm.javaee:camunda-ejb-client` → `org.camunda.bpm.javaee:camunda-ejb-client-jakarta`
+  * `org.camunda.bpm:camunda-engine-cdi` → `org.camunda.bpm:camunda-engine-cdi-jakarta`
+
+## Replace artifacts on the application server
+
+You can find the new artifacts either in the current WildFly distribution or in the [`camunda-wildfly-modules`](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/wildfly/camunda-wildfly-modules/).
+
+### Replace modules
+
+* `$WILDFLY_HOME/modules/org/camunda/spin/camunda-spin-dataformat-xml-dom` → `$WILDFLY_HOME/modules/org/camunda/spin/camunda-spin-dataformat-xml-dom-jakarta`
+* Camunda WildFly Subsystem under `$WILDFLY_HOME/modules/org/camunda/bpm/$APP_SERVER/camunda-wildfly-subsystem`
+  
+### Replace web application (Cockpit, Admin, Tasklist, Welcome) deployment
+
+Replace the artifact `camunda-webapp-jboss-$PLATFORM_VERSION.war` with `camunda-webapp-wildfly-$PLATFORM_VERSION.war` under `$WILDFLY_HOME/standalone/deployments`.
+
+### Replace REST API deployment
+
+Replace the artifact `camunda-engine-rest-$PLATFORM_VERSION-wildfly.war` with `camunda-engine-rest-jakarta-$PLATFORM_VERSION-wildfly.war` under `$WILDFLY_HOME/standalone/deployments`.

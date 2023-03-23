@@ -1,6 +1,6 @@
 ---
 
-title: 'Install the Full Distribution on a JBoss EAP/Wildfly Application Server manually '
+title: 'Install the Full Distribution on a JBoss EAP/WildFly Application Server manually '
 weight: 20
 
 menu:
@@ -8,29 +8,30 @@ menu:
     name: "Manual Installation"
     identifier: "installation-guide-full-jboss-install-vanilla"
     parent: "installation-guide-full-jboss"
-    pre: "Install and configure the Full Distribution on a vanilla Wildfly Application Server."
+    pre: "Install and configure the Full Distribution on a vanilla WildFly Application Server."
 
 ---
 
 
-This document describes the installation of Camunda Platform and its components on a vanilla [Wildfly Application Server / JBoss EAP 7](http://www.wildfly.org).
+This document describes the installation of Camunda Platform and its components on a vanilla [WildFly Application Server](http://www.wildfly.org) or JBoss EAP 7.
 
 {{< note title="Reading this Guide" class="info" >}}
 This guide uses a number of variables to denote common path names and constants:
-`$WILDFLY_HOME` points to the JBoss EAP/Wildfly application server main directory.
-`$PLATFORM_VERSION` denotes the version of the Camunda Platform you want to install or already have installed, e.g. `7.0.0`.
+
+* `$WILDFLY_HOME` points to the JBoss EAP/WildFly application server main directory.
+* `$WILDFLY_VERSION` denotes the version of WildFly application server.
+* `$WILDFLY_DISTRIBUTION` represents the downloaded pre-packaged Camunda Platform distribution for WildFly, e.g. `camunda-bpm-wildfly-$PLATFORM_VERSION.zip` or `camunda-bpm-wildfly-$PLATFORM_VERSION.tar.gz`.
+* `$PLATFORM_VERSION` denotes the version of the Camunda Platform you want to install or already have installed, e.g. `7.0.0`.
 {{< /note >}}
 
+## Setup
 
-# Required Setup for Wildfly / JBoss EAP 7
+* For WildFly 27 and above, download the [Camunda WildFly distribution](https://downloads.camunda.cloud/release/camunda-bpm/wildfly/).
+* For WildFly ≤26 / JBoss EAP 7, download the [`camunda-wildfly26-modules`](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/wildfly/camunda-wildfly26-modules/).
 
-This section explains how to perform the required setup steps for Wildfly Application Server.
+### Copy Modules
 
-First, you need to download the [Camunda WildFly distribution](https://downloads.camunda.cloud/release/camunda-bpm/wildfly/).
-
-## Copy Modules
-
-Copy the modules from the `modules/` folder of the Camunda distribution, or extract the `camunda-wildfly-modules` archive, to the `$WILDFLY_HOME/modules/` of your Wildfly application server.
+Copy the modules from the `modules/` folder of the Camunda distribution, or extract the `camunda-wildfly-modules` archive, to the `$WILDFLY_HOME/modules/` of your WildFly application server.
 
 {{< note title="Replace H2 Database" >}}
 The WildFly distribution ships a different version of the H2 database than the one that is shipped with Wildfly itself.
@@ -44,7 +45,7 @@ $WILDFLY_HOME/modules/system/layers/base/com/h2database
 {{< /note >}}
 
 
-## Adjust the Configuration
+### Adjust the Configuration
 
 Next, a number of changes need to be performed in the application server's configuration file.
 In most cases this is `$WILDFLY_HOME/standalone/configuration/standalone.xml`.
@@ -52,7 +53,7 @@ In most cases this is `$WILDFLY_HOME/standalone/configuration/standalone.xml`.
 Add the Camunda subsystem as extension:
 
 ```xml
-<server xmlns="urn:jboss:domain:2.1">
+<server xmlns="urn:jboss:domain:20.0">
   <extensions>
     ...
     <extension module="org.camunda.bpm.wildfly.camunda-wildfly-subsystem"/>
@@ -111,26 +112,26 @@ The below example also configures the default process engine.
 ```
 
 
-## Create the Database Schema
+### Create the Database Schema
 
 By default, the database schema is automatically created in an H2 database when the engine starts up for the first time. If you do not want to use the H2 database, you have to
 
 * Create a database schema for the Camunda Platform yourself.
 * Install the database schema to create all required tables and default indices using our [database schema installation guide]({{< ref "/installation/database-schema.md" >}}).
 
-When you create the tables manually, then you can also configure the engine to **not** create tables at startup by setting the `isAutoSchemaUpdate` property to `false` (or, in case you are using Oracle, to `noop`). In WildFly, this is done in the `standalone.xml`, located in the `$WildFly_DISTRIBUTION\server\WildFly-$VERSION\standalone\configuration\` folder.
+When you create the tables manually, then you can also configure the engine to **not** create tables at startup by setting the `isAutoSchemaUpdate` property to `false` (or, in case you are using Oracle, to `noop`). In WildFly, this is done in the `standalone.xml`, located in the `$WILDFLY_DISTRIBUTION\server\wildfly-$WILDFLY_VERSION\standalone\configuration\` folder.
 
-## Create a Datasource
+### Create a Datasource
 
 You need to create a datasource named `java:jboss/datasources/ProcessEngine`.
-The following datasource shows an example of using the built in H2 database for this, using a file within the `./` folder,
+The following datasource shows an example of using the built-in H2 database for this, using a file within the `./` folder,
 typically `bin`.
 
 ```xml
 <datasource jta="true" enabled="true" use-java-context="true" use-ccm="true"
             jndi-name="java:jboss/datasources/ProcessEngine"
             pool-name="ProcessEngine">
-  <connection-url>jdbc:h2:./camunda-h2-dbs/process-engine;DB_CLOSE_DELAY=-1;MVCC=TRUE;DB_CLOSE_ON_EXIT=FALSE</connection-url>
+  <connection-url>jdbc:h2:./camunda-h2-dbs/process-engine;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE</connection-url>
   <driver>h2</driver>
   <security>
     <user-name>sa</user-name>
@@ -144,43 +145,44 @@ These links point you to resources for other databases:
 * [How to configure an Oracle database](http://www.ironjacamar.org/doc/userguide/1.0/en-US/html_single/#ex_datasources_oracle)
 * [How to configure a MySQL database](http://www.ironjacamar.org/doc/userguide/1.0/en-US/html_single/#ex_datasources_mysql)
 
+## Optional Components
 
-# Optional Components
-
-This section describes how to install optional dependencies. None of these are required to work with the core platform. Before continuing, make sure that the Camunda Platform is already installed according to [this step]({{< relref "#required-setup-for-wildfly-jboss-eap-7" >}}) for WildFly / JBoss EAP 7.
+This section describes how to install optional dependencies. None of these are required to work with the core platform. Before continuing, make sure that the Camunda Platform is already installed according to [this step]({{< relref "#setup" >}}) for WildFly / JBoss EAP 7.
 
 
-## Cockpit, Tasklist and Admin
+### Cockpit, Tasklist, and Admin
 
 The following steps are required to deploy the web application:
 
-1. Download the Camunda web application that contains both applications from our [Maven Nexus Server](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-jboss/).
+1. Download the Camunda web application that contains the web applications from our Maven Artifactory.
     Alternatively, switch to the private repository for the enterprise version (credentials from license required).
-    Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-jboss-$PLATFORM_VERSION.war`.
+    * For [WildFly 27+](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-wildfly/), the name of the artifact is `$PLATFORM_VERSION/camunda-webapp-wildfly-$PLATFORM_VERSION.war`.
+    * For [WildFly ≤26 / JBoss EAP 7](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-jboss/), the name of the artifact is `$PLATFORM_VERSION/camunda-webapp-jboss-$PLATFORM_VERSION.war`.
 2. Optionally, you may change the context path to which the application will be deployed (default is `/camunda`).
     Edit the file `WEB-INF/jboss-web.xml` in the war file and update the `context-root` element accordingly.
 3. Copy the war file to `$WILDFLY_HOME/standalone/deployments`.
-4. Startup Wildfly.
-5. Access Cockpit, Tasklist and Admin via `/camunda/app/cockpit`, `/camunda/app/tasklist` and `/camunda/app/admin`, or under the context path you configured.
+4. Startup WildFly.
+5. Access Cockpit, Tasklist, and Admin via `/camunda/app/cockpit`, `/camunda/app/tasklist` and `/camunda/app/admin`, or under the context path you configured.
 
 
-## REST API
+### REST API
 
 The following steps are required to deploy the REST API:
 
-1. Download the REST API web application archive from our [Maven Nexus Server](https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/camunda-engine-rest/).
+1. Download the REST API web application archive from our Maven Artifactory.
    Alternatively, switch to the private repository for the enterprise version (credentials from license required).
-   Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION.war`.
+    * For [WildFly 27+](https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/camunda-engine-rest-jakarta/), the name of the artifact is `$PLATFORM_VERSION/camunda-engine-rest-jakarta-$PLATFORM_VERSION-wildfly.war`.
+    * For [WildFly ≤26 / JBoss EAP 7](https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/camunda-engine-rest/), the name of the artifact is `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION-wildfly.war`.
 2. Optionally, you may change the context path to which the REST API will be deployed (default is `/engine-rest`).
    Edit the file `WEB-INF/jboss-web.xml` in the war file and update the `context-root` element accordingly.
 3. Copy the war file to `$WILDFLY_HOME/standalone/deployments`.
-4. Startup Wildfly.
+4. Startup WildFly.
 5. Access the REST API on the context path you configured.
    For example, <a href="http://localhost:8080/engine-rest/engine">http://localhost:8080/engine-rest/engine</a> should return the names of all engines of the platform,
    provided that you deployed the application in the context `/engine-rest`.
 
 
-## Camunda Connect Plugin
+### Camunda Connect Plugin
 
 Add the following modules (if not existing) from the folder `$WILDFLY_DISTRIBUTION/modules/` to the folder `$WILDFLY_HOME/modules/`:
 
@@ -209,17 +211,20 @@ To activate Camunda Connect functionality for a process engine, a process engine
 ```
 
 
-## Camunda Spin
+### Camunda Spin
 
-The Camunda Spin plugin can be use to extend the engine functionality to de-/serialize object variables from and to JSON and XML. For more information, see the [Spin Reference]({{< ref "/reference/spin/_index.md" >}}).
+You can use the Camunda Spin plugin to extend the engine functionality to de-/serialize object variables from and to JSON and XML. For more information, see the [Spin Reference]({{< ref "/reference/spin/_index.md" >}}).
 
-### Setup Spin
+#### Setup Spin
 
 Add the following modules (if not existing) from the folder `$WILDFLY_DISTRIBUTION/modules/` to the folder `$WILDFLY_HOME/modules/`:
 
 * `org/camunda/spin/camunda-spin-core`
 * `org/camunda/spin/camunda-spin-dataformat-json-jackson`
+* `org/camunda/spin/camunda-spin-dataformat-xml-dom-jakarta`
+  * **Heads-up:** add this module only for Wildfly 27+.
 * `org/camunda/spin/camunda-spin-dataformat-xml-dom`
+  * **Heads-up:** add this module only for Wildfly ≤26 / JBoss EAP 7.
 * `org/camunda/bpm/camunda-engine-plugin-spin`
 * `org/camunda/commons/camunda-commons-utils`
 * `com/fasterxml/jackson/core/jackson-core`
@@ -248,7 +253,7 @@ In order to activate Camunda Spin functionality for a process engine, a process 
 </subsystem>
 ```
 
-### Problems with Jackson Annotations
+#### Problems with Jackson Annotations
 
 The usage of Jackson annotations on WildFly together with the Camunda Spin JSON serialization can lead to problems.
 WildFly implicitly adds the JAX-RS subsystem to each new deployment, if JAX-RS annotations are present (see the WildFly [documentation](https://docs.wildfly.org/23/Developer_Guide.html#Implicit_module_dependencies_for_deployments) for more information).
@@ -268,18 +273,18 @@ See one of the following ways to fix this:
 
 See this [Forum Post](https://forum.camunda.org/t/camunda-json-marshalling-and-jsonignore/271/19) for other approaches and information.
 
-### Problem With Deployments Using the REST API
+#### Problem With Deployments Using the REST API
 
 Camunda Spin is not available in scripts if a process definition is deployed via REST API. Because Wildfly handles dependencies using its module system and camunda engine module has no module dependency on the spin module.
 
-## Groovy Scripting
+### Groovy Scripting
 
 Add the following modules (if not existing) from the folder `$WILDFLY_DISTRIBUTION/modules/` to the folder `$WILDFLY_HOME/modules/`:
 
 * `org/codehaus/groovy/groovy-all`
 
 
-## Freemarker Integration
+### Freemarker Integration
 
 Add the following modules (if not existing) from the folder `$WILDFLY_DISTRIBUTION/modules/` to the folder `$WILDFLY_HOME/modules/`:
 
@@ -288,7 +293,7 @@ Add the following modules (if not existing) from the folder `$WILDFLY_DISTRIBUTI
 * `org/camunda/commons/camunda-commons-logging`
 * `org/camunda/commons/camunda-commons-utils`
 
-## GraalVM JavaScript Integration
+### GraalVM JavaScript Integration
 
 Add the following modules (if not existing) from the folder `$WILDFLY_DISTRIBUTION/modules/` to the folder `$WILDFLY_HOME/modules/`:
 

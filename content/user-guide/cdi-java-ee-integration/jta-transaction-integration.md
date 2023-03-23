@@ -12,14 +12,17 @@ menu:
 
 ## Embedded Process Engine
 
-The process engine transaction management can integrate with JTA. To use JTA transaction
-manager integration, you need to use the
+The process engine transaction management can integrate with JTA and Jakarta Transactions. 
+To use transaction manager integration, you need to use the
 
-* `org.camunda.bpm.engine.impl.cfg.JtaProcessEngineConfiguration` for JTA integration only
-* `org.camunda.bpm.engine.cdi.CdiJtaProcessEngineConfiguration` for additional CDI expression
-  resolving support.
+* `org.camunda.bpm.engine.impl.cfg.JtaProcessEngineConfiguration` for JTA integration only.
+* `org.camunda.bpm.engine.impl.cfg.JakartaTransactionProcessEngineConfiguration` for Jakarta Transactions integration only.
+* `org.camunda.bpm.engine.cdi.CdiJtaProcessEngineConfiguration` for additional CDI expression resolution support.
   
-The process engine requires access to an implementation of `javax.transaction.TransactionManager`. Not all application servers provide such an implementation. Most notably, IBM WebSphere and Oracle WebLogic historically did not provide this  implementation. To achieve JTA transaction integration on these containers, users should use the Spring Framework Abstraction and configure the process engine using the [SpringProcessEngineConfiguration]({{< ref "/user-guide/spring-framework-integration/_index.md">}}).
+The process engine requires access to an implementation of `javax.transaction.TransactionManager` or `jakarta.transaction.TransactionManager` respectively.
+Not all application servers provide such an implementation. Most notably, IBM WebSphere and Oracle WebLogic historically did not provide this  implementation.
+To achieve JTA transaction integration on these containers, users should use the Spring Framework Abstraction and configure the process engine using the 
+[SpringProcessEngineConfiguration]({{< ref "/user-guide/spring-framework-integration/_index.md">}}).
   
 {{< note title="" class="warning" >}}
   When you configure a transaction manager, make sure that it actually manages the data source that
@@ -29,7 +32,8 @@ The process engine requires access to an implementation of `javax.transaction.Tr
 
 ## Shared Process Engine
 
-The shared process engine distributions for Java EE Application Servers (Wildfly, JBoss, IBM WebSphere Application Server, Oracle WebLogic Application Server) provide JTA integration out of the box.
+The shared process engine distributions for Java EE and Jakarta EE Application Servers (Wildfly, JBoss EAP, IBM WebSphere Application Server, Oracle WebLogic Application Server)
+provide JTA or Jakarta Transactions integration out of the box.
 
 ## Example
 
@@ -57,7 +61,7 @@ public class MyBean {
 ## Using JTA transaction integration with CockroachDB
 
 Please see the documentation section on [external transaction management with CockroachDB]({{< ref "/user-guide/process-engine/database/cockroachdb-configuration.md#using-external-transaction-management-with-the-spring-java-ee-integrations" >}})
-to understand how to use the JTA Transaction Integration with CockroachDB.
+to understand how to use the transaction integration with CockroachDB.
 
 ## Using JTA transaction integration with WebSphere Liberty
 
