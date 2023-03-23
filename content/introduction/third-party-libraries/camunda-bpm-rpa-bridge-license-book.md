@@ -17,7 +17,19 @@ This page contains all the third-party libraries distributed with the Camunda Pl
 
 <div><details><summary>logback-classic@1.2.3(<a href="https://opensource.org/licenses/EPL-1.0">EPL 1.0</a>)</summary><pre>Copyright (C) 1999-2015, QOS.ch. All rights reserved.</pre></details></div>
 <div><details><summary>logback-core@1.2.3(<a href="https://opensource.org/licenses/EPL-1.0">EPL 1.0</a>)</summary><pre>Copyright (C) 1999-2015, QOS.ch. All rights reserved.</pre></details></div>
-<div><details><summary>jackson-annotations@2.11.0(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: various authors</pre></details></div>
+<div><details><summary>jackson-annotations@2.11.0(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Notice: # Jackson JSON processor
+Jackson is a high-performance, Free/Open Source JSON processing library.
+It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
+been in development since 2007.
+It is currently developed by a community of developers.
+## Licensing
+Jackson 2.x core and extension components are licensed under Apache License 2.0
+To find the details that apply to this artifact see the accompanying LICENSE file.
+## Credits
+A list of contributors may be found from CREDITS(-2.x) file, which is included
+in some artifacts (usually source distributions); but is always available
+from the source code management (SCM) system project uses.
+Copyright: various authors</pre></details></div>
 <div><details><summary>jackson-core@2.11.0(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: various authors: https://github.com/FasterXML/jackson-core/tree/master/release-notes
 Notice file:
 # Jackson JSON processor
