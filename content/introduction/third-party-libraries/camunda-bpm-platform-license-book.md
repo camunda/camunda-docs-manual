@@ -14,24 +14,240 @@ menu:
 # Java Dependencies
 <div><details><summary>logback-classic@1.2.11(<a href="https://opensource.org/licenses/EPL-1.0">EPL 1.0</a>)</summary><pre>Copyright (c) various contributors: https://github.com/qos-ch/logback/graphs/contributors</pre></details></div>
 <div><details><summary>logback-core@1.2.11(<a href="https://opensource.org/licenses/EPL-1.0">EPL 1.0</a>)</summary><pre>Copyright (c) various contributors: https://github.com/qos-ch/logback/graphs/contributors</pre></details></div>
-<div><details><summary>jackson-annotations@2.13.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) various contributors: https://github.com/FasterXML/jackson-annotations/graphs/contributors</pre></details></div>
-<div><details><summary>jackson-annotations@2.13.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) various contributors: https://github.com/FasterXML/jackson-annotations/graphs/contributors</pre></details></div>
-<div><details><summary>jackson-core@2.13.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) various contributors: https://github.com/FasterXML/jackson-core/blob/2.14/release-notes/CREDITS-2.x</pre></details></div>
-<div><details><summary>jackson-core@2.13.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) various contributors: https://github.com/FasterXML/jackson-core/blob/2.14/release-notes/CREDITS-2.x</pre></details></div>
-<div><details><summary>jackson-databind@2.13.2.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) various contributors: https://github.com/FasterXML/jackson-databind/blob/2.14/release-notes/CREDITS-2.x</pre></details></div>
-<div><details><summary>jackson-databind@2.13.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) various contributors: https://github.com/FasterXML/jackson-databind/blob/2.14/release-notes/CREDITS-2.x</pre></details></div>
-<div><details><summary>jackson-dataformat-csv@2.13.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) various contributors: https://github.com/FasterXML/jackson-dataformats-text/blob/2.14/release-notes/CREDITS-2.x</pre></details></div>
-<div><details><summary>jackson-dataformat-csv@2.13.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) various contributors: https://github.com/FasterXML/jackson-dataformats-text/blob/2.14/release-notes/CREDITS-2.x</pre></details></div>
-<div><details><summary>jackson-datatype-jdk8@2.13.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) various contributors: https://github.com/FasterXML/jackson-modules-java8/blob/2.14/release-notes/CREDITS-2.x</pre></details></div>
-<div><details><summary>jackson-datatype-jsr310@2.13.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) various contributors: https://github.com/FasterXML/jackson-modules-java8/blob/2.14/release-notes/CREDITS-2.x</pre></details></div>
-<div><details><summary>jackson-datatype-jsr310@2.13.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) various contributors: https://github.com/FasterXML/jackson-modules-java8/blob/2.14/release-notes/CREDITS-2.x</pre></details></div>
-<div><details><summary>jackson-jaxrs-base@2.13.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) various contributors: https://github.com/FasterXML/jackson-jaxrs-providers/blob/2.14/release-notes/CREDITS-2.x</pre></details></div>
-<div><details><summary>jackson-jaxrs-base@2.13.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) various contributors: https://github.com/FasterXML/jackson-jaxrs-providers/blob/2.14/release-notes/CREDITS-2.x</pre></details></div>
-<div><details><summary>jackson-jaxrs-json-provider@2.13.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) various contributors: https://github.com/FasterXML/jackson-jaxrs-providers/blob/2.14/release-notes/CREDITS-2.x</pre></details></div>
-<div><details><summary>jackson-jaxrs-json-provider@2.13.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) various contributors: https://github.com/FasterXML/jackson-jaxrs-providers/blob/2.14/release-notes/CREDITS-2.x</pre></details></div>
-<div><details><summary>jackson-module-jaxb-annotations@2.13.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) various contributors: https://github.com/FasterXML/jackson-modules-base/blob/2.14/release-notes/CREDITS-2.x</pre></details></div>
-<div><details><summary>jackson-module-jaxb-annotations@2.13.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) various contributors: https://github.com/FasterXML/jackson-modules-base/blob/2.14/release-notes/CREDITS-2.x</pre></details></div>
-<div><details><summary>jackson-module-parameter-names@2.13.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) various contributors: https://github.com/FasterXML/jackson-modules-java8/blob/2.14/release-notes/CREDITS-2.x</pre></details></div>
+<div><details><summary>jackson-annotations@2.13.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Notice: # Jackson JSON processor
+Jackson is a high-performance, Free/Open Source JSON processing library.
+It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
+been in development since 2007.
+It is currently developed by a community of developers.
+## Licensing
+Jackson 2.x core and extension components are licensed under Apache License 2.0
+To find the details that apply to this artifact see the accompanying LICENSE file.
+## Credits
+A list of contributors may be found from CREDITS(-2.x) file, which is included
+in some artifacts (usually source distributions); but is always available
+from the source code management (SCM) system project uses.
+Copyright (c) various contributors: https://github.com/FasterXML/jackson-annotations/graphs/contributors</pre></details></div>
+<div><details><summary>jackson-annotations@2.13.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Notice: # Jackson JSON processor
+Jackson is a high-performance, Free/Open Source JSON processing library.
+It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
+been in development since 2007.
+It is currently developed by a community of developers.
+## Licensing
+Jackson 2.x core and extension components are licensed under Apache License 2.0
+To find the details that apply to this artifact see the accompanying LICENSE file.
+## Credits
+A list of contributors may be found from CREDITS(-2.x) file, which is included
+in some artifacts (usually source distributions); but is always available
+from the source code management (SCM) system project uses.
+Copyright (c) various contributors: https://github.com/FasterXML/jackson-annotations/graphs/contributors</pre></details></div>
+<div><details><summary>jackson-core@2.13.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Notice: # Jackson JSON processor
+Jackson is a high-performance, Free/Open Source JSON processing library.
+It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
+been in development since 2007.
+It is currently developed by a community of developers.
+## Licensing
+Jackson 2.x core and extension components are licensed under Apache License 2.0
+To find the details that apply to this artifact see the accompanying LICENSE file.
+## Credits
+A list of contributors may be found from CREDITS(-2.x) file, which is included
+in some artifacts (usually source distributions); but is always available
+from the source code management (SCM) system project uses.
+Copyright (c) various contributors: https://github.com/FasterXML/jackson-core/blob/2.14/release-notes/CREDITS-2.x</pre></details></div>
+<div><details><summary>jackson-core@2.13.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Notice: # Jackson JSON processor
+Jackson is a high-performance, Free/Open Source JSON processing library.
+It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
+been in development since 2007.
+It is currently developed by a community of developers.
+## Licensing
+Jackson 2.x core and extension components are licensed under Apache License 2.0
+To find the details that apply to this artifact see the accompanying LICENSE file.
+## Credits
+A list of contributors may be found from CREDITS(-2.x) file, which is included
+in some artifacts (usually source distributions); but is always available
+from the source code management (SCM) system project uses.
+Copyright (c) various contributors: https://github.com/FasterXML/jackson-core/blob/2.14/release-notes/CREDITS-2.x</pre></details></div>
+<div><details><summary>jackson-databind@2.13.2.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Notice: # Jackson JSON processor
+Jackson is a high-performance, Free/Open Source JSON processing library.
+It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
+been in development since 2007.
+It is currently developed by a community of developers.
+## Licensing
+Jackson 2.x core and extension components are licensed under Apache License 2.0
+To find the details that apply to this artifact see the accompanying LICENSE file.
+## Credits
+A list of contributors may be found from CREDITS(-2.x) file, which is included
+in some artifacts (usually source distributions); but is always available
+from the source code management (SCM) system project uses.
+Copyright (c) various contributors: https://github.com/FasterXML/jackson-databind/blob/2.14/release-notes/CREDITS-2.x</pre></details></div>
+<div><details><summary>jackson-databind@2.13.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Notice: # Jackson JSON processor
+Jackson is a high-performance, Free/Open Source JSON processing library.
+It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
+been in development since 2007.
+It is currently developed by a community of developers.
+## Licensing
+Jackson 2.x core and extension components are licensed under Apache License 2.0
+To find the details that apply to this artifact see the accompanying LICENSE file.
+## Credits
+A list of contributors may be found from CREDITS(-2.x) file, which is included
+in some artifacts (usually source distributions); but is always available
+from the source code management (SCM) system project uses.
+Copyright (c) various contributors: https://github.com/FasterXML/jackson-databind/blob/2.14/release-notes/CREDITS-2.x</pre></details></div>
+<div><details><summary>jackson-dataformat-csv@2.13.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Notice: # Jackson JSON processor
+Jackson is a high-performance, Free/Open Source JSON processing library.
+It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
+been in development since 2007.
+It is currently developed by a community of developers.
+## Licensing
+Jackson 2.x core and extension components are licensed under Apache License 2.0
+To find the details that apply to this artifact see the accompanying LICENSE file.
+## Credits
+A list of contributors may be found from CREDITS(-2.x) file, which is included
+in some artifacts (usually source distributions); but is always available
+from the source code management (SCM) system project uses.
+Copyright (c) various contributors: https://github.com/FasterXML/jackson-dataformats-text/blob/2.14/release-notes/CREDITS-2.x</pre></details></div>
+<div><details><summary>jackson-dataformat-csv@2.13.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Notice: # Jackson JSON processor
+Jackson is a high-performance, Free/Open Source JSON processing library.
+It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
+been in development since 2007.
+It is currently developed by a community of developers.
+## Licensing
+Jackson 2.x core and extension components are licensed under Apache License 2.0
+To find the details that apply to this artifact see the accompanying LICENSE file.
+## Credits
+A list of contributors may be found from CREDITS(-2.x) file, which is included
+in some artifacts (usually source distributions); but is always available
+from the source code management (SCM) system project uses.
+Copyright (c) various contributors: https://github.com/FasterXML/jackson-dataformats-text/blob/2.14/release-notes/CREDITS-2.x</pre></details></div>
+<div><details><summary>jackson-datatype-jdk8@2.13.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Notice: # Jackson JSON processor
+Jackson is a high-performance, Free/Open Source JSON processing library.
+It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
+been in development since 2007.
+It is currently developed by a community of developers.
+## Licensing
+Jackson 2.x core and extension components are licensed under Apache License 2.0
+To find the details that apply to this artifact see the accompanying LICENSE file.
+## Credits
+A list of contributors may be found from CREDITS(-2.x) file, which is included
+in some artifacts (usually source distributions); but is always available
+from the source code management (SCM) system project uses.
+Copyright (c) various contributors: https://github.com/FasterXML/jackson-modules-java8/blob/2.14/release-notes/CREDITS-2.x</pre></details></div>
+<div><details><summary>jackson-datatype-jsr310@2.13.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Notice: # Jackson JSON processor
+Jackson is a high-performance, Free/Open Source JSON processing library.
+It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
+been in development since 2007.
+It is currently developed by a community of developers.
+## Licensing
+Jackson 2.x core and extension components are licensed under Apache License 2.0
+To find the details that apply to this artifact see the accompanying LICENSE file.
+## Credits
+A list of contributors may be found from CREDITS(-2.x) file, which is included
+in some artifacts (usually source distributions); but is always available
+from the source code management (SCM) system project uses.
+Copyright (c) various contributors: https://github.com/FasterXML/jackson-modules-java8/blob/2.14/release-notes/CREDITS-2.x</pre></details></div>
+<div><details><summary>jackson-datatype-jsr310@2.13.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Notice: # Jackson JSON processor
+Jackson is a high-performance, Free/Open Source JSON processing library.
+It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
+been in development since 2007.
+It is currently developed by a community of developers.
+## Licensing
+Jackson 2.x core and extension components are licensed under Apache License 2.0
+To find the details that apply to this artifact see the accompanying LICENSE file.
+## Credits
+A list of contributors may be found from CREDITS(-2.x) file, which is included
+in some artifacts (usually source distributions); but is always available
+from the source code management (SCM) system project uses.
+Copyright (c) various contributors: https://github.com/FasterXML/jackson-modules-java8/blob/2.14/release-notes/CREDITS-2.x</pre></details></div>
+<div><details><summary>jackson-jaxrs-base@2.13.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Notice: # Jackson JSON processor
+Jackson is a high-performance, Free/Open Source JSON processing library.
+It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
+been in development since 2007.
+It is currently developed by a community of developers.
+## Licensing
+Jackson 2.x core and extension components are licensed under Apache License 2.0
+To find the details that apply to this artifact see the accompanying LICENSE file.
+## Credits
+A list of contributors may be found from CREDITS(-2.x) file, which is included
+in some artifacts (usually source distributions); but is always available
+from the source code management (SCM) system project uses.
+Copyright (c) various contributors: https://github.com/FasterXML/jackson-jaxrs-providers/blob/2.14/release-notes/CREDITS-2.x</pre></details></div>
+<div><details><summary>jackson-jaxrs-base@2.13.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Notice: # Jackson JSON processor
+Jackson is a high-performance, Free/Open Source JSON processing library.
+It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
+been in development since 2007.
+It is currently developed by a community of developers.
+## Licensing
+Jackson 2.x core and extension components are licensed under Apache License 2.0
+To find the details that apply to this artifact see the accompanying LICENSE file.
+## Credits
+A list of contributors may be found from CREDITS(-2.x) file, which is included
+in some artifacts (usually source distributions); but is always available
+from the source code management (SCM) system project uses.
+Copyright (c) various contributors: https://github.com/FasterXML/jackson-jaxrs-providers/blob/2.14/release-notes/CREDITS-2.x</pre></details></div>
+<div><details><summary>jackson-jaxrs-json-provider@2.13.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Notice: # Jackson JSON processor
+Jackson is a high-performance, Free/Open Source JSON processing library.
+It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
+been in development since 2007.
+It is currently developed by a community of developers.
+## Licensing
+Jackson 2.x core and extension components are licensed under Apache License 2.0
+To find the details that apply to this artifact see the accompanying LICENSE file.
+## Credits
+A list of contributors may be found from CREDITS(-2.x) file, which is included
+in some artifacts (usually source distributions); but is always available
+from the source code management (SCM) system project uses.
+Copyright (c) various contributors: https://github.com/FasterXML/jackson-jaxrs-providers/blob/2.14/release-notes/CREDITS-2.x</pre></details></div>
+<div><details><summary>jackson-jaxrs-json-provider@2.13.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Notice: # Jackson JSON processor
+Jackson is a high-performance, Free/Open Source JSON processing library.
+It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
+been in development since 2007.
+It is currently developed by a community of developers.
+## Licensing
+Jackson 2.x core and extension components are licensed under Apache License 2.0
+To find the details that apply to this artifact see the accompanying LICENSE file.
+## Credits
+A list of contributors may be found from CREDITS(-2.x) file, which is included
+in some artifacts (usually source distributions); but is always available
+from the source code management (SCM) system project uses.
+Copyright (c) various contributors: https://github.com/FasterXML/jackson-jaxrs-providers/blob/2.14/release-notes/CREDITS-2.x</pre></details></div>
+<div><details><summary>jackson-module-jaxb-annotations@2.13.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Notice: # Jackson JSON processor
+Jackson is a high-performance, Free/Open Source JSON processing library.
+It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
+been in development since 2007.
+It is currently developed by a community of developers.
+## Licensing
+Jackson 2.x core and extension components are licensed under Apache License 2.0
+To find the details that apply to this artifact see the accompanying LICENSE file.
+## Credits
+A list of contributors may be found from CREDITS(-2.x) file, which is included
+in some artifacts (usually source distributions); but is always available
+from the source code management (SCM) system project uses.
+Copyright (c) various contributors: https://github.com/FasterXML/jackson-modules-base/blob/2.14/release-notes/CREDITS-2.x</pre></details></div>
+<div><details><summary>jackson-module-jaxb-annotations@2.13.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Notice: # Jackson JSON processor
+Jackson is a high-performance, Free/Open Source JSON processing library.
+It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
+been in development since 2007.
+It is currently developed by a community of developers.
+## Licensing
+Jackson 2.x core and extension components are licensed under Apache License 2.0
+To find the details that apply to this artifact see the accompanying LICENSE file.
+## Credits
+A list of contributors may be found from CREDITS(-2.x) file, which is included
+in some artifacts (usually source distributions); but is always available
+from the source code management (SCM) system project uses.
+Copyright (c) various contributors: https://github.com/FasterXML/jackson-modules-base/blob/2.14/release-notes/CREDITS-2.x</pre></details></div>
+<div><details><summary>jackson-module-parameter-names@2.13.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Notice: # Jackson JSON processor
+Jackson is a high-performance, Free/Open Source JSON processing library.
+It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
+been in development since 2007.
+It is currently developed by a community of developers.
+## Licensing
+Jackson 2.x core and extension components are licensed under Apache License 2.0
+To find the details that apply to this artifact see the accompanying LICENSE file.
+## Credits
+A list of contributors may be found from CREDITS(-2.x) file, which is included
+in some artifacts (usually source distributions); but is always available
+from the source code management (SCM) system project uses.
+Copyright (c) various contributors: https://github.com/FasterXML/jackson-modules-java8/blob/2.14/release-notes/CREDITS-2.x</pre></details></div>
 <div><details><summary>java-uuid-generator@3.2.0(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: various authors (https://github.com/cowtowncoder/java-uuid-generator/blob/3.0/release-notes/CREDITS)</pre></details></div>
 <div><details><summary>classmate@1.5.1(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: various authors (https://github.com/FasterXML/java-classmate/blob/master/VERSION.txt)						</pre></details></div>
 <div><details><summary>jcip-annotations@1.0-1(<a href="https://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attribution</a>)</summary><pre>Copyright: 2005 Brian Goetz and Tim Peierls</pre></details></div>
