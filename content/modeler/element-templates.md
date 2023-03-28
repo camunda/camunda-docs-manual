@@ -12,4 +12,4 @@ menu:
 
 ---
 
-This content has moved to [docs.camunda.io](https://docs.camunda.io/) and is available [here](https://docs.camunda.io/docs/components/modeler/camunda-modeler/element-templates/camunda-modeler-element-templates/) for all future versions.
+This content has moved to [docs.camunda.io](https://docs.camunda.io/) and is available [here](https://docs.camunda.io/docs/components/modeler/desktop-modeler/element-templates/about-templates/) for all future versions.
