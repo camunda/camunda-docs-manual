@@ -11,6 +11,10 @@ menu:
     pre: ""
 ---
 
+{{< note title="Camunda discontinues the maintenance of the Camunda RPA bridge." class="warning" >}} Camunda Automation Platform 7.19 is the last release maintaining compatibility with the Camunda RPA bridge. Camunda Automation Platform 7.19 and Camunda RPA bridge will be maintained for another 18 months until Oct 2024.
+
+The Camunda RPA Bridge is replaced by RPA Out-of-the-box Connectors in Camunda 8. {{< /note >}}
+
 This page describes the steps to orchestrate and execute RPA bots from Camunda Platform using the Camunda Platform RPA Bridge.
 
 {{< enterprise >}}
