@@ -10,6 +10,12 @@ menu:
 
 ---
 
+{{< note title="Camunda discontinues the maintenance of the Camunda RPA bridge." class="warning" >}}
+Camunda Automation Platform 7.19 is the last release maintaining compatibility with the Camunda RPA bridge. Camunda Automation Platform 7.19 and Camunda RPA bridge will be maintained for another 18 months until Oct 2024.
+
+The Camunda RPA Bridge is replaced by RPA [Out-of-the-box Connectors](https://docs.camunda.io/docs/components/connectors/out-of-the-box-connectors/available-connectors-overview/) in Camunda 8.
+{{< /note >}}
+
 The Camunda RPA Bridge is a standalone application that allows calling RPA (robotic process automation) bots from BPMN models deployed to a Camunda engine. RPA bots can be orchestrated as External Tasks using the Camunda Modeler and Cawemo.
 
 For detailed instructions on how to connect your first RPA bot to a BPMN model (using Cawemo and the Camunda Modeler) and execute it from a running process instance using the Camunda engine, head over to our [installation guide]({{< ref "/installation/camunda-bpm-rpa-bridge.md" >}}) or the [Getting Started Guide](https://docs.camunda.org/get-started/rpa).
