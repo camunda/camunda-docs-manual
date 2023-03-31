@@ -21,7 +21,7 @@ This guide uses a number of variables to denote common path names and constants:
 * `$PLATFORM_VERSION` denotes the version of the Camunda Platform you want to install or already have installed, e.g. `7.0.0`.
 {{< /note >}}
 
-If not already done, download the [Camunda Platform 7.19 JBoss distribution](https://downloads.camunda.cloud/release/camunda-bpm/jboss/7.19/)
+If not already done, download the [Camunda Platform 7.19 WildFly distribution](https://downloads.camunda.cloud/release/camunda-bpm/wildfly/7.19/)
 or [Camunda Platform 7.19 WildFly ≤26 Modules](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/wildfly/camunda-wildfly26-modules/). 
 
 The update procedure takes the following steps:
