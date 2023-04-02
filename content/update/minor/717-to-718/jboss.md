@@ -13,10 +13,7 @@ menu:
 The following steps describe how to update the Camunda artifacts on a Wildfly/JBoss EAP 7 in a 
 shared process engine scenario. Throughout the procedure, refer to the [update guide][update-guide].
 
-If not already done, download the [Camunda Platform 7.18 JBoss distribution](https://downloads.camunda.cloud/release/camunda-bpm/jboss/7.18/)
-or [Camunda Platform 7.18 Wildfly distribution](https://downloads.camunda.cloud/release/camunda-bpm/wildfly/7.18/). In the following instructions,
-`$APP_SERVER` should be replaced with either `jboss` or `wildfly`, depending on
-the used application server.
+If not already done, download the [Camunda Platform 7.18 Wildfly distribution](https://downloads.camunda.cloud/release/camunda-bpm/wildfly/7.18/).
 
 The update procedure takes the following steps:
 
@@ -31,7 +28,7 @@ Whenever the instructions are to *replace* a module, delete the previous version
 Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with the new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/`:
 
 * `org/camunda/bpm/camunda-engine`
-* `org/camunda/bpm/$APP_SERVER/camunda-$APP_SERVER-subsystem`
+* `org/camunda/bpm/wildfly/camunda-wildfly-subsystem`
 * `org/camunda/bpm/model/camunda-bpmn-model`
 * `org/camunda/bpm/model/camunda-cmmn-model`
 * `org/camunda/bpm/model/camunda-dmn-model`
