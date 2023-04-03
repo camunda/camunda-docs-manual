@@ -18,7 +18,7 @@ This document guides you through the update from Camunda Platform `7.18.x` to `7
 1. For administrators and developers: [Database updates](#database-updates)
 2. For administrators and developers: [Full distribution update](#full-distribution)
 3. For administrators: [Standalone web application](#standalone-web-application)
-4. For administrators: [Web apps revalidate authentications every five minutes](#webapps-revalidate-authentications-every-five-minutes)
+4. For administrators: [Web apps revalidate authentications every five minutes](#web-apps-revalidate-authentications-every-five-minutes)
 5. For administrators: [Set Job Retries Asynchronously](#set-job-retries-asynchronously)
 6. For developers: [Camunda external task client JS update](#camunda-external-task-client-js-update)
 7. For developers: [Job executor priority range properties type changed](#job-executor-priority-range-properties-type-changed)
