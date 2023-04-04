@@ -122,7 +122,7 @@ When not further configured, a topic subscription is automatically opened when t
 application starts, meaning the Client starts immediately to fetch External Tasks related to the topic name.
 
 There might be situations in which a topic subscription should not be opened immediately when the
-application starts. You can control this via the [`auto-open`](#auto-open) flag.
+application starts. You can control this via the [`auto-open`](/#auto-open) flag.
 
 The interface `SpringTopicSubscription` allows you to open or close a topic programmatically as soon
 as the subscription has been initialized. The initialization process is triggered as soon as the 
