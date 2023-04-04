@@ -31,7 +31,7 @@ params:
   section:
     id: "manual"
     version: "develop"
-    versionAlias: "7.19"
+    versionAlias: "7.20"
     versions:
       - "latest"
       - "7.19"
