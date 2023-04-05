@@ -527,13 +527,13 @@ For more information on logging configuration visit the [Spring Boot Logging Gui
   <tr>
       <td rowspan="15"><code>logging</code></td>
       <td><code>.level.root</code></td>
-      <td>Set a logging level for all available logging categories. Value can be one of the following: <code>OFF</code>. <code>ERROR</code>. <code>WARN</code>. <code>INFO</code>. <code>DEBUG</code>. <code>ALL</code></td>
+      <td>Set a logging level for all available logging categories. Value can be one of the following: <code>OFF</code>. <code>ERROR</code>. <code>WARN</code>. <code>INFO</code>. <code>DEBUG</code>. <code>FATAL</code>. <code>TRACE</code></td>
       <td><code>-</code></td>
   </tr>
   <tr>
       <td><code>.level.{logger-name}</code></td>
       <td>Set a logging level for a specific logging category. Find an overview over the available categories in the <a href="{{<ref "/user-guide/logging.md#process-engine" >}}">Logging User Guide</a>.
-      Value can be one of the following: <code>OFF</code>. <code>ERROR</code>. <code>WARN</code>. <code>INFO</code>. <code>DEBUG</code>. <code>ALL</code></td>
+      Value can be one of the following: <code>OFF</code>. <code>ERROR</code>. <code>WARN</code>. <code>INFO</code>. <code>DEBUG</code>. <code>FATAL</code>. <code>TRACE</code></td>
       <td><code>-</code></td>
   </tr>
   <tr>
