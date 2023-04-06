@@ -83,7 +83,7 @@ Clustered or replicated databases are supported given the following conditions. 
 * IBM JDK 8 (with J9 JVM)
 * OpenJDK 8 / 11 / 17, including builds of the following products:
   * Oracle OpenJDK
-  * AdoptOpenJDK (with HotSpot JVM)
+  * Eclipse Temurin JDK
   * Amazon Corretto
   * Azul Zulu
 
