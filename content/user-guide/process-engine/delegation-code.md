@@ -298,6 +298,13 @@ The last execution listener is called when activity secondTask ends. Instead of 
   <camunda:executionListener expression="${myPojo.myMethod(execution.eventName)}" event="end" />
 ```
 
+{{< note title="Note!" class="info" >}}
+
+The `end` event triggers under *any* circumstance in which the activity ends. That includes successful completion of the activity's business logic, but also interruption and cancellation, for example when an attached boundary event triggers.
+
+{{< /note >}}
+
+
 As with other expressions, execution variables are resolved and can be used. Because the execution implementation object has a property that exposes the event name, it's possible to pass the event-name to your methods using execution.eventName.
 
 Execution listeners also support using a delegateExpression, similar to a service task.
