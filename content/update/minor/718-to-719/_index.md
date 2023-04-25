@@ -27,7 +27,7 @@ This document guides you through the update from Camunda Platform `7.18.x` to `7
 10. For developers: [Multi-Tenancy enabled for User operation logs](#multi-tenancy-enabled-for-user-operation-logs)
 11. For administrators and developers: [Update to WildFly 27 Application Server](#update-to-wildfly-27-application-server)
 
-This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.18.
+This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.19.
 
 # Database updates
 
@@ -45,13 +45,15 @@ The following steps are required:
 1. Update the Camunda libraries and applications inside the application server.
 2. Migrate custom process applications.
 
-Before starting, ensure you have downloaded the Camunda Platform 7.18 distribution for the application server you use. This contains the SQL scripts and libraries required for the update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
+Before starting, ensure you have downloaded the Camunda Platform 7.19 distribution for the application server you use.
+This contains the SQL scripts and libraries required for the update. This guide assumes you have unpacked the distribution
+to a path named `$DISTRIBUTION_PATH`.
 
 ## Camunda libraries and applications
 
 Choose the application server you are working with from the following list:
 
-* [JBoss EAP 6 or Wildfly / JBoss EAP 7]({{< ref "/update/minor/718-to-719/jboss.md" >}})
+* [Wildfly / JBoss EAP 7]({{< ref "/update/minor/718-to-719/jboss.md" >}})
 * [Apache Tomcat]({{< ref "/update/minor/718-to-719/tomcat.md" >}})
 * [Oracle WebLogic]({{< ref "/update/minor/718-to-719/wls.md" >}})
 * [IBM WebSphere]({{< ref "/update/minor/718-to-719/was.md" >}})
