@@ -123,8 +123,8 @@ Other combinations must be thoroughly tested before being used in production.
     <td>2.6.x<br/>2.7.x</td>
   </tr>
   <tr>
-    <td>7.18.x<br/>7.19.x</td>
-    <td>7.18.x<br/>7.19.x</td>
+    <td>7.18.x<br/>7.19.x<br/>7.20.x</td>
+    <td>7.18.x<br/>7.19.x<br/>7.20.x</td>
     <td>2.7.x</td>
   </tr>
 </table>
