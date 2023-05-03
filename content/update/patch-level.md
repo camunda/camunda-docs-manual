@@ -404,6 +404,18 @@ With this release, we adjusted the [Optimistic Locking]({{< ref "/user-guide/pro
 
 If you rely on the previous behavior, receiving `ProcessEngineException`s with the related error code for foreign key constraint violations, you can restore it by disabling the engine configuration flag `enableOptimisticLockingOnForeignKeyViolation`. As a result, jobs can also start failing due to those exceptions although they could be safely retried automatically to resolve the situation.
 
+## 7.19.1 to 7.19.2 / 7.18.7 to 7.18.8 / 7.17.12 to 7.17.13
+
+### Bean method resolution from JUEL expressions
+
+Calling bean methods from JUEL expressions now works more reliably and supports overloaded methods. As a result, the behavior of calling overloaded methods from such expressions changes.
+
+Previoulsy, overloaded methods couldn't be determined reliably and were chosen based on the order of the underlying JDK's result of the call to `Class#getMethods` for a specific method name. As a result, the expected method might have been chosen for the expression evaluation but this could not be guaranteed.
+
+Now, the most specific version according to the provided number and types of method parameters is chosen consistently. For example, method `myMethod` expecting an `Integer` is chosen over method `myMethod` expecting an `Object` if the provided parameter is an `Integer` or can be coerced into one.
+
+Ideally, you shouldn't notice any difference in method invocation from JUEL expressions. However, we recommend testing your existing expressions thoroughly before using this patch version in production.
+
 # Full Distribution
 
 This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.
