@@ -414,7 +414,7 @@ Previoulsy, overloaded methods couldn't be determined reliably and were chosen b
 
 Now, the most specific version according to the provided number and types of method parameters is chosen consistently. For example, method `myMethod` expecting an `Integer` is chosen over method `myMethod` expecting an `Object` if the provided parameter is an `Integer` or can be coerced into one.
 
-Ideally, you shouldn't notice any difference in method invocation from JUEL expressions. However, we recommend testing your existing expressions thoroughly before using version in production.
+Ideally, you shouldn't notice any difference in method invocation from JUEL expressions. However, we recommend testing your existing expressions thoroughly before using this patch version in production.
 
 # Full Distribution
 
