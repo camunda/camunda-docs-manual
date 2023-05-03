@@ -56,6 +56,7 @@ from `$WAS_DISTRIBUTION/modules/lib`:
 * `camunda-engine-feel-api-7.19.0-ee.jar`
 * `camunda-engine-feel-juel-7.19.0-ee.jar`
 * `camunda-engine-feel-scala-7.19.0-ee.jar`
+* `camunda-juel-$PLATFORM_VERSION.jar`
 * `camunda-commons-logging-$COMMONS_VERSION.jar`
 * `camunda-commons-typed-values-7.19.0-ee.jar`
 * `camunda-commons-utils-$COMMONS_VERSION.jar`

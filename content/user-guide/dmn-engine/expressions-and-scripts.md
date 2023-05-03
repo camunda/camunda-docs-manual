@@ -71,7 +71,7 @@ elements `inputExpression`, `inputEntry`, `outputEntry` and `literalExpression`:
 
 The Camunda DMN engine supports two expression languages out of the box:
 
-- `JUEL`: An [implementation][juel] of the Java [Unified Expression Language][EL]
+- `JUEL`: A Camunda-maintained [implementation][juel] of the Java [Unified Expression Language][EL]
 - `FEEL`: The Friendly Enough Expression Language of the [DMN 1.2] standard.
 
 Depending on the JDK you use, there may also be a `Javascript` implementation
@@ -175,7 +175,7 @@ the script engine before using it.
 [decision table]: {{< ref "/reference/dmn/decision-table/_index.md" >}}
 [decision literal expression]: {{< ref "/reference/dmn/decision-literal-expression/_index.md" >}}
 [juel]: http://juel.sourceforge.net/
-[EL]: https://jcp.org/aboutJava/communityprocess/final/jsr245/index.html
+[EL]: https://jakarta.ee/specifications/expression-language/4.0/
 [DMN 1.2]: http://www.omg.org/spec/DMN/
 [Rhino]: https://developer.mozilla.org/de/docs/Rhino
 [Nashhorn]: https://blogs.oracle.com/nashorn/

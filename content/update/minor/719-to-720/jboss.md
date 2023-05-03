@@ -46,6 +46,7 @@ Replace the following modules from the folder `$WILDFLY_HOME/modules/` with the 
 * `org/camunda/bpm/dmn/camunda-engine-feel-api`
 * `org/camunda/bpm/dmn/camunda-engine-feel-juel`
 * `org/camunda/bpm/dmn/camunda-engine-feel-scala`
+* `org/camunda/bpm/juel/camunda-juel`
 * `org/camunda/template-engines/camunda-template-engines-freemarker`
 * `org/camunda/commons/camunda-commons-logging`
 * `org/camunda/commons/camunda-commons-typed-values`
