@@ -19,7 +19,7 @@ This document guides you through the update from Camunda Platform `7.19.x` to `7
 2. For administrators and developers: [Full distribution update](#full-distribution)
 3. For administrators: [Standalone web application](#standalone-web-application)
 4. For administrators: [Optimistic Locking on PostgreSQL](#optimistic-locking-on-postgresql)
-5. For administrators: [Explicit JUEL module](#explicit-juel-module)
+5. For administrators: [Explicit JUEL module on Jakarta Expression Language 4](#explicit-juel-module-on-jakarta-expression-language-4)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.20.
 
@@ -77,7 +77,7 @@ With version 7.20.0, we adjusted the [Optimistic Locking]({{< ref "/user-guide/p
 
 If you rely on the previous behavior, receiving `ProcessEngineException`s with the related error code for foreign key constraint violations, you can restore it by disabling the engine configuration flag `enableOptimisticLockingOnForeignKeyViolation`. As a result, jobs can also start failing due to those exceptions although they could be safely retried automatically to resolve the situation.
 
-# Explicit JUEL module
+# Explicit JUEL module on Jakarta Expression Language 4
 
 Camunda supports using small script-like expressions in many locations as described in our [Expression Language guide]({{< ref "/user-guide/process-engine/expression-language.md" >}}). Up to version 7.19.x, this support is based on a JSP 2.1 standard-compliant implementation of the open source library [JUEL](http://juel.sourceforge.net/). The source code of that library is embedded into and distributed with our core `camunda-engine` artifact.
 
@@ -89,6 +89,7 @@ Updating to a newer expression language standard comes with some behavioral chan
 
 * Bean method invocation changes with regards to method parameters. All values, including `null` values, are converted as described in the [EL API specification](https://jakarta.ee/specifications/expression-language/4.0/jakarta-expression-language-spec-4.0.html#type-conversion). As a result, `null` values will be coerced into the type defined by the method. For example, calling `myBean.setStringAttribute(null)`, requiring a `String` parameter, now leads to `null` being coerced into an empty String `""`. Previously, the `null` value was passed on as is.
 * Method resolution is more reliable and supports overloaded methods. Method candidates are resolved by name and then matched by parameter count and types. If multiple candidates exist (overloaded methods), the most specific one is used. For example, method `myMethod` expecting an `Integer` is chosen over method `myMethod` expecting an `Object` if the provided parameter is an `Integer` or can be coerced into one. Previously, the first method candidate by name from the array returned by `Class#getMethods` was taken. However, the order of methods is not defined for that array. As a result, the wrong method was chosen and an exception was thrown due to an incompatible parameter in many cases.
+* Method invocation only works with publicly accessible members to provide a more reliable security model and honor the accessibility contracts of classes. Protected methods, private methods, and methods of private, protected, or anonymous inner classes cannot be accessed. Previously, you could invoke non-public methods as well.
 * The `ElContext` and its subclasses like `ProcessEngineElContext` throw a `NullPointerException` if a `null` value is set to it using the `#putContext` method. Previously, the context allowed to set `null` values.
 
 We recommend testing your existing expressions thoroughly before using version 7.20.x in production and adjusting them according to the beforementioned behavioral changes.
