@@ -10,10 +10,11 @@ menu:
 
 ---
 
-Camunda Platform supports Unified Expression Language (EL), specified as part of the JSP 2.1 standard
-([JSR-245][]). To do so, it uses the open source [JUEL][] implementation. To get more general
-information about the usage of Expression Language, please read the [official documentation][].
-Especially the provided [examples][examples] give a good overview of the syntax of expressions.
+Camunda Platform supports Unified Expression Language (EL), specified by the [Jakarta Expression
+Language 4.0 standard][JakartaEL]. To do so, it maintains a custom version of the open source 
+[JUEL][] implementation. To get more general information about the usage of Expression Language, 
+please read the [official documentation][]. It provides examples that give a good overview of 
+the syntax of expressions.
 
 Within Camunda Platform, EL can be used in many circumstances to evaluate small script-like
 expressions. The following table provides an overview of the BPMN elements which support
@@ -373,10 +374,9 @@ If the Camunda Spin process engine plugin is activated, the Spin functions `S`,
 ```
 
 
-[JSR-245]: https://jcp.org/aboutJava/communityprocess/final/jsr245/index.html
+[JakartaEL]: https://jakarta.ee/specifications/expression-language/4.0/
 [JUEL]: http://juel.sourceforge.net/
-[official documentation]: http://docs.oracle.com/javaee/5/tutorial/doc/bnahq.html
-[examples]: http://docs.oracle.com/javaee/5/tutorial/doc/bnahq.html#bnain
+[official documentation]: https://jakarta.ee/specifications/expression-language/4.0/jakarta-expression-language-spec-4.0.html
 [variables]: {{< relref "#availability-of-variables-and-functions-inside-expression-language" >}}
 [Spring]: {{< ref "/user-guide/spring-framework-integration/_index.md#expression-resolving" >}}
 [CDI]: {{< ref "/user-guide/cdi-java-ee-integration/expression-resolving.md" >}}

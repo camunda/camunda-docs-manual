@@ -47,17 +47,18 @@ the folder to this shared library as `$SHARED_LIBRARY_PATH`.
 After shutting down the server, replace the following libraries in `$SHARED_LIBRARY_PATH` with the equivalents 
 from `$WAS_DISTRIBUTION/modules/lib`:
 
-* `camunda-engine-7.19.0-ee.jar`
-* `camunda-bpmn-model-7.19.0-ee.jar`
-* `camunda-cmmn-model-7.19.0-ee.jar`
-* `camunda-dmn-model-7.19.0-ee.jar`
-* `camunda-xml-model-7.19.0-ee.jar`
-* `camunda-engine-dmn-7.19.0-ee.jar`
-* `camunda-engine-feel-api-7.19.0-ee.jar`
-* `camunda-engine-feel-juel-7.19.0-ee.jar`
-* `camunda-engine-feel-scala-7.19.0-ee.jar`
+* `camunda-engine-$PLATFORM_VERSION.jar`
+* `camunda-bpmn-model-$PLATFORM_VERSION.jar`
+* `camunda-cmmn-model-$PLATFORM_VERSION.jar`
+* `camunda-dmn-model-$PLATFORM_VERSION.jar`
+* `camunda-xml-model-$PLATFORM_VERSION.jar`
+* `camunda-engine-dmn-$PLATFORM_VERSION.jar`
+* `camunda-engine-feel-api-$PLATFORM_VERSION.jar`
+* `camunda-engine-feel-juel-$PLATFORM_VERSION.jar`
+* `camunda-engine-feel-scala-$PLATFORM_VERSION.jar`
+* `camunda-juel-$PLATFORM_VERSION.jar`
 * `camunda-commons-logging-$COMMONS_VERSION.jar`
-* `camunda-commons-typed-values-7.19.0-ee.jar`
+* `camunda-commons-typed-values-$PLATFORM_VERSION.jar`
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
 * `camunda-connect-connectors-all-$CONNECT_VERSION.jar`
 * `camunda-connect-core-$CONNECT_VERSION.jar`
