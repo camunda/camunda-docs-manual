@@ -85,6 +85,11 @@ With this version, we removed that source code from the core artifact and create
 
 Our pre-packaged distributions all come with the new Camunda JUEL library by default. If you're updating your distribution from 7.19.x or earlier, consult your [environment-specific guide](#full-distribution) on how to add the library. If you're relying on the `camunda-engine` artifact itself in your application, the new module will come as a transitive dependency automatically.
 
+If you are using any JUEL or expression language-related classes that formerly resided in the `camunda-engine` artifact in your custom application, note that the package names change as follows:
+
+* Classes from `org.camunda.bpm.engine.impl.javax.*` now reside in `org.camunda.bpm.impl.juel.jakarta.*`.
+* Classes from `de.odysseus.el.*` now reside in `org.camunda.bpm.impl.juel.*`.
+
 Updating to a newer expression language standard comes with some behavioral changes, the most noteworthy ones being the following:
 
 * Bean method invocation changes with regards to method parameters. All values, including `null` values, are converted as described in the [EL API specification](https://jakarta.ee/specifications/expression-language/4.0/jakarta-expression-language-spec-4.0.html#type-conversion). As a result, `null` values will be coerced into the type defined by the method. For example, calling `myBean.setStringAttribute(null)`, requiring a `String` parameter, now leads to `null` being coerced into an empty String `""`. Previously, the `null` value was passed on as is.
