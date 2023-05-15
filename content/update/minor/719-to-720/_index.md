@@ -20,7 +20,7 @@ This document guides you through the update from Camunda Platform `7.19.x` to `7
 3. For administrators: [Standalone web application](#standalone-web-application)
 4. For administrators: [Optimistic Locking on PostgreSQL](#optimistic-locking-on-postgresql)
 5. For administrators: [Explicit JUEL module on Jakarta Expression Language 4](#explicit-juel-module-on-jakarta-expression-language-4)
-6. For developers: [JavaScript External Task Client rethrows errors on task service APIs](#javascript-external-task-client-rethrows-errors-on-task-service-apis)
+6. For developers: [JavaScript external task client re-throws errors on task service APIs](#javascript-external-task-client-rethrows-errors-on-task-service-apis)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.20.
 
@@ -100,11 +100,11 @@ Updating to a newer expression language standard comes with some behavioral chan
 
 We recommend testing your existing expressions thoroughly before using version 7.20.x in production and adjusting them according to the beforementioned behavioral changes.
 
-# JavaScript External Task Client rethrows errors on task service APIs
+# JavaScript external task client rethrows errors on task service APIs
 
-Previously, the JavaScript External Task Client swallowed errors caused by the engine's REST API when 
+Previously, the JavaScript external task client swallowed errors caused by the engine's REST API when 
 calling task service APIs like `#complete`. You could handle these errors only by subscribing to a 
 global error handler.
 
-With this release, the client rethrows errors additionally directly on calling the respective task service APIs, 
-and you can handle them directly. Please adjust your custom business logic accordingly.
+With this release, the client re-throws errors, additionally directly on calling the respective task service APIs, 
+and you can handle them directly. Adjust your custom business logic accordingly.
