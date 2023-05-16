@@ -492,56 +492,56 @@ The table below shows a detailed overview on which permissions authorize a user 
       <td>X</td>
     </tr>
     <tr>
-      <th>Save Task</th>
+      <th>Save</th>
       <td></td>
       <td>X</td>
       <td></td>
       <td>X</td>
     </tr>
     <tr>
-      <th>Set Task Priority</th>
+      <th>Set Priority</th>
       <td></td>
       <td>X</td>
       <td></td>
       <td>X</td>
     </tr>
     <tr>
-      <th>Set Task Name</th>
+      <th>Set Name</th>
       <td></td>
       <td>X</td>
       <td></td>
       <td>X</td>
     </tr>
     <tr>
-      <th>Set Name Description</th>
+      <th>Set Description</th>
       <td></td>
       <td>X</td>
       <td></td>
       <td>X</td>
     </tr>
     <tr>
-      <th>Set Task Due Date</th>
+      <th>Set Due Date</th>
       <td></td>
       <td>X</td>
       <td></td>
       <td>X</td>
     </tr>
     <tr>
-      <th>Set Task Follow Up Date</th>
+      <th>Set Follow Up Date</th>
       <td></td>
       <td>X</td>
       <td></td>
       <td>X</td>
     </tr>
 	<tr>
-      <th>Set Task Variable</th>
+      <th>Set Local Variable</th>
       <td></td>
       <td></td>
       <td>X</td>
       <td>X</td>
     </tr>
 	<tr>
-      <th>Remove Task Variable</th>
+      <th>Remove Local Variable</th>
       <td></td>
       <td></td>
       <td>X</td>
