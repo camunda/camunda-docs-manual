@@ -505,6 +505,34 @@ The table below shows a detailed overview on which permissions authorize a user 
       <td></td>
       <td>X</td>
     </tr>
+    <tr>
+      <th>Set Task Name</th>
+      <td></td>
+      <td>X</td>
+      <td></td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Set Name Description</th>
+      <td></td>
+      <td>X</td>
+      <td></td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Set Task Due Date</th>
+      <td></td>
+      <td>X</td>
+      <td></td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Set Task Follow Up Date</th>
+      <td></td>
+      <td>X</td>
+      <td></td>
+      <td>X</td>
+    </tr>
 	<tr>
       <th>Set Task Variable</th>
       <td></td>
