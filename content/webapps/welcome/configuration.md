@@ -74,7 +74,7 @@ export default {
 # Localization
 
 Welcome can be localized. Camunda maintains English and German translation files. 
-You can find and download community maintained translation files at the [Camunda webapp translations repository]([https://github.com/camunda/camunda-webapp-translations](https://github.com/camunda-community-hub/camunda-7-webapp-translations)).
+You can find and download community maintained translation files at the [Camunda webapp translations repository](https://github.com/camunda-community-hub/camunda-7-webapp-translations).
 
 The localization of the Welcome application is contained in the `app/welcome/locales/` directory. This
 directory contains a separate localization file for every available language. The file name
