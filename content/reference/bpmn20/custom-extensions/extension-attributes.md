@@ -1103,6 +1103,37 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
+# followUpDate
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute specifies the initial follow-up date of a <a href="{{< ref "/reference/bpmn20/tasks/user-task.md" >}}">User Task</a> when it is created.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>org.camunda.bpm.engine.delegate.Expression</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      An expression which evaluates to a <code>java.util.Date</code>, <code>java.util.String</code> (<a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> formatted) or <code>null</code>, e.g., <code>${dateVariable}</code>
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>BPMN 2.0 Elements</th>
+    <td>
+      <a href="{{< ref "/reference/bpmn20/tasks/user-task.md" >}}">User Task</a>
+    </td>
+  </tr>
+</table>
+
 # formHandlerClass
 
 <table class="table table-striped">
