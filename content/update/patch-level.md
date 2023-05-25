@@ -416,6 +416,27 @@ Now, the most specific version according to the provided number and types of met
 
 Ideally, you shouldn't notice any difference in method invocation from JUEL expressions. However, we recommend testing your existing expressions thoroughly before using this patch version in production.
 
+## 7.19.2 to 7.19.3 / 7.18.8 to 7.18.9 / 7.17.13 to 7.17.14
+
+### Breaking change: Explicit asset declaration in Java plugins
+
+We introduced a change in the asset loading mechanism for Java plugins. Starting with this release,
+**plugin assets must be explicitly declared in the plugin root resource class**.
+You can declare your assets by overriding the `getAllowedAssets()` method in your root resource.
+
+The default implementation contains two predefined assets: `app/plugin.js` and `app/plugin.css`.
+For many plugins this might be already sufficient and will require no further assets to be allowed.
+
+{{< note title="Heads Up" class="warning" >}}
+Make sure to double-check and declare the required assets in your plugin root resource.
+Requests for undeclared assets will be rejected, and it will likely render your plugin unusable.
+{{< /note >}}
+
+[Custom scripts][custom-script] and [frontend modules][frontend-modules] are not affected by this.
+
+[custom-script]: {{< ref "/webapps/cockpit/extend/configuration#custom-scripts" >}}
+[frontend-modules]: {{< ref "/webapps/cockpit/extend/plugins#structure-of-a-frontend-module" >}}
+
 # Full Distribution
 
 This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.
