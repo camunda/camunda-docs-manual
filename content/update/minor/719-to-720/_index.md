@@ -110,11 +110,11 @@ global error handler.
 With this release, the client re-throws errors, additionally directly on calling the respective task service APIs, 
 and you can handle them directly. Adjust your custom business logic accordingly.
 
-# Breaking change: Explicit asset declaration in Java plugins
+# Breaking change: Explicit asset declaration in Java web app plugins
 
-We introduced a change in the asset loading mechanism for Java plugins. Starting with this release,
+We introduced a change in the asset loading mechanism for Java web app plugins. Starting with this release,
 **plugin assets must be explicitly declared in the plugin root resource class**.
-You can declare your assets by overriding the `getAllowedAssets()` method in your root resource.
+You can declare your assets by overriding the `AbstractAppPluginRootResource#getAllowedAssets()` method in your root resource.
 
 The default implementation contains two predefined assets: `app/plugin.js` and `app/plugin.css`.
 For many plugins this might be already sufficient and will require no further assets to be allowed.

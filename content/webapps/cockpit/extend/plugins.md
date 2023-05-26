@@ -72,7 +72,7 @@ As runtime relevant resource it defines
    This allows you to serve static client-side resources under the `/static` path.
    Per convention, these resources must reside in a `/plugin-webapp/$plugin_id` directory absolute to the classpath root.
    - the plugin root resource has to explicitly declare the assets that are allowed to be served via the REST API.
-     You can declare your assets by overriding the `getAllowedAssets()` method in your root resource.
+     You can declare your assets by overriding the `AbstractAppPluginRootResource#getAllowedAssets()` method in your root resource.
      Undeclared assets won't be served.
      The default implementation contains two predefined assets: `app/plugin.js` and `app/plugin.css`.
 4. other resources that are part of the server-side API
