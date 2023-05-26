@@ -21,7 +21,7 @@ This document guides you through the update from Camunda Platform `7.19.x` to `7
 1. For administrators: [Optimistic Locking on PostgreSQL](#optimistic-locking-on-postgresql)
 1. For administrators: [Explicit JUEL module on Jakarta Expression Language 4](#explicit-juel-module-on-jakarta-expression-language-4)
 1. For developers: [JavaScript external task client re-throws errors on task service APIs](#javascript-external-task-client-rethrows-errors-on-task-service-apis)
-1. For developers: [Breaking change: Explicit asset declaration in Java plugins](#breaking-change-explicit-asset-declaration-in-java-plugins)
+1. For developers: [Breaking change: Explicit asset declaration in Java web app plugins](#breaking-change-explicit-asset-declaration-in-java-web-app-plugins)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.20.
 
