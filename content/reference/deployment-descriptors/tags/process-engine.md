@@ -296,6 +296,14 @@ The following is a list with the most commonly used process engine configuration
   </tr>
 
   <tr>
+    <td><code>historyCleanupDefaultNumberOfRetries</code></td>
+    <td>Integer</td>
+    <td>
+        Specifies how many times a cleanup job will be executed before an incident is raised. Default value: <code>3</code>
+    </td>
+  </tr>
+
+  <tr>
     <td><code>commandRetries</code></td>
     <td>Integer</td>
     <td>
