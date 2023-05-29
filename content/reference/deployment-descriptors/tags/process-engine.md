@@ -296,14 +296,6 @@ The following is a list with the most commonly used process engine configuration
   </tr>
 
   <tr>
-    <td><code>historyCleanupDefaultNumberOfRetries</code></td>
-    <td>Integer</td>
-    <td>
-        Specifies how many times a cleanup job will be executed before an incident is raised. Default value: <code>3</code>
-    </td>
-  </tr>
-
-  <tr>
     <td><code>commandRetries</code></td>
     <td>Integer</td>
     <td>
@@ -1091,6 +1083,11 @@ The following is a list with the most commonly used process engine configuration
       Please also see the <a href="{{< ref "/reference/deployment-descriptors/tags/process-engine.md#historyRemovalTimeStrategy">}}"><code>historyRemovalTimeStrategy</code></a> configuration parameter.<br><br>
       <strong>Values:</strong> <code>removalTimeBased</code>, <code>endTimeBased</code>.
     </td>
+  </tr>
+  <tr>
+    <td><code>historyCleanupDefaultNumberOfRetries</code></td>
+    <td>Integer</td>
+    <td>Specifies how many times a cleanup job will be executed before an incident is raised. Default value: <code>3</code></td>
   </tr>
   <tr>
     <td><code>historyCleanupBatchWindowStartTime</code></td>
