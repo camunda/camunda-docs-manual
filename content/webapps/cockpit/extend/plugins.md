@@ -67,7 +67,14 @@ As runtime relevant resource it defines
 
 1. a plugin main class
 2. a `META-INF/services` entry that publishes the plugin to Cockpit
-3. a plugin root [JAX-RS](https://jax-rs-spec.java.net/) resource that wires the server-side API. When you want to include a frontend module in your plugin, you can use `AbstractCockpitPluginRootResource` as the plug-in resources base class. This allows you to serve static client-side resources under the `/static` path. Per convention, these resources must reside in a `/plugin-webapp/$plugin_id` directory absolute to the classpath root.
+3. a plugin root [JAX-RS](https://jax-rs-spec.java.net/) resource that wires the server-side API.
+   When you want to include a frontend module in your plugin, you can use `AbstractCockpitPluginRootResource` as the plug-in resources base class.
+   This allows you to serve static client-side resources under the `/static` path.
+   Per convention, these resources must reside in a `/plugin-webapp/$plugin_id` directory absolute to the classpath root.
+   - the plugin root resource has to explicitly declare the assets that are allowed to be served via the REST API.
+     You can declare your assets by overriding the `AbstractAppPluginRootResource#getAllowedAssets()` method in your root resource.
+     Undeclared assets won't be served.
+     The default implementation contains two predefined assets: `app/plugin.js` and `app/plugin.css`.
 4. other resources that are part of the server-side API
 5. data transfer objects used by the resources
 6. mapping files that provide additional Cockpit queries as [MyBatis](http://www.mybatis.org/) mappings

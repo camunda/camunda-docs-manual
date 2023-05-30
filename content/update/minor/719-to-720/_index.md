@@ -16,11 +16,12 @@ menu:
 This document guides you through the update from Camunda Platform `7.19.x` to `7.20.0` and covers the following use cases:
 
 1. For administrators and developers: [Database updates](#database-updates)
-2. For administrators and developers: [Full distribution update](#full-distribution)
-3. For administrators: [Standalone web application](#standalone-web-application)
-4. For administrators: [Optimistic Locking on PostgreSQL](#optimistic-locking-on-postgresql)
-5. For administrators: [Explicit JUEL module on Jakarta Expression Language 4](#explicit-juel-module-on-jakarta-expression-language-4)
-6. For developers: [JavaScript external task client re-throws errors on task service APIs](#javascript-external-task-client-rethrows-errors-on-task-service-apis)
+1. For administrators and developers: [Full distribution update](#full-distribution)
+1. For administrators: [Standalone web application](#standalone-web-application)
+1. For administrators: [Optimistic Locking on PostgreSQL](#optimistic-locking-on-postgresql)
+1. For administrators: [Explicit JUEL module on Jakarta Expression Language 4](#explicit-juel-module-on-jakarta-expression-language-4)
+1. For developers: [JavaScript external task client re-throws errors on task service APIs](#javascript-external-task-client-rethrows-errors-on-task-service-apis)
+1. For developers: [Breaking change: Explicit asset declaration in Java web app plugins](#breaking-change-explicit-asset-declaration-in-java-web-app-plugins)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.20.
 
@@ -108,3 +109,22 @@ global error handler.
 
 With this release, the client re-throws errors, additionally directly on calling the respective task service APIs, 
 and you can handle them directly. Adjust your custom business logic accordingly.
+
+# Breaking change: Explicit asset declaration in Java web app plugins
+
+We introduced a change in the asset loading mechanism for Java web app plugins. Starting with this release,
+**plugin assets must be explicitly declared in the plugin root resource class**.
+You can declare your assets by overriding the `AbstractAppPluginRootResource#getAllowedAssets()` method in your root resource.
+
+The default implementation contains two predefined assets: `app/plugin.js` and `app/plugin.css`.
+For many plugins this might be already sufficient and will require no further assets to be allowed.
+
+{{< note title="Heads Up" class="warning" >}}
+Make sure to double-check and declare the required assets in your plugin root resource.
+Requests for undeclared assets will be rejected, and it will likely render your plugin unusable.
+{{< /note >}}
+
+[Custom scripts][custom-script] and [frontend modules][frontend-modules] are not affected by this.
+
+[custom-script]: {{< ref "/webapps/cockpit/extend/configuration#custom-scripts" >}}
+[frontend-modules]: {{< ref "/webapps/cockpit/extend/plugins#structure-of-a-frontend-module" >}}
