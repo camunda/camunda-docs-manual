@@ -1087,7 +1087,7 @@ The following is a list with the most commonly used process engine configuration
   <tr>
     <td><code>historyCleanupDefaultNumberOfRetries</code></td>
     <td>Integer</td>
-    <td>Specifies how many times a cleanup job will be executed before an incident is raised. Default value: <code>3</code></td>
+    <td>Specifies how often a cleanup job will be executed before an incident is raised. This property overrides the global <code>defaultNumberOfRetries</code> property which has a default value of <code>3</code></td>
   </tr>
   <tr>
     <td><code>historyCleanupBatchWindowStartTime</code></td>
