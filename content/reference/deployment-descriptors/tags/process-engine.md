@@ -1085,6 +1085,11 @@ The following is a list with the most commonly used process engine configuration
     </td>
   </tr>
   <tr>
+    <td><code>historyCleanupDefaultNumberOfRetries</code></td>
+    <td>Integer</td>
+    <td>Specifies how often a cleanup job will be executed before an incident is raised. This property overrides the global <code>defaultNumberOfRetries</code> property which has a default value of <code>3</code>.</td>
+  </tr>
+  <tr>
     <td><code>historyCleanupBatchWindowStartTime</code></td>
     <td>String</td>
     <td><a href="{{< ref "/user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window start time in the format <code>HH:mmZ</code> (Z is for RFC 822 time zone) or <code>HH:mm</code>. E.g., <code>20:00+0100</code> or <code>20:00</code>. In case of <code>null</code>, no batch window is considered to be configured
