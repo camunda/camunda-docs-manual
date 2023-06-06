@@ -85,6 +85,7 @@ It is generally recommended to enable logging of log in attempts (successful and
 In Camunda, you can enable authentication logging in the Camunda web apps by setting the `webappsAuthenticationLoggingEnabled` process engine [configuration flag]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#webappsAuthenticationLoggingEnabled" >}}) to true. All user-initiated log in and log out events will then be logged to the application log using the `org.camunda.bpm.webapp` [logger]({{< ref "/user-guide/logging.md#process-engine">}}).
 
 The following events produce log statements:
+
 * Successful log in with valid credentials
 * Failed log in with wrong password
 * Failed log in with insufficient authorization
