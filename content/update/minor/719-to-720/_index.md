@@ -145,8 +145,8 @@ You can re-create the removed logic in your project and register a JPA variables
 
 # Package adjustments in Engine Spring Framework integration
 
-The release introduces `impl` package in `engine-spring` module.
-The following classes have been move to the `impl` package and you will need to adjust class imports in the custom code in case of use:
+The release introduces a new `impl` package in the `engine-spring` module.
+The following classes have moved to the `impl` package and you will need to adjust class imports if you use them in your custom code:
 
 * `org.camunda.bpm.engine.spring.components.jobexecutor.SpringJobExecutor`
 * `org.camunda.bpm.engine.spring.ApplicationContextElResolver`
