@@ -23,6 +23,7 @@ This document guides you through the update from Camunda Platform `7.19.x` to `7
 1. For developers: [JavaScript external task client re-throws errors on task service APIs](#javascript-external-task-client-rethrows-errors-on-task-service-apis)
 1. For developers: [Breaking change: Explicit asset declaration in Java web app plugins](#breaking-change-explicit-asset-declaration-in-java-web-app-plugins)
 1. For developers: [Breaking change: Discontinue support for handling JPA entities as variables](#breaking-change-discontinue-support-for-handling-jpa-entities-as-variables)
+1. For developers: [Package adjustments in Engine Spring Framework integration](#package-adjustments-in-engine-spring-framework-integration)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.20.
 
@@ -142,3 +143,17 @@ In case your projects have used the removed JPA variable serializer, you must cr
 
 You can re-create the removed logic in your project and register a JPA variables serializer as a process engine plugin. As a step by step guide how to achieve that, we created an [example](https://github.com/camunda/camunda-bpm-examples/tree/master/process-engine-plugin/handling-jpa-variables).
 
+# Package adjustments in Engine Spring Framework integration
+
+The release introduces `impl` package in `engine-spring` module.
+The following classes have been move to the `impl` package and you will need to adjust class imports in the custom code in case of use:
+
+* `org.camunda.bpm.engine.spring.components.jobexecutor.SpringJobExecutor`
+* `org.camunda.bpm.engine.spring.ApplicationContextElResolver`
+* `org.camunda.bpm.engine.spring.SpringArtifactFactory`
+* `org.camunda.bpm.engine.spring.SpringBeansResolverFactory`
+* `org.camunda.bpm.engine.spring.SpringConfigurationHelper`
+* `org.camunda.bpm.engine.spring.SpringExpressionManager`
+* `org.camunda.bpm.engine.spring.SpringTransactionContext`
+* `org.camunda.bpm.engine.spring.SpringTransactionContextFactory`
+* `org.camunda.bpm.engine.spring.SpringTransactionInterceptor`
