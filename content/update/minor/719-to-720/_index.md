@@ -139,7 +139,7 @@ The process engine will no longer process JPA entities as variables affecting th
 * Spring Framework integration (`engine-spring`) - `SpringEntityManagerSessionFactory` class removed
 * Spring Boot Starter (`spring-boot-starter`) - `DefaultJpaConfiguration` logic and `camunda.bpm.jpa` properties removed
 
-In case your projects have used the removed JPA variable serializer, you must create custom JPA serializer logic for the variables that have been created already. Ensure the serializer loads correctly already persisted entities before updating to 7.20 version.
+In case your projects have used the removed JPA variable serializer, you must create custom JPA serializer logic for the variables that have been created already. Without providing a JPA variable serializer, when previously created JPA variable is retrieved, a `ProcessEngineException` will be thrown for `ENGINE-03040 No serializer defined for variable instance`. Futher ensure the serializer loads correctly already persisted entities before updating to 7.20 version.
 
 You can re-create the removed logic in your project and register a JPA variables serializer as a process engine plugin. As a step by step guide how to achieve that, we created an [example](https://github.com/camunda/camunda-bpm-examples/tree/master/process-engine-plugin/handling-jpa-variables).
 
