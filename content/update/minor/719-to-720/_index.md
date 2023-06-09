@@ -21,7 +21,8 @@ This document guides you through the update from Camunda Platform `7.19.x` to `7
 1. For administrators: [Optimistic Locking on PostgreSQL](#optimistic-locking-on-postgresql)
 1. For administrators: [Explicit JUEL module on Jakarta Expression Language 4](#explicit-juel-module-on-jakarta-expression-language-4)
 1. For developers: [JavaScript external task client re-throws errors on task service APIs](#javascript-external-task-client-rethrows-errors-on-task-service-apis)
-1. For developers: [Breaking change: Explicit asset declaration in Java web app plugins](#breaking-change-explicit-asset-declaration-in-java-web-app-plugins)
+1. For developers: [Explicit asset declaration in Java web app plugins](#explicit-asset-declaration-in-java-web-app-plugins)
+1. For developers: [Welcome web app supports new custom script format via Java web app plugins](#welcome-web-app-supports-new-custom-script-format-via-java-web-app-plugins)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.20.
 
@@ -110,7 +111,7 @@ global error handler.
 With this release, the client re-throws errors, additionally directly on calling the respective task service APIs, 
 and you can handle them directly. Adjust your custom business logic accordingly.
 
-# Breaking change: Explicit asset declaration in Java web app plugins
+# Explicit asset declaration in Java web app plugins
 
 We introduced a change in the asset loading mechanism for Java web app plugins. Starting with this release,
 **plugin assets must be explicitly declared in the plugin root resource class**.
@@ -128,3 +129,15 @@ Requests for undeclared assets will be rejected, and it will likely render your 
 
 [custom-script]: {{< ref "/webapps/cockpit/extend/configuration#custom-scripts" >}}
 [frontend-modules]: {{< ref "/webapps/cockpit/extend/plugins#structure-of-a-frontend-module" >}}
+
+# Welcome web app supports new custom script format via Java web app plugins
+
+Starting from 7.15, we introduced the new custom script format to all web apps.
+
+The only exception was custom scripts registered via the Java web app plugin system for the **Welcome web app**.
+
+This release makes the Welcome web app consistent with all other web apps. Custom scripts you register 
+via Java web app plugins must use the new custom script format or the legacy fallback.
+
+Please read on how to migrate your Java web app plugins and how to use the legacy fallback for the 
+Welcome web app in the [7.14 to 7.15 migration guide](http://localhost:1313/update/minor/714-to-715/#new-frontend-plugin-system-for-all-webapps)..
