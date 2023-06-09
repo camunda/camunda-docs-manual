@@ -396,6 +396,13 @@ This new default might lead to a higher load on your database.
 
 You can read how to configure the time to live to a smaller interval or restore the legacy behavior (disable the authentication cache time to live) in the documentation about [Web Applications]({{< ref "/webapps/shared-options/authentication.md#time-to-live" >}}).
 
+#### Container-based authentication requires implementing a `ReadOnlyIdentityProvider`
+
+When using [Container-based Authentication]({{< ref "/webapps/shared-options/authentication.md#container-based-authentication" >}}),
+you need to implement the methods `#findUserByQueryCriteria` and `#findGroupByQueryCriteria` of the `ReadOnlyIdentityProvider`.
+
+This is necessary due to the aforementioned security improvement to revalidate users and groups.
+
 ## 7.19.0 to 7.19.1 / 7.18.6 to 7.18.7
 
 ### Optimistic Locking on PostgreSQL
