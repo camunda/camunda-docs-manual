@@ -19,6 +19,8 @@ This document guides you through the update from Camunda Platform `7.18.x` to `7
 2. For administrators and developers: [Full distribution update](#full-distribution)
 3. For administrators: [Standalone web application](#standalone-web-application)
 4. For administrators: [Web apps revalidate authentications every five minutes](#web-apps-revalidate-authentications-every-five-minutes)
+   * For administrators and developers:\
+     [Container-based authentication requires implementing a ReadOnlyIdentityProvider](#container-based-authentication-requires-implementing-a-readonlyidentityprovider)
 5. For administrators: [Set Job Retries Asynchronously](#set-job-retries-asynchronously)
 6. For developers: [Camunda external task client JS update](#camunda-external-task-client-js-update)
 7. For developers: [Job executor priority range properties type changed](#job-executor-priority-range-properties-type-changed)
@@ -88,6 +90,13 @@ With this release, we introduced a time to live for the authentication cache, co
 This new default might lead to a higher load on your database.
 
 You can read how to configure the time to live to a smaller interval or restore the legacy behavior (disable the authentication cache time to live) in the documentation about [Web Applications]({{< ref "/webapps/shared-options/authentication.md#time-to-live" >}}).
+
+## Container-based authentication requires implementing a `ReadOnlyIdentityProvider`
+
+When using [Container-based Authentication]({{< ref "/webapps/shared-options/authentication.md#container-based-authentication" >}}), 
+you need to implement the methods `#findUserByQueryCriteria` and `#findGroupByQueryCriteria` of the `ReadOnlyIdentityProvider`. 
+
+This is necessary due to the aforementioned security improvement to revalidate users and groups.
 
 # Set Job Retries Asynchronously
 
