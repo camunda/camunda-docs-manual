@@ -121,6 +121,8 @@ The second argument contains API endpoints and CSRF cookie information, as well 
   * `baseApi`, `adminApi`, `cockpitApi`, `engineApi`: The paths to different API endpoints. The engineApi corresponds to the [Rest Api]({{< ref "/reference/rest" >}})
 The details of which data is passed into the plugin can be found at the [plugin point reference](#plugin-points).
 
+* `result`: Function, only available in data plugins. Argument is a (`Promise`). 
+
 * `unmount`: Optional function which is called when the Plugin is unmounted. Use this to cleanup any listeners you or your Framework might have registered.
 
 * `properties`: Optional object which contains all additional configuration for the plugin point, such as labels.
@@ -167,8 +169,25 @@ Plugin Points describe where a Plugin will be rendered and define which addition
 
 For more information on creating and configuring your own plugin, please see [How to develop a Cockpit plugin](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/cockpit-fullstack-count-processes).
 
+## Data
+
+**Data Plugin Points** have a `#result` function that gets data of a called REST endpoint passed. 
+The `#result` function is called when the respective HTTP request is performed.
+The first argument of the `#result` function is a (`Promise`).
+
+### Login Data
+
+**Name:** `cockit.login.data`\
+**REST Endpoint:** `POST /camunda/api/admin/auth/user/default/login/cockpit`
+
+When a user clicks on the **Login** button of the login form, the plugin points `#result` function is called.
+Your [Login Plugin](#login) can react to the data that this data plugin will retrieve.
+
+This plugin point is available for all web apps. Just change the conical app name for the respective webapp (`tasklist.login.data`, `admin.login.data`, `welcome.login.data`).
+
 ## Route
-`cockpit.route`
+
+**Name:** `cockpit.route`
 
 This plugin points properties contain the attribute `path`, which stands for the hashRoute for this page. This will be rendered when the user navigates in the browser to the url, e.g. `#/my-path`.
 
@@ -193,6 +212,16 @@ properties: {
   path: "/my-path"
 }
 ```
+
+## Login
+
+**Name:** `cockpit.login`
+
+{{< img src="../../img/plugin-points/plugin-point-login-custom.png" title="Login" >}}
+
+The `cockpit.login` plugin point allows to add your custom views at the place where the web app renders the login form.
+
+This plugin point is available for all web apps. Just change the conical app name for the respective webapp (`tasklist.login`, `admin.login`, `welcome.login`).
 
 ## Dashboard
 
