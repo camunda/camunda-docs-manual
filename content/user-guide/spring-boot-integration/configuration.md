@@ -21,7 +21,6 @@ The configuration is divided into _sections_. These _sections_ are represented b
 * `org.camunda.bpm.spring.boot.starter.configuration.CamundaHistoryLevelAutoHandlingConfiguration`
 * `org.camunda.bpm.spring.boot.starter.configuration.CamundaJobConfiguration`
 * `org.camunda.bpm.spring.boot.starter.configuration.CamundaDeploymentConfiguration`
-* `org.camunda.bpm.spring.boot.starter.configuration.CamundaJpaConfiguration`
 * `org.camunda.bpm.spring.boot.starter.configuration.CamundaAuthorizationConfiguration`
 * `org.camunda.bpm.spring.boot.starter.configuration.CamundaFailedJobConfiguration`
 * `org.camunda.bpm.spring.boot.starter.configuration.CamundaMetricsConfiguration`
@@ -117,10 +116,6 @@ This is done after the spring context successfully loaded (see `org.camunda.bpm.
 
 If auto deployment is enabled (this is the case by default), all processes found in the classpath are deployed.
 The resource pattern can be changed using properties (see [properties](#camunda-engine-properties)).
-
-### `DefaultJpaConfiguration`
-
-If JPA is enabled and a `entityManagerFactory` bean is configured, the process engine is enabled to use JPA (see [properties](#camunda-engine-properties)).
 
 ### `DefaultAuthorizationConfiguration`
 
@@ -454,33 +449,6 @@ See the <a href="{{<ref "/user-guide/spring-boot-integration/the-spring-event-br
 <td><code>true</code></td>
 </tr>
 
-
-
-<tr><td colspan="4"><b>JPA</b></td></tr>
-<tr>
-<td rowspan="4"><code>camunda.bpm.jpa</code></td>
-<td><code>.enabled</code></td>
-<td>Enables jpa configuration</td>
-<td><code>true</code>. Depends on <code>entityManagerFactory</code> bean.</td>
-</tr>
-
-<tr>
-<td><code>.persistence-unit-name</code></td>
-<td>JPA persistence unit name</td>
-<td>-</td>
-</tr>
-
-<tr>
-<td><code>.close-entity-manager</code></td>
-<td>Close JPA entity manager</td>
-<td><code>true</code></td>
-</tr>
-
-<tr>
-<td><code>.handle-transaction</code></td>
-<td>JPA handle transaction</td>
-<td><code>true</code></td>
-</tr>
 
 <tr><td colspan="4"><b>Management</b></td></tr>
 <tr>

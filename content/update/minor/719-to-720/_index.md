@@ -22,6 +22,7 @@ This document guides you through the update from Camunda Platform `7.19.x` to `7
 1. For administrators: [Explicit JUEL module on Jakarta Expression Language 4](#explicit-juel-module-on-jakarta-expression-language-4)
 1. For developers: [JavaScript external task client re-throws errors on task service APIs](#javascript-external-task-client-rethrows-errors-on-task-service-apis)
 1. For developers: [Breaking change: Explicit asset declaration in Java web app plugins](#breaking-change-explicit-asset-declaration-in-java-web-app-plugins)
+1. For developers: [Breaking change: Discontinue support for handling JPA entities as variables](#breaking-change-discontinue-support-for-handling-jpa-entities-as-variables)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.20.
 
@@ -128,3 +129,15 @@ Requests for undeclared assets will be rejected, and it will likely render your 
 
 [custom-script]: {{< ref "/webapps/cockpit/extend/configuration#custom-scripts" >}}
 [frontend-modules]: {{< ref "/webapps/cockpit/extend/plugins#structure-of-a-frontend-module" >}}
+
+# Breaking change: Discontinue support for handling JPA entities as variables
+
+The process engine will no longer process JPA entities as variables affecting the following components:
+
+* Process engine (`camunda-engine`) - `JPAVariableSerializer` logic removed
+* Spring Framework integration (`engine-spring`) - `SpringEntityManagerSessionFactory` class removed
+* Spring Boot Starter (`spring-boot-starter`) - `DefaultJpaConfiguration` logic and `camunda.bpm.jpa` properties removed
+
+In case your projects have used the removed JPA variable serializer, you must create custom JPA serializer logic for the variables that have been created already. Without providing a JPA variable serializer, when previously created JPA variable is retrieved, a `ProcessEngineException` will be thrown for `ENGINE-03040 No serializer defined for variable instance`. Futher ensure the serializer loads correctly already persisted entities before updating to 7.20 version.
+
+You can re-create the removed logic in your project and register a JPA variables serializer as a process engine plugin. As a step by step guide how to achieve that, we created an [example](https://github.com/camunda/camunda-bpm-examples/tree/master/process-engine-plugin/handling-jpa-variables).
