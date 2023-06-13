@@ -21,8 +21,8 @@ This document guides you through the update from Camunda Platform `7.19.x` to `7
 1. For administrators: [Optimistic Locking on PostgreSQL](#optimistic-locking-on-postgresql)
 1. For administrators: [Explicit JUEL module on Jakarta Expression Language 4](#explicit-juel-module-on-jakarta-expression-language-4)
 1. For developers: [JavaScript external task client re-throws errors on task service APIs](#javascript-external-task-client-rethrows-errors-on-task-service-apis)
-1. For developers: [Breaking change: Explicit asset declaration in Java web app plugins](#breaking-change-explicit-asset-declaration-in-java-web-app-plugins)
-1. For developers: [Breaking change: Discontinue support for handling JPA entities as variables](#breaking-change-discontinue-support-for-handling-jpa-entities-as-variables)
+1. For developers: [Explicit asset declaration in Java web app plugins](#explicit-asset-declaration-in-java-web-app-plugins)
+1. For developers: [Discontinue support for handling JPA entities as variables](#discontinue-support-for-handling-jpa-entities-as-variables)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.20.
 
@@ -111,7 +111,7 @@ global error handler.
 With this release, the client re-throws errors, additionally directly on calling the respective task service APIs, 
 and you can handle them directly. Adjust your custom business logic accordingly.
 
-# Breaking change: Explicit asset declaration in Java web app plugins
+# Explicit asset declaration in Java web app plugins
 
 We introduced a change in the asset loading mechanism for Java web app plugins. Starting with this release,
 **plugin assets must be explicitly declared in the plugin root resource class**.
@@ -130,7 +130,7 @@ Requests for undeclared assets will be rejected, and it will likely render your 
 [custom-script]: {{< ref "/webapps/cockpit/extend/configuration#custom-scripts" >}}
 [frontend-modules]: {{< ref "/webapps/cockpit/extend/plugins#structure-of-a-frontend-module" >}}
 
-# Breaking change: Discontinue support for handling JPA entities as variables
+# Discontinue support for handling JPA entities as variables
 
 The process engine will no longer process JPA entities as variables affecting the following components:
 

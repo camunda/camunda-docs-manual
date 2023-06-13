@@ -425,7 +425,7 @@ Ideally, you shouldn't notice any difference in method invocation from JUEL expr
 
 ## 7.19.2 to 7.19.3 / 7.18.8 to 7.18.9 / 7.17.13 to 7.17.14
 
-### Breaking change: Explicit asset declaration in Java web app plugins
+### Explicit asset declaration in Java web app plugins
 
 We introduced a change in the asset loading mechanism for Java web app plugins. Starting with this release,
 **plugin assets must be explicitly declared in the plugin root resource class**.
