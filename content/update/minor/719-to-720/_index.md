@@ -23,6 +23,7 @@ This document guides you through the update from Camunda Platform `7.19.x` to `7
 1. For developers: [JavaScript external task client re-throws errors on task service APIs](#javascript-external-task-client-rethrows-errors-on-task-service-apis)
 1. For developers: [Explicit asset declaration in Java web app plugins](#explicit-asset-declaration-in-java-web-app-plugins)
 1. For developers: [Discontinue support for handling JPA entities as variables](#discontinue-support-for-handling-jpa-entities-as-variables)
+1. For developers: [Quarkus 3 update](#quarkus-3-update)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.20.
 
@@ -141,3 +142,18 @@ The process engine will no longer process JPA entities as variables affecting th
 In case your projects have used the removed JPA variable serializer, you must create custom JPA serializer logic for the variables that have been created already. Without providing a JPA variable serializer, when previously created JPA variable is retrieved, a `ProcessEngineException` will be thrown for `ENGINE-03040 No serializer defined for variable instance`. Futher ensure the serializer loads correctly already persisted entities before updating to 7.20 version.
 
 You can re-create the removed logic in your project and register a JPA variables serializer as a process engine plugin. As a step by step guide how to achieve that, we created an [example](https://github.com/camunda/camunda-bpm-examples/tree/master/process-engine-plugin/handling-jpa-variables).
+
+# Quarkus 3 update
+
+We have updated our Quarkus Extension to the latest Quarkus 3 version. This version brings many new features and changes.
+For a complete list, see the [Quarkus 3 major release][quarkus3] blog post.
+From the extension's perspective,
+the most important changes are the deprecation of Java 11 and the switch to Jakarta EE 10.
+
+Quarkus has a very comprehensive [guide for updating][quarkus3-update] and also offers an update tool.
+
+You can find more details about the extension on our dedicated [Quarkus Integration][quarkus-integration] page.
+
+[quarkus3]: https://quarkus.io/blog/quarkus-3-0-final-released
+[quarkus3-update]: https://quarkus.io/blog/quarkus-3-0-final-released/#upgrading
+[quarkus-integration]: {{< ref "/user-guide/quarkus-integration" >}}
