@@ -18,7 +18,7 @@ If you need a Remote or Shared Engine Distribution depends on your use-case. Che
 This page describes the steps to execute Camunda Platform Run.
 
 # Requirements
-Please make sure that you have the Java Runtime Environment 8+ installed.
+Please make sure that you have the Java Runtime Environment 17 installed.
 
 You can verify this by using your terminal, shell, or command line:
 

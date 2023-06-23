@@ -47,6 +47,10 @@ To use Camunda Spring Boot Starter with Camunda EE you need to define the EE ver
 </dependency>
 ```
 
+# Requirements
+
+Camunda Spring Boot Starter requires Java 17.
+
 # Supported deployment scenarios
 
 Following deployment scenario is supported by Camunda:
