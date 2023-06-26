@@ -165,7 +165,7 @@ You can find more details about the extension on our dedicated [Quarkus Integrat
 
 # Spring Framework 6.0 support
 
-The newly created `engine-spring-6` module provides support to Spring Framework 6.0 with maven coordinates:
+The newly created `engine-spring-6` module provides support to Spring Framework 6.0 with the following maven coordinates:
 
 ```xml
 <dependency>
@@ -175,8 +175,8 @@ The newly created `engine-spring-6` module provides support to Spring Framework 
 ```
 
 The most noteworthy changes from the new major version are JDK 17+ and Jakarta EE 9+ baseline.
-In order to adjust your applications, follow the Spring Framework [upgrade guide][spring6-guide]
-and check [Spring Framework 6.0 goes GA][spring6] blog post.
+To adjust your applications, follow the Spring Framework [upgrade guide][spring6-guide]
+and check the [Spring Framework 6.0 goes GA][spring6] blog post.
 
 Camunda Platform introduces Spring Framework 6.0 support for:
 
@@ -188,11 +188,11 @@ Camunda Platform introduces Spring Framework 6.0 support for:
 
 # Upgrade to Spring Boot 3.1
 
-The Camunda Engine now offers support for Spring Boot 3.1. The new major is build on Spring Framework 6.0 
-and brings changes such as JDK 17 baseline and switch to Jakarta EE 10.
+The Camunda Engine now offers support for Spring Boot 3.1. The new major version builds on Spring Framework 6.0 
+and brings changes such as JDK 17 baseline and switching to the Jakarta namespace.
 
-For complete list of new features and changes, check the [Spring Boot 3.0][boot30] and [Spring Boot 3.1][boot31] release notes.
-Have a look the Spring Boot [update guide][boot30-guide] to migrate your applications from Spring Boot 2.7.
+For a complete list of new features and changes, check the [Spring Boot 3.0][boot30] and [Spring Boot 3.1][boot31] release notes.
+Have a look at the Spring Boot [update guide][boot30-guide] to migrate your applications from Spring Boot 2.7.
 
 [boot30]: https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Release-Notes
 [boot31]: https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.1-Release-Notes
