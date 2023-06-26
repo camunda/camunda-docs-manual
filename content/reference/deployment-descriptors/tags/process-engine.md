@@ -1195,7 +1195,7 @@ The following is a list with the most commonly used process engine configuration
   <tr id="historytimetolive">
     <td><code>historyTimeToLive</code></td>
     <td>String</td>
-    <td>Defines history time to live for process definitions if no other value is defined.
+    <td>Defines history time to live for process definitions and decision definitions if no other value is defined.
 The history time to live defines the number of days using a time specified by the ISO-8601 date format. The function only accepts the notation to define a number of days.
     </td>
   </tr>
