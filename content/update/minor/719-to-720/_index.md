@@ -26,8 +26,9 @@ This document guides you through the update from Camunda Platform `7.19.x` to `7
 1. For developers: [Quarkus 3 update](#quarkus-3-update)
 1. For developers: [Spring Framework 6.0 support](#spring-framework-6-0-support)
 1. For developers: [Upgrade to Spring Boot 3.1](#upgrade-to-spring-boot-3-1)
-1. For developers: [Camunda Platform Run requires JDK 17](#camunda-platform-run-requires-jdk-17)
-1. For developers: [Camunda Platform Assert requires JDK 17](#camunda-platform-assert-requires-jdk-17)
+   * For developers: [Camunda Platform Run requires JDK 17](#camunda-platform-run-requires-jdk-17)
+   * For developers: [External Task Client Spring Boot Starter requires JDK 17](#external-task-client-spring-boot-starter-requires-jdk-17)
+   * For developers: [Camunda Platform Assert requires JDK 17](#camunda-platform-assert-requires-jdk-17)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.20.
 
@@ -200,6 +201,10 @@ Have a look the Spring Boot [update guide][boot30-guide] to migrate your applica
 ## Camunda Platform Run requires JDK 17
 
 After adopting Spring Boot 3, the Camunda Platform Run requires Java Runtime Environment 17 installed.
+
+## External Task Client Spring Boot Starter requires JDK 17
+
+After adopting Spring Boot 3, the External Task Client Spring Boot Starter requires Java 17.
 
 ## Camunda Platform Assert requires JDK 17
 
