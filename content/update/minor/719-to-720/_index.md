@@ -189,10 +189,17 @@ Camunda Platform introduces Spring Framework 6.0 support for:
 # Upgrade to Spring Boot 3.1
 
 The Camunda Engine now offers support for Spring Boot 3.1. The new major version builds on Spring Framework 6.0 
-and brings changes such as JDK 17 baseline and switching to the Jakarta namespace.
+and brings changes such as JDK 17 baseline and switching to the Jakarta namespace. 
 
 For a complete list of new features and changes, check the [Spring Boot 3.0][boot30] and [Spring Boot 3.1][boot31] release notes.
 Have a look at the Spring Boot [update guide][boot30-guide] to migrate your applications from Spring Boot 2.7.
+
+Among this changes Spring Boot Starter now relies on Camunda Platform modules that are created for the Jakarta namespace.
+For example, in case you want to build custom webjar, keep in mind that now:
+
+* `camunda-webapp-webjar` depends on `camunda-webapp-jakarta` for building the Spring Boot webjar.
+* `camunda-webapp-webjar-ee` depends on `camunda-webapp-jakarta` and `camunda-webapp-ee-plugins-jakarta`
+`
 
 [boot30]: https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Release-Notes
 [boot31]: https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.1-Release-Notes
