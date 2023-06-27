@@ -194,11 +194,11 @@ and brings changes such as JDK 17 baseline and switching to the Jakarta namespac
 For a complete list of new features and changes, check the [Spring Boot 3.0][boot30] and [Spring Boot 3.1][boot31] release notes.
 Have a look at the Spring Boot [update guide][boot30-guide] to migrate your applications from Spring Boot 2.7.
 
-Among this changes Spring Boot Starter now relies on Camunda Platform modules that are created for the Jakarta namespace.
-For example, in case you want to build custom webjar, keep in mind that now:
+The switch to the Jakarta namespace requires the Spring Boot Starter and other modules to now rely on Camunda Platform modules that are created for this purpose.
+For example, if you want to build a custom webjar, keep the following changes in mind:
 
 * `camunda-webapp-webjar` depends on `camunda-webapp-jakarta` for building the Spring Boot webjar.
-* `camunda-webapp-webjar-ee` depends on `camunda-webapp-jakarta` and `camunda-webapp-ee-plugins-jakarta`
+* `camunda-webapp-webjar-ee` depends on `camunda-webapp-jakarta` and `camunda-webapp-ee-plugins-jakarta`.
 `
 
 [boot30]: https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Release-Notes
