@@ -366,6 +366,14 @@ The LDAP Identity Provider provides the following configuration properties:
       </p>
    </td>
   </tr>
+  <tr>
+   <td id="password-check-catch-authentication-exception"><code>passwordCheckCatchAuthenticationException</code></td>
+   <td>
+      <p>When a login attempt fails with an <code>AuthenticationException</code>, by default, the plugin catches this exception and marks the password check as failed. You can choose to set this flag to `false` which will cause the plugin to re-throw the <code>AuthenticationException</code>. This is helpful when you want to register a frontend plugin that reacts to the exception message from the login attempt.
+      <em>Default:</em> <code>true</code>
+      </p>
+   </td>
+  </tr>
 </table>
 
 # Throttle login attempts
