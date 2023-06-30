@@ -10,11 +10,13 @@ menu:
 
 ---
 
-The camunda-engine Spring framework integration is located inside the `camunda-engine-spring` maven module and can be added to apache maven-based projects through the following dependency:
+The camunda-engine Spring Framework integration is located inside a maven module and can be added to apache maven-based projects through the following dependency:
 
 {{< note title="" class="info" >}}
   Please import the [Camunda BOM](/get-started/apache-maven/) to ensure correct versions for every Camunda project.
 {{< /note >}}
+
+* `camunda-engine-spring` maven module for Spring Framework 5
 
 ```xml
 <dependency>
@@ -23,12 +25,21 @@ The camunda-engine Spring framework integration is located inside the `camunda-e
 </dependency>
 ```
 
-The `camunda-engine-spring` artifact should be added as a library to the process application.
-It can be used with Spring 4 or 5. The following minimal set of Spring dependencies must be added in the desired version:
+* `camunda-engine-spring-6` maven module for Spring Framework 6.
+
+```xml
+<dependency>
+  <groupId>org.camunda.bpm</groupId>
+  <artifactId>camunda-engine-spring-6</artifactId>
+</dependency>
+```
+
+The process engine Spring artifact should be added as a library to the process application.
+The following minimal set of Spring dependencies must be added in the desired version:
 
 ```xml
 <properties>
-  <spring.version>5.1.6.RELEASE</spring.version>
+  <spring.version>X.Y.Z.RELEASE</spring.version>
 </properties>
 
 <dependencyManagement>

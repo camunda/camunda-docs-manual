@@ -24,6 +24,10 @@ This document guides you through the update from Camunda Platform `7.19.x` to `7
 1. For developers: [Explicit asset declaration in Java web app plugins](#explicit-asset-declaration-in-java-web-app-plugins)
 1. For developers: [Discontinue support for handling JPA entities as variables](#discontinue-support-for-handling-jpa-entities-as-variables)
 1. For developers: [Quarkus 3 update](#quarkus-3-update)
+1. For developers: [Spring Framework 6.0 support](#spring-framework-6-0-support)
+1. For developers: [Upgrade to Spring Boot 3.1](#upgrade-to-spring-boot-3-1)
+   * For developers: [External Task Client Spring Boot Starter requires JDK 17](#external-task-client-spring-boot-starter-requires-jdk-17)
+1. For developers: [Camunda Platform Run requires JDK 17](#camunda-platform-run-requires-jdk-17)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.20.
 
@@ -157,3 +161,54 @@ You can find more details about the extension on our dedicated [Quarkus Integrat
 [quarkus3]: https://quarkus.io/blog/quarkus-3-0-final-released
 [quarkus3-update]: https://quarkus.io/blog/quarkus-3-0-final-released/#upgrading
 [quarkus-integration]: {{< ref "/user-guide/quarkus-integration" >}}
+
+# Spring Framework 6.0 support
+
+The newly created `engine-spring-6` module provides support to Spring Framework 6.0 with the following maven coordinates:
+
+```xml
+<dependency>
+  <groupId>org.camunda.bpm</groupId>
+  <artifactId>camunda-engine-spring-6</artifactId>
+</dependency>
+```
+
+The most noteworthy changes from the new major version are JDK 17+ and Jakarta EE 9+ baseline.
+To adjust your applications, follow the Spring Framework [upgrade guide][spring6-guide]
+and check the [Spring Framework 6.0 goes GA][spring6] blog post.
+
+Camunda Platform introduces Spring Framework 6.0 support for:
+
+* Spring Boot Starter
+* WildFly Application Server 27
+
+[spring6]: https://spring.io/blog/2022/11/16/spring-framework-6-0-goes-ga
+[spring6-guide]: https://github.com/spring-projects/spring-framework/wiki/Upgrading-to-Spring-Framework-6.x
+
+# Upgrade to Spring Boot 3.1
+
+The Camunda Engine now offers support for Spring Boot 3.1. The new major version builds on Spring Framework 6.0 
+and brings changes such as JDK 17 baseline and switching to the Jakarta namespace. 
+
+For a complete list of new features and changes, check the [Spring Boot 3.0][boot30] and [Spring Boot 3.1][boot31] release notes.
+Have a look at the Spring Boot [update guide][boot30-guide] to migrate your applications from Spring Boot 2.7.
+
+The switch to the Jakarta namespace requires the Spring Boot Starter and other modules to now rely on Camunda Platform modules that are created for this purpose.
+For example, if you want to build a custom webjar, keep the following changes in mind:
+
+* `camunda-webapp-webjar` depends on `camunda-webapp-jakarta` for building the Spring Boot webjar.
+* `camunda-webapp-webjar-ee` depends on `camunda-webapp-jakarta` and `camunda-webapp-ee-plugins-jakarta`.
+`
+
+[boot30]: https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Release-Notes
+[boot31]: https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.1-Release-Notes
+[boot30-guide]: https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Migration-Guide
+
+## External Task Client Spring Boot Starter requires JDK 17
+
+After adopting Spring Boot 3, the External Task Client Spring Boot Starter requires Java 17.
+
+# Camunda Platform Run requires JDK 17
+
+Starting with Camunda Platform 7.20, the Camunda Platform Run distribution requires Java Runtime Environment 17 installed.
+

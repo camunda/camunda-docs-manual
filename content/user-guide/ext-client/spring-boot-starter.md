@@ -29,6 +29,10 @@ When the execution waits in an External Task, the Client executes your custom bu
 For instance, the customer's credit score is checked, and if successful, the External Task 
 can be marked as completed and the execution proceeds.
 
+# Requirements
+
+External Task Client Spring Boot Starter requires Java 17.
+
 ## Topic Subscription
 
 The interface which allows implementing the custom business logic and interacting with the Engine is 
