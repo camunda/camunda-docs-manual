@@ -1,13 +1,13 @@
 ---
 
 title: 'Admin Plugins'
-weight: 20
+weight: 50
 
 menu:
   main:
     name: "Plugins"
     identifier: "user-guide-admin-plugins"
-    parent: "user-guide-admin-extend"
+    parent: "user-guide-admin"
 
 ---
 
