@@ -171,7 +171,7 @@ For more information on creating and configuring your own plugin, please see [Ho
 
 ## Data
 
-**Data Plugin Points** have a `#result` function that gets data of a called REST endpoint passed. 
+**Data Plugin Points** have a `#result` function that gets the response data as a promise of a called REST endpoint passed. 
 The `#result` function is called when the respective HTTP request is performed.
 The first argument of the `#result` function is a (`Promise`).
 
@@ -183,7 +183,7 @@ The first argument of the `#result` function is a (`Promise`).
 When a user clicks on the **Login** button of the login form, the plugin points `#result` function is called.
 Your [Login Plugin](#login) can react to the data that this data plugin will retrieve.
 
-This plugin point is available for all web apps. Just change the conical app name for the respective webapp (`tasklist.login.data`, `admin.login.data`, `welcome.login.data`).
+This plugin point is available for all web apps. Just change the canonical app name for the respective webapp (`tasklist.login.data`, `admin.login.data`, `welcome.login.data`).
 
 ## Route
 
@@ -221,7 +221,7 @@ properties: {
 
 The `cockpit.login` plugin point allows to add your custom views at the place where the web app renders the login form.
 
-This plugin point is available for all web apps. Just change the conical app name for the respective webapp (`tasklist.login`, `admin.login`, `welcome.login`).
+This plugin point is available for all web apps. Just change the canonical app name for the respective webapp (`tasklist.login`, `admin.login`, `welcome.login`).
 
 ## Dashboard
 
