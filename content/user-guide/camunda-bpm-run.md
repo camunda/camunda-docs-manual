@@ -451,7 +451,6 @@ Camunda Platform provides a mechanism to extend the Camunda Webapps with your ow
 A webapp plugin is a maven jar project that provides a server-side and a client-side extension to the webapp. Note that in Camunda Welcome, only client-side extension is possible. You can find more information about how to structure your plugins [here]({{< ref "/webapps/cockpit/extend/plugins.md#the-nature-of-a-cockpit-plugin" >}}).
 
 To register a webapp plugin, simply drop the jar file into the `configuration/userlib` folder. See [the Starting with Camunda Platform Run section](#starting-with-camunda-platform-run) of this guide to find out how to navigate the directories of Camunda Platform Run.
-If you want to try out extending the Camunda webapps without having to write your own plugin, you can use [this example plugin](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/cockpit-fullstack-count-processes) instead.
 
 ## Example application launch
 
