@@ -338,7 +338,16 @@ In the table below, observe the Camunda Run-specific properties for the Administ
   </tr>
 </table>
 
-## Process engine plugin registration
+## Plugin registration
+
+Camunda Platform Run supports two types of plugins. 
+
+* [Process engine plugins][engine-plugins] can be used to extend the process engine configuration to add more functionality.
+* [Webapp plugins][cockpit-plugins] are used to extend one of the Camunda webapps (i.e. Cockpit, Tasklist, Admin, Welcome).
+
+Both types of plugins are supported in Camunda Platform Run but have to be registered differently.
+
+### Process engine plugin registration
 
 Camunda Platform provides a process engine plugin mechanism to enable users to add and adjust
 process engine features by extending the process engine configuration. You can use plugins developed by Camunda, or by
@@ -394,7 +403,7 @@ Once complete, your YAML configuration file should look similar to the following
     - plugin-class: canonical.name.of.the.PluginClass
 ```
 
-### Example process engine plugin registration
+#### Example process engine plugin registration
 
 Let's say that you want to register a process engine plugin called `TestPlugin`. The following information is 
 available:
@@ -435,7 +444,13 @@ camunda.bpm.run.process-engine-plugins:
 3. Start Camunda Run. The `TestPlugin` will be read from the YAML configuration and registered with the
 process engine.
 
-[engine-plugins]: {{< ref "/user-guide/process-engine/process-engine-plugins.md" >}}
+### Webapp plugin registration
+
+Camunda Platform provides a mechanism to extend the Camunda Webapps with your own functionality. You can add plugins at various plugin points. For example, the processes dashboard in Cockpit.
+
+A webapp plugin is a maven jar project that provides a server-side and a client-side extension to the webapp. You can find more information about how to structure your plugins [here]({{< ref "/webapps/cockpit/extend/plugins.md#the-nature-of-a-cockpit-plugin" >}}).
+
+To register a webapp plugin, simply drop the jar file into the `configuration/userlib` folder. See [the Starting with Camunda Platform Run section](#starting-with-camunda-platform-run) of this guide to find out how to navigate the directories of Camunda Platform Run.
 
 ## Example application launch
 
@@ -542,3 +557,7 @@ For more information on logging configuration visit the [Spring Boot Logging Gui
       <td><code>-</code></td>
   </tr>
 </table>
+
+
+[engine-plugins]: {{< ref "/user-guide/process-engine/process-engine-plugins.md" >}}
+[cockpit-plugins]: {{< ref "/webapps/cockpit/extend/plugins.md" >}}
