@@ -448,7 +448,7 @@ process engine.
 
 Camunda Platform provides a mechanism to extend the Camunda Webapps with your own functionality. You can add plugins at various plugin points. For example, the processes dashboard in Cockpit.
 
-A webapp plugin is a maven jar project that provides a server-side and a client-side extension to the webapp. Note that in Camunda Welcome, only client-side extension is possible. You can find more information about how to structure your plugins [here]({{< ref "/webapps/cockpit/extend/plugins.md#the-nature-of-a-cockpit-plugin" >}}).
+A webapp plugin is a maven jar project that provides a server-side and a client-side extension to the webapp. You can find more information about how to structure your plugins [here]({{< ref "/webapps/cockpit/extend/plugins.md#the-nature-of-a-cockpit-plugin" >}}).
 
 To register a webapp plugin, simply drop the jar file into the `configuration/userlib` folder. See [the Starting with Camunda Platform Run section](#starting-with-camunda-platform-run) of this guide to find out how to navigate the directories of Camunda Platform Run.
 
