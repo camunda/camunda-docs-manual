@@ -16,18 +16,19 @@ menu:
 This document guides you through the update from Camunda Platform `7.19.x` to `7.20.0` and covers the following use cases:
 
 1. For administrators and developers: [Database updates](#database-updates)
-1. For administrators and developers: [Full distribution update](#full-distribution)
-1. For administrators: [Standalone web application](#standalone-web-application)
-1. For administrators: [Optimistic Locking on PostgreSQL](#optimistic-locking-on-postgresql)
-1. For administrators: [Explicit JUEL module on Jakarta Expression Language 4](#explicit-juel-module-on-jakarta-expression-language-4)
-1. For developers: [JavaScript external task client re-throws errors on task service APIs](#javascript-external-task-client-rethrows-errors-on-task-service-apis)
-1. For developers: [Explicit asset declaration in Java web app plugins](#explicit-asset-declaration-in-java-web-app-plugins)
-1. For developers: [Discontinue support for handling JPA entities as variables](#discontinue-support-for-handling-jpa-entities-as-variables)
-1. For developers: [Quarkus 3 update](#quarkus-3-update)
-1. For developers: [Spring Framework 6.0 support](#spring-framework-6-0-support)
-1. For developers: [Upgrade to Spring Boot 3.1](#upgrade-to-spring-boot-3-1)
-   * For developers: [External Task Client Spring Boot Starter requires JDK 17](#external-task-client-spring-boot-starter-requires-jdk-17)
-1. For developers: [Camunda Platform Run requires JDK 17](#camunda-platform-run-requires-jdk-17)
+2. For administrators and developers: [Full distribution update](#full-distribution)
+3. For administrators: [Standalone web application](#standalone-web-application)
+4. For administrators: [Optimistic Locking on PostgreSQL](#optimistic-locking-on-postgresql)
+5. For administrators: [Explicit JUEL module on Jakarta Expression Language 4](#explicit-juel-module-on-jakarta-expression-language-4)
+6. For developers: [JavaScript external task client re-throws errors on task service APIs](#javascript-external-task-client-rethrows-errors-on-task-service-apis)
+7. For developers: [Explicit asset declaration in Java web app plugins](#explicit-asset-declaration-in-java-web-app-plugins)
+8. For developers: [Discontinue support for handling JPA entities as variables](#discontinue-support-for-handling-jpa-entities-as-variables)
+9. For developers: [Quarkus 3 update](#quarkus-3-update)
+10. For developers: [Spring Framework 6.0 support](#spring-framework-6-0-support)
+11. For developers: [Upgrade to Spring Boot 3.1](#upgrade-to-spring-boot-3-1)
+    * For developers: [External Task Client Spring Boot Starter requires JDK 17](#external-task-client-spring-boot-starter-requires-jdk-17)
+12. For developers: [Camunda Platform Run requires JDK 17](#camunda-platform-run-requires-jdk-17)
+13. For developers: [Update Alpine Base Docker Image to 3.18](#update-to-alpine-3-18)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.20.
 
@@ -211,4 +212,10 @@ After adopting Spring Boot 3, the External Task Client Spring Boot Starter requi
 # Camunda Platform Run requires JDK 17
 
 Starting with Camunda Platform 7.20, the Camunda Platform Run distribution requires Java Runtime Environment 17 installed.
+
+# Update to Alpine 3.18
+
+This release comes with an update of the Alpine base docker image. See the detailed list of changes in the official [release notes][alpine318] page.
+
+[alpine318]: https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.18.0
 
