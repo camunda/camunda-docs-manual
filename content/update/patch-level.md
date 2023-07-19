@@ -444,6 +444,8 @@ Requests for undeclared assets will be rejected, and it will likely render your 
 [custom-script]: {{< ref "/webapps/cockpit/extend/configuration#custom-scripts" >}}
 [frontend-modules]: {{< ref "/webapps/cockpit/extend/plugins#structure-of-a-frontend-module" >}}
 
+## 7.19.4 to 7.19.5 / 7.18.9 to 7.18.10 / 7.17.14 to 7.17.15
+
 ### Update to Alpine 3.18
 
 This release comes with an update of the Alpine base docker image. See the detailed list of changes in the official [release notes][alpine318] page.
