@@ -215,7 +215,7 @@ Starting with Camunda Platform 7.20, the Camunda Platform Run distribution requi
 
 # Update base of Camunda Docker images to Alpine 3.18
 
-This release comes with an update of the Alpine base docker image. See the detailed list of changes in the official [release notes][alpine318] page.
+The Camunda Docker images are based on Alpine. This release updates the Alpine base docker image to 3.18. See the detailed list of changes in the official [release notes][alpine318] page.
 
 [alpine318]: https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.18.0
 
