@@ -874,6 +874,15 @@ The following is a list with the most commonly used process engine configuration
     </td>
   </tr>
 
+  <tr id="dmnReturnBlankTableOutputAsNull">
+    <td><code>dmnReturnBlankTableOutputAsNull</code></td>
+    <td>Boolean</td>
+    <td>
+      Controls whether blank DMN table outputs are swallowed or returned as <code>null</code>.<br><br>
+      Default value: <code>false</code>
+    </td>
+  </tr>
+
   <tr id="initializeTelemetry">
     <td><code>initializeTelemetry</code></td>
     <td>boolean</td>
