@@ -28,7 +28,7 @@ This document guides you through the update from Camunda Platform `7.19.x` to `7
 11. For developers: [Upgrade to Spring Boot 3.1](#upgrade-to-spring-boot-3-1)
     * For developers: [External Task Client Spring Boot Starter requires JDK 17](#external-task-client-spring-boot-starter-requires-jdk-17)
 12. For developers: [Camunda Platform Run requires JDK 17](#camunda-platform-run-requires-jdk-17)
-13. For developers: [Update Alpine Base Docker Image to 3.18](#update-to-alpine-3-18)
+13. For developers: [Update Alpine Base Docker Image to 3.18](#update-base-of-camunda-docker-images-to-alpine-3-18)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.20.
 
