@@ -437,6 +437,14 @@ Requests for undeclared assets will be rejected, and it will likely render your 
 [custom-script]: {{< ref "/webapps/cockpit/extend/configuration#custom-scripts" >}}
 [frontend-modules]: {{< ref "/webapps/cockpit/extend/plugins#structure-of-a-frontend-module" >}}
 
+## 7.18.9 to 7.18.10 / 7.17.14 to 7.17.15
+
+### Update base of Camunda Docker images to Alpine 3.18
+
+The Camunda Docker images are based on Alpine. This release updates the Alpine base docker image to 3.18. See the detailed list of changes in the official [release notes][alpine318] page.
+
+[alpine318]: https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.18.0
+
 # Full Distribution
 
 This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.
