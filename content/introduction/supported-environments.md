@@ -33,9 +33,8 @@ Run the Camunda Platform in every Java-runnable environment. Camunda Platform is
 ## Container-Managed Process Engine and Camunda Cockpit, Tasklist, Admin
 
 * Apache Tomcat 9.0
-* JBoss EAP 7.2 / 7.3 / 7.4
-* WildFly Application Server 15.0 / 16.0 / 17.0 / 18.0 / 19.0 / 20.0 / 21.0 / 22.0 / 23.0 / 24.0 / 25.0 / 26.0 / 27.0
-* IBM WebSphere Application Server 9.0 ([Enterprise Edition only](http://camunda.com/enterprise/))
+* JBoss EAP 7.4
+* WildFly Application Server 26.0 / 27.0
 * IBM WebSphere Liberty 22 with Java EE 8 features ([Enterprise Edition only](http://camunda.com/enterprise/), 
   see [Installation guide]({{< ref "/installation/full/was/manual-liberty.md" >}}))
 * Oracle WebLogic Server 14c (14R1) ([Enterprise Edition only](http://camunda.com/enterprise/))
@@ -47,10 +46,10 @@ Run the Camunda Platform in every Java-runnable environment. Camunda Platform is
 
 * MySQL  8.0
 * MariaDB 10.6
-* Oracle 12c / 19c
+* Oracle 19c
 * IBM DB2 11.5 (excluding IBM z/OS for all versions)
-* PostgreSQL 12 / 13 / 14 / 15
-* Amazon Aurora PostgreSQL compatible with PostgreSQL 12 / 13 / 14
+* PostgreSQL 13 / 14 / 15
+* Amazon Aurora PostgreSQL compatible with PostgreSQL 13 / 14
 * Microsoft SQL Server 2017 / 2019 (see [Configuration Note]({{< ref "/user-guide/process-engine/database/mssql-configuration.md" >}}))
 * Microsoft Azure SQL with Camunda-supported SQL Server compatibility levels 
   (see [Configuration Note]({{< ref "/user-guide/process-engine/database/mssql-configuration.md#azure-sql-compatibility-levels-supported-by-camunda" >}})): 
@@ -74,14 +73,13 @@ Clustered or replicated databases are supported given the following conditions. 
 
 # Java
 
-* Java 8 / 11 / 17 (if supported by your application server/container)
+* Java 11 / 17 (if supported by your application server/container)
 
 
 # Java Runtime
 
-* Oracle JDK 8 / 11 / 17
-* IBM JDK 8 (with J9 JVM)
-* OpenJDK 8 / 11 / 17, including builds of the following products:
+* Oracle JDK 11 / 17
+* OpenJDK 11 / 17, including builds of the following products:
   * Oracle OpenJDK
   * Eclipse Temurin JDK
   * Amazon Corretto
