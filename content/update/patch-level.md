@@ -448,9 +448,6 @@ Requests for undeclared assets will be rejected, and it will likely render your 
 The Camunda Docker images are based on Alpine. This release updates the Alpine base docker image to 3.18. See the detailed list of changes in the official [release notes][alpine318] page.
 
 [alpine318]: https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.18.0
-
-[alpine318]: https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.18.0
-
 # Full Distribution
 
 This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.
