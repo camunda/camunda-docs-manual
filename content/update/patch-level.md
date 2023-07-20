@@ -439,7 +439,7 @@ Requests for undeclared assets will be rejected, and it will likely render your 
 
 ## 7.18.9 to 7.18.10 / 7.17.14 to 7.17.15
 
-### Update to Alpine 3.18
+### Update base of Camunda Docker images to Alpine 3.18
 
 This release comes with an update of the Alpine base docker image. See the detailed list of changes in the official [release notes][alpine318] page.
 
