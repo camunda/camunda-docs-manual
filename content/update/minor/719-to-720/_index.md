@@ -213,7 +213,7 @@ After adopting Spring Boot 3, the External Task Client Spring Boot Starter requi
 
 Starting with Camunda Platform 7.20, the Camunda Platform Run distribution requires Java Runtime Environment 17 installed.
 
-# Update to Alpine 3.18
+# Update base of Camunda Docker images to Alpine 3.18
 
 This release comes with an update of the Alpine base docker image. See the detailed list of changes in the official [release notes][alpine318] page.
 
