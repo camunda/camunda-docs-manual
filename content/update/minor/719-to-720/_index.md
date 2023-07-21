@@ -28,7 +28,7 @@ This document guides you through the update from Camunda Platform `7.19.x` to `7
 11. For developers: [Upgrade to Spring Boot 3.1](#upgrade-to-spring-boot-3-1)
     * For developers: [External Task Client Spring Boot Starter requires JDK 17](#external-task-client-spring-boot-starter-requires-jdk-17)
 12. For developers: [Camunda Platform Run requires JDK 17](#camunda-platform-run-requires-jdk-17)
-13. For developers: [Update Alpine Base Docker Image to 3.18](#update-base-of-camunda-docker-images-to-alpine-3-18)
+13. For developers: [Update Alpine Base Docker Image from version 3.15 to 3.18](#update-alpine-base-of-camunda-docker-images-from-version-3-15-to-3-18)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.20.
 
@@ -213,9 +213,15 @@ After adopting Spring Boot 3, the External Task Client Spring Boot Starter requi
 
 Starting with Camunda Platform 7.20, the Camunda Platform Run distribution requires Java Runtime Environment 17 installed.
 
-# Update base of Camunda Docker images to Alpine 3.18
+# Update Alpine Base of Camunda Docker images from Version 3.15 to 3.18
 
-The Camunda Docker images are based on Alpine. This release updates the Alpine base docker image to 3.18. See the detailed list of changes in the official [release notes][alpine318] page.
+The Camunda Docker images are based on Alpine. This release updates the Alpine base docker image from version 3.15 to 3.18. Please find the changes in detail at the official sources below:
 
+* [Alpine 3.16.0 Release Notes] [alpine316]
+* [Alpine 3.17.0 Release Notes] [alpine317]
+* [Alpine 3.18.0 Release Notes] [alpine318]
+
+[alpine316]: https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.16.0
+[alpine317]: https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.17.0
 [alpine318]: https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.18.0
 
