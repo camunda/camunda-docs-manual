@@ -446,10 +446,16 @@ Requests for undeclared assets will be rejected, and it will likely render your 
 
 ## 7.19.4 to 7.19.5 / 7.18.9 to 7.18.10 / 7.17.14 to 7.17.15
 
-### Update base of Camunda Docker images to Alpine 3.18
+### Update Alpine Base of Camunda Docker images from Version 3.15 to 3.18
 
-The Camunda Docker images are based on Alpine. This release updates the Alpine base docker image to 3.18. See the detailed list of changes in the official [release notes][alpine318] page.
+The Camunda Docker images are based on Alpine. This release updates the Alpine base docker image from version 3.15 to 3.18. Please find the changes in detail at the official sources below:
 
+* [Alpine 3.16.0 Release Notes] [alpine316]
+* [Alpine 3.17.0 Release Notes] [alpine317]
+* [Alpine 3.18.0 Release Notes] [alpine318]
+
+[alpine316]: https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.16.0
+[alpine317]: https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.17.0
 [alpine318]: https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.18.0
 
 # Full Distribution
