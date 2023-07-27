@@ -57,8 +57,7 @@ automatically loaded in the database table unless a valid license key is already
 
 ## With the Camunda Spring Boot Starter & Camunda Run
 
-Camunda Run, and other Spring Boot applications (including Camunda Platform RPA Bridge) that use the 
-Camunda Spring Boot Starter, can be provided with license  keys in two additional ways:
+Camunda Run, and other Spring Boot applications that use the Camunda Spring Boot Starter, can be provided with license  keys in two additional ways:
 
 * provide a URL to a license file via a custom [Spring Property]({{< ref "/user-guide/spring-boot-integration/configuration.md#license-file" >}}).
 * provide the license key in a file called `camunda-license.txt` which is on the classpath of the application.
