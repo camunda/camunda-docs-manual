@@ -40,4 +40,4 @@ viewer.importXML(xml, function(err) {
 });
 ```
 
-Alternatively, you can use the  [bpmn-viewer widget](https://github.com/camunda/camunda-bpm-platform/blob/master/webapps/camunda-commons-ui/lib/widgets/bpmn-viewer/cam-widget-bpmn-viewer.html) from the Camunda commons UI.
+Alternatively, you can use the  [bpmn-viewer widget](https://github.com/camunda/camunda-bpm-platform/blob/master/webapps/frontend/camunda-commons-ui/lib/widgets/bpmn-viewer/cam-widget-bpmn-viewer.html) from the Camunda commons UI.
