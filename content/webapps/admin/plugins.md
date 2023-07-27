@@ -57,4 +57,4 @@ properties: {
 }
 ```
 
-You can find examples of [Admin dashboard plugins here](https://github.com/camunda/camunda-bpm-platform/tree/master/webapps/ui/admin/plugins/base/app/views/dashboard).
+You can find examples of [Admin dashboard plugins here](https://github.com/camunda/camunda-bpm-platform/tree/master/webapps/frontend/ui/admin/plugins/base/app/views/dashboard).
