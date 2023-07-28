@@ -84,7 +84,7 @@ This is what the `web.xml`-based configuration looks like:
 Camunda supports a broad range of containers, including Tomcat, Wildfly, IBM WebSphere and Oracle WebLogic. Using Container-Based Authentication, it is possible to move the authentication action to the container level, which will then make the authentication result available to the Camunda Web Applications.
 
 {{< note title="Heads-up!" class="info" >}}
-Please provide an implementation for the `ReadOnlyIdentityProvider` interface so that queries return the results of your identity provider.
+Please provide an implementation for the `ReadOnlyIdentityProvider` interface so that queries return the results of your identity provider to make **Container-Based Authentication** work.
 {{< /note >}}
 
 ### Enabling Container-Based Authentication
