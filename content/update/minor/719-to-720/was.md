@@ -113,7 +113,7 @@ this configuration. This can be done by repeating the configuration replacement 
 
 # 5. Install the Camunda Archive
 
-Install the Camunda EAR, or the file `$WAS_DISTRIBUTION/modules/camunda-ibm-websphere-ear-7.20.0-ee.ear`.
+Install the Camunda EAR, or the file `$WAS_DISTRIBUTION/server/apps/camunda-ibm-websphere-ear-7.20.0-ee.ear`.
 
 Please follow [the EAR installation guide]({{< ref "/installation/full/was/manual-liberty.md#camunda-platform-ear" >}})
 to deploy the Camunda EAR correctly.
