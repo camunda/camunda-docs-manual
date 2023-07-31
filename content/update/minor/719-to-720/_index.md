@@ -57,7 +57,7 @@ Choose the application server you are working with from the following list:
 * [Wildfly / JBoss EAP 7]({{< ref "/update/minor/719-to-720/jboss.md" >}})
 * [Apache Tomcat]({{< ref "/update/minor/719-to-720/tomcat.md" >}})
 * [Oracle WebLogic]({{< ref "/update/minor/719-to-720/wls.md" >}})
-* [IBM WebSphere]({{< ref "/update/minor/719-to-720/was.md" >}})
+* [IBM WebSphere Liberty]({{< ref "/update/minor/719-to-720/was.md" >}})
 
 ## Custom process applications
 
