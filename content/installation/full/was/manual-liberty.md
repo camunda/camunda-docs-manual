@@ -16,8 +16,8 @@ This section will describe how you can install Camunda Platform 7 and its compon
 Application Server Liberty][liberty]. To perform the Camunda Platform 7 installation on WebSphere Liberty
 you will need the following:
 
-* The `camunda-ee-ibm-was9-{{< minor-version >}}.0-ee` `.tar.gz` or `.zip` archive available from
-  [the enterprise downloads page][ee-downloads]. 
+* The `camunda-ee-ibm-was-{{< minor-version >}}.0-ee` `.tar.gz` or `.zip` archive available from
+  [the enterprise downloads page][ee-downloads].
 * A basic understanding on [how to create a WebSphere Liberty server][liberty-server-create].
 * A basic understanding on [how to deploy applications in Websphere Liberty][liberty-app-deploy]. 
 * You should also consider the [WebSphere Liberty Java support documentation][liberty-java].
@@ -29,10 +29,10 @@ please replace the version numbers in the examples with the patch version you ar
 Throughout this section we will use a number of variables to denote common path names and constants.
 You don't have to create these variables in your environment. They are just used in this guide to make it more readable.
 
-* `$WAS_DISTRIBUTION` represents the downloaded Camunda Platform distribution for the IBM WebSphere Application Server, e.g., `camunda-ee-ibm-was9-{{< minor-version >}}.0-ee.zip`.
+* `$WAS_DISTRIBUTION` represents the downloaded Camunda Platform distribution for the IBM WebSphere Application Server, e.g., `camunda-ee-ibm-was-{{< minor-version >}}.0-ee.zip`.
 * `$SERVER_CONFIG_DIR` points to the IBM WebSphere Liberty server configuration directory like `wlp/usr/servers/camundaServer`.
 
-The distribution is available at the [Camunda enterprise release page](https://downloads.camunda.cloud/enterprise-release/camunda-bpm/ibm-was9/).
+The distribution is available at the [Camunda enterprise release page](https://downloads.camunda.cloud/enterprise-release/camunda-bpm/).
 You will be asked to enter the credentials you received during the trial or subscription process.
 {{< /note >}}
 
@@ -494,12 +494,12 @@ This section describes how to install optional components. None of these are req
 ## Cockpit, Tasklist, and Admin
 
 The web application archive that contains Camunda Cockpit, Camunda Admin, and Camunda Tasklist resides under
-`$WAS_DISTRIBUTION/webapps/camunda-webapp-ee-was9-{{< minor-version >}}.0-ee.war` in the IBM WebSphere Application Server
+`$WAS_DISTRIBUTION/server/apps/camunda-webapp-ee-was-{{< minor-version >}}.0-ee.war` in the IBM WebSphere Application Server
 distribution archive.
 
 You need to perform the following steps to install the WAR archive on WebSphere Liberty:
 
-1. Add the `camunda-webapp-ee-was9-{{< minor-version >}}.0-ee.war` from the `$WAS_DISTRIBUTION/webapps/` folder to
+1. Add the `camunda-webapp-ee-was-{{< minor-version >}}.0-ee.war` from the `$WAS_DISTRIBUTION/server/apps` folder to
    the `$SERVER_CONFIG_DIR/apps` folder
 2. Add the `jaxrs-2.1` Liberty feature to the `server.xml`
 3. Define a `webApplication` element in the `server.xml`
@@ -520,7 +520,7 @@ After performing the steps above, the `server.xml` should contain the following:
   <webApplication id="camundaBpmPlatformWebapps"
                   name="camunda"
                   startAfterRef="camundaBpmPlatform"
-                  location="${server.config.dir}/apps/camunda-webapp-ee-was9-{{< minor-version >}}.0-ee.war" >
+                  location="${server.config.dir}/apps/camunda-webapp-ee-was-{{< minor-version >}}.0-ee.war" >
     <classloader commonLibraryRef="Camunda"/>
   </webApplication>
 
@@ -535,12 +535,12 @@ application deployment.
 
 ## REST API
 
-The Camunda REST API WAR file resides under `$WAS_DISTRIBUTION/webapps/camunda-engine-rest-{{< minor-version >}}.0-ee-was9.war`
+The Camunda REST API WAR file resides under `$WAS_DISTRIBUTION/server/apps/camunda-engine-rest-{{< minor-version >}}.0-ee-was.war`
 in the IBM WebSphere Application Server distribution archive.
 
 You need to perform the following steps to install the WAR archive on WebSphere Liberty:
 
-1. Add the `camunda-engine-rest-{{< minor-version >}}.0-ee-was9.war` from the `$WAS_DISTRIBUTION/webapps/` folder to
+1. Add the `camunda-engine-rest-{{< minor-version >}}.0-ee-was.war` from the `$WAS_DISTRIBUTION/webapps/` folder to
    the `$SERVER_CONFIG_DIR/apps` folder.
 2. Add the `jaxrs-2.1` and `beanValidation-2.0` Liberty features to the `server.xml`.
 3. Define a `webApplication` element in the `server.xml`.
@@ -562,7 +562,7 @@ After performing the steps above, the `server.xml` should contain the following:
   <webApplication id="camundaBpmPlatformRestApi"
                   name="engine-rest"
                   startAfterRef="camundaBpmPlatform"
-                  location="${server.config.dir}/apps/camunda-engine-rest-{{< minor-version >}}.0-ee-was9.war" >
+                  location="${server.config.dir}/apps/camunda-engine-rest-{{< minor-version >}}.0-ee-was.war" >
     <classloader commonLibraryRef="Camunda"/>
   </webApplication>
 

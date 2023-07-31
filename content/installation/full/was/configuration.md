@@ -128,19 +128,6 @@ configuration to the `web.xml` file of Camunda webapplication
 
 ## Session Cookie in Webapps
 
-### WebSphere 9 configuration
-
-You can configure the **Session Cookie** per deployment via the Admin Web Console of WebSphere.
-
-1. Navigate to **Enterprise Applications > $YOUR_DEPLOYMENT > Session management > Enable cookies**
-{{< img src="../img/cookies.png" title="Session Cookie Configuration" >}}
-2. By enabling the checkbox ... 
-  * ... *"Set session cookies to HTTPOnly to help prevent cross-site scripting attacks"*, you can add the <code>HttpOnly</code> flag to the session cookie
-  * ... *"Restrict cookies to HTTPS sessions"*, you can add the <code>Secure</code> flag to the session cookie
-
-To configure the `SameSite` flag of session cookies, you can refer to all possible options detailed in IBM's 
-[authorized program analysis report (APAR) PH22157](https://www.ibm.com/support/pages/apar/PH22157).
-
 ### WebSphere Liberty configuration
 
 In WebSphere Liberty, you can configure the **Session Cookie** per Liberty server via the `server.xml` by adding the
