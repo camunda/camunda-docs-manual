@@ -44,7 +44,7 @@ properties: {
 
 **Name:** `admin.dashboard.section`
 
-{{< img src="../../img/admin-start-page-view.png" title="Dashboard" >}}
+{{< img src="../img/admin-start-page-view.png" title="Dashboard" >}}
 
 With Camunda Platform 7.5, the Admin webapp gets a dashboard based on plugins similar to the [Cockpit dashboard ones]({{< ref "/webapps/cockpit/extend/plugins.md" >}}#dashboard).
 
