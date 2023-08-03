@@ -15,7 +15,7 @@ The following steps describe how to update the Camunda artifacts on IBM WebSpher
 Throughout the procedure, refer to the [update guide][update-guide]. If not already done, download the [Camunda Platform 7.20 IBM WebSphere distribution][was-distribution].
 
 {{< note title="Removed support for WebSphere 9" class="info" >}}
-Support for WebSphere 9 was discontinued with the Camunda Platform 7.20.0 release. The artifacts used in this guide *should* be compatible with WebSphere 9 but using them in a WebSphere 9 application server is at your own risk.
+Support for WebSphere 9 was discontinued with the Camunda Platform 7.20.0 release. The artifacts used in this guide might be compatible with a WebSphere 9 application server. However, this is not tested and is not covered by Camunda product support.
 {{< /note >}}
 
 The update procedure takes the following steps:

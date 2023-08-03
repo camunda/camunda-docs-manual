@@ -32,7 +32,7 @@ You don't have to create these variables in your environment. They are just used
 * `$WAS_DISTRIBUTION` represents the downloaded Camunda Platform distribution for the IBM WebSphere Application Server, e.g., `camunda-ee-ibm-was-{{< minor-version >}}.0-ee.zip`.
 * `$SERVER_CONFIG_DIR` points to the IBM WebSphere Liberty server configuration directory like `wlp/usr/servers/camundaServer`.
 
-The distribution is available at the [Camunda enterprise release page](https://downloads.camunda.cloud/enterprise-release/camunda-bpm/).
+The distribution is available at the [Camunda enterprise release page](https://downloads.camunda.cloud/enterprise-release/camunda-bpm/ibm-was-liberty).
 You will be asked to enter the credentials you received during the trial or subscription process.
 {{< /note >}}
 
@@ -199,7 +199,7 @@ important to configure it correctly.
 
 To configure the Camunda shared library, you need to perform the following steps:
 
-1. Add the `.jar` artifacts from the `$WAS_DISTRIBUTION/modules/lib/` folder to the
+1. Add the `.jar` artifacts from the `$WAS_DISTRIBUTION/server/lib/` folder to the
    `$SERVER_CONFIG_DIR/lib` folder.
 2. Add the `bells-1.0` feature to the `server.xml`.
 3. Define a `library` element in the `server.xml`.
@@ -241,7 +241,7 @@ It contains an embedded rar module. This camunda-ibm-websphere-rar module is a J
 
 You need to perform the following steps to install the EAR archive on WebSphere Liberty:
 
-1. Add the `camunda-ibm-websphere-ear-{{< minor-version >}}.0-ee.ear` from the `$WAS_DISTRIBUTION/modules/` folder to
+1. Add the `camunda-ibm-websphere-ear-{{< minor-version >}}.0-ee.ear` from the `$WAS_DISTRIBUTION/server/apps` folder to
    the `$SERVER_CONFIG_DIR/apps` folder.
 2. Add the `servlet-4.0` Liberty feature to the `server.xml`.
 3. Define an `enterpriseApplication` element in the `server.xml`.
@@ -296,7 +296,7 @@ automatically created, you have to perform the following:
 When you create the tables manually, you have to configure the engine to **not** create tables at startup by
 setting the `databaseSchemaUpdate` property to `false` (or, in case you are using Oracle, to `noop`). In WebSphere
 Liberty, this is done in the `bpm-platform.xml`, located in the
-`$WAS_DISTRIBUTION\modules\camunda-ibm-websphere-ear-{{< minor-version >}}.0-ee.ear\camunda-ibm-websphere-service.jar\META-INF\` 
+`$WAS_DISTRIBUTION/server/apps/camunda-ibm-websphere-ear-{{< minor-version >}}.0-ee.ear/camunda-ibm-websphere-service.jar/META-INF/` 
 folder.
 
 ### Configure a datasource
@@ -574,7 +574,7 @@ application deployment.
 
 ## Camunda Connect plugin
 
-Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION/modules/lib` to the
+Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION/server/lib` to the
 `$SERVER_CONFIG_DIR/lib` folder:
 
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
@@ -603,7 +603,7 @@ Note that this requires a custom `bpm-platform.xml` file.
 
 ## Camunda Spin
 
-Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION/modules/lib/` to the
+Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION/server/lib/` to the
 `$SERVER_CONFIG_DIR/lib` folder:
 
 * `camunda-spin-core-$SPIN_VERSION.jar`
@@ -634,7 +634,7 @@ Note that this requires a custom `bpm-platform.xml` file.
 
 ## Groovy scripting
 
-Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION/modules/lib/` to the
+Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION/server/lib/` to the
 `$SERVER_CONFIG_DIR/lib` folder:
 
 * `groovy-$GROOVY_VERSION.jar`
@@ -645,7 +645,7 @@ Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION
 
 ## GraalVM JavaScript integration
 
-Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION/modules/lib/` to the
+Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION/server/lib/` to the
 `$SERVER_CONFIG_DIR/lib` folder:
 
 * `graal-sdk-21.1.0.jar`
