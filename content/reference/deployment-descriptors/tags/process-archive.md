@@ -184,6 +184,21 @@ The following is a list of all supported configuration properties.
     </td>
   </tr>
   <tr>
+    <td><code>resumePreviousBy</code></td>
+    <td>string</td>
+    <td>
+        The mode to resume previous deployments of the process application. See the <a href="{{< ref "/user-guide/process-applications/the-processes-xml-deployment-descriptor.md#process-application-deployment" >}}">Process Application Deployment</a> section of the <a href="{{< ref "/user-guide/_index.md" >}}">User Guide</a> for more details.
+      <p>
+        <strong>Default value:</strong>
+        <code>process-definition-key</code>
+      </p>
+      <p>
+        <strong>Options:</strong>
+        <code>process-definition-key</code>,<code>deployment-name</code>
+      </p>
+    </td>
+  </tr>
+  <tr>
     <td><code>isDeployChangedOnly</code></td>
     <td>boolean</td>
     <td>
