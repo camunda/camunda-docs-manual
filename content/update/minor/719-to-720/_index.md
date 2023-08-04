@@ -29,6 +29,7 @@ This document guides you through the update from Camunda Platform `7.19.x` to `7
     * For developers: [External Task Client Spring Boot Starter requires JDK 17](#external-task-client-spring-boot-starter-requires-jdk-17)
 12. For developers: [Camunda Platform Run requires JDK 17](#camunda-platform-run-requires-jdk-17)
 13. For developers: [Update Alpine Base Docker Image from version 3.15 to 3.18](#update-alpine-base-of-camunda-docker-images-from-version-3-15-to-3-18)
+14. For developers: [Enforce History Time To Live](#enforce-history-time-to-live)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.20.
 
@@ -230,3 +231,13 @@ The Camunda Docker images are based on Alpine. This release updates the Alpine b
 [alpine317]: https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.17.0
 [alpine318]: https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.18.0
 
+# Enforce History Time To Live
+
+Many of our users have installations that contain resources with null historyTimeToLive. As a result,
+their historic data grow over time and remain uncleaned due to this configuration. In the 7.20 release,
+we decided to render the historyTimeToLive mandatory for new deployments or redeployments.
+To achieve that, there is a new feature flag introduced called `enforceHistoryTimeToLive` that has a
+default value of true.
+
+At the same time, we acknowledge there might be use cases where our users might favour to keep the legacy behaviour despite our recommendation. If that is the case, you can always turn off the feature by setting
+the feature flag to `false`. For more information, checkout the new parameter description under <a href="{{< ref "/reference/deployment-descriptors/tags/process-engine#configuration-properties" >}}">Configuration Properties</a>.
