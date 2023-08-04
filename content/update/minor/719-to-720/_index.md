@@ -52,12 +52,17 @@ Before starting, ensure you have downloaded the Camunda Platform 7.20 distributi
 
 ## Camunda libraries and applications
 
+{{< note title="Removed support for WebSphere 9" class="info" >}}
+Support for WebSphere 9 was discontinued with the Camunda Platform 7.20.0 release. Some of the artifacts that are compatible with WebSphere 9 have been renamed. See details in the dedicated [IBM WebSphere Liberty guide]({{< ref "/update/minor/719-to-720/was.md" >}}).
+{{< /note >}}
+
+
 Choose the application server you are working with from the following list:
 
 * [Wildfly / JBoss EAP 7]({{< ref "/update/minor/719-to-720/jboss.md" >}})
 * [Apache Tomcat]({{< ref "/update/minor/719-to-720/tomcat.md" >}})
 * [Oracle WebLogic]({{< ref "/update/minor/719-to-720/wls.md" >}})
-* [IBM WebSphere]({{< ref "/update/minor/719-to-720/was.md" >}})
+* [IBM WebSphere Liberty]({{< ref "/update/minor/719-to-720/was.md" >}})
 
 ## Custom process applications
 

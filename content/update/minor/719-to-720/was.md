@@ -11,9 +11,12 @@ menu:
 ---
 
 
-The following steps describe how to update the Camunda artifacts on an IBM WebSphere application server 9 or
-IBM WebSphere application server Liberty in a shared process engine setting. Throughout the procedure, refer 
-to the [update guide][update-guide]. If not already done, download the [Camunda Platform 7.20 IBM WebSphere distribution][was-distribution].
+The following steps describe how to update the Camunda artifacts on IBM WebSphere application server Liberty in a shared process engine setting. 
+Throughout the procedure, refer to the [update guide][update-guide]. If not already done, download the [Camunda Platform 7.20 IBM WebSphere distribution][was-distribution].
+
+{{< note title="Removed support for WebSphere 9" class="info" >}}
+Support for WebSphere 9 was discontinued with the Camunda Platform 7.20.0 release. The artifacts used in this guide might be compatible with a WebSphere 9 application server. However, this is not tested and is not covered by Camunda product support.
+{{< /note >}}
 
 The update procedure takes the following steps:
 
@@ -27,17 +30,9 @@ The update procedure takes the following steps:
 In each of the following steps, the identifier `$*_VERSION` refers to the current versions and the new versions of 
 the artifacts.
 
-# 1. Uninstall the Camunda libraries and archives
+# 1. Remove the Camunda libraries and archives
 
-First, uninstall the Camunda web applications, namely the Camunda REST API (artifact name like `camunda-engine-rest`) 
-and the Camunda applications Cockpit, Tasklist, and Admin (artifact name like `camunda-webapp`).
-
-Uninstall the Camunda EAR; its name should be `camunda-ibm-websphere-ear-7.19.0-ee.ear`.
-
-{{< note title="WebSphere Liberty steps" class="info" >}}
-If you are using WebSphere Liberty, you just need to remove the Camunda EAR, REST API, and web applications from the
-Liberty `$YOUR_SERVER/apps/` directory.
-{{< /note >}}
+First, remove the Camunda EAR, REST API, and web applications from the Liberty `$YOUR_SERVER/apps/` directory.
 
 # 2. Replace Camunda core libraries
 
@@ -45,7 +40,7 @@ With your first Camunda installation or update to 7.2, you have created a shared
 the folder to this shared library as `$SHARED_LIBRARY_PATH`.
 
 After shutting down the server, replace the following libraries in `$SHARED_LIBRARY_PATH` with the equivalents 
-from `$WAS_DISTRIBUTION/modules/lib`:
+from `$WAS_DISTRIBUTION/server/lib`:
 
 * `camunda-engine-$PLATFORM_VERSION.jar`
 * `camunda-bpmn-model-$PLATFORM_VERSION.jar`
@@ -74,7 +69,7 @@ Camunda Spin, Camunda Connect, and scripting. If you use any of these extensions
 
 ## LDAP integration
 
-Copy the following library from `$WAS_DISTRIBUTION/modules/lib` to the folder `$SHARED_LIBRARY_PATH`, if present:
+Copy the following library from `$WAS_DISTRIBUTION/server/lib` to the folder `$SHARED_LIBRARY_PATH`, if present:
 
 * `camunda-identity-ldap-$PLATFORM_VERSION.jar`
 
@@ -84,13 +79,13 @@ Copy the following library from `$WAS_DISTRIBUTION/modules/lib` to the folder `$
 
 ## Camunda Spin
 
-Copy the following library from `$WAS_DISTRIBUTION/modules/lib` to the folder `$SHARED_LIBRARY_PATH`, if present:
+Copy the following library from `$WAS_DISTRIBUTION/server/lib` to the folder `$SHARED_LIBRARY_PATH`, if present:
 
 * `camunda-spin-core-$SPIN_VERSION.jar`
 
 ## GraalVM JavaScript
 
-Copy the following libraries from `$WAS_DISTRIBUTION/modules/lib` to the folder `$SHARED_LIBRARY_PATH`, if present:
+Copy the following libraries from `$WAS_DISTRIBUTION/server/lib` to the folder `$SHARED_LIBRARY_PATH`, if present:
 
 * `graal-sdk-$GRAALJS_VERSION.jar`
 * `icu4j-$ICU4J_VERSION.jar`
@@ -102,7 +97,7 @@ Copy the following libraries from `$WAS_DISTRIBUTION/modules/lib` to the folder 
 ## Groovy
 
 The following libraries replace the single `groovy-all-$GROOVY_VERSION.jar` library. Copy these libraries from
-`$WAS_DISTRIBUTION/modules/lib` to the folder `$SHARED_LIBRARY_PATH`, if present:
+`$WAS_DISTRIBUTION/server/lib` to the folder `$SHARED_LIBRARY_PATH`, if present:
 
 * `groovy-$GROOVY_VERSION.jar`
 * `groovy-jsr223-$GROOVY_VERSION.jar`
@@ -118,36 +113,27 @@ this configuration. This can be done by repeating the configuration replacement 
 
 # 5. Install the Camunda Archive
 
-Install the Camunda EAR, or the file `$WAS_DISTRIBUTION/modules/camunda-ibm-websphere-ear-7.20.0-ee.ear`.
+Install the Camunda EAR, or the file `$WAS_DISTRIBUTION/server/apps/camunda-ibm-websphere-ear-7.20.0-ee.ear`.
 
-* During the installation on WebSphere 9, the EAR will try to reference the `Camunda` shared library.
-* On WebSphere Liberty, please follow [the EAR installation guide]({{< ref "/installation/full/was/manual-liberty.md#camunda-platform-ear" >}})
+Please follow [the EAR installation guide]({{< ref "/installation/full/was/manual-liberty.md#camunda-platform-ear" >}})
 to deploy the Camunda EAR correctly.
 
 # 6. Install the web applications
 
 ## REST API
 
-The following steps are required to update the Camunda REST API on an IBM WebSphere instance:
+The following steps are required to update the Camunda REST API on an IBM WebSphere Liberty instance:
 
-* On WebSphere 9:
-  1. Deploy the web application `$WAS_DISTRIBUTION/webapps/camunda-engine-rest-7.20.0-ee-was.war` to your IBM WebSphere instance.
-  2. Associate the web application with the `Camunda` shared library.
-* On WebSphere Liberty:
-  1. Place the web application `$WAS_DISTRIBUTION/webapps/camunda-engine-rest-7.20.0-ee-was.war` in the Liberty `$YOUR_SERVER/apps/` directory.
-  2. Configure the `server.xml` as described in [the Liberty installation guide]({{< ref "/installation/full/was/manual-liberty.md#rest-api" >}}).
+1. Place the web application `$WAS_DISTRIBUTION/server/apps/camunda-engine-rest-7.20.0-ee-was.war` in the Liberty `$YOUR_SERVER/apps/` directory.
+2. Configure the `server.xml` as described in [the Liberty installation guide]({{< ref "/installation/full/was/manual-liberty.md#rest-api" >}}).
 
 ## Cockpit, Tasklist, and Admin
 
 The following steps are required to update the Camunda web applications Cockpit, Tasklist, and Admin on an IBM WebSphere instance:
 
-* On WebSphere 9:
-  1. Deploy the web application `$WAS_DISTRIBUTION/webapps/camunda-webapp-ee-was-7.20.0-ee.war` to your IBM WebSphere instance.
-  2. Associate the web application with the `Camunda` shared library.
-* On WebSphere Liberty:
-  1. Place the web application `$WAS_DISTRIBUTION/webapps/camunda-webapp-ee-was-7.20.0-ee.war` in the Liberty `$YOUR_SERVER/apps/` directory.
-  2. Configure the `server.xml` as described in [the Liberty installation guide]({{< ref "/installation/full/was/manual-liberty.md#cockpit-tasklist-and-admin" >}}).
+1. Place the web application `$WAS_DISTRIBUTION/server/apps/camunda-webapp-ee-was-7.20.0-ee.war` in the Liberty `$YOUR_SERVER/apps/` directory.
+2. Configure the `server.xml` as described in [the Liberty installation guide]({{< ref "/installation/full/was/manual-liberty.md#cockpit-tasklist-and-admin" >}}).
 
 [configuration-location]: {{< ref "/reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}
 [update-guide]: {{< ref "/update/minor/719-to-720/_index.md" >}}
-[was-distribution]: https://artifacts.camunda.com/artifactory/camunda-bpm-ee/org/camunda/bpm/websphere/camunda-bpm-websphere9/7.20.0-ee/
+[was-distribution]: https://artifacts.camunda.com/artifactory/camunda-bpm-ee/org/camunda/bpm/websphere/camunda-bpm-websphere/7.20.0-ee/
