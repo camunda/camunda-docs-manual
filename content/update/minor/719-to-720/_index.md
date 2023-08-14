@@ -17,7 +17,7 @@ This document guides you through the update from Camunda Platform `7.19.x` to `7
 
 1. For administrators and developers: [Database updates](#database-updates)
 2. For administrators and developers: [Full distribution update](#full-distribution)
-3. For administrators: [Standalone web application](#standalone-web-application)
+3. For administrators: [Discontinued support of Standalone web application](#discontinued-support-of-standalone-web-application)
 4. For administrators: [Optimistic Locking on PostgreSQL](#optimistic-locking-on-postgresql)
 5. For administrators: [Explicit JUEL module on Jakarta Expression Language 4](#explicit-juel-module-on-jakarta-expression-language-4)
 6. For developers: [JavaScript external task client re-throws errors on task service APIs](#javascript-external-task-client-rethrows-errors-on-task-service-apis)
@@ -74,16 +74,10 @@ For every process application, the Camunda dependencies should be updated to the
 
 There are no new mandatory dependencies for process applications.
 
-# Standalone web application
+# Discontinued support of Standalone web application
 
-If you use a standalone web application, replace the current `.war` artifact with its new version.
-
-Take the following steps to complete the update:
-
-1. Undeploy the current version of the standalone web application.
-2. Update the database to the new schema as described in the [database update](#database-updates) section.
-3. Configure the database as described in the [installation]({{< ref "/installation/standalone-webapplication.md#database-configuration" >}}) section.
-4. Deploy the new and configured standalone web application to the server.
+Camunda Automation Platform 7.19 is the last release providing support for Standalone Web Application Distribution.
+Version 7.20.0 no longer provides this distribution.
 
 # Optimistic Locking on PostgreSQL
 

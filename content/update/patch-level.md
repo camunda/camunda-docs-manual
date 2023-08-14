@@ -477,6 +477,12 @@ In case you use an embedded process engine inside your Java Application, you nee
 
 # Standalone Webapplication Distribution
 
+{{< note title="Camunda discontinues the support of the Standalone Web Application Distribution." class="warning" >}}
+Camunda Automation Platform 7.19 is the last release providing support for Standalone Web Application Distribution.
+
+Please consider migrating to [another supported]({{< ref "/introduction/downloading-camunda.md#download-the-runtime" >}}) setup.
+{{< /note >}}
+
 In case you installed the [Standalone Webapplication Distribution]({{< ref "/introduction/downloading-camunda.md#download-the-runtime" >}}) you need to
 
 1. undeploy the previous version of the webapplication,
