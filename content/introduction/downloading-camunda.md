@@ -63,25 +63,6 @@ The full distribution bundles
 See the [Installation Guide][installation-guide-full] for additional details.
 
 
-## Standalone Web Application Distribution
-
-Download the standalone web application distribution if you want to use Cockpit, Tasklist, Admin
-applications as a **self-contained WAR file** with an [embedded process engine][embedded-engine].
-
-The standalone web application distribution bundles
-
-* Process engine configured as [embedded process engine][embedded-engine],
-* Runtime Web Applications (Tasklist, Cockpit, Admin),
-* Rest Api,
-
-The standalone web application can be deployed to any of the supported application servers.
-
-The process engine configuration is based on the Spring Framework. If you want to change the
-database configuration, edit the `WEB_INF/applicationContext.xml` file inside the WAR file.
-
-See the [Installation Guide][installation-guide-standalone] for additional details.
-
-
 # Download Camunda Modeler
 
 Camunda Modeler is a modeling Tool for BPMN 2.0 and DMN 1.3. Camunda Modeler can be downloaded
@@ -93,8 +74,6 @@ from the [community download page][community-download-page].
 [community-download-page]: https://camunda.com/download/
 [enterprise-download-page]: /enterprise/download
 [shared-engine]: {{< ref "/introduction/architecture.md#shared-container-managed-process-engine" >}}
-[embedded-engine]: {{< ref "/introduction/architecture.md#embedded-process-engine" >}}
-[installation-guide-standalone]: {{< ref "/installation/standalone-webapplication.md" >}}
 [installation-guide-full]: {{< ref "/installation/_index.md" >}}
 [run-with-spring-boot]: {{< ref "/user-guide/spring-boot-integration/_index.md" >}}
 [run-with-docker]: {{< ref "/installation/docker.md" >}}
