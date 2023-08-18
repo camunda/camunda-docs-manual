@@ -120,7 +120,7 @@ Let's observe a scenario with the following timer defined where `myBean.getCycle
 ```
 Timer is meant to be fired at 1 p.m., 3 p.m., and 5 p.m.
 
-At 4 p.m., we adjust to return `myBean.getCycle()="R2/PT30M"`. Then timer will be triggered at 5 p.m. (still calculated by the previous cycle), 5:30 p.m. and 6 p.m. (based on the new cycle).
+At 4 p.m., we adjust to return `myBean.getCycle()="R2/PT30M"`. Then timer will be triggered at 5 p.m. (as initially scheduled still calculated by the previous cycle), 5:30 p.m. and 6 p.m. (based on the new cycle).
 
 The feature is disabled by default, to enable the feature set the `reevaluateTimeCycleWhenDue` property to `true` in the process engine configuration.
 
