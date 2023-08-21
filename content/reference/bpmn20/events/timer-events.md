@@ -118,9 +118,9 @@ Let's observe a scenario with the following timer defined where `myBean.getCycle
   </timerEventDefinition>
 </startEvent>
 ```
-Timer is meant to be fired at 1 p.m., 3 p.m., and 5 p.m.
+Let's consider the timer is meant to be fired at 1 p.m., 3 p.m., and 5 p.m.
 
-At 4 p.m., we adjust the bean to return `myBean.getCycle()="R2/PT30M"`. Then timer will still be triggered at 5 p.m. (as initially scheduled calculated by the previous cycle), and afterward at 5:30 p.m. and 6 p.m. (based on the new cycle).
+At 4 p.m. after the timer has been fired two times already, we adjust the bean to return `myBean.getCycle()="R2/PT30M"`. Then timer will still be triggered at 5 p.m. (as initially scheduled calculated by the previous cycle), and afterward at 5:30 p.m. and 6 p.m. (based on the new cycle).
 
 The feature is disabled by default, to enable it, set the `reevaluateTimeCycleWhenDue` property to `true` in the process engine configuration.
 
