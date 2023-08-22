@@ -121,7 +121,7 @@ Similar considerations as for authentication apply. For an in-depth discussion, 
 
 Authorizations can be used to restrict a user from accessing a data object (such as a process or a task) and can be used to restrict how the user can interact with such data objects (read-only vs. modifications). Authorizations in Camunda are very powerful and it is recommended to read the corresponding [documentation entry on authorizations]({{< ref "/user-guide/process-engine/authorization-service.md" >}}).
 
-### Prevent enumerating user accounts by brute-force creating new users
+### Prevent: Enumerating user accounts by brute-force creating new users
 
 Under certain circumstances, an attacker can enumerate user accounts by brute-force creating new users:
 
@@ -146,6 +146,26 @@ advisable to manage accounts via the ways mentioned above.
 We think that the before mentioned scenarios are uncommon for organizations using the Camunda Platform Runtime. 
 However, we want to inform you about the options to prevent unrecommended usage, which makes the product
 vulnerable to attacks.
+
+### Prevent: Bypassing authorizations by reusing leftover user authorizations
+
+When you delete a user, related user authorizations are not deleted automatically. 
+Leftover user authorizations are reapplied when creating a new user with the same id, allowing attackers to bypass authorizations.
+
+We designed the authorization schema like this because user accounts are usually centrally managed by an external directory service such as LDAP or a custom implementation of the `ReadonlyIdentityProvider` Java interface.
+User authorizations cannot be automatically deleted in a technically feasible way since the external directory service does not notify Camunda when users are deleted.
+
+{{< note title="Heads-up!" class="warning" >}}
+Even if you don't manage your user accounts through an external directory service, user authorizations are not automatically deleted.
+{{< /note >}}
+
+To prevent this:
+
+1. Use group instead of user authorizations when possible.
+2. Complete tasks that were assigned to to-be-deleted users.
+3. Delete user authorizations via Admin web app or APIs.
+4. Don't allow to reuse an id of a deleted user.
+
 
 ## Deployments
 
