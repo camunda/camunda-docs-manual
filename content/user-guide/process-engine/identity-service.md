@@ -33,7 +33,7 @@ Camunda Platform distinguishes between read-only and writable user repositories.
 To provide a custom identity provider implementation, the following interfaces can be implemented:
 
 * {{< javadocref page="org/camunda/bpm/engine/impl/identity/ReadOnlyIdentityProvider.html" text="org.camunda.bpm.engine.impl.identity.ReadOnlyIdentityProvider" >}}
-* {{< javadocref page="org/camunda/bpm/engine/impl/identity/WritableIdentityProvider.html" text="org.camunda.bpm.engine.impl.identity.WritableIdentityProvider" >}}
+* {{< javadocref page="org/camunda/bpm/engine/impl/identity/WriteableIdentityProvider.html" text="org.camunda.bpm.engine.impl.identity.WriteableIdentityProvider" >}}
 
 # Custom Whitelist for User, Group and Tenant IDs
 
@@ -59,7 +59,7 @@ Note that if a certain pattern isn't defined (ex. the tenant whitelist pattern),
 
 The database identity service uses the process engine database for managing users and groups. This is the default identity service implementation used if no alternative identity service implementation is provided.
 
-The database identity service implements both `ReadOnlyIdentityProvider` and `WritableIdentityProvider` providing full CRUD functionality in Users, Groups and Memberships.
+The database identity service implements both `ReadOnlyIdentityProvider` and `WriteableIdentityProvider` providing full CRUD functionality in Users, Groups and Memberships.
 
 
 # The LDAP Identity Service

@@ -186,7 +186,7 @@ If you are using the **Camunda External Task Client**, please make sure to:
 
 When you provide ...
 
-1. a custom identity provider implementation by implementing the interface `ReadOnlyIdentityProvider` or `WritableIdentityProvider`
+1. a custom identity provider implementation by implementing the interface `ReadOnlyIdentityProvider` or `WriteableIdentityProvider`
 2. **AND** a dedicated implementation of Identity Service Queries (e. g. `GroupQuery`, `TenantQuery`, `UserQuery`)
 
 With this release, you need to implement a new API method <code>[Query#unlimitedList][javadocs-query-unlimited-list]</code>

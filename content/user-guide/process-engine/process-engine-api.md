@@ -146,7 +146,7 @@ to the maximum results limit
 
 When you provide...
 
-1. a custom identity provider implementation by implementing the interface `ReadOnlyIdentityProvider` or `WritableIdentityProvider`
+1. a custom identity provider implementation by implementing the interface `ReadOnlyIdentityProvider` or `WriteableIdentityProvider`
 2. **AND** a dedicated implementation of Identity Service Queries (e. g. `GroupQuery`, `TenantQuery`, `UserQuery`)
 
 Make sure to return all results without any limitation when calling <code>[Query#unlimitedList][javadocs-query-unlimited-list]</code>.

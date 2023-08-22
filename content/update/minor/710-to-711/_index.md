@@ -23,7 +23,7 @@ This document guides you through the update from Camunda Platform `7.10.x` to `7
 1. For developers: [External Task Client Update](#external-task-client-update)
 1. For developers: [Changes Affecting Custom Permissions/Resources](#changes-affecting-custom-permissions-resources)
 1. For administrators and developers: [User Operation Log Permissions](#user-operation-log-permissions)
-1. For developers: [Custom WritableIdentityProvider](#custom-writableidentityprovider)
+1. For developers: [Custom WriteableIdentityProvider](#custom-writeableidentityprovider)
 1. For developers: [Exception Handling in Processes](#exception-handling-in-processes)
 1. For developers: [Updated Front End Libraries](#updated-front-end-libraries)
 1. For developers: [HTTP Header Security in Webapps](#http-header-security-in-webapps)
@@ -234,9 +234,9 @@ In order to read (or delete) entries that are not related to process definitions
 An overview of the operation logs and their categories can be found at [User Operation Log]({{< ref "/user-guide/process-engine/history.md#glossary-of-operations-logged-in-the-user-operation-log" >}}).
 Authorization management is detailed in [Authorization Service]({{< ref "/user-guide/process-engine/authorization-service.md" >}}).
 
-# Custom WritableIdentityProvider
+# Custom WriteableIdentityProvider
 
-Custom implementations of the `WritableIdentityProvider` interface need to be adjusted to return the new type `IdentityOperationResult` for all CUD (Create, Update, Delete) operations.
+Custom implementations of the `WriteableIdentityProvider` interface need to be adjusted to return the new type `IdentityOperationResult` for all CUD (Create, Update, Delete) operations.
 This includes all interface methods except `createNewUser(String)`, `createNewGroup(String)` and `createNewTenant(String)`.
 
 In order to return an instance of this type, you can easily change a current implementation from
