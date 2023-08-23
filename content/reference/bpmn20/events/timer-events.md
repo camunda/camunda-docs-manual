@@ -107,7 +107,7 @@ You can use expressions for the timer event definitions. By doing so you can inf
 
 ### Re-evaluate a time cycle
 
-A timer's repeat cycle can be updated if the defined expression is changed. This is achieved by re-evaluation of the expression next time when a timer is fired. So the new cycle will be affective with the next scheduled timer.
+A timer's repeat cycle can be updated if the defined expression is changed. This is achieved by re-evaluation of the expression next time when a timer is fired. So the new cycle will be effective from the next scheduled timer.
 
 Let's observe a scenario with the following timer defined where `myBean.getCycle()="R3/PT2H"`:
 
@@ -118,11 +118,11 @@ Let's observe a scenario with the following timer defined where `myBean.getCycle
   </timerEventDefinition>
 </startEvent>
 ```
-Let's consider the timer is meant to be fired at 1 p.m., 3 p.m., and 5 p.m.
+Let's assume the timer is meant to fire at 1 p.m., 3 p.m., and 5 p.m.
 
-At 4 p.m. after the timer has been fired two times already, we adjust the bean to return `myBean.getCycle()="R2/PT30M"`. Then timer will still be triggered at 5 p.m. (as initially scheduled calculated by the previous cycle), and afterward at 5:30 p.m. and 6 p.m. (based on the new cycle).
+At 4 p.m., after the timer has fired two times, we adjust the bean to return `myBean.getCycle()="R2/PT30M"`. In effect, the timer will still be triggered at 5 p.m. (as initially scheduled and calculated by the previous cycle). Afterward, it will fire at 5:30 p.m. and 6 p.m. (based on the new cycle).
 
-The feature is disabled by default, to enable it, set the `reevaluateTimeCycleWhenDue` property to `true` in the process engine configuration.
+The feature is disabled by default. To enable it, set the `reevaluateTimeCycleWhenDue` property to `true` in the process engine configuration.
 
 ## Handling of Timezones
 
