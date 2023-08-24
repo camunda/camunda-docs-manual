@@ -33,15 +33,3 @@ You can also visit the Camunda Community Hub [community repository](https://gith
 The Camunda Community Hub enables developers to have a centralized home for their Camunda community extensions, and aids new contributors to open source software in discovering new projects to work on.
 
 You can also learn about [contributing code to the core Camunda codebase](https://camunda.com/developers/how-to-contribute/).
-
-# Enterprise Extensions
-
-{{< enterprise >}}
-  Please note that these extensions are only included in the enterprise edition of the Camunda Platform. They are not available in the community edition.
-{{< /enterprise >}}
-
-## XSLT Extension
-
-The XSLT extension depends on the following third-party libraries:
-
-* [SAXON](http://saxon.sourceforge.net/) [(Mozilla Public License 2.0)](https://www.mozilla.org/MPL/2.0/)

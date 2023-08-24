@@ -19,17 +19,17 @@ box:
 
 * [FreeMarker][freemarker]
 
-The following template engine is provided as optional add-on:
+The script engine Freemarker wrapper implementation can be found in the
+[camunda-template-engines-jsr223](https://github.com/camunda/camunda-template-engines-jsr223/) repository.
+
+The following template engines are provided as optional community extensions:
 
 * [Apache Velocity][velocity]
+* [Saxon XQuery](https://www.saxonica.com/html/documentation12/using-xquery/)
+* [Saxon XSLT](https://www.saxonica.com/html/documentation12/using-xsl/)
 
 The script engine wrapper implementations can be found in the
-[camunda-template-engines][camunda-template-engines] repository.
-
-Additionally, the following template engine is supported as enterprise extension:
-
-* [XSLT](/enterprise/download/#additional-information)
-
+[camunda-7-template-engines-jsr223][camunda-7-template-engines-jsr223] community hub repository.
 
 # Install a Template Engine
 
@@ -55,10 +55,30 @@ dependencies must be added as dependencies to the maven `pom.xml` file:
     <artifactId>camunda-template-engines-freemarker</artifactId>
   </dependency>
 
+</dependencies>
+```
+
+Here are the Maven coordinates of the community extensions: 
+
+```xml
+<dependencies>
+
+  <!-- saxon xquery -->
+  <dependency>
+    <groupId>org.camunda.community.template.engine</groupId>
+    <artifactId>camunda-7-template-engine-xquery</artifactId>
+  </dependency>
+
+  <!-- saxon xslt -->
+  <dependency>
+    <groupId>org.camunda.community.template.engine</groupId>
+    <artifactId>camunda-7-template-engine-xslt</artifactId>
+  </dependency>
+
   <!-- apache velocity -->
   <dependency>
-    <groupId>org.camunda.template-engines</groupId>
-    <artifactId>camunda-template-engines-velocity</artifactId>
+    <groupId>org.camunda.community.template.engine</groupId>
+    <artifactId>camunda-7-template-engine-velocity</artifactId>
   </dependency>
 
 </dependencies>
@@ -124,20 +144,7 @@ payload of a `camunda:connector`.
 </bpmn2:serviceTask>
 ```
 
-
 # Use XSLT as Template Engine
-
-{{< enterprise >}}
-  Please note that this feature is only included in the enterprise edition of the Camunda Platform, it is not available in the community edition.
-{{< /enterprise >}}
-
-
-## Install the XSLT Template Engine
-
-The XSLT Template Engine can be downloaded from the [Enterprise Edition Download page](/enterprise/download/#additional-information).
-
-Instructions on how to install the template engine can be found inside the downloaded distribution.
-
 
 ## Use XSLT Template Engine with an embedded process engine
 
@@ -145,17 +152,13 @@ When using an embedded process engine, the XSLT template engine library must be 
 application deployment. When using the process engine in a maven `war` project, the template engine
 dependency must be added as dependencies to the maven `pom.xml` file:
 
-{{< note title="" class="info" >}}
-  Please import the [Camunda BOM](/get-started/apache-maven/) to ensure correct versions for every Camunda project.
-{{< /note >}}
-
 ```xml
 <dependencies>
 
   <!-- XSLT -->
   <dependency>
-    <groupId>org.camunda.bpm.extension.xslt</groupId>
-    <artifactId>camunda-bpm-xslt</artifactId>
+    <groupId>org.camunda.community.template.engine</groupId>
+    <artifactId>camunda-7-template-engine-xslt</artifactId>
   </dependency>
 
 </dependencies>
@@ -191,12 +194,12 @@ Finally, the input of the transformation must be mapped using the special variab
 using a `<camunda:inputParameter ... />` mapping.
 
 A [full example of the XSLT Template Engine][xslt-example] in Camunda Platform can be found in the
-examples repository..
+examples' repository.
 
 
 [freemarker]: http://freemarker.org/
 [velocity]: http://velocity.apache.org/
-[camunda-template-engines]: https://github.com/camunda/camunda-template-engines-jsr223
+[camunda-7-template-engines-jsr223]: https://github.com/camunda-community-hub/camunda-7-template-engines-jsr223
 [use-scripts]: {{< ref "/user-guide/process-engine/scripting.md" >}}
 [script-source]: {{< ref "/user-guide/process-engine/scripting.md#script-source" >}}
 [xslt-example]: https://github.com/camunda/camunda-bpm-examples/tree/master/scripttask/xslt-scripttask
