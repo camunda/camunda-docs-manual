@@ -43,7 +43,8 @@ application deployment. When using the process engine in a maven `war` project, 
 dependencies must be added as dependencies to the maven `pom.xml` file:
 
 {{< note title="" class="info" >}}
-  Please import the [Camunda BOM](/get-started/apache-maven/) to ensure correct versions for every Camunda project.
+  The [Camunda BOM](/get-started/apache-maven/) only contains the officially supported freemarker template engine.
+  For the community-driven template engines, please check the Maven coordinates below. 
 {{< /note >}}
 
 ```xml
