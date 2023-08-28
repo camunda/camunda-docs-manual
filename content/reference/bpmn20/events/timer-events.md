@@ -105,6 +105,25 @@ You can use expressions for the timer event definitions. By doing so you can inf
 </boundaryEvent>
 ```
 
+### Re-evaluate a time cycle
+
+A timer's repeat cycle can be updated if the defined expression is changed. This is achieved by re-evaluation of the expression next time when a timer is fired. So the new cycle will be effective from the next scheduled timer.
+
+Let's observe a scenario with the following timer defined where `myBean.getCycle()="R3/PT2H"`:
+
+```xml
+<startEvent id="theStart">
+  <timerEventDefinition>
+    <timeCycle>#{myBean.getCycle()}</timeCycle>
+  </timerEventDefinition>
+</startEvent>
+```
+Let's assume the timer is meant to fire at 1 p.m., 3 p.m., and 5 p.m.
+
+At 4 p.m., after the timer has fired two times, we adjust the bean to return `myBean.getCycle()="R2/PT30M"`. In effect, the timer will still be triggered at 5 p.m. (as initially scheduled and calculated by the previous cycle). Afterward, it will fire at 5:30 p.m. and 6 p.m. (based on the new cycle).
+
+The feature is disabled by default. To enable it, set the `reevaluateTimeCycleWhenDue` property to `true` in the process engine configuration.
+
 ## Handling of Timezones
 
 The configuration `2022-03-11T12:13:14` does not specify a time zone. At runtime, such a date is interpreted in the local time zone of the JVM executing the process. This can be problematic in various cases, such as when running multiple Camunda nodes in different time zones or when you cannot assume the time zone the platform runs in. Furthermore, there can be glitches with respect to daylight saving time (DST). If in doubt, specify the time in UTC (e.g., `2022-03-11T12:13:14Z`) or with a UTC-relative offset (e.g., `2022-03-11T12:13:14+01`).
