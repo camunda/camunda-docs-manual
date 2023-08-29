@@ -29,7 +29,8 @@ This document guides you through the update from Camunda Platform `7.19.x` to `7
     * For developers: [External Task Client Spring Boot Starter requires JDK 17](#external-task-client-spring-boot-starter-requires-jdk-17)
 12. For developers: [Camunda Platform Run requires JDK 17](#camunda-platform-run-requires-jdk-17)
 13. For developers: [Update Alpine Base Docker Image from version 3.15 to 3.18](#update-alpine-base-of-camunda-docker-images-from-version-3-15-to-3-18)
-14. For developers: [Enforce History Time To Live](#enforce-history-time-to-live)
+14. For developers: [Discontinue support for Velocity, XSLT, and XQuery template engines](#discontinue-support-for-velocity-xslt-and-xquery-template-engines)
+15. For developers: [Enforce History Time To Live](#enforce-history-time-to-live)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.20.
 
@@ -224,6 +225,42 @@ The Camunda Docker images are based on Alpine. This release updates the Alpine b
 [alpine316]: https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.16.0
 [alpine317]: https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.17.0
 [alpine318]: https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.18.0
+
+# Discontinue support for Velocity, XSLT, and XQuery template engines
+
+We discontinue support for template engines with the following Maven artifacts (groupId:artifactId):
+
+* org.camunda.template-engines:camunda-template-engines-velocity
+* org.camunda.template-engines:camunda-template-engines-xquery
+* org.camunda.bpm.extension.xslt:camunda-bpm-xslt
+
+We moved the source code of the template engines listed above over to Camunda's [Community Hub](https://github.com/camunda-community-hub/camunda-7-template-engines-jsr223) and released version 2.2.0, the first community release and last release triggered by us.
+
+You can contribute to the [GitHub repository](https://github.com/camunda-community-hub/camunda-7-template-engines-jsr223) if you require code changes, library updates, or bug fixes. Camunda doesn't drive development for community extensions.
+
+If you want to continue to use the community-maintained template engines, use the following Maven coordinates:
+
+```xml
+<dependency>
+  <groupId>org.camunda.community.template.engine</groupId>
+  <artifactId>camunda-7-template-engine-velocity</artifactId>
+  <version>2.2.0</version>
+</dependency>
+
+<dependency>
+  <groupId>org.camunda.community.template.engine</groupId>
+  <artifactId>camunda-7-template-engine-xquery</artifactId>
+  <version>2.2.0</version>
+</dependency>
+
+<dependency>
+  <groupId>org.camunda.community.template.engine</groupId>
+  <artifactId>camunda-7-template-engine-xslt</artifactId>
+  <version>2.2.0</version>
+</dependency>
+```
+
+We are looking for maintainers for the template engine extensions. Feel free to reach out to us [via the forum](https://forum.camunda.io/c/camunda-platform-7-topics/39) if you are interested.
 
 # Enforce History Time To Live
 
