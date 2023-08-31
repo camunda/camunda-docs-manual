@@ -30,6 +30,7 @@ This document guides you through the update from Camunda Platform `7.19.x` to `7
 12. For developers: [Camunda Platform Run requires JDK 17](#camunda-platform-run-requires-jdk-17)
 13. For developers: [Update Alpine Base Docker Image from version 3.15 to 3.18](#update-alpine-base-of-camunda-docker-images-from-version-3-15-to-3-18)
 14. For developers: [Discontinue support for Velocity, XSLT, and XQuery template engines](#discontinue-support-for-velocity-xslt-and-xquery-template-engines)
+15. For developers: [Enforce History Time To Live](#enforce-history-time-to-live)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.20.
 
@@ -260,3 +261,14 @@ If you want to continue to use the community-maintained template engines, use th
 ```
 
 We are looking for maintainers for the template engine extensions. Feel free to reach out to us [via the forum](https://forum.camunda.io/c/camunda-platform-7-topics/39) if you are interested.
+
+# Enforce History Time To Live
+
+Many of our users have installations that contain resources with null historyTimeToLive. As a result,
+their historic data grow over time and remain uncleaned due to this configuration. In the 7.20 release,
+we decided to render the historyTimeToLive mandatory for new deployments or redeployments.
+To achieve that, there is a new feature flag introduced called `enforceHistoryTimeToLive` that has a
+default value of true.
+
+At the same time, we acknowledge there might be use cases where our users might favour to keep the legacy behaviour despite our recommendation. If that is the case, you can always turn off the feature by setting
+the feature flag to `false`. For more information, checkout the new parameter description under <a href="{{< ref "/reference/deployment-descriptors/tags/process-engine#configuration-properties" >}}">Configuration Properties</a>.
