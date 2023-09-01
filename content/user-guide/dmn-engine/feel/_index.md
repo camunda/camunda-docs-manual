@@ -22,9 +22,8 @@ You can use the Expression Language in the following DMN Notation Elements:
 * [Output Entries]
 * [Literal Expressions]
 
-This documentation covers everything integration-specific about the **FEEL Scala Engine** in the 
-Camunda DMN Engine. By default, Camunda Platform relies on the [FEEL Scala Engine][] (opens external link) 
-in version `1.11.0`. 
+This documentation covers everything integration-specific about the 
+[FEEL Scala Engine][] (opens external link) in the Camunda DMN Engine.
 
 {{< note title="Heads Up!" class="info" >}}
 If you come from a Camunda Platform version <= 7.12.x and already use FEEL, 
