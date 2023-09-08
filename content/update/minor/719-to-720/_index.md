@@ -265,7 +265,7 @@ We are looking for maintainers for the template engine extensions. Feel free to 
 # Enforce History Time To Live
 
 Many of our users have installations that contain resources with null historyTimeToLive. As a result,
-their historic data grow over time and remain uncleaned due to this configuration. In the 7.20 release,
+their historic data grow over time and remain uncleaned due to this configuration. The history data of your executed processes will clutter the database and eventually negatively impact the engine's performance – even for runtime processes. Since the engine uses a relational database, only starting to clean up the history when a vast amount of data has been pilled up is very costly and time-consuming – in some situations, there is even no other solution than truncating tables and losing data. This is why with this release
 we decided to render the historyTimeToLive mandatory for new deployments or redeployments.
 To achieve that, there is a new feature flag introduced called `enforceHistoryTimeToLive` that has a
 default value of true.
