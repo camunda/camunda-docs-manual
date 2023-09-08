@@ -269,4 +269,4 @@ their historic data grow over time and remain uncleaned due to this configuratio
 we decided to make the historyTimeToLive mandatory for new deployments or redeployments.
 
 At the same time, we acknowledge there might be use cases where our users might favour to keep the legacy behaviour despite our recommendation. If that is the case, you can always turn off the feature by setting
-the feature flag to `false`. For more information, checkout the new parameter description under <a href="{{< ref "/reference/deployment-descriptors/tags/process-engine#configuration-properties" >}}">Configuration Properties</a>.
+the feature flag `enforceHistoryTimeToLive` to `false`. For more information, checkout the new parameter description under <a href="{{< ref "/reference/deployment-descriptors/tags/process-engine#configuration-properties" >}}">Configuration Properties</a>.
