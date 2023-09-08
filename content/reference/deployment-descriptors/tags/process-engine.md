@@ -1236,7 +1236,7 @@ The history time to live defines the number of days using a time specified by th
   <tr id="enforceHistoryTimeToLive">
     <td><code>enforceHistoryTimeToLive</code></td>
     <td>String</td>
-    <td>Feature flag that prevents the deployment or redeployment of any resource that contains a null historyTimeToLive (BPMN, DMN, CMMN) by throwing a ProcessEngineException. Default value: true
+    <td>Feature flag that prevents the deployment or redeployment of any model resource (BPMN, DMN, CMMN) that contains a <code>historyTimeToLive</code> of <code>null</code> by throwing a <code>ProcessEngineException</code>. Default value: <code>true</code>.
     </td>
   </tr>
   <tr>
