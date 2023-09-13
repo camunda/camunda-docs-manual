@@ -173,7 +173,7 @@ you can [correlate to start messages]({{< ref "/reference/bpmn20/events/message-
 The execution jobs of this batch can be scheduled by the job executor as [exclusive jobs]({{< ref "/user-guide/process-engine/the-job-executor.md#exclusive-jobs" >}}).
 As a result, the execution of some of this batch's jobs may be delayed by other exclusive jobs that are related to the same process instance that the message should be correlated to.
 However, exclusive scheduling only happens when the jobs of this batch relate to exactly one process instance. 
-This can be controlled by configuring the [invocationsPerBatchJob]({{< ref "/user-guide/process-engine/batch.md#configuration" >}}) property.
+This can be controlled by configuring the [invocationsPerBatchJob][] property.
 {{< /note >}}
 
 ## Set a Removal Time
@@ -248,3 +248,30 @@ Batch batch = historyService.setRemovalTimeToHistoricBatches()
   .byIds("693206dd-11e9-b7cb-be5e0f7575b7", "...")
   .executeAsync();
 ```
+
+### Updating in chunks
+
+The batch operations update the removal time of all historic entities related to the respective root element, e.g. a historic process instance.
+Those updates are done within one database transaction. For large numbers of related entities, those updates can take too long, the database transactions time out, and the execution jobs of the batch fail. Additionally, this can block the [job executor][], trying to execute these long-running batch execution jobs.
+
+For historic process instances, you can therefore configure the batch operation to update related historic database tables in chunks using `.updateInChunks()`.
+This limits the number of rows updated per related table to the defined `removalTimeUpdateChunkSize` in the [process engine configuration][].
+You can override this limit per batch execution with the `chunkSize(int chunkSize)` option.
+
+With this configuration, the batch execution jobs handle exactly one historic process instance each, fixing the [invocationsPerBatchJob][] property to `1`.
+Furthermore, the batch execution jobs repeat until all related historic tables are updated completely.
+This spreads the database updates over multiple transactions and helps keeping them within transaction timeout boundaries.
+
+{{< note title="Performance considerations" class="info" >}}
+The `.updateInChunks()` flag for the historic process instances batch operation leads to more complex update queries that contain clauses to limit the number of updated rows.
+This can degrade the update performance on some databases.
+
+Only use this option for scenarios with large numbers of historic elements related to the historic process instance that otherwise block the job executor for a long time or run into database transaction timeouts.
+
+Using this chunked update mode on running process instances is possible but can lead to inconsistent history views.
+We recommend using this on completed or canceled process instances.
+{{< /note >}}
+
+[invocationsPerBatchJob]: {{< ref "/user-guide/process-engine/batch.md#configuration" >}}
+[job executor]: {{< ref "/user-guide/process-engine/the-job-executor.md" >}}
+[process engine configuration]: {{< ref "/user-guide/process-engine/process-engine-bootstrapping.md" >}}
