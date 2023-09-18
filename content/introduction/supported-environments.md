@@ -97,6 +97,7 @@ Check our [Enterprise Announcements page](/enterprise/announcement/) for confirm
 Whenever a new version of one of the following environments is released, we target support of that new version with the next minor release of Camunda Platform. A new released environment has to be available three months before the next Camunda Platform minor release to be considered.
 
 * Java Language (LTS)
+* Spring Boot
 * Wildfly Application Server
 * Oracle Database (LTS)
 * PostgreSQL
