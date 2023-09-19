@@ -264,5 +264,5 @@ We are looking for maintainers for the template engine extensions. Feel free to 
 
 # Changes on persistence connection exception logging
 
-All persistence connection exceptions (having a cause of **SQL class 8**) will be logged with ERROR logging level from now on.
+All persistence connection exceptions will be logged with logging level ERROR instead of WARN from now on.
 You can read more about SQL connection exceptions & SQL classes [here](https://en.wikipedia.org/wiki/SQLSTATE).
