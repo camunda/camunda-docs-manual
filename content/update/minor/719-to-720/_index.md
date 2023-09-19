@@ -30,7 +30,7 @@ This document guides you through the update from Camunda Platform `7.19.x` to `7
 12. For developers: [Camunda Platform Run requires JDK 17](#camunda-platform-run-requires-jdk-17)
 13. For developers: [Update Alpine Base Docker Image from version 3.15 to 3.18](#update-alpine-base-of-camunda-docker-images-from-version-3-15-to-3-18)
 14. For developers: [Discontinue support for Velocity, XSLT, and XQuery template engines](#discontinue-support-for-velocity-xslt-and-xquery-template-engines)
-15. For developers: [Changes on Persistence Connection Exception Logging](#changes-on-persistence-connection-exception-logging)
+15. For developers: [Changes on persistence connection exception logging](#changes-on-persistence-connection-exception-logging)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.20.
 
