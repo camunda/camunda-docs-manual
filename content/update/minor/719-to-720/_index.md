@@ -262,7 +262,7 @@ If you want to continue to use the community-maintained template engines, use th
 
 We are looking for maintainers for the template engine extensions. Feel free to reach out to us [via the forum](https://forum.camunda.io/c/camunda-platform-7-topics/39) if you are interested.
 
-# Changes on Persistence Connection Exception Logging
+# Changes on persistence connection exception logging
 
 All persistence connection exceptions (having a cause of **SQL class 8**) will be logged with ERROR logging level from now on.
 You can read more about SQL connection exceptions & SQL classes [here](https://en.wikipedia.org/wiki/SQLSTATE).
