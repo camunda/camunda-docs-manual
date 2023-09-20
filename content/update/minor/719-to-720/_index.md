@@ -29,6 +29,7 @@ This document guides you through the update from Camunda Platform `7.19.x` to `7
     * For developers: [External Task Client Spring Boot Starter requires JDK 17](#external-task-client-spring-boot-starter-requires-jdk-17)
 12. For developers: [Camunda Platform Run requires JDK 17](#camunda-platform-run-requires-jdk-17)
 13. For developers: [Update Alpine Base Docker Image from version 3.15 to 3.18](#update-alpine-base-of-camunda-docker-images-from-version-3-15-to-3-18)
+14. For administrators and developers: [Update to WildFly 29 Application Server](#update-to-wildfly-29-application-server)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.20.
 
@@ -224,3 +225,8 @@ The Camunda Docker images are based on Alpine. This release updates the Alpine b
 [alpine317]: https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.17.0
 [alpine318]: https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.18.0
 
+# Update to WildFly 29 Application Server
+
+With this release, we support WildFly 29 and include it in the default [pre-packaged WildFly distro](https://downloads.camunda.cloud/release/camunda-bpm/wildfly/7.20/). There are a few API changes and deprecations in WildFly which made it necessary to adjust the Camunda WildFly subsystem.
+
+WildFly 27 remains a supported environment and the adjusted WildFly subsystem is compatible with WildFly 27. The WildFly 26 subsystem remains unchanged. You can find more information about the differences in our [installation guide]({{< ref "/installation/full/jboss/manual.md" >}}).
