@@ -123,6 +123,20 @@ The following API methods will throw an `UnsupportedOperationException`:
 * `io.quarkus.arc.InjectableContext#destroy`
 * `io.quarkus.arc.InjectableContext#destroy(Contextual<?> contextual)`
 
+### Task form beans
+
+Associating beans with [Conversational Scope][cdi-conversational-scope] is currently [not supported][quarkus-bean-scopes] by Quarkus ArC.
+Furthermore, Quarkus does not allow to set a different default scope for beans that are outside of the extension's control.
+As a result, the following conversational scoped beans are not available in a Quarkus application out of the box:
+
+* `org.camunda.bpm.engine.cdi.jsf.TaskForm`
+* `org.camunda.bpm.engine.cdi.compat.FoxTaskForm`
+* `org.camunda.bpm.engine.cdi.compat.CamundaTaskForm`
+
+In general, you can use these beans in [custom JSF forms][jsf-task-forms] to interact with the process engine, for example, to render and complete user tasks.
+To include such functionality in your Quarkus application, provide custom beans with appropriate scopes and functionality.
+You can learn about the available beans and programming model in the [CDI and Java EE Integration][cdi-and-java-ee-integration].
+
 [java-cdi-40-standard]: https://jakarta.ee/specifications/cdi/4.0/jakarta-cdi-spec-4.0.html
 [cdi-and-java-ee-integration]: {{< ref "/user-guide/cdi-java-ee-integration/_index.md">}}
 [cdi-conversational-scope]: https://jakarta.ee/specifications/cdi/4.0/jakarta-cdi-spec-4.0.html#conversation_context_ee
@@ -131,3 +145,5 @@ The following API methods will throw an `UnsupportedOperationException`:
 [business-process-scoped]: {{< ref "/user-guide/cdi-java-ee-integration/contextual-programming-model.md#work-with-businessprocessscoped-beans">}}
 [cdi-passivation]: https://jakarta.ee/specifications/cdi/4.0/jakarta-cdi-spec-4.0.html#passivating_scope
 [destroy-jira-issue]: https://jira.camunda.com/browse/CAM-13755
+[jsf-task-forms]: {{< ref "/user-guide/task-forms/jsf-task-forms.md">}}
+[quarkus-bean-scopes]: https://quarkus.io/guides/cdi#bean-scope-available
