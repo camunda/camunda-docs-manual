@@ -1233,6 +1233,12 @@ The following is a list with the most commonly used process engine configuration
 The history time to live defines the number of days using a time specified by the ISO-8601 date format. The function only accepts the notation to define a number of days.
     </td>
   </tr>
+  <tr id="enforceHistoryTimeToLive">
+    <td><code>enforceHistoryTimeToLive</code></td>
+    <td>String</td>
+    <td>Feature flag that prevents the deployment or redeployment of any model resource (BPMN, DMN, CMMN) that contains a <code>historyTimeToLive</code> of <code>null</code> by throwing a <code>ProcessEngineException</code>. Default value: <code>true</code>.
+    </td>
+  </tr>
   <tr>
     <td><code>batchOperationHistoryTimeToLive</code></td>
     <td>String</td>

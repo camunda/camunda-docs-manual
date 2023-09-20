@@ -30,7 +30,8 @@ This document guides you through the update from Camunda Platform `7.19.x` to `7
 12. For developers: [Camunda Platform Run requires JDK 17](#camunda-platform-run-requires-jdk-17)
 13. For developers: [Update Alpine Base Docker Image from version 3.15 to 3.18](#update-alpine-base-of-camunda-docker-images-from-version-3-15-to-3-18)
 14. For developers: [Discontinue support for Velocity, XSLT, and XQuery template engines](#discontinue-support-for-velocity-xslt-and-xquery-template-engines)
-15. For administrators and developers: [Update to WildFly 29 Application Server](#update-to-wildfly-29-application-server)
+15. For developers: [Enforce History Time To Live](#enforce-history-time-to-live)
+16. For administrators and developers: [Update to WildFly 29 Application Server](#update-to-wildfly-29-application-server)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.20.
 
@@ -262,8 +263,18 @@ If you want to continue to use the community-maintained template engines, use th
 
 We are looking for maintainers for the template engine extensions. Feel free to reach out to us [via the forum](https://forum.camunda.io/c/camunda-platform-7-topics/39) if you are interested.
 
+# Enforce History Time To Live
+
+Many of our users have installations that contain model resources (BPMN, DMN, CMMN) with null historyTimeToLive. As a result,
+their historic data grow over time and remain uncleaned due to this configuration. The history data of your executed processes will clutter the database and eventually negatively impact the engine's performance – even for runtime processes. Since the engine uses a relational database, only starting to clean up the history when a vast amount of data has been pilled up is very costly and time-consuming – in some situations, there is even no other solution than truncating tables and losing data. This is why with this release
+we decided to make the historyTimeToLive mandatory for new deployments or redeployments.
+
+At the same time, we acknowledge there might be use cases where our users might favour to keep the legacy behaviour despite our recommendation. If that is the case, you can always turn off the feature by setting
+the feature flag `enforceHistoryTimeToLive` to `false`. For more information, checkout the new parameter description under <a href="{{< ref "/reference/deployment-descriptors/tags/process-engine#configuration-properties" >}}">Configuration Properties</a>.
+
 # Update to WildFly 29 Application Server
 
 With this release, we support WildFly 29 and include it in the default [pre-packaged WildFly distro](https://downloads.camunda.cloud/release/camunda-bpm/wildfly/7.20/). There are a few API changes and deprecations in WildFly which made it necessary to adjust the Camunda WildFly subsystem.
 
 WildFly 27 remains a supported environment and the adjusted WildFly subsystem is compatible with WildFly 27. The WildFly 26 subsystem remains unchanged. You can find more information about the differences in our [installation guide]({{< ref "/installation/full/jboss/manual.md" >}}).
+
