@@ -30,6 +30,7 @@ This document guides you through the update from Camunda Platform `7.19.x` to `7
 12. For developers: [Camunda Platform Run requires JDK 17](#camunda-platform-run-requires-jdk-17)
 13. For developers: [Update Alpine Base Docker Image from version 3.15 to 3.18](#update-alpine-base-of-camunda-docker-images-from-version-3-15-to-3-18)
 14. For developers: [Discontinue support for Velocity, XSLT, and XQuery template engines](#discontinue-support-for-velocity-xslt-and-xquery-template-engines)
+15. For administrators and developers: [Update to WildFly 29 Application Server](#update-to-wildfly-29-application-server)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.20.
 
@@ -260,3 +261,9 @@ If you want to continue to use the community-maintained template engines, use th
 ```
 
 We are looking for maintainers for the template engine extensions. Feel free to reach out to us [via the forum](https://forum.camunda.io/c/camunda-platform-7-topics/39) if you are interested.
+
+# Update to WildFly 29 Application Server
+
+With this release, we support WildFly 29 and include it in the default [pre-packaged WildFly distro](https://downloads.camunda.cloud/release/camunda-bpm/wildfly/7.20/). There are a few API changes and deprecations in WildFly which made it necessary to adjust the Camunda WildFly subsystem.
+
+WildFly 27 remains a supported environment and the adjusted WildFly subsystem is compatible with WildFly 27. The WildFly 26 subsystem remains unchanged. You can find more information about the differences in our [installation guide]({{< ref "/installation/full/jboss/manual.md" >}}).
