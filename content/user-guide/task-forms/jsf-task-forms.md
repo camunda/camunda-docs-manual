@@ -12,6 +12,10 @@ menu:
 
 # Adding JSF Forms to your Process Application
 
+{{< note title="Heads-up!" class="info" >}}
+The required CDI beans for this functionality are currently not available in <a href="{{< ref "/user-guide/quarkus-integration/cdi-integration.md#task-form-beans" >}}">Quarkus applications</a> out of the box.
+{{< /note >}}
+
 If you add JSF forms as described below, you can easily use them as <br/>
 [external task forms]({{< ref "/user-guide/task-forms/_index.md#external-task-forms" >}}).
 
