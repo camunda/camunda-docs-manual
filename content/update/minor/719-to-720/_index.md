@@ -153,8 +153,8 @@ You can re-create the removed logic in your project and register a JPA variables
 
 We have updated our Quarkus Extension to the latest Quarkus 3 version. This version brings many new features and changes.
 For a complete list, see the [Quarkus 3 major release][quarkus3] blog post.
-From the extension's perspective,
-the most important changes are the deprecation of Java 11 and the switch to Jakarta EE 10.
+From the extension's perspective, the most important changes are the deprecation of Java 11 and the switch to Jakarta EE 10.
+With the update, the [JSF Task Forms][jsf-task-forms] use case is not supported out of the box anymore in a Quarkus application.
 
 Quarkus has a very comprehensive [guide for updating][quarkus3-update] and also offers an update tool.
 
@@ -163,6 +163,7 @@ You can find more details about the extension on our dedicated [Quarkus Integrat
 [quarkus3]: https://quarkus.io/blog/quarkus-3-0-final-released
 [quarkus3-update]: https://quarkus.io/blog/quarkus-3-0-final-released/#upgrading
 [quarkus-integration]: {{< ref "/user-guide/quarkus-integration" >}}
+[jsf-task-forms]: {{< ref "/user-guide/task-forms/jsf-task-forms.md" >}}
 
 # Spring Framework 6.0 support
 
