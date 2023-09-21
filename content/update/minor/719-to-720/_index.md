@@ -31,6 +31,7 @@ This document guides you through the update from Camunda Platform `7.19.x` to `7
 13. For developers: [Update Alpine Base Docker Image from version 3.15 to 3.18](#update-alpine-base-of-camunda-docker-images-from-version-3-15-to-3-18)
 14. For developers: [Discontinue support for Velocity, XSLT, and XQuery template engines](#discontinue-support-for-velocity-xslt-and-xquery-template-engines)
 15. For developers: [Enforce History Time To Live](#enforce-history-time-to-live)
+16. For developers: [Changes on persistence connection exception logging](#changes-on-persistence-connection-exception-logging)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.20.
 
@@ -270,3 +271,8 @@ we decided to make the historyTimeToLive mandatory for new deployments or redepl
 
 At the same time, we acknowledge there might be use cases where our users might favour to keep the legacy behaviour despite our recommendation. If that is the case, you can always turn off the feature by setting
 the feature flag `enforceHistoryTimeToLive` to `false`. For more information, checkout the new parameter description under <a href="{{< ref "/reference/deployment-descriptors/tags/process-engine#configuration-properties" >}}">Configuration Properties</a>.
+
+# Changes on persistence connection exception logging
+
+All persistence connection exceptions will be logged with logging level ERROR instead of WARN from now on.
+You can read more about SQL connection exceptions & SQL classes [here](https://en.wikipedia.org/wiki/SQLSTATE).
