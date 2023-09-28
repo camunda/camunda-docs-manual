@@ -16,22 +16,23 @@ menu:
 This document guides you through the update from Camunda Platform `7.19.x` to `7.20.0` and covers the following use cases:
 
 1. For administrators and developers: [Database updates](#database-updates)
-2. For administrators and developers: [Full distribution update](#full-distribution)
-3. For administrators: [Discontinued support of Standalone web application](#discontinued-support-of-standalone-web-application)
-4. For administrators: [Optimistic Locking on PostgreSQL](#optimistic-locking-on-postgresql)
-5. For administrators: [Explicit JUEL module on Jakarta Expression Language 4](#explicit-juel-module-on-jakarta-expression-language-4)
-6. For developers: [JavaScript external task client re-throws errors on task service APIs](#javascript-external-task-client-rethrows-errors-on-task-service-apis)
-7. For developers: [Explicit asset declaration in Java web app plugins](#explicit-asset-declaration-in-java-web-app-plugins)
-8. For developers: [Discontinue support for handling JPA entities as variables](#discontinue-support-for-handling-jpa-entities-as-variables)
-9. For developers: [Quarkus 3 update](#quarkus-3-update)
-10. For developers: [Spring Framework 6.0 support](#spring-framework-6-0-support)
-11. For developers: [Upgrade to Spring Boot 3.1](#upgrade-to-spring-boot-3-1)
-    * For developers: [External Task Client Spring Boot Starter requires JDK 17](#external-task-client-spring-boot-starter-requires-jdk-17)
-12. For developers: [Camunda Platform Run requires JDK 17](#camunda-platform-run-requires-jdk-17)
-13. For developers: [Update Alpine Base Docker Image from version 3.15 to 3.18](#update-alpine-base-of-camunda-docker-images-from-version-3-15-to-3-18)
-14. For developers: [Discontinue support for Velocity, XSLT, and XQuery template engines](#discontinue-support-for-velocity-xslt-and-xquery-template-engines)
-15. For developers: [Enforce History Time To Live](#enforce-history-time-to-live)
-16. For developers: [Changes on persistence connection exception logging of the REST API](#changes-on-persistence-connection-exception-logging-of-the-rest-api)
+1. For administrators and developers: [Full distribution update](#full-distribution)
+1. For developers: [Enforce History Time To Live](#enforce-history-time-to-live)
+1. For administrators: [Explicit JUEL module on Jakarta Expression Language 4](#explicit-juel-module-on-jakarta-expression-language-4)
+1. For developers: [Explicit asset declaration in Java web app plugins](#explicit-asset-declaration-in-java-web-app-plugins)
+1. For administrators: [Optimistic Locking on PostgreSQL](#optimistic-locking-on-postgresql)
+1. For developers: [Changes on persistence connection exception logging of the REST API](#changes-on-persistence-connection-exception-logging-of-the-rest-api)
+1. For developers: [JavaScript external task client re-throws errors on task service APIs](#javascript-external-task-client-rethrows-errors-on-task-service-apis)
+1. For developers: [Spring Framework 6.0 support](#spring-framework-6-0-support)
+1. For developers: [Upgrade to Spring Boot 3.1](#upgrade-to-spring-boot-3-1)
+   * For developers: [External Task Client Spring Boot Starter requires JDK 17](#external-task-client-spring-boot-starter-requires-jdk-17)
+   * For developers: [Camunda Platform Run requires JDK 17](#camunda-platform-run-requires-jdk-17)
+1. For developers: [Update Alpine Base Docker Image from version 3.15 to 3.18](#update-alpine-base-of-camunda-docker-images-from-version-3-15-to-3-18)
+1. For developers: [Quarkus 3 update](#quarkus-3-update)
+1. For developers: [Discontinued support for JDK 8](#discontinued-support-for-jdk-8)
+1. For administrators: [Discontinued support of Standalone web application](#discontinued-support-of-standalone-web-application)
+1. For developers: [Discontinued support for handling JPA entities as variables](#discontinued-support-for-handling-jpa-entities-as-variables)
+1. For developers: [Discontinued support for Velocity, XSLT, and XQuery template engines](#discontinued-support-for-velocity-xslt-and-xquery-template-engines)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.20.
 
@@ -77,16 +78,14 @@ For every process application, the Camunda dependencies should be updated to the
 
 There are no new mandatory dependencies for process applications.
 
-# Discontinued support of Standalone web application
+# Enforce History Time To Live
 
-Camunda Automation Platform 7.19 is the last release providing support for Standalone Web Application Distribution.
-Version 7.20.0 no longer provides this distribution.
+Many of our users have installations that contain model resources (BPMN, DMN, CMMN) with null historyTimeToLive. As a result,
+their historic data grow over time and remain uncleaned due to this configuration. The history data of your executed processes will clutter the database and eventually negatively impact the engine's performance – even for runtime processes. Since the engine uses a relational database, only starting to clean up the history when a vast amount of data has been pilled up is very costly and time-consuming – in some situations, there is even no other solution than truncating tables and losing data. This is why with this release
+we decided to make the historyTimeToLive mandatory for new deployments or redeployments.
 
-# Optimistic Locking on PostgreSQL
-
-With version 7.20.0, we adjusted the [Optimistic Locking]({{< ref "/user-guide/process-engine/transactions-in-processes.md#the-optimisticlockingexception" >}}) behavior on PostgreSQL in case of [Foreign Key Constraint](https://www.postgresql.org/docs/current/ddl-constraints.html#DDL-CONSTRAINTS-FK) violations. Any violation of such a constraint in INSERT and UPDATE statements now leads to an [OptimisticLockingException]({{< ref "/user-guide/process-engine/transactions-in-processes.md#the-optimisticlockingexception" >}}). In effect, the engine's behavior on PostgreSQL in such scenarios is consistent with the other supported databases.
-
-If you rely on the previous behavior, receiving `ProcessEngineException`s with the related error code for foreign key constraint violations, you can restore it by disabling the engine configuration flag `enableOptimisticLockingOnForeignKeyViolation`. As a result, jobs can also start failing due to those exceptions although they could be safely retried automatically to resolve the situation.
+At the same time, we acknowledge there might be use cases where our users might favour to keep the legacy behaviour despite our recommendation. If that is the case, you can always turn off the feature by setting
+the feature flag `enforceHistoryTimeToLive` to `false`. For more information, checkout the new parameter description under <a href="{{< ref "/reference/deployment-descriptors/tags/process-engine#configuration-properties" >}}">Configuration Properties</a>.
 
 # Explicit JUEL module on Jakarta Expression Language 4
 
@@ -110,15 +109,6 @@ Updating to a newer expression language standard comes with some behavioral chan
 
 We recommend testing your existing expressions thoroughly before using version 7.20.x in production and adjusting them according to the beforementioned behavioral changes.
 
-# JavaScript external task client rethrows errors on task service APIs
-
-Previously, the JavaScript external task client swallowed errors caused by the engine's REST API when 
-calling task service APIs like `#complete`. You could handle these errors only by subscribing to a 
-global error handler.
-
-With this release, the client re-throws errors, additionally directly on calling the respective task service APIs, 
-and you can handle them directly. Adjust your custom business logic accordingly.
-
 # Explicit asset declaration in Java web app plugins
 
 We introduced a change in the asset loading mechanism for Java web app plugins. Starting with this release,
@@ -138,33 +128,25 @@ Requests for undeclared assets will be rejected, and it will likely render your 
 [custom-script]: {{< ref "/webapps/cockpit/extend/configuration#custom-scripts" >}}
 [frontend-modules]: {{< ref "/webapps/cockpit/extend/plugins#structure-of-a-frontend-module" >}}
 
-# Discontinue support for handling JPA entities as variables
+# Optimistic Locking on PostgreSQL
 
-The process engine will no longer process JPA entities as variables affecting the following components:
+With version 7.20.0, we adjusted the [Optimistic Locking]({{< ref "/user-guide/process-engine/transactions-in-processes.md#the-optimisticlockingexception" >}}) behavior on PostgreSQL in case of [Foreign Key Constraint](https://www.postgresql.org/docs/current/ddl-constraints.html#DDL-CONSTRAINTS-FK) violations. Any violation of such a constraint in INSERT and UPDATE statements now leads to an [OptimisticLockingException]({{< ref "/user-guide/process-engine/transactions-in-processes.md#the-optimisticlockingexception" >}}). In effect, the engine's behavior on PostgreSQL in such scenarios is consistent with the other supported databases.
 
-* Process engine (`camunda-engine`) - `JPAVariableSerializer` logic removed
-* Spring Framework integration (`engine-spring`) - `SpringEntityManagerSessionFactory` class removed
-* Spring Boot Starter (`spring-boot-starter`) - `DefaultJpaConfiguration` logic and `camunda.bpm.jpa` properties removed
+If you rely on the previous behavior, receiving `ProcessEngineException`s with the related error code for foreign key constraint violations, you can restore it by disabling the engine configuration flag `enableOptimisticLockingOnForeignKeyViolation`. As a result, jobs can also start failing due to those exceptions although they could be safely retried automatically to resolve the situation.
 
-In case your projects have used the removed JPA variable serializer, you must create custom JPA serializer logic for the variables that have been created already. Without providing a JPA variable serializer, when previously created JPA variable is retrieved, a `ProcessEngineException` will be thrown for `ENGINE-03040 No serializer defined for variable instance`. Futher ensure the serializer loads correctly already persisted entities before updating to 7.20 version.
+# Changes on persistence connection exception logging of the REST API
 
-You can re-create the removed logic in your project and register a JPA variables serializer as a process engine plugin. As a step by step guide how to achieve that, we created an [example](https://github.com/camunda/camunda-bpm-examples/tree/master/process-engine-plugin/handling-jpa-variables).
+All persistence connection exceptions will be logged with logging level ERROR instead of WARN from now on.
+You can read more about SQL connection exceptions & SQL classes [here](https://en.wikipedia.org/wiki/SQLSTATE).
 
-# Quarkus 3 update
+# JavaScript external task client rethrows errors on task service APIs
 
-We have updated our Quarkus Extension to the latest Quarkus 3 version. This version brings many new features and changes.
-For a complete list, see the [Quarkus 3 major release][quarkus3] blog post.
-From the extension's perspective, the most important changes are the deprecation of Java 11 and the switch to Jakarta EE 10.
-With the update, the [JSF Task Forms][jsf-task-forms] use case is not supported out of the box anymore in a Quarkus application.
+Previously, the JavaScript external task client swallowed errors caused by the engine's REST API when 
+calling task service APIs like `#complete`. You could handle these errors only by subscribing to a 
+global error handler.
 
-Quarkus has a very comprehensive [guide for updating][quarkus3-update] and also offers an update tool.
-
-You can find more details about the extension on our dedicated [Quarkus Integration][quarkus-integration] page.
-
-[quarkus3]: https://quarkus.io/blog/quarkus-3-0-final-released
-[quarkus3-update]: https://quarkus.io/blog/quarkus-3-0-final-released/#upgrading
-[quarkus-integration]: {{< ref "/user-guide/quarkus-integration" >}}
-[jsf-task-forms]: {{< ref "/user-guide/task-forms/jsf-task-forms.md" >}}
+With this release, the client re-throws errors, additionally directly on calling the respective task service APIs, 
+and you can handle them directly. Adjust your custom business logic accordingly.
 
 # Spring Framework 6.0 support
 
@@ -212,7 +194,7 @@ For example, if you want to build a custom webjar, keep the following changes in
 
 After adopting Spring Boot 3, the External Task Client Spring Boot Starter requires Java 17.
 
-# Camunda Platform Run requires JDK 17
+## Camunda Platform Run requires JDK 17
 
 Starting with Camunda Platform 7.20, the Camunda Platform Run distribution requires Java Runtime Environment 17 installed.
 
@@ -228,7 +210,45 @@ The Camunda Docker images are based on Alpine. This release updates the Alpine b
 [alpine317]: https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.17.0
 [alpine318]: https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.18.0
 
-# Discontinue support for Velocity, XSLT, and XQuery template engines
+# Quarkus 3 update
+
+We have updated our Quarkus Extension to the latest Quarkus 3 version. This version brings many new features and changes.
+For a complete list, see the [Quarkus 3 major release][quarkus3] blog post.
+From the extension's perspective, the most important changes are the deprecation of Java 11 and the switch to Jakarta EE 10.
+With the update, the [JSF Task Forms][jsf-task-forms] use case is not supported out of the box anymore in a Quarkus application.
+
+Quarkus has a very comprehensive [guide for updating][quarkus3-update] and also offers an update tool.
+
+You can find more details about the extension on our dedicated [Quarkus Integration][quarkus-integration] page.
+
+[quarkus3]: https://quarkus.io/blog/quarkus-3-0-final-released
+[quarkus3-update]: https://quarkus.io/blog/quarkus-3-0-final-released/#upgrading
+[quarkus-integration]: {{< ref "/user-guide/quarkus-integration" >}}
+[jsf-task-forms]: {{< ref "/user-guide/task-forms/jsf-task-forms.md" >}}
+
+# Discontinued support for JDK 8
+
+With version 7.20, we discontinue support for JDK 8 and require a minimum of Java Runtime Environment 11 for building and operating Camunda Platform.
+As [mentioned above](#upgrade-to-spring-boot-3-1), Spring Boot-related applications already require Java Runtime Environment 17.
+
+# Discontinued support of Standalone web application
+
+Camunda Automation Platform 7.19 is the last release providing support for Standalone Web Application Distribution.
+Version 7.20.0 no longer provides this distribution.
+
+# Discontinued support for handling JPA entities as variables
+
+The process engine will no longer process JPA entities as variables affecting the following components:
+
+* Process engine (`camunda-engine`) - `JPAVariableSerializer` logic removed
+* Spring Framework integration (`engine-spring`) - `SpringEntityManagerSessionFactory` class removed
+* Spring Boot Starter (`spring-boot-starter`) - `DefaultJpaConfiguration` logic and `camunda.bpm.jpa` properties removed
+
+In case your projects have used the removed JPA variable serializer, you must create custom JPA serializer logic for the variables that have been created already. Without providing a JPA variable serializer, when previously created JPA variable is retrieved, a `ProcessEngineException` will be thrown for `ENGINE-03040 No serializer defined for variable instance`. Futher ensure the serializer loads correctly already persisted entities before updating to 7.20 version.
+
+You can re-create the removed logic in your project and register a JPA variables serializer as a process engine plugin. As a step by step guide how to achieve that, we created an [example](https://github.com/camunda/camunda-bpm-examples/tree/master/process-engine-plugin/handling-jpa-variables).
+
+# Discontinued support for Velocity, XSLT, and XQuery template engines
 
 We discontinue support for template engines with the following Maven artifacts (groupId:artifactId):
 
@@ -263,17 +283,3 @@ If you want to continue to use the community-maintained template engines, use th
 ```
 
 We are looking for maintainers for the template engine extensions. Feel free to reach out to us [via the forum](https://forum.camunda.io/c/camunda-platform-7-topics/39) if you are interested.
-
-# Enforce History Time To Live
-
-Many of our users have installations that contain model resources (BPMN, DMN, CMMN) with null historyTimeToLive. As a result,
-their historic data grow over time and remain uncleaned due to this configuration. The history data of your executed processes will clutter the database and eventually negatively impact the engine's performance – even for runtime processes. Since the engine uses a relational database, only starting to clean up the history when a vast amount of data has been pilled up is very costly and time-consuming – in some situations, there is even no other solution than truncating tables and losing data. This is why with this release
-we decided to make the historyTimeToLive mandatory for new deployments or redeployments.
-
-At the same time, we acknowledge there might be use cases where our users might favour to keep the legacy behaviour despite our recommendation. If that is the case, you can always turn off the feature by setting
-the feature flag `enforceHistoryTimeToLive` to `false`. For more information, checkout the new parameter description under <a href="{{< ref "/reference/deployment-descriptors/tags/process-engine#configuration-properties" >}}">Configuration Properties</a>.
-
-# Changes on persistence connection exception logging of the REST API
-
-All persistence connection exceptions will be logged with logging level ERROR instead of WARN from now on.
-You can read more about SQL connection exceptions & SQL classes [here](https://en.wikipedia.org/wiki/SQLSTATE).
