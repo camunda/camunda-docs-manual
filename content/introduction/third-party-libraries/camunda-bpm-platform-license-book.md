@@ -1956,7 +1956,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 </pre></details></div>
-<div><details><summary><a href="sindresorhus/array-move">array-move@3.0.1</a> (MIT)</summary><pre>MIT License
+<div><details><summary><a href="https://github.com/sindresorhus/array-move">array-move@3.0.1</a> (MIT)</summary><pre>MIT License
 
 Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
 
@@ -2317,7 +2317,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="zenorocha/clipboard.js">clipboard@2.0.11</a> (MIT)</summary><pre>MIT License
+<div><details><summary><a href="https://github.com/zenorocha/clipboard.js">clipboard@2.0.11</a> (MIT)</summary><pre>MIT License
 
 Copyright (c) Zeno Rocha
 
@@ -2339,7 +2339,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="lukeed/clsx">clsx@1.2.1</a> (MIT)</summary><pre>MIT License
+<div><details><summary><a href="https://github.com/lukeed/clsx">clsx@1.2.1</a> (MIT)</summary><pre>MIT License
 
 Copyright (c) Luke Edwards <luke.edwards05@gmail.com> (lukeed.com)
 
@@ -2607,7 +2607,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="git@github.com:bpmn-io/diagram-js-grid.git">diagram-js-grid@0.2.0</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/bpmn-io/diagram-js-grid">diagram-js-grid@0.2.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2023-present camunda Services GmbH
 
@@ -3036,7 +3036,7 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="component/escape-html">escape-html@1.0.3</a> (MIT)</summary><pre>(The MIT License)
+<div><details><summary><a href="https://github.com/component/escape-html">escape-html@1.0.3</a> (MIT)</summary><pre>(The MIT License)
 
 Copyright (c) 2012-2013 TJ Holowaychuk
 Copyright (c) 2015 Andreas Lubbe
@@ -3330,7 +3330,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="developit/htm">htm@3.1.1</a> (Apache-2.0)</summary><pre>
+<div><details><summary><a href="https://github.com/developit/htm">htm@3.1.1</a> (Apache-2.0)</summary><pre>
 Apache License
 Version 2.0, January 2004
 http://www.apache.org/licenses/
@@ -3778,7 +3778,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="developit/mitt">mitt@3.0.0</a> (MIT)</summary><pre>MIT License
+<div><details><summary><a href="https://github.com/developit/mitt">mitt@3.0.0</a> (MIT)</summary><pre>MIT License
 
 Copyright (c) 2021 Jason Miller
 
@@ -4123,7 +4123,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="preactjs/preact">preact@10.13.2</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/preactjs/preact">preact@10.13.2</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2015-present Jason Miller
 
@@ -6030,7 +6030,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="jshttp/cookie">cookie@0.5.0</a> (MIT)</summary><pre>(The MIT License)
+<div><details><summary><a href="https://github.com/jshttp/cookie">cookie@0.5.0</a> (MIT)</summary><pre>(The MIT License)
 
 Copyright (c) 2012-2014 Roman Shtylman <shtylman@gmail.com>
 Copyright (c) 2015 Douglas Christopher Wilson <doug@somethingdoug.com>
@@ -6586,7 +6586,7 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="wooorm/fault">fault@1.0.4</a> (MIT)</summary><pre>(The MIT License)
+<div><details><summary><a href="https://github.com/wooorm/fault">fault@1.0.4</a> (MIT)</summary><pre>(The MIT License)
 
 Copyright (c) 2015 Titus Wormer <tituswormer@gmail.com>
 
@@ -6630,7 +6630,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="octet-stream/form-data">formdata-node@4.4.1</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/octet-stream/form-data">formdata-node@4.4.1</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2017-present Nick K.
 
@@ -6871,7 +6871,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="jonschlinkert/is-plain-object">is-plain-object@5.0.0</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/jonschlinkert/is-plain-object">is-plain-object@5.0.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2014-2017, Jon Schlinkert.
 
@@ -6893,7 +6893,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="git@github.com:kennethjiang/js-file-download.git">js-file-download@0.4.12</a> (MIT)</summary><pre>Copyright 2017 Kenneth Jiang
+<div><details><summary><a href="https://github.com/kennethjiang/js-file-download">js-file-download@0.4.12</a> (MIT)</summary><pre>Copyright 2017 Kenneth Jiang
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -6912,7 +6912,7 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE
 </pre></details></div>
-<div><details><summary><a href="nodeca/js-yaml">js-yaml@4.1.0</a> (MIT)</summary><pre>(The MIT License)
+<div><details><summary><a href="https://github.com/nodeca/js-yaml">js-yaml@4.1.0</a> (MIT)</summary><pre>(The MIT License)
 
 Copyright (C) 2011-2015 by Vitaly Puzrin
 
@@ -6934,7 +6934,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="lodash/lodash">lodash@4.17.21</a> (MIT)</summary><pre>Copyright OpenJS Foundation and other contributors <https://openjsf.org/>
+<div><details><summary><a href="https://github.com/lodash/lodash">lodash@4.17.21</a> (MIT)</summary><pre>Copyright OpenJS Foundation and other contributors <https://openjsf.org/>
 
 Based on Underscore.js, copyright Jeremy Ashkenas,
 DocumentCloud and Investigative Reporters & Editors <http://underscorejs.org/>
@@ -6982,7 +6982,7 @@ maintained libraries used by this software which have their own
 licenses; we recommend you read them, as their terms may differ from the
 terms above.
 </pre></details></div>
-<div><details><summary><a href="lodash/lodash">lodash.debounce@4.0.8</a> (MIT)</summary><pre>Copyright jQuery Foundation and other contributors <https://jquery.org/>
+<div><details><summary><a href="https://github.com/lodash/lodash">lodash.debounce@4.0.8</a> (MIT)</summary><pre>Copyright jQuery Foundation and other contributors <https://jquery.org/>
 
 Based on Underscore.js, copyright Jeremy Ashkenas,
 DocumentCloud and Investigative Reporters & Editors <http://underscorejs.org/>
@@ -7030,7 +7030,7 @@ maintained libraries used by this software which have their own
 licenses; we recommend you read them, as their terms may differ from the
 terms above.
 </pre></details></div>
-<div><details><summary><a href="wooorm/lowlight">lowlight@1.20.0</a> (MIT)</summary><pre>(The MIT License)
+<div><details><summary><a href="https://github.com/wooorm/lowlight">lowlight@1.20.0</a> (MIT)</summary><pre>(The MIT License)
 
 Copyright (c) 2016 Titus Wormer <tituswormer@gmail.com>
 
@@ -7074,7 +7074,7 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="sindresorhus/object-assign">object-assign@4.1.1</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/sindresorhus/object-assign">object-assign@4.1.1</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
 
@@ -7141,7 +7141,7 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="facebook/prop-types">prop-types@15.8.1</a> (MIT)</summary><pre>MIT License
+<div><details><summary><a href="https://github.com/facebook/prop-types">prop-types@15.8.1</a> (MIT)</summary><pre>MIT License
 
 Copyright (c) 2013-present, Facebook, Inc.
 
@@ -7588,7 +7588,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="jonschlinkert/repeat-string">repeat-string@1.6.1</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/jonschlinkert/repeat-string">repeat-string@1.6.1</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2014-2016, Jon Schlinkert.
 
@@ -7699,7 +7699,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="sindresorhus/serialize-error">serialize-error@8.1.0</a> (MIT)</summary><pre>MIT License
+<div><details><summary><a href="https://github.com/sindresorhus/serialize-error">serialize-error@8.1.0</a> (MIT)</summary><pre>MIT License
 
 Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
 
@@ -7743,7 +7743,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="git@github.com:stampit-org/stampit.git">stampit@4.3.2</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/stampit-org/stampit">stampit@4.3.2</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2013 Eric Elliott.
 
@@ -7765,7 +7765,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="git@github.com:swagger-api/swagger-js.git">swagger-client@3.19.10</a> (Apache-2.0)</summary><pre>
+<div><details><summary><a href="https://github.com/swagger-api/swagger-js">swagger-client@3.19.10</a> (Apache-2.0)</summary><pre>
 Apache License
 Version 2.0, January 2004
 http://www.apache.org/licenses/
