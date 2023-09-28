@@ -1,10 +1,10 @@
 ---
 
-title: "Update an IBM Websphere Installation from 7.19 to 7.20"
+title: "Update an IBM Websphere Liberty Installation from 7.19 to 7.20"
 
 menu:
   main:
-    name: "WebSphere"
+    name: "WebSphere Liberty"
     identifier: "migration-guide-720-was"
     parent: "migration-guide-720"
 
@@ -36,7 +36,7 @@ First, remove the Camunda EAR, REST API, and web applications from the Liberty `
 
 # 2. Replace Camunda core libraries
 
-With your first Camunda installation or update to 7.2, you have created a shared library named `Camunda`. We identify 
+With your first Camunda installation, you have created a shared library named `Camunda`. We identify 
 the folder to this shared library as `$SHARED_LIBRARY_PATH`.
 
 After shutting down the server, replace the following libraries in `$SHARED_LIBRARY_PATH` with the equivalents 
