@@ -133,6 +133,9 @@ decision table result.
 </outputEntry>
 ```
 
+In case of a rule has an empty input and output entry, the outcome of evaluation
+will be determined with precedence of the empty input.
+
 ## Expression Language of an Output Entry
 
 The expression language of the expression can be specified by the
