@@ -62,20 +62,6 @@ The input entry is satisfied when the evaluated expression returns `true`.
 </inputEntry>
 ```
 
-## Empty Input Entry
-
-In case an input entry is irrelevant for a rule, the expression is empty, which
-is always satisfied.
-
-```xml
-<inputEntry id="inputEntry41">
-  <text/>
-</inputEntry>
-```
-
-If FEEL is used as expression language, then an empty input entry is represented
-by a `-`. Otherwise, the expression is empty.
-
 ## Expression Language of an Input Entry
 
 The expression language of the input entry can be specified by the
@@ -122,20 +108,6 @@ an `outputEntry` XML element.
 </outputEntry>
 ```
 
-## Empty Output Entry
-
-If the output entry is empty, then the output is ignored and not part of the
-decision table result.
-
-```xml
-<outputEntry id="outputEntry4">
-  <text/>
-</outputEntry>
-```
-
-In case of a rule has an empty input and output entry, the outcome of evaluation
-will be determined with precedence of the empty input.
-
 ## Expression Language of an Output Entry
 
 The expression language of the expression can be specified by the
@@ -166,6 +138,38 @@ In case no global expression language is set, the default expression language
 is used instead. The default expression language for output entries is JUEL.
 Please refer to the [User Guide][default EL] to read more about expression
 languages.
+
+# Empty Entries
+
+## Empty Input Entry
+
+In case an input entry is irrelevant for a rule, the expression is empty, which
+is always satisfied.
+
+```xml
+<inputEntry id="inputEntry41">
+  <text/>
+</inputEntry>
+```
+
+If FEEL is used as expression language, then an empty input entry is represented
+by a `-`. Otherwise, the expression is empty.
+
+## Empty Output Entry
+
+If the output entry is empty, then the output is ignored and not part of the
+decision table result.
+
+```xml
+<outputEntry id="outputEntry4">
+  <text/>
+</outputEntry>
+```
+
+## Both Entries empty
+
+In case of a rule has an empty input and output entry, the outcome of evaluation
+will be determined with precedence of the empty input outcome.
 
 # Description
 
