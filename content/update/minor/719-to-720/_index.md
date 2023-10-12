@@ -84,7 +84,7 @@ Many of our users have installations that contain model resources (BPMN, DMN, CM
 their historic data grow over time and remain uncleaned due to this configuration. The history data of your executed processes will clutter the database and eventually negatively impact the engine's performance – even for runtime processes. Since the engine uses a relational database, only starting to clean up the history when a vast amount of data has been pilled up is very costly and time-consuming – in some situations, there is even no other solution than truncating tables and losing data. This is why with this release
 we decided to make the historyTimeToLive mandatory for new deployments or redeployments.
 
-At the same time, we acknowledge there might be use cases where our users might favour to keep the legacy behaviour despite our recommendation. If that is the case, you can always turn off the feature by setting
+At the same time, we acknowledge there might be use cases (e.g. when there are no history events fired at all `camunda.bpm.history-level: none`) where our users might favour to keep the legacy behaviour despite our recommendation. If that is the case, you can always turn off the feature by setting
 the feature flag `enforceHistoryTimeToLive` to `false`. For more information, checkout the new parameter description under <a href="{{< ref "/reference/deployment-descriptors/tags/process-engine#configuration-properties" >}}">Configuration Properties</a>.
 
 # Explicit JUEL module on Jakarta Expression Language 4
