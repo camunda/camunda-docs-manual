@@ -21,33 +21,7 @@ GET `/history/batch/cleanable-batch-report/count`
 
 # Parameters
 
-## Query Parameters
-
-<table class="table table-striped">
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>sortBy</td>
-    <td>Sort the results by a given criterion. Valid value is <code>finished</code>.
-    Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
-  </tr>
-  <tr>
-    <td>sortOrder</td>
-    <td>Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
-    Must be used in conjunction with the <code>sortBy</code> parameter.</td>
-  </tr>
-  <tr>
-    <td>firstResult</td>
-    <td>Pagination of results. Specifies the index of the first result to return.</td>
-  </tr>
-  <tr>
-    <td>maxResults</td>
-    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results if there are no more results left.</td>
-  </tr>
-</table>
-
+This method takes no parameters.
 
 # Result
 
