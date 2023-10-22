@@ -149,6 +149,10 @@ Find the row with the highest value in the `ID_` column and use the value of thi
 1. Run Liquibase's [changelogSyncToTag command](https://docs.liquibase.com/commands/community/changelogsynctotag.html) referencing the `camunda-changelog.xml` and using your current database schema version as the tag.
 You can pass on the connection details to your database instance via parameters as described in the Liquibase documentation or [create a properties file](https://docs.liquibase.com/workflows/liquibase-community/creating-config-properties.html).
 
+    _Important_: You have to run the changelogSyncToTag command from the `{basedir}\src\main\resources` folder. Otherwise Liquibase doesn't recognize the processed SQL files.
+
+
+
 Liquibase uses this information to create the tracking tables and mark all changesets until the tag you defined as executed.
 Liquibase determines if there are any changes that it needs to apply to your database for any subsequent `update` commands.
 You have migrated your manual installation to Liquibase.
