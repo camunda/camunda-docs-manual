@@ -37,7 +37,7 @@ The following steps are required:
 1. Update the Camunda libraries and applications inside the application server.
 2. Migrate custom process applications.
 
-Before starting, ensure you have downloaded the Camunda Platform 7.20 distribution for the application server you use. This contains the SQL scripts and libraries required for the update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
+Before starting, ensure you have downloaded the Camunda Platform 7.21 distribution for the application server you use. This contains the SQL scripts and libraries required for the update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
 
 # Add Default History Time To Live to BPMN Fluent API
 
