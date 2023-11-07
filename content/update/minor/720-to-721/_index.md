@@ -21,4 +21,4 @@ This guide covers mandatory migration steps and optional considerations for the 
 
 # Add Default History Time To Live to BPMN Fluent API
 
-Starting with this release, the `BPMN Fluent API Builder` assigns by default a `historyTimeToLive` of **6 months** to processes. You can change this default or pass `null` using the `#setCamundaHistoryTimeToLiveString` API.
+Starting with this release, the [BPMN Fluent API Builder]({{< ref "/user-guide/model-api/bpmn-model-api/fluent-builder-api" >}}) assigns by default a history time to live of **6 months** to processes. You can change this default or pass `null` to remove the attribute using the `#setCamundaHistoryTimeToLive` or `#setCamundaHistoryTimeToLiveString` API.
