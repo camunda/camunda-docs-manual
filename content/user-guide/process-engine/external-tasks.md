@@ -321,18 +321,48 @@ In the above example the priority is determined based on the property `priority`
 
 
 
-### Fetch External Task with Priority
+### Fetch External Task
+
+#### By Priority
 
 To fetch external tasks based on their priority, the overloaded method `ExternalTaskService#fetchAndLock` with the parameter `usePriority` can be used.
 The method without the boolean parameter returns the external tasks arbitrarily. If the parameter is given, the returned external tasks are ordered descendingly.
 See the following example which regards the priority of the external tasks:
 
 ```java
-List<LockedExternalTask> tasks =
-  externalTaskService.fetchAndLock(10, "externalWorkerId", true)
-  .topic("AddressValidation", 60L * 1000L)
-  .topic("ShipmentScheduling", 120L * 1000L)
-  .execute();
+List<LockedExternalTask> tasks = externalTaskService.fetchAndLock(10, "externalWorkerId", true)
+    .topic("AddressValidation", 60L * 1000L)
+    .topic("ShipmentScheduling", 120L * 1000L)
+    .execute();
+
+for (LockedExternalTask task : tasks) {
+  String topic = task.getTopicName();
+
+  // work on task for that topic
+  ...
+}
+```
+#### By Create Time
+
+External Tasks can also be fetched using their `createTime`, in LIFO or FIFO order. This behaviour allows clients to optimize their processing and avoid starvation in scenarios where the age of tasks and consumption are not aligned.
+
+Method `ExternalTaskService#fetchAndLock` with the parameter `createTimeConfig` can be used, using the following values:
+
+**`ASC`** - Tasks will be sorted using Ascending order. The first task (at zero index) will have the earlier time and the last will have the oldest.
+
+**`DESC`** - Tasks will be sorted using Descending order. The first task (at zero index) will have the oldest time and the last will have the newest.
+
+**`EMPTY`** - Empty configuration serves as a valid value to designate ignoring `createTime` as a sorting option.
+
+Note that `null` will be interpreted as **`EMPTY`** configuration value.
+
+See the following example on fetching tasks by `creationDate` Descending :
+
+```java
+List<LockedExternalTask> tasks = fetchAndLock(10, "externalWorkerId", false, DESC)
+    .topic("AddressValidation", 60L * 1000L)
+    .topic("ShipmentScheduling", 120L * 1000L)
+    .execute();
 
 for (LockedExternalTask task : tasks) {
   String topic = task.getTopicName();
@@ -342,6 +372,32 @@ for (LockedExternalTask task : tasks) {
 }
 ```
 
+#### Multi-Level Sorting
+
+Priority and CreateTime Sorting criteria can be combined when fetching external tasks by passing `true` to the parameter `usePriority` and selecting
+an effective sorting value for `createTime` configuration. In that case, External Tasks are going to be sorted with priority descending first; when two tasks share the same priority, the selected `createTime` order will be used for sorting the results with priority equality.
+
+Here follows an example demonstration of the above behaviour:
+
+Given
+
+```java
+ExternalTask1 [priority=0, createTime=1]
+ExternalTask2 [priority=2, createTime=2]
+ExternalTask3 [priority=0, createTime=3]
+ExternalTask4 [priority=3, createTime=4]
+```
+
+The Invocation `fetchAndLock(10, "externalWorkerId", true, DESC)` would return results in the following order:
+
+```java
+ExternalTask4 [priority=3, createTime=4]
+ExternalTask2 [priority=2, createTime=2]
+ExternalTask3 [priority=0, createTime=3]
+ExternalTask1 [priority=0, createTime=1]
+```
+
+Note: The `createTime` field used in the example uses numbers for easing the visual demonstration. In real results, the `createTime` will be populated using a `Date` value.
 
 ### Completing Tasks
 
