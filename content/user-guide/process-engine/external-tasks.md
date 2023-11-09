@@ -348,9 +348,9 @@ External Tasks can also be fetched using their `createTime`, in LIFO or FIFO ord
 
 Method `ExternalTaskService#fetchAndLock` with the parameter `createTimeConfig` can be used, using the following values:
 
-**`ASC`** - Tasks will be sorted using Ascending order. The first task (at zero index) will have the earlier time and the last will have the oldest.
+**`ASC`** - Tasks will be sorted using Ascending order. The first task (at zero index) will have the earliest time and the last will have the oldest.
 
-**`DESC`** - Tasks will be sorted using Descending order. The first task (at zero index) will have the oldest time and the last will have the newest.
+**`DESC`** - Tasks will be sorted using Descending order. The first task (at zero index) will have the oldest time and the last will have the earliest.
 
 **`EMPTY`** - Empty configuration serves as a valid value to designate ignoring `createTime` as a sorting option.
 
@@ -371,6 +371,8 @@ for (LockedExternalTask task : tasks) {
   ...
 }
 ```
+
+You can update external task rows in the database with a custom create time to influence the ordering of external tasks created with versions < 7.21.0.
 
 #### Multi-Level Sorting
 
