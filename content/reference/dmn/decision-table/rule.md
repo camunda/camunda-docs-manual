@@ -166,7 +166,7 @@ decision table result.
 </outputEntry>
 ```
 
-## Both Entries empty
+## Both Entries Empty
 
 In case of a rule has an empty input and output entry, the outcome of evaluation
 will be determined with precedence of the empty input outcome.
