@@ -457,6 +457,13 @@ The Camunda Docker images are based on Alpine. This release updates the Alpine b
 [alpine317]: https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.17.0
 [alpine318]: https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.18.0
 
+## 7.20.1 to 7.20.2 / 7.19.8 to 7.19.9 / 7.18.12 to 7.18.13
+
+### Spring Boot Starter and Run logs admin user information on `DEBUG` level
+
+In previous releases, when configuring Camunda's admin user in the Spring Boot Starter and Run via `camunda.bpm.admin-user`, information about the admin user appeared in the logs on log level `INFO` on startup.
+With this release, the log level for the logs `STARTER-SB010` and `STARTER-SB011` was changed to `DEBUG`.
+
 # Full Distribution
 
 This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.
