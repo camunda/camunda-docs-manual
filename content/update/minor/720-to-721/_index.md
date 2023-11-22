@@ -18,7 +18,7 @@ This document guides you through the update from Camunda Platform `7.20.x` to `7
 1. For administrators and developers: [Database updates](#database-updates)
 1. For administrators and developers: [Full distribution update](#full-distribution)
 1. For developers: [Add Default History Time To Live to BPMN Fluent API](#add-default-history-time-to-live-to-bpmn-fluent-api)
-1. For administrators: [Spring Boot Starter and Run logs admin user on `DEBUG` level](#spring-boot-starter-and-run-logs-admin-user-on-debug-level)
+1. For administrators: [Spring Boot Starter and Run logs admin user information on `DEBUG` level](#spring-boot-starter-and-run-logs-admin-user-information-on-debug-level)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.21.
 
@@ -44,7 +44,7 @@ Before starting, ensure you have downloaded the Camunda Platform 7.21 distributi
 
 Starting with this release, the [BPMN Fluent API Builder]({{< ref "/user-guide/model-api/bpmn-model-api/fluent-builder-api" >}}) assigns by default a history time to live of **6 months** to processes. You can change this default or pass `null` to remove the attribute using the `#setCamundaHistoryTimeToLive` or `#setCamundaHistoryTimeToLiveString` API.
 
-# Spring Boot Starter and Run logs admin user on `DEBUG` level
+# Spring Boot Starter and Run logs admin user information on `DEBUG` level
 
 In previous releases, when configuring Camunda's admin user in the Spring Boot Starter or Run via `camunda.bpm.admin-user`, information about the admin user appeared in the logs on log level `INFO` on startup.
 With this release, the log level for the logs `STARTER-SB010` and `STARTER-SB011` was changed to `DEBUG`.

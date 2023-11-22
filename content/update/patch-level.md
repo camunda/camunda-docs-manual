@@ -459,7 +459,7 @@ The Camunda Docker images are based on Alpine. This release updates the Alpine b
 
 ## 7.20.1 to 7.20.2 / 7.19.8 to 7.19.9 / 7.18.12 to 7.18.13
 
-### Spring Boot Starter and Run logs admin user on `DEBUG` level
+### Spring Boot Starter and Run logs admin user information on `DEBUG` level
 
 In previous releases, when configuring Camunda's admin user in the Spring Boot Starter and Run via `camunda.bpm.admin-user`, information about the admin user appeared in the logs on log level `INFO` on startup.
 With this release, the log level for the logs `STARTER-SB010` and `STARTER-SB011` was changed to `DEBUG`.
