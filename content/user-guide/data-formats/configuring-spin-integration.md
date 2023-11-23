@@ -23,7 +23,7 @@ There are three types of Spin artifacts as follows.
 
 ## camunda-spin-core
 
-`camunda-spin-core` is a jar that contains only the core Spin classes. It can be combined with single data format artifacts. Camunda provides the artifacts `camunda-spin-dataformat-json-jackson` and `camunda-spin-dataformat-xml-dom` that implement JSON and XML processing. These artifacts transitively pull in libraries they need. For example, `camunda-spin-dataformat-json-jackson` has a dependency to `jackson-databind`.
+`camunda-spin-core` is a jar that contains only the core Spin classes. It can be combined with single data format artifacts. Camunda provides the artifacts `camunda-spin-dataformat-json-jackson` and `camunda-spin-dataformat-xml-dom` (`camunda-spin-dataformat-xml-dom-jakarta` for Jakarta XML Binding 4.0 support) that implement JSON and XML processing. These artifacts transitively pull in libraries they need. For example, `camunda-spin-dataformat-json-jackson` has a dependency to `jackson-databind`.
 
 ## camunda-spin-dataformat-all
 
@@ -85,7 +85,8 @@ If your application manages its own process engine, then using `camunda-engine-p
 
 ## Application with Camunda Spring Boot Starter
 
-Add the dependencies to `camunda-engine-plugin-spin` and `camunda-spin-core` (along with `camunda-spin-dataformat-json-jackson` and `camunda-spin-dataformat-xml-dom` as needed) to your application. The Spin process engine plugin will be automatically registered with the process engine.
+Add the dependencies to `camunda-engine-plugin-spin` and `camunda-spin-core` (along with `camunda-spin-dataformat-json-jackson` and `camunda-spin-dataformat-xml-dom` as needed) to your application. If you need to use Jakarta XML Binding 4.0 (e.g. Springboot version 3.x.x), use `camunda-spin-dataformat-xml-dom-jakarta` instead of `camunda-spin-dataformat-xml-dom`.
+The Spin process engine plugin will be automatically registered with the process engine.
 
 ## Shared Process Engine
 
