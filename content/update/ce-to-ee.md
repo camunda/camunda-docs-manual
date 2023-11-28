@@ -48,52 +48,53 @@ To officially begin migrating from Camunda Platform 7 Community Edition to the E
 2. Run the `Application.java` application.
 3. Navigate to your `pom.xml` file.
 4. Add `-ee` to the version. For example, `<version>7.16.0-ee</version>`. You’ll need to make these changes below the following `artifactIds`: `camunda-bom`, `camunda-bpm-spring-boot-starter-rest`, `camunda-bpm-spring-boot-starter-webapp` (you’ll also adjust this particular artifactID itself to `camunda-bpm-spring-boot-starter-webapp-ee`.)
-```xml
-<dependency>
-  <groupId>org.camunda.bpm</groupId>
-  <artifactId>camunda-bom</artifactId>
-  <version>7.15.0-ee</version>
-  <scope>import</scope>
-  <type>pom</type>
-</dependency>
-</dependencies>
-</dependencyManagement>
-
-<dependencies>
-  <dependency>
-    <groupId>org.camunda.bpm.springboot</groupId>
-    <artifactId>camunda-bpm-spring-boot-starter-rest</artifactId>
-    <version>7.15.0-ee</version>
-  </dependency>
-
-<dependency>
-  <groupId>org.camunda.bpm.springboot</groupId>
-  <artifactId>camunda-bpm-spring-boot-starter-webapp-ee</artifactId>
-  <version>7.15.0-ee</version>
-</dependency>
-```
+    ```xml
+    <dependency>
+      <groupId>org.camunda.bpm</groupId>
+      <artifactId>camunda-bom</artifactId>
+      <version>7.15.0-ee</version>
+      <scope>import</scope>
+      <type>pom</type>
+    </dependency>
+    </dependencies>
+    </dependencyManagement>
+    
+    <dependencies>
+      <dependency>
+        <groupId>org.camunda.bpm.springboot</groupId>
+        <artifactId>camunda-bpm-spring-boot-starter-rest</artifactId>
+        <version>7.15.0-ee</version>
+      </dependency>
+    
+    <dependency>
+      <groupId>org.camunda.bpm.springboot</groupId>
+      <artifactId>camunda-bpm-spring-boot-starter-webapp-ee</artifactId>
+      <version>7.15.0-ee</version>
+    </dependency>
+    ```
 5. We need to tell it where to find these new dependencies. Therefore, we’ll add the location of the repository at the end of the dependencies in the `pom.xml` file as follows:
-```xml
-<repositories>
-  <repository>
-    <id>Camunda-bpm-nexus-ee</id>
-    <name>camunda-bpm-nexus</name>
-    <url>
-    https://camunda.jfrog.io/artifactory/private/
-    </url>
-  </repository>
-</repositories>
-```
+    ```xml
+    <repositories>
+      <repository>
+        <id>Camunda-bpm-nexus-ee</id>
+        <name>camunda-bpm-nexus</name>
+        <url>
+        https://camunda.jfrog.io/artifactory/private/
+        </url>
+      </repository>
+    </repositories>
+    ```
 6. Add the username and password you received when you were granted a license to your Maven settings. To do this, go the Maven `config` file, usually located at `${user.home}/.m2/settings.xml`. Then, add your information similar to the following:
-```xml
-<servers>
-  <server>
-    <id>camunda-bpm-nexus-ee</id>
-    <username>trial_your_name_here</username>
-    <password>YoUrPaSsWoRd</password>
-  </server>
-</servers>
-```
+    ```xml
+    <servers>
+      <server>
+        <id>camunda-bpm-nexus-ee</id>
+        <username>trial_your_name_here</username>
+        <password>YoUrPaSsWoRd</password>
+      </server>
+    </servers>
+    ```
+
 You can find more details on this step [here](https://maven.apache.org/settings.html).
 1. In your terminal, run `mvn clean install` to remove the old content and add the new content.
 2. Go back to `Application.java` and run Java once more to see the changes complete.
