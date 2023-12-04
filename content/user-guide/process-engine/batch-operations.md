@@ -54,11 +54,9 @@ runtimeService.deleteProcessInstancesAsync(processInstanceIds,null, REASON);
 
 There are overloaded methods of the above which allow you to control the following parameters:
 
-`skipCustomListeners` - Skip execution listener invocation for activities that are started or ended as part of this request.
-
-`skipSubprocesses` - Skip deletion of the subprocesses related to deleted processes as part of this request.
-
-`skipIoMappings` - Skip the IO Mappings if the process instance contains any which would prevent the deletion otherwise.
+- `skipCustomListeners`: Skip execution listener invocation for activities that are started or ended as part of this request.
+- `skipSubprocesses`: Skip deletion of the subprocesses related to deleted processes as part of this request.
+- `skipIoMappings`: Skip the IO Mappings if the process instance contains any which would prevent the deletion otherwise.
 
 
 ## Deletion Of Historic Process Instances
