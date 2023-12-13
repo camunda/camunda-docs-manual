@@ -160,6 +160,22 @@ Hence situations like the following can be reported:
 
 For more details, please check the documentation related to the client of interest.
 
+### Accessing the internal Apache HttpClientBuilder
+
+If there is a need to even further customize the communication of the client, you can get access to
+the Apache `HttpClientBuilder` using the `{{< javadocref page="org/camunda/bpm/client/ExternalTaskClientBuilder.html" text="ExternalTaskClientBuilder" >}}`'s `customizeHttpClient` method.
+The method accepts a `Consumer` as parameter that gives you access to the internal Apache `HttpClientBuilder`:
+
+```java
+ExternalTaskClient.create()
+  .baseUrl("localhost")
+  .customizeHttpClient((HttpClientBuilder httpClientBuilder) -> 
+    httpClientBuilder.setDefaultRequestConfig(RequestConfig.custom()
+      .setResponseTimeout(Timeout.ofSeconds(30))
+      .build()))
+  .build();
+```
+
 ## Examples
 
 Complete examples of how to set up the different External Task Clients can be found on GitHub ([Java](https://github.com/camunda/camunda-bpm-examples/tree/{{< minor-version >}}/clients/java),
