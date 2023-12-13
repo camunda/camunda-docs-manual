@@ -19,6 +19,7 @@ This document guides you through the update from Camunda Platform `7.20.x` to `7
 1. For administrators and developers: [Full distribution update](#full-distribution)
 1. For developers: [Add Default History Time To Live to BPMN Fluent API](#add-default-history-time-to-live-to-bpmn-fluent-api)
 1. For administrators: [Spring Boot Starter and Run logs admin user information on `DEBUG` level](#spring-boot-starter-and-run-logs-admin-user-information-on-debug-level)
+1. For developers: [Update Java External Task Client's Apache HttpClient to version 5](#update-java-external-task-client-s-apache-httpclient-to-version-5)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.21.
 
@@ -48,3 +49,24 @@ Starting with this release, the [BPMN Fluent API Builder]({{< ref "/user-guide/m
 
 In previous releases, when configuring Camunda's admin user in the Spring Boot Starter or Run via `camunda.bpm.admin-user`, information about the admin user appeared in the logs on log level `INFO` on startup.
 With this release, the log level for the logs `STARTER-SB010` and `STARTER-SB011` was changed to `DEBUG`.
+
+# Update Java External Task Client's Apache HttpClient to version 5
+
+We have updated the internal Apache HttpClient in our Java External Task Client from version 4.5.x to the more recent version 5.3.
+
+Version 5 is the latest major version of HttpClient, and it offers many new features including the support for the latest HTTP/2 standards.
+Additionally, it also provides synchronous, asynchronous and reactive APIs, as well.
+For a complete list about features, see the official page about [HttpCore 5.2][HttpCore52] and [HttpClient 5.3][HttpClient53].
+
+{{< note title="Heads Up" class="warning" >}}
+Our client is now fully updated to the HttpClient 5 classic (synchronous) API and is not compatible with version 4 anymore!
+{{< /note >}}
+
+The classic API of the HttpClient 5 shares many similarities with the predecessor version 4, but it's not backward compatible.
+This means an update to this version requires code and configuration adjustments.
+
+[Apache has an official migration guide][HttpClient53-migration], which should make the switch easier.
+
+[HttpCore52]: https://hc.apache.org/httpcomponents-core-5.2.x/index.html
+[HttpClient53]: https://hc.apache.org/httpcomponents-client-5.3.x/index.html
+[HttpClient53-migration]: https://hc.apache.org/httpcomponents-client-5.3.x/migration-guide/index.html
