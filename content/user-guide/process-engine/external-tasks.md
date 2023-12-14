@@ -346,22 +346,22 @@ for (LockedExternalTask task : tasks) {
 
 External Tasks can also be fetched using their `createTime`, in LIFO or FIFO order. This behaviour allows clients to optimize their processing and avoid starvation in scenarios where the age of tasks and consumption are not aligned.
 
-Method `ExternalTaskService#fetchAndLock` with the parameter `createTimeConfig` can be used, using the following values:
+Method `ExternalTaskService#fetchAndLock()` can be combined with the following methods to configure the ordering:
 
-**`ASC`** - Tasks will be sorted using Ascending order. The first task (at zero index) will have the earliest time and the last will have the oldest.
+**`asc()`** - Tasks will be sorted using Ascending order. The first task (at zero index) will have the earliest time and the last will have the oldest.
 
-**`DESC`** - Tasks will be sorted using Descending order. The first task (at zero index) will have the oldest time and the last will have the earliest.
+**`desc()`** - Tasks will be sorted using Descending order. The first task (at zero index) will have the oldest time and the last will have the earliest.
 
-**`EMPTY`** - Empty configuration serves as a valid value to designate ignoring `createTime` as a sorting option.
-
-Note that `null` will be interpreted as **`EMPTY`** configuration value.
-
-See the following example on fetching tasks by `creationDate` Descending :
+See the following example on fetching tasks by `createTime` Descending :
 
 ```java
-List<LockedExternalTask> tasks = fetchAndLock(10, "externalWorkerId", false, DESC)
-    .topic("AddressValidation", 60L * 1000L)
-    .topic("ShipmentScheduling", 120L * 1000L)
+List<LockedExternalTask> tasks = externalTaskService.fetchAndLock()
+    .workerId("worker")
+    .maxTasks(10)
+    .orderByCreateTime(true).desc()
+    .subscribe()
+        .topic("AddressValidation", 60L * 1000L)
+        .topic("ShipmentScheduling", 120L * 1000L)
     .execute();
 
 for (LockedExternalTask task : tasks) {
@@ -372,14 +372,15 @@ for (LockedExternalTask task : tasks) {
 }
 ```
 
-You can update external task rows in the database with a custom create time to influence the ordering of external tasks created with versions < 7.21.0.
+{{< note title="" class="info" >}}
+External tasks created with engine versions < 7.21.0 will not have the `createTime` attribute. When using fetch and lock by `createTime` on them the behavior depends on how your database handles sorting of null values.
+{{< /note >}}
 
 #### Multi-Level Sorting
 
-Priority and CreateTime Sorting criteria can be combined when fetching external tasks by passing `true` to the parameter `usePriority` and selecting
-an effective sorting value for `createTime` configuration. In that case, External Tasks are going to be sorted with priority descending first; when two tasks share the same priority, the selected `createTime` order will be used for sorting the results with priority equality.
+Multiple sorting criteria can be combined when fetching external tasks. For example passing `true` to the parameter `usePriority` and selecting an effective sorting value for `createTime` configuration leads to external tasks being sorted with priority descending first; when two tasks share the same priority, the selected `createTime` order will be used for sorting the results with priority equality.
 
-Here follows an example demonstration of the above behaviour:
+This is an example demonstration of the above example:
 
 Given
 
