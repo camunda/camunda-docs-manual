@@ -402,6 +402,13 @@ ExternalTask1 [priority=0, createTime=1]
 
 Note: The `createTime` field used in the example uses numbers for easing the visual demonstration. In real results, the `createTime` will be populated using a `Date` value.
 
+{{< note title="" class="info" >}}
+It is likely more frequent that multiple tasks might share the same priority compared to their createTime. As a result, priority makes sense to be used
+as a first sorting criterion and then sort by createTime on priority equality. Therefore, priority will always have precedence over createTime during
+fetch and lock sorting configurations.
+{{< /note >}}
+
+
 ### Completing Tasks
 
 After fetching and performing the requested work, a worker can complete an external task by calling the `ExternalTaskService#complete` method. A worker can only complete tasks that it fetched and locked before. If the task has been locked by a different worker in the meantime, an exception is raised.
