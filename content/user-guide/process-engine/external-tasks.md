@@ -403,9 +403,7 @@ ExternalTask1 [priority=0, createTime=1]
 Note: The `createTime` field used in the example uses numbers for easing the visual demonstration. In real results, the `createTime` will be populated using a `Date` value.
 
 {{< note title="" class="info" >}}
-It is likely more frequent that multiple tasks might share the same priority compared to their createTime. As a result, priority makes sense to be used
-as a first sorting criterion and then sort by createTime on priority equality. Therefore, priority will always have precedence over createTime during
-fetch and lock sorting configurations.
+`Priority` will always take precedence over `createTime`.
 {{< /note >}}
 
 
