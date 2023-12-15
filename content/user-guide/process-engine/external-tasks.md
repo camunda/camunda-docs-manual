@@ -403,7 +403,7 @@ ExternalTask1 [priority=0, createTime=1]
 Note: The `createTime` field used in the example uses numbers for easing the visual demonstration. In real results, the `createTime` will be populated using a `Date` value.
 
 {{< note title="" class="info" >}}
-`Priority` will always take precedence over `createTime`.
+`Priority` will always take precedence over any other sorting property.
 {{< /note >}}
 
 
