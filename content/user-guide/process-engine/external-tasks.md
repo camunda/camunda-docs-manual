@@ -358,7 +358,7 @@ See the following example on fetching tasks by `createTime` descending :
 List<LockedExternalTask> tasks = externalTaskService.fetchAndLock()
     .workerId("worker")
     .maxTasks(10)
-    .orderByCreateTime(true).desc()
+    .orderByCreateTime().desc()
     .subscribe()
         .topic("AddressValidation", 60L * 1000L)
         .topic("ShipmentScheduling", 120L * 1000L)
@@ -382,7 +382,7 @@ Multiple sorting criteria can be combined when fetching external tasks. For exam
 
 This is an example demonstration of the above example:
 
-Given:
+Given the following indicative tasks:
 
 ```java
 ExternalTask1 [priority=0, createTime=1]
@@ -391,7 +391,17 @@ ExternalTask3 [priority=0, createTime=3]
 ExternalTask4 [priority=3, createTime=4]
 ```
 
-The invocation `fetchAndLock(10, "externalWorkerId", true, DESC)` would return results in the following order:
+And invocation configuration with `priority` and `createTime` sorting:
+
+```java
+externalTaskService.fetchAndLock()
+    .maxTasks(10)
+    .workerId("worker")
+    .usePriority(true)
+    .orderByCreateTime().desc();
+```
+
+The results would be returned in the following order:
 
 ```java
 ExternalTask4 [priority=3, createTime=4]
