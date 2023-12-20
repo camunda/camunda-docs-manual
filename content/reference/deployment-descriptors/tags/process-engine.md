@@ -1077,6 +1077,34 @@ The following is a list with the most commonly used process engine configuration
       </p>
     </td>
   </tr>
+  <tr id="logEntriesPerSyncOperationLimit">
+    <td><code>logEntriesPerSyncOperationLimit</code></td>
+    <td>long</td>
+    <td>
+      Controls how many user operation log entries are produced for a synchronous API call.
+      <ul>
+        <li><strong>1:</strong> Regardless of the amount of affected entities, only one operation log entry is generated containing a summary of the operation affecting multiple entities.</li>
+        <li><strong>-1:</strong> Disables any limits for user operation logs for synchronous APIs. Unlimited amounts of operation log entries are written.</li>
+        <li><strong>1&lt;x&leq;Long.MAX_VALUE</strong> Setting a value greater than 1 will instruct the process engine to complete only API calls that involve no more messages than the configured limit.
+    If the limit is exceeded, the API call fails, and a <code>ProcessEngineException</code> is thrown. For successful API calls, the engine produces one operation log entry per affected entity,
+    meaning the number of new operation log entries from one API call can never exceed logEntriesPerSyncOperationLimit.</li>
+      </ul>
+      <p>
+        Default value is <code>1L</code>.
+        <br>
+        More information about security aspects of this configuration can be found in the <a href="{{< ref "/user-guide/security.md#user-operation-log-settings-for-synchronous-operations-affecting-multiple-entities" >}}">security guide</a>.
+      </p>
+      <p>
+      Currently supported operations:
+      <ul>
+        <li>Correlate message</li>
+      </ul>
+      </p>
+      <p>
+        <strong>Values:</strong><code>-1</code>, <code>1&leq;x&leq;Long.MAX_VALUE</code> (long).
+      </p>
+    </td>
+  </tr>
 
 </table>
 
