@@ -130,7 +130,7 @@ Other combinations must be thoroughly tested before being used in production.
   <tr>
     <td>7.20.x</td>
     <td>7.20.x</td>
-    <td>3.1.x</td>
+    <td>3.2.x</td>
   </tr>
 </table>
 
