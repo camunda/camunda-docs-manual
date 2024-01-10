@@ -128,9 +128,9 @@ Other combinations must be thoroughly tested before being used in production.
     <td>2.7.x</td>
   </tr>
   <tr>
-    <td>7.20.x</td>
-    <td>7.20.x</td>
-    <td>3.2.x</td>
+    <td>7.20.x<br/>7.20.3+&#42;&#42;&#42;</td>
+    <td>7.20.x<br/>7.20.3+</td>
+    <td>3.1.x<br/>3.2.x</td>
   </tr>
   <tr>
     <td>7.21.x</td>
