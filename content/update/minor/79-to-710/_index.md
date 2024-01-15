@@ -168,9 +168,9 @@ to preserve the previous behavior.
 
 ## Changed Default Cleanup Strategy
 
-The default strategy of the [History Cleanup]({{< ref "/user-guide/process-engine/history.md#history-cleanup">}}) feature 
+The default strategy of the [History Cleanup]({{< ref "/user-guide/process-engine/history/history-cleanup.md">}}) feature 
 has been changed. From now on, each historic instance related to processes, decisions or batches needs a 
-[removal time]({{< ref "/user-guide/process-engine/history.md#removal-time">}}) to be cleaned-up.
+[removal time]({{< ref "/user-guide/process-engine/history/history-configuration.md#removal-time">}}) to be cleaned-up.
 
 Historic instances which (1) have been produced by a Camunda 7 version prior to 7.10 and (2) belong to a top-level instance 
 which has been completed already cannot be cleaned-up after the migration took place. This is due to the reason, that a 
@@ -186,12 +186,12 @@ You can learn more about it in the [User Guide]({{< ref "/user-guide/process-eng
 {{< /note >}}
 
 To gain a better understanding of the new cleanup strategy, please see the updated documentation about the 
-[History Cleanup]({{< ref "/user-guide/process-engine/history.md#history-cleanup">}}) feature. 
+[History Cleanup]({{< ref "/user-guide/process-engine/history/history-cleanup.md">}}) feature. 
 
 ### Custom History Level
-If you have implemented a [Custom History Level]({{< ref "/user-guide/process-engine/history.md#implement-a-custom-history-level">}}) 
+If you have implemented a [Custom History Level]({{< ref "/user-guide/process-engine/history/custom-implementation.md#implement-a-custom-history-level">}}) 
 and you want to use it in conjunction with the removal time based cleanup strategy, please also see the documentation about 
-[Removal Time Inheritance]({{< ref "/user-guide/process-engine/history.md#removal-time-inheritance">}}).
+[Removal Time Inheritance]({{< ref "/user-guide/process-engine/history/history-configuration.md#removal-time-inheritance">}}).
 
 # Changed Webjar Structure
 

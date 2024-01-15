@@ -25,4 +25,4 @@ A big part of Cockpit's functionality relies on historical data, and some of thi
 Therefore, to gain the full feature set of Cockpit, and not suffer any UX degradation due to unavailable data, [History Level][history-levels] `FULL` should be set.
 
 [cockpit-plugins]: {{< ref "/webapps/cockpit/extend/plugins.md" >}}
-[history-levels]: {{< ref "/user-guide/process-engine/history.md#choose-a-history-level" >}}
+[history-levels]: {{< ref "/user-guide/process-engine/history/history-configuration.md#choose-a-history-level" >}}

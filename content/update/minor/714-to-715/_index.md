@@ -194,7 +194,7 @@ You can read more about the metrics in our [Metrics Guide]({{< ref "/user-guide/
 
 Since the metrics data accumulated over time can become substantial, it is possible to
 
-* configure a history time live for the task metrics data so it is picked up by [History Cleanup]({{< ref "/user-guide/process-engine/history.md#task-metrics" >}})
+* configure a history time live for the task metrics data so it is picked up by [History Cleanup]({{< ref "/user-guide/process-engine/history/history-configuration.md#task-metrics" >}})
 * manually clean up the task metrics data through API
 
 Manually deleting task metrics data can be done via {{< restref page="deleteTaskMetrics" text="REST API" tag="Metrics" >}} or Java API by using the `deleteTaskMetrics` method provided by the `ManagementService`.
