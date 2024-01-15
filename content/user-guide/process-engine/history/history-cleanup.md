@@ -11,6 +11,8 @@ menu:
 ---
 
 
+# History Cleanup
+
 When used intensively, the process engine can produce a huge amount of historic data. *History Cleanup* is a feature that removes this data based on configurable time-to-live settings.
 
 It deletes:
