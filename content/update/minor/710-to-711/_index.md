@@ -231,7 +231,7 @@ In order to read (or delete) entries that are not related to process definitions
 
 * permission `READ` (or `DELETE`) on resource `UserOperationLogCategory` with the resource id set to the respective category of the entry or `*`
 
-An overview of the operation logs and their categories can be found at [User Operation Log]({{< ref "/user-guide/process-engine/history.md#glossary-of-operations-logged-in-the-user-operation-log" >}}).
+An overview of the operation logs and their categories can be found at [User Operation Log]({{< ref "/user-guide/process-engine/history/history-configuration.md#glossary-of-operations-logged-in-the-user-operation-log" >}}).
 Authorization management is detailed in [Authorization Service]({{< ref "/user-guide/process-engine/authorization-service.md" >}}).
 
 # Custom WritableIdentityProvider

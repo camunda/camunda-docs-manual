@@ -13,7 +13,7 @@ menu:
   Please note that this feature is only included in the enterprise edition of the Camunda Platform, it is not available in the community edition.
 {{< /enterprise >}}
 
-It is often desired to inspect which user performed which operation for auditing purposes. Admin operations are logged in the [user operation log]({{< ref "/user-guide/process-engine/history.md#user-operation-log" >}}) that is part of the process engine's history. The log allows to understand
+It is often desired to inspect which user performed which operation for auditing purposes. Admin operations are logged in the [user operation log]({{< ref "/user-guide/process-engine/history/history-configuration.md#user-operation-log" >}}) that is part of the process engine's history. The log allows to understand
 
 * which operation was performed
 * which user performed an operation
@@ -21,7 +21,7 @@ It is often desired to inspect which user performed which operation for auditing
 * which entities (process instances, tasks, etc.) were involved
 * which changes were made
 
-Please see the [complete table]({{< ref "/user-guide/process-engine/history.md#accessing-the-user-operation-log" >}}) of APIs that produce User Operation Logs.
+Please see the [complete table]({{< ref "/user-guide/process-engine/history/history-configuration.md#accessing-the-user-operation-log" >}}) of APIs that produce User Operation Logs.
 
 # Operation Log in Admin
 {{< img src="../img/admin-system-audit.png" title="Operation Log" >}}

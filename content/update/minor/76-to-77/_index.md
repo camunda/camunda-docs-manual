@@ -30,7 +30,7 @@ Noteworthy new Features and Changes in 7.7:
 * [Deploy Processes, Decisions and Cases from Cockpit]({{< ref "/webapps/cockpit/deployment-view.md#create-deployment" >}})
 * [New Batch API for modification of multiple process instances]({{< ref "/user-guide/process-engine/process-instance-modification.md#modification-of-multiple-process-instances" >}})
 * [Process instance restart + Batch API]({{< ref "/user-guide/process-engine/process-instance-restart.md" >}})
-* [Automatic cleanup of historic data based on TTL]({{< ref "/user-guide/process-engine/history.md#history-cleanup" >}})
+* [Automatic cleanup of historic data based on TTL]({{< ref "/user-guide/process-engine/history/history-cleanup.md" >}})
 * [New cryptographic hash function with salt] ({{< ref "/user-guide/process-engine/password-hashing.md" >}})
 * {{< restref text="External tasks history" tag="Historic-External-Task-Log" >}}
 

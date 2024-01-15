@@ -83,7 +83,7 @@ A `QuarkusProcessEngineConfiguration` instance provides the following defaults:
     </td>
     <td>
       Camunda Cockpit works best with history level 
-      <a href="{{< ref "/user-guide/process-engine/history.md#choose-a-history-level">}}">FULL</a>.
+      <a href="{{< ref "/user-guide/process-engine/history/history-configuration.md#choose-a-history-level">}}">FULL</a>.
     </td>
     <td><code>full</code></td>
   </tr>

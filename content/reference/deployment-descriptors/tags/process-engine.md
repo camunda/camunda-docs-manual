@@ -471,7 +471,7 @@ The following is a list with the most commonly used process engine configuration
     <td><code>history</code></td>
     <td>String</td>
     <td>
-        Sets the <a href="{{< ref "/user-guide/process-engine/history.md#choose-a-history-level">}}">level of the process engine history</a>.
+        Sets the <a href="{{< ref "/user-guide/process-engine/history/history-configuration.md#choose-a-history-level">}}">level of the process engine history</a>.
       <p>
         <strong>Values:</strong> <code>none</code>, <code>activity</code>, <code>audit</code>, <code>full</code>.
       </p>
@@ -497,7 +497,7 @@ The following is a list with the most commonly used process engine configuration
     <td><code>historyRemovalTimeStrategy</code></td>
     <td>String</td>
     <td>
-      Controls if and when the <a href="{{< ref "/user-guide/process-engine/history.md#removal-time">}}">removal time</a> of an historic instance is set.
+      Controls if and when the <a href="{{< ref "/user-guide/process-engine/history/history-cleanup.md#removal-time">}}">removal time</a> of an historic instance is set.
       The default value is <code>end</code>.<br>
       Please also see the <a href="{{< ref "/reference/deployment-descriptors/tags/process-engine.md#historyCleanupStrategy">}}"><code>historyCleanupStrategy</code></a>
       configuration parameter.<br><br>
@@ -1087,7 +1087,7 @@ The following is a list with the most commonly used process engine configuration
     <td><code>historyCleanupStrategy</code></td>
     <td>String</td>
     <td>
-      Controls which <a href="{{< ref "/user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> strategy is used.
+      Controls which <a href="{{< ref "/user-guide/process-engine/history/history-cleanup.md">}}">History cleanup</a> strategy is used.
       The default value is <code>removalTimeBased</code>.<br>
       Please also see the <a href="{{< ref "/reference/deployment-descriptors/tags/process-engine.md#historyRemovalTimeStrategy">}}"><code>historyRemovalTimeStrategy</code></a> configuration parameter.<br><br>
       <strong>Values:</strong> <code>removalTimeBased</code>, <code>endTimeBased</code>.
@@ -1101,27 +1101,27 @@ The following is a list with the most commonly used process engine configuration
   <tr>
     <td><code>historyCleanupBatchWindowStartTime</code></td>
     <td>String</td>
-    <td><a href="{{< ref "/user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window start time in the format <code>HH:mmZ</code> (Z is for RFC 822 time zone) or <code>HH:mm</code>. E.g., <code>20:00+0100</code> or <code>20:00</code>. In case of <code>null</code>, no batch window is considered to be configured
+    <td><a href="{{< ref "/user-guide/process-engine/history/history-cleanup.md">}}">History cleanup</a> batch window start time in the format <code>HH:mmZ</code> (Z is for RFC 822 time zone) or <code>HH:mm</code>. E.g., <code>20:00+0100</code> or <code>20:00</code>. In case of <code>null</code>, no batch window is considered to be configured
     and history cleanup can only be called manually.</td>
   </tr>
   <tr>
     <td><code>historyCleanupBatchWindowEndTime</code></td>
     <td>String</td>
-    <td><a href="{{< ref "/user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window end time in the format <code>HH:mmZ</code> (Z is for RFC 822 time zone) or <code>HH:mm</code>. E.g., <code>23:00-0300</code> or <code>23:00</code>. In case <code>batchWindowEndTime</code> exceeds <code>batchWindowStartTime</code> it is considered
+    <td><a href="{{< ref "/user-guide/process-engine/history/history-cleanup.md">}}">History cleanup</a> batch window end time in the format <code>HH:mmZ</code> (Z is for RFC 822 time zone) or <code>HH:mm</code>. E.g., <code>23:00-0300</code> or <code>23:00</code>. In case <code>batchWindowEndTime</code> exceeds <code>batchWindowStartTime</code> it is considered
     to be on the same date (e.g., cleanup runs each day between 20:00 and 23:00). Otherwise it is considered to be on the next calendar day (e.g., cleanup starts each
     day at 20:00 and finishes the next day at 01:00). Default value is `00:00`.</td>
   </tr>
   <tr>
     <td><code>mondayHistoryCleanupBatchWindowStartTime</code></td>
     <td>String</td>
-    <td><a href="{{< ref "/user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window start time for Mondays. Requires the same format as <code>historyCleanupBatchWindowStartTime</code>.
+    <td><a href="{{< ref "/user-guide/process-engine/history/history-cleanup.md">}}">History cleanup</a> batch window start time for Mondays. Requires the same format as <code>historyCleanupBatchWindowStartTime</code>.
     In case it is not configured, batch window configured with <code>historyCleanupBatchWindowStartTime</code> and <code>historyCleanupBatchWindowEndTime</code> will be used for this day of week.
     </td>
   </tr>
   <tr>
     <td><code>mondayHistoryCleanupBatchWindowEndTime</code></td>
     <td>String</td>
-    <td><a href="{{< ref "/user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window end time for Mondays. Requires the same format and follows the same logic
+    <td><a href="{{< ref "/user-guide/process-engine/history/history-cleanup.md">}}">History cleanup</a> batch window end time for Mondays. Requires the same format and follows the same logic
     as <code>historyCleanupBatchWindowEndTime</code>.
     </td>
   </tr>
@@ -1226,7 +1226,7 @@ The following is a list with the most commonly used process engine configuration
     <td>Boolean</td>
     <td>
         Configures whether the engine participates in history cleanup or not. The default value is <code>true</code>.
-        For more details, please see <a href="{{<ref "/user-guide/process-engine/history.md#cleanup-execution-participation-per-node" >}}">Cleanup Execution Participation per Node</a>
+        For more details, please see <a href="{{<ref "/user-guide/process-engine/history/history-configuration.md#cleanup-execution-participation-per-node" >}}">Cleanup Execution Participation per Node</a>
         in the User Guide.
     </td>
   </tr>

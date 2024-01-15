@@ -324,8 +324,8 @@ You can configure the property in three ways:
 [seed job]: #seed-job
 [retry]: {{< ref "/user-guide/process-engine/the-job-executor.md#failed-jobs" >}}
 [incidents]: {{< ref "/user-guide/process-engine/incidents.md" >}}
-[history level]: {{< ref "/user-guide/process-engine/history.md#choose-a-history-level" >}}
-[history cleanup]: {{< ref "/user-guide/process-engine/history.md#history-time-to-live-for-batch-operations" >}}
+[history level]: {{< ref "/user-guide/process-engine/history/history-configuration.md#choose-a-history-level" >}}
+[history cleanup]: {{< ref "/user-guide/process-engine/history/history-cleanup.md#history-time-to-live-for-batch-operations" >}}
 [job prioritization]: {{< ref "/user-guide/process-engine/the-job-executor.md#job-prioritization" >}}
 [job-definition-priority]: {{< ref "/user-guide/process-engine/the-job-executor.md#override-priority-by-job-definition" >}}
 [job-priority]: {{< ref "/user-guide/process-engine/the-job-executor.md#set-job-priorities-via-managementservice-api" >}}
