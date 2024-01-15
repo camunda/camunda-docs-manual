@@ -78,7 +78,7 @@ Note: The first symbol denotes seconds, not minutes as in normal Unix cron.
 The recurring time duration option is better suited for handling relative timers, which are calculated in respect to some particular point in time (e.g., the time when a user task was started), while cron expressions can handle absolute timers - which is particularly useful for timer start events.
 
 ### Modify a Time Cycle
-A timer's repeat cycle can be controlled via the [REST API](https://docs.camunda.org/manual/latest/reference/rest/job/put-set-job-duedate/) or by calling the ManagementService. By setting the due date of a timer, it is possible to change the point in time when a timer is executed. 
+A timer's repeat cycle can be controlled via the {{< restref page="setJobDuedate" text="REST API" tag="Job" >}} or by calling the ManagementService. By setting the due date of a timer, it is possible to change the point in time when a timer is executed. 
 
 ```java
 managementService.setJobDuedate(String jobId, Date newDuedate)
@@ -86,7 +86,7 @@ managementService.setJobDuedate(String jobId, Date newDuedate)
 
 Changes to one timer instance do not automatically affect subsequent timer instances. For example, a certain recurring timer produces a timer event every 30 minutes. If the due date of one timer event is changed (e.g. +15minutes), it would be executed 45 minutes after the previous timer. However, the following timer would follow the old pattern and would execute 15 minutes after the changed timer.
 
-If the desired outcome is to calculate the due dates of all subsequent timers based on the changes made, then it is possible to pass a `cascade` flag (when using the [REST API](https://docs.camunda.org/manual/latest/reference/rest/job/put-set-job-duedate/)) or use the following Java API method:
+If the desired outcome is to calculate the due dates of all subsequent timers based on the changes made, then it is possible to pass a `cascade` flag (when using the {{< restref page="setJobDuedate" text="REST API" tag="Job" >}}) or use the following Java API method:
 
 ```java
 managementService.setJobDuedate(String jobId, Date newDuedate, boolean cascade)
@@ -123,6 +123,20 @@ Let's assume the timer is meant to fire at 1 p.m., 3 p.m., and 5 p.m.
 At 4 p.m., after the timer has fired two times, we adjust the bean to return `myBean.getCycle()="R2/PT30M"`. In effect, the timer will still be triggered at 5 p.m. (as initially scheduled and calculated by the previous cycle). Afterward, it will fire at 5:30 p.m. and 6 p.m. (based on the new cycle).
 
 The feature is disabled by default. To enable it, set the `reevaluateTimeCycleWhenDue` property to `true` in the process engine configuration.
+
+#### Immediate timer re-evaluation
+
+To enforce an immediate re-evaluation of a time cycle, follow the steps:
+
+1. Change the expression of the time cycle. (E.g.: Adjust the Spring bean that resolves the cycle.)
+1. Update the current timer job due date:
+  * via Java API: {{< javadocref page="org/camunda/bpm/engine/ManagementService.html#setJobDuedate%28java.lang.String,java.util.Date%29" text="ManagementService#setJobDuedate" >}}
+  * via REST API: {{< restref page="setJobDuedate" text="Job/operation/setJobDuedate" tag="Job" >}}
+  * via Cockpit: Navigate to the Job view of the currently running process instance and select "Change due date for this Job" button. (Check the screenshot below.)
+
+{{< img src="../img/change-timer-due-date.png" title="Change due date for this Job" >}}
+
+After the execution of this job the next jobs will be created with adjusted time cycle.
 
 ## Handling of Timezones
 
