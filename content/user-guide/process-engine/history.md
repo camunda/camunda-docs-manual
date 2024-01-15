@@ -1756,6 +1756,8 @@ The history cleanup jobs can be found via the API method `HistoryService#findHis
 
 ### History Time To Live
 
+The history time to live is mandatory, any deployment or redeployment of any model resource (BPMN, DMN, CMMN) that contains a historyTimeToLive of null will be prevented. Unless explicitly disabled via [process engine configuration]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#enforceHistoryTimeToLive">}}).
+
 #### Process/Decision/Case Definitions
 
 Process instances are only cleaned up if their corresponding definition has a valid time to live (TTL).
