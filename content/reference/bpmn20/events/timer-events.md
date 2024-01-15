@@ -136,7 +136,7 @@ To enforce an immediate re-evaluation of a time cycle, follow the steps:
 
 {{< img src="../img/change-timer-due-date.png" title="Change due date for this Job" >}}
 
-After the execution of this job the next jobs will be created with adjusted time cycle.
+After this job is executed, the next jobs will be created with adjusted time cycle.
 
 ## Handling of Timezones
 
