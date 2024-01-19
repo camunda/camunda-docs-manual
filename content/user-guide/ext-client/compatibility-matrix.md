@@ -13,75 +13,36 @@ menu:
 
 Each version of the Camunda Platform is bound to a specific version of the **External Task Clients**.
 
-{{< note title="Heads Up" class="info" >}}
-  Starting with version 7.15.0, Camunda Platform and its compatible **Java** External Task Client always share the same version.
-{{< /note >}}
+  Camunda Platform and its compatible **Java** External Task Client always share the same version.
 
 <table class="table table-striped">
   <tr>
     <th>Camunda Platform version</th>
-    <th>NodeJs</th>
-    <th>Java</th>
-  </tr>
-  <tr>
-    <td>7.9.x</td>
-    <td>1.0.x</td>
-    <td>1.0.x</td>
-  </tr>
-  <tr>
-    <td>7.10.x</td>
-    <td>1.1.x</td>
-    <td>1.1.x</td>
-  </tr>
-  <tr>
-    <td>7.11.x</td>
-    <td>1.1.x, 1.2.x</td>
-    <td>1.2.x</td>
-  </tr>
-  <tr>
-    <td>7.12.x</td>
-    <td>1.3.x</td>
-    <td>1.3.x</td>
-  </tr>
-  <tr>
-    <td>7.13.x</td>
-    <td>2.0.x</td>
-    <td>1.3.x</td>
-  </tr>
-  <tr>
-    <td>7.14.x</td>
-    <td>2.0.x</td>
-    <td>1.4.x</td>
+    <th>NodeJS client</th>
   </tr>
   <tr>
     <td>7.15.x</td>
     <td>2.1.x</td>
-    <td>7.15.x</td>
   </tr>
   <tr>
     <td>7.16.x</td>
     <td>2.1.x</td>
-    <td>7.16.x</td>
   </tr>
   <tr>
     <td>7.17.x</td>
     <td>2.2.x</td>
-    <td>7.17.x</td>
   </tr>
   <tr>
     <td>7.18.x</td>
     <td>2.3.x</td>
-    <td>7.18.x</td>
   </tr>
   <tr>
     <td>7.19.x</td>
     <td>3.0.x</td>
-    <td>7.19.x</td>
   </tr>
   <tr>
     <td>7.20.x</td>
     <td>3.0.x</td>
-    <td>7.20.x</td>
   </tr>
 </table>
 
