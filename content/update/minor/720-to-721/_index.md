@@ -20,6 +20,7 @@ This document guides you through the update from Camunda Platform `7.20.x` to `7
 1. For developers: [Add Default History Time To Live to BPMN Fluent API](#add-default-history-time-to-live-to-bpmn-fluent-api)
 1. For administrators: [Spring Boot Starter and Run logs admin user information on `DEBUG` level](#spring-boot-starter-and-run-logs-admin-user-information-on-debug-level)
 1. For developers: [Update Java External Task Client's Apache HttpClient to version 5](#update-java-external-task-client-s-apache-httpclient-to-version-5)
+1. For developers: [Changed trigger order of built-in task listeners](#changed-trigger-order-of-built-in-task-listeners)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.21.
 
@@ -70,3 +71,11 @@ This means an update to this version requires code and configuration adjustments
 [HttpCore52]: https://hc.apache.org/httpcomponents-core-5.2.x/index.html
 [HttpClient53]: https://hc.apache.org/httpcomponents-client-5.3.x/index.html
 [HttpClient53-migration]: https://hc.apache.org/httpcomponents-client-5.3.x/migration-guide/index.html
+
+# Changed trigger order of built-in task listeners
+
+Built-in task listeners are used internally by the engine and not intended to be used by the user. User-defined task listeners are handled separately. For both, regular process execution and process instance modification, the engine ensures the following:
+
+* Built-in task listeners are executed before user-defined task listeners.
+* Built-in task listeners are executed in the order in which they were registered.
+* User-defined task listeners are executed in the order in which they were registered (unchanged).

@@ -464,6 +464,16 @@ The Camunda Docker images are based on Alpine. This release updates the Alpine b
 In previous releases, when configuring Camunda's admin user in the Spring Boot Starter and Run via `camunda.bpm.admin-user`, information about the admin user appeared in the logs on log level `INFO` on startup.
 With this release, the log level for the logs `STARTER-SB010` and `STARTER-SB011` was changed to `DEBUG`.
 
+## 7.20.2 to 7.20.3
+
+### Changed trigger order of built-in task listeners
+
+Built-in task listeners are used internally by the engine and not intended to be used by the user. User-defined task listeners are handled separately. For both, regular process execution and process instance modification, the engine ensures the following:
+
+* Built-in task listeners are executed before user-defined task listeners.
+* Built-in task listeners are executed in the order in which they were registered.
+* User-defined task listeners are executed in the order in which they were registered (unchanged).
+
 # Full Distribution
 
 This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.
