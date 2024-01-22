@@ -128,7 +128,7 @@ The feature is disabled by default. To enable it, set the `reevaluateTimeCycleWh
 
 To enforce an immediate re-evaluation of a time cycle, follow the steps:
 
-1. Change the expression of the time cycle. (E.g.: Adjust the Spring bean that resolves the cycle.)
+1. Change the expression of the time cycle (e.g., Adjust the Spring bean that resolves the cycle).
 1. Update the current timer job due date:
   * via Java API: {{< javadocref page="org/camunda/bpm/engine/ManagementService.html#setJobDuedate%28java.lang.String,java.util.Date%29" text="ManagementService#setJobDuedate" >}}
   * via REST API: {{< restref page="setJobDuedate" text="Job/operation/setJobDuedate" tag="Job" >}}
