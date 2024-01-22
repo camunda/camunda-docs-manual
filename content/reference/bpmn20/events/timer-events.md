@@ -124,20 +124,17 @@ At 4 p.m., after the timer has fired two times, we adjust the bean to return `my
 
 The feature is disabled by default. To enable it, set the `reevaluateTimeCycleWhenDue` property to `true` in the process engine configuration.
 
-#### Immediate timer re-evaluation
-
+{{< note title="Heads-up!" class="info" >}}
 To enforce an immediate re-evaluation of a time cycle, follow the steps:
 
 1. Change the expression of the time cycle (e.g., Adjust the Spring bean that resolves the cycle).
 1. Update the current timer job due date:
   * via Java API: {{< javadocref page="org/camunda/bpm/engine/ManagementService.html#setJobDuedate%28java.lang.String,java.util.Date%29" text="ManagementService#setJobDuedate" >}}
   * via REST API: {{< restref page="setJobDuedate" text="Job/operation/setJobDuedate" tag="Job" >}}
-  * via Cockpit: Navigate to the Job view of the currently running process instance and select "Change due date for this Job" button. (Check the screenshot below.)
-
-{{< img src="../img/change-timer-due-date.png" title="Change due date for this Job" >}}
+  * via Cockpit: Navigate to the Job view of the currently running process instance and select "Change due date for this Job" button.
 
 After this job is executed, the next jobs will be created with adjusted time cycle.
-
+{{< /note >}}
 ## Handling of Timezones
 
 The configuration `2022-03-11T12:13:14` does not specify a time zone. At runtime, such a date is interpreted in the local time zone of the JVM executing the process. This can be problematic in various cases, such as when running multiple Camunda nodes in different time zones or when you cannot assume the time zone the platform runs in. Furthermore, there can be glitches with respect to daylight saving time (DST). If in doubt, specify the time in UTC (e.g., `2022-03-11T12:13:14Z`) or with a UTC-relative offset (e.g., `2022-03-11T12:13:14+01`).
