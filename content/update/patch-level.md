@@ -474,6 +474,15 @@ Built-in task listeners are used internally by the engine and not intended to be
 * Built-in task listeners are executed in the order in which they were registered.
 * User-defined task listeners are executed in the order in which they were registered (unchanged).
 
+### Cockpit's process definition like search changed to case-insensitive
+
+The **Cockpit/Processes**'s page Process Definition search component allows for **name** and **key** search with **equals** and **like** operators.
+With this recent change, per customer feedback, we modified the like search to case-insensitive.
+This will allow a better experience when looking for process definitions.
+
+The change also affects the API that provides the data for the search component.
+This API is an internal API, which means it's **not** part of the public [REST API]({{< ref "/reference/rest" >}}), so the change should not affect any customers.
+
 # Full Distribution
 
 This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.
