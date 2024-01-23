@@ -21,6 +21,7 @@ This document guides you through the update from Camunda Platform `7.20.x` to `7
 1. For administrators: [Spring Boot Starter and Run logs admin user information on `DEBUG` level](#spring-boot-starter-and-run-logs-admin-user-information-on-debug-level)
 1. For developers: [Update Java External Task Client's Apache HttpClient to version 5](#update-java-external-task-client-s-apache-httpclient-to-version-5)
 1. For developers: [Changed trigger order of built-in task listeners](#changed-trigger-order-of-built-in-task-listeners)
+1. For administrators and developers: [Cockpit's process definition like search changed to case-insensitive](#cockpit-s-process-definition-like-search-changed-to-case-insensitive)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.21.
 
@@ -83,3 +84,12 @@ With this release for both, regular process execution and process instance modif
 3. User-defined task listeners are executed in the order in which they were registered.
 
 Previously, only 1. and 3. were ensured.
+
+# Cockpit's process definition like search changed to case-insensitive
+
+The **Cockpit/Processes**'s page Process Definition search component allows for **name** and **key** search with **equals** and **like** operators.
+With this recent change, per customer feedback, we modified the like search to case-insensitive.
+This will allow a better experience when looking for process definitions.
+
+The change also affects the API that provides the data for the search component.
+This API is an internal API, which means it's **not** part of the public [REST API]({{< ref "/reference/rest" >}}), so the change should not affect any customers.
