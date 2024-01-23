@@ -1411,6 +1411,10 @@ The specified data will only be put into the MDC if a key is defined. All parame
   </tr>
 </table>
 
+{{< note class="warning" title="External Properties" >}}
+Any properties set by the user that match the configured Logging context parameters will be preserved after the processing of the engine.
+{{< /note >}}
+
 ## Logging level parameters
 
 These parameters define the log level for the specified log entries.
