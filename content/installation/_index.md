@@ -1,6 +1,6 @@
 ---
 
-title: "Install Camunda Platform"
+title: "Install Camunda"
 weight: 40
 
 menu:

@@ -11,10 +11,10 @@ menu:
 ---
 
 
-Run the Camunda Platform in every Java-runnable environment. Camunda Platform is supported with our QA infrastructure in the following environments. Here you can find more information about our [enterprise support](http://camunda.com/platform-7/editions/).
+Run Camunda in every Java-runnable environment. Camunda is supported with our QA infrastructure in the following environments. Here you can find more information about our [enterprise support](http://camunda.com/platform-7/editions/).
 
 {{< note title="Supported Environments" class="info" >}}
-  Please note that the environments listed in this section depend on the version of the Camunda Platform. Please select the corresponding version of this documentation to see the environment that fits to your version of the Camunda Platform. e.g., [supported environments for version 7.15](http://docs.camunda.org/7.15/guides/user-guide/#introduction-supported-environments)
+  Please note that the environments listed in this section depend on the version of Camunda. Please select the corresponding version of this documentation to see the environment that fits to your version of Camunda. e.g., [supported environments for version 7.15](http://docs.camunda.org/7.15/guides/user-guide/#introduction-supported-environments)
 {{< /note >}}
 
 
@@ -60,7 +60,7 @@ Run the Camunda Platform in every Java-runnable environment. Camunda Platform is
 
 ## Database Clustering & Replication
 
-Clustered or replicated databases are supported given the following conditions. The communication between Camunda Platform and the database cluster has to match with the corresponding non-clustered / non-replicated configuration. It is especially important that the configuration of the database cluster guarantees the equivalent behavior of READ-COMMITTED isolation level.
+Clustered or replicated databases are supported given the following conditions. The communication between Camunda and the database cluster has to match with the corresponding non-clustered / non-replicated configuration. It is especially important that the configuration of the database cluster guarantees the equivalent behavior of READ-COMMITTED isolation level.
 
 
 # Web Browser
@@ -94,7 +94,7 @@ Check our [Enterprise Announcements page](/enterprise/announcement/) for confirm
 
 ## Adding Environments
 
-Whenever a new version of one of the following environments is released, we target support of that new version with the next minor release of Camunda Platform. A new released environment has to be available three months before the next Camunda Platform minor release to be considered.
+Whenever a new version of one of the following environments is released, we target support of that new version with the next minor release of Camunda. A new released environment has to be available three months before the next Camunda minor release to be considered.
 
 * Java Language (LTS)
 * Spring Boot

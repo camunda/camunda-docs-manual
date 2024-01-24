@@ -13,15 +13,15 @@ menu:
 ---
 
 
-This section describes how you can install the Camunda Platform and its components on a vanilla [Apache Tomcat](http://tomcat.apache.org/), if you are not able to use the pre-packaged Tomcat distribution. In addition, download a [Tomcat distribution](https://downloads.camunda.cloud/release/camunda-bpm/tomcat/) or [Enterprise Edition Tomcat distribution](https://downloads.camunda.cloud/enterprise-release/camunda-bpm/tomcat/) to fetch the required Camunda modules.
+This section describes how you can install Camunda and its components on a vanilla [Apache Tomcat](http://tomcat.apache.org/), if you are not able to use the pre-packaged Tomcat distribution. In addition, download a [Tomcat distribution](https://downloads.camunda.cloud/release/camunda-bpm/tomcat/) or [Enterprise Edition Tomcat distribution](https://downloads.camunda.cloud/enterprise-release/camunda-bpm/tomcat/) to fetch the required Camunda modules.
 
 {{< note title="Reading the Guide" class="info" >}}
 Throughout this guide we will use a number of variables to denote common path names and constants:
 
 * `$TOMCAT_HOME` points to the main directory of the tomcat server.
 * `$TOMCAT_VERSION` denotes the version of Tomcat server.
-* `$PLATFORM_VERSION` denotes the version of the Camunda Platform you want to install or already have installed, e.g. `7.0.0`.
-* `$TOMCAT_DISTRIBUTION` represents the downloaded pre-packaged Camunda Platform distribution for Tomcat, e.g. `camunda-bpm-tomcat-$PLATFORM_VERSION.zip` or `camunda-bpm-tomcat-$PLATFORM_VERSION.tar.gz`.
+* `$PLATFORM_VERSION` denotes the version of Camunda you want to install or already have installed, e.g. `7.0.0`.
+* `$TOMCAT_DISTRIBUTION` represents the downloaded pre-packaged Camunda distribution for Tomcat, e.g. `camunda-bpm-tomcat-$PLATFORM_VERSION.zip` or `camunda-bpm-tomcat-$PLATFORM_VERSION.tar.gz`.
 
 {{< /note >}}
 
@@ -35,7 +35,7 @@ Before you can install the Camunda components, you need to perform a number of r
 
 In the default configuration of the distribution, the database schema and all required tables are automatically created in an H2 database when the engine starts up for the first time. If you do not want to use the H2 database, you have to
 
-* Create a database schema for the Camunda Platform yourself.
+* Create a database schema for Camunda yourself.
 * Install the database schema to create all required tables and default indices using our [database schema installation guide]({{< ref "/installation/database-schema.md" >}}).
 
 When you create the tables manually, then you have to configure the engine to **not** create tables at startup by setting the `databaseSchemaUpdate` property to `false` (or, in case you are using Oracle, to `noop`). In Tomcat, this is done in the `bpm-platform.xml`, located in the `$TOMCAT_DISTRIBUTION\server\apache-tomcat-$VERSION\conf\` folder.
@@ -43,7 +43,7 @@ When you create the tables manually, then you have to configure the engine to **
 
 ## Add BPM Bootstrap Server Listener
 
-Add the entry `org.camunda.bpm.container.impl.tomcat.TomcatBpmPlatformBootstrap` as Listener before the `GlobalResourcesLifecycleListener` in your `$TOMCAT_HOME/conf/server.xml`. This class is responsible for starting and stopping the Camunda Platform as Tomcat is started and stopped.
+Add the entry `org.camunda.bpm.container.impl.tomcat.TomcatBpmPlatformBootstrap` as Listener before the `GlobalResourcesLifecycleListener` in your `$TOMCAT_HOME/conf/server.xml`. This class is responsible for starting and stopping Camunda as Tomcat is started and stopped.
 
 ```xml
 <Server port="8005" shutdown="SHUTDOWN">
@@ -83,7 +83,7 @@ For more information on the creation of JDBC datasources have a look at the docu
 [9.0](https://tomcat.apache.org/tomcat-9.0-doc/jndi-datasource-examples-howto.html).
 
 
-## Add Camunda Platform Services
+## Add Camunda Services
 
 Copy the following blocks from `${TOMCAT_DISTRIBUTION}/server/apache-tomcat-${TOMCAT_VERSION}/conf/server.xml`
   into `${TOMCAT_HOME}/conf/server.xml`:
@@ -91,12 +91,12 @@ Copy the following blocks from `${TOMCAT_DISTRIBUTION}/server/apache-tomcat-${TO
 ```xml
      <Resource name="global/camunda-bpm-platform/process-engine/ProcessEngineService!org.camunda.bpm.ProcessEngineService" auth="Container"
               type="org.camunda.bpm.ProcessEngineService"
-              description="Camunda Platform Process Engine Service"
+              description="Camunda Process Engine Service"
               factory="org.camunda.bpm.container.impl.jndi.ProcessEngineServiceObjectFactory" />
 
     <Resource name="global/camunda-bpm-platform/process-engine/ProcessApplicationService!org.camunda.bpm.ProcessApplicationService" auth="Container"
               type="org.camunda.bpm.ProcessApplicationService"
-              description="Camunda Platform Process Application Service"
+              description="Camunda Process Application Service"
               factory="org.camunda.bpm.container.impl.jndi.ProcessApplicationServiceObjectFactory" />
 ```
 

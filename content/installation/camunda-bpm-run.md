@@ -8,8 +8,10 @@ menu:
     name: "Remote Engine Distribution"
     identifier: "installation-camunda-bpm-run"
     parent: "installation-guide"
-    pre: "Install Camunda Platform Run, an easy to configure remote engine distribution of the Camunda Platform. No Java knowledge necessary."
+    pre: "Install Camunda Platform Run, an easy to configure remote engine distribution of Camunda. No Java knowledge necessary."
 ---
+
+<!--- Do we want to remove Platform from Run as well? --->
 
 {{< note title="What is a Remote Engine Distribution?" class="info" >}}
 If you need a Remote or Shared Engine Distribution depends on your use-case. Check out the [architecture overview]({{<ref "/introduction/architecture.md" >}}) for more information.

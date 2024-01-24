@@ -11,12 +11,12 @@ menu:
 ---
 
 
-The Camunda platform provides a public API. This section covers the definition of the public API and backwards compatibility for version updates.
+Camunda provides a public API. This section covers the definition of the public API and backwards compatibility for version updates.
 
 
 # Definition of Public API
 
-The Camunda Platform public API is limited to the following items:
+The Camunda public API is limited to the following items:
 
 Java API: 
 
