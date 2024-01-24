@@ -72,10 +72,14 @@ This means an update to this version requires code and configuration adjustments
 [HttpClient53]: https://hc.apache.org/httpcomponents-client-5.3.x/index.html
 [HttpClient53-migration]: https://hc.apache.org/httpcomponents-client-5.3.x/migration-guide/index.html
 
+
 # Changed trigger order of built-in task listeners
 
-Built-in task listeners are used internally by the engine and not intended to be used by the user. User-defined task listeners are handled separately. For both, regular process execution and process instance modification, the engine ensures the following:
+Built-in task listeners are used internally by the engine and not intended to be used by the user. User-defined task listeners are handled separately. Before this release, the order in which builtin task listeners were executed could depend on how the task was executed. This [bug report](https://github.com/camunda/camunda-bpm-platform/issues/4042) describes a scenario where after a process instance modification, the order of the builtin task listeners was reversed.
+With this release for both, regular process execution and process instance modification, the engine ensures the following:
 
-* Built-in task listeners are executed before user-defined task listeners.
-* Built-in task listeners are executed in the order in which they were registered.
-* User-defined task listeners are executed in the order in which they were registered (unchanged).
+1. Built-in task listeners are executed before user-defined task listeners.
+2. Built-in task listeners are executed in the order in which they were registered.
+3. User-defined task listeners are executed in the order in which they were registered.
+
+Previously, only 1. and 3. were ensured.
