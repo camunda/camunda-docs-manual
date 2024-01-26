@@ -96,6 +96,6 @@ This API is an internal API, which means it's **not** part of the public [REST A
 
 # External MDC properties are isolated from engine processing
 
-The previous behavior of _clearing the MDC tuples associated with Logging_ Context Parameters has been changed in this release. Starting from `7.21`, the new behavior preserves any logging context parameter entries found in the MDC to better isolate the engine processing from any external MDC user configuration. This change will enable our users to seamlessly integrate the MDC and the engine with various logging systems of their preference.
+The previous behavior of _clearing the MDC tuples associated with Logging_ Context Parameters has been changed in this release. Starting from `7.21`, the new behavior preserves any logging context parameter entries found in the MDC to better isolate the engine processing from any external MDC user configuration.
 
-Use cases that require the legacy behaviour (clearing of the MDC logging context parameter tuples after the engine processing) can opt for clearing the MDC programmatically as a low-cost alternative.
+Use cases that require the legacy behaviour (clearing of the MDC logging context parameter tuples after the engine processing) can opt for clearing the MDC programmatically.
