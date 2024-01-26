@@ -1210,7 +1210,11 @@ The following is a list with the most commonly used process engine configuration
   <tr>
     <td><code>historyCleanupMetricsEnabled</code></td>
     <td>Boolean</td>
-    <td>Activates metrics for history cleanup. Default value is <code>true</code>;.</td>
+    <td>Activates metrics for history cleanup. Default value is <code>true</code>.
+      <br><br>
+      <strong>Note</strong> that history cleanup metrics are collected only when 
+      <a href="{{<ref "/user-guide/process-engine/metrics.md#disable-reporting" >}}">general metrics collection is not disabled</a>.    
+    </td>
   </tr>
   <tr id="history-cleanup-enabled">
     <td><code>historyCleanupEnabled</code></td>
