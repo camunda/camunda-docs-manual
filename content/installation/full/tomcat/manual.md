@@ -96,7 +96,7 @@ Copy the following blocks from `${TOMCAT_DISTRIBUTION}/server/apache-tomcat-${TO
 
     <Resource name="global/camunda-bpm-platform/process-engine/ProcessApplicationService!org.camunda.bpm.ProcessApplicationService" auth="Container"
               type="org.camunda.bpm.ProcessApplicationService"
-              description="Camunda Process Application Service"
+              description="Camunda Platform Process Application Service"
               factory="org.camunda.bpm.container.impl.jndi.ProcessApplicationServiceObjectFactory" />
 ```
 
