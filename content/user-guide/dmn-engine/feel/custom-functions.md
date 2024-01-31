@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Camunda Platform provides a wrapper for the FEEL Scala Engine to implement Custom Functions, which can be 
+Camunda 7 provides a wrapper for the FEEL Scala Engine to implement Custom Functions, which can be 
 called in expressions and unary tests. 
 
 {{< note title="Custom Function Behavior" class="warning" >}}

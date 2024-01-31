@@ -10,13 +10,13 @@ menu:
 
 ---
 
-Camunda Platform supports Unified Expression Language (EL), specified by the [Jakarta Expression
+Camunda 7 supports Unified Expression Language (EL), specified by the [Jakarta Expression
 Language 4.0 standard][JakartaEL]. To do so, it maintains a custom version of the open source 
 [JUEL][] implementation. To get more general information about the usage of Expression Language, 
 please read the [official documentation][]. It provides examples that give a good overview of 
 the syntax of expressions.
 
-Within Camunda Platform, EL can be used in many circumstances to evaluate small script-like
+Within Camunda 7, EL can be used in many circumstances to evaluate small script-like
 expressions. The following table provides an overview of the BPMN elements which support
 usage of EL.
 
@@ -74,7 +74,7 @@ usage of EL.
 
 ## Delegation Code
 
-Besides Java code, Camunda Platform also supports the evaluation of expressions as delegation code. For
+Besides Java code, Camunda 7 also supports the evaluation of expressions as delegation code. For
 general information about delegation code, see the corresponding
 [section]({{< ref "/user-guide/process-engine/delegation-code.md" >}}).
 

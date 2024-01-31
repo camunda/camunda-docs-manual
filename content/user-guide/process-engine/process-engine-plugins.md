@@ -22,10 +22,10 @@ A plugin must provide an implementation of the
 
 Process engine plugins can be configured
 
-* in the [Camunda Platform Deployment Descriptors]({{< ref "/reference/deployment-descriptors/_index.md" >}}) (bpm-platform.xml/processes.xml),
+* in the [Camunda Deployment Descriptors]({{< ref "/reference/deployment-descriptors/_index.md" >}}) (bpm-platform.xml/processes.xml),
 * in the [Wildfly configuration file]({{< ref "/user-guide/runtime-container-integration/jboss.md" >}}) (standalone.xml/domain.xml),
 * using [Spring Beans XML]({{< ref "/user-guide/spring-framework-integration/_index.md#configure-a-process-engine-plugin-in-spring" >}}),
-* in the [Camunda Platform Run YAML configuration files]({{< ref "/user-guide/camunda-bpm-run.md#process-engine-plugin-registration" >}})
+* in the [Camunda Run YAML configuration files]({{< ref "/user-guide/camunda-bpm-run.md#process-engine-plugin-registration" >}})
 * programatically.
 
 The following is an example of how to configure a process engine plugin in a bpm-platform.xml file:
