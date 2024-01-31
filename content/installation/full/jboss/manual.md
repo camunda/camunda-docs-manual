@@ -13,29 +13,29 @@ menu:
 ---
 
 
-This document describes the installation of Camunda and its components on a vanilla [WildFly Application Server](http://www.wildfly.org) or JBoss EAP 7.
+This document describes the installation of Camunda 7 and its components on a vanilla [WildFly Application Server](http://www.wildfly.org) or JBoss EAP 7.
 
 {{< note title="Reading this Guide" class="info" >}}
 This guide uses a number of variables to denote common path names and constants:
 
 * `$WILDFLY_HOME` points to the JBoss EAP/WildFly application server main directory.
 * `$WILDFLY_VERSION` denotes the version of WildFly application server.
-* `$WILDFLY_DISTRIBUTION` represents the downloaded pre-packaged Camunda distribution for WildFly, e.g. `camunda-bpm-wildfly-$PLATFORM_VERSION.zip` or `camunda-bpm-wildfly-$PLATFORM_VERSION.tar.gz`.
-* `$PLATFORM_VERSION` denotes the version of Camunda you want to install or already have installed, e.g. `7.0.0`.
+* `$WILDFLY_DISTRIBUTION` represents the downloaded pre-packaged Camunda 7 distribution for WildFly, e.g. `camunda-bpm-wildfly-$PLATFORM_VERSION.zip` or `camunda-bpm-wildfly-$PLATFORM_VERSION.tar.gz`.
+* `$PLATFORM_VERSION` denotes the version of Camunda 7 you want to install or already have installed, e.g. `7.0.0`.
 {{< /note >}}
 
 ## Setup
 
-* For WildFly 27 and above, download the [Camunda WildFly distribution](https://downloads.camunda.cloud/release/camunda-bpm/wildfly/).
+* For WildFly 27 and above, download the [Camunda 7 WildFly distribution](https://downloads.camunda.cloud/release/camunda-bpm/wildfly/).
 * For WildFly ≤26 / JBoss EAP 7, download the [`camunda-wildfly26-modules`](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/wildfly/camunda-wildfly26-modules/).
 
 ### Copy Modules
 
-Copy the modules from the `modules/` folder of the Camunda distribution, or extract the `camunda-wildfly-modules` archive, to the `$WILDFLY_HOME/modules/` of your WildFly application server.
+Copy the modules from the `modules/` folder of the Camunda 7 distribution, or extract the `camunda-wildfly-modules` archive, to the `$WILDFLY_HOME/modules/` of your WildFly application server.
 
 {{< note title="Replace H2 Database" >}}
 The WildFly distribution ships a different version of the H2 database than the one that is shipped with Wildfly itself.
-The version shipped with Camunda is the version that the process engine is tested on and it is strongly recommended to use Camunda's version.
+The version shipped with Camunda 7 is the version that the process engine is tested on and it is strongly recommended to use Camunda's version.
 To do so, **make sure to delete the folder**
 
 ```
@@ -50,7 +50,7 @@ $WILDFLY_HOME/modules/system/layers/base/com/h2database
 Next, a number of changes need to be performed in the application server's configuration file.
 In most cases this is `$WILDFLY_HOME/standalone/configuration/standalone.xml`.
 
-Add the Camunda subsystem as extension:
+Add the Camunda 7 subsystem as extension:
 
 ```xml
 <server xmlns="urn:jboss:domain:20.0">
@@ -61,8 +61,8 @@ Add the Camunda subsystem as extension:
 
 Configure the thread pool for the Camunda Job Executor:
 
-Since Camunda 7.5, the configuration of the thread pool is done in the Camunda subsystem, not in the JBoss Threads subsystem anymore like it was done before 7.5.
-The thread pool creation and shutdown is now controlled through the Camunda subsystem.
+Since Camunda 7.5, the configuration of the thread pool is done in the Camunda 7 subsystem, not in the JBoss Threads subsystem anymore like it was done before 7.5.
+The thread pool creation and shutdown is now controlled through the Camunda 7 subsystem.
 You are able to configure it through the following new configuration elements in the `job-executor` element of the subsystem XML configuration.
 
 Mandatory configuration elements are:
@@ -116,7 +116,7 @@ The below example also configures the default process engine.
 
 By default, the database schema is automatically created in an H2 database when the engine starts up for the first time. If you do not want to use the H2 database, you have to
 
-* Create a database schema for Camunda yourself.
+* Create a database schema for Camunda 7 yourself.
 * Install the database schema to create all required tables and default indices using our [database schema installation guide]({{< ref "/installation/database-schema.md" >}}).
 
 When you create the tables manually, then you can also configure the engine to **not** create tables at startup by setting the `isAutoSchemaUpdate` property to `false` (or, in case you are using Oracle, to `noop`). In WildFly, this is done in the `standalone.xml`, located in the `$WILDFLY_DISTRIBUTION\server\wildfly-$WILDFLY_VERSION\standalone\configuration\` folder.
@@ -147,7 +147,7 @@ These links point you to resources for other databases:
 
 ## Optional Components
 
-This section describes how to install optional dependencies. None of these are required to work with the core platform. Before continuing, make sure that Camunda is already installed according to [this step]({{< relref "#setup" >}}) for WildFly / JBoss EAP 7.
+This section describes how to install optional dependencies. None of these are required to work with the core platform. Before continuing, make sure that Camunda 7 is already installed according to [this step]({{< relref "#setup" >}}) for WildFly / JBoss EAP 7.
 
 
 ### Cockpit, Tasklist, and Admin
@@ -275,7 +275,7 @@ See this [Forum Post](https://forum.camunda.org/t/camunda-json-marshalling-and-j
 
 #### Problem With Deployments Using the REST API
 
-Camunda Spin is not available in scripts if a process definition is deployed via REST API. Because Wildfly handles dependencies using its module system and camunda engine module has no module dependency on the spin module.
+Camunda Spin is not available in scripts if a process definition is deployed via REST API. Because Wildfly handles dependencies using its module system and Camunda engine module has no module dependency on the spin module.
 
 ### Groovy Scripting
 

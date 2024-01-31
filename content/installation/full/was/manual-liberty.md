@@ -12,8 +12,8 @@ menu:
 
 ---
 
-This section will describe how you can install Camunda and its components on an [IBM WebSphere
-Application Server Liberty][liberty]. To perform the Camunda installation on WebSphere Liberty
+This section will describe how you can install Camunda 7 and its components on an [IBM WebSphere
+Application Server Liberty][liberty]. To perform the Camunda 7 installation on WebSphere Liberty
 you will need the following:
 
 * The `camunda-ee-ibm-was-{{< minor-version >}}.0-ee` `.tar.gz` or `.zip` archive available from
@@ -23,20 +23,20 @@ you will need the following:
 * You should also consider the [WebSphere Liberty Java support documentation][liberty-java].
 
 {{< note title="Reading this Guide" class="info" >}}
-This section provides examples for Camunda `{{< minor-version >}}.0-ee`. If you are installing a patch version
+This section provides examples for Camunda 7 `{{< minor-version >}}.0-ee`. If you are installing a patch version
 please replace the version numbers in the examples with the patch version you are using.
 
 Throughout this section we will use a number of variables to denote common path names and constants.
 You don't have to create these variables in your environment. They are just used in this guide to make it more readable.
 
-* `$WAS_DISTRIBUTION` represents the downloaded Camunda distribution for the IBM WebSphere Application Server, e.g., `camunda-ee-ibm-was-{{< minor-version >}}.0-ee.zip`.
+* `$WAS_DISTRIBUTION` represents the downloaded Camunda 7 distribution for the IBM WebSphere Application Server, e.g., `camunda-ee-ibm-was-{{< minor-version >}}.0-ee.zip`.
 * `$SERVER_CONFIG_DIR` points to the IBM WebSphere Liberty server configuration directory like `wlp/usr/servers/camundaServer`.
 
 The distribution is available at the [Camunda enterprise release page](https://downloads.camunda.cloud/enterprise-release/camunda-bpm/ibm-was-liberty).
 You will be asked to enter the credentials you received during the trial or subscription process.
 {{< /note >}}
 
-To fully install Camunda on WebSphere Liberty, you need to configure the following components:
+To fully install Camunda 7 on WebSphere Liberty, you need to configure the following components:
 
 1. Camunda EAR and shared libraries
 2. Datasource
@@ -50,7 +50,7 @@ A Liberty server configuration is centralized in a single `server.xml` file that
 folder.
 
 {{< note title="WebSphere Liberty vs Open Liberty" class="info" >}}
-Camunda requires certain Liberty features that are only available in the WebSphere Liberty edition. As a
+Camunda 7 requires certain Liberty features that are only available in the WebSphere Liberty edition. As a
 result, Open Liberty is not supported by Camunda 7.
 {{< /note >}}
 
