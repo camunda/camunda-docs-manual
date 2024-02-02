@@ -1,6 +1,6 @@
 ---
 
-title: 'Camunda License Book'
+title: 'Camunda 7 License Book'
 weight: 20
 
 menu:
