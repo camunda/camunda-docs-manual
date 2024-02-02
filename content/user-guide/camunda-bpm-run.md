@@ -1,6 +1,6 @@
 ---
 
-title: 'Camunda Run'
+title: 'Camunda 7 Run'
 weight: 50
 
 menu:
