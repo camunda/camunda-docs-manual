@@ -1,6 +1,6 @@
 ---
 
-title: "Run Camunda using Karaf / OSGi"
+title: "Run Camunda 7 using Karaf / OSGi"
 weight: 39
 
 menu:
