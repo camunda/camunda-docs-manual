@@ -1,6 +1,6 @@
 ---
 
-title: "Install Camunda Run"
+title: "Install Camunda 7 Run"
 weight: 05
 
 menu:
