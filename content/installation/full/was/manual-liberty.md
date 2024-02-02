@@ -247,7 +247,7 @@ You need to perform the following steps to install the EAR archive on WebSphere 
 3. Define an `enterpriseApplication` element in the `server.xml`.
 4. Reference the Camunda shared library in the `enterpriseApplication` inside the `server.xml`.
 * The Camunda shared library is referenced by adding a `classloader` element.
-1. (optional) [Configure location of the `bpm-platform.xml` file][bpm-platform-xml-config].
+5. (optional) [Configure location of the `bpm-platform.xml` file][bpm-platform-xml-config].
 
 After performing the steps above, the `server.xml` should contain the following:
 
