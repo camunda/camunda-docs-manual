@@ -80,8 +80,8 @@ See our user guide for complete documentation on the [LDAP Identity Provider Plu
 ## HAL Resource Caching
 
 If you use LDAP as Identity Provider, you should consider [activating caching]({{< ref "/reference/rest/overview/hal.md#caching-of-hal-relations" >}}) of
-Users and Groups in the Camunda web application. In order to activate this, add the following
-configuration to the `web.xml` file of the Camunda web application
+Users and Groups in the Camunda 7 web application. In order to activate this, add the following
+configuration to the `web.xml` file of the Camunda 7 web application
 (`camunda-webapp-wildfly-$PLATFORM_VERSION.war/WEB-INF/lib` or `camunda-webapp-jboss-$PLATFORM_VERSION.war/WEB-INF/lib`):
 
 ```xml
@@ -134,7 +134,7 @@ configuration to the `web.xml` file of the Camunda web application
     </module>
       ```
       
-    The `module.xml` file is included in the Camunda Platform distribution. If you install Camunda Platform on a vanilla Wildfly container, this file needs to be created manually.
+    The `module.xml` file is included in the Camunda 7 distribution. If you install Camunda 7 on a vanilla Wildfly container, this file needs to be created manually.
 3. [Configure the process engine plugin]({{< ref "/user-guide/runtime-container-integration/jboss.md#extend-a-process-engine-using-process-engine-plugins" >}}) in the standalone.xml/domain.xml configuration file
 
 ## Session Cookie in Webapps
