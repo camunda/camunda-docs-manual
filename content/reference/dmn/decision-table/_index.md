@@ -59,7 +59,7 @@ attribute on the `decision` element.
 Just as the `name`, the `id` can be changed via the Properties Panel after selecting 
 the respective "Decision" in the [Decision Requirements Diagram] view.
 
-Each decision should have an unique id when it is [deployed] to the Camunda Platform.
+Each decision should have an unique id when it is [deployed] to Camunda 7.
 The engine uses the id as the decision key of the deployed
 `DecisionDefinition`.
 
