@@ -51,7 +51,7 @@ If you want the process engine to be registered with the Camunda 7 ProcessEngine
     <Resource name="java:global/camunda-bpm-platform/process-engine/ProcessEngineService!org.camunda.bpm.ProcessEngineService"
               auth="Container"
               type="org.camunda.bpm.ProcessEngineService"
-              description="Camunda 7 Process Engine Service"
+              description="Camunda Platform Process Engine Service"
               factory="org.camunda.bpm.container.impl.jndi.ProcessEngineServiceObjectFactory" />
 
     <Resource name="java:global/camunda-bpm-platform/process-engine/ProcessApplicationService!org.camunda.bpm.ProcessApplicationService"
