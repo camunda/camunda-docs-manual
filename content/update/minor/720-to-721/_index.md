@@ -22,6 +22,7 @@ This document guides you through the update from Camunda Platform `7.20.x` to `7
 1. For developers: [Update Java External Task Client's Apache HttpClient to version 5](#update-java-external-task-client-s-apache-httpclient-to-version-5)
 1. For developers: [Changed trigger order of built-in task listeners](#changed-trigger-order-of-built-in-task-listeners)
 1. For administrators and developers: [Cockpit's process definition like search changed to case-insensitive](#cockpit-s-process-definition-like-search-changed-to-case-insensitive)
+1. For developers: [External MDC properties are isolated from the engine's processing](#external-mdc-properties-are-isolated-from-engine-processing)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.21.
 
@@ -73,7 +74,6 @@ This means an update to this version requires code and configuration adjustments
 [HttpClient53]: https://hc.apache.org/httpcomponents-client-5.3.x/index.html
 [HttpClient53-migration]: https://hc.apache.org/httpcomponents-client-5.3.x/migration-guide/index.html
 
-
 # Changed trigger order of built-in task listeners
 
 Built-in task listeners are used internally by the engine and not intended to be used by the user. User-defined task listeners are handled separately. Before this release, the order in which builtin task listeners were executed could depend on how the task was executed. This [bug report](https://github.com/camunda/camunda-bpm-platform/issues/4042) describes a scenario where after a process instance modification, the order of the builtin task listeners was reversed.
@@ -93,3 +93,9 @@ This will allow a better experience when looking for process definitions.
 
 The change also affects the API that provides the data for the search component.
 This API is an internal API, which means it's **not** part of the public [REST API]({{< ref "/reference/rest" >}}), so the change should not affect any customers.
+
+# External MDC properties are isolated from engine processing
+
+The previous behavior of _clearing the MDC tuples associated with Logging Context Parameters_ has been changed in this release. Starting from `7.21`, the new behavior preserves any logging context parameter entries found in the MDC to better isolate the engine processing from any external MDC user configuration.
+
+Use cases that require the legacy behaviour (clearing of the MDC logging context parameter tuples after the engine processing) can opt for clearing the MDC programmatically.
