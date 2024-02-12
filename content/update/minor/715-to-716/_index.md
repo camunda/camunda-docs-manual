@@ -151,7 +151,7 @@ Please consult the [Configure Script Engine Guide] on how to achieve this.
 
 ## Default JavaScript engine
 
-The Camunda 7 [Pre-Packaged Distributions] and [Camunda 7 Run] can include GraalVM JavaScript as of version 7.16.
+Camunda 7 [Pre-Packaged Distributions] and [Camunda 7 Run] can include GraalVM JavaScript as of version 7.16.
 If you run those distributions on any Java version prior to Java 15, the JVM also includes the Nashorn scripting engine by default.
 Thus, the JVM might have to choose from two JavaScript engines when executing scripts for languages `javascript` and `ecmascript`.
 

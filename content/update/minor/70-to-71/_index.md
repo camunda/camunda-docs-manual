@@ -18,7 +18,7 @@ This guide uses a number of variables to denote common path names and constants:
 
 *`$DATABASE` expresses the target database platform, e.g., DB2, MySql, etc.
 *`$DISTRIBUTION_PATH` represents the path of the downloaded pre-packaged Camunda 7 distribution, e.g., `camunda-bpm-tomcat-$PLATFORM_VERSION.zip` or `camunda-bpm-tomcat-$PLATFORM_VERSION.tar.gz` for Tomcat etc.
-*`$PLATFORM_VERSION` denotes the version of the Camunda 7 you want to install, e.g., `7.1.0`.
+*`$PLATFORM_VERSION` denotes the version of Camunda 7 you want to install, e.g., `7.1.0`.
 
 {{< /note >}}
 

@@ -90,7 +90,7 @@ As an alternative, process application developers can migrate script code by rep
 
 ## 3. Configure Optional Camunda 7 Modules
 
-In addition, there are modules for Camunda Connect, Camunda Spin, the Freemarker template language and Groovy scripting that extend the Camunda 7 functionality. Since all these artifacts add new functionality, the following steps are not required for migration.
+In addition, there are modules for Camunda Connect, Camunda Spin, the Freemarker template language and Groovy scripting that extend Camunda 7 functionality. Since all these artifacts add new functionality, the following steps are not required for migration.
 
 ## Camunda Connect
 

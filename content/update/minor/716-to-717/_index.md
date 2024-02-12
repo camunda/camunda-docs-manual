@@ -213,7 +213,7 @@ The extension allows users to access the process engine and its API in JUnit 5 t
 
 ## Versioning of the JUnit 5 extension
 
-From now on the JUnit 5 extension will be released together with the Camunda 7. This also means they will share the same version (e.g. 7.17.0, 7.17.1, etc.).
+From now on the JUnit 5 extension will be released together with Camunda 7. This also means they will share the same version (e.g. 7.17.0, 7.17.1, etc.).
 
 ## JUnit 5 Maven coordinates
 
@@ -235,14 +235,14 @@ The source code of [Camunda 7 Assert]({{< ref "/user-guide/testing#camunda-asser
 
 Moving the project has several implications:
 
-* Camunda 7 Assert version is now tied to the Camunda 7 7 release.
+* Camunda 7 Assert version is now tied to the Camunda 7 release.
 * The Maven group id for Camunda 7 Assert [changed](#camunda-platform-assert-maven-coordinates).
 * Camunda 7 Assert uses AssertJ under the hood. The version of AssertJ is tied to the version that the latest version of Spring Boot currently supported by Camunda 7 uses.
 Find details on supported AssertJ versions in the version [compatibility table]({{< ref "/user-guide/testing/_index.md#assertions-version-compatibility" >}}) in the testing documentation.
 
 ## Versioning of Camunda 7 Assert
 
-From now on Camunda 7 Assert will be released together with the Camunda 7. This also means they will share the same version (e.g. 7.17.0, 7.17.1, etc.).
+From now on Camunda 7 Assert will be released together with Camunda 7. This also means they will share the same version (e.g. 7.17.0, 7.17.1, etc.).
 
 ## Camunda 7 Assert Maven coordinates
 
