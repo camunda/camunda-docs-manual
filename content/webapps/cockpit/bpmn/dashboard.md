@@ -45,7 +45,7 @@ You can also switch to the preview tab which displays the rendered process model
 # Process Instances Search
 
 {{< enterprise >}}
-Please note that this feature is only included in the enterprise edition of the Camunda Platform, it is not available in the community edition.
+Please note that this feature is only included in the enterprise edition of Camunda 7, it is not available in the community edition.
 {{< /enterprise >}}
 
 {{< img src="../../img/cockpit-search.png" title="cockpit Search" >}}
@@ -145,7 +145,7 @@ start editing by clicking on the value. You can expand the value in a modal dial
 # Delete process definitions
 
 {{< enterprise >}}
-Please note that this feature is only included in the enterprise edition of the Camunda Platform, it is not available in the community edition.
+Please note that this feature is only included in the enterprise edition of Camunda 7, it is not available in the community edition.
 {{< /enterprise >}}
 
 {{< img src="../../img/cockpit-delete-process-definition.png" title="Delete Process Definition" >}}

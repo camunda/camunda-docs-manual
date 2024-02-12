@@ -12,7 +12,7 @@ menu:
 ---
 
 {{< note title="Plugin Compatibility" class="info" >}}
-Please note that we updated the frontend plugin interface with Camunda Platform Runtime 7.14. Plugins written for Camunda Platform Runtime 7.13 and earlier might no longer work with Camunda Platform Runtime 7.14. Checkout the [update guide]({{< ref "/update/minor/713-to-714" >}}) for more details.
+Please note that we updated the frontend plugin interface with Camunda Runtime 7.14. Plugins written for Camunda Runtime 7.13 and earlier might no longer work with Camunda Runtime 7.14. Checkout the [update guide]({{< ref "/update/minor/713-to-714" >}}) for more details.
 {{< /note >}}
 
 Cockpit defines a plugin concept to add own functionality without being forced to extend or hack the Cockpit web application. You can add plugins at various plugin points, e.g., the processes dashboard as shown in the following example:
@@ -152,11 +152,11 @@ In this example we deactivate the cancel action in the Cockpit process instance 
 ```
 
 # Legacy Plugins
-Plugins created for Camunda Platform 7.13 or earlier can be included for compatibility. To achieve this, simply prefix your Plugin ID with `legacy-`. The AngularJS module name for the entry module will be `cockpit.plugin.legacy-*`.
+Plugins created for Camunda 7.13 or earlier can be included for compatibility. To achieve this, simply prefix your Plugin ID with `legacy-`. The AngularJS module name for the entry module will be `cockpit.plugin.legacy-*`.
 
 Please note that all Plugins with this prefix will be included using the 7.13 plugin mechanism. You cannot create new Plugins with IDs starting with `legacy`.
 
-For more details about legacy Plugins, check out the legacy [Plugin documentation](https://docs.camunda.org/manual/7.13/webapps/cockpit/extend/plugins/). Please note that this link will take you to the documentation of Camunda Platform **7.13** .
+For more details about legacy Plugins, check out the legacy [Plugin documentation](https://docs.camunda.org/manual/7.13/webapps/cockpit/extend/plugins/). Please note that this link will take you to the documentation of Camunda **7.13** .
 
 # Plugin points
 
