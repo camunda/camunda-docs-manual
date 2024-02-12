@@ -12,10 +12,10 @@ menu:
 
 
 The following steps describe how to update the Camunda artifacts on IBM WebSphere application server Liberty in a shared process engine setting. 
-Throughout the procedure, refer to the [update guide][update-guide]. If not already done, download the [Camunda Platform 7.21 IBM WebSphere distribution][was-distribution].
+Throughout the procedure, refer to the [update guide][update-guide]. If not already done, download the [Camunda 7.21 IBM WebSphere distribution][was-distribution].
 
 {{< note title="Removed support for WebSphere 9" class="info" >}}
-Support for WebSphere 9 was discontinued with the Camunda Platform 7.21.0 release. The artifacts used in this guide might be compatible with a WebSphere 9 application server. However, this is not tested and is not covered by Camunda product support.
+Support for WebSphere 9 was discontinued with the Camunda 7.21.0 release. The artifacts used in this guide might be compatible with a WebSphere 9 application server. However, this is not tested and is not covered by Camunda product support.
 {{< /note >}}
 
 The update procedure takes the following steps:
@@ -23,7 +23,7 @@ The update procedure takes the following steps:
 1. Uninstall the Camunda libraries and archives.
 2. Replace Camunda core libraries.
 3. Replace optional Camunda dependencies.
-4. Maintain the Camunda Platform configuration.
+4. Maintain the Camunda 7 configuration.
 5. Install the Camunda Archive.
 6. Install the web applications.
 
@@ -105,9 +105,9 @@ The following libraries replace the single `groovy-all-$GROOVY_VERSION.jar` libr
 * `groovy-xml-$GROOVY_VERSION.jar`
 * `groovy-templates-$GROOVY_VERSION.jar`
 
-# 4. Maintain the Camunda Platform configuration
+# 4. Maintain the Camunda 7 configuration
 
-If you have previously replaced the default Camunda Platform configuration with a custom configuration following any of 
+If you have previously replaced the default Camunda 7 configuration with a custom configuration following any of 
 the methods outlined in the [deployment descriptor reference][configuration-location], it may be necessary to restore 
 this configuration. This can be done by repeating the configuration replacement steps for the updated platform.
 

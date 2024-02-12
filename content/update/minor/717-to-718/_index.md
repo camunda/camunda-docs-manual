@@ -13,7 +13,7 @@ menu:
 
 ---
 
-This document guides you through the update from Camunda Platform `7.17.x` to `7.18.0` and covers the following use cases:
+This document guides you through the update from Camunda `7.17.x` to `7.18.0` and covers the following use cases:
 
 1. For administrators and developers: [Database updates](#database-updates)
 1. For administrators and developers: [Full distribution update](#full-distribution)
@@ -29,7 +29,7 @@ This document guides you through the update from Camunda Platform `7.17.x` to `7
 1. For developers: [Discontinue Camunda H2 console webapp](#discontinue-camunda-h2-console-web-app)
 1. For administrators and developers: [REST API artifact `camunda-engine-rest-jaxrs2` discontinued](#rest-api-artifact-camunda-engine-rest-jaxrs2-discontinued)
 
-This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.18.
+This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda 7.18.
 
 # Database updates
 
@@ -47,7 +47,7 @@ The following steps are required:
 1. Update the Camunda libraries and applications inside the application server.
 2. Migrate custom process applications.
 
-Before starting, ensure you have downloaded the Camunda Platform 7.18 distribution for the application server you use. This contains the SQL scripts and libraries required for the update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
+Before starting, ensure you have downloaded the Camunda 7.18 distribution for the application server you use. This contains the SQL scripts and libraries required for the update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
 
 ## Camunda libraries and applications
 
@@ -81,10 +81,9 @@ Take the following steps to complete the update:
 
 # Groovy version update
 
-Camunda Platform 7 provides the Groovy script engine by default with the pre-packaged distributions. With Camunda Platform
-7.18, we bumped Groovy to version `2.4.21`. With this Groovy version bump, we decided to move away from the `groovy-all-$GROOVY_VERSION.jar` 
+Camunda 7 provides the Groovy script engine by default with the pre-packaged distributions. With Camunda 7.18, we bumped Groovy to version `2.4.21`. With this Groovy version bump, we decided to move away from the `groovy-all-$GROOVY_VERSION.jar` 
 since newer Groovy versions [don't provide a `groovy-all-$GROOVY_VERSION.jar` anymore](https://groovy-lang.org/releasenotes/groovy-2.5.html).
-Therefore, you will find the following Groovy-related libraries in the Camunda Platform 7.18 pre-packed distributions:
+Therefore, you will find the following Groovy-related libraries in the Camunda 7.18 pre-packed distributions:
 
 * `groovy-$GROOVY_VERSION.jar`
 * `groovy-jsr223-$GROOVY_VERSION.jar`
@@ -96,13 +95,13 @@ The `groovy` and `groovy-jsr-223` Groovy modules are required for correct operat
 Since the `groovy-all.jar` included a lot more than `groovy` and `groovy-jsr-223` modules, we decided to provide additional useful Groovy modules.
 
 Camunda users relying on Groovy for their scripts need to replace the libraries as described in the
-[Camunda libraries and applications](#camunda-libraries-and-applications) guide for their application server. Camunda Platform Run users need to replace the `groovy-all-$GROOVY_VERSION.jar` in the `{RUN_HOME}/configuration/userlib/` directory with the `.jar` libraries from the list above.
+[Camunda libraries and applications](#camunda-libraries-and-applications) guide for their application server. Camunda 7 Run users need to replace the `groovy-all-$GROOVY_VERSION.jar` in the `{RUN_HOME}/configuration/userlib/` directory with the `.jar` libraries from the list above.
 
 Camunda users who don't rely on Groovy can ignore this section.
 
 # Camunda Docker Images: Base image updated to Alpine 3.15
 
-With Camunda Platform 7.18, Alpine, the base image in Camunda’s Docker images, has been updated from version 3.13 to 3.15.
+With Camunda 7.18, Alpine, the base image in Camunda’s Docker images, has been updated from version 3.13 to 3.15.
 
 We went through the release notes to identify breaking changes and could identify the following:
 
@@ -118,7 +117,7 @@ If you have extended the Camunda docker images yourself, please read the release
 
 # XLTS for AngularJS
 
-Camunda Platform 7.18.0 replaces the AngularJS libraries with XLTS for AngularJS. Where AngularJS was licensed entirely under the MIT license, XLTS for AngularJS licenses additional parts under the XLTS for AngularJS – EULA. By downloading and using Camunda with XLTS for AngularJS, you agree to the terms of the XLTS for AngularJS – EULA. Please see our [third-Party libraries documentation]({{< ref "/introduction/third-party-libraries/_index.md#xlts-for-angularjs" >}}) for details and the terms of the EULA.
+Camunda 7.18.0 replaces the AngularJS libraries with XLTS for AngularJS. Where AngularJS was licensed entirely under the MIT license, XLTS for AngularJS licenses additional parts under the XLTS for AngularJS – EULA. By downloading and using Camunda with XLTS for AngularJS, you agree to the terms of the XLTS for AngularJS – EULA. Please see our [third-Party libraries documentation]({{< ref "/introduction/third-party-libraries/_index.md#xlts-for-angularjs" >}}) for details and the terms of the EULA.
 
 # Stricter default Content Security Policy
 
@@ -146,7 +145,7 @@ Additionally, you can find out more about logging in the [Logging User Guide]({{
 
 # Adjusted class structure for Expression Language handling
 
-To provide a more convenient pluggability of the [Unified Expression Language (EL)]({{< ref "/user-guide/process-engine/expression-language.md" >}}) used in the engine, the structure of related classes changes with Camunda Platform 7.18.
+To provide a more convenient pluggability of the [Unified Expression Language (EL)]({{< ref "/user-guide/process-engine/expression-language.md" >}}) used in the engine, the structure of related classes changes with Camunda 7.18.
 The `ExpressionManager` class is now a Java `Interface` that needs to be implemented to provide a custom expression manager for the EL of your choice. If you still want to extend the default JUEL-based expression manager, you can subclass the new `JuelExpressionManager` class.
 
 Additionally, if you want your custom expression manager to be available in the DMN Engine, you can implement the new `ElProviderCompatible` interface in your expression manager as well.
@@ -198,7 +197,7 @@ All the batch jobs started after the update will populate this field properly.
 
 # Discontinue Camunda H2 console web app
 
-The Camunda Platform 7.18.0 release removes the H2 console application from the Tomcat and WildFly distributions. There will not be any further releases of the Camunda H2 console web app going forward.
+The Camunda 7.18.0 release removes the H2 console application from the Tomcat and WildFly distributions. There will not be any further releases of the Camunda H2 console web app going forward.
 
 ## Removed the H2 console app from Camunda distributions
 
