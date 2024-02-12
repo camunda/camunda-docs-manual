@@ -34,7 +34,7 @@ Before you can install the Camunda components, you need to perform a number of r
 
 ## Resource Configuration
 
-The Camunda Platform requires a set of resources that need to be configured at the application server level:
+Camunda 7 requires a set of resources that need to be configured at the application server level:
 
 * One or multiple datasources to be used by the engine.
 * A work manager for the job executor.
@@ -118,7 +118,7 @@ camunda-ee-oracle-wls-$PLATFORM_VERSION.zip
       |-- camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear
 ```
 
-The `camunda-oracle-weblogic-ear` is a Java EE application providing the Camunda services. It contains an embedded JCA Resource Adapter, the camunda-oracle-weblogic-rar, which provides the jobexecutor service to the Camunda Platform.
+The `camunda-oracle-weblogic-ear` is a Java EE application providing the Camunda services. It contains an embedded JCA Resource Adapter, the camunda-oracle-weblogic-rar, which provides the jobexecutor service to Camunda 7.
 It must be installed to your Oracle WebLogic Application Server.
 
 
