@@ -1,7 +1,7 @@
 ---
 
 title: 'History cleanup'
-weight: 140
+weight: 30
 
 menu:
   main:
@@ -116,7 +116,7 @@ Limitations:
 
 * End time is only stored in the instances tables (`ACT_HI_PROCINST`, `ACT_HI_CASEINST`, `ACT_HI_DECINST` and `ACT_HI_BATCH`). To delete data from all history tables, the cleanable instances are first fetched via a `SELECT` statement. Based on that, `DELETE` statements are made for each history table. These statements can involve joins. This is less efficient than removal-time-based history cleanup.
 * Instance hierarchies are not cleaned up atomically. Since the individual instances have different end times, they are going to be cleaned up at different times. In consequence, hierarchies can appear partially removed.
-* [Historic Instance Permissions] are not cleaned up.
+* [Historic Instance Permissions]({{< ref "/user-guide/process-engine/authorization-service.md#historic-instance-permissions" >}}) are not cleaned up.
 * [History Cleanup Jobs]({{< ref "/user-guide/process-engine/history/history-cleanup.md#historycleanupjobs-in-the-historic-job-log">}}) are not removed from the historic job log.
 
 ## Cleanup internals
@@ -349,4 +349,3 @@ related to the cleanup execution since the particular node ignores them.
 time to live, removal time strategy) still need to be defined among all nodes. 
 
 [configuration-options]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#history-cleanup-configuration-parameters">}}
-
