@@ -617,7 +617,7 @@ runtimeService.createProcessInstanceModification(processInstanceId)
   .annotation("Modified to resolve an error.")
   .execute();
 ```
-It will be visible in [User Operation Log]({{< ref "/user-guide/process-engine/history/history-configuration.md#annotation-of-user-operation-logs" >}}) for the performed modification.
+It will be visible in [User Operation Log]({{< ref "/user-guide/process-engine/history/user-operation-log.md#annotation-of-user-operation-logs" >}}) for the performed modification.
 
 ## Soundness Checks
 

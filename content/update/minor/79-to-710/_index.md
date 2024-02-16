@@ -189,7 +189,7 @@ To gain a better understanding of the new cleanup strategy, please see the updat
 [History Cleanup]({{< ref "/user-guide/process-engine/history/history-cleanup.md">}}) feature. 
 
 ### Custom History Level
-If you have implemented a [Custom History Level]({{< ref "/user-guide/process-engine/history/history-configuration.md#implement-a-custom-history-level">}}) 
+If you have implemented a [Custom History Level]({{< ref "/user-guide/process-engine/history/custom-implementation.md#implement-a-custom-history-level">}}) 
 and you want to use it in conjunction with the removal time based cleanup strategy, please also see the documentation about 
 [Removal Time Inheritance]({{< ref "/user-guide/process-engine/history/history-configuration.md#removal-time-inheritance">}}).
 
