@@ -10,7 +10,7 @@ menu:
 
 ---
 
-# Provide a Custom History Backend
+# Provide a custom history backend
 
 In order to understand how to provide a custom history backend, it is useful to first look at a more detailed view of the history architecture:
 
@@ -35,7 +35,7 @@ Exchanging the History Event Handler with a custom implementation allows users t
 Note that providing your custom `HistoryEventHandler` in a Spring Boot Starter environment works slightly differently. By default, the Camunda Spring Boot starter uses a `CompositeHistoryEventHandler` which wraps a list of HistoryEventHandler implementations that you can provide via the `customHistoryEventHandlers` engine configuration property. If you want to override the default `DbHistoryEventHandler`, you have to explicitly set the `enableDefaultDbHistoryEventHandler` engine configuration property to `false`.
 {{< /note >}}
 
-# Implement a Custom History Level
+# Implement a custom history level
 
 To provide a custom history level the interface `org.camunda.bpm.engine.impl.history.HistoryLevel` has to be implemented. The custom history level implementation
 then has to be added to the process engine configuration, either by configuration or a process engine plugin.
@@ -88,7 +88,7 @@ event for some instances of an event it must still return `true` if `entity` is 
 
 Please have a look at this [complete example][2] to get a better overview.
 
-## Removal Time Inheritance
+## Removal time inheritance
 Historic instances inherit the [removal time]({{< relref "#removal-time" >}}) from the respective historic top-level
 instance. If the custom history level is configured in a way, so that the historic top-level instance is not written,
 the removal time is not available.
@@ -99,7 +99,7 @@ The following historic instances are considered as top-level instances:
 * Root process instance
 * Root decision instance
 
-## User Operation Logs and Custom History Level
+## User operation logs and custom history level
 
 The following implementation is required in order to enable User Operation Logs:
 

@@ -1,6 +1,6 @@
 ---
 
-title: 'History concept and configuration'
+title: 'Concept and history level'
 weight: 10
 
 menu:
@@ -21,7 +21,7 @@ The process engine maintains the state of running process instances inside the d
 Since the process engine does not rely on the presence of the history database for generating the history event stream, it is possible to provide different backends for storing the history event stream. The default backend is the `DbHistoryEventHandler` which logs the event stream to the history database. It is possible to exchange the backend and provide a custom storage mechanism for the history event log.
 
 
-# Choose a History Level
+# Choose a history level
 
 The history level controls the amount of data the process engine provides via the history event stream. The following settings are available out of the box:
 
@@ -49,7 +49,7 @@ The history level controls the amount of data the process engine provides via th
 If you need to customize the amount of history events logged, you can provide a custom implementation {{< javadocref page="org/camunda/bpm/engine/impl/history/producer/HistoryEventProducer.html" text="HistoryEventProducer" >}} and wire it in the process engine configuration.
 
 
-# Set the History Level
+# Set the history level
 
 The history level can be provided as a property in the process engine configuration. Depending on how the process engine is configured, the property can be set using Java code:
 
@@ -74,12 +74,12 @@ Note that when using the default history backend, the history level is stored in
 
 TODO link to custom history level.
 
-# The Default History Implementation
+# Default history implementation
 
 The default history database writes History Events to the appropriate database tables. The database tables can then be queried using the `HistoryService` or using the REST API.
 
 
-## History Entities
+## History entities
 
 There are the following History entities, which - in contrast to the runtime data - will also remain present in the DB after process and case instances have been completed:
 
@@ -111,7 +111,7 @@ For every process instance process engine will create single record in history d
 
 Among them following states can be triggered externally, for example through REST API or Cockpit: ACTIVE, SUSPENDED, EXTERNALLY_TERMINATED.
 
-## Query History
+## Query history
 
 The HistoryService exposes the methods `createHistoricProcessInstanceQuery()`,
 `createHistoricVariableInstanceQuery()`, `createHistoricCaseInstanceQuery()`,
@@ -314,7 +314,7 @@ historyService.createHistoricExternalTaskLogQuery()
   .list();
 ```
 
-## History Report
+## History report
 
 You can use the reports section to retrieve custom statistics and reports. Currently, we support the following kinds of reports:
 
@@ -324,7 +324,7 @@ You can use the reports section to retrieve custom statistics and reports. Curre
 
 
 
-### Instance Duration Report
+### Instance duration report
 
 Retrieves a report about the duration of completed process instances, grouped by a specified period. These reports include the maximum, minimum and average duration of all completed process instances, which were started in the specified period. The following code snippet retrieves a report for every month since the engine was started:
 
@@ -354,7 +354,7 @@ historyService.createHistoricProcessInstanceReport()
   .duration(PeriodUnit.MONTH);
  ```
 
-### Task Report
+### Task report
 
 Retrieves a report of completed tasks. For the task report there are two possible report types: count and duration.
 
@@ -376,7 +376,7 @@ historyService
 
 The supported period times and the confinement of the query works analogously to [Instance Duration Report]({{< relref "#instance-duration-report" >}}).
 
-### Finished Instance Report
+### Finished instance report
 
 Retrieves a report of finished process, decision or case instances. The report helps the user to tune the history time to live for definitions. They can see a summary of the historic data which can be cleaned after history cleanup. The output fields are definition id, key, name, version, count of the finished instances and count of the 'cleanable' instances.
 
@@ -394,7 +394,7 @@ historyService
   .list();
 ```
 
-## Partially Sorting History Events by Their Occurrence
+## Partially sorting history events by their occurrence
 
 Sometimes you want to sort history events in the order in which they
 occurred. Please note that timestamps cannot be used for that.

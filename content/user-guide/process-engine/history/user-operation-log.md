@@ -13,16 +13,16 @@ menu:
 
 The user operation log contains entries for many API operations and can be used for auditing purposes. It provides data on what kind of operations are performed as well as details on the changes involved in the operation. Operations are logged when the operation is performed in the context of a logged in user. To use the operation log, the process engine history level must be set to `FULL`.
 
-## Write Log Entries Regardless of User Authentication Context
+## Write log entries regardless of user authentication context
 
 If it is desired that operations are logged regardless whether they are performed in the context of a logged in user or not, then the process engine configuration flag named `restrictUserOperationLogToAuthenticatedUsers` can be set to `false`.
 
-## Access the User Operation Log
+## Access the user operation log
 
 The user operation log can be accessed via the Java API. The history service can be used to execute a `UserOperationLogQuery` by calling `historyService.createUserOperationLogQuery().execute()`. The query can be restricted with various filtering options. The query is also {{< restref page="queryUserOperationEntries" text="exposed in the REST API" tag="Historic-User-Operation-Log" >}}.
 
 
-## User Operation Log Entries
+## User operation log entries
 
 The log consists of *operations* and *entries*. An operation corresponds to one performed action and consists of multiple entries, at least one. Entries contain the detailed changes being part of the operation. When making a user operation log query, the returned entities are of type `UserOperationLogEntry`, corresponding to entries. All entries of one operation are linked by an operation id.
 
@@ -40,7 +40,7 @@ A user operation log entry has the following properties:
 * **Old Property Value**: The previous value of the changed property. A  `null` value either indicates that the property was previously `null` or is not known.
 * **New Property Value**: The new value of the changed property.
 
-## Annotation of User Operation Logs
+## Annotation of user operation logs
 
 User Operation Logs are helpful to audit manual operations. To make it obvious why a certain 
 operation was performed, sometimes it is not enough to only log technical information (e. g. 
@@ -71,7 +71,7 @@ historyService.clearAnnotationForOperationLogById(operationId);
 Please also see the REST API reference for {{< restref page="setAnnotationUserOperationLog" text="setting" tag="Historic-User-Operation-Log" >}} and 
 {{< restref page="clearAnnotationUserOperationLog" text="clearing" tag="Historic-User-Operation-Log" >}} annotations.
 
-## Glossary of Operations Logged in the User Operation Log
+## Glossary of operations logged in the user operation log
 
 The following describes the operations logged in the user operation log and the entries that are created as part of it:
 
