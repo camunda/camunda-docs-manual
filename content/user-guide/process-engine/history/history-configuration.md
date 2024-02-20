@@ -48,6 +48,7 @@ The history level controls the amount of data the process engine provides via th
 
 If you need to customize the amount of history events logged, you can provide a custom implementation {{< javadocref page="org/camunda/bpm/engine/impl/history/producer/HistoryEventProducer.html" text="HistoryEventProducer" >}} and wire it in the process engine configuration.
 
+In case of specific needs, you can also create a [custom history level]({{< ref "/user-guide/process-engine/history/custom-implementation.md#implement-a-custom-history-level">}}).
 
 # Set the history level
 
@@ -72,7 +73,7 @@ Note that when using the default history backend, the history level is stored in
 [The Camunda Platform Cockpit]({{< ref "/webapps/cockpit/_index.md" >}}) web application works best with History Level set to `FULL`. "Lower" History Levels will disable certain history-related features.
 {{< /note >}}
 
-TODO link to custom history level.
+
 
 # Default history implementation
 
