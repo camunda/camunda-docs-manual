@@ -1,6 +1,6 @@
-# The Camunda Platform Documentation Sources
+# The Camunda 7 Documentation Sources
 
-This repository contains the sources of the Camunda Platform Documentation.
+This repository contains the sources of the Camunda 7 documentation.
 
 **Important:** _do NOT change the content of `themes/camunda` directory directly!_
 Instead, change the [theme](//github.com/camunda/camunda-docs-theme).
