@@ -34,7 +34,7 @@ Run Camunda in every Java-runnable environment. Camunda is supported with our QA
 
 * Apache Tomcat 9.0
 * JBoss EAP 7.4
-* WildFly Application Server 23.0 / 26.0 / 27.0 / 29.0
+* WildFly Application Server 23.0 / 26.0 / 27.0 / 29.0 / 31.0
 * IBM WebSphere Liberty 22 with Java EE 8 features ([Enterprise Edition only](http://camunda.com/enterprise/), 
   see [Installation guide]({{< ref "/installation/full/was/manual-liberty.md" >}}))
 * Oracle WebLogic Server 14c (14R1) ([Enterprise Edition only](http://camunda.com/enterprise/))
@@ -72,13 +72,13 @@ Clustered or replicated databases are supported given the following conditions. 
 
 # Java
 
-* Java 11 / 17 (if supported by your application server/container)
+* Java 11 / 17 / 21 (if supported by your application server/container)
 
 
 # Java Runtime
 
-* Oracle JDK 11 / 17
-* OpenJDK 11 / 17, including builds of the following products:
+* Oracle JDK 11 / 17 / 21
+* OpenJDK 11 / 17 / 21, including builds of the following products:
   * Oracle OpenJDK
   * Eclipse Temurin JDK
   * Amazon Corretto

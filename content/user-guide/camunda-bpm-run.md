@@ -1,6 +1,6 @@
 ---
 
-title: 'Camunda Platform Run'
+title: 'Camunda 7 Run'
 weight: 50
 
 menu:
@@ -10,17 +10,17 @@ menu:
 
 ---
 
-This guide gives an introduction to Camunda Platform Run, a pre-packaged, lightweight distribution of the Camunda Platform. Camunda Platform Run is easy to configure and does not require Java knowledge.
+This guide gives an introduction to Camunda Run, a pre-packaged, lightweight distribution of Camunda 7. Camunda Run is easy to configure and does not require Java knowledge.
 
 # Prerequisites and audience
 
-To use this guide, you should at least know what Camunda Platform is and what it does. Check out the [Get Started guides](https://docs.camunda.org/get-started/quick-start/) if you have never used Camunda Platform before. The [Installation guide]({{< ref "/installation/camunda-bpm-run.md" >}}) is also worth looking at if you are completely new to Camunda Platform.
+To use this guide, you should at least know what Camunda 7 is and what it does. Check out the [Get Started guides](https://docs.camunda.org/get-started/quick-start/) if you have never used Camunda 7 before. The [Installation guide]({{< ref "/installation/camunda-bpm-run.md" >}}) is also worth looking at if you are completely new to Camunda 7.
 
-This guide will teach you about Camunda Platform Run and how to configure it. It can serve as a reference page for configuration and operation options. It will not give you a step-by-step guide on how to install Camunda Platform Run. Head over to the [Installation guide]({{< ref "/installation/camunda-bpm-run.md" >}}) for details on how to install and start Camunda Platform Run.
+This guide will teach you about Camunda Run and how to configure it. It can serve as a reference page for configuration and operation options. It will not give you a step-by-step guide on how to install Camunda Run. Head over to the [Installation guide]({{< ref "/installation/camunda-bpm-run.md" >}}) for details on how to install and start Camunda Run.
 
-# What is Camunda Platform Run?
+# What is Camunda Run?
 
-Camunda Platform Run is a full distribution of the Camunda Platform. It includes:
+Camunda Run is a full distribution of Camunda 7. It includes:
 
 * Camunda web applications
   * Cockpit
@@ -30,9 +30,9 @@ Camunda Platform Run is a full distribution of the Camunda Platform. It includes
 * [Swagger UI](https://github.com/swagger-api/swagger-ui) (web application for exploring the REST API)
 * [An example application](#example-application)
 
-# Starting with Camunda Platform Run
+# Starting with Camunda Run
 
-To start with Camunda Platform Run, download the [distribution](https://downloads.camunda.cloud/release/camunda-bpm/run/) ([enterprise](https://downloads.camunda.cloud/enterprise-release/camunda-bpm/run/)) and unpacking it. You will find the following structure:
+To start with Camunda Run, download the [distribution](https://downloads.camunda.cloud/release/camunda-bpm/run/) ([enterprise](https://downloads.camunda.cloud/enterprise-release/camunda-bpm/run/)) and unpacking it. You will find the following structure:
 
 ```
 camunda-bpm-run
@@ -78,7 +78,7 @@ The start scripts (`start.bat` for Windows, `start.sh` for Linux/Mac) accept the
   </tr>
   <tr>
       <td><code>--webapps</code></td>
-      <td>Enables the Camunda Platform web apps</td>
+      <td>Enables the Camunda web apps</td>
       <td><code>enabled</code></td>
   </tr>
   <tr>
@@ -116,17 +116,17 @@ The start scripts (`start.bat` for Windows, `start.sh` for Linux/Mac) accept the
   </tr>
 </table>
 
-## Starting Camunda Platform Run using Docker
+## Starting Camunda Run using Docker
 
-Camunda Platform Run is also available as a Docker image. Please see the Camunda Platform Run section of the Camunda Docker documentation [here]({{< ref "/installation/docker.md#start-camunda-bpm-run-using-docker" >}}) for more details.
+Camunda Run is also available as a Docker image. Please see the Camunda Run section of the Camunda Docker documentation [here]({{< ref "/installation/docker.md#start-camunda-bpm-run-using-docker" >}}) for more details.
 
 ## Optional components
 
-By default, Camunda Platform Run launches with the web apps, REST API, Swagger UI, and example modules. If you want to enable only a subset of them, execute the start script through a command-line interface with any of the `--webapps`, `--rest`, `--swaggerui`, or `--example` properties to enable the specific modules.
+By default, Camunda Run launches with the web apps, REST API, Swagger UI, and example modules. If you want to enable only a subset of them, execute the start script through a command-line interface with any of the `--webapps`, `--rest`, `--swaggerui`, or `--example` properties to enable the specific modules.
 
 ### Example application
 
-By default, Camunda Platform Run deploys and launches an example application on startup.
+By default, Camunda Run deploys and launches an example application on startup.
 When launched, this application creates deployments with multiple BPMN and DMN definitions as well as form resources
 and starts instances of the defined processes.
 
@@ -145,11 +145,11 @@ You have to delete this data manually through the [web apps]({{< ref "/webapps/c
 
 ## Choose between default and production configuration
 
-Camunda Platform Run ships with two different configuration files which are both located in the `configuration` folder. 
+Camunda Run ships with two different configuration files which are both located in the `configuration` folder. 
 
 * The `default.yml` configuration only contains necessary configuration like the H2 database, a demo user and [CORS](#cross-origin-resource-sharing) for REST calls from a client application.
 * The `production.yml` configuration is intended to provide the recommended properties according to the [Security Instructions]({{< ref "/user-guide/security.md" >}}). 
-  When using Camunda Platform Run in a production environment, make sure to base your custom configuration on this one and carefully read through the security instructions.
+  When using Camunda Run in a production environment, make sure to base your custom configuration on this one and carefully read through the security instructions.
 
 By default, Run launches with the `default.yml` configuration. To enable the `production.yml` configuration, execute the start script with the `--production` property.
 Using `--production` disables Swagger UI and the example application. They can be enabled by explicitly passing `--swaggerui` and `--example` to the start script.
@@ -157,18 +157,18 @@ However, we do not recommended to use Swagger UI and the example application in 
 
 ## Connect to a Database
 
-Camunda Platform Run is pre-configured to use a file-based H2 database for testing. The database schema and all required tables are automatically created when the engine starts up for the first time. If you want to use a custom standalone database, follow these steps:
+Camunda Run is pre-configured to use a file-based H2 database for testing. The database schema and all required tables are automatically created when the engine starts up for the first time. If you want to use a custom standalone database, follow these steps:
 
 1. Make sure your database is among the [supported database systems]({{< ref "/introduction/supported-environments.md#supported-database-products" >}}).
-1. Create a database schema for the Camunda Platform yourself.
-1. Install the database schema to create all required tables and default indices using our [database schema installation guide]({{< ref "/installation/database-schema.md" >}}).
-1. Drop a JDBC driver jar for your database system in the `configuration/userlib` folder.
-1. Add the JDBC URL and login credentials to the configuration file like described [below](#database).
-1. Restart Camunda Platform Run
+2. Create a database schema for Camunda 7 yourself.
+3. Install the database schema to create all required tables and default indices using our [database schema installation guide]({{< ref "/installation/database-schema.md" >}}).
+4. Drop a JDBC driver jar for your database system in the `configuration/userlib` folder.
+5. Add the JDBC URL and login credentials to the configuration file like described [below](#database).
+6. Restart Camunda Run
 
 ## Deploy BPMN Models
 
-In the unpacked distro, you will find a `resources` folder. All files (including BPMN, DMN, CMMN, form, and script files) will be deployed when you start Camunda Platform Run.
+In the unpacked distro, you will find a `resources` folder. All files (including BPMN, DMN, CMMN, form, and script files) will be deployed when you start Camunda Run.
 
 You can reference forms and scripts in the BPMN diagram with `embedded:deployment:/my-form.html`, `camunda-forms:deployment:/myform.form`, or `deployment:/my-script.js`. The deployment requires adding an extra `/` as a prefix to the filename.
 
@@ -176,17 +176,17 @@ Deployments via the {{< restref page="createDeployment" text="REST API" tag="Dep
 
 ## Automatic License Pickup
 
-If you downloaded the enterprise version of Camunda Platform Run, you will need a license key to enable the enterprise 
+If you downloaded the enterprise version of Camunda Run, you will need a license key to enable the enterprise 
 features. Please see the [dedicated License section]({{< ref "/user-guide/license-use.md#with-the-camunda-spring-boot-starter-camunda-run" >}}) 
 of the docs, to learn more.
 
-# Configure Camunda Platform Run
+# Configure Camunda Run
 
-Just like all the other distros, you can tailor Camunda Platform Run to your needs. To do this, you only have to edit one of the [configuration files](#choose-between-default-and-production-configuration) that you can find in the configuration folder.
+Just like all the other distros, you can tailor Camunda Run to your needs. To do this, you only have to edit one of the [configuration files](#choose-between-default-and-production-configuration) that you can find in the configuration folder.
 
 {{< note title="Note:" class="info" >}}
-Camunda Platform Run is based on the [Camunda Spring Boot Starter](https://github.com/camunda/camunda-bpm-platform/tree/master/spring-boot-starter). 
-All [configuration properties]({{< ref "/user-guide/spring-boot-integration/configuration.md#camunda-engine-properties" >}}) from the camunda-spring-boot-starter are available to customize Camunda Platform Run.
+Camunda Run is based on the [Camunda Spring Boot Starter](https://github.com/camunda/camunda-bpm-platform/tree/master/spring-boot-starter). 
+All [configuration properties]({{< ref "/user-guide/spring-boot-integration/configuration.md#camunda-engine-properties" >}}) from the camunda-spring-boot-starter are available to customize Camunda Run.
 {{< /note >}}
 
 ## Database
@@ -294,7 +294,7 @@ If you want to allow cross-origin requests to the [REST API]({{< ref "/reference
 
 ## LDAP Identity Service
 
-Camunda Platform can manage users and authorizations on its own, but if you want to use an existing LDAP authentication database you can enable the [LDAP Identity Service Plugin]({{< ref "/user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}})
+Camunda 7 can manage users and authorizations on its own, but if you want to use an existing LDAP authentication database you can enable the [LDAP Identity Service Plugin]({{< ref "/user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}})
 which provides read-only access to the LDAP repository.
 
 Find all available configuration properties in the [LDAP Plugin Guide]({{< ref "/user-guide/process-engine/identity-service.md#configuration-properties-of-the-ldap-plugin" >}})
@@ -340,16 +340,16 @@ In the table below, observe the Camunda Run-specific properties for the Administ
 
 ## Plugin registration
 
-Camunda Platform Run supports two types of plugins. 
+Camunda Run supports two types of plugins. 
 
 * [Process engine plugins][engine-plugins] can be used to extend the process engine configuration to add more functionality.
 * [Webapp plugins][cockpit-plugins] are used to extend one of the Camunda webapps (i.e. Cockpit, Tasklist, Admin, Welcome).
 
-Both types of plugins are supported in Camunda Platform Run but have to be registered differently.
+Both types of plugins are supported in Camunda Run but have to be registered differently.
 
 ### Process engine plugin registration
 
-Camunda Platform provides a process engine plugin mechanism to enable users to add and adjust
+Camunda 7 provides a process engine plugin mechanism to enable users to add and adjust
 process engine features by extending the process engine configuration. You can use plugins developed by Camunda, or by
 third-party developers.
 
@@ -446,15 +446,15 @@ process engine.
 
 ### Webapp plugin registration
 
-Camunda Platform provides a mechanism to extend the Camunda Webapps with your own functionality. You can add plugins at various plugin points. For example, the processes dashboard in Cockpit.
+Camunda 7 provides a mechanism to extend the Camunda Webapps with your own functionality. You can add plugins at various plugin points. For example, the processes dashboard in Cockpit.
 
 A webapp plugin is a maven jar project that provides a server-side and a client-side extension to the webapp. You can find more information about how to structure your plugins [here]({{< ref "/webapps/cockpit/extend/plugins.md#the-nature-of-a-cockpit-plugin" >}}).
 
-To register a webapp plugin, simply drop the jar file into the `configuration/userlib` folder. See [the Starting with Camunda Platform Run section](#starting-with-camunda-platform-run) of this guide to find out how to navigate the directories of Camunda Platform Run.
+To register a webapp plugin, simply drop the jar file into the `configuration/userlib` folder. See [the Starting with Camunda Run section](#starting-with-camunda-platform-run) of this guide to find out how to navigate the directories of Camunda Run.
 
 ## Example application launch
 
-Camunda Platform Run comes with a [demo application](#example-application) that deploys resources and starts process instances.
+Camunda Run comes with a [demo application](#example-application) that deploys resources and starts process instances.
 You can disable the start of that application so it does not create deployments and process instances. The resources of the application
 are however still accessible on the classpath of Camunda Run. Consult the [example application section](#example-application) for further details.
 
@@ -475,7 +475,7 @@ are however still accessible on the classpath of Camunda Run. Consult the [examp
 
 ## HTTPS
 
-Camunda Platform Run supports HTTPS over SSL. To enable it, you will need a valid SSL certificate signed by a trusted provider and stored in a key store file (either .jks or .p12).
+Camunda Run supports HTTPS over SSL. To enable it, you will need a valid SSL certificate signed by a trusted provider and stored in a key store file (either .jks or .p12).
 For testing, we included a self-signed certificate. You should not use this in production. To enable it, add the following properties to your configuration file.
 
 ```yaml
@@ -488,7 +488,7 @@ server:
     key-password: camunda
   port: 8443
 ```
-After starting Camunda Platform Run, you can access the webapps via https://localhost:8443/camunda/app/ and the REST API via https://localhost:8443/engine-rest/.
+After starting Camunda Run, you can access the webapps via https://localhost:8443/camunda/app/ and the REST API via https://localhost:8443/engine-rest/.
 
 <table class="table desc-table">
   <tr>
@@ -527,8 +527,8 @@ After starting Camunda Platform Run, you can access the webapps via https://loca
 
 ## Logging
 
-Camunda Platform provides fine-grained and customizable logging. An overview of the available logging categories can be found in the [Logging User Guide]({{< ref "/user-guide/logging.md#process-engine" >}}).
-To configure the logging behavior in Camunda Platform Run, customize your configuration file with the following properties.
+Camunda 7 provides fine-grained and customizable logging. An overview of the available logging categories can be found in the [Logging User Guide]({{< ref "/user-guide/logging.md#process-engine" >}}).
+To configure the logging behavior in Camunda Run, customize your configuration file with the following properties.
 
 For more information on logging configuration visit the [Spring Boot Logging Guide](https://docs.spring.io/spring-boot/docs/2.4.0/reference/html/spring-boot-features.html#boot-features-logging).
 

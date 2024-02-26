@@ -10,7 +10,7 @@ menu:
 
 ---
 
-This chapter is about how cryptographic password hashing is done in the Camunda platform. In particular, the hashing algorithm that is being used and the salt generation. If you are not familiar with these topics, we recommend reading the articles about [cryptographic hash function](https://en.wikipedia.org/wiki/Cryptographic_hash_function), [salt](https://en.wikipedia.org/wiki/Salt_(cryptography)) and [secure password hashing](https://crackstation.net/hashing-security.htm). 
+This chapter is about how cryptographic password hashing is done in Camunda 7. In particular, the hashing algorithm that is being used and the salt generation. If you are not familiar with these topics, we recommend reading the articles about [cryptographic hash function](https://en.wikipedia.org/wiki/Cryptographic_hash_function), [salt](https://en.wikipedia.org/wiki/Salt_(cryptography)) and [secure password hashing](https://crackstation.net/hashing-security.htm). 
 
 The Camunda version 7.6 and earlier use the cryptographic hash function [SHA-1](https://en.wikipedia.org/wiki/SHA-1). Since Camunda version 7.7 the hash function [SHA-512](https://en.wikipedia.org/wiki/SHA-2) is used. If there is a need for another custom hash function, it is possible to plugin a [custom password hashing algorithm](#customize-the-hashing-algorithm) in Camunda. 
 

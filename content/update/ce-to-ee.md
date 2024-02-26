@@ -12,7 +12,7 @@ menu:
  
 ---
 
-If you’re hoping to utilize [features of Enterprise Edition](https://camunda.com/enterprise/) (such as see how many process instances have been run, token history, heatmaps, and migrate model versions) you may be interested in migrating from Camunda 7 Community Edition to the Enterprise Edition.
+If you’re hoping to utilize [features of Enterprise Edition](https://camunda.com/platform-7/editions/) (such as see how many process instances have been run, token history, heatmaps, and migrate model versions) you may be interested in migrating from Camunda 7 Community Edition to the Enterprise Edition.
 
 In this guide, we’ll step through migration from Camunda 7 Community Edition to Enterprise Edition.
 
