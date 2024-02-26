@@ -17,24 +17,24 @@ shared process engine scenario. Throughout the procedure, refer to the [update g
 This guide uses a number of variables to denote common path names and constants:
 
 * `$WILDFLY_HOME` points to the JBoss EAP/WildFly application server main directory.
-* `$WILDFLY_DISTRIBUTION` represents the downloaded pre-packaged Camunda Platform distribution for WildFly, e.g. `camunda-bpm-wildfly-$PLATFORM_VERSION.zip` or `camunda-bpm-wildfly-$PLATFORM_VERSION.tar.gz`.
-* `$PLATFORM_VERSION` denotes the version of the Camunda Platform you want to install or already have installed, e.g. `7.0.0`.
+* `$WILDFLY_DISTRIBUTION` represents the downloaded pre-packaged Camunda 7 distribution for WildFly, e.g. `camunda-bpm-wildfly-$PLATFORM_VERSION.zip` or `camunda-bpm-wildfly-$PLATFORM_VERSION.tar.gz`.
+* `$PLATFORM_VERSION` denotes the version of Camunda 7 you want to install or already have installed, e.g. `7.0.0`.
 {{< /note >}}
 
-If not already done, download the [Camunda Platform 7.21 WildFly distribution](https://downloads.camunda.
+If not already done, download the [Camunda 7.21 WildFly distribution](https://downloads.camunda.
 cloud/release/camunda-bpm/wildfly/7.21/)
-or [Camunda Platform 7.21 WildFly ≤26 Modules](https://artifacts.camunda.
+or [Camunda 7.21 WildFly ≤26 Modules](https://artifacts.camunda.
 com/artifactory/camunda-bpm/org/camunda/bpm/wildfly/camunda-wildfly26-modules/). 
 
 The update procedure takes the following steps:
 
-1. Update the Camunda Platform modules.
-2. Update optional Camunda Platform modules.
+1. Update the Camunda 7 modules.
+2. Update optional Camunda 7 modules.
 3. Update Camunda web applications.
 
 Whenever the instructions are to *replace* a module, delete the previous version of the module first to avoid orphan jars.
 
-# 1. Update the Camunda Platform modules
+# 1. Update the Camunda 7 modules
 
 Replace the following modules from the folder `$WILDFLY_HOME/modules/` with the new versions from the folder `$WILDFLY_DISTRIBUTION/modules/`:
 
@@ -69,7 +69,7 @@ Replace the following modules from the folder `$WILDFLY_HOME/modules/` with the 
 * `org/graalvm/truffle/truffle-api`
 * `com/ibm/icu/icu4j`
 
-# 2. Update optional Camunda Platform modules
+# 2. Update optional Camunda 7 modules
 
 In addition to the core modules, there may be optional artifacts in `$WILDFLY_HOME/modules/` for LDAP integration, Camunda Connect, Camunda Spin, and Groovy scripting.
 If you use any of these extensions, the following update steps apply:

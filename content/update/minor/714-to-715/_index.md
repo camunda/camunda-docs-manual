@@ -13,7 +13,7 @@ menu:
 
 ---
 
-This document guides you through the update from Camunda Platform `7.14.x` to `7.15.0`. It covers these use cases:
+This document guides you through the update from Camunda `7.14.x` to `7.15.0`. It covers these use cases:
 
 1. For administrators and developers: [Database Updates](#database-updates)
 1. For administrators and developers: [Full Distribution Update](#full-distribution)
@@ -28,10 +28,10 @@ This document guides you through the update from Camunda Platform `7.14.x` to `7
    - For developers: [Changes to the Webapp Config Files](#changes-to-the-webapp-config-files)
    - For developers: [New Frontend Plugin System for all Webapps](#new-frontend-plugin-system-for-all-webapps)
 1. For administrators and developers: [PostgreSQL Support Clarification](#postgresql-support-clarification)
-1. For administrators and developers: [Changes to Camunda Platform Run Start Script](#changes-to-camunda-platform-run-start-script)
+1. For administrators and developers: [Changes to Camunda 7 Run Start Script](#changes-to-camunda-platform-run-start-script)
 1. For administrators and developers: [Java External Task Client: New Version Handling](#java-external-task-client-new-version-handling)
 
-This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new functionality included in Camunda Platform 7.15.
+This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new functionality included in Camunda 7.15.
 
 # Database Updates
 
@@ -50,7 +50,7 @@ Every Camunda installation requires a database schema update.
 
     The scripts update the database from one minor version to the next, and change the underlying database structure. So make sure to backup your database in case there are any failures during the update process.
 
-3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda Platform, e.g., `7.15.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
+3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of Camunda 7, e.g., `7.15.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
 
 
 # Full Distribution
@@ -62,7 +62,7 @@ The following steps are required:
 1. Update the Camunda libraries and applications inside the application server
 2. Migrate custom process applications
 
-Before starting, make sure that you have downloaded the Camunda Platform 7.15 distribution for the application server you use. It contains the SQL scripts and libraries required for the update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
+Before starting, make sure that you have downloaded the Camunda 7.15 distribution for the application server you use. It contains the SQL scripts and libraries required for the update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
 
 ## Camunda Libraries and Applications
 
@@ -266,13 +266,13 @@ You can still use your old plugins if you include them as legacy plugins:
 
 ### Legacy Custom Scripts
 
-Custom Scripts created for Camunda Platform 7.13 or earlier can be included using the `requireJsConfig` property to the `app/{appName}/scripts/config.js`. You can include these custom scripts using the custom [requireJS configuration](https://requirejs.org/docs/api.html#config).
+Custom Scripts created for Camunda 7.13 or earlier can be included using the `requireJsConfig` property to the `app/{appName}/scripts/config.js`. You can include these custom scripts using the custom [requireJS configuration](https://requirejs.org/docs/api.html#config).
 If you are upgrading and have a modified `config.js` file, you can simply rename the `customScripts` attribute to `requireJsConfig`.
 
 
 ### Legacy Plugins
 
-Plugins created for Camunda Platform 7.13 or earlier can be included for compatibility. To achieve this, simply prefix your Plugin ID with `legacy-`. The AngularJS module name for the entry module will be `{appName}.plugin.legacy-*`. There are 3 Steps you can follow to adjust your existing plugin to work with Camunda Platform 7.15. We will show the changes with the [Cockpit Failed Jobs Plugin](https://github.com/camunda/camunda-bpm-examples/tree/7.13/cockpit/cockpit-failed-jobs-plugin), but the steps are the same for all webapp plugins.
+Plugins created for Camunda 7.13 or earlier can be included for compatibility. To achieve this, simply prefix your Plugin ID with `legacy-`. The AngularJS module name for the entry module will be `{appName}.plugin.legacy-*`. There are 3 Steps you can follow to adjust your existing plugin to work with Camunda 7.15. We will show the changes with the [Cockpit Failed Jobs Plugin](https://github.com/camunda/camunda-bpm-examples/tree/7.13/cockpit/cockpit-failed-jobs-plugin), but the steps are the same for all webapp plugins.
 
   1. Prefix the Plugin ID with `legacy-`.  
 
@@ -332,8 +332,8 @@ service built on top of PostgreSQL, and as such, needs to be tested for support 
 [postgresql-versioning]: https://www.postgresql.org/support/versioning/
 [supported-environments]: {{< ref "/introduction/supported-environments.md#supported-database-products" >}}
 
-# Changes to Camunda Platform Run Start Script
-With 7.15, we have introduced Swagger UI as an additional module of the Camunda Platform Run distro. This brings changes to the 
+# Changes to Camunda 7 Run Start Script
+With 7.15, we have introduced Swagger UI as an additional module of the Camunda 7 Run distro. This brings changes to the 
 default startup behavior of Run and the default serving of static resources through Spring WebMVC.
 
 ## New default Behavior of Start Script 
@@ -347,7 +347,7 @@ The same applies for the Run Docker Container:
 docker run camunda/camunda-bpm-platform:run ./camunda.sh --rest --webapps
 ```
 However, if the `--production` argument is provided Swagger UI is disabled by default.
-You can read more on the configuration of Camunda Platform Run [here][run-documentation].
+You can read more on the configuration of Camunda 7 Run [here][run-documentation].
 
 ## Static file serving through Spring Web MVC disabled by default
 By default, Spring Boot serves static content through Spring Web MVC from any directories called `/static`, `/public`, `/resources` or
@@ -358,5 +358,5 @@ respectively, by setting `spring.web.resources.static-locations` to `NULL`. If y
 
 # Java External Task Client: New Version Handling
 
-Starting with version 7.15.0, Camunda Platform Runtime and its compatible Java External Task Client 
+Starting with version 7.15.0, Camunda 7 Runtime and its compatible Java External Task Client 
 artifact will share the same version.

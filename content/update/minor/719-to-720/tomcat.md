@@ -13,17 +13,17 @@ menu:
 The following steps describe how to update the Camunda artifacts on a Tomcat server in a shared process engine setting.
 
 Throughout the procedure, refer to the [update guide][update-guide]. If not already done, download the
-[Camunda Platform 7.20 Tomcat distribution][tomcat-distribution].
+[Camunda 7.20 Tomcat distribution][tomcat-distribution].
 
 The update procedure takes the following steps:
 
-1. Update the Camunda Platform core libraries.
-2. Update optional Camunda Platform libraries.
+1. Update the Camunda 7 core libraries.
+2. Update optional Camunda 7 libraries.
 3. Update web applications.
 
 In each of the following steps, the identifier `$*_VERSION` refers to the current versions and the new versions of the artifacts.
 
-# 1. Update the Camunda Platform core libraries
+# 1. Update the Camunda 7 core libraries
 
 Replace the following libraries in the folder `$TOMCAT_HOME/lib/` with the new versions from the folder `$TOMCAT_DISTRIBUTION/lib/`:
 
@@ -47,7 +47,7 @@ Replace the following libraries in the folder `$TOMCAT_HOME/lib/` with the new v
 * `freemarker-$FREEMARKER_VERSION.jar`
 * `mybatis-$MYBATIS_VERSION.jar`
 
-# 2. Update optional Camunda Platform libraries
+# 2. Update optional Camunda 7 libraries
 
 In addition to the core libraries, there may be optional artifacts in `$TOMCAT_HOME/lib/` for LDAP integration, Camunda Connect, Camunda Spin, and scripting. If you use any of these extensions, the following update steps apply:
 

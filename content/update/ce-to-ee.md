@@ -12,9 +12,9 @@ menu:
  
 ---
 
-If you’re hoping to utilize [features of Enterprise Edition](https://camunda.com/platform-7/editions/) (such as see how many process instances have been run, token history, heatmaps, and migrate model versions) you may be interested in migrating from Camunda Platform 7 Community Edition to the Enterprise Edition.
+If you’re hoping to utilize [features of Enterprise Edition](https://camunda.com/platform-7/editions/) (such as see how many process instances have been run, token history, heatmaps, and migrate model versions) you may be interested in migrating from Camunda 7 Community Edition to the Enterprise Edition.
 
-In this guide, we’ll step through migration from Camunda Platform 7 Community Edition to Enterprise Edition.
+In this guide, we’ll step through migration from Camunda 7 Community Edition to Enterprise Edition.
 
 # Prerequisites
 
@@ -25,7 +25,7 @@ In this guide, we’ll step through migration from Camunda Platform 7 Community 
 - Maven
 
 {{< note class="info" >}}
-If needed, you can obtain a license key and [start a 30-day trial](https://camunda.com/download/enterprise/) of Camunda Platform 7 Enterprise Edition.
+If needed, you can obtain a license key and [start a 30-day trial](https://camunda.com/download/enterprise/) of Camunda 7 Enterprise Edition.
 {{< /note >}}
 
 # Set up
@@ -42,7 +42,7 @@ Click **Cockpit**, where you’ll notice the four appropriate process instances 
 
 ## Migration
 
-To officially begin migrating from Camunda Platform 7 Community Edition to the Enterprise Edition, take the following steps:
+To officially begin migrating from Camunda 7 Community Edition to the Enterprise Edition, take the following steps:
 
 1. Return to the example repository you cloned in your preferred IDE.
 2. Run the `Application.java` application.
@@ -101,13 +101,13 @@ You can find more details on this step [here](https://maven.apache.org/settings.
 
 # Add your license key
 
-Now that you’ve made the physical adjustments in your IDE to update to Enterprise Edition, let’s make a few final changes in Camunda Platform 7.
+Now that you’ve made the physical adjustments in your IDE to update to Enterprise Edition, let’s make a few final changes in Camunda 7.
 
 1. Return to [http://localhost:8080/](http://localhost:8080/) and refresh the page.
 2. If you don't see the version `{{< minor-version >}}-ee` in the bottom corner, clear your browser cache.
 3. Enter your credentials once more to update. You’ll notice you’re updated successfully when you reopen **Cockpit** and see a request message in the middle of the page for a license key.
 4. Click **Enter your license key now**.
-5. Paste your license key into the prompted text field, or if you haven’t already, obtain a license key and [start a 30-day trial](https://camunda.com/download/enterprise/) of Camunda Platform Enterprise Edition.
+5. Paste your license key into the prompted text field, or if you haven’t already, obtain a license key and [start a 30-day trial](https://camunda.com/download/enterprise/) of Camunda 7 Enterprise Edition.
 6. Click **Save Key**.
 
 # Next steps
