@@ -37,7 +37,7 @@ Only these default combinations are recommended (and supported) by Camunda.
   </tr>
   <tr>
     <td>7.21.0</td>
-    <td>3.7.x</td>
+    <td>3.8.x</td>
   </tr>
 </table>
 
