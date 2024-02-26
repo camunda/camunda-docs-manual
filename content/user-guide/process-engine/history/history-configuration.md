@@ -1,6 +1,6 @@
 ---
 
-title: 'Concept and history level'
+title: 'History configuration'
 weight: 10
 
 menu:
@@ -10,18 +10,8 @@ menu:
 
 ---
 
-# Concept
 
-The History Event Stream provides audit information about executed process instances.
-
-{{< img src="../../img/process-engine-history.png" title="Process Engine History" >}}
-
-The process engine maintains the state of running process instances inside the database. This includes *writing* (1.) the state of a process instance to the database as it reaches a wait state and *reading* (2.) the state as process execution continues. We call this database the *runtime database*. In addition to maintaining the runtime state, the process engine creates an audit log providing audit information about executed process instances. We call this event stream the *history event stream* (3.). The individual events which make up this event stream are called *History Events* and contain data about executed process instances, activity instances, changed process variables and so forth. In the default configuration, the process engine will simply write (4.) this event stream to the *history database*. The `HistoryService` API allows querying this database (5.). The history database and the history service are optional components; if the history event stream is not logged to the history database or if the user chooses to log events to a different database, the process engine is still able to work and it is still able to populate the history event stream. This is possible because the BPMN 2.0 Core Engine component does not read state from the history database. It is also possible to configure the amount of data logged, using the `historyLevel` setting in the process engine configuration.
-
-Since the process engine does not rely on the presence of the history database for generating the history event stream, it is possible to provide different backends for storing the history event stream. The default backend is the `DbHistoryEventHandler` which logs the event stream to the history database. It is possible to exchange the backend and provide a custom storage mechanism for the history event log.
-
-
-# Choose a history level
+## Choose a history level
 
 The history level controls the amount of data the process engine provides via the history event stream. The following settings are available out of the box:
 
@@ -50,7 +40,7 @@ If you need to customize the amount of history events logged, you can provide a 
 
 In case of specific needs, you can also create a [custom history level]({{< ref "/user-guide/process-engine/history/custom-implementation.md#implement-a-custom-history-level">}}).
 
-# Set the history level
+## Set the history level
 
 The history level can be provided as a property in the process engine configuration. Depending on how the process engine is configured, the property can be set using Java code:
 
@@ -75,7 +65,7 @@ Note that when using the default history backend, the history level is stored in
 
 
 
-# Default history implementation
+## Default history implementation
 
 The default history database writes History Events to the appropriate database tables. The database tables can then be queried using the `HistoryService` or using the REST API.
 
@@ -100,7 +90,7 @@ There are the following History entities, which - in contrast to the runtime dat
 * `HistoricExternalTaskLog` containing information about the external log. The log provides details about the lifecycle of an external task.
 
 
-## State of HistoricProcessInstances
+### State of HistoricProcessInstances
 
 For every process instance process engine will create single record in history database and will keep updating this record during process execution. Every HistoricProcessInstance record can get one of the following states assigned:
 
@@ -112,7 +102,7 @@ For every process instance process engine will create single record in history d
 
 Among them following states can be triggered externally, for example through REST API or Cockpit: ACTIVE, SUSPENDED, EXTERNALLY_TERMINATED.
 
-## Query history
+### Query history
 
 The HistoryService exposes the methods `createHistoricProcessInstanceQuery()`,
 `createHistoricVariableInstanceQuery()`, `createHistoricCaseInstanceQuery()`,
@@ -315,7 +305,7 @@ historyService.createHistoricExternalTaskLogQuery()
   .list();
 ```
 
-## History report
+### History report
 
 You can use the reports section to retrieve custom statistics and reports. Currently, we support the following kinds of reports:
 
@@ -325,7 +315,7 @@ You can use the reports section to retrieve custom statistics and reports. Curre
 
 
 
-### Instance duration report
+#### Instance duration report
 
 Retrieves a report about the duration of completed process instances, grouped by a specified period. These reports include the maximum, minimum and average duration of all completed process instances, which were started in the specified period. The following code snippet retrieves a report for every month since the engine was started:
 
@@ -355,7 +345,7 @@ historyService.createHistoricProcessInstanceReport()
   .duration(PeriodUnit.MONTH);
  ```
 
-### Task report
+#### Task report
 
 Retrieves a report of completed tasks. For the task report there are two possible report types: count and duration.
 
@@ -377,7 +367,7 @@ historyService
 
 The supported period times and the confinement of the query works analogously to [Instance Duration Report]({{< relref "#instance-duration-report" >}}).
 
-### Finished instance report
+#### Finished instance report
 
 Retrieves a report of finished process, decision or case instances. The report helps the user to tune the history time to live for definitions. They can see a summary of the historic data which can be cleaned after history cleanup. The output fields are definition id, key, name, version, count of the finished instances and count of the 'cleanable' instances.
 
@@ -395,7 +385,7 @@ historyService
   .list();
 ```
 
-## Partially sorting history events by their occurrence
+### Partially sorting history events by their occurrence
 
 Sometimes you want to sort history events in the order in which they
 occurred. Please note that timestamps cannot be used for that.
