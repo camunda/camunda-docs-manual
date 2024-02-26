@@ -26,7 +26,7 @@ This documentation covers everything integration-specific about the
 [FEEL Scala Engine][] (opens external link) in the Camunda DMN Engine.
 
 {{< note title="Heads Up!" class="info" >}}
-If you come from a Camunda Platform version <= 7.12.x and already use FEEL, 
+If you come from a Camunda 7 version <= 7.12.x and already use FEEL, 
 please read the documentation about the 
 <a href="{{< ref "/user-guide/dmn-engine/feel/legacy-behavior.md" >}}">FEEL Engine Legacy Behavior</a>.
 {{< /note >}}

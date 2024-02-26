@@ -10,7 +10,7 @@ menu:
 
 ---
 
-The process engine reports runtime metrics to the database that can help draw conclusions about usage, load, and performance of the Camunda Platform. Metrics are reported in the database tables `ACT_RU_METER_LOG` and `ACT_RU_TASK_METER_LOG`. Single metric entries in `ACT_RU_METER_LOG` consist of a metric identifier, a value as natural number in the Java `long` range that the metric took in a certain timespan and a name identifying the metric reporter. Task metric entries in `ACT_RU_TASK_METER_LOG` comprise a fixed-length, pseudonymized assignee value and the point in time it was assigned at. There is a set of built-in metrics that are reported by default.
+The process engine reports runtime metrics to the database that can help draw conclusions about usage, load, and performance of Camunda 7. Metrics are reported in the database tables `ACT_RU_METER_LOG` and `ACT_RU_TASK_METER_LOG`. Single metric entries in `ACT_RU_METER_LOG` consist of a metric identifier, a value as natural number in the Java `long` range that the metric took in a certain timespan and a name identifying the metric reporter. Task metric entries in `ACT_RU_TASK_METER_LOG` comprise a fixed-length, pseudonymized assignee value and the point in time it was assigned at. There is a set of built-in metrics that are reported by default.
 
 # Built-in Metrics
 
