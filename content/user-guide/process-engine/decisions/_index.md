@@ -20,4 +20,4 @@ cases. Evaluated decisions are saved in the [History] for auditing and reporting
 
 [Camunda DMN engine]: {{< ref "/user-guide/dmn-engine/_index.md" >}}
 [Services API]: {{< ref "/user-guide/process-engine/process-engine-api.md#services-api" >}}
-[History]: {{< ref "/user-guide/process-engine/history.md" >}}
+[History]: {{< ref "/user-guide/process-engine/history/history-configuration.md" >}}

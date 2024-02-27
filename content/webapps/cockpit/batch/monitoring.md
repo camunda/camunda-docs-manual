@@ -40,7 +40,7 @@ You can combine multiple search pills to narrow down the search results.
 
 ## Completed
 
-Below the currently running batches, completed batches along with their start- and end-time are displayed. Completed batches are only visible when the process engine [history level]({{< ref "/user-guide/process-engine/history.md#choose-a-history-level">}}) is set to FULL.
+Below the currently running batches, completed batches along with their start- and end-time are displayed. Completed batches are only visible when the process engine [history level]({{< ref "/user-guide/process-engine/history/history-configuration.md#choose-a-history-level">}}) is set to FULL.
 
 # Batch Details
 
