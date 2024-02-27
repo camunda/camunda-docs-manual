@@ -93,7 +93,7 @@ recommendations on how to configure and use the process engine with CockroachDB.
 ### Un-ignorable historic `OptimisticLockingException`
 
 The process engine may generate large amounts of historical data, and provides the [history cleanup
-feature]({{< ref "/user-guide/process-engine/history.md#history-cleanup" >}}) to ensure that "old"
+feature]({{< ref "/user-guide/process-engine/history/history-cleanup.md" >}}) to ensure that "old"
 data is removed. The History Cleanup Removal-Time-based Strategy allows for historical data associated
 with still running Process Instances to be cleaned up. Since running Process Instances continue
 generating historical data, removing the same data in parallel is viewed as an `OptimisticLockingException`.

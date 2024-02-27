@@ -15,7 +15,7 @@ menu:
 Please note that this feature is only included in the enterprise edition of the Camunda Platform, it is not available in the community edition.
 {{< /enterprise >}}
 
-Since Cockpit is a very powerful tool, it is often desired to inspect which user performed which operation for auditing purposes. Cockpit operations that change state are logged in the Camunda Platform's [user operation log]({{< ref "/user-guide/process-engine/history.md#user-operation-log" >}}) that is part of the process engine history. The log allows to understand
+Since Cockpit is a very powerful tool, it is often desired to inspect which user performed which operation for auditing purposes. Cockpit operations that change state are logged in the Camunda Platform's [user operation log]({{< ref "/user-guide/process-engine/history/user-operation-log.md" >}}) that is part of the process engine history. The log allows to understand
 
 * which user performed an operation
 * which operation was performed
@@ -23,7 +23,7 @@ Since Cockpit is a very powerful tool, it is often desired to inspect which user
 * which entities (process instances, tasks, etc.) were involved
 * which changes were made
 
-To get a more detailed explanation about the Java and REST API methods to get user operations, check out [this url]({{< ref "/user-guide/process-engine/history.md#accessing-the-user-operation-log" >}}).
+To get a more detailed explanation about the Java and REST API methods to get user operations, check out [this url]({{< ref "/user-guide/process-engine/history/user-operation-log.md#accessing-the-user-operation-log" >}}).
 
 # Operation Log in Cockpit
 {{< img src="../img/cockpit-operation-log.png" title="Operation Log" >}}
