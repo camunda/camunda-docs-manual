@@ -23,6 +23,7 @@ This document guides you through the update from Camunda `7.20.x` to `7.21.0` an
 1. For developers: [Changed trigger order of built-in task listeners](#changed-trigger-order-of-built-in-task-listeners)
 1. For administrators and developers: [Cockpit's process definition like search changed to case-insensitive](#cockpit-s-process-definition-like-search-changed-to-case-insensitive)
 1. For developers: [External MDC properties are isolated from the engine's processing](#external-mdc-properties-are-isolated-from-engine-processing)
+1. For developers: [Feel-engine 1.7.x Upgrade](#feel-engine-1-7-upgrade)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda 7.21.
 
@@ -99,3 +100,12 @@ This API is an internal API, which means it's **not** part of the public [REST A
 The previous behavior of _clearing the MDC tuples associated with Logging Context Parameters_ has been changed in this release. Starting from `7.21`, the new behavior preserves any logging context parameter entries found in the MDC to better isolate the engine processing from any external MDC user configuration.
 
 Use cases that require the legacy behaviour (clearing of the MDC logging context parameter tuples after the engine processing) can opt for clearing the MDC programmatically.
+
+# Feel-engine 1.7 Upgrade
+
+The `7.21` release now supports `feel-engine 1.7.x`. This upgrade introduces breaking changes such as:
+
+- The invocation of a non-existing function returns null ([#692](https://github.com/camunda/feel-scala/issues/670))
+- Comparing different datatypes returns `false` instead of throwing exception ([#582](https://github.com/camunda/feel-scala/issues/582))
+
+For a detailed view of the change logs, checkout the `feel-engine 1.7.0` [Release notes](https://github.com/camunda/feel-scala/releases/tag/1.17.0)
