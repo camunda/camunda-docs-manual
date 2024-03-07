@@ -29,7 +29,16 @@ The **Diagnostics** menu allows you to view and copy telemetry data about your e
 
 {{< img src="../img/admin-execution-metrics.png" title="Execution Metrics" >}}
 
-The Execution Metrics menu in Admin displays an approximate number of *Flow Nodes Instances (FNI)*, *Executed Decision Elements (EDE)*, *Root Process Instances (RPI)* and *Executed Decision Instances (EDI)* processed by the engine and *Unique Task Workers (UTW)* that were assigned to a user task in the selected time range.
+The Execution Metrics menu in Admin displays an approximate number of *Flow Nodes Instances (FNI)*,
+*Executed Decision Elements (EDE)*, *Process Instances (PI)* and *Decision
+Instances (DI)* processed by the engine and *Task Users (TU)* that were assigned to a
+user task by the selected contract start date.
+
+The page displays the rolling last 12 months metrics in a chart and table.
+Legacy metrics (FNI, EDE) are hidden by default, but can be displayed by selecting the **Display legacy metrics** checkbox.
+Underneath, it displays all the available annual usage metrics.
+Annual metrics together with the diagnostics data can be copied to the clipboard by clicking on
+the <button class="btn btn-xs"><i class="glyphicon glyphicon-copy"></i></button> button.
 
 # Camunda License Key
 
