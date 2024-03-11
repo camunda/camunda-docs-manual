@@ -101,11 +101,11 @@ The previous behavior of _clearing the MDC tuples associated with Logging Contex
 
 Use cases that require the legacy behaviour (clearing of the MDC logging context parameter tuples after the engine processing) can opt for clearing the MDC programmatically.
 
-# FEEL Engine 1.7 Upgrade
+# FEEL Engine 1.17 Upgrade
 
-The `7.21` release now supports FEEL Engine 1.7.x. This upgrade introduces breaking changes such as:
+The `7.21` release now supports FEEL Engine 1.17.x. This upgrade introduces breaking changes such as:
 
 - The invocation of a non-existing function returns null ([#692](https://github.com/camunda/feel-scala/issues/670))
 - Comparing different datatypes is now handled gracefully and can return `false` or `null` instead of throwing exception ([#582](https://github.com/camunda/feel-scala/issues/582))
 
-For a detailed view of the change logs, check out the FEEL Engine 1.7.0 [Release notes](https://github.com/camunda/feel-scala/releases/tag/1.17.0)
+For a detailed view of the change logs, check out the FEEL Engine 1.17.0 [Release notes](https://github.com/camunda/feel-scala/releases/tag/1.17.0)
