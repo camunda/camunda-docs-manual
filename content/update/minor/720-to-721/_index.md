@@ -19,7 +19,7 @@ This document guides you through the update from Camunda `7.20.x` to `7.21.0` an
 1. For administrators and developers: [Full distribution update](#full-distribution)
 1. For developers: [Add Default History Time To Live to BPMN Fluent API](#add-default-history-time-to-live-to-bpmn-fluent-api)
 1. For administrators: [Spring Boot Starter and Run logs admin user information on `DEBUG` level](#spring-boot-starter-and-run-logs-admin-user-information-on-debug-level)
-1. For developers: [Update Java External Task Client's Apache HttpClient to version 5](#update-java-external-task-client-s-apache-httpclient-to-version-5)
+1. For developers: [External Task Client Java](#external-task-client-java)
 1. For developers: [Changed trigger order of built-in task listeners](#changed-trigger-order-of-built-in-task-listeners)
 1. For administrators and developers: [Cockpit's process definition like search changed to case-insensitive](#cockpit-s-process-definition-like-search-changed-to-case-insensitive)
 1. For developers: [External MDC properties are isolated from the engine's processing](#external-mdc-properties-are-isolated-from-engine-processing)
@@ -54,7 +54,9 @@ Starting with this release, the [BPMN Fluent API Builder]({{< ref "/user-guide/m
 In previous releases, when configuring Camunda's admin user in the Spring Boot Starter or Run via `camunda.bpm.admin-user`, information about the admin user appeared in the logs on log level `INFO` on startup.
 With this release, the log level for the logs `STARTER-SB010` and `STARTER-SB011` was changed to `DEBUG`.
 
-# Update Java External Task Client's Apache HttpClient to version 5
+# External Task Client Java
+
+## Update the client's Apache HttpClient to version 5
 
 We have updated the internal Apache HttpClient in our Java External Task Client from version 4.5.x to the more recent version 5.3.
 
@@ -74,6 +76,20 @@ This means an update to this version requires code and configuration adjustments
 [HttpCore52]: https://hc.apache.org/httpcomponents-core-5.2.x/index.html
 [HttpClient53]: https://hc.apache.org/httpcomponents-client-5.3.x/index.html
 [HttpClient53-migration]: https://hc.apache.org/httpcomponents-client-5.3.x/migration-guide/index.html
+
+## Update the client's dependencies
+
+The External Task Client Java has been migrated to the Jakarta namespace. In case you use the default data format providers (e.g.: `DomXmlDataFormatProvider`), you need to bump the version of `com.sun.xml.bind:jaxb-impl` library to 4.0.4:
+
+```xml
+    <dependency>
+      <groupId>com.sun.xml.bind</groupId>
+      <artifactId>jaxb-impl</artifactId>
+      <version>4.0.4</version>
+    </dependency>
+```
+
+Complete example of the External Task Client Java can be found [here](https://github.com/camunda/camunda-bpm-examples/tree/7.21/clients/java/order-handling).
 
 # Changed trigger order of built-in task listeners
 
@@ -108,4 +124,4 @@ The `7.21` release now supports FEEL Engine 1.17.x. This upgrade introduces brea
 - The invocation of a non-existing function returns null ([#692](https://github.com/camunda/feel-scala/issues/670))
 - Comparing different datatypes is now handled gracefully and can return `false` or `null` instead of throwing exception ([#582](https://github.com/camunda/feel-scala/issues/582))
 
-For a detailed view of the change logs, check out the FEEL Engine 1.17.0 [Release notes](https://github.com/camunda/feel-scala/releases/tag/1.17.0)
+For a detailed view of the change logs, check out the FEEL Engine 1.17.0 [Release notes](https://github.com/camunda/feel-scala/releases/tag/1.17.0).
