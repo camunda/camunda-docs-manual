@@ -79,15 +79,7 @@ This means an update to this version requires code and configuration adjustments
 
 ## Update the client's dependencies
 
-The External Task Client Java has been migrated to the Jakarta namespace. In case you use the default data format providers (e.g.: `DomXmlDataFormatProvider`), you need to bump the version of `com.sun.xml.bind:jaxb-impl` library to 4.0.4:
-
-```xml
-    <dependency>
-      <groupId>com.sun.xml.bind</groupId>
-      <artifactId>jaxb-impl</artifactId>
-      <version>4.0.4</version>
-    </dependency>
-```
+The External Task Client Java has been migrated to the Jakarta namespace. In case you use the default data format providers (e.g.: `DomXmlDataFormatProvider`), you need to update the version of `com.sun.xml.bind:jaxb-impl` dependency to a version >= `4.0.x`.
 
 Complete example of the External Task Client Java can be found [here](https://github.com/camunda/camunda-bpm-examples/tree/7.21/clients/java/order-handling).
 
