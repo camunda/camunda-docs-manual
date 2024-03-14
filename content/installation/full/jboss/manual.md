@@ -147,7 +147,7 @@ These links point you to resources for other databases:
 
 ## Optional Components
 
-This section describes how to install optional dependencies. None of these are required to work with the core platform. Before continuing, make sure that the Camunda 7 is already installed according to [this step]({{< relref "#setup" >}}) for WildFly / JBoss EAP 7.
+This section describes how to install optional dependencies. None of these are required to work with the core platform. Before continuing, make sure that Camunda 7 is already installed according to [this step]({{< relref "#setup" >}}) for WildFly / JBoss EAP 7.
 
 
 ### Cockpit, Tasklist, and Admin

@@ -8,7 +8,7 @@ menu:
     name: "Remote Engine Distribution"
     identifier: "installation-camunda-bpm-run"
     parent: "installation-guide"
-    pre: "Install Camunda 7 Run, an easy to configure remote engine distribution of the Camunda 7. No Java knowledge necessary."
+    pre: "Install Camunda 7 Run, an easy to configure remote engine distribution of Camunda 7. No Java knowledge necessary."
 ---
 
 {{< note title="What is a Remote Engine Distribution?" class="info" >}}

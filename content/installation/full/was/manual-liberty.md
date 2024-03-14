@@ -39,9 +39,9 @@ You will be asked to enter the credentials you received during the trial or subs
 To fully install Camunda 7 on WebSphere Liberty, you need to configure the following components:
 
 1. Camunda EAR and shared libraries
-2. Datasource
-3. Work Manager
-4. Optional components: Camunda web apps, REST API, etc.
+1. Datasource
+1. Work Manager
+1. Optional components: Camunda web apps, REST API, etc.
 
 # Server configuration
 
@@ -205,7 +205,7 @@ To configure the Camunda shared library, you need to perform the following steps
 3. Define a `library` element in the `server.xml`.
 * The `library#id` attribute should be set to `Camunda`.
 * All the `.jar` artifacts should be included. See the [Liberty shared lib][liberty-lib-conf] page for more details.
-1. Define a `bell` element in the `server.xml`.
+4. Define a `bell` element in the `server.xml`.
 * The `bell#libraryRef` attribute should be set to the value of the `library#id` attribute, i.e. `Camunda`.
 
 Once you perform all the steps, the `server.xml` should have the following content:
@@ -305,10 +305,10 @@ Camunda 7 uses one or multiple process engines which must be connected to a data
 datasource in WebSphere Liberty, you need to perform the following:
 
 1. Add a JDBC driver library to the `$SERVER_CONFIG_DIR/lib` folder.
-2. Add the `jdbc-4.2` and `jndi-1.0` Liberty features to the `server.xml`.
-3. Define a JDBC shared library in the `server.xml`.
-4. Configure a datasource element in the `server.xml`.
-5. Set a JNDI name for the datasource element in the `server.xml`.
+1. Add the `jdbc-4.2` and `jndi-1.0` Liberty features to the `server.xml`.
+1. Define a JDBC shared library in the `server.xml`.
+1. Configure a datasource element in the `server.xml`.
+1. Set a JNDI name for the datasource element in the `server.xml`.
 
 For example, to use an DB2 database as the datasource, you should first place the DB2 JDBC driver `.jar` archive in
 `$SERVER_CONFIG_DIR/lib`. Next, you should add the following to the `server.xml` file:

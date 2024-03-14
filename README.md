@@ -1,4 +1,4 @@
-# The Camunda 7 Documentation Sources
+# Camunda 7 Documentation Sources
 
 This repository contains the sources of the Camunda 7 Documentation.
 
