@@ -653,7 +653,28 @@ The following is a list with the most commonly used process engine configuration
       <p>
         <strong>Default value:</strong> <code>2<sup>63</sup>-1</code> (<code>Long.MAX_VALUE</code>)
       </p>
-  </td>
+    </td>
+  </tr>
+
+  <tr id="jobExecutorAcquireExclusiveOverProcessHierarchies">
+    <td><code>jobExecutorAcquireExclusiveOverProcessHierarchies</code></td>
+    <td>Boolean</td>
+    <td>
+        <p>
+            When set to <code>false</code>, the job executor's acquisition & execution of jobs related to subprocesses will not
+            be exclusive.
+        </p>
+        <p>
+            When set to true, the acquisition & execution of the aforementioned jobs will be performed exclusively.
+        <p>
+        <p>
+            See the <a href="{{< ref "/user-guide/process-engine/the-job-executor.md#exclusive-jobs-of-process-hierarchies" >}}">user guide</a> for more details.
+        <p>
+        <strong>Default value:</strong> <code>false</code> <br>
+        <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
+        </p>
+    </td>
+  </tr>
 
   <tr id="skipHistoryOptimisticLockingExceptions">
     <td><code>skipHistoryOptimisticLockingExceptions</code></td>
