@@ -93,7 +93,7 @@ Here, the `camunda.bpm.process-engine-name=foo` will set (a unique name) "foo" a
 
 ## Disabling Telemetry
 
-Telemetry reports are introduced with Camunda Platform 7.14.0. To prevent sending data generated during testing, we encourage you to disable the [telemetry reporter][engine-config-telemetryReporterActivate]. Please read more about the topic in the dedicated page for [Telemetry][telemetry-initial-report].
+Telemetry reports are introduced with Camunda 7.14.0. To prevent sending data generated during testing, we encourage you to disable the [telemetry reporter][engine-config-telemetryReporterActivate]. Please read more about the topic in the dedicated page for [Telemetry][telemetry-initial-report].
 
 Example of disabling the reporter in Spring Boot setups:
 
@@ -108,14 +108,14 @@ camunda.bpm:
 
 ## Camunda Assertions
 
-The [Camunda Platform Assertions]({{< ref 
+The [Camunda 7 Assertions]({{< ref 
 "/user-guide/testing/_index.md#camunda-assertions" >}}) library is 
 integrated with the Camunda Spring Boot Starter in
 order to make testing processes in your Spring Boot application easier.
 
 ### Using Assertions with Context Caching
 
-Out of the box, the Camunda Platform Assertions library tries to use the
+Out of the box, Camunda 7 Assertions library tries to use the
 default engine or the (single) one that is available. Since when using
 Context Caching multiple engines are used in different contexts, binding
 the correct Process Engine to the Camunda Assertions library is required

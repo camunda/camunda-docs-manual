@@ -14,7 +14,7 @@ menu:
 
 
 {{< enterprise >}}
-Please note that this feature is only included in the enterprise edition of the Camunda Platform, it is not available in the community edition.
+Please note that this feature is only included in the enterprise edition of Camunda 7, it is not available in the community edition.
 {{< /enterprise >}}
 
 {{< img src="../../img/cockpit-modification.png" title="Process Instance Modification" >}}

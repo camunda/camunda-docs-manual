@@ -17,7 +17,7 @@ menu:
   [Read the installation guide]({{< ref "/installation/full/jboss/_index.md" >}}) to learn how to install the Camunda Wildfly subsystem into your Wildfly Server.
 {{< /note >}}
 
-Camunda Platform provides advanced integration for Wildfly in the form of a custom [Wildfly Subsystem](https://docs.wildfly.org/23/Extending_WildFly.html).
+Camunda 7 provides advanced integration for Wildfly in the form of a custom [Wildfly Subsystem](https://docs.wildfly.org/23/Extending_WildFly.html).
 
 The most prominent features are:
 
@@ -25,11 +25,11 @@ The most prominent features are:
 * Configure the process engine in `standalone.xml` / `domain.xml` and administer it though the JBoss Management System.
 * Process Engines are native JBoss Services with service lifecycles and dependencies.
 * Automatic deployment of BPMN 2.0 processes (through the Process Application API).
-* Use a managed Thread Pool for the Job Executor configured through the Camunda Platform Subsystem.
+* Use a managed Thread Pool for the Job Executor configured through the Camunda 7 Subsystem.
 
 # Configure the Job Executor in standalone.xml/domain.xml
 
-Since Camunda Platform 7.5, the configuration of the thread pool used by the Job Executor is done in the Camunda subsystem, not in the JBoss Threads subsystem, as it was done before 7.5.  
+Since Camunda 7.5, the configuration of the thread pool used by the Job Executor is done in the Camunda subsystem, not in the JBoss Threads subsystem, as it was done before 7.5.  
 The thread pool creation and shutdown is now controlled through the Camunda subsystem.  
 You are able to configure it through the following new configuration elements below the `job-executor` element of the subsystem XML configuration.
 

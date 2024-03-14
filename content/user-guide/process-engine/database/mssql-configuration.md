@@ -10,7 +10,7 @@ menu:
 ---
 
 This section documents the additional database configuration changes necessary to correctly use 
-Microsoft SQL Server or Microsoft Azure SQL databases with the Camunda Platform. It provides guides
+Microsoft SQL Server or Microsoft Azure SQL databases with Camunda 7. It provides guides
 on:
 
 * How to set the correct database transaction isolation level.
