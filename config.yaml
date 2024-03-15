@@ -1,7 +1,7 @@
 ---
 baseURL: "/manual/7.19/"
 languageCode: "en-us"
-title: "Camunda Platform 7 documentation"
+title: "Camunda 7 documentation"
 theme: "camunda"
 
 blackfriday:
@@ -14,7 +14,7 @@ params:
       name: "Get Started"
       url: "/get-started"
     - id: "manual"
-      name: "Camunda Platform 7"
+      name: "Camunda 7"
       url: "/manual"
     - id: "optimize"
       name: "Optimize"

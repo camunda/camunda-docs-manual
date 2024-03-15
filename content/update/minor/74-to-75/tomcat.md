@@ -10,18 +10,18 @@ menu:
 
 ---
 
-The following steps describe how to update the Camunda artifacts on a Tomcat server in a shared process engine setting. For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the [Camunda Platform 7.5 Tomcat distribution](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/tomcat/camunda-bpm-tomcat/).
+The following steps describe how to update the Camunda artifacts on a Tomcat server in a shared process engine setting. For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the [Camunda 7.5 Tomcat distribution](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/tomcat/camunda-bpm-tomcat/).
 
 The update procedure takes the following steps:
 
-1. Update the Camunda Platform Core Libraries
-2. Update Optional Camunda Platform Libraries
+1. Update the Camunda 7 Core Libraries
+2. Update Optional Camunda 7 Libraries
 3. Maintain Process Applications
 4. Update Web Applications
 
 In each of the following steps, the identifiers `$*_VERSION` refer to the current version and the new versions of the artifacts.
 
-# 1. Update the Camunda Platform Core Libraries
+# 1. Update the Camunda 7 Core Libraries
 
 Replace the following libraries in the folder `$TOMCAT_HOME/lib/` with their new versions from the folder `$TOMCAT_DISTRIBUTION/lib/`:
 
@@ -37,7 +37,7 @@ Replace the following libraries in the folder `$TOMCAT_HOME/lib/` with their new
 * `camunda-commons-typed-values-$COMMONS_VERSION.jar`
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
 
-# 2. Update Optional Camunda Platform Libraries
+# 2. Update Optional Camunda 7 Libraries
 
 In addition to the core libraries, there may be optional artifacts in `$TOMCAT_HOME/lib/` for LDAP integration, Camunda Connect, Camunda Spin, and Groovy scripting. If you use any of these extensions, the following update steps apply:
 

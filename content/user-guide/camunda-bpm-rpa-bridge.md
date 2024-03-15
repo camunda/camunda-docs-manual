@@ -1,6 +1,6 @@
 ---
 
-title: 'Camunda Platform RPA Bridge'
+title: 'Camunda 7 RPA Bridge'
 weight: 300
 
 menu:
@@ -11,7 +11,7 @@ menu:
 ---
 
 {{< note title="Camunda discontinues the maintenance of the Camunda RPA bridge." class="warning" >}}
-Camunda Automation Platform 7.19 is the last release maintaining compatibility with the Camunda RPA bridge. Camunda Automation Platform 7.19 and Camunda RPA bridge will be maintained for another 18 months until Oct 2024.
+Camunda 7.19 is the last release maintaining compatibility with the Camunda RPA bridge. Camunda 7.19 and Camunda RPA bridge will be maintained for another 18 months until Oct 2024.
 
 The Camunda RPA Bridge is replaced by RPA [Out-of-the-box Connectors](https://docs.camunda.io/docs/components/connectors/out-of-the-box-connectors/available-connectors-overview/) in Camunda 8.
 {{< /note >}}
@@ -26,7 +26,7 @@ For detailed instructions on how to connect your first RPA bot to a BPMN model (
 
 # The Basics
 
-## What is the Camunda Platform RPA Bridge?
+## What is the Camunda 7 RPA Bridge?
 
 The Camunda RPA Bridge serves as a connector between Camunda (BPMN) on the one side and a vendor for RPA bots on the other side. For an overview about what RPA vendors and which versions are supported, please consult the [Supported Environments]({{< ref "#prerequisites-and-supported-environments" >}}) section.
 
@@ -41,7 +41,7 @@ For each topic this guide covers, you will find general information that apply t
 # Prerequisites and Supported Environments
 To execute RPA bots from Camunda, you will need:
 
-* Camunda Platform 7.14 Enterprise Edition or later
+* Camunda 7.14 Enterprise Edition or later
 * Java 8 or later installed on the machine that runs the Camunda RPA Bridge
 
 [UiPath Orchestrator](https://www.uipath.com/product/orchestrator) users can use the bridge with one of the following versions:
@@ -58,7 +58,7 @@ To design a BPMN model that connects to one or more RPA bots through the bridge,
 * Cawemo 1.4 or later (to create and distribute worker catalogs) with [Cloud Connect Plugin](https://downloads.camunda.cloud/enterprise-release/cawemo/cloud-connect-modeler-plugin) 3.0.0 or later
 * [Camunda Modeler](https://camunda.com/download/modeler) 4.7 or later (to apply the worker catalog to your process model and add BPMN error capabilities to your RPA tasks)
 
-# Camunda Platform RPA Bridge configuration
+# Camunda 7 RPA Bridge configuration
 The bridge is configurable through the `application.yml` file that is included in the provided archive.
 Properties marked with a `'*'` are mandatory and can not be empty when starting the bridge.
 
@@ -91,8 +91,8 @@ Properties marked with a `'*'` are mandatory and can not be empty when starting 
   </tr>
   <tr id="date-format">
     <td><code>date-format</code></td>
-    <td><p>If the Camunda Platform engine uses <a href="/reference/rest/overview/date-format/">a custom date format</a>, configure the same format for the Camunda RPA bridge. This ensures the bridge can read date fields acquired from the Camunda Platform REST API correctly.</td>
-    <td>The default for this property is inherited from the Java external task client and is the same as the default date format in Camunda Platform.</p>
+    <td><p>If the Camunda 7 engine uses <a href="/reference/rest/overview/date-format/">a custom date format</a>, configure the same format for the Camunda RPA bridge. This ensures the bridge can read date fields acquired from the Camunda 7 REST API correctly.</td>
+    <td>The default for this property is inherited from the Java external task client and is the same as the default date format in Camunda 7.</p>
     <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code></td>
   </tr>
 </table>
@@ -331,11 +331,11 @@ logging.level.<Logger>: DEBUG
   </tr>
   <tr>
     <td><code>org.camunda.bpm.rpa.bridge</code></td>
-    <td>Logs details for all interactions with all external systems (i.e. RPA vendor and Camunda Platform Runtime).</td>
+    <td>Logs details for all interactions with all external systems (i.e. RPA vendor and Camunda 7 Runtime).</td>
   </tr>
   <tr>
     <td><code>org.camunda.bpm.rpa.bridge.externaltask</code></td>
-    <td>Logs details for all interactions with the Camunda Platform Runtime, specifically the locking, unlocking, completing and failing of External Tasks.</td>
+    <td>Logs details for all interactions with the Camunda 7 Runtime, specifically the locking, unlocking, completing and failing of External Tasks.</td>
   </tr>
   <tr>
     <td><code>org.camunda.bpm.rpa.bridge.rpa</code></td>
@@ -552,7 +552,7 @@ When enabled via including `org.camunda.bpm.rpa.enable-telemetry=true` in the [c
 ## General Data
 
 * A generated unique ID for every bridge instance
-* The name of the product (i.e., Camunda Platform RPA Bridge)
+* The name of the product (i.e., Camunda 7 RPA Bridge)
 * The version of the bridge (e.g., 1.0.0)
 * The edition of the product (i.e., enterprise)
 * The name and version of the configured RPA solution
@@ -568,6 +568,6 @@ License key data does not contain any protected data like the signature.
 
 ## Legal Note
 
-Before you install a Camunda Platform Runtime version >= 7.14.0-alpha1 or activate the telemetry functionality, please make sure that you are authorized to take this step and that the installation or activation of the [telemetry functionality]({{< ref "/user-guide/camunda-bpm-rpa-bridge.md#enable-telemetry" >}}) is not in conflict with any company-internal policies, compliance guidelines, any contractual or other provisions or obligations of your company.
+Before you install a Camunda 7 Runtime version >= 7.14.0-alpha1 or activate the telemetry functionality, please make sure that you are authorized to take this step and that the installation or activation of the [telemetry functionality]({{< ref "/user-guide/camunda-bpm-rpa-bridge.md#enable-telemetry" >}}) is not in conflict with any company-internal policies, compliance guidelines, any contractual or other provisions or obligations of your company.
 
 Camunda cannot be held responsible in the event of unauthorized installation or activation of this function.

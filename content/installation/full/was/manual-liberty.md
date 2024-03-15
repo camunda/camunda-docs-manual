@@ -12,8 +12,8 @@ menu:
 
 ---
 
-This section will describe how you can install Camunda Platform 7 and its components on an [IBM WebSphere
-Application Server Liberty][liberty]. To perform the Camunda Platform 7 installation on WebSphere Liberty
+This section will describe how you can install Camunda 7 and its components on an [IBM WebSphere
+Application Server Liberty][liberty]. To perform the Camunda 7 installation on WebSphere Liberty
 you will need the following:
 
 * The `camunda-ee-ibm-was9-{{< minor-version >}}.0-ee` `.tar.gz` or `.zip` archive available from
@@ -23,25 +23,25 @@ you will need the following:
 * You should also consider the [WebSphere Liberty Java support documentation][liberty-java].
 
 {{< note title="Reading this Guide" class="info" >}}
-This section provides examples for Camuna Platform `{{< minor-version >}}.0-ee`. If you are installing a patch version
+This section provides examples for Camunda `{{< minor-version >}}.0-ee`. If you are installing a patch version
 please replace the version numbers in the examples with the patch version you are using.
 
 Throughout this section we will use a number of variables to denote common path names and constants.
 You don't have to create these variables in your environment. They are just used in this guide to make it more readable.
 
-* `$WAS_DISTRIBUTION` represents the downloaded Camunda Platform distribution for the IBM WebSphere Application Server, e.g., `camunda-ee-ibm-was9-{{< minor-version >}}.0-ee.zip`.
+* `$WAS_DISTRIBUTION` represents the downloaded Camunda 7 distribution for the IBM WebSphere Application Server, e.g., `camunda-ee-ibm-was9-{{< minor-version >}}.0-ee.zip`.
 * `$SERVER_CONFIG_DIR` points to the IBM WebSphere Liberty server configuration directory like `wlp/usr/servers/camundaServer`.
 
 The distribution is available at the [Camunda enterprise release page](https://downloads.camunda.cloud/enterprise-release/camunda-bpm/ibm-was9/).
 You will be asked to enter the credentials you received during the trial or subscription process.
 {{< /note >}}
 
-To fully install Camunda Platform 7 on WebSphere Liberty, you need to configure the following components:
+To fully install Camunda 7 on WebSphere Liberty, you need to configure the following components:
 
 1. Camunda EAR and shared libraries
-1. Datasource
-1. Work Manager
-1. Optional components: Camunda web apps, REST API, etc.
+2. Datasource
+3. Work Manager
+4. Optional components: Camunda web apps, REST API, etc.
 
 # Server configuration
 
@@ -50,18 +50,18 @@ A Liberty server configuration is centralized in a single `server.xml` file that
 folder.
 
 {{< note title="WebSphere Liberty vs Open Liberty" class="info" >}}
-Camunda Platform 7 requires certain Liberty features that are only available in the WebSphere Liberty edition. As a
-result, Open Liberty is not supported by Camunda Platform 7.
+Camunda 7 requires certain Liberty features that are only available in the WebSphere Liberty edition. As a
+result, Open Liberty is not supported by Camunda 7.
 {{< /note >}}
 
 {{< note title="Java EE Liberty features support" class="info" >}}
 Liberty supports multiple Java/Jakarta EE versions through features with multiple versions (ex. `cdi-1.0`, `cdi-1.2`,
 `cdi-2.0`, etc.).
 
-Camunda Platform 7 doesn't support Java EE 6, Java EE 7, or Jakarta EE 9+ features since they don't provide all the APIs 
-required to run Camunda Platform 7 correctly.
+Camunda 7 doesn't support Java EE 6, Java EE 7, or Jakarta EE 9+ features since they don't provide all the APIs 
+required to run Camunda 7 correctly.
 
-We recommend using Java EE 8 Liberty features to run Camunda Platform 7 on WebSphere Liberty.
+We recommend using Java EE 8 Liberty features to run Camunda 7 on WebSphere Liberty.
 
 If you decide to mix Liberty features from different Java EE versions, check the
 <a href="https://www.ibm.com/docs/en/was-liberty/base?topic=architecture-supported-java-ee-7-8-feature-combinations" >Java EE feature combinations page</a>
@@ -69,7 +69,7 @@ to ensure that the all the features are inter-compatible.
 {{< /note >}}
 
 This guide will show you what to place in the `$SERVER_CONFIG_DIR` folder, and what to add in the `server.xml` file
-to successfully install Camunda Platform 7 on WebSphere Liberty.
+to successfully install Camunda 7 on WebSphere Liberty.
 
 At the end of the installation, your Liberty server folder should have the following structure:
 
@@ -89,7 +89,7 @@ wlp/usr/servers/
       |-- server.xml <-- configuration file
 ```
 
-Furthermore, when your Liberty server is fully configured for Camunda Platform 7, the `server.xml` file should have the
+Furthermore, when your Liberty server is fully configured for Camunda 7, the `server.xml` file should have the
 following content:
 
 ```xml
@@ -184,17 +184,17 @@ The sections below provide more details for each configuration section of the `s
 
 # Required components
 
-To correctly install Camunda Platform 7 process engine, you need to perform the following steps:
+To correctly install the Camunda 7 process engine, you need to perform the following steps:
 
 1. Configure the Camunda shared library.
-2. Configure the Camunda Platform EAR deployment.
+2. Configure the Camunda 7 EAR deployment.
 3. Configure a datasource.
 4. Configure the work manager.
 
 ## Camunda shared library
 
-The Camunda shared library is used by all the Camunda Platform EAR and WAR-packaged applications, as well as any process
-applications you may deploy. As such, it's one of the core components of the Camunda Platform 7 installation, and it is
+The Camunda shared library is used by all the Camunda 7 EAR and WAR-packaged applications, as well as any process
+applications you may deploy. As such, it's one of the core components of the Camunda 7 installation, and it is
 important to configure it correctly.
 
 To configure the Camunda shared library, you need to perform the following steps:
@@ -228,16 +228,16 @@ Once you perform all the steps, the `server.xml` should have the following conte
 ```
 
 {{< note title="WebSphere Liberty SPI discovery" class="info" >}}
-WebSphere Liberty doesn't perform SPI discovery by default. Since Camunda Platform 7 uses SPI for certain features,
+WebSphere Liberty doesn't perform SPI discovery by default. Since Camunda 7 uses SPI for certain features,
 you need to enable SPI discovery by adding the `bells-1.0` Liberty feature, and use the `bell` element in the
 `server.xml` to specify any shared libraries that rely on SPI.
 {{< /note >}}
 
-## Camunda Platform EAR
+## Camunda 7 EAR
 
-The camunda-ibm-websphere-ear is a Java EE application enterprise archive (EAR) providing the Camunda Platform services.
+The camunda-ibm-websphere-ear is a Java EE application enterprise archive (EAR) providing Camunda 7 services.
 It contains an embedded rar module. This camunda-ibm-websphere-rar module is a JCA Resource Adapter providing the
-`jobexecutor` service to the Camunda Platform.
+`jobexecutor` service to Camunda 7.
 
 You need to perform the following steps to install the EAR archive on WebSphere Liberty:
 
@@ -277,7 +277,7 @@ application deployment.
 
 ## Datasource
 
-Camunda Platform 7 requires a datasource that will be used by the process engine. To provide a datasource in
+Camunda 7 requires a datasource that will be used by the process engine. To provide a datasource in
 WebSphere Liberty, the following steps need to be performed:
 
 1. Create the database schema and tables
@@ -285,11 +285,11 @@ WebSphere Liberty, the following steps need to be performed:
 
 ### Create the database schema and tables
 
-In the default Camunda Platform 7 configuration, the database schema and all required tables are automatically
+In the default Camunda 7 configuration, the database schema and all required tables are automatically
 created when the engine starts up for the first time. If you do not want the database schema and tables to be
 automatically created, you have to perform the following:
 
-1. Create a database schema for the Camunda Platform yourself.
+1. Create a database schema for Camunda 7 yourself.
 1. Install the database schema to create all required tables and default indices using our
   [database schema installation guide][db-schema-install].
 
@@ -301,7 +301,7 @@ folder.
 
 ### Configure a datasource
 
-Camunda Platform uses one or multiple process engines which must be connected to a datasource. To configure a
+Camunda 7 uses one or multiple process engines which must be connected to a datasource. To configure a
 datasource in WebSphere Liberty, you need to perform the following:
 
 1. Add a JDBC driver library to the `$SERVER_CONFIG_DIR/lib` folder.
@@ -361,10 +361,10 @@ configured in the `bpm-platform.xml` file.
 
 ## Work manager
 
-Camunda Platform uses a Job Executor to support asynchronous execution. To integrate the Camunda Platform Job Executor
+Camunda 7 uses a Job Executor to support asynchronous execution. To integrate the Camunda 7 Job Executor
 with WebSphere Liberty, Camunda relies on the `CommonJ Work manager`.
 
-The Camunda Platform Job Executor integration with Liberty requires the following Liberty features:
+The Camunda 7 Job Executor integration with Liberty requires the following Liberty features:
 
 * `concurrent-1.0`
 * `heritageAPIs-1.1`
@@ -484,7 +484,7 @@ following empty XML sub-element:
 ```
 
 In the code snippet above, the `camunda-bpm-platform` segment of the `properties` element is defined by the `name`
-attribute of the [Camunda Platform EAR application](#camunda-platform-ear), while the `camunda-ibm-websphere-rar` is
+attribute of the [Camunda 7 EAR application](#camunda-platform-ear), while the `camunda-ibm-websphere-rar` is
 the name of the EAR JCA Resource Adapter camunda-ibm-websphere-rar module, and shouldn't be changed.
 
 # Optional components
@@ -580,7 +580,7 @@ Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
 
 In order to activate Camunda Connect functionality for a process engine, you need to register a process engine plugin
-in the Camunda Platform configuration as follows:
+in the Camunda 7 configuration as follows:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -610,7 +610,7 @@ Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
 
 In order to activate Camunda Spin functionality for a process engine, you need to register a process engine plugin
-in the Camunda Platform configuration as follows:
+in the Camunda 7 configuration as follows:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -658,7 +658,7 @@ Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION
 # Process Applications
 
 After installing a Process Application (PA) in your IBM WebSphere Liberty Server, which **does not** include the
-Camunda Platform dependencies, you must reference the previously created [**"Camunda"** shared library](#camunda-shared-library)
+Camunda 7 dependencies, you must reference the previously created [**"Camunda"** shared library](#camunda-shared-library)
 with the Process Application deployment.
 
 Your Process Application deployment in the `server.xml` file should look like the following example:

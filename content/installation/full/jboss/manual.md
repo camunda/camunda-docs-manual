@@ -13,15 +13,15 @@ menu:
 ---
 
 
-This document describes the installation of Camunda Platform and its components on a vanilla [WildFly Application Server](http://www.wildfly.org) or JBoss EAP 7.
+This document describes the installation of Camunda 7 and its components on a vanilla [WildFly Application Server](http://www.wildfly.org) or JBoss EAP 7.
 
 {{< note title="Reading this Guide" class="info" >}}
 This guide uses a number of variables to denote common path names and constants:
 
 * `$WILDFLY_HOME` points to the JBoss EAP/WildFly application server main directory.
 * `$WILDFLY_VERSION` denotes the version of WildFly application server.
-* `$WILDFLY_DISTRIBUTION` represents the downloaded pre-packaged Camunda Platform distribution for WildFly, e.g. `camunda-bpm-wildfly-$PLATFORM_VERSION.zip` or `camunda-bpm-wildfly-$PLATFORM_VERSION.tar.gz`.
-* `$PLATFORM_VERSION` denotes the version of the Camunda Platform you want to install or already have installed, e.g. `7.0.0`.
+* `$WILDFLY_DISTRIBUTION` represents the downloaded pre-packaged Camunda 7 distribution for WildFly, e.g. `camunda-bpm-wildfly-$PLATFORM_VERSION.zip` or `camunda-bpm-wildfly-$PLATFORM_VERSION.tar.gz`.
+* `$PLATFORM_VERSION` denotes the version of Camunda 7 you want to install or already have installed, e.g. `7.0.0`.
 {{< /note >}}
 
 ## Setup
@@ -59,9 +59,9 @@ Add the Camunda subsystem as extension:
     <extension module="org.camunda.bpm.wildfly.camunda-wildfly-subsystem"/>
 ```
 
-Configure the thread pool for the Camunda Platform Job Executor:
+Configure the thread pool for the Camunda 7 Job Executor:
 
-Since Camunda Platform 7.5, the configuration of the thread pool is done in the Camunda subsystem, not in the JBoss Threads subsystem anymore like it was done before 7.5.
+Since Camunda 7.5, the configuration of the thread pool is done in the Camunda subsystem, not in the JBoss Threads subsystem anymore like it was done before 7.5.
 The thread pool creation and shutdown is now controlled through the Camunda subsystem.
 You are able to configure it through the following new configuration elements in the `job-executor` element of the subsystem XML configuration.
 
@@ -116,7 +116,7 @@ The below example also configures the default process engine.
 
 By default, the database schema is automatically created in an H2 database when the engine starts up for the first time. If you do not want to use the H2 database, you have to
 
-* Create a database schema for the Camunda Platform yourself.
+* Create a database schema for Camunda 7 yourself.
 * Install the database schema to create all required tables and default indices using our [database schema installation guide]({{< ref "/installation/database-schema.md" >}}).
 
 When you create the tables manually, then you can also configure the engine to **not** create tables at startup by setting the `isAutoSchemaUpdate` property to `false` (or, in case you are using Oracle, to `noop`). In WildFly, this is done in the `standalone.xml`, located in the `$WILDFLY_DISTRIBUTION\server\wildfly-$WILDFLY_VERSION\standalone\configuration\` folder.
@@ -147,7 +147,7 @@ These links point you to resources for other databases:
 
 ## Optional Components
 
-This section describes how to install optional dependencies. None of these are required to work with the core platform. Before continuing, make sure that the Camunda Platform is already installed according to [this step]({{< relref "#setup" >}}) for WildFly / JBoss EAP 7.
+This section describes how to install optional dependencies. None of these are required to work with the core platform. Before continuing, make sure that Camunda 7 is already installed according to [this step]({{< relref "#setup" >}}) for WildFly / JBoss EAP 7.
 
 
 ### Cockpit, Tasklist, and Admin

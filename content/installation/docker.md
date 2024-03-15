@@ -1,6 +1,6 @@
 ---
 
-title: "Run Camunda Platform using Docker"
+title: "Run Camunda 7 using Docker"
 weight: 20
 
 menu:
@@ -16,18 +16,18 @@ menu:
 
 The Community Edition docker images can be found on [GitHub](https://github.com/camunda/docker-camunda-bpm-platform) and [Docker Hub](https://hub.docker.com/r/camunda/camunda-bpm-platform/).
 
-## Start Camunda Platform Run using Docker
+## Start Camunda 7 Run using Docker
 
-To start [Camunda Platform Run]({{< ref "/user-guide/camunda-bpm-run.md" >}}) execute the following commands:
+To start [Camunda 7 Run]({{< ref "/user-guide/camunda-bpm-run.md" >}}) execute the following commands:
 
 ```shell
 docker pull camunda/camunda-bpm-platform:run-latest
 docker run -d --name camunda -p 8080:8080 camunda/camunda-bpm-platform:run-latest
 ```
 
-## Start Camunda Platform (Tomcat) using Docker
+## Start Camunda 7 (Tomcat) using Docker
 
-To start the Camunda Platform execute the following commands:
+To start Camunda 7 execute the following commands:
 
 ```shell
 docker pull camunda/camunda-bpm-platform:latest
@@ -40,10 +40,10 @@ Please note that by default the Apache Tomcat distribution is used. For a guide 
 # Enterprise Edition
 
 {{< enterprise >}}
-Please note that these docker images are offered only for Camunda Platform Enterprise Edition.
+Please note that these docker images are offered only for Camunda 7 Enterprise Edition.
 {{< /enterprise >}}
 
-Since version 7.9 we offer to our customers a Docker image for the Enterprise edition of Camunda Platform.
+Since version 7.9 we offer to our customers a Docker image for the Enterprise edition of Camunda 7.
 
 These images are hosted on our dedicated Docker registry and are available to Enterprise customers only. You can browse the available images in our [Docker registry](https://registry.camunda.cloud) after logging-in with your credentials.
 

@@ -361,4 +361,4 @@ You can look up the meaning of all built-in codes and learn how to add custom co
 
 # Authentication
 
-The REST API ships with an implementation of [HTTP Basic Authentication](http://en.wikipedia.org/wiki/Basic_access_authentication). By default it is switched off (in the rest-api web application and therefore also in the pre-built Camunda Platform distributions). You can activate it by adding a servlet filter as described in the [Authentication]({{< ref "/reference/rest/overview/authentication.md" >}}) section.
+The REST API ships with an implementation of [HTTP Basic Authentication](http://en.wikipedia.org/wiki/Basic_access_authentication). By default it is switched off (in the rest-api web application and therefore also in the pre-built Camunda 7 distributions). You can activate it by adding a servlet filter as described in the [Authentication]({{< ref "/reference/rest/overview/authentication.md" >}}) section.

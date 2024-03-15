@@ -11,20 +11,20 @@ menu:
 
 ---
 
-Each version of the Camunda Spring Boot Starter is bound to a specific version of Camunda Platform and Spring Boot. 
+Each version of the Camunda Spring Boot Starter is bound to a specific version of Camunda 7 and Spring Boot. 
 Only these default combinations are recommended (and supported) by Camunda.
 Other combinations must be thoroughly tested before being used in production.
 
 {{< note title="Heads Up" class="info" >}}
-  Starting with version 7.13.0, Camunda Platform and its compatible Spring Boot Starter always share the same version.
-  Also, the Camunda Platform version used in the Spring Boot Starter doesn't have to be overridden anymore. Simply pick
-  the version of the Starter that resembles the version of Camunda Platform you want to use.
+  Starting with version 7.13.0, Camunda 7 and its compatible Spring Boot Starter always share the same version.
+  Also, the Camunda 7 version used in the Spring Boot Starter doesn't have to be overridden anymore. Simply pick
+  the version of the Starter that resembles the version of Camunda 7 you want to use.
 {{< /note >}}
 
 <table class="table table-striped">
   <tr>
     <th>Spring Boot Starter version</th>
-    <th>Camunda Platform version</th>
+    <th>Camunda 7 version</th>
     <th>Spring Boot version</th>
   </tr>
   <tr>

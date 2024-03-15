@@ -10,7 +10,7 @@ menu:
 
 ---
 
-Some Camunda Platform features (e.g. enterprise plugins) require a license key. The license will be provided as a string by 
+Some Camunda 7 features (e.g. enterprise plugins) require a license key. The license will be provided as a string by 
 the Camunda support team. The license mechanism has no impact on the engine or other runtime components. The following 
 section explains the various methods by which a Camunda license can be added to the Process Engine.
 
@@ -57,7 +57,7 @@ automatically loaded in the database table unless a valid license key is already
 
 ## With the Camunda Spring Boot Starter & Camunda Run
 
-Camunda Run, and other Spring Boot applications (including Camunda Platform RPA Bridge) that use the 
+Camunda Run, and other Spring Boot applications (including Camunda 7 RPA Bridge) that use the 
 Camunda Spring Boot Starter, can be provided with license  keys in two additional ways:
 
 * provide a URL to a license file via a custom [Spring Property]({{< ref "/user-guide/spring-boot-integration/configuration.md#license-file" >}}).
@@ -75,8 +75,8 @@ application must use the **`camunda-bpm-spring-boot-starter-webapp-ee`** module.
 
 # License compatibility
 
-There are two different types of licenses for Camunda Platform. While the original format is only valid 
-for Camunda Platform, the second format can be valid for multiple Camunda products (like Camunda Platform, 
+There are two different types of licenses for Camunda 7. While the original format is only valid 
+for Camunda 7, the second format can be valid for multiple Camunda products (like Camunda 7, 
 Cawemo or Optimize). Such unified licenses are supported from the versions listed below onwards. 
 Since 7.12.0 all versions (including major/minor releases) support unified license keys.
 

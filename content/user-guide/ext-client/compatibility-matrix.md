@@ -11,15 +11,15 @@ menu:
 
 ---
 
-Each version of the Camunda Platform is bound to a specific version of the **External Task Clients**.
+Each version of Camunda 7 is bound to a specific version of the **External Task Clients**.
 
 {{< note title="Heads Up" class="info" >}}
-  Starting with version 7.15.0, Camunda Platform and its compatible **Java** External Task Client always share the same version.
+  Starting with version 7.15.0, Camunda 7 and its compatible **Java** External Task Client always share the same version.
 {{< /note >}}
 
 <table class="table table-striped">
   <tr>
-    <th>Camunda Platform version</th>
+    <th>Camunda 7 version</th>
     <th>NodeJs</th>
     <th>Java</th>
   </tr>
@@ -81,4 +81,4 @@ Each version of the Camunda Platform is bound to a specific version of the **Ext
 </table>
 
 Only these default combinations are recommended (and supported) by Camunda. Nevertheless, each version of the External
-Task Clients can be combined with newer patch versions of the Camunda Platform Workflow Engine.
+Task Clients can be combined with newer patch versions of the Camunda 7 Workflow Engine.
