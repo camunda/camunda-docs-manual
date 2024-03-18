@@ -11,9 +11,9 @@ menu:
 ---
 
 
-# Camunda Platform
+# Camunda 7
 
-The Camunda Platform is a Java-based framework.
+The Camunda 7 is a Java-based framework.
 
 ## Community Edition
 
@@ -25,10 +25,10 @@ If you are using the Enterprise Platform, additionally to the Community componen
 
 ## Third-Party Libraries
 
-The Camunda Platform (Community and Enterprise Edition) includes libraries developed by third parties. See the following resources:
+Camunda 7 (Community and Enterprise Edition) includes libraries developed by third parties. See the following resources:
 
 * [Third-Party Libraries][third-party-libraries]: An overview of the dependencies Camunda distributes. Additionally, this page points out particularly important third-party licenses to be aware of.
-* [HTML License Book Camunda Platform]({{< ref "/introduction/third-party-libraries/camunda-bpm-platform-license-book.md" >}}): A list of all dependencies Camunda distributes with the Platform 7 artifacts, including their licenses and notices.
+* [HTML License Book Camunda Platform]({{< ref "/introduction/third-party-libraries/camunda-bpm-platform-license-book.md" >}}): A list of all dependencies Camunda distributes with the Camunda 7 artifacts, including their licenses and notices.
 * [Plain text license book Camunda Platform][license-book]: A plain text version of the license book.
 
 [third-party-libraries]: {{< ref "/introduction/third-party-libraries/_index.md" >}}
@@ -37,7 +37,7 @@ The Camunda Platform (Community and Enterprise Edition) includes libraries devel
 
 # Camunda Modeler
 
-The Camunda Modeler is a desktop modeling application.
+Camunda Modeler is a desktop modeling application.
 
 ## License 
 

@@ -13,7 +13,7 @@ menu:
 
 ---
 
-This document guides you through the update from Camunda Platform `7.18.x` to `7.19.0` and covers the following use cases:
+This document guides you through the update from Camunda `7.18.x` to `7.19.0` and covers the following use cases:
 
 1. For administrators and developers: [Database updates](#database-updates)
 2. For administrators and developers: [Full distribution update](#full-distribution)
@@ -29,7 +29,7 @@ This document guides you through the update from Camunda Platform `7.18.x` to `7
 10. For developers: [Multi-Tenancy enabled for User operation logs](#multi-tenancy-enabled-for-user-operation-logs)
 11. For administrators and developers: [Update to WildFly 27 Application Server](#update-to-wildfly-27-application-server)
 
-This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda Platform 7.19.
+This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda 7.19.
 
 # Database updates
 
@@ -47,7 +47,7 @@ The following steps are required:
 1. Update the Camunda libraries and applications inside the application server.
 2. Migrate custom process applications.
 
-Before starting, ensure you have downloaded the Camunda Platform 7.19 distribution for the application server you use.
+Before starting, ensure you have downloaded the Camunda 7.19 distribution for the application server you use.
 This contains the SQL scripts and libraries required for the update. This guide assumes you have unpacked the distribution
 to a path named `$DISTRIBUTION_PATH`.
 

@@ -1,6 +1,6 @@
 ---
 
-title: "Run Camunda Platform using Spring Boot"
+title: "Run Camunda 7 using Spring Boot"
 weight: 24
 
 menu:
@@ -12,4 +12,4 @@ menu:
 
 ---
 
-To learn how to run Camunda Platform with Spring Boot, please consult the [Spring Boot user guide]({{< ref "/user-guide/spring-boot-integration/_index.md" >}}).
+To learn how to run Camunda 7 with Spring Boot, please consult the [Spring Boot user guide]({{< ref "/user-guide/spring-boot-integration/_index.md" >}}).

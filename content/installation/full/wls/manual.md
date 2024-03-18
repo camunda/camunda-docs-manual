@@ -13,14 +13,14 @@ menu:
 ---
 
 
-This section will describe how you can install the Camunda Platform and its components on Oracle WebLogic.
+This section will describe how you can install Camunda 7 and its components on Oracle WebLogic.
 
 {{< note title="Reading this Guide" class="info" >}}
 This guide uses a number of variables to denote common path names and constants.
 
 * `$WLS_DOMAIN_HOME` points to the Oracle WebLogic application server domain directory (typically something like `/opt/oracle/WebLogic/domains/mydomain`).
-* `$PLATFORM_VERSION` denotes the version of the Camunda Platform you want to or have installed, e.g. `7.X.Y`.
-* `$WLS_DISTRIBUTION` represents the downloaded Camunda Platform distribution for the Oracle WebLogic Application Server, e.g., `camunda-ee-oracle-wls-$PLATFORM_VERSION.zip`.
+* `$PLATFORM_VERSION` denotes the version of Camunda 7 you want to or have installed, e.g. `7.X.Y`.
+* `$WLS_DISTRIBUTION` represents the downloaded Camunda 7 distribution for the Oracle WebLogic Application Server, e.g., `camunda-ee-oracle-wls-$PLATFORM_VERSION.zip`.
 
 The distribution is available at the [Camunda enterprise release page](https://downloads.camunda.cloud/enterprise-release/camunda-bpm/oracle-wls/).
 You will be asked to enter the credentials you received during the trial or subscription process.
@@ -34,7 +34,7 @@ Before you can install the Camunda components, you need to perform a number of r
 
 ## Resource Configuration
 
-The Camunda Platform requires a set of resources that need to be configured at the application server level:
+Camunda 7 requires a set of resources that need to be configured at the application server level:
 
 * One or multiple datasources to be used by the engine.
 * A work manager for the job executor.
@@ -44,7 +44,7 @@ The Camunda Platform requires a set of resources that need to be configured at t
 
 In the default configuration of the distribution, the database schema and all required tables are automatically created in an H2 database when the engine starts up for the first time. If you do not want to use the H2 database, you have to
 
-* Create a database schema for the Camunda Platform yourself.
+* Create a database schema for Camunda 7 yourself.
 * Install the database schema to create all required tables and default indices using our [database schema installation guide]({{< ref "/installation/database-schema.md" >}}).
 
 When you create the tables manually, then you have to configure the engine to **not** create tables at startup by setting the `databaseSchemaUpdate` property to `false` (or, in case you are using Oracle, to `noop`). In WebLogic, this is done in the `bpm-platform.xml`, located in the `$WLS_HOME\modules\camunda-oracle-weblogic-ear-$VERSION.ear\camunda-oracle-weblogic-service.jar\META-INF\` folder.
@@ -52,7 +52,7 @@ When you create the tables manually, then you have to configure the engine to **
 
 ## JDBC/Datasource Configuration
 
-The Camunda Platform uses one or multiple process engines. Use the Oracle WebLogic Server Administration Console for the configuration of the datasources.
+Camunda 7 uses one or multiple process engines. Use the Oracle WebLogic Server Administration Console for the configuration of the datasources.
 The JNDI name of the datasource must be equal to the name used in the datasource-Element of the process engine(s) configured in the bpm-platform.xml.
 
 
@@ -60,7 +60,7 @@ The JNDI name of the datasource must be equal to the name used in the datasource
 
 The default JNDI name is `jdbc/ProcessEngine`
 
-The following screenshot shows the mandatory configuration of a datasource for Camunda Platform:
+The following screenshot shows the mandatory configuration of a datasource for Camunda 7:
 
 {{< img src="../img/datasource-jndi.png" title="JNDI Name" >}}
 
@@ -70,7 +70,7 @@ In this section we explain how to add a datasource using the Oracle WebLogic Ser
 2. Navigate to the **"Domain Structure / YOUR_DOMAIN / Services / Data Sources"** page.
 3. Click the **"New"** Button and select **"Generic Data Source"**.
 4. On the next page, enter a name for the datasource.
-5. Enter the required JNDI Name **"jdbc/ProcessEngine"**, which is **mandatory** for the Camunda Platform.
+5. Enter the required JNDI Name **"jdbc/ProcessEngine"**, which is **mandatory** for Camunda 7.
 6. Continue to the next pages and fill in your database credentials.
 7. When you finished the creation of the datasource, click the **"Finish"** Button to complete the installation.
 8. Check the box in front of your datasource and test if it works.
@@ -80,12 +80,12 @@ Note that you can configure multiple datasources used by different process engin
 
 # Required Components
 
-The following steps are required to deploy the Camunda Platform onto an Oracle WebLogic server.
+The following steps are required to deploy Camunda 7 onto an Oracle WebLogic server.
 
 
-## Install the Camunda Platform Domain Libraries
+## Install the Camunda 7 Domain Libraries
 
-The domain libraries include the Camunda engine and some utility JARs. The domain libraries must be visible to both the Camunda Platform as well as all process applications.
+The domain libraries include the Camunda engine and some utility JARs. The domain libraries must be visible to both Camunda 7 as well as all process applications.
 
 The domain libraries can be found in the lib folder of the distribution:
 
@@ -108,9 +108,9 @@ Restart the Oracle WebLogic Server after this operation.
 You can change the location of the domain libraries with the `-Dweblogic.ext.dirs`
 [startup option](https://docs.oracle.com/middleware/12213/wls/START/overview.htm#START-GUID-69C7DB81-B1C5-4BCB-ADCF-2F44B66DD9F8).
 
-## Install the Camunda Platform Modules
+## Install the Camunda 7 Modules
 
-The Camunda Platform includes one module in the modules folder of the distribution:
+Camunda 7 includes one module in the modules folder of the distribution:
 
 ```
 camunda-ee-oracle-wls-$PLATFORM_VERSION.zip
@@ -118,11 +118,11 @@ camunda-ee-oracle-wls-$PLATFORM_VERSION.zip
       |-- camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear
 ```
 
-The `camunda-oracle-weblogic-ear` is a Java EE application providing the Camunda Platform services. It contains an embedded JCA Resource Adapter, the camunda-oracle-weblogic-rar, which provides the jobexecutor service to the Camunda Platform.
+The `camunda-oracle-weblogic-ear` is a Java EE application providing the Camunda 7 services. It contains an embedded JCA Resource Adapter, the camunda-oracle-weblogic-rar, which provides the jobexecutor service to Camunda 7.
 It must be installed to your Oracle WebLogic Application Server.
 
 
-## Install the Camunda Platform Application
+## Install the Camunda 7 Application
 
 In this section, we explain how the camunda-oracle-weblogic-ear module can be installed using the Oracle WebLogic Server Administration Console.
 The installation process is composed of two steps:
@@ -138,11 +138,11 @@ First the `camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear` RAR file must be i
 1. Open the Oracle WebLogic Server Administration Console.
 2. Navigate to the **"Domain structure / YOUR_DOMAIN / Deployments"** page.
 3. Select the **"Install"** button.
-4. Using the File Browser, select the `camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear` from the modules folder of the Camunda Platform for Oracle WebLogic Application Server distribution and continue to the **"Next"** page.
+4. Using the File Browser, select the `camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear` from the modules folder of Camunda 7 for Oracle WebLogic Application Server distribution and continue to the **"Next"** page.
 5. Select **"Install this deployment as an application"** and continue to the **"Next"** page.
 6. Fill in `camunda-bpm-platform` as name for the enterprise application deployment.
 {{< note title="Heads Up!" class="info" >}}
-The names of the [JNDI Bindings for Camunda Platform Services]({{< ref "/user-guide/runtime-container-integration/jndi-bindings-for-bpmn-platform-services.md" >}}) consist of the name of the enterprise application deployment.
+The names of the [JNDI Bindings for Camunda 7 Services]({{< ref "/user-guide/runtime-container-integration/jndi-bindings-for-bpmn-platform-services.md" >}}) consist of the name of the enterprise application deployment.
 
 **Please note:** If you change the name of the enterprise application deployment, the JNDI names change as well.
 {{< /note >}}

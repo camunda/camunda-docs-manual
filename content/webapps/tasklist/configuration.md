@@ -90,7 +90,7 @@ export default {
 ```
 This includes a `custom-module/module.js` file. The path is relative to the `app/tasklist` folder in the Camunda webapp .war file.
 
-You can find a complete example about how to use `customScripts` to develop a Tasklist Plugin in the [Camunda Platform examples repository](https://github.com/camunda/camunda-bpm-examples/tree/master/tasklist/cats-plugin).
+You can find a complete example about how to use `customScripts` to develop a Tasklist Plugin in the [Camunda 7 examples repository](https://github.com/camunda/camunda-bpm-examples/tree/master/tasklist/cats-plugin).
 
 
 

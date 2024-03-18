@@ -37,7 +37,7 @@ Note that the processEngineConfiguration bean uses the {{< javadocref page="org/
 
 # Configure a Container-Managed Process Engine as a Spring Bean
 
-If you want the process engine to be registered with the Camunda Platform ProcessEngineService, you must use `org.camunda.bpm.engine.spring.container.ManagedProcessEngineFactoryBean` instead of the ProcessEngineFactoryBean shown in the example above. You will also need to ensure:
+If you want the process engine to be registered with the Camunda 7 ProcessEngineService, you must use `org.camunda.bpm.engine.spring.container.ManagedProcessEngineFactoryBean` instead of the ProcessEngineFactoryBean shown in the example above. You will also need to ensure:
 
 1. That none of your webapps include camunda-webapp\*.jar within their own lib folder, this should be at a shared level.
 2. That your server.xml contains JNDI entries for the 'ProcessEngineService' and 'ProcessApplicationService' as below:
@@ -63,7 +63,7 @@ If you want the process engine to be registered with the Camunda Platform Proces
   </GlobalNamingResources>
 ```
 
-In that case the constructed process engine object is registered with the Camunda Platform and can be referenced for creating process application deployments and exposed through the runtime container integration.
+In that case the constructed process engine object is registered with Camunda 7 and can be referenced for creating process application deployments and exposed through the runtime container integration.
 
 
 # Configure a Process Engine Plugin

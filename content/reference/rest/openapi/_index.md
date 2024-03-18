@@ -57,7 +57,7 @@ Follow the steps of the OpenAPI Generator's documentation, how to [install][open
 
 Instead of client generation, you can use one of the OpenAPI editors to play around with the REST API endpoints.
 
-For this reason, [Camunda Platform Run][cam-platform-run] ships with a version of [Swagger UI][swagger-ui] already included.
+For this reason, [Camunda 7 Run][cam-platform-run] ships with a version of [Swagger UI][swagger-ui] already included.
 You can use it to try out the REST API endpoints and read through the OpenAPI documentation.
 
 If you use a Camunda distribution other than Run, you can go to [Swagger Editor][swagger-editor] and paste the content of the openapi.json on the left-hand side in the editor.
