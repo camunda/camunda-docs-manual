@@ -10,13 +10,13 @@ menu:
 
 ---
 
-Camunda Platform is developed by Camunda as an open source project in collaboration with the community. This is the basis for the Camunda Platform product provided by Camunda as a commercial offering.
+Camunda 7 is developed by Camunda as an open source project in collaboration with the community. This is the basis for the Camunda 7 product provided by Camunda as a commercial offering.
 
-The commercial [Camunda Platform 7 product](https://camunda.com/platform-7/) contains additional (non-open source) features and is provided to Camunda Platform customers with service offerings such as enterprise support and [bug fix releases](/enterprise/download/).
+The commercial [Camunda 7 product](https://camunda.com/platform-7/) contains additional (non-open source) features and is provided to Camunda 7 customers with service offerings such as enterprise support and [bug fix releases](/enterprise/download/).
 
 # Community Extensions
 
-Camunda supports the community in its effort to build additional community extensions under the Camunda Platform umbrella. Such community extensions are maintained by the community and are not part of the commercial Camunda Platform product. 
+Camunda supports the community in its effort to build additional community extensions under the Camunda 7 umbrella. Such community extensions are maintained by the community and are not part of the commercial Camunda 7 product. 
 
 {{< note title="Camunda Support" class="warning" >}}
   Camunda does not support community extensions as part of its commercial services to enterprise subscription customers.
@@ -37,7 +37,7 @@ You can also learn about [contributing code to the core Camunda codebase](https:
 # Enterprise Extensions
 
 {{< enterprise >}}
-  Please note that these extensions are only included in the enterprise edition of the Camunda Platform. They are not available in the community edition.
+  Please note that these extensions are only included in the enterprise edition of Camunda 7. They are not available in the community edition.
 {{< /enterprise >}}
 
 ## XSLT Extension

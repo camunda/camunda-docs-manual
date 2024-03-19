@@ -17,11 +17,11 @@ This section explains how to write unit tests and integration tests with Camunda
 
 # Unit Tests
 
-The Camunda Platform provides helper classes to write unit tests for JUnit versions 3, 4 and 5.
+Camunda 7 provides helper classes to write unit tests for JUnit versions 3, 4 and 5.
 
 ## JUnit 5
 
-Camunda Platform version 7.17.0+ ships with a {{< javadocref page="org/camunda/bpm/engine/test/junit5/ProcessEngineExtension.html" text="JUnit 5 extension" >}} that provides access to the process engine and services through getter methods.
+Camunda 7 version 7.17.0+ ships with a {{< javadocref page="org/camunda/bpm/engine/test/junit5/ProcessEngineExtension.html" text="JUnit 5 extension" >}} that provides access to the process engine and services through getter methods.
 
 The extensions process engine is configured by the default configuration file called `camunda.cfg.xml`, which needs to be placed on the classpath. A custom configuration file can be passed to the extension when creating the `ProcessEngineExtension` object.
 
@@ -214,7 +214,7 @@ The annotation is supported for [JUnit 3]({{< relref "#junit-3" >}}) and [JUnit 
 
 ## Disabling Telemetry
 
-Telemetry reports are introduced with Camunda Platform 7.14.0. To prevent sending data generated during testing, we encourage you to disable the [telemetry reporter][engine-config-telemetryReporterActivate]. Please read more about the topic in the dedicated page for [Telemetry][telemetry-initial-report].
+Telemetry reports are introduced with Camunda 7.14.0. To prevent sending data generated during testing, we encourage you to disable the [telemetry reporter][engine-config-telemetryReporterActivate]. Please read more about the topic in the dedicated page for [Telemetry][telemetry-initial-report].
 
 Example of disabling the reporter in XML-based configuration:
 
@@ -256,7 +256,7 @@ You can now see the engine database and use it to understand how and why your un
 
 # Camunda Assertions
 
-Additional to normal JUnit assertions, [Camunda Platform Assert](https://github.com/camunda/camunda-bpm-platform/tree/{{< minor-version >}}/test-utils/assert) adds a fluent API for asserting typical scenarios in a process integrating with [AssertJ](https://joel-costigliola.github.io/assertj/).
+Additional to normal JUnit assertions, [Camunda 7 Assert](https://github.com/camunda/camunda-bpm-platform/tree/{{< minor-version >}}/test-utils/assert) adds a fluent API for asserting typical scenarios in a process integrating with [AssertJ](https://joel-costigliola.github.io/assertj/).
 
 ```java
 assertThat(processInstance).isWaitingAt("UserTask_InformCustomer");
@@ -265,7 +265,7 @@ assertThat(task()).hasCandidateGroup("Sales").isNotAssigned();
 
 You can find a more extensive guide with examples under [Assert Examples]({{< ref "/user-guide/testing/assert-examples.md" >}}).
 
-To use Camunda Platform Assert, add the following dependency to your `pom.xml`:
+To use Camunda 7 Assert, add the following dependency to your `pom.xml`:
 
 ```xml
 <dependency>
@@ -287,23 +287,23 @@ Also, you will have to add the AssertJ library to your dependencies. Make sure t
 </dependency>
 ```
 
-If Camunda Platform Assert is used in combination with [Spring Boot](https://spring.io/projects/spring-boot) or the 
+If Camunda 7 Assert is used in combination with [Spring Boot](https://spring.io/projects/spring-boot) or the 
 [Camunda Spring Boot Starter](https://docs.camunda.org/manual/latest/user-guide/spring-boot-integration/), 
 the AssertJ dependency will be present in your project already.
 
 ## Assertions Version Compatibility
 
-Each version of Camunda Platform Assert is bound to a specific version of Camunda Platform and AssertJ. Only these default combinations are recommended (and supported) by Camunda.
-Nevertheless, each version of Camunda Platform Assert can be combined with newer patch versions of the Camunda Platform engine, though such combinations must be thoroughly tested before being used in production.
-All versions prior to 3.0.0 belong to the community extension are not part of the official Camunda Platform product support.
-With Camunda Platform 7.17.0 the project was moved into the [Camunda Platform repository](https://github.com/camunda/camunda-bpm-platform) and will use the same versioning as Camunda Platform in the future.
+Each version of Camunda 7 Assert is bound to a specific version of Camunda 7 and AssertJ. Only these default combinations are recommended (and supported) by Camunda.
+Nevertheless, each version of Camunda 7 Assert can be combined with newer patch versions of the Camunda 7 engine, though such combinations must be thoroughly tested before being used in production.
+All versions prior to 3.0.0 belong to the community extension are not part of the official Camunda 7 product support.
+With Camunda 7.17.0 the project was moved into the [Camunda 7 repository](https://github.com/camunda/camunda-bpm-platform) and will use the same versioning as Camunda 7 in the future.
 
 <table class="table table-striped">
   <tr>
-    <th>Camunda Platform Assert artifact</th>
+    <th>Camunda 7 Assert artifact</th>
     <th>AssertJ version</th>
-    <th>Camunda Platform Assert version</th>
-    <th>Camunda Platform version</th>
+    <th>Camunda 7 Assert version</th>
+    <th>Camunda 7 version</th>
   </tr>
   <tr>
     <td>camunda-bpm-assert</td>
@@ -456,7 +456,7 @@ For these versions, use the following Maven coordinates:
 
 ## Migration from a version prior to 7.17.0
 
-In order to migrate from an earlier Camunda Platform Assert version to a version 7.17.0 or higher, the following points have to be considered:
+In order to migrate from an earlier Camunda 7 Assert version to a version 7.17.0 or higher, the following points have to be considered:
 
 * The groupId for Maven dependencies has changed, it is now `org.camunda.bpm`. Project dependencies have to be adjusted accordingly.
 * There might be multiple artifacts available for a specific version as shown in the compatibility overview above. The artifact that matches the other project dependencies has to be chosen by `artifactId` and `version`.

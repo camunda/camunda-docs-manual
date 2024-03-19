@@ -10,19 +10,19 @@ menu:
 
 ---
 
-The following steps describe how to update the Camunda artifacts on a JBoss AS 7 server in a shared process engine setting. For the entire migration procedure, refer to the [migration guide][migration-guide]. If not already done, make sure to download the [Camunda Platform 7.2 JBoss distribution](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/jboss/camunda-bpm-jboss/).
+The following steps describe how to update the Camunda artifacts on a JBoss AS 7 server in a shared process engine setting. For the entire migration procedure, refer to the [migration guide][migration-guide]. If not already done, make sure to download the [Camunda 7.2 JBoss distribution](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/jboss/camunda-bpm-jboss/).
 
 The update procedure takes the following steps:
 
-1. Update the Camunda Platform modules
+1. Update the Camunda 7 modules
 2. Configure process engines
-3. Configure optional Camunda Platform extensions (*optional*)
+3. Configure optional Camunda 7 extensions (*optional*)
 4. Update Camunda web applications
 
 Whenever the instructions are to *replace* a module, make sure to delete the previous version of the module first to avoid orphan jars.
 
 
-# 1. Update the Camunda Platform Modules
+# 1. Update the Camunda 7 Modules
 
 Replace the following modules from the folder `$JBOSS_HOME/modules/` with their new versions from the folder `$JBOSS_DISTRIBUTION/modules/`:
 
@@ -88,9 +88,9 @@ As of 7.2, the default behavior of script variables has changed. Script variable
 As an alternative, process application developers can migrate script code by replacing all implicit declarations of process variables in their scripts with an explicit call to `execution.setVariable('varName', 'value')`.
 
 
-## 3. Configure Optional Camunda Platform Modules
+## 3. Configure Optional Camunda 7 Modules
 
-In addition, there are modules for Camunda Connect, Camunda Spin, the Freemarker template language and Groovy scripting that extend the Camunda Platform functionality. Since all these artifacts add new functionality, the following steps are not required for migration.
+In addition, there are modules for Camunda Connect, Camunda Spin, the Freemarker template language and Groovy scripting that extend Camunda 7 functionality. Since all these artifacts add new functionality, the following steps are not required for migration.
 
 ## Camunda Connect
 

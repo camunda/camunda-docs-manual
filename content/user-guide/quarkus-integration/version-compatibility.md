@@ -11,12 +11,12 @@ menu:
 
 ---
 
-Each version of the Camunda Engine Quarkus Extension is bound to a specific version of Camunda Platform and Quarkus. 
+Each version of the Camunda Engine Quarkus Extension is bound to a specific version of Camunda 7 and Quarkus. 
 Only these default combinations are recommended (and supported) by Camunda.
 
 <table class="table table-striped">
   <tr>
-    <th>Camunda Platform version</th>
+    <th>Camunda 7 version</th>
     <th>Quarkus version</th>
   </tr>
   <tr>

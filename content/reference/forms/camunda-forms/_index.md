@@ -14,7 +14,7 @@ menu:
 
 
 {{< note class="info" title="Support for Camunda Forms" >}}
-The Camunda Forms feature was added with the 7.15.0 release of Camunda Platform and the 4.7.0 release of the Camunda Modeler.
+The Camunda Forms feature was added with the 7.15.0 release of Camunda 7 and the 4.7.0 release of the Camunda Modeler.
 {{< /note >}}
 
 

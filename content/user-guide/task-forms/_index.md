@@ -198,7 +198,7 @@ If you want to include your Camunda Form as part of the `deployment`, then you n
 {{< note title="Automatic deployment" class="warning" >}}
 Camunda Forms are not automatically deployed as part of a [process archive]({{< ref "/reference/deployment-descriptors/tags/process-archive.md" >}}) by default. 
 You need to configure it accordingly by adding it as a resource directly or by adding `form` to the list of `additionalResourceSuffixes`.
-Using [Camunda Platform Run]({{< ref "/user-guide/camunda-bpm-run.md#starting-with-camunda-platform-run" >}}), all additional resources - including Camunda Forms - 
+Using [Camunda 7 Run]({{< ref "/user-guide/camunda-bpm-run.md#starting-with-camunda-platform-run" >}}), all additional resources - including Camunda Forms - 
 placed inside the `configuration/resources/` directory are automatically deployed.
 {{< /note >}}
 
@@ -358,7 +358,7 @@ A form field can have the following attributes:
 
 ### Form Field Validation
 
-Validation can be used for specifying frontend and backend validation of form fields. Camunda Platform provides a set of built-in form field validators and an extension point for plugging in custom validators.
+Validation can be used for specifying frontend and backend validation of form fields. Camunda 7 provides a set of built-in form field validators and an extension point for plugging in custom validators.
 
 Validation can be configured for each form field in the BPMN 2.0 XML:
 
@@ -452,7 +452,7 @@ The following built-in validators are supported out of the box:
   </tbody>
 </table>
 
-Camunda Platform supports custom validators. Custom validators are referenced using their fully qualified classname or an expression. Expressions can be used for resolving Spring or CDI @Named beans:
+Camunda 7 supports custom validators. Custom validators are referenced using their fully qualified classname or an expression. Expressions can be used for resolving Spring or CDI @Named beans:
 
 ```xml
 <camunda:formField

@@ -61,7 +61,7 @@ The "Usage Data" category contains information about the used features and compo
 * Commands count - the count of executed commands after the last retrieved data. It could be from the previous 24 hours if the data have been reported then, and the process engine has not been closed during that time. Whenever the process engine is shutdown, the currently collected data is reported immediately.
 * Metrics count - the collected metrics are number of root process instance executions started, number of activity instances started or also known as flow node instances, and number of executed decision instances and elements.
 The counts are collected from the start of the engine or the last reported time if the engine is already running for more than 24 hours.
-* Camunda integration - a flag that shows if any of the Camunda integrations are used: Spring boot starter, Camunda Platform Run, WildFly subsystem or Camunda ejb service (e.g. WebSphere/WebLogic Application servers).
+* Camunda integration - a flag that shows if any of the Camunda integrations are used: Spring boot starter, Camunda 7 Run, WildFly subsystem or Camunda ejb service (e.g. WebSphere/WebLogic Application servers).
 
 ### Example
 
@@ -182,7 +182,7 @@ You can fetch the collected data via the REST API by calling the [Get Telemetry 
 
 ## Legal note
 
-Before you install a Camunda Platform Runtime version >= 7.14.0-alpha1 (and 7.13.7+, 7.12.12+, 7.11.19+) or activate the telemetry functionality, please make sure that you are authorized to take this step, and that the installation or activation of the [telemetry functionality][engine-config-initializeTelemetry] is not in conflict with any company-internal policies, compliance guidelines, any contractual or other provisions or obligations of your company.
+Before you install a Camunda 7 Runtime version >= 7.14.0-alpha1 (and 7.13.7+, 7.12.12+, 7.11.19+) or activate the telemetry functionality, please make sure that you are authorized to take this step, and that the installation or activation of the [telemetry functionality][engine-config-initializeTelemetry] is not in conflict with any company-internal policies, compliance guidelines, any contractual or other provisions or obligations of your company.
 
 Camunda cannot be held responsible in the event of unauthorized installation or activation of this function.
 
