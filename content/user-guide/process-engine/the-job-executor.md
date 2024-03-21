@@ -588,7 +588,7 @@ As explained above, the `exclusive` asynchronous continuation will instruct the 
 
 How does `exclusive` behave when a process contains hierarchies e.g. when multiple parallel subprocesses can be spawned by a root process?
 
-By default, the exclusive _acquisition_ & _execution_ is only guaranteed for the jobs that originate from the root process instance. In a multi-instance call activity setting, the subprocess instances that will be spawned can perfectly run in parallel despite selecting `exclusive` asynchronous continuation as depicted in the image below
+By default, the exclusive _acquisition_ & _execution_ is only guaranteed for the jobs that originate from the root process instance. In a multi-instance call activity setting, the subprocess instances that will be spawned can run in parallel despite selecting `exclusive` asynchronous continuation as depicted in the image below.
 
 {{< img src="../img/exclusive-over-process-hierarchies.png" title="Single Engine" >}}
 
