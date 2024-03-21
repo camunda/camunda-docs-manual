@@ -37,8 +37,32 @@ user task by the selected contract start date.
 The page displays the rolling last 12 months metrics in a chart and table.
 Legacy metrics (FNI, EDE) are hidden by default, but can be displayed by selecting the **Display legacy metrics** checkbox.
 Underneath, it displays all the available annual usage metrics.
+
 Annual metrics together with the diagnostics data can be copied to the clipboard by clicking on
 the <button class="btn btn-xs"><i class="glyphicon glyphicon-copy"></i></button> button.
+The copied format consists of two parts as seen below in the example.
+The top part contains the actual metrics that enterprise customers need to share with Camunda before renewal.
+The second part contains the diagnostics data which provides useful information that helps Camunda to improve support but customers can opt out of sharing it.
+This part has been truncated in the example.
+
+```
+21/02/2024 up to today
+- PI: 1,705,434
+- DI: 1,709,410
+- TU: 3
+- FNI: 1,722,414
+- EDE: 1,716,683
+
+{
+  "installation": "bf32d0f5-43c6-4be4-b45e-de0ef1a48117",
+  "product": {
+    "name": "Camunda BPM Runtime",
+    "version": "7.21.0-SNAPSHOT",
+    "edition": "community",
+    ...
+  }
+}
+```
 
 # Camunda License Key
 
