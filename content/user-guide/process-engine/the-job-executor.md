@@ -582,6 +582,36 @@ Is this a good solution? We had some people asking whether it was. Their concern
 * It can be turned off if you are an expert and know what you are doing (and have understood this section). Other than that, it is more intuitive for most users if things like asynchronous continuations and timers just work. Note: one strategy to deal with OptimisticLockingExceptions at a parallel gateway is to configure the gateway to use asynchronous continuations. This way the job executor can be used to retry the gateway until the exception resolves.
 * It is actually not a performance issue. Performance is an issue under heavy load. Heavy load means that all worker threads of the job executor are busy all the time. With exclusive jobs the engine will simply distribute the load differently. Exclusive jobs means that jobs from a single process instance are performed by the same thread sequentially. But consider: you have more than one single process instance. Jobs from other process instances are delegated to other threads and executed concurrently. This means that with exclusive jobs the engine will not execute jobs from the same process instance concurrently but it will still execute multiple instances concurrently. From an overall throughput perspective this is desirable in most scenarios as it usually leads to individual instances being done more quickly.
 
+## Exclusive Jobs of Process Hierarchies
+
+As explained above, the `exclusive` asynchronous continuation will instruct the job executor to acquire and execute the jobs of a given process instance by one thread.
+
+How does `exclusive` behave when a process contains hierarchies e.g. when multiple parallel subprocesses can be spawned by a root process?
+
+By default, the exclusive _acquisition_ & _execution_ is only guaranteed for the jobs that originate from the root process instance. In a multi-instance call activity setting, the subprocess instances that will be spawned can run in parallel despite selecting `exclusive` asynchronous continuation as depicted in the image below.
+
+{{< img src="../img/exclusive-over-process-hierarchies.png" title="Single Engine" >}}
+
+If there is a use case where the subprocess-jobs **should not be performed in parallel across each single process instance**, the following configuration can be used:
+
+```java
+<process-engine name="default">
+  ...
+  <properties>
+    <property name="jobExecutorAcquireExclusiveOverProcessHierarchies">true</property>
+        ...
+  </properties>
+</process-engine>
+```
+
+{{< note class="warning" >}}
+The property `jobExecutorAcquireExclusiveOverProcessHierarchies` is by default set to `false`. See the <a href="{{< ref "/reference/deployment-descriptors/tags/process-engine.md#jobExecutorAcquireExclusiveOverProcessHierarchies" >}}">property</a> under the `Configuration Properties` section.
+
+Keep in mind that enabling the feature to guarantee exclusive jobs across all subprocesses originating from a root process might have performance implications, especially for process definitions that involve complex and numerous hierarchies.
+
+Use the feature in combination with awareness of your process model.
+
+{{< /note >}}
 
 # The Job Executor and Multiple Process Engines
 
