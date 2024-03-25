@@ -57,7 +57,7 @@ This part has been truncated in the example.
   "installation": "bf32d0f5-43c6-4be4-b45e-de0ef1a48117",
   "product": {
     "name": "Camunda BPM Runtime",
-    "version": "7.21.0-SNAPSHOT",
+    "version": "{{< minor-version >}}.0",
     "edition": "community",
     ...
   }
