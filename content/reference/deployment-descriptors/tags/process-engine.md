@@ -296,14 +296,6 @@ The following is a list with the most commonly used process engine configuration
   </tr>
 
   <tr>
-    <td><code>commandRetries</code></td>
-    <td>Integer</td>
-    <td>
-        <b>Only used with CockroachDB.</b> Specifies how many times a Command will be retried before a <code>CrdbTransactionRetryException</code> is reported to the caller (more details <a href="{{< ref "/user-guide/process-engine/database/cockroachdb-configuration.md#custom-cockroachdb-transaction-retry-mechanism" >}}">here</a>). Default value: <code>0</code>
-    </td>
-  </tr>
-
-  <tr>
     <td><code>defaultUserPermissionNameForTask</code></td>
     <td>String</td>
     <td>
