@@ -202,6 +202,13 @@ In the table below, you will find an overview of all categories, ranges, and cod
       <td></td>
     </tr>
     <tr>
+      <td>Engine</td>
+      <td>[1, 9999]</td>
+      <td>1</td>
+      <td><code>OptimisticLockingException</code></td>
+      <td>X</td>
+    </tr>
+    <tr>
       <td>Persistence</td>
       <td>[10000, 19999]</td>
       <td>10,000</td>
