@@ -13,24 +13,24 @@ menu:
 
 ---
 
-This document guides you through the update from Camunda Platform `7.16.x` to `7.17.0` and covers the following use cases:
+This document guides you through the update from Camunda `7.16.x` to `7.17.0` and covers the following use cases:
 
 1. For administrators and developers: [Database updates](#database-updates)
-1. For administrators and developers: [Full distribution update](#full-distribution)
-1. For administrators: [Standalone web application](#standalone-web-application)
-1. For administrators and developers: [Task Worker Metrics](#task-worker-metrics)
-1. For administrators and operation engineers: [New System Permissions](#system-permissions)
-1. For developers: [Spin configuration options](#spin-configuration-options)
-1. For developers: [Extended Camunda Run CORS configuration properties](#extended-camunda-run-cors-configuration-properties)
-1. For administrators and developers: [Improved Camunda Run library support](#improved-camunda-run-library-support)
-1. For administrators and developers: [Changed Camunda Run start script behavior](#changed-camunda-run-start-script-behavior)
-1. For developers: [Disabled remote access to H2 console](#disabled-remote-access-to-h2-console)
-1. For administrators and developers: [H2 version update](#h2-version-update)
-1. For developers: [Official support for JUnit 5 community extension](#official-support-for-junit-5-community-extension)
-1. For developers: [Changes to Camunda Platform Assert](#changes-to-camunda-platform-assert)
+2. For administrators and developers: [Full distribution update](#full-distribution)
+3. For administrators: [Standalone web application](#standalone-web-application)
+4. For administrators and developers: [Task Worker Metrics](#task-worker-metrics)
+5. For administrators and operation engineers: [New System Permissions](#system-permissions)
+6. For developers: [Spin configuration options](#spin-configuration-options)
+7. For developers: [Extended Camunda Run CORS configuration properties](#extended-camunda-run-cors-configuration-properties)
+8. For administrators and developers: [Improved Camunda Run library support](#improved-camunda-run-library-support)
+9. For administrators and developers: [Changed Camunda Run start script behavior](#changed-camunda-run-start-script-behavior)
+10. For developers: [Disabled remote access to H2 console](#disabled-remote-access-to-h2-console)
+11. For administrators and developers: [H2 version update](#h2-version-update)
+12. For developers: [Official support for JUnit 5 community extension](#official-support-for-junit-5-community-extension)
+13. For developers: [Changes to Camunda 7 Assert](#changes-to-camunda-platform-assert)
 
 This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new 
-functionality included in Camunda Platform 7.17.
+functionality included in Camunda 7.17.
 
 # Database updates
 
@@ -48,7 +48,7 @@ The following steps are required:
 1. Update the Camunda libraries and applications inside the application server.
 2. Migrate custom process applications.
 
-Before starting, ensure you have downloaded the Camunda Platform 7.17 distribution for the application server 
+Before starting, ensure you have downloaded the Camunda 7.17 distribution for the application server 
 you use. This contains the SQL scripts and libraries required for the update. This guide assumes you have unpacked the 
 distribution to a path named `$DISTRIBUTION_PATH`.
 
@@ -90,7 +90,7 @@ If this causes slow page loading, you can turn it off in the [admin webapp confi
 
 # System permissions
 
-Camunda Platform 7.17 introduces a new set of permissions which grant operation engineers access to system properties and data without the need for administrator privileges.
+Camunda 7.17 introduces a new set of permissions which grant operation engineers access to system properties and data without the need for administrator privileges.
 
 For more details, including a full list of features and their required permissions, visit our [authorization documentation page]({{< ref "/user-guide/process-engine/authorization-service.md#system-permissions" >}}).
 
@@ -161,7 +161,7 @@ directly to the script.
 
 # Disabled remote access to H2 console
 
-The Camunda Platform 7.17.0 release deactivates remote access to the H2 console application in the Tomcat and Wildfly distributions. The H2 application accepts only localhost connections moving forward.
+The Camunda 7.17.0 release deactivates remote access to the H2 console application in the Tomcat and Wildfly distributions. The H2 application accepts only localhost connections moving forward.
 
 To restore remote access, add the following initialization parameter to the `org.h2.server.web.WebServlet` servlet defined in the `web.xml` file of the h2 web application:
 
@@ -183,11 +183,11 @@ Please note that we strongly discourage enabling remote access because it create
 
 # H2 version update
 
-Camunda Platform 7.17.0 supports H2 version 2.0 and drops support for H2 version 1.4. Note that these two H2 releases are not compatible with each other, which means:
+Camunda 7.17.0 supports H2 version 2.0 and drops support for H2 version 1.4. Note that these two H2 releases are not compatible with each other, which means:
 
 * The H2 library in version 2.0 cannot work with persisted databases created by H2 version 1.4.
-* Camunda Platform 7.17 cannot work with H2 1.4.
-* Camunda Platform versions 7.16 and lower cannot work with H2 2.0.
+* Camunda 7.17 cannot work with H2 1.4.
+* Camunda 7 versions 7.16 and lower cannot work with H2 2.0.
 
 When using Camunda with a file-persisted H2 database, this implies:
 
@@ -196,11 +196,11 @@ When using Camunda with a file-persisted H2 database, this implies:
 
 To migrate from 7.16 to 7.17, and from H2 1.4 to 2.0, follow these steps:
 
-1. Shut down Camunda Platform 7.16.
+1. Shut down Camunda 7.16.
 1. Export the file-persisted H2 database by running the following SQL command: `SCRIPT TO '<path>' CHARSET 'UTF-8'` where you substitute `<path>` with a path to a file on your system (for example, by using the [H2 web console](https://www.h2database.com/html/tutorial.html#tutorial_starting_h2_console) of H2 version 1.4)
 1. Delete the H2 database file.
 1. Create a new H2 database file with H2 2.0 and re-import the data with the following SQL command: `RUNSCRIPT FROM '<path>' CHARSET 'UTF-8'` (for example, by using the [H2 web console](https://www.h2database.com/html/tutorial.html#tutorial_starting_h2_console) of H2 version 2.0).
-1. Migrate the Camunda application and start Camunda Platform 7.17.
+1. Migrate the Camunda application and start Camunda 7.17.
 
 In addition, with this release the process engine no longer supports the `jdbcStatementTimeout` configuration setting for H2 databases.
 
@@ -208,17 +208,17 @@ Also see the [migration instructions provided by the h2 project](https://h2datab
 
 # Official support for JUnit 5 community extension
 
-Camunda took over the development of a JUnit 5 extension which was maintained by the community in the [Camunda Community Hub](https://github.com/camunda-community-hub). The source code is is now located in the [Camunda Platform 7 repository](https://github.com/camunda/camunda-bpm-platform/tree/master/test-utils/junit5-extension).
+Camunda took over the development of a JUnit 5 extension which was maintained by the community in the [Camunda Community Hub](https://github.com/camunda-community-hub). The source code is is now located in the [Camunda 7 repository](https://github.com/camunda/camunda-bpm-platform/tree/master/test-utils/junit5-extension).
 The extension allows users to access the process engine and its API in JUnit 5 tests. Documentation on how to use the extension was migrated to the [Testing documentation]({{< ref "/user-guide/testing/_index.md#junit-5" >}}) in the Camunda 7 docs.
 
 ## Versioning of the JUnit 5 extension
 
-From now on the JUnit 5 extension will be released together with the Camunda Platform 7. This also means they will share the same version (e.g. 7.17.0, 7.17.1, etc.).
+From now on the JUnit 5 extension will be released together with the Camunda 7. This also means they will share the same version (e.g. 7.17.0, 7.17.1, etc.).
 
 ## JUnit 5 Maven coordinates
 
 When migrating to the new version of the JUnit 5 extension, make sure to update the maven coordinates of the dependency.
-The group id changed from `<groupId>org.camunda.bpm.extension</groupId>` to `<groupId>org.camunda.bpm</groupId>` and the versioning schema is now tied to Camunda Platform 7. The first release of the new JUnit 5 extension will have the version `7.17.0`.
+The group id changed from `<groupId>org.camunda.bpm.extension</groupId>` to `<groupId>org.camunda.bpm</groupId>` and the versioning schema is now tied to Camunda 7. The first release of the new JUnit 5 extension will have the version `7.17.0`.
 
 ```xml
     <dependency>
@@ -229,22 +229,22 @@ The group id changed from `<groupId>org.camunda.bpm.extension</groupId>` to `<gr
     </dependency>
 ```
 
-# Changes to Camunda Platform Assert
+# Changes to Camunda 7 Assert
 
-The source code of [Camunda Platform Assert]({{< ref "/user-guide/testing#camunda-assertions" >}}) has moved from its [previous location](https://github.com/camunda/camunda-bpm-assert) into the [Camunda Platform 7 repository](https://github.com/camunda/camunda-bpm-platform/tree/master/test-utils/assert).
+The source code of [Camunda 7 Assert]({{< ref "/user-guide/testing#camunda-assertions" >}}) has moved from its [previous location](https://github.com/camunda/camunda-bpm-assert) into the [Camunda 7 repository](https://github.com/camunda/camunda-bpm-platform/tree/master/test-utils/assert).
 
 Moving the project has several implications:
 
-* Camunda Platform Assert version is now tied to the Camunda Platform 7 release.
-* The Maven group id for Camunda Platform Assert [changed](#camunda-platform-assert-maven-coordinates).
-* Camunda Platform Assert uses AssertJ under the hood. The version of AssertJ is tied to the version that the latest version of Spring Boot currently supported by Camunda Platform uses.
+* Camunda 7 Assert version is now tied to the Camunda 7 release.
+* The Maven group id for Camunda 7 Assert [changed](#camunda-platform-assert-maven-coordinates).
+* Camunda 7 Assert uses AssertJ under the hood. The version of AssertJ is tied to the version that the latest version of Spring Boot currently supported by Camunda 7 uses.
 Find details on supported AssertJ versions in the version [compatibility table]({{< ref "/user-guide/testing/_index.md#assertions-version-compatibility" >}}) in the testing documentation.
 
-## Versioning of Camunda Platform Assert
+## Versioning of Camunda 7 Assert
 
-From now on Camunda Platform Assert will be released together with the Camunda Platform 7. This also means they will share the same version (e.g. 7.17.0, 7.17.1, etc.).
+From now on Camunda 7 Assert will be released together with Camunda 7. This also means they will share the same version (e.g. 7.17.0, 7.17.1, etc.).
 
-## Camunda Platform Assert Maven coordinates
+## Camunda 7 Assert Maven coordinates
 
 When updating to the `7.17.0` (or higher) releases of Assert, make sure to update the Maven coordinates of the dependency.
 The group id changed from `<groupId>org.camunda.bpm.assert</groupId>` to `<groupId>org.camunda.bpm</groupId>`. Here is the Maven dependency for Assert in version 7.17.0:

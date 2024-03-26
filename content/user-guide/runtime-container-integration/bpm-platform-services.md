@@ -1,6 +1,6 @@
 ---
 
-title: 'Camunda Platform Services'
+title: 'Camunda 7 Services'
 weight: 10
 
 menu:
