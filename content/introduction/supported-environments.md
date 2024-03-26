@@ -56,7 +56,6 @@ Run Camunda in every Java-runnable environment. Camunda is supported with our QA
   * Azure SQL Managed Instance
   * Azure SQL Database
 * H2 2.1 (not recommended for [Cluster Mode]({{< ref "/introduction/architecture.md#clustering-model" >}}) - see [Deployment Note]({{< ref "/user-guide/process-engine/deployments.md" >}}))
-* CockroachDB v20.1.3 (see [Configuration guide]({{< ref "/user-guide/process-engine/database/cockroachdb-configuration.md" >}}) for more details)
 
 ## Database Clustering & Replication
 

@@ -211,13 +211,6 @@ quarkus.datasource.engine-datasource.jdbc.url=jdbc:oracle:thin:@localhost:1521:O
 quarkus.camunda.datasource=engine-datasource
 ```
 
-### Using Quarkus Transaction Integration with CockroachDB
-
-Quarkus allows its users to control transaction boundaries. This is documented on their [Quarkus Transactions][quarkus-transactions] 
-page. In case you use the Quarkus Transactions Integration with CockroachDB, please see the documentation section on 
-[external transaction management with CockroachDB][crdb-transactions] to understand how to configure the Camunda process
-engine correctly.
-
 ## Example
 
 The following is an example of a Quarkus `application.properties` file that provides custom values for the process 
@@ -247,7 +240,6 @@ quarkus.datasource.my-datasource.jdbc.url=jdbc:h2:mem:camunda;TRACE_LEVEL_FILE=0
 quarkus.camunda.datasource=my-datasource
 ```
 
-[crdb-transactions]: {{< ref "/user-guide/process-engine/database/cockroachdb-configuration.md#using-external-transaction-management-with-the-spring-java-ee-integrations" >}}
 [engine-properties]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#configuration-properties" >}}
 [executor-properties]: {{< ref "/reference/deployment-descriptors/tags/job-executor.md#job-acquisition-configuration-properties" >}}
 

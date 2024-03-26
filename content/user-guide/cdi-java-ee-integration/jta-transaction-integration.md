@@ -58,11 +58,6 @@ public class MyBean {
 }
 ```
 
-## Using JTA transaction integration with CockroachDB
-
-Please see the documentation section on [external transaction management with CockroachDB]({{< ref "/user-guide/process-engine/database/cockroachdb-configuration.md#using-external-transaction-management-with-the-spring-java-ee-integrations" >}})
-to understand how to use the transaction integration with CockroachDB.
-
 ## Using JTA transaction integration with WebSphere Liberty
 
 Camunda 7 allows to mark a transaction as "rollback only" by calling `UserTransaction#setRollbackOnly()`.

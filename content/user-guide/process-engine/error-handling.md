@@ -205,7 +205,7 @@ In the table below, you will find an overview of all categories, ranges, and cod
       <td>Engine</td>
       <td>[1, 9999]</td>
       <td>1</td>
-      <td><code>OptimisticLockingException</code>/<br><code>CrdbTransactionRetryException</code></td>
+      <td><code>OptimisticLockingException</code></td>
       <td>X</td>
     </tr>
     <tr>
