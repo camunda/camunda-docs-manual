@@ -85,7 +85,7 @@ The expression is evaluated on invocations of `ExternalTaskService#complete` and
 </serviceTask>
 ```
 
-Further information on the functionality of error event definitions on external tasks can be found in the [expression language user guide]({{< ref "/user-guide/process-engine/expression-language.md#external-task-error-handling" >}}). The specific use in external tasks for RPA orchestration scenarios is described in the [Camunda Platform RPA Bridge]({{< ref "/user-guide/camunda-bpm-rpa-bridge.md#error-handling" >}}).
+Further information on the functionality of error event definitions on external tasks can be found in the [expression language user guide]({{< ref "/user-guide/process-engine/expression-language.md#external-task-error-handling" >}}). The specific use in external tasks for RPA orchestration scenarios is described in the [Camunda 7 RPA Bridge]({{< ref "/user-guide/camunda-bpm-rpa-bridge.md#error-handling" >}}).
 
 ## Rest API
 

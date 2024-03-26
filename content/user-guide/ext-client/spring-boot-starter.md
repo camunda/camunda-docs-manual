@@ -195,7 +195,7 @@ Available properties:
     <tr>
       <td><code>base-url</code></td>
       <td>
-        <strong>Mandatory:</strong> Base url of the Camunda Platform Runtime
+        <strong>Mandatory:</strong> Base url of the Camunda 7 Runtime
         REST API.
       </td>
       <td></td>

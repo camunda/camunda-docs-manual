@@ -1,17 +1,17 @@
 ---
 
-title: 'Camunda Platform RPA Bridge License Book'
+title: 'Camunda 7 RPA Bridge License Book'
 weight: 70
 
 menu:
   main:
     identifier: "user-guide-introduction-third-party-libraries-license-book-rpa"
     parent: "user-guide-introduction-third-party-libraries"
-    pre: "All third-party dependencies distributed with the Camunda Platform RPA Bridge"
+    pre: "All third-party dependencies distributed with the Camunda 7 RPA Bridge"
 
 ---
 
-This page contains all the third-party libraries distributed with the Camunda Platform RPA Bridge 1.1.0.
+This page contains all the third-party libraries distributed with the Camunda 7 RPA Bridge 1.1.0.
 
 # Java Dependencies
 

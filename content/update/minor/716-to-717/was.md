@@ -13,14 +13,14 @@ menu:
 
 The following steps describe how to update the Camunda artifacts on an IBM WebSphere application server in a 
 shared process engine setting. Throughout the procedure, refer to the [update guide][update-guide]. If not already done, 
-download the [Camunda Platform 7.17 IBM WebSphere distribution](https://artifacts.camunda.com/artifactory/camunda-bpm-ee/org/camunda/bpm/websphere/camunda-bpm-websphere/7.17.0-ee/).
+download the [Camunda 7.17 IBM WebSphere distribution](https://artifacts.camunda.com/artifactory/camunda-bpm-ee/org/camunda/bpm/websphere/camunda-bpm-websphere/7.17.0-ee/).
 
 The update procedure takes the following steps:
 
 1. Uninstall the Camunda libraries and archives.
 2. Replace Camunda core libraries.
 3. Replace optional Camunda dependencies.
-4. Maintain the Camunda Platform configuration.
+4. Maintain the Camunda 7 configuration.
 5. Install the Camunda Archive.
 6. Install the web applications.
 
@@ -88,9 +88,9 @@ Copy the following libraries from `$WAS_DISTRIBUTION/modules/lib` to the folder 
 * `regex-$GRAALJS_VERSION.jar`
 * `truffle-api-$GRAALJS_VERSION.jar`
 
-# 4. Maintain the Camunda Platform configuration
+# 4. Maintain the Camunda 7 configuration
 
-If you have previously replaced the default Camunda Platform configuration with a custom configuration following any of the ways outlined in the [deployment descriptor reference][configuration-location], it may be necessary to restore this configuration. This can be done by repeating the configuration replacement steps for the updated platform.
+If you have previously replaced the default Camunda 7 configuration with a custom configuration following any of the ways outlined in the [deployment descriptor reference][configuration-location], it may be necessary to restore this configuration. This can be done by repeating the configuration replacement steps for the updated platform.
 
 # 5. Install the Camunda Archive
 
