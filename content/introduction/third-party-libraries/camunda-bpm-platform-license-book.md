@@ -11,6 +11,7 @@ menu:
 
 ---
 
+
 # Java Dependencies
 <div><details><summary>logback-classic@1.4.14(<a href="https://opensource.org/licenses/EPL-1.0">EPL 1.0</a>)</summary><pre>Copyright (c) 1999-2015, QOS.ch. All rights reserved</pre></details></div>
 <div><details><summary>logback-core@1.4.14(<a href="https://opensource.org/licenses/EPL-1.0">EPL 1.0</a>)</summary><pre>Copyright (c) 1999-2015, QOS.ch. All rights reserved</pre></details></div>
@@ -2204,7 +2205,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="http://github.com/urish/angular-moment.git">angular-moment@1.3.0</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/urish/angular-moment.git">angular-moment@1.3.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2013-2016 Uri Shaked and contributors
 
@@ -2226,7 +2227,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="http://github.com/angular-translate/angular-translate">angular-translate@2.19.0</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/angular-translate/angular-translate">angular-translate@2.19.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2013-2017 The angular-translate team and Pascal Precht
 
@@ -7016,7 +7017,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="jshttp/cookie">cookie@0.6.0</a> (MIT)</summary><pre>(The MIT License)
+<div><details><summary><a href="https://github.com/jshttp/cookie">cookie@0.6.0</a> (MIT)</summary><pre>(The MIT License)
 
 Copyright (c) 2012-2014 Roman Shtylman <shtylman@gmail.com>
 Copyright (c) 2015 Douglas Christopher Wilson <doug@somethingdoug.com>
@@ -8220,7 +8221,7 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="http://github.com/refractproject/minim">minim@0.23.8</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/refractproject/minim">minim@0.23.8</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2014 Stephen Mizell
 
