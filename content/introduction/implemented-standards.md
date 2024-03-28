@@ -32,7 +32,6 @@ Camunda supports the 2.0 version of BPMN.
 Case Management Model and Notation (CMMN) is a standard for Case Management.
 Camunda supports the 1.1 version of CMMN.
 
-* Getting started implementing CMMN Cases: [CMMN Getting Started]
 * Implementing CMMN Cases: [CMMN Implementation Reference]
 * Executing CMMN: [Process Engine]
 
