@@ -19,7 +19,7 @@ This document guides you through the update from Camunda `7.20.x` to `7.21.0` an
 1. For administrators and developers: [Full distribution update](#full-distribution)
 1. For developers: [Add Default History Time To Live to BPMN Fluent API](#add-default-history-time-to-live-to-bpmn-fluent-api)
 1. For administrators: [Spring Boot Starter and Run logs admin user information on `DEBUG` level](#spring-boot-starter-and-run-logs-admin-user-information-on-debug-level)
-1. For developers: [External Task Client Java](#external-task-client-java)
+1. For administrators and developers: [External Task Client Java](#external-task-client-java)
 1. For developers: [Changed trigger order of built-in task listeners](#changed-trigger-order-of-built-in-task-listeners)
 1. For administrators and developers: [Cockpit's process definition like search changed to case-insensitive](#cockpit-s-process-definition-like-search-changed-to-case-insensitive)
 1. For developers: [External MDC properties are isolated from the engine's processing](#external-mdc-properties-are-isolated-from-engine-processing)

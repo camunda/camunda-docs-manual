@@ -14,10 +14,6 @@ menu:
 The following steps describe how to update the Camunda artifacts on IBM WebSphere application server Liberty in a shared process engine setting. 
 Throughout the procedure, refer to the [update guide][update-guide]. If not already done, download the [Camunda 7.21 IBM WebSphere distribution][was-distribution].
 
-{{< note title="Removed support for WebSphere 9" class="info" >}}
-Support for WebSphere 9 was discontinued with the Camunda 7.21.0 release. The artifacts used in this guide might be compatible with a WebSphere 9 application server. However, this is not tested and is not covered by Camunda product support.
-{{< /note >}}
-
 The update procedure takes the following steps:
 
 1. Uninstall the Camunda libraries and archives.
