@@ -44,6 +44,10 @@ Each version of Camunda 7 is bound to a specific version of the **External Task 
     <td>7.20.x</td>
     <td>3.0.x</td>
   </tr>
+  <tr>
+    <td>7.21.x</td>
+    <td>3.1.x</td>
+  </tr>
 </table>
 
 Only these default combinations are recommended (and supported) by Camunda. Nevertheless, each version of the External
