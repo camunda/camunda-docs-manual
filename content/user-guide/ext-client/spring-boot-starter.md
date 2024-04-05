@@ -229,6 +229,20 @@ Available properties:
       <td><code>true</code></td>
     </tr>
     <tr>
+      <td><code>use-create-time</code></td>
+      <td>
+        Specifies whether tasks should be fetched based on their create time in descending order. Use this property in disjunction with order-by-create-time property or a SpringExternalTaskClientException will be thrown.
+      </td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td><code>order-by-create-time</code></td>
+      <td>
+        Specifies whether tasks should be fetched based on their createTime with the given configured order. It can be either "asc" or "desc". Use this property in disjunction with order-by-create-time property or a SpringExternalTaskClientException will be thrown.
+      </td>
+      <td><code>null</code></td>
+    </tr>
+    <tr>
       <td><code>async-response-timeout</code></td>
       <td>
         Asynchronous response (long polling) is enabled if a timeout is given.
