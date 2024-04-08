@@ -238,7 +238,7 @@ Available properties:
     <tr>
       <td><code>order-by-create-time</code></td>
       <td>
-        Specifies whether tasks should be fetched based on their createTime with the given configured order. It can be either "asc" or "desc". Use this property in disjunction with order-by-create-time property or a SpringExternalTaskClientException will be thrown.
+        Specifies whether tasks should be fetched based on their createTime with the given configured order. It can be either "asc" or "desc". Use this property in disjunction with use-create-time property or a SpringExternalTaskClientException will be thrown.
       </td>
       <td><code>null</code></td>
     </tr>
