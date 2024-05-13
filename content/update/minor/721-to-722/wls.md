@@ -72,7 +72,7 @@ Copy the following library from `$WLS_DISTRIBUTION/modules/lib` to the folder `$
 
 Copy the following library from `$WLS_DISTRIBUTION/modules/lib` to the folder `$WLS_DOMAIN_HOME/lib`, if present:
 
-* `camunda-spin-core-$SPIN_VERSION.jar`
+* `camunda-spin-core-$PLATFORM_VERSION.jar`
 
 ---
 `camunda-spin-dataformat-json-jackson`, `camunda-spin-dataformat-xml-dom`, and `camunda-engine-plugin-spin` are part of the `.ear`.

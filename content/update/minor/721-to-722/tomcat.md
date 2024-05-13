@@ -67,8 +67,8 @@ Copy the following libraries from `$TOMCAT_DISTRIBUTION/lib` to the folder `$TOM
 
 Copy the following libraries from `$TOMCAT_DISTRIBUTION/lib` to the folder `$TOMCAT_HOME/lib/`, if present:
 
-* `camunda-spin-dataformat-all-$SPIN_VERSION.jar`
-* `camunda-spin-core-$SPIN_VERSION.jar`
+* `camunda-spin-dataformat-all-$PLATFORM_VERSION.jar`
+* `camunda-spin-core-$PLATFORM_VERSION.jar`
 * `camunda-engine-plugin-spin-$PLATFORM_VERSION.jar`
 
 ## GraalVM JavaScript

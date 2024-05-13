@@ -77,7 +77,7 @@ Copy the following library from `$WAS_DISTRIBUTION/server/lib` to the folder `$S
 
 Copy the following library from `$WAS_DISTRIBUTION/server/lib` to the folder `$SHARED_LIBRARY_PATH`, if present:
 
-* `camunda-spin-core-$SPIN_VERSION.jar`
+* `camunda-spin-core-$PLATFORM_VERSION.jar`
 
 ## GraalVM JavaScript
 
