@@ -41,7 +41,7 @@ The following steps are required:
 Before starting, ensure you have downloaded the Camunda 7.22 distribution for the application server you use. This contains the SQL scripts and libraries required for the update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
 
 # Camunda Spin
- We’ve moved the camunda-spin project from its [previous location](https://github.com/camunda/camunda-spin) into the [mono repository](https://github.com/camunda/camunda-bpm-platform). We’re no longer versioning it independently. Instead, we’ve integrated it into the 7.X.Y versioning scheme, so you can conveniently declare Camunda Automation Platform 7.22.0-alpha1 to use the latest release of spin. 
+ We’ve moved the `camunda-spin` project from its [previous location](https://github.com/camunda/camunda-spin) into the [mono repository](https://github.com/camunda/camunda-bpm-platform). We’re no longer versioning it independently. Instead, we’ve integrated it into the 7.X.Y versioning scheme, so you can conveniently declare Camunda `7.22.0-alpha1` to use the latest release of Camunda Spin. 
 
 # Camunda Commons
- We’ve moved the camunda-commons project from its [previous location](https://github.com/camunda/camunda-commons) into the [mono repository](https://github.com/camunda/camunda-bpm-platform). We’re no longer versioning it independently. Instead, we’ve integrated it into the 7.X.Y versioning scheme, so you can conveniently declare Camunda Automation Platform 7.22.0-alpha1 to use the latest release of commons.
+ We’ve moved the `camunda-commons` project from its [previous location](https://github.com/camunda/camunda-commons) into the [mono repository](https://github.com/camunda/camunda-bpm-platform). We’re no longer versioning it independently. Instead, we’ve integrated it into the 7.X.Y versioning scheme, so you can conveniently declare Camunda `7.22.0-alpha1` to use the latest release of Camunda Commons.
