@@ -78,7 +78,7 @@ If you are using Connect in the Camunda 7 process engine, you also need the `cam
 
 # Logging
 
-Camunda Connect uses [camunda-commons-logging](https://github.com/camunda/camunda-commons/tree/master/logging) which itself uses [SLF4J](http://slf4j.org) as
+Camunda Connect uses [camunda-commons-logging](https://github.com/camunda/camunda-bpm-platform/tree/master/commons/logging) which itself uses [SLF4J](http://slf4j.org) as
 a logging backend. To enable logging a SLF4J implementation has to be part of
 your classpath. For example `slf4j-simple`, `log4j12` or `logback-classic`.
 

@@ -37,9 +37,9 @@ Replace the following libraries in the folder `$TOMCAT_HOME/lib/` with the new v
 * `camunda-engine-feel-juel-$PLATFORM_VERSION.jar`
 * `camunda-engine-feel-scala-$PLATFORM_VERSION.jar`
 * `camunda-juel-$PLATFORM_VERSION.jar`
-* `camunda-commons-logging-$COMMONS_VERSION.jar`
+* `camunda-commons-logging-$PLATFORM_VERSION.jar`
 * `camunda-commons-typed-values-$PLATFORM_VERSION.jar`
-* `camunda-commons-utils-$COMMONS_VERSION.jar`
+* `camunda-commons-utils-$PLATFORM_VERSION.jar`
 * `camunda-connect-connectors-all-$CONNECT_VERSION.jar`
 * `camunda-connect-core-$CONNECT_VERSION.jar`
 * `camunda-template-engines-freemarker-$TEMPLATE_ENGINES_VERSION.jar`

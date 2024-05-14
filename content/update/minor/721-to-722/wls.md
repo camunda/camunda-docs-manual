@@ -44,9 +44,9 @@ After shutting down the server, replace the following libraries in `$WLS_DOMAIN_
 * `camunda-engine-feel-juel-$PLATFORM_VERSION.jar`
 * `camunda-engine-feel-scala-$PLATFORM_VERSION.jar`
 * `camunda-juel-$PLATFORM_VERSION.jar`
-* `camunda-commons-logging-$COMMONS_VERSION.jar`
+* `camunda-commons-logging-$PLATFORM_VERSION.jar`
 * `camunda-commons-typed-values-$PLATFORM_VERSION.jar`
-* `camunda-commons-utils-$COMMONS_VERSION.jar`
+* `camunda-commons-utils-$PLATFORM_VERSION.jar`
 * `camunda-connect-connectors-all-$CONNECT_VERSION.jar`
 * `camunda-connect-core-$CONNECT_VERSION.jar`
 * `feel-engine-$FEEL_ENGINE_VERSION-scala-shaded.jar`
