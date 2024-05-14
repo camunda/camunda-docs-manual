@@ -37,7 +37,7 @@ dependency to your `pom.xml` file:
       <artifactId>camunda-spin-bom</artifactId>
       <scope>import</scope>
       <type>pom</type>
-      <version>${version.spin}</version>
+      <version>${version.camunda}</version>
     </dependency>
   </dependencies>
 </dependencyManagement>

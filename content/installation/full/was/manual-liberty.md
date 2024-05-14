@@ -577,7 +577,7 @@ application deployment.
 Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION/server/lib` to the
 `$SERVER_CONFIG_DIR/lib` folder:
 
-* `camunda-commons-utils-$COMMONS_VERSION.jar`
+* `camunda-commons-utils-$PLATFORM_VERSION.jar`
 
 In order to activate Camunda Connect functionality for a process engine, you need to register a process engine plugin
 in the Camunda configuration as follows:
@@ -606,8 +606,8 @@ Note that this requires a custom `bpm-platform.xml` file.
 Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION/server/lib/` to the
 `$SERVER_CONFIG_DIR/lib` folder:
 
-* `camunda-spin-core-$SPIN_VERSION.jar`
-* `camunda-commons-utils-$COMMONS_VERSION.jar`
+* `camunda-spin-core-$PLATFORM_VERSION.jar`
+* `camunda-commons-utils-$PLATFORM_VERSION.jar`
 
 In order to activate Camunda Spin functionality for a process engine, you need to register a process engine plugin
 in the Camunda configuration as follows:
