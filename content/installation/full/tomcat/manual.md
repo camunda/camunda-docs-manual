@@ -186,7 +186,7 @@ The following steps are required to deploy the REST API:
 
 Add the following artifacts (if not existing) from the folder `$TOMCAT_DISTRIBUTION/lib/` to the folder `$TOMCAT_HOME/lib/`:
 
-* `camunda-engine-plugin-connect-$CAMUNDA_VERSION.jar`
+* `camunda-engine-plugin-connect-$PLATFORM_VERSION.jar`
 * `camunda-commons-utils-$PLATFORM_VERSION.jar`
 
 In order to activate Camunda Connect functionality for a process engine, a process engine plugin has to be registered in `$TOMCAT_HOME/conf/bpm-platform.xml` as follows:
@@ -213,9 +213,9 @@ In order to activate Camunda Connect functionality for a process engine, a proce
 
 Add the following artifacts (if not existing) from the folder `$TOMCAT_DISTRIBUTION/lib/` to the folder `$TOMCAT_HOME/lib/`:
 
-* `camunda-spin-dataformat-all-$CAMUNDA_VERSION.jar`
-* `camunda-spin-core-$CAMUNDA_VERSION.jar`
-* `camunda-engine-plugin-spin-$CAMUNDA_VERSION.jar`
+* `camunda-spin-dataformat-all-$PLATFORM_VERSION.jar`
+* `camunda-spin-core-$PLATFORM_VERSION.jar`
+* `camunda-engine-plugin-spin-$PLATFORM_VERSION.jar`
 * `camunda-commons-utils-$PLATFORM_VERSION.jar`
 
 In order to activate Camunda Spin functionality for a process engine, a process engine plugin has to be registered in `$TOMCAT_HOME/conf/bpm-platform.xml` as follows:
