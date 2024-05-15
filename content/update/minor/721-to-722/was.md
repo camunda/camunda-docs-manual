@@ -51,8 +51,8 @@ from `$WAS_DISTRIBUTION/server/lib`:
 * `camunda-commons-logging-$PLATFORM_VERSION.jar`
 * `camunda-commons-typed-values-$PLATFORM_VERSION.jar`
 * `camunda-commons-utils-$PLATFORM_VERSION.jar`
-* `camunda-connect-connectors-all-$CONNECT_VERSION.jar`
-* `camunda-connect-core-$CONNECT_VERSION.jar`
+* `camunda-connect-connectors-all-$PLATFORM_VERSION.jar`
+* `camunda-connect-core-$PLATFORM_VERSION.jar`
 * `camunda-template-engines-freemarker-$PLATFORM_VERSION.jar`
 * `feel-engine-$FEEL_ENGINE_VERSION-scala-shaded.jar`
 * `freemarker-$FREEMARKER_VERSION.jar`

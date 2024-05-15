@@ -47,8 +47,8 @@ After shutting down the server, replace the following libraries in `$WLS_DOMAIN_
 * `camunda-commons-logging-$PLATFORM_VERSION.jar`
 * `camunda-commons-typed-values-$PLATFORM_VERSION.jar`
 * `camunda-commons-utils-$PLATFORM_VERSION.jar`
-* `camunda-connect-connectors-all-$CONNECT_VERSION.jar`
-* `camunda-connect-core-$CONNECT_VERSION.jar`
+* `camunda-connect-connectors-all-$PLATFORM_VERSION.jar`
+* `camunda-connect-core-$PLATFORM_VERSION.jar`
 * `feel-engine-$FEEL_ENGINE_VERSION-scala-shaded.jar`
 * `mybatis-$MYBATIS_VERSION.jar`
 * `slf4j-api-$SLF4J_VERSION.jar`

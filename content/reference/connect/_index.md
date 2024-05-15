@@ -50,7 +50,7 @@ to ensure correct versions for every Camunda project.
       <artifactId>camunda-connect-bom</artifactId>
       <scope>import</scope>
       <type>pom</type>
-      <version>${version.connect}</version>
+      <version>${version.camunda}</version>
     </dependency>
   </dependencies>
 </dependencyManagement>
