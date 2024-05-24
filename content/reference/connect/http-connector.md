@@ -109,6 +109,21 @@ HttpResponse response = http.createRequest()
   .execute();
 ```
 
+## Enabling HTTP Error Handling
+
+<strong>Note:</strong> HTTP Connector does not seamlessly handle 4XX and 5XX related response errors during HTTP call.
+Custom scripts within workflows have to be employed to handle these errors.To support handling of 
+these errors without additional scripting set `throw-http-error` property to `TRUE` via `configOption`
+method.
+
+```java
+HttpResponse response = http.createRequest()
+  .get()
+  .configOption("throw-http-error", "TRUE")
+  .url("http://camunda.org")
+  .execute();
+```
+
 ## Using the Generic API
 
 Besides the configuration methods also a generic API exists to
