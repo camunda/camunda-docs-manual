@@ -20,7 +20,7 @@ box:
 * [FreeMarker][freemarker]
 
 The script engine Freemarker wrapper implementation can be found in the
-[camunda-template-engines-jsr223](https://github.com/camunda/camunda-template-engines-jsr223/) repository.
+[camunda-bpmn-platform](https://github.com/camunda/camunda-bpm-platform/tree/master/freemarker-template-engine) repository.
 
 The following template engines are provided as optional community extensions:
 
