@@ -133,9 +133,14 @@ Other combinations must be thoroughly tested before being used in production.
     <td>3.1.x<br/>3.2.x</td>
   </tr>
   <tr>
-    <td>7.21.x</td>
-    <td>7.21.x</td>
-    <td>3.2.x</td>
+    <td>7.21.x<br/>7.21.3+&#42;&#42;&#42;</td>
+    <td>7.21.x<br/>7.21.3+</td>
+    <td>3.2.x<br/>3.3.x</td>
+  </tr>
+  <tr>
+    <td>7.22.x</td>
+    <td>7.22.x</td>
+    <td>3.3.x</td>
   </tr>
 </table>
 
