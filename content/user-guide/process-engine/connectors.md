@@ -11,7 +11,7 @@ menu:
 ---
 
 
-With the dependency [camunda-connect](https://github.com/camunda/camunda-connect), the process engine supports simple
+With the dependency [camunda-connect](https://github.com/camunda/camunda-bpm-platform/tree/master/connect), the process engine supports simple
 connectors. Currently the following connector implementations exist:
 
 <table class="table">
