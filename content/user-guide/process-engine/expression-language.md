@@ -10,9 +10,21 @@ menu:
 
 ---
 
-Camunda 7 supports Unified Expression Language (EL), specified by the [Jakarta Expression
-Language 4.0 standard][JakartaEL]. To do so, it maintains a custom version of the open source 
-[JUEL][] implementation. To get more general information about the usage of Expression Language, 
+Camunda 7 supports the Unified Expression Language (EL), specified by the [Jakarta Expression
+Language 4.0 standard][JakartaEL]. To do so, it maintains a custom version of the open source [JUEL][] implementation.
+
+Note, compared to EL 4.0 this JUEL implementation has the following limitations: 
+
+
+- Initializing collections directly within expressions (e.g., `${[1,2,3]}`) is NOT supported.
+
+- Lambda expressions (e.g., inline functions `${((x,y)->x+y)(3,4)}`) are NOT supported.
+
+- Referencing static fields (e.g., `${Boolean.TRUE}`), static functions (e.g., `${Integer.parseInt("123")}`), and enums (e.g., `${Thread.State.TERMINATED}`) are NOT supported. 
+
+- The Assignment Operator `(A=B)`, the String Concatenation Operator `(A+=B)`, and the Semicolon Operator `(A ; B)` are NOT supported.
+
+To get more general information about the usage of Expression Language, 
 please read the [official documentation][]. It provides examples that give a good overview of 
 the syntax of expressions.
 
