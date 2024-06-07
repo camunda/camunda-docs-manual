@@ -1,6 +1,6 @@
 ---
 
-title: 'Configure the Full Distribution for JBoss EAP/Wildfly'
+title: 'Configure the Full Distribution for JBoss EAP/WildFly'
 weight: 30
 
 menu:
@@ -13,17 +13,17 @@ menu:
 ---
 
 
-This page explains how to configure the full distribution for the JBoss EAP/Wildfly application server.
+This page explains how to configure the full distribution for the JBoss EAP/WildFly application server.
 
 
 ## LDAP
 
-In order to setup LDAP for the JBoss EAP/Wildfly Application Server distribution, you have to perform the following steps:
+In order to setup LDAP for the JBoss EAP/WildFly Application Server distribution, you have to perform the following steps:
 
 
 ### Adjust the Process Engine Configuration
 
-Edit the file `standalone.xml` (or `domain.xml`) provided by the JBoss EAP/Wildfly Application Server and add the [LDAP Identity Provider Plugin]({{< ref "/user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}) and the [Administrator Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}).
+Edit the file `standalone.xml` (or `domain.xml`) provided by the JBoss EAP/WildFly Application Server and add the [LDAP Identity Provider Plugin]({{< ref "/user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}) and the [Administrator Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}).
 
 ```xml
 <subsystem xmlns="urn:org.camunda.bpm.jboss:1.1">
@@ -134,7 +134,7 @@ configuration to the `web.xml` file of the Camunda 7 web application
     </module>
       ```
       
-    The `module.xml` file is included in the Camunda 7 distribution. If you install Camunda 7 on a vanilla Wildfly container, this file needs to be created manually.
+    The `module.xml` file is included in the Camunda 7 distribution. If you install Camunda 7 on a vanilla WildFly container, this file needs to be created manually.
 3. [Configure the process engine plugin]({{< ref "/user-guide/runtime-container-integration/jboss.md#extend-a-process-engine-using-process-engine-plugins" >}}) in the standalone.xml/domain.xml configuration file
 
 ## Session Cookie in Webapps
