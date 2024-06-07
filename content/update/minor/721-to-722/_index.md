@@ -47,6 +47,7 @@ Before starting, ensure you have downloaded the Camunda 7.22 distribution for th
 
 # Camunda Commons
  We’ve moved the `camunda-commons` project from its [previous location](https://github.com/camunda/camunda-commons) into the [mono repository](https://github.com/camunda/camunda-bpm-platform). We’re no longer versioning it independently. Instead, we’ve integrated it into the 7.X.Y versioning scheme, so you can conveniently declare Camunda `7.22.0-alpha1` to use the latest release of Camunda Commons.
+ We've also updated the `camunda-commons-bom` to include `camunda-commons-typed-values`. Now, you can manage all Camunda commons dependency versions directly through the `camunda-commons-bom`.
 
 # Camunda Template Engines FreeMarker
  We’ve moved the `camunda-template-engines-freemarker` project from its [previous location](https://github.com/camunda/camunda-template-engines-jsr223) into the [mono repository](https://github.com/camunda/camunda-bpm-platform). We’re no longer versioning it independently. Instead, we’ve integrated it into the 7.X.Y versioning scheme, so you can conveniently declare Camunda `7.22.0-alpha2` to use the latest release of Camunda Template Engines FreeMarker.
