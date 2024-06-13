@@ -161,7 +161,8 @@ The following steps are required to deploy the applications:
 
 1. Download the Camunda 7 web application that contains both applications from our [Maven Nexus Server](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-tomcat/).
    Or switch to the private repository for the enterprise version (User and password from license required).
-   Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-tomcat-$PLATFORM_VERSION.war`.
+    * For [Tomcat 10](https://artifacts.camunda.com/ui/native/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-tomcat-jakarta/), the name of the artifact is `$PLATFORM_VERSION/camunda-webapp-tomcat-jakarta-$PLATFORM_VERSION.war`.
+    * For [Tomcat 9](https://artifacts.camunda.com/ui/native/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-tomcat/), the name of the artifact is `$PLATFORM_VERSION/camunda-webapp-tomcat-$PLATFORM_VERSION.war`.
 2. Copy the war file to `$TOMCAT_HOME/webapps/camunda.war`.
    Optionally you may name it differently or extract it to a folder to deploy it to a different context path.
 3. Startup Tomcat.
