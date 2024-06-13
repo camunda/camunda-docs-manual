@@ -64,7 +64,7 @@ If you have declared other resource link names than we proposed, you have to use
 
 ## Tomcat Default Job Executor
 
-Camunda 7 on Apache Tomcat 9.x uses the default job executor. The default [job executor]({{< ref "/user-guide/process-engine/the-job-executor.md" >}}) uses a ThreadPoolExecutor which manages a thread
+Camunda 7 on Apache Tomcat 10.x uses the default job executor. The default [job executor]({{< ref "/user-guide/process-engine/the-job-executor.md" >}}) uses a ThreadPoolExecutor which manages a thread
 pool and a job queue.
 
 The core pool size, queue size, maximum pool size and keep-alive-time can be configured in the `bpm-platform.xml`.
