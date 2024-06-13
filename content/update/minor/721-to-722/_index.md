@@ -21,6 +21,7 @@ This document guides you through the update from Camunda `7.21.x` to `7.22.0` an
 1. For developers: [Camunda Commons](#camunda-commons)
 1. For developers: [Camunda Template Engines FreeMarker](#camunda-template-engines-freemarker)
 1. For developers: [Camunda Connect](#camunda-connect)
+1. For developers: [Update to Tomcat 10 Server](#update-to-tomcat-10-server)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda 7.22.
 
@@ -54,3 +55,37 @@ Before starting, ensure you have downloaded the Camunda 7.22 distribution for th
 
 # Camunda Connect
  We’ve moved the `camunda-connect` project from its [previous location](https://github.com/camunda/camunda-connect) into the [mono repository](https://github.com/camunda/camunda-bpm-platform). We’re no longer versioning it independently. Instead, we’ve integrated it into the 7.X.Y versioning scheme, so you can conveniently declare Camunda `7.22.0-alpha2` to use the latest release of Camunda Connect.
+
+# Update to Tomcat 10 Server
+
+With this release, we support Tomcat 10, the new default pre-packaged Tomcat distro. It replaces Java EE with Jakarta EE APIs.
+If you prefer to stay on Tomcat 9, you can still download the Java EE compliant [web application][tomcat9-webapp], and [REST API][tomcat9-rest-api].
+
+To work with Tomcat 10, consider the following when migrating your process applications and replacing artifacts on the application server:
+
+[tomcat9-webapp]: https://artifacts.camunda.com/ui/native/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-tomcat/
+[tomcat9-rest-api]: https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/camunda-engine-rest/
+
+## Migrate process applications
+
+* Replace Java EE class references (`javax.*`) with Jakarta class references (`jakarta.*`)
+ * You might have a look at [`org.eclipse.transformer:transformer-maven-plugin`](https://github.com/eclipse/transformer)
+* Replace Camunda class references:
+ * `org.camunda.bpm.application.impl.EjbProcessApplication` → `org.camunda.bpm.application.impl.JakartaEjbProcessApplication`
+ * `org.camunda.bpm.application.impl.ServletProcessApplicationDeployer` → `org.camunda.bpm.application.impl.JakartaServletProcessApplicationDeployer`
+ * `org.camunda.bpm.application.impl.ServletProcessApplication` → `org.camunda.bpm.application.impl.JakartaServletProcessApplication`
+ * `org.camunda.bpm.engine.impl.cfg.jta.JtaTransactionContext` → `org.camunda.bpm.engine.impl.cfg.jta.JakartaTransactionContext`
+ * `org.camunda.bpm.engine.impl.cfg.jta.JtaTransactionContextFactory` → `org.camunda.bpm.engine.impl.cfg.jta.JakartaTransactionContextFactory`
+ * `org.camunda.bpm.engine.impl.cfg.JtaProcessEngineConfiguration` → `org.camunda.bpm.engine.impl.cfg.JakartaTransactionProcessEngineConfiguration`
+ * `org.camunda.bpm.engine.impl.interceptor.JtaTransactionInterceptor` → `org.camunda.bpm.engine.impl.interceptor.JakartaTransactionInterceptor`
+* Replace Camunda Maven dependencies:
+ * `org.camunda.bpm.javaee:camunda-ejb-client` → `org.camunda.bpm.javaee:camunda-ejb-client-jakarta`
+ * `org.camunda.bpm:camunda-engine-cdi` → `org.camunda.bpm:camunda-engine-cdi-jakarta`
+
+### Replace web application (Cockpit, Admin, Tasklist, Welcome) deployment
+
+Replace the artifact `camunda-webapp-tomcat-$PLATFORM_VERSION.war` with `camunda-webapp-tomcat-jakarta-$PLATFORM_VERSION.war` under `$CATALINA_HOME/webapps`.
+
+### Replace REST API deployment
+
+Replace the artifact `camunda-engine-rest-$PLATFORM_VERSION-tomcat.war` with `camunda-engine-rest-jakarta-$PLATFORM_VERSION-tomcat.war` under `$CATALINA_HOME/webapps`.
