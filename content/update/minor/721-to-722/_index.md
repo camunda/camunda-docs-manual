@@ -82,6 +82,10 @@ To work with Tomcat 10, consider the following when migrating your process appli
  * `org.camunda.bpm.javaee:camunda-ejb-client` → `org.camunda.bpm.javaee:camunda-ejb-client-jakarta`
  * `org.camunda.bpm:camunda-engine-cdi` → `org.camunda.bpm:camunda-engine-cdi-jakarta`
 
+### Migrate Java webapp plugins
+
+Replace Java EE class references (`javax.*`) with Jakarta class references (`jakarta.*`)
+
 ### Replace web application (Cockpit, Admin, Tasklist, Welcome) deployment
 
 Replace the artifact `camunda-webapp-tomcat-$PLATFORM_VERSION.war` with `camunda-webapp-tomcat-jakarta-$PLATFORM_VERSION.war` under `$CATALINA_HOME/webapps`.
