@@ -54,3 +54,22 @@ Before starting, ensure you have downloaded the Camunda 7.22 distribution for th
 
 # Camunda Connect
  We’ve moved the `camunda-connect` project from its [previous location](https://github.com/camunda/camunda-connect) into the [mono repository](https://github.com/camunda/camunda-bpm-platform). We’re no longer versioning it independently. Instead, we’ve integrated it into the 7.X.Y versioning scheme, so you can conveniently declare Camunda `7.22.0-alpha2` to use the latest release of Camunda Connect.
+
+ Camunda Connect is now based on [Apache HttpClient 5.3](https://hc.apache.org/httpcomponents-client-5.3.x/index.html) for the HTTP Connector as well as the SOAP HTTP Connector. With the upgrade from the previously used Apache HttpClient 4.5 there are some changes for the request configuration options that may need to be considered by the user:
+
+ |HttpClient 4.5|HttpClient 5.3|Comment|
+ |-|-|-|
+ |`connection-timeout`|`connect-timeout`|Configuration was renamed and value type changed from `int` to `org.apache.hc.core5.util.Timeout`|
+ |-|`connection-keep-alive`|Configuration was added|
+ |`connection-request-timeout`|`connection-request-timeout`|Configuration value type changed from `int` to `org.apache.hc.core5.util.Timeout`|
+ |`decompression-enabled`|-|Configuration was removed|
+ |`local-address`|-|Configuration was removed|
+ |-|`hard-cancellation-enabled`|Configuration was added|
+ |`normalize-uri`|-|Configuration was removed|
+ |`relative-redirects-allowed`|`redirects-enabled`|Configuration was renamed|
+ |`relative-redirects-allowed`|-|Configuration was removed|
+ |`socket-timeout`|-|Configuration was removed|
+ |`stale-connection-check-enabled`|-|Configuration was removed|
+ |-|`response-timeout`|Configuration was added|
+
+ For more details, please see the [Apache HttpClient 5.3 documentation](https://hc.apache.org/httpcomponents-client-5.3.x/current/httpclient5/apidocs/org/apache/hc/client5/http/config/RequestConfig.Builder.html).
