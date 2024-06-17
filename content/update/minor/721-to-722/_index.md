@@ -66,7 +66,7 @@ To work with Tomcat 10, consider the following when migrating your process appli
 [tomcat9-webapp]: https://artifacts.camunda.com/ui/native/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-tomcat/
 [tomcat9-rest-api]: https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/camunda-engine-rest/
 
-## Migrate process applications
+### Migrate process applications
 
 * Replace Java EE class references (`javax.*`) with Jakarta class references (`jakarta.*`)
  * You might have a look at [`org.eclipse.transformer:transformer-maven-plugin`](https://github.com/eclipse/transformer)
@@ -93,3 +93,8 @@ Replace the artifact `camunda-webapp-tomcat-$PLATFORM_VERSION.war` with `camunda
 ### Replace REST API deployment
 
 Replace the artifact `camunda-engine-rest-$PLATFORM_VERSION-tomcat.war` with `camunda-engine-rest-jakarta-$PLATFORM_VERSION-tomcat.war` under `$CATALINA_HOME/webapps`.
+
+### Migrating to the Tomcat 10 Docker Image
+
+If your application uses a Docker image based on `Tomcat 9` (or prior) and wish to use the `Tomcat 10` based **Docker image**, you need perform the
+the above migration steps yourself before your application is compatible with the `jakarta` namespace changes the new Tomcat version introduces.
