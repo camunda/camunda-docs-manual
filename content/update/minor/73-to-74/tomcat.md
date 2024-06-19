@@ -121,7 +121,7 @@ As a consequence of supporting CMMN 1.1, the CMMN model API is now based on the 
 The following steps are required to update the Camunda REST API on a Tomcat instance:
 
 1. Undeploy an existing web application with a name like `camunda-engine-rest`
-2. Download the REST API web application archive from our [Maven Nexus Server][nexus] Alternatively, switch to the private repository for the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION-tomcat.war`.
+2. Download the REST API web application archive from our [Artifact Repository][artifact-repository] Alternatively, switch to the private repository for the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION-tomcat.war`.
 3. Deploy the web application archive to your Tomcat instance.
 
 ## Update Cockpit, Tasklist, and Admin
@@ -129,7 +129,7 @@ The following steps are required to update the Camunda REST API on a Tomcat inst
 The following steps are required to update the Camunda web applications Cockpit, Tasklist, and Admin on a Tomcat instance:
 
 1. Undeploy an existing web application with a name like `camunda-webapp`
-2. Download the Camunda web application archive from our [Maven Nexus Server][nexus]). Alternatively, switch to the private repository for the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-tomcat-$PLATFORM_VERSION.war`.
+2. Download the Camunda web application archive from our [Artifact Repository][artifact-repository]). Alternatively, switch to the private repository for the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-tomcat-$PLATFORM_VERSION.war`.
 3. Deploy the web application archive to your Tomcat instance.
 
 {{< note title="LDAP Entity Caching" class="info" >}}
@@ -137,4 +137,4 @@ It is possible to enable entity caching for Hypertext Application Language (HAL)
 {{< /note >}}
 
 [update-guide]: {{< ref "/update/minor/73-to-74/_index.md" >}}
-[nexus]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/camunda-engine-rest/
+[artifact-repository]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/camunda-engine-rest/

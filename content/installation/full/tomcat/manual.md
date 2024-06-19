@@ -158,7 +158,7 @@ This section describes how to install optional Camunda 7 dependencies onto a Tom
 
 The following steps are required to deploy the applications:
 
-1. Download the Camunda 7 web application that contains both applications from our [Maven Nexus Server](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-tomcat/).
+1. Download the Camunda 7 web application that contains both applications from our [Artifact Repository](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-tomcat/).
    Or switch to the private repository for the enterprise version (User and password from license required).
    Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-tomcat-$PLATFORM_VERSION.war`.
 2. Copy the war file to `$TOMCAT_HOME/webapps/camunda.war`.
@@ -171,7 +171,7 @@ The following steps are required to deploy the applications:
 
 The following steps are required to deploy the REST API:
 
-1. Download the REST API web application archive from our [Maven Nexus Server](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/camunda-engine-rest/).
+1. Download the REST API web application archive from our [Artifact Repository](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/camunda-engine-rest/).
     Or switch to the private repository for the enterprise version (User and password from license required).
     Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION-tomcat.war`.
 2. Copy the war file to `$TOMCAT_HOME/webapps`.

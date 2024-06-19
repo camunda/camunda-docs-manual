@@ -25,10 +25,10 @@ Providing flexibility for adoption of the process engine in many languages and p
 Improving the getting started experience for the users with the option to try out the REST API following along with the documentation and examples.
 
 The documentation is shipped as a single `openapi.json` file archived in a jar artifact.
-Download the Camunda REST API artifact containing the OpenAPI documentation [here][nexus-link]. Choose the correct version and then download the `jar` file.
+Download the Camunda REST API artifact containing the OpenAPI documentation [here][artifact-link]. Choose the correct version and then download the `jar` file.
 
 [spec-3.0.2]: https://github.com/OAI/OpenAPI-Specification/blob/3.0.2/versions/3.0.2.md
-[nexus-link]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/camunda-engine-rest-openapi/
+[artifact-link]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/camunda-engine-rest-openapi/
 
 Alternatively, you can obtain this artifact with the following Maven coordinates:
 

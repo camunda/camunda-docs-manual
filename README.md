@@ -181,6 +181,5 @@ _Note: For screenshot of the enterprise webapps, you can use the automatic scree
 [Hugo]: http://gohugo.io/
 [Hugo v0.54]: https://github.com/gohugoio/hugo/releases/tag/v0.54.0
 [Hugo Installation]: https://gohugo.io/getting-started/installing/#install-hugo-from-tarball
-[Camunda Nexus]: https://artifacts.camunda.com/artifactory/thirdparty/hugo/
 [OpenOffice]: https://www.openoffice.org/download/index.html
 [OpenSans]: https://www.google.com/fonts#UsePlace:use/Collection:Open+Sans

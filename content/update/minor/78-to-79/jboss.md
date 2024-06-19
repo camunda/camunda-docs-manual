@@ -107,7 +107,7 @@ Therefore the artifact with the right classifier needs to be chosen:
 
 Please bear this in mind ...
 
-- on downloading the REST API from our [Maven Nexus Server][engine-rest]
+- on downloading the REST API from our [Artifact Repository][engine-rest]
 - on using the REST API dependency within your custom `pom.xml`
 
 The Maven coordinates need to be changed accordingly:
@@ -129,7 +129,7 @@ The Maven coordinates need to be changed accordingly:
 The following steps are required to update the Camunda REST API on a JBoss/Wildfly instance:
 
 1. Undeploy an existing web application with a name like `camunda-engine-rest`
-2. Download the REST API web application archive from our [Maven Nexus Server][engine-rest]. Alternatively, switch to the private repository for
+2. Download the REST API web application archive from our [Artifact Repository][engine-rest]. Alternatively, switch to the private repository for
    the enterprise version (credentials from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION-$CLASSIFIER.war`.
 3. Deploy the web application archive to your JBoss/Wildfly instance.
 
@@ -138,7 +138,7 @@ The following steps are required to update the Camunda REST API on a JBoss/Wildf
 The following steps are required to update the Camunda web applications Cockpit, Tasklist, and Admin on a JBoss/Wildfly instance:
 
 1. Undeploy an existing web application with a name like `camunda-webapp`
-2. Download the Camunda web application archive from our [Maven Nexus Server][webapp-jboss].
+2. Download the Camunda web application archive from our [Artifact Repository][webapp-jboss].
    Alternatively, switch to the private repository for the enterprise version (credentials from license required).
    Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-jboss.war`.
 3. Deploy the web application archive to your JBoss/Wildfly instance.
