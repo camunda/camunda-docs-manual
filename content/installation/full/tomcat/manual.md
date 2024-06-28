@@ -143,7 +143,7 @@ You have to add the file `bpm-platform.xml` to the folder `$TOMCAT_HOME/conf` or
 ## Secure Tomcat
 
 Follow the Tomcat Security Howto of your Tomcat version:
-[9.0](https://tomcat.apache.org/tomcat-9.0-doc/security-howto.html).
+[9.0](https://tomcat.apache.org/tomcat-9.0-doc/security-howto.html),
 [10.1](https://tomcat.apache.org/tomcat-10.1-doc/security-howto.html).
 
 In particular, go to `${TOMCAT_HOME}/webapps/` and remove the directories
