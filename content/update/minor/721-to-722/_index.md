@@ -103,10 +103,21 @@ Replace the artifact `camunda-engine-rest-$PLATFORM_VERSION-wildfly.war` with `c
 
 # Update to Tomcat 10 Server
 
-With this release, we support Tomcat 10, the new default pre-packaged Tomcat distro. It replaces Java EE with Jakarta EE APIs.
-If you prefer to stay on Tomcat 9, you can still download the Java EE compliant [web application][tomcat9-webapp], and [REST API][tomcat9-rest-api].
+This version brings support for `Tomcat 10.1`. A few reasons to upgrade are:
 
-To work with Tomcat 10, consider the following when migrating your process applications and replacing artifacts on the application server:
+* Namespace Change: Switch from `javax.*` to `jakarta.*` for future compatibility.
+* Enhanced Security: Improved security features and fixes.
+* Modern Features: Supports `Servlet 6.0`, `JSP 3.1`, and `WebSocket 2.1`.
+* Performance Improvements: Faster response times and better resource efficiency.
+* Simplified Migration: Tools and documentation for easier transition from earlier versions.
+* Better Integration: Enhanced compatibility with `Jakarta EE` components and third-party libraries.
+
+From now on, our pre-packaged Tomcat distribution is built with `Tomcat 10.1`.
+Additionally, the Docker image distribution, once configured to use Tomcat, will also utilize `Tomcat 10.1`.
+
+If you prefer to stay on `Tomcat 9`, you can still download the `Java EE` compliant [web application][tomcat9-webapp], and [REST API][tomcat9-rest-api].
+
+To work with `Tomcat 10`, consider the following when migrating your process applications and replacing artifacts on the application server:
 
 [tomcat9-webapp]: https://artifacts.camunda.com/ui/native/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-tomcat/
 [tomcat9-rest-api]: https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/camunda-engine-rest/
