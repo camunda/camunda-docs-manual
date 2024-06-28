@@ -14,7 +14,7 @@ menu:
 
 # JNDI Bindings
 
-To use the JNDI Bindings for Camunda 7 Services on Apache Tomcat you have to add the file `META-INF/context.xml` to your process application and add the following [ResourceLinks](http://tomcat.apache.org/tomcat-9.0-doc/config/context.html#Resource_Links):
+To use the JNDI Bindings for Camunda 7 Services on Apache Tomcat you have to add the file `META-INF/context.xml` to your process application and add the following ResourceLinks ([Tomcat 9](http://tomcat.apache.org/tomcat-9.0-doc/config/context.html#Resource_Links), [Tomcat 10.1](https://tomcat.apache.org/tomcat-10.1-doc/config/context.html#Resource_Links)):
 
 ```xml
 <Context>
