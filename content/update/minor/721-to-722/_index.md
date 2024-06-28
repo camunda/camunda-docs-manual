@@ -58,7 +58,7 @@ Before starting, ensure you have downloaded the Camunda 7.22 distribution for th
  
 # Update to JBoss EAP 8
 
-With this release, we support JBoss EAP 8.0. It Jakarta EE compliant platform.The artifacts are shipped with the latest pre-packaged [Camunda 7 WildFly distribution]({{< ref "/installation/full/jboss/manual.md#setup" >}}).
+With this release, we support JBoss EAP 8.0. It Jakarta EE compliant platform. The artifacts are shipped with the latest pre-packaged [Camunda 7 WildFly distribution]({{< ref "/installation/full/jboss/manual.md#setup" >}}).
 If you prefer to stay on JBoss EAP 7, you can still download the Java EE compliant [modules][wildfly26-modules], [web application][wildfly26-webapp], and [REST API][wildfly26-rest-api]. 
 
 To work with JBoss EAP 8, consider the following when migrating your process applications and replacing artifacts on the application server:
