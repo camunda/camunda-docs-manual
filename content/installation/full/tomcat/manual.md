@@ -143,7 +143,8 @@ You have to add the file `bpm-platform.xml` to the folder `$TOMCAT_HOME/conf` or
 ## Secure Tomcat
 
 Follow the Tomcat Security Howto of your Tomcat version:
-[9.0](https://tomcat.apache.org/tomcat-9.0-doc/security-howto.html).
+[9.0](https://tomcat.apache.org/tomcat-9.0-doc/security-howto.html),
+[10.1](https://tomcat.apache.org/tomcat-10.1-doc/security-howto.html).
 
 In particular, go to `${TOMCAT_HOME}/webapps/` and remove the directories
 `ROOT`, `docs`, `examples`, `manager` and `host-manager`.
@@ -160,7 +161,8 @@ The following steps are required to deploy the applications:
 
 1. Download the Camunda 7 web application that contains both applications from our [Artifact Repository](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-tomcat/).
    Or switch to the private repository for the enterprise version (User and password from license required).
-   Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-tomcat-$PLATFORM_VERSION.war`.
+    * For [Tomcat 10](https://artifacts.camunda.com/ui/native/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-tomcat-jakarta/), the name of the artifact is `$PLATFORM_VERSION/camunda-webapp-tomcat-jakarta-$PLATFORM_VERSION.war`.
+    * For [Tomcat 9](https://artifacts.camunda.com/ui/native/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-tomcat/), the name of the artifact is `$PLATFORM_VERSION/camunda-webapp-tomcat-$PLATFORM_VERSION.war`.
 2. Copy the war file to `$TOMCAT_HOME/webapps/camunda.war`.
    Optionally you may name it differently or extract it to a folder to deploy it to a different context path.
 3. Startup Tomcat.
@@ -174,6 +176,8 @@ The following steps are required to deploy the REST API:
 1. Download the REST API web application archive from our [Artifact Repository](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/camunda-engine-rest/).
     Or switch to the private repository for the enterprise version (User and password from license required).
     Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION-tomcat.war`.
+    * For [Tomcat 10](https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/camunda-engine-rest-jakarta/), the name of the artifact is `$PLATFORM_VERSION/camunda-engine-rest-jakarta-$PLATFORM_VERSION-tomcat.war`.
+    * For [Tomcat 9](https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/camunda-engine-rest/), the name of the artifact is `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION-tomcat.war`.
 2. Copy the war file to `$TOMCAT_HOME/webapps`.
    Optionally you may rename it or extract it to a folder to deploy it to a specific context like `/engine-rest`.
 3. Startup Tomcat.
