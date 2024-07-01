@@ -1,6 +1,5 @@
 # The Camunda 7 Documentation Sources
 
-TEST
 
 This repository contains the sources of the Camunda 7 documentation.
 
