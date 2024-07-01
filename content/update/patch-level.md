@@ -497,6 +497,8 @@ This version supports all the necessary building-block modules for our users to 
 If you wish to use it, the `jakarta` modules needs to be used (`camunda-webapp-tomcat-jakarta`, `camunda-engine-rest-jakarta`).
 
 The `javax` modules won't work with `Tomcat 10`.
+
+For detailed steps of manual installation, follow the [Tomcat Manual Installation Guide]({{< ref "/installation/full/tomcat/manual.md" >}})
 {{< /note >}}
 
 # Full Distribution
