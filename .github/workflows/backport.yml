@@ -8,7 +8,7 @@ on:
 
 jobs:
   call-reusable-flow:
-    uses: camunda/automation-platform-github-actions/.github/workflows/backport.yml@main
+    uses: camunda/automation-platform-github-actions/.github/workflows/backport.yml@t153-adjust-backport-action
     secrets: inherit
     with:
       experimental: |- 
