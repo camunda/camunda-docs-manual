@@ -22,7 +22,7 @@ This document guides you through the update from Camunda `7.21.x` to `7.22.0` an
 1. For developers: [Camunda Template Engines FreeMarker](#camunda-template-engines-freemarker)
 1. For developers: [Camunda Connect](#camunda-connect)
 1. For administrators and developers: [Update to JBoss EAP 8.0](#update-to-jboss-eap-8)
-1. For developers: [Update to Tomcat 10 Server](#update-to-tomcat-10-server)
+1. For administrators and developers: [Update to Tomcat 10 Server](#update-to-tomcat-10-server)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda 7.22.
 
