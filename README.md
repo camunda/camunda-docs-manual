@@ -1,7 +1,5 @@
 # The Camunda 7 Documentation Sources
 
-TEST
-
 This repository contains the sources of the Camunda 7 documentation.
 
 **Important:** _do NOT change the content of `themes/camunda` directory directly!_
