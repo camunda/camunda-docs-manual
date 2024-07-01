@@ -1,0 +1,15 @@
+name: Backport merged pull request
+
+on:
+  pull_request:
+    types: [closed]
+  issue_comment:
+    types: [created]
+
+jobs:
+  call-reusable-flow:
+    uses: camunda/automation-platform-github-actions/.github/workflows/backport.yml@main
+    secrets: inherit
+    with:
+      experimental: |- 
+        { "detect_merge_method": false }
