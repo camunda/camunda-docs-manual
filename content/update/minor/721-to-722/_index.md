@@ -152,5 +152,4 @@ Replace the artifact `camunda-engine-rest-$PLATFORM_VERSION-tomcat.war` with `ca
 
 ### Migrating to the Tomcat 10 Docker Image
 
-If your application uses a Docker image based on `Tomcat 9` (or prior) and wish to use the `Tomcat 10` based **Docker image**, you need perform the
-the above migration steps yourself before your application is compatible with the `jakarta` namespace changes the new Tomcat version introduces.
+If your application uses a Docker image based on `Tomcat 9`, you need to perform the above migration steps yourself before your application is compatible with the `jakarta` namespace changes the new Tomcat version introduces.
