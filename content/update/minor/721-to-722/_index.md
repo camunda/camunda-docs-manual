@@ -113,7 +113,7 @@ This version brings support for `Tomcat 10.1`. A few reasons to upgrade are:
 * Better Integration: Enhanced compatibility with `Jakarta EE` components and third-party libraries.
 
 From now on, our pre-packaged Tomcat distribution is built with `Tomcat 10.1`.
-Additionally, the Docker image distribution, once configured to use Tomcat, will also utilize `Tomcat 10.1`.
+Additionally, the Tomcat Docker image will, from now on, utilize `Tomcat 10.1`.
 
 If you prefer to stay on `Tomcat 9`, you can still download the `Java EE` compliant [web application][tomcat9-webapp], and [REST API][tomcat9-rest-api].
 
