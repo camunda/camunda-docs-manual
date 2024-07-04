@@ -517,7 +517,7 @@ For detailed steps of manual installation, follow the [Tomcat Manual Installatio
 * `org.camunda.bpm.javaee:camunda-ejb-client` → `org.camunda.bpm.javaee:camunda-ejb-client-jakarta`
 * `org.camunda.bpm:camunda-engine-cdi` → `org.camunda.bpm:camunda-engine-cdi-jakarta`
 
-### Migrate Java webapp plugins
+#### Migrate Java webapp plugins
 
 Replace Java EE class references (`javax.*`) with Jakarta class references (`jakarta.*`)
 
