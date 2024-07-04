@@ -22,6 +22,7 @@ This document guides you through the update from Camunda `7.21.x` to `7.22.0` an
 1. For developers: [Camunda Template Engines FreeMarker](#camunda-template-engines-freemarker)
 1. For developers: [Camunda Connect](#camunda-connect)
 1. For administrators and developers: [Update to JBoss EAP 8.0](#update-to-jboss-eap-8)
+1. For administrators and developers: [Update to Tomcat 10 Server](#update-to-tomcat-10-server)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda 7.22.
 
@@ -99,3 +100,56 @@ Replace the artifact `camunda-webapp-jboss-$PLATFORM_VERSION.war` with `camunda-
 ### Replace REST API deployment
 
 Replace the artifact `camunda-engine-rest-$PLATFORM_VERSION-wildfly.war` with `camunda-engine-rest-jakarta-$PLATFORM_VERSION-wildfly.war` under `$JBOSS_HOME/standalone/deployments`.
+
+# Update to Tomcat 10 Server
+
+This version brings support for `Tomcat 10.1`. A few reasons to upgrade are:
+
+* Namespace Change: Switch from `javax.*` to `jakarta.*` for future compatibility.
+* Enhanced Security: Improved security features and fixes.
+* Modern Features: Supports `Servlet 6.0`, `JSP 3.1`, and `WebSocket 2.1`.
+* Performance Improvements: Faster response times and better resource efficiency.
+* Simplified Migration: Tools and documentation for easier transition from earlier versions.
+* Better Integration: Enhanced compatibility with `Jakarta EE` components and third-party libraries.
+
+From now on, our pre-packaged Tomcat distribution is built with `Tomcat 10.1`.
+Additionally, the Tomcat Docker image will, from now on, utilize `Tomcat 10.1`.
+
+If you prefer to stay on `Tomcat 9`, you can still download the `Java EE` compliant [web application][tomcat9-webapp], and [REST API][tomcat9-rest-api].
+
+To work with `Tomcat 10`, consider the following when migrating your process applications and replacing artifacts on the application server:
+
+[tomcat9-webapp]: https://artifacts.camunda.com/ui/native/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-tomcat/
+[tomcat9-rest-api]: https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/camunda-engine-rest/
+
+### Migrate process applications
+
+* Replace Java EE class references (`javax.*`) with Jakarta class references (`jakarta.*`)
+ * You might have a look at [`org.eclipse.transformer:transformer-maven-plugin`](https://github.com/eclipse/transformer)
+* Replace Camunda class references:
+ * `org.camunda.bpm.application.impl.EjbProcessApplication` → `org.camunda.bpm.application.impl.JakartaEjbProcessApplication`
+ * `org.camunda.bpm.application.impl.ServletProcessApplicationDeployer` → `org.camunda.bpm.application.impl.JakartaServletProcessApplicationDeployer`
+ * `org.camunda.bpm.application.impl.ServletProcessApplication` → `org.camunda.bpm.application.impl.JakartaServletProcessApplication`
+ * `org.camunda.bpm.engine.impl.cfg.jta.JtaTransactionContext` → `org.camunda.bpm.engine.impl.cfg.jta.JakartaTransactionContext`
+ * `org.camunda.bpm.engine.impl.cfg.jta.JtaTransactionContextFactory` → `org.camunda.bpm.engine.impl.cfg.jta.JakartaTransactionContextFactory`
+ * `org.camunda.bpm.engine.impl.cfg.JtaProcessEngineConfiguration` → `org.camunda.bpm.engine.impl.cfg.JakartaTransactionProcessEngineConfiguration`
+ * `org.camunda.bpm.engine.impl.interceptor.JtaTransactionInterceptor` → `org.camunda.bpm.engine.impl.interceptor.JakartaTransactionInterceptor`
+* Replace Camunda Maven dependencies:
+ * `org.camunda.bpm.javaee:camunda-ejb-client` → `org.camunda.bpm.javaee:camunda-ejb-client-jakarta`
+ * `org.camunda.bpm:camunda-engine-cdi` → `org.camunda.bpm:camunda-engine-cdi-jakarta`
+
+### Migrate Java webapp plugins
+
+Replace Java EE class references (`javax.*`) with Jakarta class references (`jakarta.*`)
+
+### Replace web application (Cockpit, Admin, Tasklist, Welcome) deployment
+
+Replace the artifact `camunda-webapp-tomcat-$PLATFORM_VERSION.war` with `camunda-webapp-tomcat-jakarta-$PLATFORM_VERSION.war` under `$CATALINA_HOME/webapps`.
+
+### Replace REST API deployment
+
+Replace the artifact `camunda-engine-rest-$PLATFORM_VERSION-tomcat.war` with `camunda-engine-rest-jakarta-$PLATFORM_VERSION-tomcat.war` under `$CATALINA_HOME/webapps`.
+
+### Migrating to the Tomcat 10 Docker Image
+
+If your application uses a Docker image based on `Tomcat 9`, you need to perform the above migration steps yourself before your application is compatible with the `jakarta` namespace changes the new Tomcat version introduces.
