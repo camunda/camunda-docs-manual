@@ -501,7 +501,7 @@ The `javax` modules won't work with `Tomcat 10`.
 For detailed steps of manual installation, follow the [Tomcat Manual Installation Guide]({{< ref "/installation/full/tomcat/manual.md" >}})
 {{< /note >}}
 
-### Migrate process applications
+#### Migrate process applications
 
 * Replace Java EE class references (`javax.*`) with Jakarta class references (`jakarta.*`)
 * You might have a look at [`org.eclipse.transformer:transformer-maven-plugin`](https://github.com/eclipse/transformer)
