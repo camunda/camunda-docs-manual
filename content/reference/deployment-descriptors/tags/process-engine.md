@@ -903,66 +903,6 @@ The following is a list with the most commonly used process engine configuration
     </td>
   </tr>
 
-  <tr id="initializeTelemetry">
-    <td><code>initializeTelemetry</code></td>
-    <td>boolean</td>
-    <td>
-        <p>Sets the initial property value of telemetry configuration only once when it has never been enabled/disabled before. If enabled, information about the setup and usage of the process engine is sent to remote Camunda servers for the sake of analytical evaluation. It can be enabled/disabled later via 
-        <a href="{{< ref "/introduction/telemetry.md#how-to-enable-telemetry" >}}">Java API, REST API, and Admin web application</a>.
-        <p>
-          For more information and a complete list of the data that is collected, please check the <a href="{{< ref "/introduction/telemetry.md" >}}">Telemetry</a> page.
-        </p>
-          Default value: <code>false</code>
-        <p>
-        </p>
-        <h6>
-          <strong>Legal note:</strong>
-        </h6>
-        <p>
-          Before you install a Camunda 7 Runtime version >= 7.14.0-alpha1 (and 7.13.7+, 7.12.12+, 7.11.19+) or activate the telemetric functionality, please make sure that you are authorized to take this step, and that the installation or activation of the telemetric functionality is not in conflict with any internal company policies, compliance guidelines, any contractual or other provisions or obligations of your company.
-        </p>
-        <p>
-          Camunda can not be held responsible in the event of unauthorized installation or activation of this function.
-        </p>
-        
-    </td>
-  </tr>
-  
-  <tr id="telemetryReporterActivate">
-    <td><code>telemetryReporterActivate</code></td>
-    <td>Boolean</td>
-    <td>
-        <p>Activates the thread that periodically reports telemetry. Note that the thread only sends telemetry if telemetry is in addition enabled via API or by the <code>initializeTelemetry</code> property.</p>
-        <p>The reporter can for example be deactivated in unit testing setups to avoid any threads running besides the test thread.</p>
-        Default value: <code>true</code>
-    </td>
-  </tr>
-  
-  <tr>
-    <td><code>telemetryReportingPeriod</code></td>
-    <td>Long</td>
-    <td>
-        Sets the period in which telemetry requests are sent. Value must be in seconds.
-        Default value: <code>86400</code> (one day)
-    </td>
-  </tr>
-  
-  <tr id="telemetryRequestRetries">
-    <td><code>telemetryRequestRetries</code></td>
-    <td>Integer</td>
-    <td>
-        Sets the number of retries that are performed when a telemetry request fails.
-        Default value: <code>2</code>
-    </td>
-  </tr>
-  
-  <tr id="telemetryRequestTimeout">
-    <td><code>telemetryRequestTimeout</code></td>
-    <td>Integer</td>
-    <td>
-        Sets the request timeout configuration in milliseconds of the telemetry request.
-        Default value: <code>15000</code> (15 s)
-    </td>
   </tr>
   
   <tr id="skipOutputMappingOnCanceledActivities">

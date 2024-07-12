@@ -102,7 +102,6 @@ convert any property names from `camelCase` to the `kebab-case` format, like in 
 quarkus.camunda.cmmn-enabled=false
 quarkus.camunda.dmn-enabled=false
 quarkus.camunda.history=none
-quarkus.camunda.initialize-telemetry=false
 ```
 
 ### Programmatic Configuration
@@ -221,7 +220,6 @@ engine configuration, job executor and data source:
 quarkus.camunda.cmmn-enabled=false
 quarkus.camunda.dmn-enabled=false
 quarkus.camunda.history=none
-quarkus.camunda.initialize-telemetry=false
 
 # job executor configuration
 quarkus.camunda.job-executor.thread-pool.max-pool-size=12
