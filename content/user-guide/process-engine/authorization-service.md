@@ -738,7 +738,7 @@ The following table gives an overview of the features that the system permission
   </thead>
   <tbody>
      <tr>
-      <th>Configure Telemetry</th>
+      <th>Configure Telemetry (Deprecated)</th>
       <td></td>
       <td>X</td>
       <td></td>
@@ -750,7 +750,7 @@ The following table gives an overview of the features that the system permission
       <td></td>
     </tr>
     <tr>
-      <th>Get Telemetry Status</th>
+      <th>Get Telemetry Status (Deprecated)</th>
       <td>X</td>
       <td></td>
       <td></td>

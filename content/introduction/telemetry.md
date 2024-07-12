@@ -11,13 +11,13 @@ menu:
 ---
 
 
-At Camunda, we strive to offer an excellent user experience at a high and stable level. On a strict opt-in basis, we are looking to collect environment and usage data to further improve the user experience for you. These insights help us to understand typical environment setups and product usage patterns and will be used to make informed product improvement decisions to your benefit. Since Camunda 7.21, reporting telemetry data is disabled by default.
+Sending telemetry data has been introduced in Camunda `7.14.0-alpha1` (and `7.13.7`, `7.12.12`, `7.11.19`) and removed in Camunda `7.22.0`. public API is marked as deprecated and emptied out. The diagnostic data is still being collected but not send by any mean. You can decide to share it with Camunda if requested in tickets or use it for your diagnostic purposes.
 
 ## Design
 
 The process engine has a dedicated thread called the **Telemetry Reporter** to periodically report telemetry data to Camunda. By default, this thread is always running, but only reports data if telemetry is explicitly enabled. See the [how to enable telemetry]({{< ref "#how-to-enable-telemetry" >}}) section for how to do this. The collected data is available through multiple APIs, even if sending the data to Camunda is not enabled. See [how to access the data]({{< ref "#how-to-access-the-data" >}}) for more information on how to do this.
 
-When enabled, the collected data is sent once every 24 hours via HTTPS. The telemetry reporter is designed so that your implemented processes are not negatively affected in case the reporter suddenly faces an unexpected error. The telemetry reporter stops in any case when the process engine is stopped.
+The telemetry reporter stops in any case when the process engine is stopped.
 
 ## Collected data
 
@@ -139,28 +139,11 @@ Note that this property only has an effect when telemetry is initialized on the 
 
 In case telemetry is not used, the `telemetryReporterActivate` configuration [flag][engine-config-telemetryReporterActivate] can be set to `false` to prevent the process engine from starting the telemetry reporter thread at all. This configuration is also useful for unit testing scenarios.
 
-### Java/REST API
-
-You can change the telemetry configuration via our API.
-
-To enable/disable telemetry via Java API:
-
-```java
-  managementService.toggleTelemetry(true);
-```
-
-To achieve the same, you can also use the respective REST API request. For more information, have a look at the {{< restref page="configureTelemetry" text="telemetry" tag="Telemetry" >}} page in the REST API documentation.
-
-### Admin webapp
-
-Configuration adjustment can be performed in the [Admin][system-management] web application. There, a user member of camunda-admin group can enable/disable the telemetry.
-
 ## How to access the data
 
 Telemetry data is constantly collected even if sending the data to Camunda is not enabled. This allows you to access the collected data through the Java and REST APIs of Camunda.
 Being able to easily access the collected data is helpful when asking for help in our [forum](https://forum.camunda.org/) or when opening issues in our [issue tracker](https://app.camunda.com/jira) as it contains many of the information that are usually necessary to understand your Camunda setup.
 
-Note that some of the dynamic data, like executed engine commands or reported metrics reset on sending the telemetry data to Camunda. Accessing them through one of the Camunda APIs, however, does not.
 
 ### Java API
 
@@ -189,6 +172,8 @@ Camunda cannot be held responsible in the event of unauthorized installation or 
 
 ## Source code 
 
+TODO
+
 In case you want further details, you can have a look at the implementation of the telemetry topic in [our codebase](https://github.com/camunda/camunda-bpm-platform/blob/master/engine/src/main/java/org/camunda/bpm/engine/impl/telemetry/reporter/TelemetrySendingTask.java). The link leads you to the current `master` version of the feature. In case you would like to check the implementation of an old version, adjust the `master` branch to a released tag version, e.g. `7.14.0`.
 
 ## Initial data report
@@ -205,27 +190,7 @@ In previous Camunda versions, the installation sends an anonymized one-time init
 In higher versions, the installation no longer sends this initial message.
 {{< /note >}}
 
-To support the understanding of typical use cases and the overall distribution of our products, the installation sends an anonymized one-time initial report to Camunda via HTTPS. This report contains no specifics that would allow any direct link to an outside entity and is limited to the following data:
-
-```
-{
-  "installation": "b647de4d-e557-455a-a64f-feaecd55f53c",
-  "product": {
-    "name": "Camunda BPM Runtime",
-    "version": "7.14.0",
-    "edition": "community".
-    "internals": { "telemetry-enabled": false}
-  }
-}
-```
-The telemetry service that receives this report also stores a hash of the IP address from which the report is sent. That hash of the IP address is stored to filter duplicate data and detect malicious access.
-No other information will be included in that report. Furthermore, this report will be sent exactly once on the first run of your installation.
-In case you disabled telemetry explicitly or did not configure it at all, this is the only report that will ever be sent to Camunda.
-
-If there is the necessity to also prevent this anonymized report from being sent to us, you can set the `telemetryReporterActivate` configuration [flag][engine-config-telemetryReporterActivate] to `false`.
-With this, the reporter thread will not be started and no request will ever be sent to Camunda. See the [how to enable telemetry]({{< ref "#how-to-enable-telemetry" >}}) section on how to do this.
-
 
 [engine-config-initializeTelemetry]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#initializeTelemetry" >}}
 [engine-config-telemetryReporterActivate]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#telemetryReporterActivate" >}}
-[system-management]: {{< ref "/webapps/admin/system-management.md" >}}
+
