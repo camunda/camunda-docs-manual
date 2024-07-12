@@ -253,11 +253,6 @@ The process engine logs on the following categories
     <td>logs exceptions that occur during password hashing</td>
   </tr>
   <tr>
-    <td><code>org.camunda.bpm.engine.telemetry</code></td>
-    <td>TODO: rename?
-    logs details about the sent information and error details in case the data couldn't be collected or sent</td>
-  </tr>
-  <tr>
     <td><code>org.camunda.bpm.engine.test</code></td>
     <td>logger used in the engine tests</td>
   </tr>
