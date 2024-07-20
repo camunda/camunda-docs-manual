@@ -11,7 +11,7 @@ menu:
 ---
 
 
-At Camunda, we strive to offer an excellent user experience at a high and stable level. On a strict opt-in basis, we are looking to collect environment and usage data to further improve the user experience for you. These insights help us to understand typical environment setups and product usage patterns and will be used to make informed product improvement decisions to your benefit.
+At Camunda, we strive to offer an excellent user experience at a high and stable level. On a strict opt-in basis, we are looking to collect environment and usage data to further improve the user experience for you. These insights help us to understand typical environment setups and product usage patterns and will be used to make informed product improvement decisions to your benefit. Since Camunda 7.21 (and 7.20.8+), reporting telemetry data is disabled by default.
 
 ## Design
 
