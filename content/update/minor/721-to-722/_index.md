@@ -153,3 +153,8 @@ Replace the artifact `camunda-engine-rest-$PLATFORM_VERSION-tomcat.war` with `ca
 ### Migrating to the Tomcat 10 Docker Image
 
 If your application uses a Docker image based on `Tomcat 9`, you need to perform the above migration steps yourself before your application is compatible with the `jakarta` namespace changes the new Tomcat version introduces.
+
+### CDI and Weld issues
+
+In deployment scenarios involving one or more process applications with managed beans, classloading issues may occur if the WELD library is directly embedded in the WAR or process application deployment.
+To resolve this, it is recommended to relocate the WELD library from the WAR or process application deployment to the Tomcat server's library folder.
