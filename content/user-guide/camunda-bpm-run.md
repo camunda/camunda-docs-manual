@@ -27,7 +27,6 @@ Camunda Run is a full distribution of Camunda 7. It includes:
   * Tasklist
   * Admin
 * [REST API]({{< ref "/reference/rest/overview/_index.md" >}})
-* [Swagger UI](https://github.com/swagger-api/swagger-ui) (web application for exploring the REST API)
 * [An example application](#example-application)
 
 # Starting with Camunda Run
