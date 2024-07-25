@@ -86,11 +86,6 @@ The start scripts (`start.bat` for Windows, `start.sh` for Linux/Mac) accept the
       <td><code>enabled</code></td>
   </tr>
   <tr>
-      <td><code>--swaggerui</code></td>
-      <td>Enables the Swagger UI</td>
-      <td><code>enabled</code></td>
-  </tr>
-  <tr>
       <td><code>--example</code></td>
       <td>Enables the example application.</td>
       <td><code>enabled</code></td>
