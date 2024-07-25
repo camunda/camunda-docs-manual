@@ -23,6 +23,7 @@ This document guides you through the update from Camunda `7.21.x` to `7.22.0` an
 1. For developers: [Camunda Connect](#camunda-connect)
 1. For administrators and developers: [Update to JBoss EAP 8.0](#update-to-jboss-eap-8)
 1. For administrators and developers: [Update to Tomcat 10 Server](#update-to-tomcat-10-server)
+1. For Administrators and developers: [Camunda Run and Swagger Update](#camunda-run-and-swagger-update)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda 7.22.
 
@@ -158,3 +159,13 @@ If your application uses a Docker image based on `Tomcat 9`, you need to perform
 
 In deployment scenarios involving one or more process applications with managed beans, classloading issues may occur if the WELD library is directly embedded in the WAR or process application deployment.
 To resolve this, it is recommended to relocate the WELD library from the WAR or process application deployment to the Tomcat server's library folder.
+
+# Camunda Run and Swagger Update
+
+To reduce the maintenance effort, Swagger is discontinued from `camunda-run`.
+
+From now on, the parameterisation of camunda-run scripts will not include the `--swaggerui` argument. 
+Instead, you can always use [open-api][open-api] in conjunction with a `REST` client of your choice such as POSTMAN to achieve similar results. 
+
+
+[open-api]: {{< ref "/reference/rest/openapi/_index.md" >}}
