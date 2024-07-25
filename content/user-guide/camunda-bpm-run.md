@@ -116,7 +116,7 @@ Camunda Run is also available as a Docker image. Please see the Camunda Run sect
 
 ## Optional components
 
-By default, Camunda Run launches with the web apps, REST API, Swagger UI, and example modules. If you want to enable only a subset of them, execute the start script through a command-line interface with any of the `--webapps`, `--rest`, `--swaggerui`, or `--example` properties to enable the specific modules.
+By default, Camunda Run launches with the web apps, REST API and example modules. If you want to enable only a subset of them, execute the start script through a command-line interface with any of the `--webapps`, `--rest` or `--example` properties to enable the specific modules.
 
 ### Example application
 
