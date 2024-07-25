@@ -124,7 +124,7 @@ By default, Camunda Run deploys and launches an example application on startup.
 When launched, this application creates deployments with multiple BPMN and DMN definitions as well as form resources
 and starts instances of the defined processes.
 
-You can disable the *deployment* of the example application itself by enabling any combination of the other modules with the `--webapps`, `--rest`, and `--swaggerui` properties of the start script.
+You can disable the *deployment* of the example application itself by enabling any combination of the other modules with the `--webapps` and `--rest` properties of the start script.
 That way, the example application will not be launched and its resources will not be present on the classpath of Camunda Run.
 
 You can also disable the *launch* of the example application by setting the application property `camunda.bpm.run.example.enabled` to `false`
