@@ -55,7 +55,7 @@ camunda-bpm-run
 
 Execute one of the two start scripts (`start.bat` for Windows, `start.sh` for Linux/Mac). After a few seconds, you can 
 access the Camunda web apps via http://localhost:8080/camunda/app/, the REST API via 
-http://localhost:8080/engine-rest/, and Swagger UI via http://localhost:8080/swaggerui/.
+http://localhost:8080/engine-rest/.
 
 When executing one of the two start scripts without any arguments, Camunda Run will start with a default configuration 
 as a detached process. To shut down Camunda Run in "detached" mode, use one of the two shutdown scripts (`shutdown.bat` 
