@@ -503,7 +503,7 @@ The `javax` modules won't work with `Tomcat 10`.
 
 For detailed steps of manual installation, follow the [Tomcat Manual Installation Guide]({{< ref "/installation/full/tomcat/manual.md" >}})
 
-**<h4>Weld Classloading Issues</h4>**
+**<h4>Weld Class Loading Issues</h4>**
 In deployment scenarios involving one or more process applications with managed beans, classloading issues may occur if the WELD library is directly embedded in the WAR or process application deployment.
 To resolve this, it is recommended to relocate the WELD library from the WAR or process application deployment to the Tomcat server's library folder.
 {{< /note >}}
