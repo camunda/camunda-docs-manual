@@ -493,12 +493,19 @@ This API is an internal API, which means it's **not** part of the public [REST A
 This version supports all the necessary building-block modules for our users to use `camunda-bpm-platform` community and enterprise editions in conjunction with `Tomcat 10.1`.
 
 {{< note title="Heads-up!" class="warning" >}}
+
+**<h4>Jakarta Namespace</h4>**
+
 `Tomcat 10` is compatible with the `jakarta` namespace. 
 If you wish to use it, the `jakarta` modules needs to be used (`camunda-webapp-tomcat-jakarta`, `camunda-engine-rest-jakarta`).
 
 The `javax` modules won't work with `Tomcat 10`.
 
 For detailed steps of manual installation, follow the [Tomcat Manual Installation Guide]({{< ref "/installation/full/tomcat/manual.md" >}})
+
+**<h4>Weld Class Loading Issues</h4>**
+In deployment scenarios involving one or more process applications with managed beans, classloading issues may occur if the WELD library is directly embedded in the WAR or process application deployment.
+To resolve this, it is recommended to relocate the WELD library from the WAR or process application deployment to the Tomcat server's library folder.
 {{< /note >}}
 
 # Full Distribution
