@@ -283,7 +283,7 @@ Camunda Spin is not available in scripts if a process definition is deployed via
 
 Add the following modules (if not existing) from the folder `$WILDFLY_DISTRIBUTION/modules/` to the folder `$WILDFLY_HOME/modules/`:
 
-* `org/codehaus/groovy/groovy-all`
+* `org/apache/groovy/groovy-all`
 
 
 ### Freemarker Integration
@@ -305,5 +305,3 @@ Add the following modules (if not existing) from the folder `$WILDFLY_DISTRIBUTI
 * `org/graalvm/sdk/graal-sdk`
 * `org/graalvm/truffle/truffle-api`
 * `com/ibm/icu/icu4j`
-
-

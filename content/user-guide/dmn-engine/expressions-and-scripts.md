@@ -81,16 +81,45 @@ You can also use every other script language which provides a [JSR-223]
 implementation. This includes `groovy`, `python` and `ruby`. To use these
 languages you have to add the corresponding dependency to your project.
 
-For example, to use `groovy` as language for expressions add this dependency
+For example, to use `groovy` as language for expressions add these dependencies
 to your project `pom.xml`:
 
 ```xml
-<dependency>
-  <groupId>org.codehaus.groovy</groupId>
-  <artifactId>groovy-all</artifactId>
-  <!-- please update this version if needed -->
-  <version>2.4.5</version>
-</dependency>
+    <dependency>
+      <groupId>org.apache.groovy</groupId>
+      <artifactId>groovy</artifactId>
+      <version>${GROOVY_VERSION}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.groovy</groupId>
+      <artifactId>groovy-jsr223</artifactId>
+      <version>${GROOVY_VERSION}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.groovy</groupId>
+      <artifactId>groovy-json</artifactId>
+      <version>${GROOVY_VERSION}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.groovy</groupId>
+      <artifactId>groovy-xml</artifactId>
+      <version>${GROOVY_VERSION}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.groovy</groupId>
+      <artifactId>groovy-templates</artifactId>
+      <version>${GROOVY_VERSION}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.groovy</groupId>
+      <artifactId>groovy-dateutil</artifactId>
+      <version>${GROOVY_VERSION}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.groovy</groupId>
+      <artifactId>groovy-datetime</artifactId>
+      <version>${GROOVY_VERSION}</version>
+    </dependency>
 ```
 
 # Default Expression Languages
