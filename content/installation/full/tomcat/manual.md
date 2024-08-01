@@ -262,7 +262,13 @@ In order to activate Camunda Spin functionality for a process engine, a process 
 
 Add the following artifacts (if not existing) from the folder `$TOMCAT_DISTRIBUTION/lib/` to the folder `$TOMCAT_HOME/lib/`:
 
-* `groovy-all-$GROOVY_VERSION.jar`
+* `groovy-$GROOVY_VERSION.jar`
+* `groovy-jsr223-$GROOVY_VERSION.jar`
+* `groovy-json-$GROOVY_VERSION.jar`
+* `groovy-xml-$GROOVY_VERSION.jar`
+* `groovy-templates-$GROOVY_VERSION.jar`
+* `groovy-dateutil-$GROOVY_VERSION.jar`
+* `groovy-datetime-$GROOVY_VERSION.jar`
 
 
 ## Freemarker Integration
