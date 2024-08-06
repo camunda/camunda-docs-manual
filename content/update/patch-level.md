@@ -504,8 +504,15 @@ The `javax` modules won't work with `Tomcat 10`.
 For detailed steps of manual installation, follow the [Tomcat Manual Installation Guide]({{< ref "/installation/full/tomcat/manual.md" >}})
 
 **<h4>Weld Class Loading Issues</h4>**
-In deployment scenarios involving one or more process applications with managed beans, classloading issues may occur if the WELD library is directly embedded in the WAR or process application deployment.
-To resolve this, it is recommended to relocate the WELD library from the WAR or process application deployment to the Tomcat server's library folder.
+In deployment scenarios involving one or more process applications with managed beans, classloading issues may occur if the WELD library is directly embedded in the WAR's `/WEB-INF/lib` folder.
+To resolve this, move the weld library away from the war and place it into the `$CATALINA_HOME/lib` folder.
+
+The above fix is not guaranteed to work for cases with bean references between WAR deployments (WAR A referencing a bean from WAR B). 
+
+The following test scenarios fail on Tomcat 10:
+
+* [CallActivityContextSwitchTest](https://github.com/camunda/camunda-bpm-platform/blob/f37877b822dabcbf3cee5806bd5833d18cdcb543/qa/integration-tests-engine/src/test/java/org/camunda/bpm/integrationtest/functional/context/CallActivityContextSwitchTest.java)
+* [CdiBeanCallActivityResolutionTest](https://github.com/camunda/camunda-bpm-platform/blob/f37877b822dabcbf3cee5806bd5833d18cdcb543/qa/integration-tests-engine/src/test/java/org/camunda/bpm/integrationtest/functional/cdi/CdiBeanCallActivityResolutionTest.java)
 {{< /note >}}
 
 # Full Distribution
