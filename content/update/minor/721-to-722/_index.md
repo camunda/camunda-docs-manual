@@ -159,7 +159,7 @@ If your application uses a Docker image based on `Tomcat 9`, you need to perform
 In deployment scenarios involving one or more process applications with managed beans, classloading issues may occur if the WELD library is directly embedded in the WAR's `/WEB-INF/lib` folder.
 To resolve this, move the weld library away from the war and place it into the `$CATALINA_HOME/lib` folder.
 
-The above fix is not guaranteed to work for cases with bean references between WAR deployments (WAR A referencing a bean from WAR B).
+The above workaround is not guaranteed to work for cases with bean references between WAR deployments (WAR A referencing a bean from WAR B).
 
 The following test scenarios fail on Tomcat 10:
 
