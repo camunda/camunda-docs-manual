@@ -174,3 +174,9 @@ Most database management systems provide four different isolation levels to be s
 * SERIALIZABLE 
 
 The required isolation level to run Camunda with is **READ COMMITTED**, which may have a different name according to your database system. Setting the level to REPEATABLE READS is known to cause deadlocks, so one needs to be careful, when changing the isolation level.
+
+When initializing the engine, a check is performed in order to determine if the transaction isolation level set for the database is different from the recommended one. If it is, an exception will be thrown.
+
+This behaviour can be disabled by setting the `skipIsolationLevelCheck` flag to `true`. Doing this will prevent an exception from being thrown and a warning message will be logged instead.
+
+[See here]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#configuration-properties" >}}) for more details about this and other properties.
