@@ -109,12 +109,10 @@ HttpResponse response = http.createRequest()
   .execute();
 ```
 
-## Enabling HTTP Error Handling
+## Enabling HTTP Response Error Handling
 
-<strong>Note:</strong> HTTP Connector does not seamlessly handle 4XX and 5XX related response errors during HTTP call.
-Custom scripts within workflows have to be employed to handle these errors.To support handling of 
-these errors without additional scripting set `throw-http-error` property to `TRUE` via `configOption`
-method.
+By default, the HTTP connector does not seamlessly handle 4XX and 5XX related response errors during HTTP call.
+To activate the handling of these errors without additional scripting, set the `throw-http-error` property to `TRUE` via the `configOption` method. Once enabled, the client will throw an exception in case of http response errors (status code 400-599).
 
 ```java
 HttpResponse response = http.createRequest()
