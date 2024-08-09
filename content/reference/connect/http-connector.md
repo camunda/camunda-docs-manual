@@ -109,6 +109,19 @@ HttpResponse response = http.createRequest()
   .execute();
 ```
 
+## Enabling HTTP Response Error Handling
+
+By default, the HTTP connector does not seamlessly handle 4XX and 5XX related response errors during HTTP call.
+To activate the handling of these errors without additional scripting, set the `throw-http-error` property to `TRUE` via the `configOption` method. Once enabled, the client will throw an exception in case of http response errors (status code 400-599).
+
+```java
+HttpResponse response = http.createRequest()
+  .get()
+  .configOption("throw-http-error", "TRUE")
+  .url("http://camunda.org")
+  .execute();
+```
+
 ## Using the Generic API
 
 Besides the configuration methods also a generic API exists to
