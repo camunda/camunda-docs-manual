@@ -174,3 +174,13 @@ Most database management systems provide four different isolation levels to be s
 * SERIALIZABLE 
 
 The required isolation level to run Camunda with is **READ COMMITTED**, which may have a different name according to your database system. Setting the level to REPEATABLE READS is known to cause deadlocks, so one needs to be careful, when changing the isolation level.
+
+If the isolation level is different from **READ COMMITTED** at the level of the database configuration, the default behavior of the engine is to configure the data source level with this value. 
+
+If you prefer to change this behaviour, you can use property `transactionIsolationLevel` to either use the same value as the global database configuration or use a specific one. This property works as follows:
+
+* If unset, the default value of `readCommitted` will be used to configure the data source.
+* If `null` or empty, the data source won't be configured and the global isolation level for the database will be used.
+* If the property has an accepted value (`readUncommitted`, `readCommitted`, `repeatableReads` or `serializable`), it will be configured in the datasource.
+
+[See here]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#configuration-properties" >}}) for more details about this and other properties.
