@@ -169,7 +169,7 @@ The following test scenarios fail on Tomcat 10:
 
 # Camunda Run and Swagger Update
 
-To reduce the maintenance effort, Swagger is discontinued from `camunda-run`.
+Swagger UI was included in Camunda Run distros for a long time. Unfortunately, maintaining Swagger for Run was a lot of work. Other tools (like Postman or Swagger Editor) provide the same functionality outside of Camunda run. That is why we decided to discontinue Swagger in `camunda-run` to reduce maintenance efforts.
 
 From now on, the `--swaggerui` argument is not available for Camunda Run start scripts, and the Swagger artifacts are not included in the Camunda Run distros anymore.
 Instead, you can always use [open-api][open-api] in conjunction with a `REST` client of your choice such as POSTMAN to achieve similar results. 
