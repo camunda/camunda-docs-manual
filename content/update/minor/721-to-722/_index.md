@@ -23,6 +23,7 @@ This document guides you through the update from Camunda `7.21.x` to `7.22.0` an
 1. For developers: [Camunda Connect](#camunda-connect)
 1. For administrators and developers: [Update to JBoss EAP 8.0](#update-to-jboss-eap-8)
 1. For administrators and developers: [Update to Tomcat 10 Server](#update-to-tomcat-10-server)
+1. For Administrators and developers: [Camunda Run and Swagger Update](#camunda-run-and-swagger-update)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda 7.22.
 
@@ -165,3 +166,12 @@ The following test scenarios fail on Tomcat 10:
 
 * [CallActivityContextSwitchTest](https://github.com/camunda/camunda-bpm-platform/blob/f37877b822dabcbf3cee5806bd5833d18cdcb543/qa/integration-tests-engine/src/test/java/org/camunda/bpm/integrationtest/functional/context/CallActivityContextSwitchTest.java)
 * [CdiBeanCallActivityResolutionTest](https://github.com/camunda/camunda-bpm-platform/blob/f37877b822dabcbf3cee5806bd5833d18cdcb543/qa/integration-tests-engine/src/test/java/org/camunda/bpm/integrationtest/functional/cdi/CdiBeanCallActivityResolutionTest.java)
+
+# Camunda Run and Swagger Update
+
+Swagger UI was included in Camunda Run distros for a long time. Unfortunately, maintaining Swagger for Run was a lot of work. Other tools (like Postman or Swagger Editor) provide the same functionality outside of Camunda run. That is why we decided to discontinue Swagger in `camunda-run` to reduce maintenance efforts.
+
+From now on, the `--swaggerui` argument is not available for Camunda Run start scripts, and the Swagger artifacts are not included in the Camunda Run distros anymore.
+Instead, you can always use [open-api][open-api] in conjunction with a `REST` client of your choice such as POSTMAN to achieve similar results. 
+
+[open-api]: {{< ref "/reference/rest/openapi/_index.md" >}}
