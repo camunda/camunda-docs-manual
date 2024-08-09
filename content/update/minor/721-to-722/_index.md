@@ -171,7 +171,7 @@ The following test scenarios fail on Tomcat 10:
 
 To reduce the maintenance effort, Swagger is discontinued from `camunda-run`.
 
-From now on, the parameterisation of camunda-run scripts will not include the `--swaggerui` argument. 
+From now on, the `--swaggerui` argument is not available for Camunda Run start scripts, and the Swagger artifacts are not included in the Camunda Run distros anymore.
 Instead, you can always use [open-api][open-api] in conjunction with a `REST` client of your choice such as POSTMAN to achieve similar results. 
 
 [open-api]: {{< ref "/reference/rest/openapi/_index.md" >}}
