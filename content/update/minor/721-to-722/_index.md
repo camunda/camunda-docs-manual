@@ -21,7 +21,7 @@ This document guides you through the update from Camunda `7.21.x` to `7.22.0` an
 1. For developers: [Camunda Commons](#camunda-commons)
 1. For developers: [Camunda Template Engines FreeMarker](#camunda-template-engines-freemarker)
 1. For developers: [Camunda Connect](#camunda-connect)
-1. For developers: [Connect dependency removed from `camunda-engine`](#connect-dependency-removed-from-camunda-engine)
+1. For developers: [Camunda Connect dependency removed from `camunda-engine`](#camunda-connect-dependency-removed-from-camunda-engine)
 1. For administrators and developers: [Update to JBoss EAP 8.0](#update-to-jboss-eap-8)
 1. For administrators and developers: [Update to Tomcat 10 Server](#update-to-tomcat-10-server)
 1. For Administrators and developers: [Camunda Run and Swagger Update](#camunda-run-and-swagger-update)
@@ -61,9 +61,10 @@ Before starting, ensure you have downloaded the Camunda 7.22 distribution for th
 # Camunda Connect
  We’ve moved the `camunda-connect` project from its [previous location](https://github.com/camunda/camunda-connect) into the [mono repository](https://github.com/camunda/camunda-bpm-platform). We’re no longer versioning it independently. Instead, we’ve integrated it into the 7.X.Y versioning scheme, so you can conveniently declare Camunda `7.22.0-alpha2` to use the latest release of Camunda Connect.
  
-# Connect dependency removed from `camunda-engine`
+# Camunda Connect dependency removed from `camunda-engine`
 
-`camunda-connect` is no longer dependency to `camunda-engine` and respectively in pre-packaged distributions (Tomcat, WildFly). If you use Camunda Connect funcionality, check if you need to re-introduce the following dependencies to your project:
+`camunda-connect` is no longer dependency to `camunda-engine` and respectively in pre-packaged distributions (Tomcat, WildFly).
+ If you use Camunda Connect functionality, check if you need to re-introduce the following dependencies to your project:
 
 * `camunda-connect-core`
 * `camunda-connect-connectors-all`
@@ -219,15 +220,38 @@ It is possible to keep using Camunda Platform with a lower version of Groovy if 
 
 # Sending telemetry feature removed
 
+Sending telemetry data has been introduced in Camunda `7.14.0+` (and `7.13.7`, `7.12.12`, `7.11.19`)
+ and removed in Camunda `7.22.0`. The public API is marked as deprecated and emptied out.
+ The telemetry reporter and scheduled timer and all related process engine configuration properties are removed.
+ The [diagnostic data][] is still being collected but not send by any mean.
+  You can decide to share it with Camunda if requested in tickets or use it for your diagnostic purposes.
+
+In previous Camunda versions - `7.21.0+`, `7.20.8+`, `7.19.15+`, reporting telemetry data is disabled by default.
+
+[diagnostic data]: {{< ref "/user-guide/process-engine/diagnostics-data.md" >}}
+
 ## Configuration properties removed
 
-* initializeTelemetry
-* telemetryReporterActivate?
-* telemetryReportingPeriod
-* telemetryReporterActivate
-* telemetryRequestRetries
-* telemetryRequestTimeout
+To clean up and refactor our source code, tte following process engine configuration properties have been remove.
+Please remove all of the occurrences of those properties, no matter of the setup that you are using
+(share or embedded process engine, pre-packaged or other distribution).
+You need to remove the properties from your tests as well.
+
+* `initializeTelemetry       `
+* `telemetryReporterActivate `
+* `telemetryReportingPeriod  `
+* `telemetryReporterActivate `
+* `telemetryRequestRetries   `
+* `telemetryRequestTimeout   `
 
 ## Public API deprecation
 
-IsTelemetryEnabledCmd and TelemetryConfigureCmd API is deprecated and emptied out.
+The public API for configuring telemetry and fetching the telemetry configuration have been emptied out and marked as deprecated. 
+We recommend to remove the usage of the following API as the endpoints no longer do anything and is unnecessary.
+
+* Java API
+  * [`ManagementService#isTelemetryEnabled()`](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.22/org/camunda/bpm/engine/ManagementService.html#isTelemetryEnabled()) (always returns `false`)
+  * [`ManagementService#toggleTelemetry(boolean)`](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.22/org/camunda/bpm/engine/ManagementService.html#toggleTelemetry(boolean))
+* REST API
+  * [Fetch Telemetry Configuration](https://docs.camunda.org/rest/camunda-bpm-platform/7.22/#tag/Telemetry/operation/getTelemetryConfiguration) (always returns `false`)
+  * [Configure Telemetry](https://docs.camunda.org/rest/camunda-bpm-platform/7.22/#tag/Telemetry/operation/configureTelemetry)
