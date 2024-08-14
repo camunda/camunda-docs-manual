@@ -307,7 +307,7 @@ In case the Script Engine module should be installed globally and Wildfly is use
 <jboss-deployment-structure>
   <deployment>
     <dependencies>
-      <module name="org.codehaus.groovy.groovy-all"
+      <module name="org.apache.groovy.groovy-all"
               services="import" />
     </dependencies>
   </deployment>

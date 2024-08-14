@@ -24,6 +24,7 @@ This document guides you through the update from Camunda `7.21.x` to `7.22.0` an
 1. For administrators and developers: [Update to JBoss EAP 8.0](#update-to-jboss-eap-8)
 1. For administrators and developers: [Update to Tomcat 10 Server](#update-to-tomcat-10-server)
 1. For Administrators and developers: [Camunda Run and Swagger Update](#camunda-run-and-swagger-update)
+1. For administrators and developers: [Update to Groovy 4.0](#update-to-groovy-4)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda 7.22.
 
@@ -175,3 +176,30 @@ From now on, the `--swaggerui` argument is not available for Camunda Run start s
 Instead, you can always use [open-api][open-api] in conjunction with a `REST` client of your choice such as POSTMAN to achieve similar results. 
 
 [open-api]: {{< ref "/reference/rest/openapi/_index.md" >}}
+
+# Update to Groovy 4
+
+We have updated the Groovy version from `2.4` to `4.0`.
+
+## Migrate your scripts
+
+To continue running your Groovy scripts in the Camunda Engine, please read and act on the following release notes, especially the breaking changes:
+
+- [Groovy 2.5](https://groovy-lang.org/releasenotes/groovy-2.5.html#Groovy2.5releasenotes-Breakingchanges)
+- [Groovy 3.0](http://groovy-lang.org/releasenotes/groovy-3.0.html#Groovy3.0releasenotes-OtherBreaking)
+- [Groovy 4.0](https://groovy-lang.org/releasenotes/groovy-4.0.html#Groovy4.0-breaking)
+
+To make the migration process easier, we have included the `groovy-dateutil` and `groovy-datetime` libraries in the Camunda Platform release. `groovy-dateutil` contains the extension methods for the `java.util.Date` class, while `groovy-datetime` allows using operator overloading, closures, and Groovy's dynamic methods on `java.time`.
+
+## What if I can't migrate my scripts?
+
+It is possible to keep using Camunda Platform with a lower version of Groovy if GROOVY-VERSION is the desired version.
+
+### If using a full distribution of Camunda:
+
+- Remove `groovy-dateutil-4.0.x.jar` and `groovy-datetime-4.0.x.jar`.
+- Replace `groovy-4.0.x.jar`, `groovy-json-4.0.x.jar`, `groovy-xml-4.0.x.jar`, and `groovy-templates-4.0.x.jar` libraries with `groovy-{GROOVY-VERSION}.jar`, `groovy-json-{GROOVY-VERSION}.jar`, `groovy-xml-{GROOVY-VERSION}.jar`, and `groovy-templates-{GROOVY-VERSION}.jar`.
+
+### If using Embedded Engine:
+
+- You can keep using your Groovy version without any extra effort.
