@@ -232,7 +232,7 @@ In previous Camunda versions - `7.21.0+`, `7.20.8+`, `7.19.15+`, reporting telem
 
 ## Configuration properties removed
 
-To clean up and refactor our source code, tte following process engine configuration properties have been removed.
+To clean up and refactor our source code, the following process engine configuration properties have been removed.
 Please remove all of the occurrences of those properties, regardless of the setup that you are using
 (share or embedded process engine, pre-packaged or other distribution).
 You need to remove the properties from your tests as well.
