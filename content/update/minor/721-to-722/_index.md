@@ -223,7 +223,7 @@ It is possible to keep using Camunda Platform with a lower version of Groovy if 
 Sending telemetry data has been introduced in Camunda `7.14.0+` (and `7.13.7`, `7.12.12`, `7.11.19`)
  and removed in Camunda `7.22.0`. The public API is marked as deprecated and emptied out.
  The telemetry reporter and scheduled timer and all related process engine configuration properties are removed.
- The [diagnostic data][] is still being collected but not send by any mean.
+ The [diagnostic data][] is still being collected but not sent by any mean.
   You can decide to share it with Camunda if requested in tickets or use it for your diagnostic purposes.
 
 In previous Camunda versions - `7.21.0+`, `7.20.8+`, `7.19.15+`, reporting telemetry data is disabled by default.
@@ -232,8 +232,8 @@ In previous Camunda versions - `7.21.0+`, `7.20.8+`, `7.19.15+`, reporting telem
 
 ## Configuration properties removed
 
-To clean up and refactor our source code, tte following process engine configuration properties have been remove.
-Please remove all of the occurrences of those properties, no matter of the setup that you are using
+To clean up and refactor our source code, tte following process engine configuration properties have been removed.
+Please remove all of the occurrences of those properties, regardless of the setup that you are using
 (share or embedded process engine, pre-packaged or other distribution).
 You need to remove the properties from your tests as well.
 
@@ -247,7 +247,7 @@ You need to remove the properties from your tests as well.
 ## Public API deprecation
 
 The public API for configuring telemetry and fetching the telemetry configuration have been emptied out and marked as deprecated. 
-We recommend to remove the usage of the following API as the endpoints no longer do anything and is unnecessary.
+We recommend to remove the usage of the following API as the endpoints no longer do anything and their usage is unnecessary.
 
 * Java API
   * [`ManagementService#isTelemetryEnabled()`](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.22/org/camunda/bpm/engine/ManagementService.html#isTelemetryEnabled()) (always returns `false`)
