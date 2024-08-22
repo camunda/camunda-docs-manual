@@ -45,7 +45,7 @@ Run Camunda in every Java-runnable environment. Camunda is supported with our QA
 
 * MySQL  8.0
 * MariaDB 10.6
-* Oracle 19c
+* Oracle 19c / 23ai
 * IBM DB2 11.5 (excluding IBM z/OS for all versions)
 * PostgreSQL 13 / 14 / 15 / 16
 * Amazon Aurora PostgreSQL compatible with PostgreSQL 13 / 14 / 15
