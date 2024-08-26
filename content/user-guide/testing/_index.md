@@ -212,19 +212,6 @@ public class MyBusinessProcessTest {
 
 The annotation is supported for [JUnit 3]({{< relref "#junit-3" >}}) and [JUnit 4]({{< relref "#junit-4" >}}) style of testing. Note that a skipped test is marked as passed for JUnit 3 style tests since JUnit 3 doesn't support skipping of tests.  
 
-## Disabling Telemetry
-
-Telemetry reports are introduced with Camunda 7.14.0. To prevent sending data generated during testing, we encourage you to disable the [telemetry reporter][engine-config-telemetryReporterActivate]. Please read more about the topic in the dedicated page for [Telemetry][telemetry-initial-report].
-
-Example of disabling the reporter in XML-based configuration:
-
-```
-<property name="telemetryReporterActivate">false</property>
-```
-
-[engine-config-telemetryReporterActivate]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#telemetryReporterActivate" >}}
-[telemetry-initial-report]: {{< ref "/introduction/telemetry.md#initial-data-report" >}}
-
 ## Debug Unit Tests
 
 When using the in-memory H2 database for unit tests, the following instructions allow to easily inspect the data in the engine database during a debugging session. The screenshots here are taken in Eclipse, but the mechanism should be similar for other IDEs.

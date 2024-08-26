@@ -21,10 +21,12 @@ This document guides you through the update from Camunda `7.21.x` to `7.22.0` an
 1. For developers: [Camunda Commons](#camunda-commons)
 1. For developers: [Camunda Template Engines FreeMarker](#camunda-template-engines-freemarker)
 1. For developers: [Camunda Connect](#camunda-connect)
+1. For developers: [Camunda Connect dependency removed from `camunda-engine`](#camunda-connect-dependency-removed-from-camunda-engine)
 1. For administrators and developers: [Update to JBoss EAP 8.0](#update-to-jboss-eap-8)
 1. For administrators and developers: [Update to Tomcat 10 Server](#update-to-tomcat-10-server)
 1. For Administrators and developers: [Camunda Run and Swagger Update](#camunda-run-and-swagger-update)
 1. For administrators and developers: [Update to Groovy 4.0](#update-to-groovy-4)
+1. For administrators and developers: [Sending telemetry feature removed](#sending-telemetry-feature-removed)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda 7.22.
 
@@ -59,6 +61,16 @@ Before starting, ensure you have downloaded the Camunda 7.22 distribution for th
 # Camunda Connect
  We’ve moved the `camunda-connect` project from its [previous location](https://github.com/camunda/camunda-connect) into the [mono repository](https://github.com/camunda/camunda-bpm-platform). We’re no longer versioning it independently. Instead, we’ve integrated it into the 7.X.Y versioning scheme, so you can conveniently declare Camunda `7.22.0-alpha2` to use the latest release of Camunda Connect.
  
+# Camunda Connect dependency removed from `camunda-engine`
+
+`camunda-connect` is no longer dependency to `camunda-engine` and respectively in pre-packaged distributions (Tomcat, WildFly).
+ If you use Camunda Connect functionality, check if you need to re-introduce the following dependencies to your project:
+
+* `camunda-connect-core`
+* `camunda-connect-connectors-all`
+* `camunda-connect-http-client`
+* `camunda-connect-soap-http-client`
+
 # Update to JBoss EAP 8
 
 With this release, we support JBoss EAP 8.0, it's Jakarta EE compliant platform. The artifacts are shipped with the latest pre-packaged [Camunda 7 WildFly distribution]({{< ref "/installation/full/jboss/manual.md#setup" >}}).
@@ -124,7 +136,7 @@ To work with `Tomcat 10`, consider the following when migrating your process app
 [tomcat9-webapp]: https://artifacts.camunda.com/ui/native/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-tomcat/
 [tomcat9-rest-api]: https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/camunda-engine-rest/
 
-### Migrate process applications
+## Migrate process applications
 
 * Replace Java EE class references (`javax.*`) with Jakarta class references (`jakarta.*`)
  * You might have a look at [`org.eclipse.transformer:transformer-maven-plugin`](https://github.com/eclipse/transformer)
@@ -140,19 +152,21 @@ To work with `Tomcat 10`, consider the following when migrating your process app
  * `org.camunda.bpm.javaee:camunda-ejb-client` → `org.camunda.bpm.javaee:camunda-ejb-client-jakarta`
  * `org.camunda.bpm:camunda-engine-cdi` → `org.camunda.bpm:camunda-engine-cdi-jakarta`
 
-### Migrate Java webapp plugins
+## Migrate Java webapp plugins
 
 Replace Java EE class references (`javax.*`) with Jakarta class references (`jakarta.*`)
 
-### Replace web application (Cockpit, Admin, Tasklist, Welcome) deployment
+## Replace web application (Cockpit, Admin, Tasklist, Welcome) deployment
 
 Replace the artifact `camunda-webapp-tomcat-$PLATFORM_VERSION.war` with `camunda-webapp-tomcat-jakarta-$PLATFORM_VERSION.war` under `$CATALINA_HOME/webapps`.
 
-### Replace REST API deployment
+## Replace REST API deployment
 
 Replace the artifact `camunda-engine-rest-$PLATFORM_VERSION-tomcat.war` with `camunda-engine-rest-jakarta-$PLATFORM_VERSION-tomcat.war` under `$CATALINA_HOME/webapps`.
 
-### Migrating to the Tomcat 10 Docker Image
+## Migrating to the Tomcat 10 Docker Image
+
+If your application uses a Docker image based on `Tomcat 9`, you need to perform the above migration steps yourself before your application is compatible with the `jakarta` namespace changes the new Tomcat version introduces.
 
 If your application uses a Docker image based on `Tomcat 9`, you need to perform the above migration steps yourself before your application is compatible with the `jakarta` namespace changes the new Tomcat version introduces.
 
@@ -203,3 +217,41 @@ It is possible to keep using Camunda Platform with a lower version of Groovy if 
 ### If using Embedded Engine:
 
 - You can keep using your Groovy version without any extra effort.
+
+# Sending telemetry feature removed
+
+Sending telemetry data has been introduced in Camunda `7.14.0+` (and `7.13.7`, `7.12.12`, `7.11.19`)
+ and removed in Camunda `7.22.0`. The public API is marked as deprecated and emptied out.
+ The telemetry reporter and scheduled timer and all related process engine configuration properties are removed.
+ The [diagnostic data][] is still being collected but not sent by any mean.
+  You can decide to share it with Camunda if requested in tickets or use it for your diagnostic purposes.
+
+In previous Camunda versions - `7.21.0+`, `7.20.8+`, `7.19.15+`, reporting telemetry data is disabled by default.
+
+[diagnostic data]: {{< ref "/user-guide/process-engine/diagnostics-data.md" >}}
+
+## Configuration properties removed
+
+To clean up and refactor our source code, the following process engine configuration properties have been removed.
+Please remove all of the occurrences of those properties, regardless of the setup that you are using
+(share or embedded process engine, pre-packaged or other distribution).
+You need to remove the properties from your tests as well.
+
+* `initializeTelemetry       `
+* `telemetryReporterActivate `
+* `telemetryReportingPeriod  `
+* `telemetryReporterActivate `
+* `telemetryRequestRetries   `
+* `telemetryRequestTimeout   `
+
+## Public API deprecation
+
+The public API for configuring telemetry and fetching the telemetry configuration have been emptied out and marked as deprecated. 
+We recommend to remove the usage of the following API as the endpoints no longer do anything and their usage is unnecessary.
+
+* Java API
+  * [`ManagementService#isTelemetryEnabled()`](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.22/org/camunda/bpm/engine/ManagementService.html#isTelemetryEnabled()) (always returns `false`)
+  * [`ManagementService#toggleTelemetry(boolean)`](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.22/org/camunda/bpm/engine/ManagementService.html#toggleTelemetry(boolean))
+* REST API
+  * [Fetch Telemetry Configuration](https://docs.camunda.org/rest/camunda-bpm-platform/7.22/#tag/Telemetry/operation/getTelemetryConfiguration) (always returns `false`)
+  * [Configure Telemetry](https://docs.camunda.org/rest/camunda-bpm-platform/7.22/#tag/Telemetry/operation/configureTelemetry)
