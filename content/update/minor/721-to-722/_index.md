@@ -28,6 +28,7 @@ This document guides you through the update from Camunda `7.21.x` to `7.22.0` an
 1. For administrators and developers: [Update to Groovy 4.0](#update-to-groovy-4)
 1. For administrators and developers: [Sending telemetry feature removed](#sending-telemetry-feature-removed)
 1. For administrators: [Database transaction isolation level `READ_COMMITTED` is enforced](#database-transaction-isolation-level-read-committed-is-enforced)
+1. For developers: [Quarkus 3.14 Extension Update](#quarkus-3-14-extension-update)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda 7.22.
 
@@ -264,3 +265,29 @@ When starting the engine, a check is performed in order to determine if the tran
 This behaviour can be disabled by setting the `skipIsolationLevelCheck` flag to `true`. Doing this will prevent an exception from being thrown and a warning message will be logged instead.
 
 [See here]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#configuration-properties" >}}) for more details about this and other properties.
+
+# Quarkus 3.14 Extension Update
+
+The Quarkus Extension has been updated to use Quarkus `3.14`. This version brings its own features and changes.
+For a complete list, see the [Quarkus 3.14 Release](https://quarkus.io/blog/quarkus-3-14-1-released) blog post.
+
+## Breaking Changes
+
+`Quarkus 3.14` extensions introduce **breaking changes** in the way the Quarkus runtime treats configuration. As a result, we decided
+to perform a config migration at this point to be consistent with the new behaviour of the framework.
+
+The change affects the configuration of the process engine and the job executor.
+
+## Property Examples
+
+- `quarkus.camunda.enforce-history-time-to-live` **becomes** `quarkus.camunda.generic-config.enforce-history-time-to-live`
+
+- `quarkus.camunda.job-executor.thread-pool.max-pool-size` **becomes** `quarkus.camunda.job-executor.generic-config.thread-pool.max-pool-size`
+
+## Configuration Page Update
+
+For a detailed guide on the new Quarkus properties, you can visit the updated [Quarkus Configuration]({{< ref "/user-guide/quarkus-integration/configuration.md" >}}) page
+
+## References
+
+If you want to read more on how Quarkus Extensions treat configuration differently, checkout the  [Quarkus 3.14 Migration Guide](https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.14#for-extension-developers).
