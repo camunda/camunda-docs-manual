@@ -642,6 +642,8 @@ Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION
 * `groovy-json-$GROOVY_VERSION.jar`
 * `groovy-xml-$GROOVY_VERSION.jar`
 * `groovy-templates-$GROOVY_VERSION.jar`
+* `groovy-dateutil-$GROOVY_VERSION.jar`
+* `groovy-datetime-$GROOVY_VERSION.jar`
 
 ## GraalVM JavaScript integration
 

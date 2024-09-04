@@ -13,7 +13,7 @@ menu:
 
 {{< img src="../img/admin-system-management.png" title="System Management" >}}
 
-The System Settings menu gives you general information about the process engine. It enables users with system permissions to access certain system information, including telemetry, metrics, and license key. Provided that you are using the Enterprise Edition of Camunda 7, you can also insert your *License Key*.
+The System Settings menu gives you general information about the process engine. It enables users with system permissions to access certain system information, including diagnostics, metrics, and license key. Provided that you are using the Enterprise Edition of Camunda 7, you can also insert your *License Key*.
 
 {{< note title="Accessing the System Settings menu" class="info" >}}
 The System Settings menu is only usable by users which are granted with *All* permission for authorizations.
@@ -23,7 +23,7 @@ The System Settings menu is only usable by users which are granted with *All* pe
 
 {{< img src="../img/admin-diagnostics.png" title="Diagnostics" >}}
 
-The **Diagnostics** menu allows you to view and copy telemetry data about your environment or distribution of Camunda. The main purpose of the **Diagnostics** menu is to increase transparency by giving you easy access to important system telemetry information. In the event of an issue, this should also improve problem diagnosis by enabling you to quickly understand and share the Camunda environment you are running.
+The **Diagnostics** menu allows you to view and copy diagnostics data about your environment or distribution of Camunda. The main purpose of the **Diagnostics** menu is to increase transparency by giving you easy access to important system diagnostics information. In the event of an issue, this should also improve problem diagnosis by enabling you to quickly understand and share the Camunda environment you are running.
 
 # Execution Metrics
 
