@@ -23,6 +23,7 @@ This document guides you through the update from Camunda `7.21.x` to `7.22.0` an
 1. For developers: [Camunda Connect](#camunda-connect)
 1. For administrators and developers: [Update to JBoss EAP 8.0](#update-to-jboss-eap-8)
 1. For administrators and developers: [Update to Tomcat 10 Server](#update-to-tomcat-10-server)
+1. For administrators: [Database transaction isolation level `READ_COMMITTED` is enforced](#database-transaction-isolation-level-read-committed-is-enforced)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda 7.22.
 
@@ -165,3 +166,11 @@ The following test scenarios fail on Tomcat 10:
 
 * [CallActivityContextSwitchTest](https://github.com/camunda/camunda-bpm-platform/blob/f37877b822dabcbf3cee5806bd5833d18cdcb543/qa/integration-tests-engine/src/test/java/org/camunda/bpm/integrationtest/functional/context/CallActivityContextSwitchTest.java)
 * [CdiBeanCallActivityResolutionTest](https://github.com/camunda/camunda-bpm-platform/blob/f37877b822dabcbf3cee5806bd5833d18cdcb543/qa/integration-tests-engine/src/test/java/org/camunda/bpm/integrationtest/functional/cdi/CdiBeanCallActivityResolutionTest.java)
+
+# Database transaction isolation level `READ_COMMITTED` is enforced
+
+When starting the engine, a check is performed in order to determine if the transaction isolation level set for the database is different from the recommended one `READ_COMMITTED`. If it is, an exception will be thrown.
+
+This behaviour can be disabled by setting the `skipIsolationLevelCheck` flag to `true`. Doing this will prevent an exception from being thrown and a warning message will be logged instead.
+
+[See here]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#configuration-properties" >}}) for more details about this and other properties.
