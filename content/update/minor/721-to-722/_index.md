@@ -24,9 +24,10 @@ This document guides you through the update from Camunda `7.21.x` to `7.22.0` an
 1. For developers: [Camunda Connect dependency removed from `camunda-engine`](#camunda-connect-dependency-removed-from-camunda-engine)
 1. For administrators and developers: [Update to JBoss EAP 8.0](#update-to-jboss-eap-8)
 1. For administrators and developers: [Update to Tomcat 10 Server](#update-to-tomcat-10-server)
-1. For Administrators and developers: [Camunda Run and Swagger Update](#camunda-run-and-swagger-update)
+1. For administrators and developers: [Camunda Run and Swagger Update](#camunda-run-and-swagger-update)
 1. For administrators and developers: [Update to Groovy 4.0](#update-to-groovy-4)
 1. For administrators and developers: [Sending telemetry feature removed](#sending-telemetry-feature-removed)
+1. For administrators: [Database transaction isolation level `READ_COMMITTED` is enforced](#database-transaction-isolation-level-read-committed-is-enforced)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda 7.22.
 
@@ -255,3 +256,11 @@ We recommend to remove the usage of the following API as the endpoints no longer
 * REST API
   * [Fetch Telemetry Configuration](https://docs.camunda.org/rest/camunda-bpm-platform/7.22/#tag/Telemetry/operation/getTelemetryConfiguration) (always returns `false`)
   * [Configure Telemetry](https://docs.camunda.org/rest/camunda-bpm-platform/7.22/#tag/Telemetry/operation/configureTelemetry)
+
+# Database transaction isolation level `READ_COMMITTED` is enforced
+
+When starting the engine, a check is performed in order to determine if the transaction isolation level set for the database is different from the recommended one `READ_COMMITTED`. If it is, an exception will be thrown.
+
+This behaviour can be disabled by setting the `skipIsolationLevelCheck` flag to `true`. Doing this will prevent an exception from being thrown and a warning message will be logged instead.
+
+[See here]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#configuration-properties" >}}) for more details about this and other properties.
