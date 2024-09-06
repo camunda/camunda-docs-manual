@@ -268,8 +268,8 @@ This behaviour can be disabled by setting the `skipIsolationLevelCheck` flag to 
 
 # Quarkus 3.14 Extension Update
 
-The Quarkus Extension has been updated to use Quarkus `3.14`. This version brings its own features and changes.
-For a complete list, see the [Quarkus 3.14 Release](https://quarkus.io/blog/quarkus-3-14-1-released) blog post.
+The Camunda Quarkus Extension has been updated to use Quarkus `3.14`. This version brings its own features and changes.
+For a complete list, see the [Quarkus 3.14.2 Release](https://quarkus.io/blog/quarkus-3-14-2-released) blog post.
 
 ## Breaking Changes
 
