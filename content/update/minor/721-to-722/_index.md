@@ -281,19 +281,13 @@ The config properties will now follow a similar scheme to the [Camunda Spring Bo
 
 The change affects the configuration of the [process engine]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#configuration-properties" >}}) and the [job executor]({{< ref "/reference/deployment-descriptors/tags/job-executor.md" >}}).
 
-## Property Examples
+**Reason for Change**: The Quarkus migration guide encourages using named `ConfigMappings`, and we chose to adopt it to future-proof the extension.
+This requires using the new namespace `generic-config`.
 
 - `quarkus.camunda.enforce-history-time-to-live` **becomes** `quarkus.camunda.generic-config.enforce-history-time-to-live`
 
 - `quarkus.camunda.job-executor.thread-pool.max-pool-size` **becomes** `quarkus.camunda.job-executor.generic-config.thread-pool.max-pool-size`
 
-**Reason for Change**: The Quarkus migration guide encourages using named `ConfigMappings`, and we chose to adopt it to future-proof the extension.
-This requires using the new namespace `generic-config`.
-
-## Configuration Page Update
-
 For a detailed guide on the new Quarkus properties, you can visit the updated [Quarkus Configuration]({{< ref "/user-guide/quarkus-integration/configuration.md" >}}) page
-
-## References
 
 If you want to read more on how Quarkus Extensions treat configuration differently, checkout the  [Quarkus 3.14 Migration Guide](https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.14#for-extension-developers).
