@@ -104,6 +104,14 @@ The start scripts (`start.bat` for Windows, `start.sh` for Linux/Mac) accept the
       <td><code>enabled</code></td>
   </tr>
   <tr>
+      <td><code>--oauth2</code></td>
+      <td>
+        Enables Spring Security OAuth2 integration.
+        See dedicated <a href="{{< ref "/user-guide/spring-boot-integration/spring-security.md" >}}">Spring Security OAuth2 Integration</a> documentation for details.
+      </td>
+      <td><code>false</code></td>
+  </tr>
+  <tr>
       <td><code>--help</code></td>
       <td>Prints a message showing the available start script arguments.</td>
       <td><code>-</code></td>
