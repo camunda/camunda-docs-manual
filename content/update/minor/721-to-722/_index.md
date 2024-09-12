@@ -275,9 +275,9 @@ For a complete list, see the [Quarkus 3.14.2 Release](https://quarkus.io/blog/qu
 
 `Quarkus 3.14` extensions introduce **breaking changes** in the way the Quarkus runtime treats configuration.
 
-As a result, we decided to accept a config migration at this point to be consistent with the new behaviour of the framework (see [property examples](#property-examples) below)
+A config migration is required to remain consistent with the new behavior of the framework (see [property examples](#property-examples) below).
 
-The config properties will now follow a similar scheme to the [Camunda Spring Boot Starter Configuration]({{< ref "/user-guide/spring-boot-integration/configuration.md#generic-properties" >}}).
+The config properties now follow a similar scheme to the [Camunda Spring Boot Starter Configuration]({{< ref "/user-guide/spring-boot-integration/configuration.md#generic-properties" >}}).
 
 The change affects the configuration of the [process engine]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#configuration-properties" >}}) and the [job executor]({{< ref "/reference/deployment-descriptors/tags/job-executor.md" >}}).
 
@@ -288,6 +288,6 @@ This requires using the new namespace `generic-config`.
 
 - `quarkus.camunda.job-executor.thread-pool.max-pool-size` **becomes** `quarkus.camunda.job-executor.generic-config.thread-pool.max-pool-size`
 
-For a detailed guide on the new Quarkus properties, you can visit the updated [Quarkus Configuration]({{< ref "/user-guide/quarkus-integration/configuration.md" >}}) page
+For a detailed guide on the new Quarkus properties, visit the updated [Quarkus Configuration]({{< ref "/user-guide/quarkus-integration/configuration.md" >}}) page.
 
-If you want to read more on how Quarkus Extensions treat configuration differently, checkout the  [Quarkus 3.14 Migration Guide](https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.14#for-extension-developers).
+To read more on how Quarkus extensions treat configuration differently, see the [Quarkus 3.14 Migration Guide](https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.14#for-extension-developers).
