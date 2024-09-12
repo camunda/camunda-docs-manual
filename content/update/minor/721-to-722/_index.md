@@ -28,6 +28,7 @@ This document guides you through the update from Camunda `7.21.x` to `7.22.0` an
 1. For administrators and developers: [Update to Groovy 4.0](#update-to-groovy-4)
 1. For administrators and developers: [Sending telemetry feature removed](#sending-telemetry-feature-removed)
 1. For administrators: [Database transaction isolation level `READ_COMMITTED` is enforced](#database-transaction-isolation-level-read-committed-is-enforced)
+1. For developers: [Quarkus 3.14 Extension Update](#quarkus-3-14-extension-update)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda 7.22.
 
@@ -264,3 +265,29 @@ When starting the engine, a check is performed in order to determine if the tran
 This behaviour can be disabled by setting the `skipIsolationLevelCheck` flag to `true`. Doing this will prevent an exception from being thrown and a warning message will be logged instead.
 
 [See here]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#configuration-properties" >}}) for more details about this and other properties.
+
+# Quarkus 3.14 Extension Update
+
+The Camunda Quarkus Extension has been updated to use Quarkus `3.14`. This version brings its own features and changes.
+For a complete list, see the [Quarkus 3.14.2 Release](https://quarkus.io/blog/quarkus-3-14-2-released) blog post.
+
+## Breaking Changes
+
+`Quarkus 3.14` extensions introduce **breaking changes** in the way the Quarkus runtime treats configuration.
+
+A config migration is required to remain consistent with the new behavior of the framework (see [property examples](#property-examples) below).
+
+The config properties now follow a similar scheme to the [Camunda Spring Boot Starter Configuration]({{< ref "/user-guide/spring-boot-integration/configuration.md#generic-properties" >}}).
+
+The change affects the configuration of the [process engine]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#configuration-properties" >}}) and the [job executor]({{< ref "/reference/deployment-descriptors/tags/job-executor.md" >}}).
+
+**Reason for Change**: The Quarkus migration guide encourages using named `ConfigMappings`, and we chose to adopt it to future-proof the extension.
+This requires using the new namespace `generic-config`.
+
+- `quarkus.camunda.enforce-history-time-to-live` **becomes** `quarkus.camunda.generic-config.enforce-history-time-to-live`
+
+- `quarkus.camunda.job-executor.thread-pool.max-pool-size` **becomes** `quarkus.camunda.job-executor.generic-config.thread-pool.max-pool-size`
+
+For a detailed guide on the new Quarkus properties, visit the updated [Quarkus Configuration]({{< ref "/user-guide/quarkus-integration/configuration.md" >}}) page.
+
+To read more on how Quarkus extensions treat configuration differently, see the [Quarkus 3.14 Migration Guide](https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.14#for-extension-developers).
