@@ -288,7 +288,7 @@ If you want to allow cross-origin requests to the [REST API]({{< ref "/reference
 
 ## REST
 
-`Camunda-run` can be configured to disable the REST endpoint which exposes the WADL file via a property.
+Camunda Run can be configured to disable the REST endpoint which exposes the WADL file via a property.
 
 <table class="table desc-table">
   <tr>
@@ -300,7 +300,7 @@ If you want to allow cross-origin requests to the [REST API]({{< ref "/reference
   <tr>
       <td rowspan="15"><code>camunda.bpm.run.rest</code></td>
       <td><code>.disable-wadl</code></td>
-      <td>Disables the REST endpoint `/application.wadl`</td>
+      <td>Disables the REST endpoint `/application.wadl`. Web Application Description Language (WADL) is an XML description of the deployed RESTful web application.</td>
       <td><code>false</code></td>
   </tr>
 </table>
