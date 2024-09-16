@@ -286,6 +286,25 @@ If you want to allow cross-origin requests to the [REST API]({{< ref "/reference
   </tr>
 </table>
 
+## REST
+
+Camunda Run can be configured to disable the REST endpoint which exposes the WADL file via a property.
+
+<table class="table desc-table">
+  <tr>
+      <th>Prefix</th>
+      <th>Property name</th>
+      <th>Description</th>
+      <th>Default value</th>
+  </tr>
+  <tr>
+      <td rowspan="15"><code>camunda.bpm.run.rest</code></td>
+      <td><code>.disable-wadl</code></td>
+      <td>Disables the REST endpoint <code>/application.wadl</code>. Web Application Description Language (WADL) is an XML description of the deployed RESTful web application.</td>
+      <td><code>false</code></td>
+  </tr>
+</table>
+
 ## LDAP Identity Service
 
 Camunda 7 can manage users and authorizations on its own, but if you want to use an existing LDAP authentication database you can enable the [LDAP Identity Service Plugin]({{< ref "/user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}})
