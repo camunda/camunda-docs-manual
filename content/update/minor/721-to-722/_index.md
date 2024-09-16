@@ -266,16 +266,16 @@ This behaviour can be disabled by setting the `skipIsolationLevelCheck` flag to 
 
 [See here]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#configuration-properties" >}}) for more details about this and other properties.
 
-# Quarkus 3.14 Extension Update
+# Quarkus 3.15 Extension Update
 
-The Camunda Quarkus Extension has been updated to use Quarkus `3.14`. This version brings its own features and changes.
-For a complete list, see the [Quarkus 3.14.2 Release](https://quarkus.io/blog/quarkus-3-14-2-released) blog post.
+The Camunda Quarkus Extension has been updated to use Quarkus `3.15`. This  version brings its own features and changes.
+For a complete list, see the [Quarkus 3.15 LTS Release](https://quarkus.io/blog/quarkus-3-15-1-released) blog post.
 
 ## Breaking Changes
 
-`Quarkus 3.14` extensions introduce **breaking changes** in the way the Quarkus runtime treats configuration.
+`Quarkus 3.15` and previous versions extensions introduce **breaking changes** in the way the Quarkus runtime treats configuration.
 
-A config migration is required to remain consistent with the new behavior of the framework (see [property examples](#property-examples) below).
+A configuration migration is required to remain consistent with the new behavior of the framework (see [property examples](#property-examples) below).
 
 The config properties now follow a similar scheme to the [Camunda Spring Boot Starter Configuration]({{< ref "/user-guide/spring-boot-integration/configuration.md#generic-properties" >}}).
 
@@ -292,4 +292,4 @@ This requires using the new namespace `generic-config`.
 
 For a detailed guide on the new Quarkus properties, visit the updated [Quarkus Configuration]({{< ref "/user-guide/quarkus-integration/configuration.md" >}}) page.
 
-To read more on how Quarkus extensions treat configuration differently, see the [Quarkus 3.14 Migration Guide](https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.14#for-extension-developers).
+To read more on how Quarkus extensions treat configuration differently, see this [Quarkus Migration Guide](https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.14#for-extension-developers) and the [Mapping Configuration to Objects Guide](https://quarkus.io/guides/config-mappings).
