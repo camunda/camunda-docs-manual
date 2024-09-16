@@ -300,7 +300,7 @@ Camunda Run can be configured to disable the REST endpoint which exposes the WAD
   <tr>
       <td rowspan="15"><code>camunda.bpm.run.rest</code></td>
       <td><code>.disable-wadl</code></td>
-      <td>Disables the REST endpoint `/application.wadl`. Web Application Description Language (WADL) is an XML description of the deployed RESTful web application.</td>
+      <td>Disables the REST endpoint <code>/application.wadl</code>. Web Application Description Language (WADL) is an XML description of the deployed RESTful web application.</td>
       <td><code>false</code></td>
   </tr>
 </table>
