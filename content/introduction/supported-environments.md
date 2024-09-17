@@ -55,7 +55,7 @@ Run Camunda in every Java-runnable environment. Camunda is supported with our QA
   * SQL Server on Azure Virtual Machines
   * Azure SQL Managed Instance
   * Azure SQL Database
-* H2 2.1 (not recommended for [Cluster Mode]({{< ref "/introduction/architecture.md#clustering-model" >}}) - see [Deployment Note]({{< ref "/user-guide/process-engine/deployments.md" >}}))
+* H2 2.3 (not recommended for [Cluster Mode]({{< ref "/introduction/architecture.md#clustering-model" >}}) - see [Deployment Note]({{< ref "/user-guide/process-engine/deployments.md" >}}))
 
 ## Database Clustering & Replication
 
