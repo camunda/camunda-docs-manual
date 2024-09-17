@@ -288,6 +288,8 @@ This requires using the new namespace `generic-config`.
 
 - `quarkus.camunda.dmn-enabled` **becomes** `quarkus.camunda.generic-config.dmn-enabled`
 
+- **Non-generic** properties such as `quarkus.camunda.job-executor.thread-pool.max-pool-size` remain the same
+
 For a detailed guide on the new Quarkus properties, visit the updated [Quarkus Configuration]({{< ref "/user-guide/quarkus-integration/configuration.md" >}}) page.
 
 To read more on how Quarkus extensions treat configuration differently, see the [Quarkus 3.14 Migration Guide](https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.14#for-extension-developers).
