@@ -218,9 +218,9 @@ engine configuration, job executor and data source:
 
 ```properties
 # process engine configuration
-quarkus.camunda.cmmn-enabled=false
-quarkus.camunda.dmn-enabled=false
-quarkus.camunda.history=none
+quarkus.camunda.generic-config.cmmn-enabled=false
+quarkus.camunda.generic-config.dmn-enabled=false
+quarkus.camunda.generic-config.history=none
 
 # job executor configuration
 quarkus.camunda.job-executor.thread-pool.max-pool-size=12
