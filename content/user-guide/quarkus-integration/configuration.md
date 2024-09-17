@@ -177,7 +177,7 @@ the Quarkus-specific properties in the following table:
   <tr><td colspan="4"><b>Job Executor</b></td></tr>
 
   <tr>
-    <td rowspan="2"><code>quarkus.camunda.job-executor.generic-config.thread-pool</code></td>
+    <td rowspan="2"><code>quarkus.camunda.job-executor.thread-pool</code></td>
     <td><code>.max-pool-size</code></td>
     <td>Sets the maximum number of threads that can be present in the thread pool.</td>
     <td><code>10</code></td>
@@ -223,8 +223,8 @@ quarkus.camunda.generic-config.dmn-enabled=false
 quarkus.camunda.generic-config.history=none
 
 # job executor configuration
-quarkus.camunda.job-executor.generic-config.thread-pool.max-pool-size=12
-quarkus.camunda.job-executor.generic-config.thread-pool.queue-size=5
+quarkus.camunda.job-executor.thread-pool.max-pool-size=12
+quarkus.camunda.job-executor.thread-pool.queue-size=5
 quarkus.camunda.job-executor.generic-config.max-jobs-per-acquisition=5
 quarkus.camunda.job-executor.generic-config.lock-time-in-millis=500000
 quarkus.camunda.job-executor.generic-config.wait-time-in-millis=7000
