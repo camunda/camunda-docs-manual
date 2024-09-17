@@ -305,6 +305,32 @@ Camunda Run can be configured to disable the REST endpoint which exposes the WAD
   </tr>
 </table>
 
+## Deployment
+
+Camunda Run also supports configuration options for customizing the deployment.
+
+<table class="table desc-table">
+  <tr>
+      <th>Prefix</th>
+      <th>Property name</th>
+      <th>Description</th>
+      <th>Default value</th>
+  </tr>
+  <tr>
+      <td rowspan="15"><code>camunda.bpm.run.deployment</code></td>
+      <td><code>.deploy-changed-only</code></td>
+      <td>
+          <ul>
+            <li>When set to <code>true</code>, only deployments with changed resources will be deployed to the engine database.</li>
+            <li>When set to <code>false</code>, all deployments will be deployed without filtering their resources.</li>
+          </ul>
+          The property can be useful for controlling the deployment behaviour of the engine in case of restarts, similar to the
+          <a href="{{< ref "user-guide/spring-framework-integration/deployment" >}}">Spring Framework Integration</a>
+      </td>
+      <td><code>true</code></td>
+  </tr>
+</table>
+
 ## LDAP Identity Service
 
 Camunda 7 can manage users and authorizations on its own, but if you want to use an existing LDAP authentication database you can enable the [LDAP Identity Service Plugin]({{< ref "/user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}})
