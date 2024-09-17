@@ -225,11 +225,11 @@ quarkus.camunda.history=none
 # job executor configuration
 quarkus.camunda.job-executor.thread-pool.max-pool-size=12
 quarkus.camunda.job-executor.thread-pool.queue-size=5
-quarkus.camunda.job-executor.max-jobs-per-acquisition=5
-quarkus.camunda.job-executor.lock-time-in-millis=500000
-quarkus.camunda.job-executor.wait-time-in-millis=7000
-quarkus.camunda.job-executor.max-wait=65000
-quarkus.camunda.job-executor.backoff-time-in-millis=5
+quarkus.camunda.job-executor.generic-config.max-jobs-per-acquisition=5
+quarkus.camunda.job-executor.generic-config.lock-time-in-millis=500000
+quarkus.camunda.job-executor.generic-config.wait-time-in-millis=7000
+quarkus.camunda.job-executor.generic-config.max-wait=65000
+quarkus.camunda.job-executor.generic-config.backoff-time-in-millis=5
 
 # custom data source configuration and selection
 quarkus.datasource.my-datasource.db-kind=h2
