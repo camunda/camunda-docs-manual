@@ -11,304 +11,146 @@ menu:
 
 ---
 
-
 # Java Dependencies
-<div><details><summary>logback-classic@1.4.14(<a href="https://opensource.org/licenses/EPL-1.0">EPL 1.0</a>)</summary><pre>Copyright (c) 1999-2015, QOS.ch. All rights reserved</pre></details></div>
-<div><details><summary>logback-core@1.4.14(<a href="https://opensource.org/licenses/EPL-1.0">EPL 1.0</a>)</summary><pre>Copyright (c) 1999-2015, QOS.ch. All rights reserved</pre></details></div>
+<div><details><summary>logback-classic@1.5.7(<a href="https://opensource.org/licenses/EPL-1.0">EPL 1.0</a>)</summary><pre>Copyright (C) 1999-2024, QOS.ch. All rights reserved.</pre></details></div>
+<div><details><summary>logback-core@1.5.7(<a href="https://opensource.org/licenses/EPL-1.0">EPL 1.0</a>)</summary><pre>Copyright (C) 1999-2024, QOS.ch. All rights reserved.</pre></details></div>
 <div><details><summary>jackson-annotations@2.15.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2007-, Tatu Saloranta (tatu.saloranta@iki.fi)
 Jackson is a high-performance, Free/Open Source JSON processing library.
 It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
 been in development since 2007.
-It is currently developed by a community of developers: 
-</pre></details></div>
-<div><details><summary>jackson-annotations@2.15.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre># Jackson JSON processor
+It is currently developed by a community of developers: </pre></details></div>
+<div><details><summary>jackson-annotations@2.17.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2007-, Tatu Saloranta (tatu.saloranta@iki.fi)
 Jackson is a high-performance, Free/Open Source JSON processing library.
 It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
 been in development since 2007.
-It is currently developed by a community of developers.
-## Copyright
-Copyright 2007-, Tatu Saloranta (tatu.saloranta@iki.fi)
-## Licensing
-Jackson 2.x core and extension components are licensed under Apache License 2.0
-To find the details that apply to this artifact see the accompanying LICENSE file.
-## Credits
-A list of contributors may be found from CREDITS(-2.x) file, which is included
-in some artifacts (usually source distributions); but is always available
-from the source code management (SCM) system project uses.
-</pre></details></div>
+It is currently developed by a community of developers:</pre></details></div>
 <div><details><summary>jackson-core@2.15.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2007-, Tatu Saloranta (tatu.saloranta@iki.fi)
 Jackson is a high-performance, Free/Open Source JSON processing library.
 It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
 been in development since 2007.
-It is currently developed by a community of developers: https://github.com/FasterXML/jackson-core/blob/2.16/release-notes/CREDITS-2.x
-</pre></details></div>
-<div><details><summary>jackson-core@2.15.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre># Jackson JSON processor
-
+It is currently developed by a community of developers: https://github.com/FasterXML/jackson-core/blob/2.16/release-notes/CREDITS-2.x</pre></details></div>
+<div><details><summary>jackson-core@2.17.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2007-, Tatu Saloranta (tatu.saloranta@iki.fi)
 Jackson is a high-performance, Free/Open Source JSON processing library.
 It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
 been in development since 2007.
-It is currently developed by a community of developers.
-
-## Copyright
-Copyright 2007-, Tatu Saloranta (tatu.saloranta@iki.fi)
-## Licensing
-Jackson 2.x core and extension components are licensed under Apache License 2.0
-To find the details that apply to this artifact see the accompanying LICENSE file.
-## Credits
-
-A list of contributors may be found from CREDITS(-2.x) file, which is included
-in some artifacts (usually source distributions); but is always available
-from the source code management (SCM) system project uses.
-## FastDoubleParser
-jackson-core bundles a shaded copy of FastDoubleParser <https://github.com/wrandelshofer/FastDoubleParser>.
-That code is available under an MIT license <https://github.com/wrandelshofer/FastDoubleParser/blob/main/LICENSE>
-under the following copyright.
-Copyright © 2023 Werner Randelshofer, Switzerland. MIT License.
-See FastDoubleParser-NOTICE for details of other source code included in FastDoubleParser
-and the licenses and copyrights that apply to that code.
-</pre></details></div>
+It is currently developed by a community of developers:</pre></details></div>
 <div><details><summary>jackson-databind@2.15.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2007-, Tatu Saloranta (tatu.saloranta@iki.fi)
 Jackson is a high-performance, Free/Open Source JSON processing library.
 It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
 been in development since 2007.
-It is currently developed by a community of developers: https://github.com/FasterXML/jackson-databind/blob/2.16/release-notes/CREDITS-2.x
-</pre></details></div>
-<div><details><summary>jackson-databind@2.15.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre># Jackson JSON processor
-
+It is currently developed by a community of developers: https://github.com/FasterXML/jackson-databind/blob/2.16/release-notes/CREDITS-2.x</pre></details></div>
+<div><details><summary>jackson-databind@2.17.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2007-, Tatu Saloranta (tatu.saloranta@iki.fi)
 Jackson is a high-performance, Free/Open Source JSON processing library.
 It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
 been in development since 2007.
-It is currently developed by a community of developers.
-
-## Copyright
-
-Copyright 2007-, Tatu Saloranta (tatu.saloranta@iki.fi)
-
-## Licensing
-
-Jackson 2.x core and extension components are licensed under Apache License 2.0
-To find the details that apply to this artifact see the accompanying LICENSE file.
-
-## Credits
-
-A list of contributors may be found from CREDITS(-2.x) file, which is included
-in some artifacts (usually source distributions); but is always available
-from the source code management (SCM) system project uses.
-</pre></details></div>
+It is currently developed by a community of developers:</pre></details></div>
 <div><details><summary>jackson-dataformat-csv@2.15.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2007-, Tatu Saloranta (tatu.saloranta@iki.fi)
 Jackson is a high-performance, Free/Open Source JSON processing library.
 It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
 been in development since 2007.
-It is currently developed by a community of developers: https://github.com/FasterXML/jackson-dataformats-text/blob/2.16/release-notes/CREDITS-2.x
-</pre></details></div>
-<div><details><summary>jackson-dataformat-csv@2.15.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre># Jackson JSON processor
-
+It is currently developed by a community of developers: https://github.com/FasterXML/jackson-dataformats-text/blob/2.16/release-notes/CREDITS-2.x</pre></details></div>
+<div><details><summary>jackson-dataformat-csv@2.17.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2007-, Tatu Saloranta (tatu.saloranta@iki.fi)
 Jackson is a high-performance, Free/Open Source JSON processing library.
 It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
 been in development since 2007.
-It is currently developed by a community of developers.
-
-## Copyright
-
-Copyright 2007-, Tatu Saloranta (tatu.saloranta@iki.fi)
-
-## Licensing
-
-Jackson components are licensed under Apache (Software) License, version 2.0,
-as per accompanying LICENSE file.
-
-## Credits
-
-A list of contributors may be found from CREDITS file, which is included
-in some artifacts (usually source distributions); but is always available
-from the source code management (SCM) system project uses.
-</pre></details></div>
-<div><details><summary>jackson-datatype-jdk8@2.15.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre># Jackson JSON processor
-
+It is currently developed by a community of developers:</pre></details></div>
+<div><details><summary>jackson-datatype-jdk8@2.17.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2007-, Tatu Saloranta (tatu.saloranta@iki.fi)
 Jackson is a high-performance, Free/Open Source JSON processing library.
 It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
 been in development since 2007.
-It is currently developed by a community of developers.
-
-## Licensing
-
-Jackson components are licensed under Apache (Software) License, version 2.0,
-as per accompanying LICENSE file.
-
-## Credits
-
-A list of contributors may be found from CREDITS file, which is included
-in some artifacts (usually source distributions); but is always available
-from the source code management (SCM) system project uses.
-</pre></details></div>
+It is currently developed by a community of developers:</pre></details></div>
 <div><details><summary>jackson-datatype-jsr310@2.15.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2007-, Tatu Saloranta (tatu.saloranta@iki.fi)
 Jackson is a high-performance, Free/Open Source JSON processing library.
 It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
 been in development since 2007.
-It is currently developed by a community of developers: https://github.com/FasterXML/jackson-modules-java8/blob/2.16/release-notes/CREDITS-2.x
-</pre></details></div>
-<div><details><summary>jackson-datatype-jsr310@2.15.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre># Jackson JSON processor
-
+It is currently developed by a community of developers: https://github.com/FasterXML/jackson-modules-java8/blob/2.16/release-notes/CREDITS-2.x</pre></details></div>
+<div><details><summary>jackson-datatype-jsr310@2.17.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2007-, Tatu Saloranta (tatu.saloranta@iki.fi)
 Jackson is a high-performance, Free/Open Source JSON processing library.
 It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
 been in development since 2007.
-It is currently developed by a community of developers.
-
-## Licensing
-
-Jackson components are licensed under Apache (Software) License, version 2.0,
-as per accompanying LICENSE file.
-
-## Credits
-
-A list of contributors may be found from CREDITS file, which is included
-in some artifacts (usually source distributions); but is always available
-from the source code management (SCM) system project uses.
-</pre></details></div>
+It is currently developed by a community of developers:</pre></details></div>
 <div><details><summary>jackson-jakarta-rs-base@2.15.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2007-, Tatu Saloranta (tatu.saloranta@iki.fi)
 Jackson is a high-performance, Free/Open Source JSON processing library.
 It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
 been in development since 2007.
-It is currently developed by a community of developers: https://github.com/FasterXML/jackson-jakarta-rs-providers/blob/2.16/release-notes/CREDITS-2.x
-</pre></details></div>
-<div><details><summary>jackson-jakarta-rs-base@2.15.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre># Jackson JSON processor
-
+It is currently developed by a community of developers: https://github.com/FasterXML/jackson-jakarta-rs-providers/blob/2.16/release-notes/CREDITS-2.x</pre></details></div>
+<div><details><summary>jackson-jakarta-rs-base@2.17.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2007-, Tatu Saloranta (tatu.saloranta@iki.fi)
 Jackson is a high-performance, Free/Open Source JSON processing library.
 It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
 been in development since 2007.
-It is currently developed by a community of developers.
-
-## Licensing
-
-Jackson components are licensed under Apache (Software) License, version 2.0,
-as per accompanying LICENSE file.
-
-## Credits
-
-A list of contributors may be found from CREDITS file, which is included
-in some artifacts (usually source distributions); but is always available
-from the source code management (SCM) system project uses.
-</pre></details></div>
+It is currently developed by a community of developers:</pre></details></div>
 <div><details><summary>jackson-jakarta-rs-json-provider@2.15.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2007-, Tatu Saloranta (tatu.saloranta@iki.fi)
 Jackson is a high-performance, Free/Open Source JSON processing library.
 It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
 been in development since 2007.
-It is currently developed by a community of developers: https://github.com/FasterXML/jackson-jakarta-rs-providers/blob/2.16/release-notes/CREDITS-2.x
-</pre></details></div>
-<div><details><summary>jackson-jakarta-rs-json-provider@2.15.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre># Jackson JSON processor
-
+It is currently developed by a community of developers: https://github.com/FasterXML/jackson-jakarta-rs-providers/blob/2.16/release-notes/CREDITS-2.x</pre></details></div>
+<div><details><summary>jackson-jakarta-rs-json-provider@2.17.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2007-, Tatu Saloranta (tatu.saloranta@iki.fi)
 Jackson is a high-performance, Free/Open Source JSON processing library.
 It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
 been in development since 2007.
-It is currently developed by a community of developers.
-
-## Licensing
-
-Jackson components are licensed under Apache (Software) License, version 2.0,
-as per accompanying LICENSE file.
-
-## Credits
-
-A list of contributors may be found from CREDITS file, which is included
-in some artifacts (usually source distributions); but is always available
-from the source code management (SCM) system project uses.
-</pre></details></div>
+It is currently developed by a community of developers:</pre></details></div>
 <div><details><summary>jackson-jaxrs-base@2.15.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2007-, Tatu Saloranta (tatu.saloranta@iki.fi)
 Jackson is a high-performance, Free/Open Source JSON processing library.
 It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
 been in development since 2007.
-It is currently developed by a community of developers: https://github.com/FasterXML/jackson-jaxrs-providers/blob/2.16/release-notes/CREDITS-2.x
-</pre></details></div>
+It is currently developed by a community of developers: https://github.com/FasterXML/jackson-jaxrs-providers/blob/2.16/release-notes/CREDITS-2.x</pre></details></div>
 <div><details><summary>jackson-jaxrs-json-provider@2.15.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2007-, Tatu Saloranta (tatu.saloranta@iki.fi)
 Jackson is a high-performance, Free/Open Source JSON processing library.
 It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
 been in development since 2007.
-It is currently developed by a community of developers: https://github.com/FasterXML/jackson-jaxrs-providers/blob/2.16/release-notes/CREDITS-2.x
-</pre></details></div>
+It is currently developed by a community of developers: https://github.com/FasterXML/jackson-jaxrs-providers/blob/2.16/release-notes/CREDITS-2.x</pre></details></div>
 <div><details><summary>jackson-module-jakarta-xmlbind-annotations@2.15.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2007-, Tatu Saloranta (tatu.saloranta@iki.fi)
 Jackson is a high-performance, Free/Open Source JSON processing library.
 It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
 been in development since 2007.
-It is currently developed by a community of developers: https://github.com/FasterXML/jackson-modules-base/blob/2.16/release-notes/CREDITS-2.x
-</pre></details></div>
-<div><details><summary>jackson-module-jakarta-xmlbind-annotations@2.15.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre># Jackson JSON processor
-
+It is currently developed by a community of developers: https://github.com/FasterXML/jackson-modules-base/blob/2.16/release-notes/CREDITS-2.x</pre></details></div>
+<div><details><summary>jackson-module-jakarta-xmlbind-annotations@2.17.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2007-, Tatu Saloranta (tatu.saloranta@iki.fi)
 Jackson is a high-performance, Free/Open Source JSON processing library.
 It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
 been in development since 2007.
-It is currently developed by a community of developers.
-
-## Licensing
-
-Jackson components are licensed under Apache (Software) License, version 2.0,
-as per accompanying LICENSE file.
-
-## Credits
-
-A list of contributors may be found from CREDITS file, which is included
-in some artifacts (usually source distributions); but is always available
-from the source code management (SCM) system project uses.
-</pre></details></div>
+It is currently developed by a community of developers:</pre></details></div>
 <div><details><summary>jackson-module-jaxb-annotations@2.15.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2007-, Tatu Saloranta (tatu.saloranta@iki.fi)
 Jackson is a high-performance, Free/Open Source JSON processing library.
 It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
 been in development since 2007.
-It is currently developed by a community of developers: https://github.com/FasterXML/jackson-modules-base/blob/2.16/release-notes/CREDITS-2.x
-</pre></details></div>
-<div><details><summary>jackson-module-parameter-names@2.15.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre># Jackson JSON processor
-
+It is currently developed by a community of developers: https://github.com/FasterXML/jackson-modules-base/blob/2.16/release-notes/CREDITS-2.x</pre></details></div>
+<div><details><summary>jackson-module-parameter-names@2.17.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2007-, Tatu Saloranta (tatu.saloranta@iki.fi)
 Jackson is a high-performance, Free/Open Source JSON processing library.
 It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
 been in development since 2007.
-It is currently developed by a community of developers.
-
-## Licensing
-
-Jackson components are licensed under Apache (Software) License, version 2.0,
-as per accompanying LICENSE file.
-
-## Credits
-
-A list of contributors may be found from CREDITS file, which is included
-in some artifacts (usually source distributions); but is always available
-from the source code management (SCM) system project uses.
-</pre></details></div>
+It is currently developed by a community of developers:</pre></details></div>
 <div><details><summary>java-uuid-generator@4.3.0(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Java UUID generator library has been written by Tatu Saloranta (tatu.saloranta@iki.fi)
 
 Other developers who have contributed code are:
 
 * Eric Bie contributed extensive unit test suite which has helped ensure high implementation
-  quality
-</pre></details></div>
-<div><details><summary>classmate@1.6.0(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Java ClassMate library was originally written by Tatu Saloranta (tatu.saloranta@iki.fi)
-
-Other developers who have contributed code are:
-
-* Brian Langel
-
-## Copyright
-
-Copyright 2007-, Tatu Saloranta (tatu.saloranta@iki.fi)
-</pre></details></div>
+  quality</pre></details></div>
+<div><details><summary>classmate@1.7.0(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2007-, Tatu Saloranta (tatu.saloranta@iki.fi)
+Jackson is a high-performance, Free/Open Source JSON processing library.
+It was originally written by Tatu Saloranta (tatu.saloranta@iki.fi), and has
+been in development since 2007.
+It is currently developed by a community of developers</pre></details></div>
 <div><details><summary>jcip-annotations@1.0-1(<a href="https://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attribution</a>)</summary><pre>Copyright: 2005 Brian Goetz and Tim Peierls</pre></details></div>
 <div><details><summary>gson@2.8.9(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: 2008 Google Inc.</pre></details></div>
-<div><details><summary>h2@2.1.214(<a href="https://opensource.org/licenses/EPL-1.0">EPL 1.0</a>)</summary><pre>Copyright (c) various contributors: https://github.com/h2database/h2database/graphs/contributors</pre></details></div>
+<div><details><summary>h2@2.3.232(<a href="https://opensource.org/licenses/EPL-1.0">EPL 1.0</a>)</summary><pre>Copyright 2004-2024 H2 Group</pre></details></div>
+<div><details><summary>asyncutil@0.1.0(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) IBM Corporation 2017. All Rights Reserved</pre></details></div>
 <div><details><summary>icu4j@68.2(<a href="https://www.unicode.org/license.html">Unicode</a>)</summary><pre>Copyright © 2016 and later Unicode, Inc. and others.
 See this link for third-party software notices and/or additional
 terms for licensed third-party software components included within ICU
 libraries: https://github.com/unicode-org/icu/edit/main/icu4c/LICENSE</pre></details></div>
-<div><details><summary>json-path@2.9.0(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2011 the original author or authors
-</pre></details></div>
+<div><details><summary>json-path@2.9.0(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2011 the original author or authors</pre></details></div>
 <div><details><summary>fastparse_2.13@3.0.2(<a href="https://opensource.org/licenses/MIT">MIT</a>)</summary><pre>Copyright (c) 2014 Li Haoyi (haoyi.sg@gmail.com)</pre></details></div>
-<div><details><summary>geny_2.13@1.0.0(<a href="https://opensource.org/licenses/MIT">MIT</a>)</summary><pre>Copyright (c) 2016 Li Haoyi (haoyi.sg@gmail.com)
-</pre></details></div>
+<div><details><summary>geny_2.13@1.0.0(<a href="https://opensource.org/licenses/MIT">MIT</a>)</summary><pre>Copyright (c) 2016 Li Haoyi (haoyi.sg@gmail.com)</pre></details></div>
 <div><details><summary>sourcecode_2.13@0.3.0(<a href="https://opensource.org/licenses/MIT">MIT</a>)</summary><pre>Copyright (c) 2014 Li Haoyi (haoyi.sg@gmail.com)</pre></details></div>
+<div><details><summary>content-type@2.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2020, Connect2id Ltd.</pre></details></div>
+<div><details><summary>lang-tag@1.7(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2012-2022, Connect2id Ltd.</pre></details></div>
+<div><details><summary>nimbus-jose-jwt@9.37.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2012 - 2022, Connect2id Ltd.</pre></details></div>
+<div><details><summary>oauth2-oidc-sdk@9.43.4(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2012-2022, Connect2id Ltd and contributors.</pre></details></div>
 <div><details><summary>jakarta.activation@1.2.2(<a href="https://www.eclipse.org/org/documents/edl-v10.php">EDL 1.0</a>)</summary><pre>Copyright (c) 2018 Oracle and/or its affiliates. All rights reserved</pre></details></div>
-<div><details><summary>jaxb-core@4.0.4(<a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a>)</summary><pre>Copyright (c) 2018 Oracle and/or its affiliates. All rights reserved.
-</pre></details></div>
+<div><details><summary>jaxb-core@4.0.5(<a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a>)</summary><pre>Copyright (c) 2018 Oracle and/or its affiliates. All rights reserved.</pre></details></div>
 <div><details><summary>jaxb-impl@2.3.6(<a href="https://www.eclipse.org/org/documents/edl-v10.php">EDL 1.0</a>)</summary><pre>Copyright (c) 2018 Oracle and/or its affiliates. All rights reserved.</pre></details></div>
-<div><details><summary>jaxb-impl@4.0.4(<a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a>)</summary><pre>Copyright (c) 2018 Oracle and/or its affiliates. All rights reserved.</pre></details></div>
-<div><details><summary>HikariCP@5.0.1(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (C) Brett Wooldridge</pre></details></div>
+<div><details><summary>jaxb-impl@4.0.5(<a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a>)</summary><pre>Copyright (c) 2018 Oracle and/or its affiliates. All rights reserved.</pre></details></div>
+<div><details><summary>HikariCP@5.1.0(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (C)  Brett Wooldridge</pre></details></div>
 <div><details><summary>commons-codec@1.15(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Notice file:
 ======================================================================
 Apache Commons Codec
@@ -323,26 +165,31 @@ from the original php source code available at http://stevemorse.org/phoneticinf
 with permission from the original authors.
 Original source copyright:
 Copyright (c) 2008 Alexander Beider & Stephen P. Morse.
-======================================================================
-</pre></details></div>
-<div><details><summary>commons-codec@1.16.0(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2002-2024 The Apache Software Foundation
+======================================================================</pre></details></div>
+<div><details><summary>commons-codec@1.16.1(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Apache Commons Codec
+Copyright 2002-2021 The Apache Software Foundation
 This product includes software developed at
 The Apache Software Foundation (https://www.apache.org/).
-</pre></details></div>
+src/test/org/apache/commons/codec/language/DoubleMetaphoneTest.java
+contains test data from http://aspell.net/test/orig/batch0.tab.
+Copyright (C) 2002 Kevin Atkinson (kevina@gnu.org)
+The content of package org.apache.commons.codec.language.bm has been translated
+from the original php source code available at http://stevemorse.org/phoneticinfo.htm
+with permission from the original authors.
+Original source copyright:
+Copyright (c) 2008 Alexander Beider & Stephen P. Morse.</pre></details></div>
 <div><details><summary>commons-fileupload@1.5(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Notice file
 Apache Commons FileUpload
 Copyright 2002-2023 The Apache Software Foundation
 This product includes software developed at
-The Apache Software Foundation (http://www.apache.org/).
-</pre></details></div>
+The Apache Software Foundation (http://www.apache.org/).</pre></details></div>
 <div><details><summary>commons-io@2.8.0(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Notice file
 ======================================================================
 Apache Commons IO
 Copyright 2002-2020 The Apache Software Foundation
 This product includes software developed at
 The Apache Software Foundation (https://www.apache.org/).
-======================================================================
-</pre></details></div>
+======================================================================</pre></details></div>
 <div><details><summary>commons-logging@1.1.1(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: 2003-2014 The Apache Software Foundation This product includes software developed at
 The Apache Software Foundation (http://www.apache.org/)</pre></details></div>
 <div><details><summary>commons-logging@1.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Notice file:
@@ -353,98 +200,8 @@ This product includes software developed at
 The Apache Software Foundation (http://www.apache.org/).
 Copyright 2003-2016 The Apache Software Foundation												
 ====================================================================</pre></details></div>
-<div><details><summary>micrometer-commons@1.12.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Micrometer
-
-Copyright (c) 2017-Present VMware, Inc. All Rights Reserved.
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-   https://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-
--------------------------------------------------------------------------------
-
-This product contains a modified portion of 'io.netty.util.internal.logging',
-in the Netty/Common library distributed by The Netty Project:
-
-  * Copyright 2013 The Netty Project
-  * License: Apache License v2.0
-  * Homepage: https://netty.io
-
-This product contains a modified portion of 'StringUtils.isBlank()',
-in the Commons Lang library distributed by The Apache Software Foundation:
-
-  * Copyright 2001-2019 The Apache Software Foundation
-  * License: Apache License v2.0
-  * Homepage: https://commons.apache.org/proper/commons-lang/
-
-This product contains a modified portion of 'JsonUtf8Writer',
-in the Moshi library distributed by Square, Inc:
-
-  * Copyright 2010 Google Inc.
-  * License: Apache License v2.0
-  * Homepage: https://github.com/square/moshi
-
-This product contains a modified portion of the 'org.springframework.lang'
-package in the Spring Framework library, distributed by VMware, Inc:
-
-  * Copyright 2002-2019 the original author or authors.
-  * License: Apache License v2.0
-  * Homepage: https://spring.io/projects/spring-framework
-</pre></details></div>
-<div><details><summary>micrometer-observation@1.12.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Micrometer
-
-Copyright (c) 2017-Present VMware, Inc. All Rights Reserved.
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-   https://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-
--------------------------------------------------------------------------------
-
-This product contains a modified portion of 'io.netty.util.internal.logging',
-in the Netty/Common library distributed by The Netty Project:
-
-  * Copyright 2013 The Netty Project
-  * License: Apache License v2.0
-  * Homepage: https://netty.io
-
-This product contains a modified portion of 'StringUtils.isBlank()',
-in the Commons Lang library distributed by The Apache Software Foundation:
-
-  * Copyright 2001-2019 The Apache Software Foundation
-  * License: Apache License v2.0
-  * Homepage: https://commons.apache.org/proper/commons-lang/
-
-This product contains a modified portion of 'JsonUtf8Writer',
-in the Moshi library distributed by Square, Inc:
-
-  * Copyright 2010 Google Inc.
-  * License: Apache License v2.0
-  * Homepage: https://github.com/square/moshi
-
-This product contains a modified portion of the 'org.springframework.lang'
-package in the Spring Framework library, distributed by VMware, Inc:
-
-  * Copyright 2002-2019 the original author or authors.
-  * License: Apache License v2.0
-  * Homepage: https://spring.io/projects/spring-framework
-</pre></details></div>
+<div><details><summary>micrometer-commons@1.13.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) 2017-Present VMware, Inc. All Rights Reserved.</pre></details></div>
+<div><details><summary>micrometer-observation@1.13.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) 2017-Present VMware, Inc. All Rights Reserved.</pre></details></div>
 <div><details><summary>jakarta.activation-api@1.2.2(<a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a>)</summary><pre>Copyright (c) 2018 Oracle and/or its affiliates. All rights reserved.										
 Notice file: 
 ==================================================================
@@ -468,8 +225,8 @@ This project leverages the following third party content.
 JUnit (4.12)
 * License: Eclipse Public License
 ====================================================================										</pre></details></div>
-<div><details><summary>jakarta.activation-api@2.1.2(<a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a>)</summary><pre>Copyright (c) 2018 Oracle and/or its affiliates. All rights reserved
-</pre></details></div>
+<div><details><summary>jakarta.activation-api@2.1.0(<a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a>)</summary><pre>Copyright (c) 2018 Oracle and/or its affiliates. All rights reserved.</pre></details></div>
+<div><details><summary>jakarta.activation-api@2.1.3(<a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a>)</summary><pre>Copyright (c) 2018 Oracle and/or its affiliates. All rights reserved.</pre></details></div>
 <div><details><summary>jakarta.annotation-api@1.3.5(<a href="https://opensource.org/licenses/EPL-2.0">EPL 2.0</a>)</summary><pre>Notice file:
 ==================================================================
 # Notices for Jakarta Activation
@@ -495,8 +252,8 @@ JUnit (4.12)
 Copyright (C) Oracle and/or its affiliates. All rights reserved.																							</pre></details></div>
 <div><details><summary>jakarta.annotation-api@2.1.1(<a href="https://opensource.org/licenses/EPL-2.0">EPL 2.0</a>)</summary><pre>Copyright (c) Jakarta Annotations™</pre></details></div>
 <div><details><summary>jakarta.el-api@4.0.0(<a href="https://opensource.org/licenses/EPL-2.0">EPL 2.0</a>)</summary><pre>Copyright (c) Jakarta Annotations™</pre></details></div>
-<div><details><summary>jakarta.inject-api@2.0.1(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) Eclipse Jakarta Dependency Injection project. All content is the property of the respective authors or their employers. For more information regarding authorship of content, please consult the listed source code repository logs
-</pre></details></div>
+<div><details><summary>jakarta.inject-api@2.0.1(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) Eclipse Jakarta Dependency Injection project. All content is the property of the respective authors or their employers. For more information regarding authorship of content, please consult the listed source code repository logs</pre></details></div>
+<div><details><summary>jakarta.servlet-api@6.0.0(<a href="https://opensource.org/licenses/EPL-2.0">EPL 2.0</a>)</summary><pre>Copyright (c) 1997, 2021 Oracle and/or its affiliates. All rights reserved.</pre></details></div>
 <div><details><summary>jakarta.validation-api@2.0.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: various authors (https://github.com/eclipse-ee4j/beanvalidation-api/blob/master/copyright.txt)</pre></details></div>
 <div><details><summary>jakarta.validation-api@3.0.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) https://github.com/jakartaee/validation/blob/master/copyright.txt</pre></details></div>
 <div><details><summary>jakarta.ws.rs-api@2.1.6(<a href="https://opensource.org/licenses/EPL-2.0">EPL 2.0</a>)</summary><pre>Notice file:
@@ -525,428 +282,230 @@ Copyright (C) Oracle and/or its affiliates. All rights reserved.																
 <div><details><summary>jakarta.ws.rs-api@3.1.0(<a href="https://opensource.org/licenses/EPL-2.0">EPL 2.0</a>)</summary><pre>Copyright: Oracle and/or its affiliates. All rights reserved.
 Licensed under EPL 2.0</pre></details></div>
 <div><details><summary>jakarta.xml.bind-api@2.3.3(<a href="https://www.eclipse.org/org/documents/edl-v10.php">EDL 1.0</a>)</summary><pre>Copyright:(c) 2017, 2018 Oracle and/or its affiliates. All rights reserved.
-Notice file: https://github.com/eclipse-ee4j/jaxb-api/blob/master/NOTICE.md
-</pre></details></div>
-<div><details><summary>jakarta.xml.bind-api@4.0.1(<a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a>)</summary><pre>Copyright © 2017, 2018 Oracle and/or its affiliates. All rights reserved.
-</pre></details></div>
+Notice file: https://github.com/eclipse-ee4j/jaxb-api/blob/master/NOTICE.md</pre></details></div>
+<div><details><summary>jakarta.xml.bind-api@3.0.1(<a href="https://opensource.org/licenses/EPL-2.0">EPL 2.0</a>)</summary><pre>Copyright (c) 1997, 2021 Oracle and/or its affiliates. All rights reserved.</pre></details></div>
+<div><details><summary>jakarta.xml.bind-api@4.0.0(<a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a>)</summary><pre>Copyright (c) 2018 Oracle and/or its affiliates. All rights reserved</pre></details></div>
+<div><details><summary>jakarta.xml.bind-api@4.0.2(<a href="https://opensource.org/licenses/EPL-2.0">EPL 2.0</a>)</summary><pre>Copyright (c) 1997, 2024 Oracle and/or its affiliates. All rights reserved.</pre></details></div>
 <div><details><summary>joda-time@2.12.5(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>=============================================================================
 = NOTICE file corresponding to section 4d of the Apache License Version 2.0 =
 =============================================================================
 This product includes software developed by
-Joda.org (https://www.joda.org/).
-</pre></details></div>
-<div><details><summary>accessors-smart@2.5.0(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2011-2023 JSON-SMART authors
-</pre></details></div>
-<div><details><summary>json-smart@2.5.0(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2011-2023 JSON-SMART authors
-</pre></details></div>
-<div><details><summary>commons-lang3@3.13.0(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2002-2024 The Apache Software Foundation
+Joda.org (https://www.joda.org/).</pre></details></div>
+<div><details><summary>accessors-smart@2.5.0(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2011-2023 JSON-SMART authors</pre></details></div>
+<div><details><summary>accessors-smart@2.5.1(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2011-2024 JSON-SMART authors</pre></details></div>
+<div><details><summary>json-smart@2.5.0(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2011-2023 JSON-SMART authors</pre></details></div>
+<div><details><summary>json-smart@2.5.1(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2011-2023 JSON-SMART authors</pre></details></div>
+<div><details><summary>commons-lang3@3.14.0(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Apache Commons Codec
+Copyright 2002-2021 The Apache Software Foundation
 This product includes software developed at
 The Apache Software Foundation (https://www.apache.org/).
-</pre></details></div>
-<div><details><summary>httpclient@4.5.13(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Notice file
-======================================================================
-Apache HttpComponents Client
-Copyright 1999-2021 The Apache Software Foundation
+src/test/org/apache/commons/codec/language/DoubleMetaphoneTest.java
+contains test data from http://aspell.net/test/orig/batch0.tab.
+Copyright (C) 2002 Kevin Atkinson (kevina@gnu.org)
+The content of package org.apache.commons.codec.language.bm has been translated
+from the original php source code available at http://stevemorse.org/phoneticinfo.htm
+with permission from the original authors.
+Original source copyright:
+Copyright (c) 2008 Alexander Beider & Stephen P. Morse</pre></details></div>
+<div><details><summary>groovy-datetime@4.0.22(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2003-2023 The Apache Software Foundation
+Licensed under Apache 2.0
+Notice
 This product includes software developed at
 The Apache Software Foundation (http://www.apache.org/).
-======================================================================
-</pre></details></div>
-<div><details><summary>httpcore@4.4.13(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: 2005-2020 The Apache Software Foundation This product includes software developed at
-The Apache Software Foundation (http://www.apache.org/)</pre></details></div>
-<div><details><summary>log4j-api@2.21.1(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2002-2024 The Apache Software Foundation
+The Java source files in src/main/java/org/apache/groovy/util/concurrent/concurrentlinkedhashmap/
+are from https://github.com/ben-manes/concurrentlinkedhashmap and the following notice applies:
+Copyright 2010-2012 Google Inc. All Rights Reserved.
+The Java source file src/main/java/org/apache/groovy/util/concurrent/ConcurrentReferenceHashMap
+is from https://github.com/hazelcast/hazelcast and the following notice applies:
+Copyright (c) 2008-2020, Hazelcast, Inc. All Rights Reserved.
+This product bundles icons from the famfamfam.com silk icons set
+http://www.famfamfam.com/lab/icons/silk/
+Licensed under the Creative Commons Attribution Licence v2.5
+http://creativecommons.org/licenses/by/2.5/</pre></details></div>
+<div><details><summary>groovy-dateutil@4.0.22(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2003-2023 The Apache Software Foundation
+Licensed under Apache 2.0
+Notice
 This product includes software developed at
-The Apache Software Foundation (https://www.apache.org/).
-</pre></details></div>
-<div><details><summary>log4j-to-slf4j@2.21.1(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2002-2024 The Apache Software Foundation
+The Apache Software Foundation (http://www.apache.org/).
+The Java source files in src/main/java/org/apache/groovy/util/concurrent/concurrentlinkedhashmap/
+are from https://github.com/ben-manes/concurrentlinkedhashmap and the following notice applies:
+Copyright 2010-2012 Google Inc. All Rights Reserved.
+The Java source file src/main/java/org/apache/groovy/util/concurrent/ConcurrentReferenceHashMap
+is from https://github.com/hazelcast/hazelcast and the following notice applies:
+Copyright (c) 2008-2020, Hazelcast, Inc. All Rights Reserved.
+This product bundles icons from the famfamfam.com silk icons set
+http://www.famfamfam.com/lab/icons/silk/
+Licensed under the Creative Commons Attribution Licence v2.5
+http://creativecommons.org/licenses/by/2.5/</pre></details></div>
+<div><details><summary>groovy-json@4.0.22(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2003-2023 The Apache Software Foundation
+Licensed under Apache 2.0
+Notice
 This product includes software developed at
-The Apache Software Foundation (https://www.apache.org/).
-</pre></details></div>
-<div><details><summary>tomcat-embed-core@10.1.18(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Apache Tomcat
-Copyright 1999-2024 The Apache Software Foundation
-
+The Apache Software Foundation (http://www.apache.org/).
+The Java source files in src/main/java/org/apache/groovy/util/concurrent/concurrentlinkedhashmap/
+are from https://github.com/ben-manes/concurrentlinkedhashmap and the following notice applies:
+Copyright 2010-2012 Google Inc. All Rights Reserved.
+The Java source file src/main/java/org/apache/groovy/util/concurrent/ConcurrentReferenceHashMap
+is from https://github.com/hazelcast/hazelcast and the following notice applies:
+Copyright (c) 2008-2020, Hazelcast, Inc. All Rights Reserved.
+This product bundles icons from the famfamfam.com silk icons set
+http://www.famfamfam.com/lab/icons/silk/
+Licensed under the Creative Commons Attribution Licence v2.5
+http://creativecommons.org/licenses/by/2.5/</pre></details></div>
+<div><details><summary>groovy-jsr223@4.0.22(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2003-2023 The Apache Software Foundation
+Licensed under Apache 2.0
+Notice
 This product includes software developed at
-The Apache Software Foundation (https://www.apache.org/).
-
-This software contains code derived from netty-native
-developed by the Netty project
-(https://netty.io, https://github.com/netty/netty-tcnative/)
-and from finagle-native developed at Twitter
-(https://github.com/twitter/finagle).
-
-This software contains code derived from jgroups-kubernetes
-developed by the JGroups project (http://www.jgroups.org/).
-
-The Windows Installer is built with the Nullsoft
-Scriptable Install System (NSIS), which is
-open source software.  The original software and
-related information is available at
-http://nsis.sourceforge.net.
-
-Java compilation software for JSP pages is provided by the Eclipse
-JDT Core Batch Compiler component, which is open source software.
-The original software and related information is available at
-https://www.eclipse.org/jdt/core/.
-
-org.apache.tomcat.util.json.JSONParser.jj is a public domain javacc grammar
-for JSON written by Robert Fischer.
-https://github.com/RobertFischer/json-parser
-
-For portions of the Tomcat JNI OpenSSL API and the OpenSSL JSSE integration
-The org.apache.tomcat.jni and the org.apache.tomcat.net.openssl packages
-are derivative work originating from the Netty project and the finagle-native
-project developed at Twitter
-* Copyright 2014 The Netty Project
-* Copyright 2014 Twitter
-
-For portions of the Tomcat cloud support
-The org.apache.catalina.tribes.membership.cloud package contains derivative
-work originating from the jgroups project.
-https://github.com/jgroups-extras/jgroups-kubernetes
-Copyright 2002-2018 Red Hat Inc.
-
-The original XML Schemas for Java EE Deployment Descriptors:
- - javaee_5.xsd
- - javaee_web_services_1_2.xsd
- - javaee_web_services_client_1_2.xsd
- - javaee_6.xsd
- - javaee_web_services_1_3.xsd
- - javaee_web_services_client_1_3.xsd
- - jsp_2_2.xsd
- - web-app_3_0.xsd
- - web-common_3_0.xsd
- - web-fragment_3_0.xsd
- - javaee_7.xsd
- - javaee_web_services_1_4.xsd
- - javaee_web_services_client_1_4.xsd
- - jsp_2_3.xsd
- - web-app_3_1.xsd
- - web-common_3_1.xsd
- - web-fragment_3_1.xsd
- - javaee_8.xsd
- - web-app_4_0.xsd
- - web-common_4_0.xsd
- - web-fragment_4_0.xsd
-
-may be obtained from:
-http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/javaee/index.html
-</pre></details></div>
-<div><details><summary>tomcat-embed-el@10.1.18(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Apache Tomcat
-Copyright 1999-2024 The Apache Software Foundation
-
+The Apache Software Foundation (http://www.apache.org/).
+The Java source files in src/main/java/org/apache/groovy/util/concurrent/concurrentlinkedhashmap/
+are from https://github.com/ben-manes/concurrentlinkedhashmap and the following notice applies:
+Copyright 2010-2012 Google Inc. All Rights Reserved.
+The Java source file src/main/java/org/apache/groovy/util/concurrent/ConcurrentReferenceHashMap
+is from https://github.com/hazelcast/hazelcast and the following notice applies:
+Copyright (c) 2008-2020, Hazelcast, Inc. All Rights Reserved.
+This product bundles icons from the famfamfam.com silk icons set
+http://www.famfamfam.com/lab/icons/silk/
+Licensed under the Creative Commons Attribution Licence v2.5
+http://creativecommons.org/licenses/by/2.5/</pre></details></div>
+<div><details><summary>groovy-templates@4.0.22(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2003-2023 The Apache Software Foundation
+Licensed under Apache 2.0
+Notice
 This product includes software developed at
-The Apache Software Foundation (https://www.apache.org/).
-
-This software contains code derived from netty-native
-developed by the Netty project
-(https://netty.io, https://github.com/netty/netty-tcnative/)
-and from finagle-native developed at Twitter
-(https://github.com/twitter/finagle).
-
-This software contains code derived from jgroups-kubernetes
-developed by the JGroups project (http://www.jgroups.org/).
-
-The Windows Installer is built with the Nullsoft
-Scriptable Install System (NSIS), which is
-open source software.  The original software and
-related information is available at
-http://nsis.sourceforge.net.
-
-Java compilation software for JSP pages is provided by the Eclipse
-JDT Core Batch Compiler component, which is open source software.
-The original software and related information is available at
-https://www.eclipse.org/jdt/core/.
-
-org.apache.tomcat.util.json.JSONParser.jj is a public domain javacc grammar
-for JSON written by Robert Fischer.
-https://github.com/RobertFischer/json-parser
-
-For portions of the Tomcat JNI OpenSSL API and the OpenSSL JSSE integration
-The org.apache.tomcat.jni and the org.apache.tomcat.net.openssl packages
-are derivative work originating from the Netty project and the finagle-native
-project developed at Twitter
-* Copyright 2014 The Netty Project
-* Copyright 2014 Twitter
-
-For portions of the Tomcat cloud support
-The org.apache.catalina.tribes.membership.cloud package contains derivative
-work originating from the jgroups project.
-https://github.com/jgroups-extras/jgroups-kubernetes
-Copyright 2002-2018 Red Hat Inc.
-
-The original XML Schemas for Java EE Deployment Descriptors:
- - javaee_5.xsd
- - javaee_web_services_1_2.xsd
- - javaee_web_services_client_1_2.xsd
- - javaee_6.xsd
- - javaee_web_services_1_3.xsd
- - javaee_web_services_client_1_3.xsd
- - jsp_2_2.xsd
- - web-app_3_0.xsd
- - web-common_3_0.xsd
- - web-fragment_3_0.xsd
- - javaee_7.xsd
- - javaee_web_services_1_4.xsd
- - javaee_web_services_client_1_4.xsd
- - jsp_2_3.xsd
- - web-app_3_1.xsd
- - web-common_3_1.xsd
- - web-fragment_3_1.xsd
- - javaee_8.xsd
- - web-app_4_0.xsd
- - web-common_4_0.xsd
- - web-fragment_4_0.xsd
-
-may be obtained from:
-http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/javaee/index.html
-</pre></details></div>
-<div><details><summary>tomcat-embed-websocket@10.1.18(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Apache Tomcat
-Copyright 1999-2024 The Apache Software Foundation
-
+The Apache Software Foundation (http://www.apache.org/).
+The Java source files in src/main/java/org/apache/groovy/util/concurrent/concurrentlinkedhashmap/
+are from https://github.com/ben-manes/concurrentlinkedhashmap and the following notice applies:
+Copyright 2010-2012 Google Inc. All Rights Reserved.
+The Java source file src/main/java/org/apache/groovy/util/concurrent/ConcurrentReferenceHashMap
+is from https://github.com/hazelcast/hazelcast and the following notice applies:
+Copyright (c) 2008-2020, Hazelcast, Inc. All Rights Reserved.
+This product bundles icons from the famfamfam.com silk icons set
+http://www.famfamfam.com/lab/icons/silk/
+Licensed under the Creative Commons Attribution Licence v2.5
+http://creativecommons.org/licenses/by/2.5/</pre></details></div>
+<div><details><summary>groovy-xml@4.0.22(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2003-2023 The Apache Software Foundation
+Licensed under Apache 2.0
+Notice
 This product includes software developed at
-The Apache Software Foundation (https://www.apache.org/).
-
-This software contains code derived from netty-native
-developed by the Netty project
-(https://netty.io, https://github.com/netty/netty-tcnative/)
-and from finagle-native developed at Twitter
-(https://github.com/twitter/finagle).
-
-This software contains code derived from jgroups-kubernetes
-developed by the JGroups project (http://www.jgroups.org/).
-
-The Windows Installer is built with the Nullsoft
-Scriptable Install System (NSIS), which is
-open source software.  The original software and
-related information is available at
-http://nsis.sourceforge.net.
-
-Java compilation software for JSP pages is provided by the Eclipse
-JDT Core Batch Compiler component, which is open source software.
-The original software and related information is available at
-https://www.eclipse.org/jdt/core/.
-
-org.apache.tomcat.util.json.JSONParser.jj is a public domain javacc grammar
-for JSON written by Robert Fischer.
-https://github.com/RobertFischer/json-parser
-
-For portions of the Tomcat JNI OpenSSL API and the OpenSSL JSSE integration
-The org.apache.tomcat.jni and the org.apache.tomcat.net.openssl packages
-are derivative work originating from the Netty project and the finagle-native
-project developed at Twitter
-* Copyright 2014 The Netty Project
-* Copyright 2014 Twitter
-
-For portions of the Tomcat cloud support
-The org.apache.catalina.tribes.membership.cloud package contains derivative
-work originating from the jgroups project.
-https://github.com/jgroups-extras/jgroups-kubernetes
-Copyright 2002-2018 Red Hat Inc.
-
-The original XML Schemas for Java EE Deployment Descriptors:
- - javaee_5.xsd
- - javaee_web_services_1_2.xsd
- - javaee_web_services_client_1_2.xsd
- - javaee_6.xsd
- - javaee_web_services_1_3.xsd
- - javaee_web_services_client_1_3.xsd
- - jsp_2_2.xsd
- - web-app_3_0.xsd
- - web-common_3_0.xsd
- - web-fragment_3_0.xsd
- - javaee_7.xsd
- - javaee_web_services_1_4.xsd
- - javaee_web_services_client_1_4.xsd
- - jsp_2_3.xsd
- - web-app_3_1.xsd
- - web-common_3_1.xsd
- - web-fragment_3_1.xsd
- - javaee_8.xsd
- - web-app_4_0.xsd
- - web-common_4_0.xsd
- - web-fragment_4_0.xsd
-
-may be obtained from:
-http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/javaee/index.html
-</pre></details></div>
-<div><details><summary>tomcat@9.0.85(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Apache Tomcat
-Copyright 1999-2024 The Apache Software Foundation
-
+The Apache Software Foundation (http://www.apache.org/).
+The Java source files in src/main/java/org/apache/groovy/util/concurrent/concurrentlinkedhashmap/
+are from https://github.com/ben-manes/concurrentlinkedhashmap and the following notice applies:
+Copyright 2010-2012 Google Inc. All Rights Reserved.
+The Java source file src/main/java/org/apache/groovy/util/concurrent/ConcurrentReferenceHashMap
+is from https://github.com/hazelcast/hazelcast and the following notice applies:
+Copyright (c) 2008-2020, Hazelcast, Inc. All Rights Reserved.
+This product bundles icons from the famfamfam.com silk icons set
+http://www.famfamfam.com/lab/icons/silk/
+Licensed under the Creative Commons Attribution Licence v2.5
+http://creativecommons.org/licenses/by/2.5/</pre></details></div>
+<div><details><summary>groovy@4.0.22(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2003-2023 The Apache Software Foundation
+Licensed under Apache 2.0
+Notice
 This product includes software developed at
-The Apache Software Foundation (https://www.apache.org/).
-
-This software contains code derived from netty-native
-developed by the Netty project
-(https://netty.io, https://github.com/netty/netty-tcnative/)
-and from finagle-native developed at Twitter
-(https://github.com/twitter/finagle).
-
-This software contains code derived from jgroups-kubernetes
-developed by the JGroups project (http://www.jgroups.org/).
-
-The Windows Installer is built with the Nullsoft
-Scriptable Install System (NSIS), which is
-open source software.  The original software and
-related information is available at
-http://nsis.sourceforge.net.
-
-Java compilation software for JSP pages is provided by the Eclipse
-JDT Core Batch Compiler component, which is open source software.
-The original software and related information is available at
-https://www.eclipse.org/jdt/core/.
-
-org.apache.tomcat.util.json.JSONParser.jj is a public domain javacc grammar
-for JSON written by Robert Fischer.
-https://github.com/RobertFischer/json-parser
-
-For portions of the Tomcat JNI OpenSSL API and the OpenSSL JSSE integration
-The org.apache.tomcat.jni and the org.apache.tomcat.net.openssl packages
-are derivative work originating from the Netty project and the finagle-native
-project developed at Twitter
-* Copyright 2014 The Netty Project
-* Copyright 2014 Twitter
-
-For portions of the Tomcat cloud support
-The org.apache.catalina.tribes.membership.cloud package contains derivative
-work originating from the jgroups project.
-https://github.com/jgroups-extras/jgroups-kubernetes
-Copyright 2002-2018 Red Hat Inc.
-
-The original XML Schemas for Java EE Deployment Descriptors:
- - javaee_5.xsd
- - javaee_web_services_1_2.xsd
- - javaee_web_services_client_1_2.xsd
- - javaee_6.xsd
- - javaee_web_services_1_3.xsd
- - javaee_web_services_client_1_3.xsd
- - jsp_2_2.xsd
- - web-app_3_0.xsd
- - web-common_3_0.xsd
- - web-fragment_3_0.xsd
- - javaee_7.xsd
- - javaee_web_services_1_4.xsd
- - javaee_web_services_client_1_4.xsd
- - jsp_2_3.xsd
- - web-app_3_1.xsd
- - web-common_3_1.xsd
- - web-fragment_3_1.xsd
- - javaee_8.xsd
- - web-app_4_0.xsd
- - web-common_4_0.xsd
- - web-fragment_4_0.xsd
-
-may be obtained from:
-http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/javaee/index.html
-</pre></details></div>
-<div><details><summary>groovy-json@2.4.21(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2003-2022 The Apache Software Foundation</pre></details></div>
-<div><details><summary>groovy-jsr223@2.4.21(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2003-2022 The Apache Software Foundation</pre></details></div>
-<div><details><summary>groovy-templates@2.4.21(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2003-2022 The Apache Software Foundation</pre></details></div>
-<div><details><summary>groovy-xml@2.4.21(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2003-2022 The Apache Software Foundation</pre></details></div>
-<div><details><summary>groovy@2.4.21(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2003-2022 The Apache Software Foundation</pre></details></div>
-<div><details><summary>angus-activation@2.0.1(<a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a>)</summary><pre>Copyright (c) 2018 Oracle and/or its affiliates. All rights reserved</pre></details></div>
+The Apache Software Foundation (http://www.apache.org/).
+The Java source files in src/main/java/org/apache/groovy/util/concurrent/concurrentlinkedhashmap/
+are from https://github.com/ben-manes/concurrentlinkedhashmap and the following notice applies:
+Copyright 2010-2012 Google Inc. All Rights Reserved.
+The Java source file src/main/java/org/apache/groovy/util/concurrent/ConcurrentReferenceHashMap
+is from https://github.com/hazelcast/hazelcast and the following notice applies:
+Copyright (c) 2008-2020, Hazelcast, Inc. All Rights Reserved.
+This product bundles icons from the famfamfam.com silk icons set
+http://www.famfamfam.com/lab/icons/silk/
+Licensed under the Creative Commons Attribution Licence v2.5
+http://creativecommons.org/licenses/by/2.5/</pre></details></div>
+<div><details><summary>httpclient@4.5.14(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright The Apache Software Foundation</pre></details></div>
+<div><details><summary>httpcore@4.4.16(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright The Apache Software Foundation</pre></details></div>
+<div><details><summary>log4j-api@2.23.1(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright The Apache Software Foundation</pre></details></div>
+<div><details><summary>log4j-to-slf4j@2.23.1(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright The Apache Software Foundation</pre></details></div>
+<div><details><summary>tomcat-embed-core@10.1.28(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 1999-2024 The Apache Software Foundation</pre></details></div>
+<div><details><summary>tomcat-embed-el@10.1.28(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 1999-2024 The Apache Software Foundation</pre></details></div>
+<div><details><summary>tomcat-embed-websocket@10.1.28(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 1999-2024 The Apache Software Foundation</pre></details></div>
+<div><details><summary>tomcat@10.1.30(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 1999-2024 The Apache Software Foundation</pre></details></div>
+<div><details><summary>angus-activation@1.0.0(<a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a>)</summary><pre>Copyright (c) 2018 Oracle and/or its affiliates. All rights reserved.</pre></details></div>
+<div><details><summary>angus-activation@2.0.2(<a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a>)</summary><pre>Copyright (c) 2018 Oracle and/or its affiliates. All rights reserved.</pre></details></div>
 <div><details><summary>freemarker@2.3.31(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright:  Licensed to the Apache Software Foundation (ASF) under one or more
 contributor license agreements.</pre></details></div>
+<div><details><summary>expressly@5.0.0(<a href="https://opensource.org/licenses/EPL-2.0">EPL 2.0</a>)</summary><pre>Copyright (c) 2022 Contributors to the Eclipse Foundation.
+Copyright (c) 1997, 2021 Oracle and/or its affiliates and others.</pre></details></div>
 <div><details><summary>aopalliance-repackaged@2.6.1(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Copyright (c) 2013, 2018 Oracle and/or its affiliates. All rights reserved.
 Copyright (c) 2019 Payara Services Ltd.</pre></details></div>
-<div><details><summary>aopalliance-repackaged@3.0.5(<a href="https://opensource.org/licenses/EPL-2.0">EPL 2.0</a>)</summary><pre>Copyright (c) 2013, 2018 Oracle and/or its affiliates. All rights reserved.
-Copyright (c) 2019 Payara Services Ltd.
-</pre></details></div>
+<div><details><summary>aopalliance-repackaged@3.0.6(<a href="https://opensource.org/licenses/EPL-2.0">EPL 2.0</a>)</summary><pre>Copyright (c) 2013, 2018 Oracle and/or its affiliates. All rights reserved.
+Copyright (c) 2019 Payara Services Ltd</pre></details></div>
 <div><details><summary>jakarta.inject@2.6.1(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Copyright (c) 2010, 2018 Oracle and/or its affiliates. All rights reserved.</pre></details></div>
-<div><details><summary>class-model@3.0.5(<a href="https://opensource.org/licenses/EPL-2.0">EPL 2.0</a>)</summary><pre>Copyright (c) 2010, 2018 Oracle and/or its affiliates. All rights reserved.
-Copyright (c) 2019 Payara Services Ltd.
-</pre></details></div>
+<div><details><summary>class-model@3.0.6(<a href="https://opensource.org/licenses/EPL-2.0">EPL 2.0</a>)</summary><pre>Copyright (c) 2010, 2018 Oracle and/or its affiliates. All rights reserved.
+Copyright (c) 2019, 2020 Payara Services Ltd.</pre></details></div>
 <div><details><summary>hk2-api@2.6.1(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Copyright (c) 2010, 2018 Oracle and/or its affiliates. All rights reserved.
 Copyright (c) 2019 Payara Services Ltd.</pre></details></div>
-<div><details><summary>hk2-api@3.0.5(<a href="https://opensource.org/licenses/EPL-2.0">EPL 2.0</a>)</summary><pre>Copyright (c) 2010, 2018 Oracle and/or its affiliates. All rights reserved.
-Copyright (c) 2019, 2020 Payara Services Ltd.
-</pre></details></div>
-<div><details><summary>hk2-core@3.0.5(<a href="https://opensource.org/licenses/EPL-2.0">EPL 2.0</a>)</summary><pre>Copyright (c) 2010, 2018 Oracle and/or its affiliates. All rights reserved.
-Copyright (c) 2019 Payara Services Ltd.
-</pre></details></div>
+<div><details><summary>hk2-api@3.0.6(<a href="https://opensource.org/licenses/EPL-2.0">EPL 2.0</a>)</summary><pre>Copyright (c) 2010, 2018 Oracle and/or its affiliates. All rights reserved.
+Copyright (c) 2019, 2020 Payara Services Ltd.</pre></details></div>
+<div><details><summary>hk2-core@3.0.6(<a href="https://opensource.org/licenses/EPL-2.0">EPL 2.0</a>)</summary><pre>Copyright (c) 2010, 2018 Oracle and/or its affiliates. All rights reserved.
+Copyright (c) 2019 Payara Services Ltd</pre></details></div>
 <div><details><summary>hk2-locator@2.6.1(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Copyright (c) 2010, 2018 Oracle and/or its affiliates. All rights reserved.
 Copyright (c) 2019 Payara Services Ltd.</pre></details></div>
-<div><details><summary>hk2-locator@3.0.5(<a href="https://opensource.org/licenses/EPL-2.0">EPL 2.0</a>)</summary><pre>Copyright (c) 2010, 2018 Oracle and/or its affiliates. All rights reserved.
-Copyright (c) 2019, 2020 Payara Services Ltd.
-</pre></details></div>
-<div><details><summary>hk2-runlevel@3.0.5(<a href="https://opensource.org/licenses/EPL-2.0">EPL 2.0</a>)</summary><pre>Copyright (c) 2010, 2018 Oracle and/or its affiliates. All rights reserved.
-Copyright (c) 2019 Payara Services Ltd.
-</pre></details></div>
+<div><details><summary>hk2-locator@3.0.6(<a href="https://opensource.org/licenses/EPL-2.0">EPL 2.0</a>)</summary><pre>Copyright (c) 2010, 2018 Oracle and/or its affiliates. All rights reserved.
+Copyright (c) 2019, 2020 Payara Services Ltd</pre></details></div>
+<div><details><summary>hk2-runlevel@3.0.6(<a href="https://opensource.org/licenses/EPL-2.0">EPL 2.0</a>)</summary><pre>Copyright (c) 2010, 2018 Oracle and/or its affiliates. All rights reserved.
+Copyright (c) 2019 Payara Services Ltd.</pre></details></div>
 <div><details><summary>hk2-utils@2.6.1(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Copyright (c) 2010, 2018 Oracle and/or its affiliates. All rights reserved.
 Copyright (c) 2019 Payara Services Ltd.</pre></details></div>
-<div><details><summary>hk2-utils@3.0.5(<a href="https://opensource.org/licenses/EPL-2.0">EPL 2.0</a>)</summary><pre>Copyright (c) 2010, 2018 Oracle and/or its affiliates. All rights reserved.
-Copyright (c) 2019, 2020 Payara Services Ltd.
-</pre></details></div>
-<div><details><summary>hk2@3.0.5(<a href="https://opensource.org/licenses/EPL-2.0">EPL 2.0</a>)</summary><pre>Copyright (c) 2010, 2018 Oracle and/or its affiliates. All rights reserved</pre></details></div>
+<div><details><summary>hk2-utils@3.0.6(<a href="https://opensource.org/licenses/EPL-2.0">EPL 2.0</a>)</summary><pre>Copyright (c) 2010, 2018 Oracle and/or its affiliates. All rights reserved.
+Copyright (c) 2019, 2020 Payara Services Ltd.</pre></details></div>
+<div><details><summary>hk2@3.0.6(<a href="https://opensource.org/licenses/EPL-2.0">EPL 2.0</a>)</summary><pre>Copyright (c) 2010, 2018 Oracle and/or its affiliates. All rights reserved.</pre></details></div>
 <div><details><summary>osgi-resource-locator@1.0.3(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Copyright (c) 2018, 2019 Oracle and/or its affiliates. All rights reserved.</pre></details></div>
-<div><details><summary>spring-bridge@3.0.5(<a href="https://opensource.org/licenses/EPL-2.0">EPL 2.0</a>)</summary><pre>Copyright (c) 2013, 2018 Oracle and/or its affiliates. All rights reserved.
-Copyright (c) 2019, 2020 Payara Services Ltd.
-</pre></details></div>
+<div><details><summary>spring-bridge@3.0.6(<a href="https://opensource.org/licenses/EPL-2.0">EPL 2.0</a>)</summary><pre>Copyright (c) 2013, 2018 Oracle and/or its affiliates. All rights reserved.
+Copyright (c) 2019, 2020 Payara Services Ltd.</pre></details></div>
 <div><details><summary>jersey-container-servlet-core@2.34(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Copyright (c) 2012, 2021 Oracle and/or its affiliates. All rights reserved  
 
 Further third-party content may be included: https://github.com/eclipse-ee4j/jersey/blob/2.34/NOTICE.md#third-party-content</pre></details></div>
-<div><details><summary>jersey-container-servlet-core@3.1.5(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Copyright (c) 2010, 2024 Oracle and/or its affiliates. All rights reserved.
-</pre></details></div>
+<div><details><summary>jersey-container-servlet-core@3.1.8(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Copyright (c) 2010, 2024 Oracle and/or its affiliates. All rights reserved.</pre></details></div>
 <div><details><summary>jersey-container-servlet@2.34(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Copyright (c) 2012, 2021 Oracle and/or its affiliates. All rights reserved 
 
 Further third-party content may be included: https://github.com/eclipse-ee4j/jersey/blob/2.34/NOTICE.md#third-party-content</pre></details></div>
-<div><details><summary>jersey-container-servlet@3.1.5(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Copyright (c) 2010, 2024 Oracle and/or its affiliates. All rights reserved
-</pre></details></div>
+<div><details><summary>jersey-container-servlet@3.1.8(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Copyright (c) 2010, 2024 Oracle and/or its affiliates. All rights reserved.</pre></details></div>
 <div><details><summary>jersey-client@2.34(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Copyright (c) 2012, 2021 Oracle and/or its affiliates. All rights reserved
 
 Further third-party content may be included: https://github.com/eclipse-ee4j/jersey/blob/2.34/NOTICE.md#third-party-content</pre></details></div>
-<div><details><summary>jersey-client@3.1.5(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Copyright (c) 2010, 2024 Oracle and/or its affiliates. All rights reserved.
-</pre></details></div>
+<div><details><summary>jersey-client@3.1.8(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Copyright (c) 2010, 2024 Oracle and/or its affiliates. All rights reserved.</pre></details></div>
 <div><details><summary>jersey-common@2.34(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Copyright (c) 2010, 2021 Oracle and/or its affiliates. All rights reserved  
 
 Further third-party content may be included: https://github.com/eclipse-ee4j/jersey/blob/2.34/NOTICE.md#third-party-content</pre></details></div>
-<div><details><summary>jersey-common@3.1.5(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Copyright (c) 2010, 2024 Oracle and/or its affiliates. All rights reserved.
-</pre></details></div>
+<div><details><summary>jersey-common@3.1.8(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Copyright (c) 2010, 2024 Oracle and/or its affiliates. All rights reserved.</pre></details></div>
 <div><details><summary>jersey-server@2.34(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Copyright (c) 2010, 2021 Oracle and/or its affiliates. All rights reserved
 
 Further third-party content may be included: https://github.com/eclipse-ee4j/jersey/blob/2.34/NOTICE.md#third-party-content</pre></details></div>
-<div><details><summary>jersey-server@3.1.5(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Copyright (c) 2010, 2024 Oracle and/or its affiliates. All rights reserved.
-</pre></details></div>
-<div><details><summary>jersey-bean-validation@3.1.5(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Copyright (c) 2010, 2024 Oracle and/or its affiliates. All rights reserved.
-</pre></details></div>
-<div><details><summary>jersey-entity-filtering@3.1.5(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Copyright (c) 2010, 2024 Oracle and/or its affiliates. All rights reserved.
-</pre></details></div>
-<div><details><summary>jersey-spring6@3.1.5(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Copyright (c) 2010, 2024 Oracle and/or its affiliates. All rights reserved.
-</pre></details></div>
+<div><details><summary>jersey-server@3.1.8(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Copyright (c) 2010, 2024 Oracle and/or its affiliates. All rights reserved.</pre></details></div>
+<div><details><summary>jersey-bean-validation@3.1.8(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Copyright (c) 2010, 2024 Oracle and/or its affiliates. All rights reserved.</pre></details></div>
+<div><details><summary>jersey-entity-filtering@3.1.8(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Copyright (c) 2010, 2024 Oracle and/or its affiliates. All rights reserved.</pre></details></div>
+<div><details><summary>jersey-spring6@3.1.8(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Copyright (c) 2010, 2024 Oracle and/or its affiliates. All rights reserved.</pre></details></div>
 <div><details><summary>jersey-hk2@2.34(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Copyright (c) 2017, 2021 Oracle and/or its affiliates. All rights reserved
 
 Further third-party content may be included: https://github.com/eclipse-ee4j/jersey/blob/2.34/NOTICE.md#third-party-content</pre></details></div>
-<div><details><summary>jersey-hk2@3.1.5(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Copyright (c) 2010, 2024 Oracle and/or its affiliates. All rights reserved.
-</pre></details></div>
-<div><details><summary>jersey-media-json-jackson@3.1.5(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Copyright (c) 2010, 2024 Oracle and/or its affiliates. All rights reserved.
-</pre></details></div>
+<div><details><summary>jersey-hk2@3.1.8(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Copyright (c) 2010, 2024 Oracle and/or its affiliates. All rights reserved.</pre></details></div>
+<div><details><summary>jersey-media-json-jackson@3.1.8(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Copyright (c) 2010, 2024 Oracle and/or its affiliates. All rights reserved.</pre></details></div>
 <div><details><summary>js-scriptengine@21.1.0(<a href="https://opensource.org/licenses/UPL">UPL</a>)</summary><pre>Copyright (c) 2019, Oracle and/or its affiliates
 https://github.com/oracle/graaljs/blob/master/3rd_party_licenses.txt
 See this link for third-party software notices and/or additional
 terms for licensed third-party software components included within graaljis
-libraries
-</pre></details></div>
+libraries</pre></details></div>
 <div><details><summary>js@21.1.0(<a href="https://opensource.org/licenses/UPL">UPL</a>)</summary><pre>Copyright (c) 2019, Oracle and/or its affiliates
 https://github.com/oracle/graaljs/blob/master/3rd_party_licenses.txt
 See this link for third-party software notices and/or additional
 terms for licensed third-party software components included within graaljis
-libraries
-</pre></details></div>
+libraries</pre></details></div>
 <div><details><summary>regex@21.1.0(<a href="https://opensource.org/licenses/UPL">UPL</a>)</summary><pre>Copyright (c) 2021, Oracle and/or its affiliates</pre></details></div>
 <div><details><summary>graal-sdk@21.1.0(<a href="https://opensource.org/licenses/UPL">UPL</a>)</summary><pre>Copyright (c) Oracle and/or its affiliates.
 See this link for third-party software notices and/or additional
-terms for licensed third-party software components included within the LLVM Project. The LLVM Project is under the Apache License v2.0 with LLVM Exceptions:https://github.com/oracle/graal/blob/master/sdk/3rd_party_license_llvm-toolchain.txt 
-</pre></details></div>
+terms for licensed third-party software components included within the LLVM Project. The LLVM Project is under the Apache License v2.0 with LLVM Exceptions:https://github.com/oracle/graal/blob/master/sdk/3rd_party_license_llvm-toolchain.txt </pre></details></div>
 <div><details><summary>truffle-api@21.1.0(<a href="https://opensource.org/licenses/UPL">UPL</a>)</summary><pre>Copyright (c) Oracle and/or its affiliates.</pre></details></div>
-<div><details><summary>hibernate-validator@8.0.1.Final(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright various authors https://github.com/hibernate/hibernate-validator/blob/main/copyright.txt
-</pre></details></div>
+<div><details><summary>hibernate-validator@8.0.1.Final(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright various authors https://github.com/hibernate/hibernate-validator/blob/main/copyright.txt</pre></details></div>
 <div><details><summary>javassist@3.25.0-GA(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: (C) 1999-2020 by Shigeru Chiba, All rights reserved.</pre></details></div>
-<div><details><summary>javassist@3.29.2-GA(Apache 2.0
-)</summary><pre>Copyright (C) 1999-2023 by Shigeru Chiba, All rights reserved.
-</pre></details></div>
+<div><details><summary>javassist@3.30.2-GA(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (C) 1999-2023 by Shigeru Chiba, All rights reserved.</pre></details></div>
 <div><details><summary>jboss-logging@3.4.1.Final(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright JBoss, Home of Professional Open Source
 Copyright 2010 Red Hat, Inc., and individual contributorsas indicated by the @author tags.</pre></details></div>
+<div><details><summary>jboss-logging@3.5.0.Final(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2010 Red Hat, Inc.</pre></details></div>
 <div><details><summary>jboss-logging@3.5.3.Final(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2023 Red Hat, Inc.</pre></details></div>
-<div><details><summary>resteasy-jaxrs@3.15.6.Final(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: list of conributors https://github.com/resteasy/resteasy/graphs/contributors
-</pre></details></div>
+<div><details><summary>resteasy-core-spi@6.2.3.Final(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2010 Red Hat, Inc.</pre></details></div>
+<div><details><summary>resteasy-core@6.2.3.Final(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2013 Red Hat, Inc., and individual contributors</pre></details></div>
+<div><details><summary>resteasy-jaxrs@3.15.6.Final(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright: list of conributors https://github.com/resteasy/resteasy/graphs/contributors</pre></details></div>
 <div><details><summary>jboss-annotations-api_1.3_spec@2.0.1.Final(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Copyright (c) 2012, 2019 Oracle and/or its affiliates. All rights reserved.</pre></details></div>
 <div><details><summary>jboss-jaxrs-api_2.1_spec@2.0.1.Final(<a href="https://opensource.org/licenses/EPL-2.0">EPL-2.0</a>)</summary><pre>Notice file: 
 =====================================================================================
@@ -1002,6 +561,7 @@ https://github.com/jboss/jboss-jakarta-jaxrs-api_spec
 Copyright: Jakarta RESTful Web Services Project, Eclipse Foundation  
 List of contributors: https://projects.eclipse.org/projects/ee4j.jaxrs/who</pre></details></div>
 <div><details><summary>jboss-jaxb-api_2.3_spec@2.0.1.Final(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright Red Hat</pre></details></div>
+<div><details><summary>jandex@2.4.3.Final(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2013 Red Hat, Inc., and individual contributors</pre></details></div>
 <div><details><summary>mybatis@3.5.15(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright various authors: https://mybatis.org/mybatis-3/team.html
 
 iBATIS
@@ -1071,13 +631,11 @@ Refactored SqlBuilder class (SQL, AbstractSQL)
    distributed under the License is distributed on an "AS IS" BASIS,
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
-   limitations under the License.
-</pre></details></div>
-<div><details><summary>asm-analysis@9.6(<a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a>)</summary><pre>Copyright (c) 2000-2011 INRIA, France Telecom</pre></details></div>
+   limitations under the License.</pre></details></div>
 <div><details><summary>asm-commons@9.6(<a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a>)</summary><pre>Copyright (c) 2000-2011 INRIA, France Telecom</pre></details></div>
-<div><details><summary>asm-tree@9.6(<a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a>)</summary><pre>Copyright (c) 2000-2011 INRIA, France Telecom</pre></details></div>
-<div><details><summary>asm-util@9.6(<a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a>)</summary><pre>Copyright (c) 2000-2011 INRIA, France Telecom</pre></details></div>
+<div><details><summary>asm@9.6(<a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a>)</summary><pre>Copyright (c) 2000-2011 INRIA, France Telecom</pre></details></div>
 <div><details><summary>reactive-streams@1.0.3(<a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0</a>)</summary><pre>CopyrightWaiver:https://github.com/reactive-streams/reactive-streams-jvm/blob/master/CopyrightWaivers.txt</pre></details></div>
+<div><details><summary>reactive-streams@1.0.4(<a href="https://opensource.org/licenses/MIT">MIT</a>)</summary><pre>Copyright 2014 Reactive Streams</pre></details></div>
 <div><details><summary>scala-library@2.13.12(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) 2002-2024 EPFL
 Copyright (c) 2011-2024 Lightbend, Inc.
 
@@ -1092,82 +650,54 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-This software includes projects with other licenses -- see `doc/LICENSE.md`.
-</pre></details></div>
-<div><details><summary>jul-to-slf4j@2.0.11(<a href="https://opensource.org/licenses/MIT">MIT</a>)</summary><pre>Copyright (c) 2004-2022 QOS.ch Sarl (Switzerland)
-</pre></details></div>
+This software includes projects with other licenses -- see `doc/LICENSE.md`.</pre></details></div>
+<div><details><summary>jul-to-slf4j@2.0.16(<a href="https://opensource.org/licenses/MIT">MIT</a>)</summary><pre>Copyright (c) 2004-2023 QOS.ch</pre></details></div>
 <div><details><summary>slf4j-api@1.7.25(<a href="https://opensource.org/licenses/MIT">MIT</a>)</summary><pre>Copyright (c) 2004-2017 QOS.ch</pre></details></div>
 <div><details><summary>slf4j-api@1.7.26(<a href="https://opensource.org/licenses/MIT">MIT</a>)</summary><pre>Copyright: (c) 2004-2017 QOS.ch</pre></details></div>
 <div><details><summary>slf4j-api@1.7.36(<a href="https://opensource.org/licenses/MIT">MIT</a>)</summary><pre>Copyright (c) 2004-2017 QOS.ch</pre></details></div>
-<div><details><summary>slf4j-api@2.0.11(<a href="https://opensource.org/licenses/MIT">MIT</a>)</summary><pre>Copyright (c) 2004-2023 QOS.ch
-</pre></details></div>
+<div><details><summary>slf4j-api@2.0.16(<a href="https://opensource.org/licenses/MIT">MIT</a>)</summary><pre>Copyright (c) 2004-2023 QOS.ch</pre></details></div>
 <div><details><summary>slf4j-jdk14@1.7.26(<a href="https://opensource.org/licenses/MIT">MIT</a>)</summary><pre>Copyright (c) 2004-2017 QOS.ch</pre></details></div>
-<div><details><summary>spring-boot-autoconfigure@3.2.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2012-2023 the original author or authors.
-</pre></details></div>
-<div><details><summary>spring-boot-starter-jdbc@3.2.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2012-2023 the original author or authors.
-</pre></details></div>
-<div><details><summary>spring-boot-starter-jersey@3.2.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2012-2023 the original author or authors.
-</pre></details></div>
-<div><details><summary>spring-boot-starter-json@3.2.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2012-2023 the original author or authors.
-</pre></details></div>
-<div><details><summary>spring-boot-starter-logging@3.2.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2012-2023 the original author or authors.
-</pre></details></div>
-<div><details><summary>spring-boot-starter-tomcat@3.2.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2012-2023 the original author or authors.
-</pre></details></div>
-<div><details><summary>spring-boot-starter-validation@3.2.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2012-2023 the original author or authors.
-</pre></details></div>
-<div><details><summary>spring-boot-starter-web@3.2.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2012-2023 the original author or authors.
-</pre></details></div>
-<div><details><summary>spring-boot-starter@3.2.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2012-2023 the original author or authors.
-</pre></details></div>
-<div><details><summary>spring-boot@3.2.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2012-2023 the original author or authors.
-</pre></details></div>
-<div><details><summary>spring-aop@5.3.27(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright the original author or authors.
-</pre></details></div>
-<div><details><summary>spring-aop@6.1.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2012-2022 the original author or authors.
-</pre></details></div>
-<div><details><summary>spring-beans@5.3.27(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright the original author or authors.
-</pre></details></div>
-<div><details><summary>spring-beans@6.1.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2012-2022 the original author or authors.
-</pre></details></div>
-<div><details><summary>spring-context@5.3.27(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright the original author or authors.
-</pre></details></div>
-<div><details><summary>spring-context@6.1.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2012-2022 the original author or authors.
-</pre></details></div>
-<div><details><summary>spring-core@5.3.27(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright the original author or authors.
-</pre></details></div>
-<div><details><summary>spring-core@6.1.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2012-2023 the original author or authors.
-</pre></details></div>
-<div><details><summary>spring-expression@5.3.27(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright the original author or authors.
-</pre></details></div>
-<div><details><summary>spring-expression@6.1.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2002-2020 the original author or authors.
-</pre></details></div>
-<div><details><summary>spring-jcl@5.3.27(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright the original author or authors.
-</pre></details></div>
-<div><details><summary>spring-jcl@6.1.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2002-2023 the original author or authors.
-</pre></details></div>
-<div><details><summary>spring-jdbc@5.3.27(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright the original author or authors.
-</pre></details></div>
-<div><details><summary>spring-jdbc@6.1.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2002-2024 the original author or authors.
-</pre></details></div>
-<div><details><summary>spring-orm@5.3.27(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright the original author or authors.
-</pre></details></div>
-<div><details><summary>spring-orm@6.1.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2002-2023 the original author or authors.
-</pre></details></div>
-<div><details><summary>spring-tx@5.3.27(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright the original author or authors.
-</pre></details></div>
-<div><details><summary>spring-tx@6.1.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2002-2023 the original author or authors.
-</pre></details></div>
-<div><details><summary>spring-web@6.1.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2002-2023 the original author or authors.
-</pre></details></div>
-<div><details><summary>spring-webmvc@6.1.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright 2002-2023 the original author or authors.
-</pre></details></div>
-<div><details><summary>wildfly-dist@31.0.0.Final(Apache 2.0
-)</summary><pre>Copyright The WildFly Authors (https://github.com/wildfly/wildfly/blob/31.0.0.Final/ee-feature-pack/galleon-shared/src/main/resources/content/copyright.txt)
-</pre></details></div>
-<div><details><summary>wildfly-galleon-pack@31.0.0.Final(Apache 2.0
-)</summary><pre>Copyright The WildFly Authors (https://github.com/wildfly/wildfly/blob/31.0.0.Final/ee-feature-pack/galleon-shared/src/main/resources/content/copyright.txt)
-</pre></details></div>
+<div><details><summary>spring-boot-autoconfigure@3.3.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-boot-starter-jdbc@3.3.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-boot-starter-jersey@3.3.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-boot-starter-json@3.3.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-boot-starter-logging@3.3.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-boot-starter-oauth2-client@3.3.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-boot-starter-security@3.3.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-boot-starter-tomcat@3.3.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-boot-starter-validation@3.3.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-boot-starter-web@3.3.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-boot-starter@3.3.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-boot@3.3.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-security-config@6.3.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-security-core@6.3.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-security-crypto@6.3.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-security-oauth2-client@6.3.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-security-oauth2-core@6.3.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-security-oauth2-jose@6.3.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-security-web@6.3.3(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-aop@5.3.36(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-aop@6.1.12(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-beans@5.3.36(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-beans@6.1.12(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-context@5.3.36(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-context@6.1.12(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-core@5.3.36(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-core@6.1.12(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-expression@5.3.36(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-expression@6.1.12(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-jcl@5.3.36(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-jcl@6.1.12(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-jdbc@5.3.36(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-jdbc@6.1.12(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-orm@5.3.36(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-orm@6.1.12(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-tx@5.3.36(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-tx@6.1.12(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-web@6.1.12(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>spring-webmvc@6.1.12(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright © 2015-2021 the original authors.</pre></details></div>
+<div><details><summary>wildfly-dist@33.0.1.Final(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright The WildFly Authors</pre></details></div>
+<div><details><summary>wildfly-galleon-pack@33.0.1.Final(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright The WildFly Authors</pre></details></div>
 <div><details><summary>snakeyaml@2.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) 2008, SnakeYAML</pre></details></div>
 
 # Camunda Web Applications Javascript Dependencies
@@ -1283,7 +813,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/draggle.git">@bpmn-io/draggle@4.0.0</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/bpmn-io/draggle.git">@bpmn-io/draggle@4.1.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright © 2015-2016 Nicolas Bevacqua
 Copyright © 2023 bpmn-io
@@ -1305,7 +835,7 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/feel-editor">@bpmn-io/feel-editor@1.2.0</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/bpmn-io/feel-editor">@bpmn-io/feel-editor@1.4.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2015 camunda Services GmbH
 
@@ -1347,7 +877,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/form-js">@bpmn-io/form-js@1.7.0</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2021-present Camunda Services GmbH
+<div><details><summary><a href="https://github.com/bpmn-io/form-js">@bpmn-io/form-js@1.8.7</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2021-present Camunda Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -1380,7 +910,7 @@ CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
 THE USE
 OR OTHER DEALINGS IN THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/form-js">@bpmn-io/form-js-editor@1.7.0</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2021-present Camunda Services GmbH
+<div><details><summary><a href="https://github.com/bpmn-io/form-js">@bpmn-io/form-js-editor@1.8.7</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2021-present Camunda Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -1413,7 +943,7 @@ CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
 THE USE
 OR OTHER DEALINGS IN THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/form-js">@bpmn-io/form-js-playground@1.7.0</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2021-present Camunda Services GmbH
+<div><details><summary><a href="https://github.com/bpmn-io/form-js">@bpmn-io/form-js-playground@1.8.7</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2021-present Camunda Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -1446,7 +976,7 @@ CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
 THE USE
 OR OTHER DEALINGS IN THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/form-js">@bpmn-io/form-js-viewer@1.7.0</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2021-present Camunda Services GmbH
+<div><details><summary><a href="https://github.com/bpmn-io/form-js">@bpmn-io/form-js-viewer@1.8.7</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2021-present Camunda Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -1479,7 +1009,7 @@ CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
 THE USE
 OR OTHER DEALINGS IN THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/properties-panel">@bpmn-io/properties-panel@3.18.1</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/bpmn-io/properties-panel">@bpmn-io/properties-panel@3.18.2</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2021-present Camunda Services GmbH
 
@@ -1500,7 +1030,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/codemirror/autocomplete.git">@codemirror/autocomplete@6.12.0</a> (MIT)</summary><pre>MIT License
+<div><details><summary><a href="https://github.com/codemirror/autocomplete.git">@codemirror/autocomplete@6.16.0</a> (MIT)</summary><pre>MIT License
 
 Copyright (C) 2018-2021 by Marijn Haverbeke <marijn@haverbeke.berlin> and others
 
@@ -1522,7 +1052,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/codemirror/commands.git">@codemirror/commands@6.3.3</a> (MIT)</summary><pre>MIT License
+<div><details><summary><a href="https://github.com/codemirror/commands.git">@codemirror/commands@6.5.0</a> (MIT)</summary><pre>MIT License
 
 Copyright (C) 2018-2021 by Marijn Haverbeke <marijn@haverbeke.berlin> and others
 
@@ -1588,7 +1118,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/codemirror/lint.git">@codemirror/lint@6.5.0</a> (MIT)</summary><pre>MIT License
+<div><details><summary><a href="https://github.com/codemirror/lint.git">@codemirror/lint@6.7.1</a> (MIT)</summary><pre>MIT License
 
 Copyright (C) 2018-2021 by Marijn Haverbeke <marijn@haverbeke.berlin> and others
 
@@ -1610,7 +1140,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/codemirror/search.git">@codemirror/search@6.5.5</a> (MIT)</summary><pre>MIT License
+<div><details><summary><a href="https://github.com/codemirror/search.git">@codemirror/search@6.5.6</a> (MIT)</summary><pre>MIT License
 
 Copyright (C) 2018-2021 by Marijn Haverbeke <marijn@haverbeke.berlin> and others
 
@@ -1632,7 +1162,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/codemirror/state.git">@codemirror/state@6.4.0</a> (MIT)</summary><pre>MIT License
+<div><details><summary><a href="https://github.com/codemirror/state.git">@codemirror/state@6.4.1</a> (MIT)</summary><pre>MIT License
 
 Copyright (C) 2018-2021 by Marijn Haverbeke <marijn@haverbeke.berlin> and others
 
@@ -1654,7 +1184,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/codemirror/view.git">@codemirror/view@6.23.1</a> (MIT)</summary><pre>MIT License
+<div><details><summary><a href="https://github.com/codemirror/view.git">@codemirror/view@6.26.3</a> (MIT)</summary><pre>MIT License
 
 Copyright (C) 2018-2021 by Marijn Haverbeke <marijn@haverbeke.berlin> and others
 
@@ -1880,7 +1410,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/lezer-parser/markdown.git">@lezer/markdown@1.2.0</a> (MIT)</summary><pre>MIT License
+<div><details><summary><a href="https://github.com/lezer-parser/markdown.git">@lezer/markdown@1.3.0</a> (MIT)</summary><pre>MIT License
 
 Copyright (C) 2020 by Marijn Haverbeke <marijn@haverbeke.berlin> and others
 
@@ -2205,7 +1735,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/urish/angular-moment.git">angular-moment@1.3.0</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="http://github.com/urish/angular-moment.git">angular-moment@1.3.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2013-2016 Uri Shaked and contributors
 
@@ -2227,7 +1757,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/angular-translate/angular-translate">angular-translate@2.19.0</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="http://github.com/angular-translate/angular-translate">angular-translate@2.19.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2013-2017 The angular-translate team and Pascal Precht
 
@@ -2513,7 +2043,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="">camunda-bpm-webapp@7.21.0-SNAPSHOT</a> ()</summary><pre>Copyright Camunda Services GmbH and/or licensed to Camunda Services GmbH
+<div><details><summary><a href="">camunda-bpm-webapp@7.22.0-SNAPSHOT</a> ()</summary><pre>Copyright Camunda Services GmbH and/or licensed to Camunda Services GmbH
 under one or more contributor license agreements. See the NOTICE file
 distributed with this work for additional information regarding copyright
 ownership. Camunda licenses this file to you under the Apache License,
@@ -3227,8 +2757,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/cure53/DOMPurify">dompurify@3.0.8</a> ((MPL-2.0 OR Apache-2.0))</summary><pre>DOMPurify
-Copyright 2023 Dr.-Ing. Mario Heiderich, Cure53
+<div><details><summary><a href="https://github.com/cure53/DOMPurify">dompurify@3.1.3</a> ((MPL-2.0 OR Apache-2.0))</summary><pre>DOMPurify
+Copyright 2024 Dr.-Ing. Mario Heiderich, Cure53
 
 DOMPurify is free software; you can redistribute it and/or modify it under the
 terms of either:
@@ -3912,7 +3442,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="">feelers@1.3.0</a> (MIT)</summary><pre>Copyright (c) 2023-present Camunda Services GmbH
+<div><details><summary><a href="">feelers@1.3.1</a> (MIT)</summary><pre>Copyright (c) 2023-present Camunda Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -3938,7 +3468,7 @@ CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
 THE USE
 OR OTHER DEALINGS IN THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/nikku/feelin">feelin@3.0.0</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/nikku/feelin">feelin@3.1.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2019-present Nico Rehwaldt
 
@@ -3959,7 +3489,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/nikku/file-drops">file-drops@0.4.0</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/nikku/file-drops">file-drops@0.5.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2018-present Nico Rehwaldt
 
@@ -4498,7 +4028,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/nikku/lezer-feel.git">lezer-feel@1.2.4</a> (MIT)</summary><pre>MIT License
+<div><details><summary><a href="https://github.com/nikku/lezer-feel.git">lezer-feel@1.2.8</a> (MIT)</summary><pre>MIT License
 
 Copyright (C) 2020 by Nico Rehwaldt <git_nikku@nixis.de> and others
 
@@ -4538,6 +4068,66 @@ FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
 COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+</pre></details></div>
+<div><details><summary><a href="https://github.com/markedjs/marked">marked@12.0.2</a> (MIT)</summary><pre># License information
+
+## Contribution License Agreement
+
+If you contribute code to this project, you are implicitly allowing your code
+to be distributed under the MIT license. You are also implicitly verifying that
+all code is your original work. `</legalese>`
+
+## Marked
+
+Copyright (c) 2018+, MarkedJS (https://github.com/markedjs/)
+Copyright (c) 2011-2018, Christopher Jeffrey (https://github.com/chjj/)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+## Markdown
+
+Copyright © 2004, John Gruber
+http://daringfireball.net/
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright notice, this
+list of conditions and the following disclaimer in the documentation and/or
+other materials provided with the distribution.
+* Neither the name “Markdown” nor the names of its contributors may be used to
+endorse or promote products derived from this software without specific prior
+written permission.
+
+This software is provided by the copyright holders and contributors “as is” and
+any express or implied warranties, including, but not limited to, the implied
+warranties of merchantability and fitness for a particular purpose are
+disclaimed. In no event shall the copyright owner or contributors be liable for
+any direct, indirect, incidental, special, exemplary, or consequential damages
+(including, but not limited to, procurement of substitute goods or services;
+loss of use, data, or profits; or business interruption) however caused and on
+any theory of liability, whether in contract, strict liability, or tort
+(including negligence or otherwise) arising in any way out of the use of this
+software, even if advised of the possibility of such damage.
 </pre></details></div>
 <div><details><summary><a href="https://github.com/bpmn-io/min-dash">min-dash@4.2.1</a> (MIT)</summary><pre>The MIT License (MIT)
 
@@ -5062,27 +4652,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/showdownjs/showdown.git">showdown@2.1.0</a> (MIT)</summary><pre>MIT License
-
-Copyright (c) 2018,2021 ShowdownJS
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of
-this software and associated documentation files (the "Software"), to deal in
-the Software without restriction, including without limitation the rights to
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
-the Software, and to permit persons to whom the Software is furnished to do so,
-subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-</pre></details></div>
 <div><details><summary><a href="https://github.com/ljharb/side-channel">side-channel@1.0.4</a> (MIT)</summary><pre>MIT License
 
 Copyright (c) 2019 Jordan Harband
