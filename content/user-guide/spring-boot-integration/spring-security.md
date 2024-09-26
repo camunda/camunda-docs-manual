@@ -17,7 +17,11 @@ configuration classes that integrate Spring Security with Camunda Webapp's authe
 
 This is available both for Spring Boot and Camunda Run.
 
-# Spring Boot
+Camunda's integration comes with multiple components and configurations. In the next sections you can find more details to each of them.
+
+# Activate OAuth2
+
+## Spring Boot
 
 In order to enable the Spring Security OAuth2 integration in Spring Boot, add the following dependency to your project:
 
@@ -28,8 +32,9 @@ In order to enable the Spring Security OAuth2 integration in Spring Boot, add th
 </dependency>
 ```
 
-# Camunda Run
+## Camunda Run
 
+Camunda Run already contains the required libraries, all you need to do is to activate them.
 In order to enable the Spring Security OAuth2 integration in Camunda Run, start Run with an extra `--oauth2` argument:
 
 ```shell
@@ -40,52 +45,51 @@ In order to enable the Spring Security OAuth2 integration in Camunda Run, start 
 
 The Camunda integration has two default auto configurations. Depending on the OAuth2 client
 registration in the application properties (`spring.security.oauth2.client.registration`) either the
-`CamundaSpringSecurityOAuth2AutoConfiguration` or the `CamundaBpmSpringSecurityDisableAutoConfiguration` will be used.
+`CamundaSpringSecurityOAuth2AutoConfiguration` or the `CamundaBpmSpringSecurityDisableAutoConfiguration` will be activated.
 
-## OAuth2 Auto Configuration
+## OAuth2 Enabled Configuration
 
-
-Starts if there is OAuth2 client registration configured. This class configures the Spring
-Security filter chain to a permit all mode.
+Configuration activates if there is OAuth2 client registration configured. This class configures the Spring
+Security filter chain to secure the Camunda Webapps.
 
 Spring auto configuration class: {{< javadocref page="org/camunda/bpm/spring/boot/starter/security/oauth2/impl/CamundaSpringSecurityOAuth2AutoConfiguration.html" text="CamundaSpringSecurityOAuth2AutoConfiguration" >}}
 
-## Disable Auto Configuration
+## Spring Security Disabled Auto Configuration
 
-Starts if there is **no** OAuth2 client registration configured. This class configures the Spring
+Configuration activates if there is **no** OAuth2 client registration configured. This class configures the Spring
 Security filter chain to a permit all mode.
 
 Spring auto configuration class: {{< javadocref page="org/camunda/bpm/spring/boot/starter/security/oauth2/impl/CamundaBpmSpringSecurityDisableAutoConfiguration.html" text="CamundaBpmSpringSecurityDisableAutoConfiguration" >}}
 
+# OAuth2 Client Registration
 
-# OAuth2 Integration
+For the client registration, please refer to the official Spring
+Security's [OAuth2 Core Configuration][OAuth2Config] documentation to configure your choice of
+identity provider.
 
-Once the Camunda Spring Security OAuth2 integration is active and there is an OAuth2 client
-registration configured, the Webapps will use the configured OAuth2 identity provider for authentication.
+Once there is an OAuth2 client registration configured and the Camunda Spring Security OAuth2
+integration is enabled, the Webapps will use the configured OAuth2 provider for
+authentication.
 
-For the client registration, please refer to the official Spring Security's [OAuth2 Core Configuration][OAuth2Config] documentation to configure your choice of identity provider.
+# User Name Mapping
 
-Camunda's integration uses the **name** field from Spring Security's principal object for the user
-authentication. This needs to match the User ID in Camunda.
+Camunda's integration uses the **name** field from Spring Security's principal object as the User ID
+in the Webapps.
 
-{{< note title="Heads Up!" class="info" >}}
-At this stage, OAuth2 is only used for authentication. Meaning, that the user needs to be
-also configured with the matching User ID and proper authorizations in Camunda.
+Spring Security by default uses the subject (`sub`) claim as the principal name. As the User ID in Camunda is
+an important part for authorizations, it's important that the right claim is used. 
 
-If the user is not available or doesn't have sufficient authorizations, they won't be able to access the Webapps.
-{{< /note >}}
-
-### User Name Mapping
-
-Spring Security provides an attribute to override the default scope (`sub`) used for the username.
+Spring Security provides a way to change the default attribute used for the username.
 This is the `spring.security.oauth2.client.provider.[providerId].user-name-attribute` from the
 above-mentioned [OAuth2 Core Configuration][OAuth2Config].
 
-If you wish to use a default attribute (claim) as the username, then make sure to override the `user-name-attribute` in your application properties.
+{{< note title="Heads Up!" class="info" >}}
+Make sure to correctly configure which token attribute should be used as the User ID.
+{{< /note >}}
 
-### Initial User
+## Configuring Initial Authorizations
 
-In order to create an initial user in your application, you can either use the `camunda.bpm.admin-user` property:
+In order to create an initial authorizations in your application, you can either use the `camunda.bpm.admin-user` property:
 
 ```yaml
 camunda.bpm:
@@ -96,32 +100,33 @@ camunda.bpm:
     lastName: Demo
 ```
 
-Or the `AdministratorAuthorizationPlugin`, see [The Administrator Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}) documentation for more details. 
+See [Camunda Engine Properties]({{< ref "/user-guide/spring-boot-integration/configuration#camunda-engine-properties" >}}) documentation for more details.
 
+Or the [Administrator Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}).
 
-## OAuth2 Identity Provider
+# OAuth2 Identity Provider
 
 Additionally to the OAuth2 login, Camunda also provides support to use groups from OAuth2.
 This is achieved with a custom [identity service]({{< ref "/user-guide/process-engine/identity-service.md" >}}), called {{< javadocref page="org/camunda/bpm/spring/boot/starter/security/oauth2/impl/OAuth2IdentityProvider.html" text="OAuth2IdentityProvider" >}}
 
 This is a read-only identity provider that configures user's groups from the [Spring Security's granted authorities][Authorities].
-Additionally, the identity provider also contains the default Camunda Database Identity Service as a fallback.
+This identity provider also supports the default Camunda Database Identity Service as a fallback for authentications for the REST API.
 
-TODO add more details
-
-In order to activate this, add the following properties:
+The identity provider is activated by default. You can override this with the following properties:
 ```yaml
 camunda.bpm.oauth2:
   identity-provider:
-    enabled: true
+    enabled: false
 ```
 
-### Authorities mapping
+See [Configuration](#configuration) section for more infos.
+
+## Granted Authorities Mapper
 
 We also provide a default granted authorities mapper, that can override the Spring Security
-authorities, that are populated by default with the scope claim.
+authorities, that are by default populated with the scope (`scp`) claim.
 
-This mapper can be enabled with the `camunda.bpm.oauth2.identity-provider.group-name-attribute` property:
+This mapper can be enabled with the `group-name-attribute` property:
 ```yaml
 camunda.bpm.oauth2:
   identity-provider:
@@ -129,30 +134,151 @@ camunda.bpm.oauth2:
     group-name-attribute: cognito:groups
 ```
 
+The mapper is only activated if the property is configured.
+It supports claims with types of collection of `String`s and `String`.
+If the claim is a `String`, it will try to split it with a delimiter which is comma by default.
+You can override the default delimiter with the `group-name-delimiter` property.
+
+See [Configuration](#configuration) section for more infos.
+
+### Custom Granted Authorities Mapper
+
 Alternatively, you can also define your own [GrantedAuthoritiesMapper][GrantedAuthoritiesMapper], if you need more customization.
 
-## Security Recommendations
+In Spring Boot this can be done by registering your own `GrantedAuthoritiesMapper` bean.
+
+In Camunda Run a JAR file needs to be built and copied into the `userlib` folder.
+This needs to contain a [Spring auto configuration][AutoConfig] with the custom granted authorities mapper bean.
+
+## Configuration
+
+All configuration properties of the identity provider start with the prefix `camunda.bpm.oauth2.identity-provider`.
+The following properties are available:
+
+<table class="table table-striped">
+  <tr>
+    <th>Property</th>
+    <th>Description</th>
+    <th>Default</th>
+  </tr>
+  <tr>
+    <th>enabled</th>
+    <td>
+      Activated and deactivates the OAuth2 Identity Service registration.<br/>
+      <b>Enabled by default!</b>
+    </td>
+    <td><code>true</code></td>
+  </tr>
+  <tr>
+    <th>group-name-attribute</th>
+    <td>
+      Activates and configures the OAuth2 Granted Authorities Mapper.
+    </td>
+    <td><code>null</code></td>
+  </tr>
+  <tr>
+    <th>group-name-delimiter</th>
+    <td>
+      Configures the delimiter used in the OAuth2 Granted Authorities Mapper.
+      It's only used if the configured <code>group-name-attribute</code> contains <code>String</code> value.
+    </td>
+    <td><code>,</code> (comma)</td>
+  </tr>
+</table>
+
+## Limitations
+
+As previously mentioned, this provider is a read-only provider, so creating users, group or memberships is not available.
+Due to the fallback to DB Identity Service this provider is still defined as writeable which means the create buttons are still visible on the Admin pages, but are non-functional.
+
+OAuth2 doesn't return information about other users or groups. This means users and even admins can only see their own user and groups on the Admin pages.
+
+Furthermore, it only shows groups from OAuth2 and doesn't show groups configured in Camunda database.
+
+## Disabling Identity Provider
+
+With the [above-mentioned property](#configuration), the identity provider can be deactivated.
+Without identity provider OAuth2 is only used for authentication. This means, that the user needs to
+be also configured with the matching User ID in Camunda database.
+
+If the user is not available or doesn't have sufficient authorizations, they won't be able to access
+the Webapps.
+
+# Logout
+
+We provide support for local and client initiated SSO logout as well.
+In order to support both logouts, the Camunda integration also contains a Frontend Plugin that overrides the Webapps default logout behaviour.
+As a consequence, when the Webapp user clicks on the logout, it invokes Spring's logout endpoint (`/logout`) instead of Camunda's.
+
+## Client Initiated SSO Logout
+
+We support client initiated OIDC SSO logout.
+Please refer Spring's [OpenID Connect 1.0 Client-Initiated Logout][SSOLogout] section for more information.
+
+In order to configure this feature, use the following properties:
+
+```yaml
+camunda.bpm.oauth2:
+  sso-logout:
+    enabled: true
+    postLogoutRedirectUri: https://camunda.com/
+```
+
+See [Configuration](#configuration-1) section for more infos.
+
+## Configuration
+
+All configuration properties of the identity provider start with the prefix `camunda.bpm.oauth2.sso-logout`.
+The following properties are available:
+
+<table class="table table-striped">
+  <tr>
+    <th>Property</th>
+    <th>Description</th>
+    <th>Default</th>
+  </tr>
+  <tr>
+    <th>enabled</th>
+    <td>
+      Activated the client initiated OIDC logout feature.
+    </td>
+    <td><code>false</code></td>
+  </tr>
+  <tr>
+    <th>post-logout-redirect-uri</th>
+    <td>
+      Configures the URI the user is redirected after SSO logout from the provider.
+    </td>
+    <td><code>{baseUrl}</code></td>
+  </tr>
+</table>
+
+## Limitations
+
+Currently, it's not possible to change the default Spring logout endpoint, which is `/logout`.
+
+# Security Recommendations
 
 If you decide to use OAuth2 for login in Camunda, we highly recommend to consult and implement the current industry recommended security standards.
 Additionally, also follow the security recommendations specified by your identity provider.
 
-### Token Lifetime
+## Token Lifetime
 
-As OAuth2 works with the exchange of tokens and tokens are valid until the specified expiration (
-`exp` claim), it is inevitable that in a few cases tokens might outlive the main SSO session.
+As OAuth2 works with the exchange of tokens and tokens are valid until the specified expiration (`exp`),
+it is inevitable that in a few cases tokens might outlive the main SSO session.
 Meaning, the user might be already logged out but still have valid tokens on other pages.
 
-In order to minimize the occurrence if this, we recommend the use of short-lived access tokens along with refresh tokens.
+In order to minimize the risk of this, we recommend the use of short-lived access tokens along with
+refresh tokens.
+Refresh tokens can be revoked, and issuing new access tokens require interaction with the provider,
+which means the user session can be revalidated more frequently.
 
-TODO add some links
-? https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics
+# Disable Auto Configuration
 
+If you wish to use Spring Security but without Camunda's integration classes, you can do so by
+excluding the two auto configuration classes:
 
-## Disabling Auto Configuration
-
-If you wish to completely disable Camunda's integration, refer to Spring's [Disabling Specific Auto-configuration Classes][DisableAutoConfig] documentation.
-
-With the `@EnableAutoConfiguration` annotation:
+Either with the `@EnableAutoConfiguration` annotation:
 
 ```java
 @EnableAutoConfiguration(exclude={
@@ -171,10 +297,14 @@ spring:
       - org.camunda.bpm.spring.boot.starter.security.oauth2.CamundaBpmSpringSecurityDisableAutoConfiguration
 ```
 
+For more information, please refer to Spring's [Disabling Specific Auto-configuration Classes][DisableAutoConfig] documentation.
+
 [SpringSecurity]: https://docs.spring.io/spring-security/reference/index.html
 [SpringSecurityOAuth2]: https://docs.spring.io/spring-security/reference/servlet/oauth2/index.html
 [OAuth2Config]: https://docs.spring.io/spring-security/reference/servlet/oauth2/login/core.html
 [Authorities]: https://docs.spring.io/spring-security/reference/servlet/authorization/architecture.html
 [GrantedAuthoritiesMapper]: https://docs.spring.io/spring-security/reference/servlet/oauth2/login/advanced.html#oauth2login-advanced-map-authorities
 [DisableAutoConfig]: https://docs.spring.io/spring-boot/reference/using/auto-configuration.html#using.auto-configuration.disabling-specific
+[AutoConfig]: https://docs.spring.io/spring-boot/reference/features/developing-auto-configuration.html#features.developing-auto-configuration.locating-auto-configuration-candidates
+[SSOLogout]: https://docs.spring.io/spring-security/reference/reactive/oauth2/login/logout.html#oauth2login-advanced-oidc-logout
 
