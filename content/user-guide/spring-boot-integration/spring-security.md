@@ -276,6 +276,17 @@ refresh tokens.
 Refresh tokens can be revoked, and issuing new access tokens require interaction with the provider,
 which means the user session can be revalidated more frequently.
 
+# Logging
+
+We use debug logging for several things such as bean registrations, user authentication or logout and token authorization.
+Logging can be enabled for the package via the following property:
+
+```yaml
+logging:
+  level:
+    org.camunda.bpm.spring.boot.starter.security.oauth2: DEBUG
+```
+
 # Disable Auto Configuration
 
 If you wish to use Spring Security but without Camunda's integration classes, you can do so by
