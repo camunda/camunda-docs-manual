@@ -89,7 +89,7 @@ Make sure to correctly configure which token attribute should be used as the Use
 
 ## Configuring Initial Authorizations
 
-In order to create an initial authorizations in your application, you can either use the `camunda.bpm.admin-user` property:
+In order to create initial authorizations in your application, you can either use the `camunda.bpm.admin-user` property to create an admin user with authorizations:
 
 ```yaml
 camunda.bpm:
@@ -102,7 +102,8 @@ camunda.bpm:
 
 See [Camunda Engine Properties]({{< ref "/user-guide/spring-boot-integration/configuration#camunda-engine-properties" >}}) documentation for more details.
 
-Or the [Administrator Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}).
+Or the [Administrator Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}})
+to grant administrator authorizations for a particular OAuth2 user or group.
 
 # OAuth2 Identity Provider
 
@@ -258,6 +259,8 @@ The following properties are available:
 Currently, it's not possible to change the default Spring logout endpoint, which is `/logout`.
 
 # Security Recommendations
+
+Camunda's integration heavily relies on Spring Security's OAuth2 support.
 
 If you decide to use OAuth2 for login in Camunda, we highly recommend to consult and implement the current industry recommended security standards.
 Additionally, also follow the security recommendations specified by your identity provider.
