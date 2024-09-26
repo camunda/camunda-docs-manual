@@ -287,6 +287,44 @@ logging:
     org.camunda.bpm.spring.boot.starter.security.oauth2: DEBUG
 ```
 
+# Example
+
+In this section we provide an example configuration with OKTA as OIDC provider.
+Additionally, we also mark and explain a few lines:
+
+```yaml
+camunda.bpm.oauth2:
+ sso-logout: # 1
+   enabled: true
+   postLogoutRedirectUri: https://camunda.com/
+ identity-provider:
+   group-name-attribute: okta-groups # 2
+
+spring.security: # 3
+ oauth2:
+   client:
+     registration:
+       okta:
+         clientId: <clientId>
+         clientSecret: <clientSecret>
+         scope: openid,profile,email,offline_access # 4
+     provider:
+       okta:
+         issuerUri: <issuerUri>
+         user-name-attribute: preferred_username # 5
+```
+
+- Client initiated SSO activated, redirect uri overridden. (1)
+- Identity provider groups loaded from custom `okta-groups` claim. (2)
+  - This also needs to be configured on the provider page in order for the id token to contain the claim.
+- Uses the traditional Spring Security properties. (3)
+  - Alternatively, `okta-spring-security-oauth2` library and its properties could be used too.
+- Defines the `openid,profile,email,offline_access` scopes. (4)
+  - Scopes are provider dependent. `openid` is required usually.
+  - In case of OKTA `profile` and `email` are useful to access firstname, lastname and email in Camunda but not mandatory.
+  - `offline_access` activates the refresh_token grant, not mandatory.
+- Configures the `preferred_username` as the username attribute, which is also used as the Camunda User ID. (5)
+
 # Disable Auto Configuration
 
 If you wish to use Spring Security but without Camunda's integration classes, you can do so by
