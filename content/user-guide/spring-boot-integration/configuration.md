@@ -823,6 +823,42 @@ When setting to <code>/</code>, the legacy behavior of Camunda Spring Boot Start
 <td>-</td>
 </tr>
 
+<tr>
+  <td colspan="4">
+    <b>OAuth2</b>
+  </td>
+</tr>
+<tr>
+  <td rowspan="3"><code>camunda.bpm.oauth2.identity-provider</code></td>
+  <td><code>.enabled</code></td>
+  <td>Enables the OAuth2 identity provider.</td>
+  <td><code>true</code></td>
+</tr>
+<tr>
+  <td><code>.group-name-attribute</code></td>
+  <td>Enables and configures the OAuth2 Granted Authorities Mapper.</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td><code>.group-name-delimiter</code></td>
+  <td>
+    Configures the delimiter used in the OAuth2 Granted Authorities Mapper.
+    It's only used if the configured <code>group-name-attribute</code> contains <code>String</code> value.
+  </td>
+  <td><code>,</code> (comma)</td>
+</tr>
+<tr>
+  <td rowspan="2"><code>camunda.bpm.oauth2.sso-logout</code></td>
+  <td><code>.enabled</code></td>
+  <td>Activates the client initiated OIDC logout feature.</td>
+  <td><code>false</code></td>
+</tr>
+<tr>
+  <td><code>.post-logout-redirect-uri</code></td>
+  <td>Configures the URI the user is redirected after SSO logout from the provider.</td>
+  <td><code>{baseUrl}</code></td>
+</tr>
+
 </table>
 
 

@@ -89,20 +89,20 @@ Make sure to correctly configure which token attribute should be used as the Use
 
 ## Configuring Initial Authorizations
 
-In order to create initial authorizations in your application, you can either use the `camunda.bpm.admin-user` property to create an admin user with authorizations:
+For creating initial authorizations in your application, you have the following options available:
 
-```yaml
-camunda.bpm:
-  admin-user:
-    id: demo
-    password: demo
-    firstName: Demo
-    lastName: Demo
-```
+1. The `camunda.bpm.admin-user` property to create an admin user with authorizations:
+   ```yaml
+   camunda.bpm:
+     admin-user:
+       id: demo
+       password: demo
+       firstName: Demo
+       lastName: Demo
+   ```
 
-See [Camunda Engine Properties]({{< ref "/user-guide/spring-boot-integration/configuration#camunda-engine-properties" >}}) documentation for more details.
-
-Or the [Administrator Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}})
+  - See [Camunda Engine Properties]({{< ref "/user-guide/spring-boot-integration/configuration#camunda-engine-properties" >}}) documentation for more details.
+2. The [Administrator Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}})
 to grant administrator authorizations for a particular OAuth2 user or group.
 
 # OAuth2 Identity Provider
@@ -158,24 +158,22 @@ The following properties are available:
 
 <table class="table table-striped">
   <tr>
-    <th>Property</th>
+    <th style="min-width: 150px">Property name</th>
     <th>Description</th>
-    <th>Default</th>
+    <th style="min-width: 100px">Default value</th>
   </tr>
   <tr>
     <th>enabled</th>
     <td>
-      Activated and deactivates the OAuth2 Identity Service registration.<br/>
+      Enables the OAuth2 identity provider.<br/>
       <b>Enabled by default!</b>
     </td>
     <td><code>true</code></td>
   </tr>
   <tr>
     <th>group-name-attribute</th>
-    <td>
-      Activates and configures the OAuth2 Granted Authorities Mapper.
-    </td>
-    <td><code>null</code></td>
+    <td>Enables and configures the OAuth2 Granted Authorities Mapper.</td>
+    <td>-</td>
   </tr>
   <tr>
     <th>group-name-delimiter</th>
@@ -189,7 +187,7 @@ The following properties are available:
 
 ## Limitations
 
-As previously mentioned, this provider is a read-only provider, so creating users, group or memberships is not available.
+As previously mentioned, this provider is a read-only provider, so creating users, groups or memberships is not available.
 Due to the fallback to DB Identity Service this provider is still defined as writeable which means the create buttons are still visible on the Admin pages, but are non-functional.
 
 OAuth2 doesn't return information about other users or groups. This means users and even admins can only see their own user and groups on the Admin pages.
@@ -234,22 +232,18 @@ The following properties are available:
 
 <table class="table table-striped">
   <tr>
-    <th>Property</th>
+    <th style="min-width: 150px">Property name</th>
     <th>Description</th>
-    <th>Default</th>
+    <th style="min-width: 100px">Default value</th>
   </tr>
   <tr>
     <th>enabled</th>
-    <td>
-      Activated the client initiated OIDC logout feature.
-    </td>
+    <td>Activates the client initiated OIDC logout feature.</td>
     <td><code>false</code></td>
   </tr>
   <tr>
     <th>post-logout-redirect-uri</th>
-    <td>
-      Configures the URI the user is redirected after SSO logout from the provider.
-    </td>
+    <td>Configures the URI the user is redirected after SSO logout from the provider.</td>
     <td><code>{baseUrl}</code></td>
   </tr>
 </table>
