@@ -38,7 +38,7 @@ Camunda Run already contains the required libraries, all you need to do is to ac
 In order to enable the Spring Security OAuth2 integration in Camunda Run, start Run with an extra `--oauth2` argument:
 
 ```shell
-./start.sh --webapps --rest --example --oauth2
+./start.sh --webapps --rest --oauth2
 ```
 
 # Auto Configuration
