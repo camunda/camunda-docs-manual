@@ -91,7 +91,7 @@ Make sure to correctly configure which token attribute should be used as the Use
 
 For creating initial authorizations in your application, you have the following options available:
 
-1. The `camunda.bpm.admin-user` property to create an admin user with authorizations:
+1. The `camunda.bpm.admin-user` property to create an administrator user with authorizations:
    ```yaml
    camunda.bpm:
      admin-user:
