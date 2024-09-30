@@ -315,7 +315,7 @@ spring.security: # 3
   - Alternatively, `okta-spring-security-oauth2` library and its properties could be used too.
 - Defines the `openid,profile,email,offline_access` scopes. (4)
   - Scopes are provider dependent. `openid` is required usually.
-  - In case of OKTA `profile` and `email` are useful to access firstname, lastname and email in Camunda but not mandatory.
+  - In case of OKTA, `profile` and `email` are useful to access firstname, lastname and email in Camunda but not mandatory.
   - `offline_access` activates the refresh_token grant, not mandatory.
 - Configures the `preferred_username` as the username attribute, which is also used as the Camunda User ID. (5)
 
