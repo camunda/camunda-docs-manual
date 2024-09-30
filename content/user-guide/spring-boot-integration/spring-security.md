@@ -120,7 +120,7 @@ camunda.bpm.oauth2:
     enabled: false
 ```
 
-See [Configuration](#configuration) section for more infos.
+See [Configuration](#configuration) section for more information.
 
 ## Granted Authorities Mapper
 
