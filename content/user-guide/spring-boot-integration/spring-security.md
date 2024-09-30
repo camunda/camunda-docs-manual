@@ -140,7 +140,7 @@ It supports claims with types of collection of `String`s and `String`.
 If the claim is a `String`, it will try to split it with a delimiter which is comma by default.
 You can override the default delimiter with the `group-name-delimiter` property.
 
-See [Configuration](#configuration) section for more infos.
+See [Configuration](#configuration) section for more information.
 
 ### Custom Granted Authorities Mapper
 
@@ -223,8 +223,6 @@ camunda.bpm.oauth2:
     postLogoutRedirectUri: https://camunda.com/
 ```
 
-See [Configuration](#configuration-1) section for more infos.
-
 ## Configuration
 
 All configuration properties of the identity provider start with the prefix `camunda.bpm.oauth2.sso-logout`.
@@ -272,7 +270,7 @@ which means the user session can be revalidated more frequently.
 
 # Logging
 
-We use debug logging for several things such as bean registrations, user authentication or logout and token authorization.
+You can switch the level of the following logger to track bean registrations, user authentication or logout, and token authorizations.
 Logging can be enabled for the package via the following property:
 
 ```yaml
@@ -308,16 +306,16 @@ spring.security: # 3
          user-name-attribute: preferred_username # 5
 ```
 
-- Client initiated SSO activated, redirect uri overridden. (1)
-- Identity provider groups loaded from custom `okta-groups` claim. (2)
-  - This also needs to be configured on the provider page in order for the id token to contain the claim.
-- Uses the traditional Spring Security properties. (3)
-  - Alternatively, `okta-spring-security-oauth2` library and its properties could be used too.
-- Defines the `openid,profile,email,offline_access` scopes. (4)
-  - Scopes are provider dependent. `openid` is required usually.
-  - In case of OKTA, `profile` and `email` are useful to access firstname, lastname and email in Camunda but not mandatory.
-  - `offline_access` activates the refresh_token grant, not mandatory.
-- Configures the `preferred_username` as the username attribute, which is also used as the Camunda User ID. (5)
+1. Client initiated SSO activated, redirect uri overridden.
+2. Identity provider groups loaded from custom `okta-groups` claim.
+   - This also needs to be configured on the provider page in order for the id token to contain the claim.
+3. Uses the traditional Spring Security properties.
+   - Alternatively, `okta-spring-security-oauth2` library and its properties could be used too.
+4. Defines the `openid,profile,email,offline_access` scopes.
+   - Scopes are provider dependent. `openid` is required usually.
+   - In case of OKTA, `profile` and `email` are useful to access firstname, lastname and email in Camunda but not mandatory.
+   - `offline_access` activates the refresh_token grant, not mandatory.
+5. Configures the `preferred_username` as the username attribute, which is also used as the Camunda User ID.
 
 # Disable Auto Configuration
 
