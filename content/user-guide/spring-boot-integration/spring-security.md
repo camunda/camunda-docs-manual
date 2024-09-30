@@ -108,7 +108,7 @@ to grant administrator authorizations for a particular OAuth2 user or group.
 # OAuth2 Identity Provider
 
 Additionally to the OAuth2 login, Camunda also provides support to use groups from OAuth2.
-This is achieved with a custom [identity service]({{< ref "/user-guide/process-engine/identity-service.md" >}}), called {{< javadocref page="org/camunda/bpm/spring/boot/starter/security/oauth2/impl/OAuth2IdentityProvider.html" text="OAuth2IdentityProvider" >}}
+This is achieved with a custom [identity service]({{< ref "/user-guide/process-engine/identity-service.md" >}}), called {{< javadocref page="org/camunda/bpm/spring/boot/starter/security/oauth2/impl/OAuth2IdentityProvider.html" text="OAuth2IdentityProvider" >}}.
 
 This is a read-only identity provider that configures user's groups from the [Spring Security's granted authorities][Authorities].
 This identity provider also supports the default Camunda Database Identity Service as a fallback for authentications for the REST API.
