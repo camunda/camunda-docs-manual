@@ -34,7 +34,7 @@ Run Camunda in every Java-runnable environment. Camunda is supported with our QA
 
 * Apache Tomcat 9.0 / 10.1
 * JBoss EAP 7.4 / 8.0
-* WildFly Application Server 23.0 / 26.0 / 31.0 / 33.0
+* WildFly Application Server 23.0 / 26.0 / 33.0
 * IBM WebSphere Liberty 22 with Java EE 8 features ([Enterprise Edition only](http://camunda.com/enterprise/), 
   see [Installation guide]({{< ref "/installation/full/was/manual-liberty.md" >}}))
 * Oracle WebLogic Server 14c (14R1) ([Enterprise Edition only](http://camunda.com/enterprise/))
@@ -44,11 +44,10 @@ Run Camunda in every Java-runnable environment. Camunda is supported with our QA
 ## Supported Database Products
 
 * MySQL  8.0
-* MariaDB 10.6
 * Oracle 19c / 23ai
 * IBM DB2 11.5 (excluding IBM z/OS for all versions)
-* PostgreSQL 13 / 14 / 15 / 16
-* Amazon Aurora PostgreSQL compatible with PostgreSQL 13 / 14 / 15
+* PostgreSQL 14 / 15 / 16
+* Amazon Aurora PostgreSQL compatible with PostgreSQL 14 / 15
 * Microsoft SQL Server 2017 / 2019 / 2022 (see [Configuration Note]({{< ref "/user-guide/process-engine/database/mssql-configuration.md" >}}))
 * Microsoft Azure SQL with Camunda-supported SQL Server compatibility levels 
   (see [Configuration Note]({{< ref "/user-guide/process-engine/database/mssql-configuration.md#azure-sql-compatibility-levels-supported-by-camunda" >}})): 
