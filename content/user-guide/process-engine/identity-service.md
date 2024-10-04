@@ -376,6 +376,10 @@ The LDAP Identity Provider provides the following configuration properties:
   </tr>
 </table>
 
+# The OAuth2 Identity Service
+
+See the Spring Security OAuth2 Integration's [OAuth2 Identity Provider]({{< ref "/user-guide/spring-boot-integration/spring-security.md#oauth2-identity-provider" >}}) documentation.
+
 # Throttle login attempts
 
 A mechanism exists for preventing subsequent unsuccessful login attempts.The essence of it is that the user is not able to log in for a specific amount of time after unsuccessful login attempts.

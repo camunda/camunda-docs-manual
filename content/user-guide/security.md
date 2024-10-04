@@ -167,6 +167,10 @@ To prevent this:
 4. Don't allow to reuse an id of a deleted user.
 
 
+## Spring Security OAuth2
+
+See the Spring Security OAuth2 Integration's [Security Recommendations]({{< ref "/user-guide/spring-boot-integration/spring-security.md#security-recommendations" >}}) documentation.
+
 ## Deployments
 
 [Deployments]({{< ref "/user-guide/process-engine/deployments.md" >}}) to the process engine can contain resources that are interpreted like code:
