@@ -29,7 +29,7 @@ This document guides you through the update from Camunda `7.21.x` to `7.22.0` an
 1. For administrators and developers: [Sending telemetry feature removed](#sending-telemetry-feature-removed)
 1. For administrators: [Database transaction isolation level `READ_COMMITTED` is enforced](#database-transaction-isolation-level-read-committed-is-enforced)
 1. For developers: [Quarkus 3.14 Extension Update](#quarkus-3-14-extension-update)
-1. For administrators and developers: [Cockpit modify filter changes](#cockpit-modify-filter-changes)
+1. For administrators and developers: [Process Instance Modification Filter Changes](#process-instance-modification-filter-changes)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda 7.22.
 
@@ -297,18 +297,20 @@ To read more on how Quarkus extensions treat configuration differently, see this
 
 # Process Instance Modification Filter Changes
 
-In the Camunda Cockpit, the [Process Definition View][process-instance-modification] dialog has been updated to use the Historic API. With this change, the start date filter is now available within the workflow, while also aligning the Modify Workflow functionality with the Batch Operation API in terms of filter behavior.
+The [Process Definition View][process-instance-modification] dialog of Camunda Cockpit has been updated to use the Historic API. With this change, the `start date` filter is now available within the workflow, while also aligning the Modify Workflow functionality with the Batch Operation API in terms of filter behavior.
 
 [process-instance-modification]: {{< ref "/webapps/cockpit/bpmn/process-instance-modification.md#perform-a-batch-modification" >}}
 
-## Saved Filters No Longer Shared Between Modify Operation and Other Filters
-When filtering process instances, users have the option to save filters for future use. Previously, saved filters were incorrectly shared between the Modify Operation and other pages. With this update, filters saved in the Modify Process Instance workflow are now isolated and will not affect filters on other pages, and vice versa.
+## Saved Filters are Now Isolated
+Filters saved in the Modify Process Instance workflow were previously shared across other pages. With this update, the filters of Modify Process Instance workflow and other pages are isolated and independent of each other.
 
-IMPORTANT: After migrating to the new version of Camunda, no saved filters will be available in the Modify Process Instance workflow. Users will need to re-enter and save these filters following the migration. Please notify your users before the migration.
+{{< note title="Heads-up!" class="warning" >}}
+After migrating to the new version of Camunda, no saved filters will be available in the Modify Process Instance workflow. Users will need to re-enter and save these filters following the migration. Please notify your users before the migration.
+{{< /note >}}
 
 ## Edge Cases with Behavioral Changes
 
-- Tokens on Async Tasks: Tokens sitting on an `asyncBefore`/`asyncAfter` task will not yield process instances when using the `activityIdIn` filter, as no history has been produced yet. Filtering here is effectively racing against the job executor, and since the job executor usually processes faster than a user can apply filters, state changes can impact query results. This filter is most applicable for true wait states (e.g., user tasks, external tasks, timers) rather than transaction boundaries.
+- Tokens on Async Tasks: Tokens sitting on an `asyncBefore`/`asyncAfter` task will not yield process instances when using the `activityIdIn` filter, as no history has been produced yet. Filtering here is effectively racing against the job executor. Given the job executor usually processes faster than a user can apply filters, state changes can impact query results. This filter is most applicable for true wait states (e.g., user tasks, external tasks, timers) rather than transaction boundaries.
 
 - Compensation Scenarios: It is no longer possible to retrieve process instances with the `activityIdIn` filter on the subprocess "activity".  When using `activityIdIn` filter for compensation scenarios, users need to filter by specific flow nodes rather than the broader subprocess activities.
 
