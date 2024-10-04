@@ -297,7 +297,7 @@ To read more on how Quarkus extensions treat configuration differently, see this
 
 # Process Instance Modification Filter Changes
 
-The [Process Definition View][process-instance-modification] dialog of Camunda Cockpit has been updated to use the Historic API. With this change, the `start date` filter is now available within the workflow, while also aligning the Modify Workflow functionality with the Batch Operation API in terms of filter behavior.
+The [Process Definition View][process-instance-modification] dialog of Camunda Cockpit has been updated to use the Historic API. With this change, the `start date` filter is now available within the workflow.
 
 [process-instance-modification]: {{< ref "/webapps/cockpit/bpmn/process-instance-modification.md#perform-a-batch-modification" >}}
 
