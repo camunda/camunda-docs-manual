@@ -178,7 +178,7 @@ OR queries enable building queries in which filter criteria are linked together 
 {{< note title="Heads-up!" class="info" >}}
   - This functionality is only available for task and process instance queries (runtime & history).
   - The following methods cannot be applied to an OR query: orderBy...(), initializeFormKeys(),
-  withCandidateGroups(), withoutCandidateGroups(), withCandidateUsers(), withoutCandidateUsers().
+  withCandidateGroups(), withoutCandidateGroups(), withCandidateUsers(), withoutCandidateUsers(), incidentIdIn().
 {{< /note >}}
 
 After calling `or()`, a chain of several filter criteria could follow. Each filter criterion is linked together
