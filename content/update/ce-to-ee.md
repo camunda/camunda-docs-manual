@@ -72,9 +72,16 @@ To officially begin migrating from Camunda 7 Community Edition to the Enterprise
       <version>7.15.0-ee</version>
     </dependency>
     ```
-5. We need to tell it where to find these new dependencies. Therefore, we’ll add the location of the repository at the end of the dependencies in the `pom.xml` file as follows:
+5. We need to tell it where to find these new dependencies. Therefore, we’ll add the locations of the repositories at the end of the dependencies in the `pom.xml` file as follows:
     ```xml
     <repositories>
+      <repository>
+        <id>camunda-bpm-nexus</id>
+        <name>camunda-bpm-nexus</name>
+        <url>
+        https://artifacts.camunda.com/artifactory/public/
+        </url>
+      </repository>
       <repository>
         <id>Camunda-bpm-nexus-ee</id>
         <name>camunda-bpm-nexus</name>

@@ -22,6 +22,7 @@ This document guides you through the update from Camunda `7.21.x` to `7.22.0` an
 1. For developers: [Camunda Template Engines FreeMarker](#camunda-template-engines-freemarker)
 1. For developers: [Camunda Connect](#camunda-connect)
 1. For developers: [Camunda Connect dependency removed from `camunda-engine`](#camunda-connect-dependency-removed-from-camunda-engine)
+1. For administrators and developers: [Camunda license check dependency moved to public repository](#camunda-license-check-dependency-moved-to-public-repository)
 1. For administrators and developers: [Update to JBoss EAP 8.0](#update-to-jboss-eap-8)
 1. For administrators and developers: [Update to Tomcat 10 Server](#update-to-tomcat-10-server)
 1. For administrators and developers: [Camunda Run and Swagger Update](#camunda-run-and-swagger-update)
@@ -73,6 +74,29 @@ Before starting, ensure you have downloaded the Camunda 7.22 distribution for th
 * `camunda-connect-connectors-all`
 * `camunda-connect-http-client`
 * `camunda-connect-soap-http-client`
+
+# Camunda license check dependency moved to public repository
+
+For enterprise users, the `camunda-license-check` is no longer in the private repository. Instead, it can now be found in the public repository which you need to add to your configured repositories. Note if you are using the community edition, this does not affect you. For enterprise users, the complete repository configuration should now look like this:
+
+```xml
+<repositories>
+  <repository>
+    <id>camunda-bpm-nexus</id>
+    <name>camunda-bpm-nexus</name>
+    <url>
+    https://artifacts.camunda.com/artifactory/public/
+    </url>
+  </repository>
+  <repository>
+    <id>Camunda-bpm-nexus-ee</id>
+    <name>camunda-bpm-nexus</name>
+    <url>
+    https://camunda.jfrog.io/artifactory/private/
+    </url>
+  </repository>
+</repositories>
+```
 
 # Update to JBoss EAP 8
 
