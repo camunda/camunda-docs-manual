@@ -29,7 +29,7 @@ This document guides you through the update from Camunda `7.21.x` to `7.22.0` an
 1. For administrators and developers: [Sending telemetry feature removed](#sending-telemetry-feature-removed)
 1. For administrators: [Database transaction isolation level `READ_COMMITTED` is enforced](#database-transaction-isolation-level-read-committed-is-enforced)
 1. For developers: [Quarkus 3.14 Extension Update](#quarkus-3-14-extension-update)
-1. For administrators and developers: [Process Instance Modification Filter Changes](#process-instance-modification-filter-changes)
+1. For administrators and developers: [Cockpit: Process Instance Batch Modification](#cockpit-process-instance-batch-modification)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda 7.22.
 
@@ -295,23 +295,22 @@ For a detailed guide on the new Quarkus properties, visit the updated [Quarkus C
 
 To read more on how Quarkus extensions treat configuration differently, see this [Quarkus Migration Guide](https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.14#for-extension-developers) and the [Mapping Configuration to Objects Guide](https://quarkus.io/guides/config-mappings).
 
-# Process Instance Modification Filter Changes
+# Cockpit: Process Instance Batch Modification
 
-The [Process Definition View][process-instance-modification] dialog of Camunda Cockpit has been updated to use the Historic API. With this change, the `start date` filter is now available within the workflow.
+This release introduces changes in Cockpit when performing a [Process Instance Batch Modification][process-instance-modification]:
 
-[process-instance-modification]: {{< ref "/webapps/cockpit/bpmn/process-instance-modification.md#perform-a-batch-modification" >}}
+1. Querying for process instances now uses the historic instead of the runtime process instance query. This streamlines the query behavior with the standalone batch operation page.
+2. Users that have saved queries cannot access them anymore after the upgrade. Please inform your users to migrate their saved queries accordingly.
 
-## Saved Filters are Now Isolated
-Filters saved in the Modify Process Instance workflow were previously shared across other pages. With this update, the filters of Modify Process Instance workflow and other pages are isolated and independent of each other.
+### Reverted behavior change of the `Actvitiy ID` filter when upgrading from 7.22.0 to 7.22.1
 
 {{< note title="Heads-up!" class="warning" >}}
-After migrating to the new version of Camunda, no saved filters will be available in the Modify Process Instance workflow. Users will need to re-enter and save these filters following the migration. Please notify your users before the migration.
+After migrating to 7.22.1, the behavior of the `Activity ID` filter when batch modifying process instances will change back to the old behavior you are used to from Camunda versions <= 7.21.X.
 {{< /note >}}
 
-## Edge Cases with Behavioral Changes
+The 7.22.0 release introduced a limitation for the `Activity ID` filter: Filtering for activities marked as `asyncBefore`/`asyncAfter` with active instances didn't yield process instances when using the `Activity ID` filter.
 
-- Tokens on Async Tasks: Tokens sitting on an `asyncBefore`/`asyncAfter` task will not yield process instances when using the `activityIdIn` filter, as no history has been produced yet. Filtering here is effectively racing against the job executor. Given the job executor usually processes faster than a user can apply filters, state changes can impact query results. This filter is most applicable for true wait states (e.g., user tasks, external tasks, timers) rather than transaction boundaries.
+After some user feedback, we understood that there are use cases that cannot be catered with this limitation in place leading to undesired behavior.
+With this patch release, we lifted this limitation by opting for a different solution approach which restored the previous behavior.
 
-- Compensation Scenarios: It is no longer possible to retrieve process instances with the `activityIdIn` filter on the subprocess "activity".  When using `activityIdIn` filter for compensation scenarios, users need to filter by specific flow nodes rather than the broader subprocess activities.
-
-- Incident Deletion: When an incident is deleted, the incident filters will still return the process instances that previously had an incident. This behavior aligns with the standalone batch operation page and ensures consistency across the application.
+[process-instance-modification]: {{< ref "/webapps/cockpit/bpmn/process-instance-modification.md#perform-a-batch-modification" >}}
