@@ -18,7 +18,7 @@
 
   camDownloads.servers = {};
   {{ range $info := sort $.Page.Params.downloads.servers "weight" }}
-  camDownloads.servers['{{ $info.path }}'] = '{{ $info.name }}';{{ end }}
+  camDownloads.servers['{{ $info.id }}'] = {name:'{{ $info.name }}',path:'{{ $info.path }}'};{{ end }}
 
   camDownloads.formats = [];
   {{ range $.Page.Params.downloads.formats }}
@@ -67,7 +67,9 @@
             </div>
 
             <div class="standalone">
-              <h4>Standalone Web Application</h4>
+              <h4></h4>
+
+              <p class="hint"></p>
 
               <a class="details" href="/manual/latest/installation/standalone-webapplication">What is the Standalone Webapplication Distribution?</a>
 
