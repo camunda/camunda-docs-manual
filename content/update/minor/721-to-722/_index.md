@@ -92,7 +92,7 @@ For enterprise users, the `camunda-license-check` is no longer in the private re
     <id>Camunda-bpm-nexus-ee</id>
     <name>camunda-bpm-nexus</name>
     <url>
-    https://camunda.jfrog.io/artifactory/private/
+    https://artifacts.camunda.com/artifactory/private/
     </url>
   </repository>
 </repositories>
