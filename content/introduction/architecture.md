@@ -76,6 +76,10 @@ In a clustered setup, if users are going to login to the web applications, an ex
 
 If neither of the above approaches are implemented in a cluster setup, connections to multiple nodes - intentionally or via a load-balancing solution - will result in multiple login requests.
 
+{{< note title="Consistent hashing" class="info" >}}
+If a cookie based consistent hashing is used, make sure that the cookie name is not JSESSIONID which is used by Camunda.
+{{< /note >}}
+
 ## The Job Executor in a Clustered Environment
 
 The process engine [job executor]({{< ref "/user-guide/process-engine/the-job-executor.md" >}}) is also clustered and runs on each node. This way, there is no single point of failure as far as the process engine is concerned. The job executor can run in both [homogeneous and heterogeneous clusters]({{< ref "/user-guide/process-engine/the-job-executor.md#cluster-setups" >}}).
