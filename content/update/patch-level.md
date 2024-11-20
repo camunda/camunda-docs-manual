@@ -530,6 +530,14 @@ With this patch release, we lifted this limitation by opting for a different sol
 
 [process-instance-modification]: {{< ref "/webapps/cockpit/bpmn/process-instance-modification.md#perform-a-batch-modification" >}}
 
+### Set Variables Async API
+
+Before version 7.22.1, the Set Variables Async API failed whenever at least one of the process instances did not exist.
+
+Starting with version 7.22.1, the behavior has changed: if any of the process instances was deleted or completed, the call will still succeed. As a consequence, the Set Variables Batch Operation will also succeed in this case.
+
+Please note that this does not apply to the Sync API, which keeps its behavior and fails if the process instance does not exist.
+
 # Full Distribution
 
 This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.
