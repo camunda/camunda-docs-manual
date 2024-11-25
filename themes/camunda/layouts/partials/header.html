@@ -5,7 +5,7 @@
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  'https://ssgtm.camunda.org/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-PP9MHKW');</script>
   <!-- End Google Tag Manager -->
 
@@ -17,7 +17,7 @@
 
   <meta name="viewport" content="width=device-width" />
 
-  <meta name="description" content="documentation of the Camunda 7" />
+  <meta name="description" content="documentation of Camunda 7" />
   <meta name="keywords" content="camunda, open source, free, Apache License, Apache 2.0, workflow, BPMN, BPMN 2.0, camunda.org, bpm, BPMS, engine, platform, process, automation, community, documentation" />
   <meta name="author" content="Camunda 7 community" />
   {{ if ($.Site.Params.section.versions)}}
@@ -34,13 +34,6 @@
   {{ $styles := resources.Get "css/docs.css" | fingerprint }}
 
   <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}">
-  {{- $permalink := .Permalink }}
-  {{- if ($.Site.Params.section.versions) }}
-    {{- $latestVersion := (index $.Site.Params.section.versions 1) }}
-    {{- $replacementPattern := print "${1}" $latestVersion "/${3}" }}
-    {{- $permalink = $permalink | replaceRE `(\/manual\/)([^\/]*\/)(.*)` $replacementPattern }}
-  {{- end }}
-  <link rel="canonical" href="{{ $.Site.Params.canonicalBasePath }}{{ $permalink }}" />
 </head>
 <body class="{{ .Params.bodyclass }}">
 
@@ -50,6 +43,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
 <nav class="navbar navbar-fixed-top">
+  <div class="navbar-container navbar-top-section">
+    <span>Looking for Camunda 8? >></span>
+    <a target="_blank" href="https://docs.camunda.io/">Docs</a>
+    <a target="_blank" href="https://signup.camunda.com/accounts?utm_source=docs.camunda.org&utm_medium=referral">Create account</a>
+    <a target="_blank" href="https://console.cloud.camunda.io/">Sign-In</a>
+  </div>
   <div class="navbar-container">
     <div class="navbar-header">
       <a href="{{ if $.Site.Params.section.version }}{{.Site.BaseURL}}{{else}}/{{end}}">
