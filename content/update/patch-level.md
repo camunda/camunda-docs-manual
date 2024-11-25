@@ -538,22 +538,15 @@ Starting with version 7.22.1, the behavior has changed: if any of the process in
 
 Please note that this does not apply to the Sync API, which keeps its behavior and fails if the process instance does not exist.
 
-## 7.22.0 to 7.22.1 / 7.21.5 to 7.21.6 /  7.20.8 to 7.20.9 / 7.19.15 to 7.19.16
+## 7.22.0 to 7.22.1 / 7.21.5 to 7.21.6 /  7.20.8 to 7.20.9
 
-### XLTS for AngularJS
-
-These patches replace the long term support AngularJS libraries provided by XLTS.dev with ones provided by HeroDevs. Please see our [third-Party libraries documentation]({{< ref "/introduction/third-party-libraries/_index.md#xlts-libraries-from-herodevs" >}}) for details and the terms of the EULA.
-
-## Other XLTS libraries provided by HeroDevs
-These patches replace the following libraries with a XLTS versions provided by HeroDevs:
+### XLTS libraries provided by XLTS.dev by HeroDevs, Incl
+These patches replace the following libraries with a XLTS versions provided by XLTS.dev by HeroDevs, Incl:
 *  *angular-ui-bootstrap*
 *  *angular-translate*
 *  *angular-moment*
 *  *Bootstrap*
-
-
- Where the above libraries were licensed entirely under the MIT license, the XTLS versions are licensed under the XLTS for AngularJS – EULA (TODO). By downloading and using Camunda with these XLTS libraries, you agree to the terms of the XLTS for AngularJS – EULA(TODO). Please see our [third-Party libraries documentation]({{< ref "/introduction/third-party-libraries/_index.md#xlts-libraries-from-herodevs" >}}) for details and the terms of the EULA.
-
+ Where the above libraries were licensed entirely under the MIT license, XLTS for AngularJS licenses additional parts under the XLTS for AngularJS – EULA. By downloading and using Camunda with XLTS for AngularJS, you agree to the terms of the XLTS for AngularJS – EULA. Please see our [third-Party libraries documentation]({{< ref "/introduction/third-party-libraries/_index.md#xlts-for-angularjs" >}}) for details and the terms of the EULA.
 
 # Full Distribution
 
