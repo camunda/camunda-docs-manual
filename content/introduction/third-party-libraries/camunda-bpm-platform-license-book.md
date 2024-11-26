@@ -1432,19 +1432,47 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/xlts-dev/bower-angular">@xlts.dev/angular@1.9.3</a> (SEE LICENSE IN LICENSE.md)</summary><pre># The code in this repository is governed by two licenses
+<div><details><summary><a href="">@neverendingsupport/angularjs@1.9.7</a> (SEE LICENSE IN LICENSE.md)</summary><pre># This project contains IP governed by two licenses.
 
-Portions of the code found here was obtained from Google and is provided under
-and subject to the
-terms of the MIT License set forth below and all other portions of the code are
-original works of
-XLTS.dev and are provided subject to the terms of an end user license agreement,
-which may be
-obtained from XLTS.dev. Find more details at https://xlts.dev/angularjs.
+This project originated from the Open Source contributions of `Angular.js`,
+which is licensed under the `MIT License`. As such, all unmodified code and
+materials are subject to the terms, conditions, and any other stipulation
+associated with Angular.js's MIT License.
 
-## For code sourced from https://github.com/angular/angular.js
+All other materials, including new files or modifications to existing files
+(Updates) are original works of HeroDevs, Inc. and licensed under the HeroDevs
+NES License.
 
-The MIT License
+Access to this project, via any medium, is restricted to parties explicitly
+authorized by HeroDevs, Inc. Contact
+[support@herodevs.com](mailto:support@herodevs.com) to learn more.
+
+## HeroDevs License
+The HeroDevs NES License
+
+Copyright © 2023-present, HeroDevs, Inc. All Rights Reserved.
+
+Access to this source code is restricted, regardless of medium, to parties
+authorized by a valid commercial license. Use of this source code, as well as
+any other associated asset, is also subject to the terms and conditions of the
+Never-Ending Support program. For more information, visit
+[https://docs.herodevs.com](https://docs.herodevs.com).
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+---
+
+# Angular.js
+
+The MIT License (MIT)
 
 Copyright (c) 2010-2021 Google LLC. http://angularjs.org
 
@@ -1465,33 +1493,48 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
-## For all other code
-
-The XLTS for AngularJS Software End User License Agreement
-
-Copyright (c) 2022 XLTS.dev All Rights Reserved.
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-Use of this source code is governed by a commercial license that must be
-obtained from XLTS.dev.
-Find more details at https://xlts.dev/angularjs.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/xlts-dev/bower-angular-animate">@xlts.dev/angular-animate@1.9.3</a> (SEE LICENSE IN LICENSE.md)</summary><pre># The code in this repository is governed by two licenses
+<div><details><summary><a href="">@neverendingsupport/angularjs@1.9.7-route</a> (SEE LICENSE IN LICENSE.md)</summary><pre># This project contains IP governed by two licenses.
 
-Portions of the code found here was obtained from Google and is provided under
-and subject to the
-terms of the MIT License set forth below and all other portions of the code are
-original works of
-XLTS.dev and are provided subject to the terms of an end user license agreement,
-which may be
-obtained from XLTS.dev. Find more details at https://xlts.dev/angularjs.
+This project originated from the Open Source contributions of `Angular.js`,
+which is licensed under the `MIT License`. As such, all unmodified code and
+materials are subject to the terms, conditions, and any other stipulation
+associated with Angular.js's MIT License.
 
-## For code sourced from https://github.com/angular/angular.js
+All other materials, including new files or modifications to existing files
+(Updates) are original works of HeroDevs, Inc. and licensed under the HeroDevs
+NES License.
 
-The MIT License
+Access to this project, via any medium, is restricted to parties explicitly
+authorized by HeroDevs, Inc. Contact
+[support@herodevs.com](mailto:support@herodevs.com) to learn more.
+
+## HeroDevs License
+The HeroDevs NES License
+
+Copyright © 2023-present, HeroDevs, Inc. All Rights Reserved.
+
+Access to this source code is restricted, regardless of medium, to parties
+authorized by a valid commercial license. Use of this source code, as well as
+any other associated asset, is also subject to the terms and conditions of the
+Never-Ending Support program. For more information, visit
+[https://docs.herodevs.com](https://docs.herodevs.com).
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+---
+
+# Angular.js
+
+The MIT License (MIT)
 
 Copyright (c) 2010-2021 Google LLC. http://angularjs.org
 
@@ -1512,33 +1555,48 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
-## For all other code
-
-The XLTS for AngularJS Software End User License Agreement
-
-Copyright (c) 2022 XLTS.dev All Rights Reserved.
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-Use of this source code is governed by a commercial license that must be
-obtained from XLTS.dev.
-Find more details at https://xlts.dev/angularjs.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/xlts-dev/bower-angular-cookies">@xlts.dev/angular-cookies@1.9.3</a> (SEE LICENSE IN LICENSE.md)</summary><pre># The code in this repository is governed by two licenses
+<div><details><summary><a href="">@neverendingsupport/angularjs@1.9.7-animate</a> (SEE LICENSE IN LICENSE.md)</summary><pre># This project contains IP governed by two licenses.
 
-Portions of the code found here was obtained from Google and is provided under
-and subject to the
-terms of the MIT License set forth below and all other portions of the code are
-original works of
-XLTS.dev and are provided subject to the terms of an end user license agreement,
-which may be
-obtained from XLTS.dev. Find more details at https://xlts.dev/angularjs.
+This project originated from the Open Source contributions of `Angular.js`,
+which is licensed under the `MIT License`. As such, all unmodified code and
+materials are subject to the terms, conditions, and any other stipulation
+associated with Angular.js's MIT License.
 
-## For code sourced from https://github.com/angular/angular.js
+All other materials, including new files or modifications to existing files
+(Updates) are original works of HeroDevs, Inc. and licensed under the HeroDevs
+NES License.
 
-The MIT License
+Access to this project, via any medium, is restricted to parties explicitly
+authorized by HeroDevs, Inc. Contact
+[support@herodevs.com](mailto:support@herodevs.com) to learn more.
+
+## HeroDevs License
+The HeroDevs NES License
+
+Copyright © 2023-present, HeroDevs, Inc. All Rights Reserved.
+
+Access to this source code is restricted, regardless of medium, to parties
+authorized by a valid commercial license. Use of this source code, as well as
+any other associated asset, is also subject to the terms and conditions of the
+Never-Ending Support program. For more information, visit
+[https://docs.herodevs.com](https://docs.herodevs.com).
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+---
+
+# Angular.js
+
+The MIT License (MIT)
 
 Copyright (c) 2010-2021 Google LLC. http://angularjs.org
 
@@ -1559,33 +1617,48 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
-## For all other code
-
-The XLTS for AngularJS Software End User License Agreement
-
-Copyright (c) 2022 XLTS.dev All Rights Reserved.
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-Use of this source code is governed by a commercial license that must be
-obtained from XLTS.dev.
-Find more details at https://xlts.dev/angularjs.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/xlts-dev/bower-angular-resource">@xlts.dev/angular-resource@1.9.3</a> (SEE LICENSE IN LICENSE.md)</summary><pre># The code in this repository is governed by two licenses
+<div><details><summary><a href="">@neverendingsupport/angularjs@1.9.7-cookies</a> (SEE LICENSE IN LICENSE.md)</summary><pre># This project contains IP governed by two licenses.
 
-Portions of the code found here was obtained from Google and is provided under
-and subject to the
-terms of the MIT License set forth below and all other portions of the code are
-original works of
-XLTS.dev and are provided subject to the terms of an end user license agreement,
-which may be
-obtained from XLTS.dev. Find more details at https://xlts.dev/angularjs.
+This project originated from the Open Source contributions of `Angular.js`,
+which is licensed under the `MIT License`. As such, all unmodified code and
+materials are subject to the terms, conditions, and any other stipulation
+associated with Angular.js's MIT License.
 
-## For code sourced from https://github.com/angular/angular.js
+All other materials, including new files or modifications to existing files
+(Updates) are original works of HeroDevs, Inc. and licensed under the HeroDevs
+NES License.
 
-The MIT License
+Access to this project, via any medium, is restricted to parties explicitly
+authorized by HeroDevs, Inc. Contact
+[support@herodevs.com](mailto:support@herodevs.com) to learn more.
+
+## HeroDevs License
+The HeroDevs NES License
+
+Copyright © 2023-present, HeroDevs, Inc. All Rights Reserved.
+
+Access to this source code is restricted, regardless of medium, to parties
+authorized by a valid commercial license. Use of this source code, as well as
+any other associated asset, is also subject to the terms and conditions of the
+Never-Ending Support program. For more information, visit
+[https://docs.herodevs.com](https://docs.herodevs.com).
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+---
+
+# Angular.js
+
+The MIT License (MIT)
 
 Copyright (c) 2010-2021 Google LLC. http://angularjs.org
 
@@ -1606,33 +1679,48 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
-## For all other code
-
-The XLTS for AngularJS Software End User License Agreement
-
-Copyright (c) 2022 XLTS.dev All Rights Reserved.
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-Use of this source code is governed by a commercial license that must be
-obtained from XLTS.dev.
-Find more details at https://xlts.dev/angularjs.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/xlts-dev/bower-angular-route">@xlts.dev/angular-route@1.9.3</a> (SEE LICENSE IN LICENSE.md)</summary><pre># The code in this repository is governed by two licenses
+<div><details><summary><a href="">@neverendingsupport/angularjs@1.9.7-resource</a> (SEE LICENSE IN LICENSE.md)</summary><pre># This project contains IP governed by two licenses.
 
-Portions of the code found here was obtained from Google and is provided under
-and subject to the
-terms of the MIT License set forth below and all other portions of the code are
-original works of
-XLTS.dev and are provided subject to the terms of an end user license agreement,
-which may be
-obtained from XLTS.dev. Find more details at https://xlts.dev/angularjs.
+This project originated from the Open Source contributions of `Angular.js`,
+which is licensed under the `MIT License`. As such, all unmodified code and
+materials are subject to the terms, conditions, and any other stipulation
+associated with Angular.js's MIT License.
 
-## For code sourced from https://github.com/angular/angular.js
+All other materials, including new files or modifications to existing files
+(Updates) are original works of HeroDevs, Inc. and licensed under the HeroDevs
+NES License.
 
-The MIT License
+Access to this project, via any medium, is restricted to parties explicitly
+authorized by HeroDevs, Inc. Contact
+[support@herodevs.com](mailto:support@herodevs.com) to learn more.
+
+## HeroDevs License
+The HeroDevs NES License
+
+Copyright © 2023-present, HeroDevs, Inc. All Rights Reserved.
+
+Access to this source code is restricted, regardless of medium, to parties
+authorized by a valid commercial license. Use of this source code, as well as
+any other associated asset, is also subject to the terms and conditions of the
+Never-Ending Support program. For more information, visit
+[https://docs.herodevs.com](https://docs.herodevs.com).
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+---
+
+# Angular.js
+
+The MIT License (MIT)
 
 Copyright (c) 2010-2021 Google LLC. http://angularjs.org
 
@@ -1653,33 +1741,48 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
-## For all other code
-
-The XLTS for AngularJS Software End User License Agreement
-
-Copyright (c) 2022 XLTS.dev All Rights Reserved.
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-Use of this source code is governed by a commercial license that must be
-obtained from XLTS.dev.
-Find more details at https://xlts.dev/angularjs.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/xlts-dev/bower-angular-sanitize">@xlts.dev/angular-sanitize@1.9.3</a> (SEE LICENSE IN LICENSE.md)</summary><pre># The code in this repository is governed by two licenses
+<div><details><summary><a href="">@neverendingsupport/angularjs@1.9.7-sanitize</a> (SEE LICENSE IN LICENSE.md)</summary><pre># This project contains IP governed by two licenses.
 
-Portions of the code found here was obtained from Google and is provided under
-and subject to the
-terms of the MIT License set forth below and all other portions of the code are
-original works of
-XLTS.dev and are provided subject to the terms of an end user license agreement,
-which may be
-obtained from XLTS.dev. Find more details at https://xlts.dev/angularjs.
+This project originated from the Open Source contributions of `Angular.js`,
+which is licensed under the `MIT License`. As such, all unmodified code and
+materials are subject to the terms, conditions, and any other stipulation
+associated with Angular.js's MIT License.
 
-## For code sourced from https://github.com/angular/angular.js
+All other materials, including new files or modifications to existing files
+(Updates) are original works of HeroDevs, Inc. and licensed under the HeroDevs
+NES License.
 
-The MIT License
+Access to this project, via any medium, is restricted to parties explicitly
+authorized by HeroDevs, Inc. Contact
+[support@herodevs.com](mailto:support@herodevs.com) to learn more.
+
+## HeroDevs License
+The HeroDevs NES License
+
+Copyright © 2023-present, HeroDevs, Inc. All Rights Reserved.
+
+Access to this source code is restricted, regardless of medium, to parties
+authorized by a valid commercial license. Use of this source code, as well as
+any other associated asset, is also subject to the terms and conditions of the
+Never-Ending Support program. For more information, visit
+[https://docs.herodevs.com](https://docs.herodevs.com).
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+---
+
+# Angular.js
+
+The MIT License (MIT)
 
 Copyright (c) 2010-2021 Google LLC. http://angularjs.org
 
@@ -1700,19 +1803,232 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+</pre></details></div>
+<div><details><summary><a href="">@neverendingsupport/angularjs-essentials@1.3.0-angular-moment-1.3.2</a> (HeroDevs NES License)</summary><pre># This project contains IP governed by multiple licenses.
+This project originated from Open Source contributions and is currently licensed
+under a permissive license. As such, all unmodified code and materials are
+subject to the terms, conditions, and any other stipulation associated with the
+current license.
+All other materials, including new files or modifications to existing files
+(Updates) are original works of HeroDevs, Inc. and licensed under the HeroDevs
+NES License.
+Access to this project, via any medium, is restricted to parties explicitly
+authorized by HeroDevs, Inc. Contact
+[support@herodevs.com](mailto:support@herodevs.com) to learn more.
 
-## For all other code
+## HeroDevs License
+The HeroDevs NES License
 
-The XLTS for AngularJS Software End User License Agreement
+Copyright © 2023-present, HeroDevs, Inc. All Rights Reserved.
 
-Copyright (c) 2022 XLTS.dev All Rights Reserved.
+Access to this source code is restricted, regardless of medium, to parties
+authorized by a valid commercial license. Use of this source code, as well as
+any other associated asset, is also subject to the terms and conditions of the
+Never-Ending Support program. For more information, visit
+https://docs.herodevs.com.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+---
+
+## The MIT License (MIT)
+Copyright (c) 2013-2016 Uri Shaked and contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in
 all copies or substantial portions of the Software.
 
-Use of this source code is governed by a commercial license that must be
-obtained from XLTS.dev.
-Find more details at https://xlts.dev/angularjs.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.</pre></details></div>
+<div><details><summary><a href="">@neverendingsupport/angularjs-essentials@2.5.6-angular-ui-bootstrap-2.5.7</a> (HeroDevs NES License)</summary><pre># This project contains IP governed by multiple licenses.
+This project originated from Open Source contributions and is currently licensed
+under a permissive license. As such, all unmodified code and materials are
+subject to the terms, conditions, and any other stipulation associated with the
+current license.
+All other materials, including new files or modifications to existing files
+(Updates) are original works of HeroDevs, Inc. and licensed under the HeroDevs
+NES License.
+Access to this project, via any medium, is restricted to parties explicitly
+authorized by HeroDevs, Inc. Contact
+[support@herodevs.com](mailto:support@herodevs.com) to learn more.
+
+
+The HeroDevs NES License
+Copyright © 2023-present, HeroDevs, Inc. All Rights Reserved.
+
+Access to this source code is restricted, regardless of medium, to parties
+authorized by a valid commercial license. Use of this source code, as well as
+any other associated asset, is also subject to the terms and conditions of the
+Never-Ending Support program. For more information, visit
+https://docs.herodevs.com.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+---
+
+The MIT License
+Copyright (c) 2012-2017 the AngularUI Team,
+https://github.com/organizations/angular-ui/teams/291112
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.</pre></details></div>
+<div><details><summary><a href="">@neverendingsupport/angularjs-essentials@2.19.1-angular-translate-2.20.3</a> (HeroDevs NES License)</summary><pre># This project contains IP governed by multiple licenses.
+This project originated from Open Source contributions and is currently licensed
+under a permissive license. As such, all unmodified code and materials are
+subject to the terms, conditions, and any other stipulation associated with the
+current license.
+All other materials, including new files or modifications to existing files
+(Updates) are original works of HeroDevs, Inc. and licensed under the HeroDevs
+NES License.
+Access to this project, via any medium, is restricted to parties explicitly
+authorized by HeroDevs, Inc. Contact support@herodevs.com to learn more.
+
+
+The HeroDevs NES License
+Copyright © 2023-present, HeroDevs, Inc. All Rights Reserved.
+
+Access to this source code is restricted, regardless of medium, to parties
+authorized by a valid commercial license. Use of this source code, as well as
+any other associated asset, is also subject to the terms and conditions of the
+Never-Ending Support program. For more information, visit
+https://docs.herodevs.com.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+---
+
+The MIT License
+Copyright (c) 2013-2017 The angular-translate team and Pascal Precht
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+</pre></details></div>
+<div><details><summary><a href="https://github.com/neverendingsupport/bootstrap.git">@neverendingsupport/bootstrap@3.4.5</a> (HeroDevs NES License)</summary><pre># This project contains IP governed by two licenses.
+
+This project originated from the Open Source contributions of `Twitter` & `the
+Bootstrap community`, which is licensed under the `MIT License`. As such, all
+unmodified code and materials are subject to the terms, conditions, and any
+other stipulation associated with Bootstrap's MIT License.
+
+All other materials, including new files or modifications to existing files
+(Updates) are original works of HeroDevs, Inc. and licensed under the HeroDevs
+NES License.
+
+Access to this project, via any medium, is restricted to parties explicitly
+authorized by HeroDevs, Inc. Contact
+[support@herodevs.com](mailto:support@herodevs.com) to learn more.
+
+## HeroDevs License
+
+The HeroDevs NES License
+
+Copyright © 2023-present, HeroDevs, Inc. All Rights Reserved.
+
+Access to this source code is restricted, regardless of medium, to parties
+authorized by a valid commercial license. Use of this source code, as well as
+any other associated asset, is also subject to the terms and conditions of the
+Never-Ending Support program. For more information, visit
+[https://docs.herodevs.com](https://docs.herodevs.com).
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+---
+
+# Bootstrap
+The MIT License (MIT)
+
+Copyright (c) 2011-2019 Twitter, Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 </pre></details></div>
 <div><details><summary><a href="https://github.com/Nikku/angular-data-depend.git">angular-data-depend@1.0.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
@@ -1735,74 +2051,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="http://github.com/urish/angular-moment.git">angular-moment@1.3.0</a> (MIT)</summary><pre>The MIT License (MIT)
-
-Copyright (c) 2013-2016 Uri Shaked and contributors
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-</pre></details></div>
-<div><details><summary><a href="http://github.com/angular-translate/angular-translate">angular-translate@2.19.0</a> (MIT)</summary><pre>The MIT License (MIT)
-
-Copyright (c) 2013-2017 The angular-translate team and Pascal Precht
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-</pre></details></div>
-<div><details><summary><a href="https://github.com/angular-ui/bootstrap.git">angular-ui-bootstrap@2.5.6</a> (MIT)</summary><pre>The MIT License
-
-Copyright (c) 2012-2017 the AngularUI Team,
-https://github.com/organizations/angular-ui/teams/291112
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-</pre></details></div>
 <div><details><summary><a href="https://github.com/sindresorhus/array-move">array-move@3.0.1</a> (MIT)</summary><pre>MIT License
 
 Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
@@ -1850,28 +2098,6 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
-</pre></details></div>
-<div><details><summary><a href="https://github.com/twbs/bootstrap.git">bootstrap@3.4.1</a> (MIT)</summary><pre>The MIT License (MIT)
-
-Copyright (c) 2011-2019 Twitter, Inc.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
 </pre></details></div>
 <div><details><summary><a href="https://github.com/bpmn-io/bpmn-font">bpmn-font@0.12.1</a> (SIL)</summary><pre>Copyright (c) 2014-present, Camunda Services GmbH
 
