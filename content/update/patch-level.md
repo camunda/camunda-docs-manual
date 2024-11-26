@@ -540,7 +540,7 @@ Please note that this does not apply to the Sync API, which keeps its behavior a
 
 ### Bootstrap NES and AngularJS NES by HeroDevs, Inc.
 
-These patches replace Bootstrap NES and AngularJS NES versions provided by HeroDevs, Inc.:
+These patches replace the following libraries with versions of Bootstrap NES and AngularJS NES by HeroDevs, Inc.:
 
 * *AngularJS* (technical names: `angular`, `angular-animate`, `angular-cookies`, `angular-loader`, `angular-mocks`, `angular-resource`, `angular-route`, `angular-sanitize`, `angular-touch`)
 *  *angular-ui-bootstrap*
@@ -550,7 +550,7 @@ These patches replace Bootstrap NES and AngularJS NES versions provided by HeroD
 
 Where AngularJS, angular-ui-bootstrap, angular-translate, angular-moment, and Bootstrap were licensed entirely under the MIT license, Bootstrap NES and AngularJS NES by HeroDevs, Inc. licenses additional parts under the HeroDevs NES License. By downloading and using Camunda with Bootstrap NES and AngularJS NES by HeroDevs, Inc., you agree to the terms of the HeroDevs NES License. You can find the HeroDevs NES License terms in our [License Book]({{< ref "/introduction/third-party-libraries/camunda-bpm-platform-license-book.md" >}}).
 
-Please see our [third-Party libraries documentation]({{< ref "/introduction/third-party-libraries/_index.md#web-applications-cockpit-tasklist-admin" >}}) for details.
+Please see our [third-party libraries documentation]({{< ref "/introduction/third-party-libraries/_index.md#web-applications-cockpit-tasklist-admin" >}}) for details.
 
 # Full Distribution
 
