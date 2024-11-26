@@ -486,6 +486,22 @@ This will allow a better experience when looking for process definitions.
 The change also affects the API that provides the data for the search component.
 This API is an internal API, which means it's **not** part of the public [REST API]({{< ref "/reference/rest" >}}), so the change should not affect any customers.
 
+## 7.20.8 to 7.20.9
+
+### Bootstrap NES and AngularJS NES by HeroDevs, Inc.
+
+These patches replace the following libraries with versions of Bootstrap NES and AngularJS NES by HeroDevs, Inc.:
+
+* *AngularJS* (technical names: `angular`, `angular-animate`, `angular-cookies`, `angular-loader`, `angular-mocks`, `angular-resource`, `angular-route`, `angular-sanitize`, `angular-touch`)
+*  *angular-ui-bootstrap*
+*  *angular-translate*
+*  *angular-moment*
+*  *Bootstrap*
+
+Where AngularJS, angular-ui-bootstrap, angular-translate, angular-moment, and Bootstrap were licensed entirely under the MIT license, Bootstrap NES and AngularJS NES by HeroDevs, Inc. licenses additional parts under the HeroDevs NES License. By downloading and using Camunda with Bootstrap NES and AngularJS NES by HeroDevs, Inc., you agree to the terms of the HeroDevs NES License. You can find the HeroDevs NES License terms in our [License Book]({{< ref "/introduction/third-party-libraries/camunda-bpm-platform-license-book.md" >}}).
+
+Please see our [third-party libraries documentation]({{< ref "/introduction/third-party-libraries/_index.md#web-applications-cockpit-tasklist-admin" >}}) for details.
+
 # Full Distribution
 
 This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.
