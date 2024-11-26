@@ -10,9 +10,7 @@ menu:
 
 ---
 
-This section covers third party libraries and their use in Camunda. It provides license books (see sub pages) that list the third-party dependencies that Camunda distributes along with its code. Our license books include the library name, version, copyright notices, and licenses under which we use the library. By downloading and using Camunda 7, you agree to adhere to these licenses.
-
-For selected third-party libraries that we consider especially noteworthy, this page describes their license terms and use in the Camunda 7 artifacts.
+This section covers third party libraries and their use in Camunda. It used to provides license books that list the third-party dependencies that Camunda distributes along with its code. Starting with versions 7.20.9, 7.21.6, 7.22.1 all licenses are included in our license book.
 
 For legal reference and any other license-related aspects please refer to [Licences]({{< ref "/introduction/licenses.md" >}}).
 
