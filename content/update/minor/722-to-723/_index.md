@@ -30,7 +30,7 @@ Please note that this does not apply to the Sync API, which keeps its behavior a
 
 # Bootstrap NES and AngularJS NES by HeroDevs, Inc.
 
-Camunda 7.23.1 replaces the following libraries with versions of Bootstrap NES and AngularJS NES by HeroDevs, Inc.:
+Camunda 7.23.0 replaces the following libraries with versions of Bootstrap NES and AngularJS NES by HeroDevs, Inc.:
 
 * *AngularJS* (technical names: `angular`, `angular-animate`, `angular-cookies`, `angular-loader`, `angular-mocks`, `angular-resource`, `angular-route`, `angular-sanitize`, `angular-touch`)
 *  *angular-ui-bootstrap*
