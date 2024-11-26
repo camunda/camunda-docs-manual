@@ -22,7 +22,7 @@ Starting with versions 7.18.0-alpha2, 7.17.2, 7.16.9, 7.15.15 and up to includin
 
 You can find our rationale for using long-term support libraries in [our blog post on ensuring the long-term maintenance of Camunda 7](https://camunda.com/blog/2022/02/ensuring-continuous-support-of-angularjs-in-camunda-platform-7-17/).
 
-### Bootstrap NES and AngularJS NES by HeroDevs, Inc.
+## Bootstrap NES and AngularJS NES by HeroDevs, Inc.
 Starting with versions 7.20.9, 7.21.6, 7.22.1, and 7.23.0-alpha2 the Camunda web applications use a set of third-party libraries provided by HeroDevs, Inc.:
 
 *  *AngularJS* (technical names: `angular`, `angular-animate`, `angular-cookies`, `angular-loader`, `angular-mocks`, `angular-resource`, `angular-route`, `angular-sanitize`, `angular-touch`)
