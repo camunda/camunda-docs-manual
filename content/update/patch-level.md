@@ -515,7 +515,7 @@ The following test scenarios fail on Tomcat 10:
 * [CdiBeanCallActivityResolutionTest](https://github.com/camunda/camunda-bpm-platform/blob/f37877b822dabcbf3cee5806bd5833d18cdcb543/qa/integration-tests-engine/src/test/java/org/camunda/bpm/integrationtest/functional/cdi/CdiBeanCallActivityResolutionTest.java)
 {{< /note >}}
 
-## 7.22.0 to 7.22.1
+## 7.22.0 to 7.22.1 / 7.21.5 to 7.21.6 / 7.20.8 to 7.20.9
 
 The 7.22.0 release [replaced the runtime with the historic process instance query]({{< ref "/update/minor/721-to-722/_index.md#cockpit-process-instance-batch-modification" >}}) in Cockpit when performing a [Process Instance Batch Modification][process-instance-modification].
 
@@ -537,6 +537,20 @@ Before version 7.22.1, the Set Variables Async API failed whenever at least one 
 Starting with version 7.22.1, the behavior has changed: if any of the process instances was deleted or completed, the call will still succeed. As a consequence, the Set Variables Batch Operation will also succeed in this case.
 
 Please note that this does not apply to the Sync API, which keeps its behavior and fails if the process instance does not exist.
+
+### Bootstrap NES and AngularJS NES by HeroDevs, Inc.
+
+These patches replace the following libraries with versions of Bootstrap NES and AngularJS NES by HeroDevs, Inc.:
+
+* *AngularJS* (technical names: `angular`, `angular-animate`, `angular-cookies`, `angular-loader`, `angular-mocks`, `angular-resource`, `angular-route`, `angular-sanitize`, `angular-touch`)
+*  *angular-ui-bootstrap*
+*  *angular-translate*
+*  *angular-moment*
+*  *Bootstrap*
+
+Where AngularJS, angular-ui-bootstrap, angular-translate, angular-moment, and Bootstrap were licensed entirely under the MIT license, Bootstrap NES and AngularJS NES by HeroDevs, Inc. licenses additional parts under the HeroDevs NES License. By downloading and using Camunda with Bootstrap NES and AngularJS NES by HeroDevs, Inc., you agree to the terms of the HeroDevs NES License. You can find the HeroDevs NES License terms in our [License Book]({{< ref "/introduction/third-party-libraries/camunda-bpm-platform-license-book.md" >}}).
+
+Please see our [third-party libraries documentation]({{< ref "/introduction/third-party-libraries/_index.md#web-applications-cockpit-tasklist-admin" >}}) for details.
 
 # Full Distribution
 
