@@ -843,7 +843,7 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td>Filter</td>
     <td>Create</td>
-	<td>TaskWorker</td>
+    <td>TaskWorker</td>
     <td>
       <ul>
         <li><strong>filterId</strong>: the id of the filter that been created</li>
@@ -867,6 +867,26 @@ The following describes the operations logged in the user operation log and the 
     <td>
       <ul>
         <li><strong>filterId</strong>: the id of the filter that been deleted</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>Comment</td>
+    <td>Update</td>
+    <td>TaskWorker</td>
+    <td>
+      <ul>
+        <li><i>No additional property is logged</i></li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Delete</td>
+    <td>TaskWorker</td>
+    <td>
+      <ul>
+        <li><i>No additional property is logged</i></li>
       </ul>
     </td>
   </tr>
