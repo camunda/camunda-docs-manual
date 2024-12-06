@@ -47,14 +47,18 @@ Please see our [third-Party libraries documentation]({{< ref "/introduction/thir
 
 We are pleased to announce that the `7.23` release is compatible with `GraalVM 21.3.x`
 
-The system will automatically **disable the system property** `polyglot.engine.WarnInterpreterOnly` when a `GraalVM` **JDK** or **Compiler** is not used
-e.g in all Camunda 7 distributions (Tomcat, Wildfly, Jboss, Run).
+The engine will automatically **disable the system property** `polyglot.engine.WarnInterpreterOnly` when:
+    
+- A [GraalJS](https://www.graalvm.org/jdk17/reference-manual/js/) script engine is used (can be found in Camunda pre-packaged distributions for executing JavaScript on script tasks)
+- A `GraalVM` **JDK** or **Compiler** is not used
 
 This adjustment ensures a smoother experience by suppressing unnecessary warnings related to `interpreter-only` execution in non-native GraalVM environments
 which might cause confusion to our users running on non-GraalVM JDKs.
 
 You can read more about the warnings [here](https://www.graalvm.org/jdk17/reference-manual/js/FAQ/#warning-implementation-does-not-support-runtime-compilation).
 
+{{< note title="Heads-up!" class="info" >}}
 If you want to ensure the best performance for JS execution, you can always configure the GraalVM Compiler with your JDK of choice, or use the GraalVM JDK.
 
 More information on how to do this can be found in the official [GraalVM documentation](https://www.graalvm.org/jdk17/reference-manual/js/RunOnJDK/#graalvm-javascript-on-jdk-11).
+{{< /note >}}
