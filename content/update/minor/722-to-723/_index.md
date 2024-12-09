@@ -47,9 +47,7 @@ Please see our [third-Party libraries documentation]({{< ref "/introduction/thir
 
 We are pleased to announce that the `7.23` release is compatible with `GraalVM 21.3.x`
 
-The engine will automatically **disable the system property** `polyglot.engine.WarnInterpreterOnly` when:
-    
-- A [GraalJS](https://www.graalvm.org/jdk17/reference-manual/js/) script engine is used (can be found in Camunda pre-packaged distributions for executing JavaScript on script tasks)
+The engine will automatically **disable the system property** `polyglot.engine.WarnInterpreterOnly` when a [GraalJS](https://www.graalvm.org/jdk17/reference-manual/js/) script engine is used.
 
 This adjustment ensures a smoother experience by suppressing unnecessary warnings related to `interpreter-only` execution in non-native GraalVM environments
 which might cause confusion to our users running on non-GraalVM JDKs.
