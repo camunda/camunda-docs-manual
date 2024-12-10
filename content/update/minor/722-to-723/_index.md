@@ -17,6 +17,7 @@ This document guides you through the update from Camunda `7.22.x` to `7.23.0` an
 
 1. For developers: [Set Variables Async API](#set-variables-async-api)
 1. For administrators and developers: [Bootstrap NES and AngularJS NES by HeroDevs, Inc.](#bootstrap-nes-and-angularjs-nes-by-herodevs-inc)
+1. For administrators and developers: [GraalVM Upgrade](#graalvm-upgrade)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda 7.23.
 
@@ -41,3 +42,20 @@ Camunda 7.23.0 replaces the following libraries with versions of Bootstrap NES a
 Where AngularJS, angular-ui-bootstrap, angular-translate, angular-moment, and Bootstrap were licensed entirely under the MIT license, Bootstrap NES and AngularJS NES by HeroDevs, Inc. licenses additional parts under the HeroDevs NES License. By downloading and using Camunda with Bootstrap NES and AngularJS NES by HeroDevs, Inc., you agree to the terms of the HeroDevs NES License. You can find the HeroDevs NES License terms in our [License Book]({{< ref "/introduction/third-party-libraries/camunda-bpm-platform-license-book.md" >}}).
 
 Please see our [third-Party libraries documentation]({{< ref "/introduction/third-party-libraries/_index.md#web-applications-cockpit-tasklist-admin" >}}) for details.
+
+# GraalVM Upgrade
+
+We are pleased to announce that the `7.23` release is compatible with `GraalVM 21.3.x`
+
+The engine will automatically **disable the system property** `polyglot.engine.WarnInterpreterOnly` when a [GraalJS](https://www.graalvm.org/jdk17/reference-manual/js/) script engine is used.
+
+This adjustment ensures a smoother experience by suppressing unnecessary warnings related to `interpreter-only` execution in non-native GraalVM environments
+which might cause confusion to our users running on non-GraalVM JDKs.
+
+You can read more about the warnings [here](https://www.graalvm.org/jdk17/reference-manual/js/FAQ/#warning-implementation-does-not-support-runtime-compilation).
+
+{{< note title="Heads-up!" class="info" >}}
+If you want to ensure the best performance for JS execution, you can always configure the GraalVM Compiler with your JDK of choice, or use the GraalVM JDK.
+
+More information on how to do this can be found in the official [GraalVM documentation](https://www.graalvm.org/jdk17/reference-manual/js/RunOnJDK/#graalvm-javascript-on-jdk-11).
+{{< /note >}}
