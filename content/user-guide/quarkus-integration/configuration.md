@@ -102,7 +102,6 @@ convert any property names from `camelCase` to the `kebab-case` format, like in 
 quarkus.camunda.generic-config.cmmn-enabled=false
 quarkus.camunda.generic-config.dmn-enabled=false
 quarkus.camunda.generic-config.history=none
-quarkus.camunda.generic-config.initialize-telemetry=false
 ```
 
 ### Programmatic Configuration
