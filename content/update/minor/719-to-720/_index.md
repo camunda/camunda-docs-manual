@@ -103,14 +103,37 @@ If you are using any JUEL or expression language-related classes that formerly r
 * Classes from `org.camunda.bpm.engine.impl.javax.*` now reside in `org.camunda.bpm.impl.juel.jakarta.*`.
 * Classes from `de.odysseus.el.*` now reside in `org.camunda.bpm.impl.juel.*`.
 
-Updating to a newer expression language standard comes with some behavioral changes, the most noteworthy ones being the following:
+Updating to a newer expression language standard comes with some behavioral changes.
+We recommend testing your existing expressions thoroughly before using version 7.20.x in production and adjusting them
+according to the behavioral changes. The most noteworthy ones being the following:
 
-* Bean method invocation changes with regards to method parameters. All values, including `null` values, are converted as described in the [EL API specification](https://jakarta.ee/specifications/expression-language/4.0/jakarta-expression-language-spec-4.0.html#type-conversion). As a result, `null` values will be coerced into the type defined by the method. For example, calling `myBean.setStringAttribute(null)`, requiring a `String` parameter, now leads to `null` being coerced into an empty String `""`. Previously, the `null` value was passed on as is.
-* Method resolution is more reliable and supports overloaded methods. Method candidates are resolved by name and then matched by parameter count and types. If multiple candidates exist (overloaded methods), the most specific one is used. For example, method `myMethod` expecting an `Integer` is chosen over method `myMethod` expecting an `Object` if the provided parameter is an `Integer` or can be coerced into one. Previously, the first method candidate by name from the array returned by `Class#getMethods` was taken. However, the order of methods is not defined for that array. As a result, the wrong method was chosen and an exception was thrown due to an incompatible parameter in many cases.
-* Method invocation only works with publicly accessible members to provide a more reliable security model and honor the accessibility contracts of classes. Protected methods, private methods, and methods of private, protected, or anonymous inner classes cannot be accessed. Previously, you could invoke non-public methods as well.
-* The `ElContext` and its subclasses like `ProcessEngineElContext` throw a `NullPointerException` if a `null` value is set to it using the `#putContext` method. Previously, the context allowed to set `null` values.
+## Bean method invocation changes
 
-We recommend testing your existing expressions thoroughly before using version 7.20.x in production and adjusting them according to the beforementioned behavioral changes.
+Bean method invocation changes with regards to method parameters. All values, including `null` values, are converted as described in the [EL API specification](https://jakarta.ee/specifications/expression-language/4.0/jakarta-expression-language-spec-4.0.html#type-conversion). As a result, `null` values will be coerced into the type defined by the method. For example, calling `myBean.setStringAttribute(null)`, requiring a `String` parameter, now leads to `null` being coerced into an empty String `""`. Previously, the `null` value was passed on as is.
+
+Example:
+```
+execution.getProcessEngineServices().getHistoryService().createHistoricTaskInstanceQuery().taskId(nullableVariable).list();
+```
+
+When using the above code in an expression (e.g., in a service task), the result may be different from that of previous Camunda versions.
+Jakarta EL will treat nullableVariable as empty string when it is null. This will result in the engine looking for a
+task with id of `""` (empty string) whereas normally it would ignore the taskId parameter. This is an example of how the
+new behavior can break custom implementations when using expressions. Calling the same API with regular Java code (e.g.,
+from an external task or Java delegate) will not produce a different behavior compared to previous Camunda versions.
+The Camunda API did not change.
+
+## Overloaded methods
+
+Method resolution is more reliable and supports overloaded methods. Method candidates are resolved by name and then matched by parameter count and types. If multiple candidates exist (overloaded methods), the most specific one is used. For example, method `myMethod` expecting an `Integer` is chosen over method `myMethod` expecting an `Object` if the provided parameter is an `Integer` or can be coerced into one. Previously, the first method candidate by name from the array returned by `Class#getMethods` was taken. However, the order of methods is not defined for that array. As a result, the wrong method was chosen and an exception was thrown due to an incompatible parameter in many cases.
+
+## Changes for method invocation
+
+Method invocation only works with publicly accessible members to provide a more reliable security model and honor the accessibility contracts of classes. Protected methods, private methods, and methods of private, protected, or anonymous inner classes cannot be accessed. Previously, you could invoke non-public methods as well.
+
+## ELContext not nullable
+
+The `ElContext` and its subclasses like `ProcessEngineElContext` throw a `NullPointerException` if a `null` value is set to it using the `#putContext` method. Previously, the context allowed to set `null` values.
 
 # Explicit asset declaration in Java web app plugins
 
