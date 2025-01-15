@@ -110,7 +110,7 @@ Please also see the {{< restref page="fetchAndLock" text="REST API documentation
 
 #### Unique Worker Request
 By default, multiple workers can use the same `workerId`. In order to ensure `workerId` uniqueness on server-side, the 
-'Unique Worker Request' flag can be activated. This configuration flag effects only long-polling requests and not ordinary 
+'Unique Worker Request' flag can be activated. This configuration flag affects only long-polling requests and not ordinary 
 'Fetch and Lock' requests. If the 'Unique Worker Request' flag is activated, pending requests with the same `workerId` are 
 cancelled when a new request is received.
 
@@ -124,6 +124,22 @@ consider the following configuration snippet:
 <context-param>
   <param-name>fetch-and-lock-unique-worker-request</param-name>
   <param-value>true</param-value>
+</context-param>
+
+<!-- ... -->
+```
+
+#### Blocking Queue Capacity
+By default, the blocking queue of long-polling 'Fetch and Lock' requests has a capacity of 200, meaning that exceeding this number of requests will return an error. This value can be changed by setting the `fetch-and-lock-queue-capacity` property as a context parameter in the `engine-rest/WEB-INF/web.xml` file of the *engine-rest* artifact. If this property is absent or its value invalid, the default value will be used.
+
+Please consider the following configuration snippet:
+
+```xml
+<!-- ... -->
+
+<context-param>
+  <param-name>fetch-and-lock-queue-capacity</param-name>
+  <param-value>250</param-value>
 </context-param>
 
 <!-- ... -->
