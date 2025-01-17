@@ -194,6 +194,8 @@ OAuth2 doesn't return information about other users or groups. This means users 
 
 Furthermore, it only shows groups from OAuth2 and doesn't show groups configured in Camunda database.
 
+Tenants are also not supported with the OAuth2 identity provider.
+
 ## Disabling Identity Provider
 
 With the [above-mentioned property](#configuration), the identity provider can be deactivated.
