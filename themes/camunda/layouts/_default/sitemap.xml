@@ -5,9 +5,8 @@
   <url>
     {{- $permalink := .Permalink }}
     {{- if ($.Site.Params.section.versions) }}
-      {{- $latestVersion := (index $.Site.Params.section.versions 1) }}
-      {{- $replacementPattern := print "${1}" $latestVersion "/${3}" }}
-      {{- $permalink = $permalink | replaceRE `(\/manual\/)([^\/]*\/)(.*)` $replacementPattern }}
+      {{- $replacementPattern := print "${1}" "latest" "/${4}" }}
+      {{- $permalink = $permalink | replaceRE `(\/(manual|optimize)\/)([^\/]*\/)(.*)` $replacementPattern }}
     {{- end }}
     <loc>{{ $.Site.Params.canonicalBasePath }}{{ $permalink }}</loc>{{ if not .Lastmod.IsZero }}
     <lastmod>{{ safeHTML ( .Lastmod.Format "2006-01-02T15:04:05-07:00" ) }}</lastmod>{{ end }}{{ with .Sitemap.ChangeFreq }}
