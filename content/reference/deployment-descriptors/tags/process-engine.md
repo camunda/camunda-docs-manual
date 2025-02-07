@@ -1226,7 +1226,7 @@ The following is a list with the most commonly used process engine configuration
     <td>Boolean</td>
     <td>
         Configures whether the engine participates in history cleanup or not. The default value is <code>true</code>.
-        For more details, please see <a href="{{<ref "/user-guide/process-engine/history/history-configuration.md#cleanup-execution-participation-per-node" >}}">Cleanup Execution Participation per Node</a>
+        For more details, please see <a href="{{<ref "/user-guide/process-engine/history/history-cleanup.md#cleanup-execution-participation-per-node" >}}">Cleanup Execution Participation per Node</a>
         in the User Guide.
     </td>
   </tr>
