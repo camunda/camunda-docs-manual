@@ -123,6 +123,14 @@ The format of the export result is a file of [Comma-separated values (CSV)](http
   * `double`, `integer`, `long`, `short` (number types)
 * You can only export the value property of a variable.
 
+## Copy the IDs of selected Process Instances
+
+Sometimes incidents make it necessary for the Operations Engineer to intervene manually. To make it easier to work with a subset of Process Instances it is possible to copy the IDs of the selected Process Instances using the `Copy selected Process Instances IDs` button:
+
+{{< img src="../../img/cockpit-copy-process-instance-ids.png" title="Copy selected IDs button" >}}
+
+The selected Process Instance IDs then can be used for example to filter process instances using the [`IN` filter operator](##in-operator) or the [`Not In` filter operator](#not-in-operator).
+
 ## `IN` operator
 
 {{< img src="../../img/cockpit-in-operator.png" title="IN Operator" >}}
@@ -141,6 +149,22 @@ To use the `IN` operator, select a query criterion that supports the `IN` operat
 start editing by clicking on the value. You can expand the value in a modal dialog for easier editing by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-resize-full"></i></button> button.
 
 {{< img src="../../img/cockpit-in-operator-modal.png" title="IN Operator Modal" >}}
+
+## `NOT IN` operator
+
+{{< img src="../../img/cockpit-not-in-operator.png" title="NOT IN Operator" >}}
+Cockpit provides `NOT IN` operator support when filtering for process instances for the following query criteria:
+
+* Process instance ID
+* Process definition key
+
+Use the `NOT IN` operator to exclude any results matching one of the specified values.  
+
+By default, all search criteria are combined with a logical `AND` ([conjunctive normal form](https://en.wikipedia.org/wiki/Conjunctive_normal_form)). If you need to exclude multiple values, select a criterion that supports the `NOT IN` operator and provide them as a comma-separated list. To edit the list, click the value. For more extensive editing, click the 
+<button class="btn btn-xs"><i class="glyphicon glyphicon-resize-full"></i></button>
+button to open a modal dialog.
+
+{{< img src="../../img/cockpit-edit-not-in-criterion-modal.png" title="IN Operator Modal" >}}
 
 # Delete process definitions
 
