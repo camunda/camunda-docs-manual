@@ -123,13 +123,13 @@ The format of the export result is a file of [Comma-separated values (CSV)](http
   * `double`, `integer`, `long`, `short` (number types)
 * You can only export the value property of a variable.
 
-## Copy the ID-s of selected Process Instances
+## Copy the IDs of selected Process Instances
 
-Sometimes incidents make it necessary for the Operations Engineer to intervene manually. To make it easier to work with a subset of Process Instances it is possible to copy the ID-s of the selected Process Instances using the `Copy selected Process Instances IDs` button: 
+Sometimes incidents make it necessary for the Operations Engineer to intervene manually. To make it easier to work with a subset of Process Instances it is possible to copy the IDs of the selected Process Instances using the `Copy selected Process Instances IDs` button:
 
-{{< img src="../../img/cockpit-copy-process-instance-ids.png" title="Copy selected id-s button" >}}
+{{< img src="../../img/cockpit-copy-process-instance-ids.png" title="Copy selected IDs button" >}}
 
-The selected Process Instance ID-s then can be used for example to filter process instances using the [`IN` filter operator](##in-operator) or the [`Not In` filter operator](#not-in-operator).
+The selected Process Instance IDs then can be used for example to filter process instances using the [`IN` filter operator](##in-operator) or the [`Not In` filter operator](#not-in-operator).
 
 ## `IN` operator
 
