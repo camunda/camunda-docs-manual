@@ -186,6 +186,20 @@ Moreover, the checkbox to enable/disable the option is by default not hidden in 
 `hidden` (`true | false`) in the configuration. If the `hidden` value is configured to be false, then the checkbox
 will be hidden everywhere in Cockpit.
 
+# The `cascade` flag
+
+You can also configure the default value for the `cascade` flag by adding a `cascade` property in `app/cockpit/scripts/config.js`:
+
+```javascript
+export default {
+  cascade: {
+    default: true,
+  }
+};
+```
+
+If the value of this property is `true`, the flag's checkbox in cockpit will be selected by default. When the property is not present, the default value is `ƒalse`. This flag is used when deleting process definitions and deployments.
+
 # Runtime Activity Instance Metrics (Process Definition)
 
  ```javascript
