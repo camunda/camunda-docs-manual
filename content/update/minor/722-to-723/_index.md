@@ -64,4 +64,4 @@ More information on how to do this can be found in the official [GraalVM documen
 
 Starting with version `7.23`, the `camunda-engine` artifact now uses Spring Framework 6 by default, replacing Spring 5 from previous releases.
 
-Unlike previous versions, Spring 6 requires Java 17 or higher. If you need ot keep using Java 11, you will need to override the Spring version to keep using Spring 5.
+Unlike previous versions, Spring 6 requires Java 17 or higher. If you need to keep using Java 11, you will need to override the Spring version to keep using Spring 5.
