@@ -60,6 +60,8 @@ If you want to ensure the best performance for JS execution, you can always conf
 More information on how to do this can be found in the official [GraalVM documentation](https://www.graalvm.org/jdk17/reference-manual/js/RunOnJDK/#graalvm-javascript-on-jdk-11).
 {{< /note >}}
 
-# Spring Framework Upgrade
+# Spring Framework Upgrade (changes required when using Java 11)
 
 Starting with version `7.23`, the `camunda-engine` artifact now uses Spring Framework 6 by default, replacing Spring 5 from previous releases.
+
+Unlike previous versions, Spring 6 requires Java 17 or higher. If you need to keep using Java 11, you will need to override the Spring version to keep using Spring 5.
