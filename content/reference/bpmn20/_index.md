@@ -194,6 +194,14 @@ The elements marked in <span class="label label-warning label-implemented">orang
           <span class="glyphicon glyphicon-eye-open"></span>
         </a>
       </div>
+    <div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="110" height="90" style="overflow:hidden;position:relative;left:-.25px">
+            <rect width="100" height="80" x="5" y="5" fill="#fff" stroke="#333" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" rx="5" ry="5" style="stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"></rect>
+            <path d="M55 80c3.527 0 6.386-2.83 6.386-6.32S58.527 67.358 55 67.358s-6.386 2.83-6.386 6.32c0 1.746.715 3.326 1.87 4.47a6.4 6.4 0 0 0 2.03 1.354l-.718-3.91m.718 3.91-3.885.803" data-marker="loop" style="fill:#fff;stroke-width:1;stroke:#333;stroke-linecap:round;stroke-miterlimit:0.5"></path>
+            <text x="55" y="45" fill="#333" font-family="Arial, Helvetica, sans-serif" font-size="12" style="text-anchor:middle;font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:12px;line-height:normal;font-family:Arial,Helvetica,sans-serif" text-anchor="middle">
+            <tspan dy="4">Loop</tspan></text>
+        </svg>
+    </div>
       <div class="bpmn-symbol-container">
         <svg height="90" version="1.1" width="110" xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: relative; left: -0.25px;">
           <rect x="5" y="5" width="100" height="80" r="5" rx="5" ry="5" fill="#ffffff" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" style="stroke-linecap: round; stroke-linejoin: round; stroke-opacity: 1;"></rect>
