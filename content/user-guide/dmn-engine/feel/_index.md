@@ -23,7 +23,7 @@ You can use the Expression Language in the following DMN Notation Elements:
 * [Literal Expressions]
 
 This documentation covers everything integration-specific about the 
-[FEEL Scala Engine][] (opens external link) in the Camunda DMN Engine.
+[FEEL Scala Engine][] (opens external link) in the Camunda DMN Engine. To see how FEEL can be used in other BPMN elements, visit: [Friendly Enough Expression Language guide]({{< ref "/user-guide/process-engine/expression-language/friendly-enough-expression-language.md" >}})
 
 {{< note title="Heads Up!" class="info" >}}
 If you come from a Camunda 7 version <= 7.12.x and already use FEEL, 
