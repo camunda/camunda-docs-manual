@@ -395,7 +395,7 @@ The available properties are as follows:
 
 <tr>
 <td><code>.type</code></td>
-<td>Type of the underlying database. Possible values: <code>h2</code>, mysql, mariadb, oracle, postgres, mssql, db2.</td>
+<td>Type of the underlying database. Possible values: <code>h2</code>, mysql, oracle, postgres, mssql, db2.</td>
 <td>Will be automatically determined from datasource</td>
 </tr>
 
