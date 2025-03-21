@@ -59,7 +59,7 @@ In the BPMN XML of a process definition, a service task can be declared to be pe
   camunda:topic="AddressValidation" />
 ```
 
-It is possible to define the topic name by using an [expression]({{< ref "/user-guide/process-engine/expression-language.md" >}}) instead of a constant value.
+It is possible to define the topic name by using an [expression]({{< ref "/user-guide/process-engine/expression-language/_index.md" >}}) instead of a constant value.
 
 In addition, other *service-task-like* elements such as send tasks, business rule tasks, and throwing message events can be implemented with the external task pattern. See the [BPMN 2.0 implementation reference]({{< ref "/reference/bpmn20/_index.md" >}}) for details.
 
@@ -85,7 +85,7 @@ The expression is evaluated on invocations of `ExternalTaskService#complete` and
 </serviceTask>
 ```
 
-Further information on the functionality of error event definitions on external tasks can be found in the [expression language user guide]({{< ref "/user-guide/process-engine/expression-language.md#external-task-error-handling" >}}).
+Further information on the functionality of error event definitions on external tasks can be found in the [expression language user guide]({{< ref "/user-guide/process-engine/expression-language/unified-expression-language.md#external-task-error-handling" >}}).
 
 ## Rest API
 
@@ -278,7 +278,7 @@ External task priorities can be specified in the BPMN model as well as overridde
 
 External task priorities can be assigned at the process or the activity level. To achieve this, the Camunda extension attribute `camunda:taskPriority` can be used.
 
-For specifying the priority, both constant values and [expressions]({{< ref "/user-guide/process-engine/expression-language.md" >}}) are supported. 
+For specifying the priority, both constant values and [expressions]({{< ref "/user-guide/process-engine/expression-language/_index.md" >}}) are supported. 
 When using a constant value, the same priority is assigned to all instances of the process or activity. 
 Expressions, on the other hand, allow assigning a different priority to each instance of the process or activity. Expression must evaluate to a number in the Java `long` range.
 The concrete value can be the result of a complex calculation and be based on user-provided data (resulting from a task form or other sources).

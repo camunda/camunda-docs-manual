@@ -145,7 +145,7 @@ Additionally, you can find out more about logging in the [Logging User Guide]({{
 
 # Adjusted class structure for Expression Language handling
 
-To provide a more convenient pluggability of the [Unified Expression Language (EL)]({{< ref "/user-guide/process-engine/expression-language.md" >}}) used in the engine, the structure of related classes changes with Camunda 7.18.
+To provide a more convenient pluggability of the [Unified Expression Language (EL)]({{< ref "/user-guide/process-engine/expression-language/unified-expression-language.md" >}}) used in the engine, the structure of related classes changes with Camunda 7.18.
 The `ExpressionManager` class is now a Java `Interface` that needs to be implemented to provide a custom expression manager for the EL of your choice. If you still want to extend the default JUEL-based expression manager, you can subclass the new `JuelExpressionManager` class.
 
 Additionally, if you want your custom expression manager to be available in the DMN Engine, you can implement the new `ElProviderCompatible` interface in your expression manager as well.

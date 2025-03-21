@@ -92,7 +92,7 @@ For more information, checkout the new parameter description under <a href="{{< 
 
 # Explicit JUEL module on Jakarta Expression Language 4
 
-Camunda supports using small script-like expressions in many locations as described in our [Expression Language guide]({{< ref "/user-guide/process-engine/expression-language.md" >}}). Up to version 7.19.x, this support is based on a JSP 2.1 standard-compliant implementation of the open source library [JUEL](http://juel.sourceforge.net/). The source code of that library is embedded into and distributed with our core `camunda-engine` artifact.
+Camunda supports using small script-like expressions in many locations as described in our [Unified Expression Language guide]({{< ref "/user-guide/process-engine/expression-language/unified-expression-language.md" >}}). Up to version 7.19.x, this support is based on a JSP 2.1 standard-compliant implementation of the open source library [JUEL](http://juel.sourceforge.net/). The source code of that library is embedded into and distributed with our core `camunda-engine` artifact.
 
 With this version, we removed that source code from the core artifact and created a dedicated library called `camunda-juel`. This library is based on the [Jakarta Expression Language 4.0 specification](https://jakarta.ee/specifications/expression-language/4.0), a successor of the JSP 2.1 standard. This allows us to benefit from the many improvements that have been incorporated into the expression language API since the creation of the JSP 2.1 standard. The new expression language API is integrated into the Camunda JUEL library and relocated inside it to avoid any classpath pollution related to the official Jakarta Expression Language API that might be present in your environment.
 

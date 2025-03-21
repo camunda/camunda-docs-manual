@@ -42,7 +42,7 @@ To specify when a conditional event should be triggered, a `condition` element m
 ```
 
 The specified condition can be an EL expression and has access to the process instance variables.
-For information about EL expressions, see the [Expression Language]({{< ref "/user-guide/process-engine/expression-language.md">}})
+For information about EL expressions, see the [Expression Language]({{< ref "/user-guide/process-engine/expression-language/_index.md">}})
 section. A condition is evaluated every time a variable changes, see the [Trigger Conditional Events]({{< relref "#trigger-conditional-events">}}) section for details.
 
 To prevent the continuous evaluation of a condition, the evaluation can be restricted to specific variable changes.
