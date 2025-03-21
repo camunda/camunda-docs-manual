@@ -68,7 +68,7 @@ Note that Camunda does not ship with a library that allows to define such a data
 
 The following properties can be set, regardless of whether you are using the JDBC or data source approach:
 
-* `databaseType`: It's normally not necessary to specify this property as it is automatically analyzed from the database connection meta data. Should only be specified in case automatic detection fails. Possible values: {h2, mysql, oracle, postgres, mssql, db2, mariadb}. This setting will determine which create/drop scripts and queries will be used. See the 'supported databases' section for an overview of which types are supported.</li>
+* `databaseType`: It's normally not necessary to specify this property as it is automatically analyzed from the database connection meta data. Should only be specified in case automatic detection fails. Possible values: {h2, mysql, oracle, postgres, mssql, db2}. This setting will determine which create/drop scripts and queries will be used. See the 'supported databases' section for an overview of which types are supported.</li>
 * `databaseSchemaUpdate`: Allows to set the strategy to handle the database schema on process engine boot and shutdown.
   * `true` (default): Upon building the process engine, a check is performed whether the Camunda tables exist in the database. If they don't exist, they are created. It must be ensured that the version of the DB schema matches the version of the process engine library, unless performing a [Rolling Update]({{< ref "/update/rolling-update.md" >}}). Updates of the database schema have to be done manually as described in the [Update and Migration Guide]({{< ref "/update/_index.md" >}}).
   * `false`: Does not perform any checks and assumes that the Camunda table exist in the database. It must be ensured that the version of the DB schema matches the version of the process engine library, unless performing a [Rolling Update]({{< ref "/update/rolling-update.md" >}}). Updates of the database schema have to be done manually as described in the [Update and Migration Guide]({{< ref "/update/_index.md" >}}).
@@ -86,7 +86,6 @@ Here are some sample JDBC urls:
 * PostgreSQL: `jdbc:postgresql://localhost:5432/camunda`
 * DB2: `jdbc:db2://localhost:50000/camunda`
 * MSSQL: `jdbc:sqlserver://localhost:1433/camunda`
-* MariaDB: `jdbc:mariadb://localhost:3306/camunda`
 
 
 ## Additional Database Schema Configuration
