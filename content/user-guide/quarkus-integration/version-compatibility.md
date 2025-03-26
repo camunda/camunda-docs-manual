@@ -42,6 +42,10 @@ Only these default combinations are recommended (and supported) by Camunda.
   <tr>
     <td>7.22.x</td>
     <td>3.15.x</td>
+  </tr>  
+  <tr>
+    <td>7.23.x</td>
+    <td>3.20.x</td>
   </tr>
 </table>
 
