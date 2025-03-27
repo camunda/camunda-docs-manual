@@ -170,7 +170,7 @@ The example defines five custom fields, each mapped to different technical prope
 
 All but the _Implementation Type_ are editable by the user through the properties panel as shown in the following screenshot:
 
-![Custom Fields](./img/c7-defining-templates/custom-fields.png)
+![Custom Fields](../img/c7-defining-templates/custom-fields.png)
 
 As seen in the example, the important attributes in a property definition are:
 
@@ -188,7 +188,7 @@ The input types `String`, `Text`, `Boolean`, `Dropdown`, and `Hidden` are availa
 
 The `Boolean` type maps to a checkbox that can be toggled by the user. It renders as shown below:
 
-![Boolean / Checkbox control](./img/c7-defining-templates/field-boolean.png)
+![Boolean / Checkbox control](../img/c7-defining-templates/field-boolean.png)
 
 When checked, it maps to `true` in the respective field (refer to [bindings](#bindings)). Note that it does not map to `${true}` and can therefore not be used e.g., for mapping a boolean to a process variable.
 
@@ -216,7 +216,7 @@ The `Dropdown` type allows users to select from a number of pre-defined options 
 
 The resulting properties panel control looks like this:
 
-![properties panel drop down](./img/c7-defining-templates/field-dropdown.png)
+![properties panel drop down](../img/c7-defining-templates/field-dropdown.png)
 
 #### Omitted type
 
@@ -224,13 +224,13 @@ By omitting the `type` configuration, the default UI component is rendered for t
 
 For `camunda:inputParameter` and `camunda:outputParameter` bindings an input/output parameter mapping component is rendered. The component includes a toggle to enable or disable the `Variable Assignment`. When untoggling, the respective `camunda:inputParameter` or `camunda:outputParameter` element will not be created in the BPMN XML.
 
-![default-rendering](./img/c7-defining-templates/default-rendering.png)
+![default-rendering](../img/c7-defining-templates/default-rendering.png)
 
 Note that the configuration options `editable` and `constraints` have no effect for the `camunda:inputParameter` and `camunda:outputParameter` default component.
 
 For `camunda:errorEventDefinition` bindings, an error component is rendered. The component will include all properties of the referenced `bpmn:Error` element.
 
-![default-errors-rendering](./img/c7-defining-templates/default-errors-rendering.png)
+![default-errors-rendering](../img/c7-defining-templates/default-errors-rendering.png)
 
 Note that the configuration options `editable` and `constraints` have no effect for the `camunda:errorEventDefinition` default component.
 
@@ -360,7 +360,7 @@ The example shows how a Connector is configured as part of the task.
 On task creation, the Connector is created with it and the Connector bindings are
 exposed to the user in a separate custom fields section.
 
-![Scoped Custom Fields](./img/c7-defining-templates/scope-custom-fields.png)
+![Scoped Custom Fields](../img/c7-defining-templates/scope-custom-fields.png)
 
 #### Supported scopes
 
@@ -424,7 +424,7 @@ Associate a field with a group (ID) via the fields `group` key:
 }
 ```
 
-![Groups](./img/c7-defining-templates/groups.png)
+![Groups](../img/c7-defining-templates/groups.png)
 
 ### Constraints
 
@@ -507,4 +507,4 @@ Per default, the element template defines the visible entries of the properties 
 ]
 ```
 
-![Display default entries](./img/c7-defining-templates/entries-visible.png)
+![Display default entries](../img/c7-defining-templates/entries-visible.png)
