@@ -5,8 +5,8 @@ weight: 30
 
 menu:
   main:
-    identifier: "user-guide-process-engine-history-time-to-live"
-    parent: "user-guide-process-engine-history-time-to-live"
+    identifier: "history-time-to-live"
+    parent: "modeler"
 
 ---
 
