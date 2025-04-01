@@ -18,6 +18,8 @@ This document guides you through the update from Camunda `7.22.x` to `7.23.0` an
 1. For developers: [Set Variables Async API](#set-variables-async-api)
 1. For administrators and developers: [Bootstrap NES and AngularJS NES by HeroDevs, Inc.](#bootstrap-nes-and-angularjs-nes-by-herodevs-inc)
 1. For administrators and developers: [GraalVM Upgrade](#graalvm-upgrade)
+1. For administrators and developers: [Spring Framework Upgrade (changes required when using Java 11)](#spring-framework-upgrade-changes-required-when-using-java-11)
+1. For administrators and developers: [Quarkus 3.20 Extension Update](#quarkus-3-20-extension-update)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda 7.23.
 
@@ -65,3 +67,6 @@ More information on how to do this can be found in the official [GraalVM documen
 Starting with version `7.23`, the `camunda-engine` artifact now uses Spring Framework 6 by default, replacing Spring 5 from previous releases.
 
 Unlike previous versions, Spring 6 requires Java 17 or higher. If you need to keep using Java 11, you will need to override the Spring version to keep using Spring 5.
+
+# Quarkus 3.20 Extension Update
+The Camunda Quarkus extension has been updated to use Quarkus 3.20. This version brings its own features and changes. For a complete list, see the [Quarkus 3.20 LTS release blog post](https://quarkus.io/blog/quarkus-3-20-0-released/).
