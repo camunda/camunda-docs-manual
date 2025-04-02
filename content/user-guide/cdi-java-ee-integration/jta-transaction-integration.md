@@ -20,7 +20,6 @@ To use transaction manager integration, you need to use the
 * `org.camunda.bpm.engine.cdi.CdiJtaProcessEngineConfiguration` for additional CDI expression resolution support.
   
 The process engine requires access to an implementation of `javax.transaction.TransactionManager` or `jakarta.transaction.TransactionManager` respectively.
-Not all application servers provide such an implementation.
 To achieve JTA transaction integration on these containers, users should use the Spring Framework Abstraction and configure the process engine using the 
 [SpringProcessEngineConfiguration]({{< ref "/user-guide/spring-framework-integration/_index.md">}}).
   
