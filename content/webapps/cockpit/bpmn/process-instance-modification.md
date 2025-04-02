@@ -47,6 +47,14 @@ When canceling activity instances you can select the instances of the activity y
 
 When canceling all instances of an activity using the {{< glyphicon name="plus-sign" text=" All">}} button, all instances which exist at the moment this instruction is executed will be canceled. This will also cancel instances which were created in the same modification (e.g., using a startBefore instruction before the cancel instruction). In most cases, you probably want to explicitly state the instances to cancel.
 
+{{< img src="../../img/cockpit-modification-cancel-in-progress.png" title="Cancellation Modification in progress" >}}
+
+During the activity cancellation process, an orange badge in the top left corner of the activity indicates how many activity instances will be affected by this modification.
+
+{{< img src="../../img/cockpit-modification-cancel-done.png" title="Cancellation Modification done" >}}
+
+Once the cancellation was successful, an orange badge in the lower right hand corner of the activity indicates the number of instances that were cancelled.
+
 
 ## Start New Activity Instances
 
