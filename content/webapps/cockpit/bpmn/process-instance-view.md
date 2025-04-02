@@ -31,7 +31,7 @@ The activity instance tree contains a node for each activity that is currently a
 
 {{< img src="../../img/cockpit-call-activity-instance-drill-down.png" title="Call Activity Drill Down" >}}
 
-Call activity instances that call at least one process instance have an overlay on the upper right corner that links to their called process instances.
+Call activity instances that call at least one process instance have an overlay on the lower right corner that links to their called process instances.
 
 
 If the call activity instance calls exactly one process instance, then clicking the overlay redirects to the called process instance page.
