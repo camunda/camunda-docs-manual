@@ -158,7 +158,7 @@ In the above example the priority is determined based on the property `status` o
 #### Resolution Context of Priority Expressions
 
 This section explains which context variables and functions are available when evaluating priority expressions.
-For some general documentation on this, see the corresponding [documentation section]({{< ref "/user-guide/process-engine/expression-language/_index.md#availability-of-variables-and-functions-inside-expression-language" >}}).
+For some general documentation on this, see the corresponding [documentation section]({{< ref "/user-guide/process-engine/expression-language/unified-expression-language.md#availability-of-variables-and-functions-inside-expression-language" >}}).
 
 All priority expressions are evaluated in the context of an existing execution. This means that variable `execution` is implicitly defined as well as all of the execution's variables by their name.
 

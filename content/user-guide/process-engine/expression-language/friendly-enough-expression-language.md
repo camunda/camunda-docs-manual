@@ -60,7 +60,7 @@ Within Camunda 7, FEEL can be used in many circumstances to evaluate small scrip
   </tr>
 </table>
 
-In contrast to the [Unified Expression Language]({{< ref "/user-guide/process-engine/expression-language/unified-expression-language.md" >}}) FEEL does not support `Expression language as delegation code` and does not provide access to beans and Internal Context Variables. This steams from FEEL's nature of being Side-effect free.
+In contrast to the [Unified Expression Language]({{< ref "/user-guide/process-engine/expression-language/unified-expression-language.md" >}}) FEEL does not support `Expression language as delegation code` and does not provide access to beans and internal context variables. This steams from FEEL's nature of being Side-effect free.
 
 # Usage of Expression Language
 
@@ -139,14 +139,7 @@ called in expressions and unary tests.
 To learn more visit the <a href="{{< ref "/user-guide/dmn-engine/feel/custom-functions" >}}">FEEL Engine Custom Functions</a> page.
 
 ## Built-In Camunda Spin Functions
-To learn how Camunda Spin can be used together with the Scala FEEL Engine visit the <a href="{{< ref "/user-guide/dmn-engine/feel/type-handling.md" >}}">FEEL Engine Spin Integration</a> page.
+To learn how Camunda Spin can be used together with the Scala FEEL Engine visit the <a href="{{< ref "/user-guide/dmn-engine/feel/type-handling.md#spin-types" >}}">FEEL Engine Spin Integration</a> page.
 
-[JakartaEL]: https://jakarta.ee/specifications/expression-language/4.0/
-[JUEL]: http://juel.sourceforge.net/
-[official documentation]: https://jakarta.ee/specifications/expression-language/4.0/jakarta-expression-language-spec-4.0.html
-[variables]: {{< relref "#availability-of-variables-and-functions-inside-expression-language" >}}
-[Spring]: {{< ref "/user-guide/spring-framework-integration/_index.md#expression-resolving" >}}
-[CDI]: {{< ref "/user-guide/cdi-java-ee-integration/expression-resolving.md" >}}
 [BPMN]: {{< ref "/reference/bpmn20/_index.md" >}}
 [CMMN]: {{< ref "/reference/cmmn11/_index.md" >}}
-[spin-section]: {{< ref "/user-guide/data-formats/_index.md" >}}
