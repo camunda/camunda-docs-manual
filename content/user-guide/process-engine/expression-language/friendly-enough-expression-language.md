@@ -9,6 +9,10 @@ menu:
 
 ---
 
+{{< note title="FEEL Support Limitation" class="warning" >}}
+Please note that the WildFly and JBoss application servers do not support FEEL outside of DMN execution in Camunda 7.
+{{< /note >}}
+
 ​The Friendly Enough Expression Language (FEEL) is specified within the Decision Model and Notation (DMN) standard by the Object Management Group (OMG). FEEL has the following features:
 
 - Side-effect free
