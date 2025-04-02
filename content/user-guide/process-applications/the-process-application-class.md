@@ -14,7 +14,7 @@ You can delegate the bootstrapping of the process engine and process deployment 
 
 * **ServletProcessApplication**: To be used for process applications in a Servlet container like Apache Tomcat.
 * **JakartaServletProcessApplication**: To be used for process applications in a Jakarta Servlet 5.0+ container like WildFly 27 and above.
-* **EjbProcessApplication**: To be used in a Java EE application server like IBM WebSphere Application Server.
+* **EjbProcessApplication**: To be used in a Java EE application server.
 * **JakartaEjbProcessApplication**: To be used in a Jakarta EE 9+ application server like Wildfly 27+.
 * **EmbeddedProcessApplication**: To be used when embedding the process engine in an ordinary Java SE application.
 * **SpringProcessApplication**: To be used for bootstrapping the process application from a Spring Application Context.

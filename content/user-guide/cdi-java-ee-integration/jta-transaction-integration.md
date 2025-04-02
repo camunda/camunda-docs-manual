@@ -20,7 +20,7 @@ To use transaction manager integration, you need to use the
 * `org.camunda.bpm.engine.cdi.CdiJtaProcessEngineConfiguration` for additional CDI expression resolution support.
   
 The process engine requires access to an implementation of `javax.transaction.TransactionManager` or `jakarta.transaction.TransactionManager` respectively.
-Not all application servers provide such an implementation. Most notably, IBM WebSphere and Oracle WebLogic historically did not provide this  implementation.
+Not all application servers provide such an implementation.
 To achieve JTA transaction integration on these containers, users should use the Spring Framework Abstraction and configure the process engine using the 
 [SpringProcessEngineConfiguration]({{< ref "/user-guide/spring-framework-integration/_index.md">}}).
   
@@ -32,7 +32,7 @@ To achieve JTA transaction integration on these containers, users should use the
 
 ## Shared Process Engine
 
-The shared process engine distributions for Java EE and Jakarta EE Application Servers (Wildfly, JBoss EAP, IBM WebSphere Application Server, Oracle WebLogic Application Server)
+The shared process engine distributions for Java EE and Jakarta EE Application Servers (Wildfly, JBoss EAP)
 provide JTA or Jakarta Transactions integration out of the box.
 
 ## Example
@@ -57,18 +57,3 @@ public class MyBean {
 
 }
 ```
-
-## Using JTA transaction integration with WebSphere Liberty
-
-Camunda 7 allows to mark a transaction as "rollback only" by calling `UserTransaction#setRollbackOnly()`.
-If this code is executed within a Camunda 7 Job, the Job is marked as failed, and can be retried.
-
-WebSphere Liberty doesn't support this behavior of Camunda 7. When calling `UserTransaction#setRollbackOnly()`
-in WebSphere Liberty, the transaction is rolled back silently, and the Camunda process engine is unable to unlock the
-job and decrease the job retry count.
-
-As a workaround, you can throw a `RuntimeException` after invoking the `UserTransaction#setRollbackOnly()`. The Camunda
-process engine will catch this `Exception` and handle the transaction rollback inside a job correctly.
-
-For more details on the WebSphere Liberty Camunda 7 integration, check
-out the [WebSphere Liberty installation guide]({{< ref "/installation/full/was/manual-liberty.md" >}}) section.

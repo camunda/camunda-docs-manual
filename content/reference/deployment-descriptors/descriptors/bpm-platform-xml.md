@@ -15,8 +15,6 @@ The `bpm-platform.xml` file is part of the Camunda 7 distribution and can be use
 It is used to configure Camunda 7 in the following distributions:
 
 *   [Apache Tomcat]({{< ref "/installation/full/tomcat/_index.md" >}})
-*   [IBM WebSphere Application Server]({{< ref "/installation/full/was/_index.md" >}})
-*   [Oracle WebLogic Application Server]({{< ref "/installation/full/wls/_index.md" >}})
 
 {{< note title="Wildfly" class="warning">}}
 The <code>bpm-platform.xml</code> file is not used in the Camunda 7 distribution for Wildfly. There, the configuration is added to the central application server configuration file (<code>standalone.xml</code> or <code>domain.xml</code>). The XML schema is the same (i.e., the same elements and properties can be used). See the <a href="{{< ref "/user-guide/runtime-container-integration/jboss.md" >}}">The Camunda Wildfly Subsystem</a> section of the <a href="{{< ref "/user-guide/_index.md" >}}">User Guide</a> for more details.
@@ -94,8 +92,6 @@ You can configure the location of the `bpm-platform.xml`, so the file can be sto
 This feature is available for:
 
 *   [Apache Tomcat]({{< ref "/installation/full/tomcat/_index.md" >}})
-*   [IBM WebSphere Application Server]({{< ref "/installation/full/was/_index.md" >}})
-*   [Oracle WebLogic Application Server]({{< ref "/installation/full/wls/_index.md" >}})
 
 It is not available for the Wildfly subsystem implementation, because the subsystem implementation uses the JBoss specific `standalone.xml` to configure the platform.
 
