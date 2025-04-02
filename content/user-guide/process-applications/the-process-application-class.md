@@ -87,7 +87,7 @@ In that case you only get servlet specification guarantees.
   The mechanisms described herein for the `EjbProcessApplication` apply in the same way.
 {{< /note >}}
 
-**Supported on:** Wildfly. The `EjbProcessApplication` is supported on Java EE 6 to Java EE 8 containers like WildFly 26 and below.
+**Supported on:** Wildfly. The `EjbProcessApplication` is supported on Java EE 6 to Java EE 8 containers.
 The `JakartaEjbProcessApplication` is supported on Jakarta EE 9+ containers like WildFly 27 and above.
 It is not supported on Servlet Containers like Apache Tomcat. It may be adapted to work inside Java EE 5 Containers.
 
