@@ -22,7 +22,6 @@ Please note that the WildFly and JBoss application servers do not support FEEL o
 
 See the [official specification](https://www.omg.org/spec/DMN/1.0/PDF).
 
-
 Within Camunda 7, FEEL can be used in many circumstances to evaluate small script-like expressions. The following table provides an overview of the BPMN elements which support usage of FEEL.
 
 <table class="table desc-table">
@@ -116,8 +115,8 @@ For usage of expression language on `inputParameter` mapping, see the following 
 
 ## Value
 
-Different BPMN and CMMN elements allow to specify their content or an attribute value by an
-expression. Please see the corresponding sections for [BPMN][] and [CMMN][] in the references
+Different BPMN elements allow to specify their content or an attribute value by an
+expression. Please see the corresponding sections for [BPMN][] in the references
 for more detailed examples.
 
 
@@ -144,5 +143,43 @@ To learn more visit the <a href="{{< ref "/user-guide/dmn-engine/feel/custom-fun
 ## Built-In Camunda Spin Functions
 To learn how Camunda Spin can be used together with the Scala FEEL Engine visit the <a href="{{< ref "/user-guide/dmn-engine/feel/type-handling.md#spin-types" >}}">FEEL Engine Spin Integration</a> page.
 
+# Plugin Requirements
+
+## Spin Plugin Requirement for Complex FEEL Mappings
+
+When using FEEL to define complex input parameters (such as nested objects or contexts in BPMN input/output mappings) the 
+<a href="{{< ref "/user-guide/data-formats/configuring-spin-integration#camunda-engine-plugin-spin" >}}">camunda-engine-plugin-spin</a>
+ **must** be present on the classpath.
+
+Without the Spin plugin:
+
+- **Simple values and shallow maps** can still be evaluated using FEEL.
+- **Complex nested contexts** (e.g., a map containing another map) **will fail** with a runtime error when accessed in Java delegates or other components expecting Java types.
+- FEEL expressions involving these structures will not be correctly parsed or mapped.
+
+## Example
+
+The following BPMN example defines a nested input parameter using a FEEL expression:
+
+```xml
+<camunda:inputParameter name="context">
+  <camunda:script scriptFormat="feel">
+    {
+      invoice: {
+        id: "INV-2024-001",
+        issueDate: date("2024-04-02"),
+        dueDate: date("2024-04-16"),
+        customer: {
+          name: "Example Corp",
+          address: "123 Business Rd",
+          country: "Germany"
+        }
+      }
+   }
+  </camunda:script>
+</camunda:inputParameter>
+```
+
+To access this `context` as a `Map<String, Object>` in a Java delegate, the camunda-engine-plugin-spin plugin must be available so that the nested structure is correctly mapped.
+
 [BPMN]: {{< ref "/reference/bpmn20/_index.md" >}}
-[CMMN]: {{< ref "/reference/cmmn11/_index.md" >}}
