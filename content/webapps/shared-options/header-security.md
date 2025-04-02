@@ -159,8 +159,6 @@ Choose a container from the list and learn where to configure the HTTP Security 
 
 * [Tomcat]({{< ref "/installation/full/tomcat/configuration.md#security-related-http-headers-in-webapps" >}})
 * [JBoss EAP & Wildfly]({{< ref "/installation/full/jboss/configuration.md#security-related-http-headers-in-webapps" >}})
-* [IBM WebSphere Application Server]({{< ref "/installation/full/was/configuration.md#security-related-http-headers-in-webapps" >}})
-* [Oracle WebLogic Server]({{< ref "/installation/full/wls/configuration.md#security-related-http-headers-in-webapps" >}})
 * [Spring Boot]({{< ref "/user-guide/spring-boot-integration/configuration.md#header-security" >}})
 
 ## How to Configure?

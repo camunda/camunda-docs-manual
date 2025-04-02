@@ -62,8 +62,6 @@ For the CSRF Cookie, the <code>HttpOnly</code> flag is absent and not configurab
 In the following [pre-packaged distributions]({{< ref "/installation/full/_index.md" >}}), the <code>SameSite</code> property is absent by default since the Java Container manages the cookie and the latest Servlet specification does currently not support the <code>SameSite</code> property:
 
 * JBoss EAP/WildFly
-* IBM WebSphere
-* Oracle Weblogic
 
 For all other distributions, the <code>SameSite</code> flag is enabled by default.
 
@@ -98,8 +96,8 @@ The following table shows the default configuration of the Web applications.
   </tr>
 </table>
 
-\* The <code>SameSite</code> property is not supported for IBM WebSphere and disabled by default for both cookies.
-The Session Cookie also has no <code>SameSite</code> attribute by default on JBoss EAP/WildFly and Oracle Weblogic.
+\* The <code>SameSite</code> property is disabled by default for both cookies.
+The Session Cookie also has no <code>SameSite</code> attribute by default on JBoss EAP/WildFly.
 
 {{< note title="SameSite & Firefox" class="info" >}}
 Firefox prevents sending the Cookie to the server for all subsequent requests until the next restart ...
@@ -118,8 +116,6 @@ Here you can find how to configure the session cookie for the following containe
 
 * [Tomcat]({{< ref "/installation/full/tomcat/configuration.md#session-cookie-in-webapps" >}})
 * [JBoss EAP & Wildfly]({{< ref "/installation/full/jboss/configuration.md#session-cookie-in-webapps" >}})
-* [IBM WebSphere Application Server]({{< ref "/installation/full/was/configuration.md#session-cookie-in-webapps" >}})
-* [Oracle WebLogic Server]({{< ref "/installation/full/wls/configuration.md#session-cookie-in-webapps" >}})
 * [Spring Boot]({{< ref "/user-guide/spring-boot-integration/configuration.md#session-cookie" >}})
 
 ### CSRF Cookie

@@ -364,8 +364,7 @@ Consult the development guides of the script engine you want to configure for fu
 Note that the supported options can differ between versions of the script engine.
 
 You can set system properties either programmatically through `System.setProperty(parameter, value)` or as JVM arguments, 
-for example upon application start on command line via `-Dparameter=value`. Most application servers like Wildfly, 
-Tomcat, Websphere, and Weblogic support providing JVM arguments via environment variables `JAVA_OPTS` or `JAVA_OPTIONS`. 
+for example upon application start on command line via `-Dparameter=value`. Most application servers like Wildfly and Tomcat support providing JVM arguments via environment variables `JAVA_OPTS` or `JAVA_OPTIONS`. 
 Consult your application server's documentation to learn how to pass on JVM arguments. Camunda Run supports setting 
 JVM arguments via the `JAVA_OPTS` environment variable as well.
 

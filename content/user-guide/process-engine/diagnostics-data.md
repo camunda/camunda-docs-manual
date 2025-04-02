@@ -77,7 +77,7 @@ The "Usage Data" category contains information about the used features and compo
 * Commands count - the count of executed commands after the last retrieved data. It could be from the previous 24 hours if the data have been reported then, and the process engine has not been closed during that time. Whenever the process engine is shutdown, the currently collected data is reported immediately.
 * Metrics count - the collected metrics are number of root process instance executions started, number of activity instances started or also known as flow node instances, and number of executed decision instances and elements.
 The counts are collected from the start of the engine or the last reported time if the engine is already running for more than 24 hours.
-* Camunda integration - a flag that shows if any of the Camunda integrations are used: Spring boot starter, Camunda Platform Run, WildFly subsystem or Camunda ejb service (e.g. WebSphere/WebLogic Application servers).
+* Camunda integration - a flag that shows if any of the Camunda integrations are used: Spring boot starter, Camunda Platform Run, WildFly subsystem or Camunda EJB service.
 
 ### Example
 

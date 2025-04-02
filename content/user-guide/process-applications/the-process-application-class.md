@@ -14,7 +14,7 @@ You can delegate the bootstrapping of the process engine and process deployment 
 
 * **ServletProcessApplication**: To be used for process applications in a Servlet container like Apache Tomcat.
 * **JakartaServletProcessApplication**: To be used for process applications in a Jakarta Servlet 5.0+ container like WildFly 27 and above.
-* **EjbProcessApplication**: To be used in a Java EE application server like IBM WebSphere Application Server.
+* **EjbProcessApplication**: To be used in a Java EE application server.
 * **JakartaEjbProcessApplication**: To be used in a Jakarta EE 9+ application server like Wildfly 27+.
 * **EmbeddedProcessApplication**: To be used when embedding the process engine in an ordinary Java SE application.
 * **SpringProcessApplication**: To be used for bootstrapping the process application from a Spring Application Context.
@@ -87,7 +87,7 @@ In that case you only get servlet specification guarantees.
   The mechanisms described herein for the `EjbProcessApplication` apply in the same way.
 {{< /note >}}
 
-**Supported on:** Wildfly. The `EjbProcessApplication` is supported on Java EE 6 to Java EE 8 containers like WildFly 26 and below.
+**Supported on:** Wildfly. The `EjbProcessApplication` is supported on Java EE 6 to Java EE 8 containers.
 The `JakartaEjbProcessApplication` is supported on Jakarta EE 9+ containers like WildFly 27 and above.
 It is not supported on Servlet Containers like Apache Tomcat. It may be adapted to work inside Java EE 5 Containers.
 
