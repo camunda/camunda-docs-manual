@@ -65,8 +65,7 @@ In contrast to the [Unified Expression Language]({{< ref "/user-guide/process-en
 # Usage of Expression Language
 
 ## Conditions
-
-To use conditional sequence flows or conditional events, expression language is usually used.
+FEEL can be used to define conditions for sequence flows and conditional events.
 For conditional sequence flows, a `conditionExpression` element of a sequence flow has to be used.
 For conditional events, a `condition` element of a conditional event has to be used. Both are
 of the type `tFormalExpression`. The text content of the element is the expression to be evaluated.
