@@ -147,7 +147,7 @@ To learn how Camunda Spin can be used together with the Scala FEEL Engine visit 
 
 ## Spin Plugin Requirement for Complex FEEL Mappings
 
-When using FEEL to define complex input parameters (such as nested objects or contexts in BPMN input/output mappings) the 
+When using FEEL to define complex input parameters (such as nested objects or contexts in BPMN input/output mappings) the
 <a href="{{< ref "/user-guide/data-formats/configuring-spin-integration#camunda-engine-plugin-spin" >}}">camunda-engine-plugin-spin</a>
  **must** be present on the classpath.
 
@@ -180,6 +180,6 @@ The following BPMN example defines a nested input parameter using a FEEL express
 </camunda:inputParameter>
 ```
 
-To access this `context` as a `Map<String, Object>` in a Java delegate, the camunda-engine-plugin-spin plugin must be available so that the nested structure is correctly mapped.
+To access this `context` as a `Map<String, Object>` in a Java delegate, the `camunda-engine-plugin-spin` plugin must be available so that the nested structure is correctly mapped.
 
 [BPMN]: {{< ref "/reference/bpmn20/_index.md" >}}

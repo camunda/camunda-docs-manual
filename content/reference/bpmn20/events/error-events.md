@@ -63,7 +63,7 @@ The exception type should only be used for business exceptions and not for techn
 An error event handler references the same error element to declare that it catches the error.
 
 It is also possible to define an error message with the <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#errormessage" >}}">`camunda:errorMessage`</a> extension for an error element to give further information about the error.
-The referencing error event definition must specify <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#errormessagevariable" >}}">`camunda:errorMessageVariable`</a> to receive the error message. The error message can also contain <a href="{{< ref "/user-guide/process-engine/expression-language/unified-expression-language.md#external-task-error-handling" >}}">expressions</a>.
+The referencing error event definition must specify <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#errormessagevariable" >}}">`camunda:errorMessageVariable`</a> to receive the error message. The error message can also contain <a href="{{< ref "/user-guide/process-engine/expression-language/unified-expression-language.md" >}}">expressions</a>.
 
 ```xml
 <definitions>
