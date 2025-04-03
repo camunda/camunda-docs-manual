@@ -115,7 +115,7 @@ this configuration. This can be done by repeating the configuration replacement 
 
 Install the Camunda EAR, or the file `$WAS_DISTRIBUTION/server/apps/camunda-ibm-websphere-ear-7.20.0-ee.ear`.
 
-Please follow [the EAR installation guide]https://docs.camunda.org/manual/7.22/installation/full/was/manual-liberty/#camunda-ear)
+Please follow [the EAR installation guide](https://docs.camunda.org/manual/7.22/installation/full/was/manual-liberty/#camunda-ear)
 to deploy the Camunda EAR correctly.
 
 # 6. Install the web applications
