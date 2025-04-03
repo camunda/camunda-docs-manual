@@ -115,7 +115,7 @@ this configuration. This can be done by repeating the configuration replacement 
 
 Install the Camunda EAR, or the file `$WAS_DISTRIBUTION/server/apps/camunda-ibm-websphere-ear-7.20.0-ee.ear`.
 
-Please follow [the EAR installation guide]({{< ref "/installation/full/was/manual-liberty.md#camunda-platform-ear" >}})
+Please follow [the EAR installation guide](https://docs.camunda.org/manual/7.22/installation/full/was/manual-liberty/#camunda-ear)
 to deploy the Camunda EAR correctly.
 
 # 6. Install the web applications
@@ -125,14 +125,14 @@ to deploy the Camunda EAR correctly.
 The following steps are required to update the Camunda REST API on an IBM WebSphere Liberty instance:
 
 1. Place the web application `$WAS_DISTRIBUTION/server/apps/camunda-engine-rest-7.20.0-ee-was.war` in the Liberty `$YOUR_SERVER/apps/` directory.
-2. Configure the `server.xml` as described in [the Liberty installation guide]({{< ref "/installation/full/was/manual-liberty.md#rest-api" >}}).
+2. Configure the `server.xml` as described in [the Liberty installation guide](https://docs.camunda.org/manual/7.22/installation/full/was/manual-liberty/#rest-api).
 
 ## Cockpit, Tasklist, and Admin
 
 The following steps are required to update the Camunda web applications Cockpit, Tasklist, and Admin on an IBM WebSphere instance:
 
 1. Place the web application `$WAS_DISTRIBUTION/server/apps/camunda-webapp-ee-was-7.20.0-ee.war` in the Liberty `$YOUR_SERVER/apps/` directory.
-2. Configure the `server.xml` as described in [the Liberty installation guide]({{< ref "/installation/full/was/manual-liberty.md#cockpit-tasklist-and-admin" >}}).
+2. Configure the `server.xml` as described in [the Liberty installation guide](https://docs.camunda.org/manual/7.22/installation/full/was/manual-liberty/#cockpit-tasklist-and-admin).
 
 [configuration-location]: {{< ref "/reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}
 [update-guide]: {{< ref "/update/minor/719-to-720/_index.md" >}}
