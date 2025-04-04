@@ -107,9 +107,21 @@ Additionally, replace the following dependent modules:
 * `net/minidev/accessors-smart`
 * `net/minidev/json-smart`
 
+## GraalVM JavaScript
+
+Replace the following modules from the folder `$WILDFLY_HOME/modules/` with the following 
+modules from the folder `$WILDFLY_DISTRIBUTION/modules/`, if present:
+
+* `com/ibm/icu/icu4j`
+* `org/graalvm/js/js`
+* `org/graalvm/js/js-scriptengine`
+* `org/graalvm/regex/regex`
+* `org/graalvm/sdk/graal-sdk`
+* `org/graalvm/truffle/truffle-api`
+
 ## Groovy
 
-Replace the 'org/codehaus/groovy/groovy-all' module from the folder `$WILDFLY_HOME/modules/` with the following 
+Replace the following modules from the folder `$WILDFLY_HOME/modules/` with the following 
 modules from the folder `$WILDFLY_DISTRIBUTION/modules/`, if present:
 
 * `org/codehaus/groovy/groovy-all`
