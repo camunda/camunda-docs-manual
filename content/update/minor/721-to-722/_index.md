@@ -29,7 +29,7 @@ This document guides you through the update from Camunda `7.21.x` to `7.22.0` an
 1. For administrators and developers: [Update to Groovy 4.0](#update-to-groovy-4)
 1. For administrators and developers: [Sending telemetry feature removed](#sending-telemetry-feature-removed)
 1. For administrators: [Database transaction isolation level `READ_COMMITTED` is enforced](#database-transaction-isolation-level-read-committed-is-enforced)
-1. For developers: [Quarkus 3.14 Extension Update](#quarkus-3-14-extension-update)
+1. For developers: [Quarkus 3.15 Extension Update](#quarkus-3-15-extension-update)
 1. For administrators and developers: [Cockpit: Process Instance Batch Modification](#cockpit-process-instance-batch-modification)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda 7.22.
