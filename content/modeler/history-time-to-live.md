@@ -32,6 +32,12 @@ Refer to the [Camunda 7 documentation regarding case definitions](https://docs.c
 
 Time to live must be defined under **History cleanup** in the properties panel on the right side of the screen.
 
+## History time to live not configured
+
+![History time to live not configured](../img/history-time-to-live.png)
+
+In the screenshot above, note that the time to live must be defined under **History cleanup** in the properties panel on the right side of the screen.
+
 ## References
 
 - [History documentation](https://docs.camunda.org/manual/latest/user-guide/process-engine/history/)
