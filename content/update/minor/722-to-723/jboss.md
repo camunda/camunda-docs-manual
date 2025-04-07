@@ -1,16 +1,16 @@
 ---
 
-title: "Update a Wildfly / JBoss EAP 7 Installation from 7.20 to 7.21"
+title: "Update a WildFly / JBoss EAP Installation from 7.22 to 7.23"
 
 menu:
   main:
-    name: "Wildfly / JBoss EAP 7"
-    identifier: "migration-guide-721-jboss"
-    parent: "migration-guide-721"
+    name: "WildFly / JBoss EAP"
+    identifier: "migration-guide-723-jboss"
+    parent: "migration-guide-723"
 
 ---
 
-The following steps describe how to update the Camunda artifacts on a Wildfly/JBoss EAP 7 in a 
+The following steps describe how to update the Camunda artifacts on a WildFly/JBoss EAP in a 
 shared process engine scenario. Throughout the procedure, refer to the [update guide][update-guide].
 
 {{< note title="Reading this Guide" class="info" >}}
@@ -21,10 +21,10 @@ This guide uses a number of variables to denote common path names and constants:
 * `$PLATFORM_VERSION` denotes the version of Camunda 7 you want to install or already have installed, e.g. `7.0.0`.
 {{< /note >}}
 
-If not already done, download the [Camunda 7.21 WildFly distribution](https://downloads.camunda.
-cloud/release/camunda-bpm/wildfly/7.21/)
-or [Camunda 7.21 WildFly ≤26 Modules](https://artifacts.camunda.
-com/artifactory/camunda-bpm/org/camunda/bpm/wildfly/camunda-wildfly26-modules/). 
+If not already done, download accordingly:
+
+* For WildFly / JBoss EAP 8 - the [Camunda 7 WildFly distribution](https://downloads.camunda.cloud/release/camunda-bpm/wildfly/).
+* For JBoss EAP 7 - the [`camunda-wildfly26-modules`](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/wildfly/camunda-wildfly26-modules/). 
 
 The update procedure takes the following steps:
 
@@ -71,7 +71,7 @@ Replace the following modules from the folder `$WILDFLY_HOME/modules/` with the 
 
 # 2. Update optional Camunda 7 modules
 
-In addition to the core modules, there may be optional artifacts in `$WILDFLY_HOME/modules/` for LDAP integration, Camunda Connect, Camunda Spin, Groovy, and Graal scripting.
+In addition to the core modules, there may be optional artifacts in `$WILDFLY_HOME/modules/` for LDAP integration, Camunda Connect, Camunda Spin, Groovy and Graal scripting.
 If you use any of these extensions, the following update steps apply:
 
 ## LDAP integration
@@ -93,9 +93,9 @@ Replace the following modules from the folder `$WILDFLY_HOME/modules/` with the 
 * `org/camunda/spin/camunda-spin-core`
 * `org/camunda/spin/camunda-spin-dataformat-json-jackson`
 * `org/camunda/spin/camunda-spin-dataformat-xml-dom-jakarta`
-    * **Heads-up:** add this module only for WildFly 27+.
+    * **Heads-up:** add this module only for WildFly / JBoss EAP 8.
 * `org/camunda/spin/camunda-spin-dataformat-xml-dom`
-    * **Heads-up:** add this module only for WildFly ≤26 / JBoss EAP 7.
+    * **Heads-up:** add this module only for JBoss EAP 7.
 * `org/camunda/bpm/camunda-engine-plugin-spin`
 
 Additionally, replace the following dependent modules:
@@ -135,13 +135,13 @@ modules from the folder `$WILDFLY_DISTRIBUTION/modules/`, if present:
 
 ## Update REST API
 
-The following steps are required to update the Camunda REST API on a JBoss/Wildfly instance:
+The following steps are required to update the Camunda REST API on a JBoss/WildFly instance:
 
 1. Undeploy an existing web application with a name like `camunda-engine-rest`.
 2. Download the REST API web application archive from our Maven Artifactory.
    Alternatively, switch to the private repository for the enterprise version (credentials from license required).
-    * For [WildFly 27+](https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/camunda-engine-rest-jakarta/), the name of the artifact is `$PLATFORM_VERSION/camunda-engine-rest-jakarta-$PLATFORM_VERSION-wildfly.war`.
-    * For [WildFly ≤26 / JBoss EAP 7](https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/camunda-engine-rest/), the name of the artifact is `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION-wildfly.war`.
+    * For [WildFly / JBoss EAP 8](https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/camunda-engine-rest-jakarta/), the name of the artifact is `$PLATFORM_VERSION/camunda-engine-rest-jakarta-$PLATFORM_VERSION-wildfly.war`.
+    * For [JBoss EAP 7](https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/camunda-engine-rest/), the name of the artifact is `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION-wildfly.war`.
 3. Deploy the web application archive to your JBoss/WildFly instance.
 
 ## Update Cockpit, Tasklist, and Admin
@@ -151,8 +151,8 @@ The following steps are required to update the Camunda web applications Cockpit,
 1. Un-deploy an existing web application with a name like `camunda-webapp`.
 2. Download the Camunda web application that contains the web applications from our Maven Artifactory.
    Alternatively, switch to the private repository for the enterprise version (credentials from license required).
-    * For [WildFly 27+](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-wildfly/), the name of the artifact is `$PLATFORM_VERSION/camunda-webapp-wildfly-$PLATFORM_VERSION.war`.
-    * For [WildFly ≤26 / JBoss EAP 7](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-jboss/), the name of the artifact is `$PLATFORM_VERSION/camunda-webapp-jboss-$PLATFORM_VERSION.war`.
+    * For [WildFly / JBoss EAP 8](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-wildfly/), the name of the artifact is `$PLATFORM_VERSION/camunda-webapp-wildfly-$PLATFORM_VERSION.war`.
+    * For [JBoss EAP 7](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-jboss/), the name of the artifact is `$PLATFORM_VERSION/camunda-webapp-jboss-$PLATFORM_VERSION.war`.
 3. Deploy the web application archive to your JBoss/WildFly instance.
 
-[update-guide]: {{< ref "/update/minor/720-to-721/_index.md" >}}
+[update-guide]: {{< ref "/update/minor/722-to-723/_index.md" >}}
