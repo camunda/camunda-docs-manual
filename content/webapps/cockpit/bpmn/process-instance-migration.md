@@ -141,7 +141,7 @@ After clicking `Execute Migration`, the result screen is displayed. If the migra
 
 ## Error: Migration Plan invalid
 
-{{< img src="../../img/migration/step5_error.png" title="Invalid migration plan" >}}
+{{< img src="../../img/migration/step4_error.png" title="Invalid migration plan" >}}
 
 If the migration plan contains errors, they are displayed on this page. No instances are migrated in this case. You can go back to the first step to fix the errors.
 
