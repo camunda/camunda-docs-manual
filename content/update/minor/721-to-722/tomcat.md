@@ -40,8 +40,8 @@ Replace the following libraries in the folder `$TOMCAT_HOME/lib/` with the new v
 * `camunda-commons-logging-$PLATFORM_VERSION.jar`
 * `camunda-commons-typed-values-$PLATFORM_VERSION.jar`
 * `camunda-commons-utils-$PLATFORM_VERSION.jar`
-* `camunda-connect-connectors-all-$CONNECT_VERSION.jar`
 * `camunda-connect-connectors-all-$PLATFORM_VERSION.jar`
+* `camunda-connect-core-$PLATFORM_VERSION.jar`
 * `camunda-template-engines-freemarker-$PLATFORM_VERSION.jar`
 * `feel-engine-$FEEL_ENGINE_VERSION-scala-shaded.jar`
 * `freemarker-$FREEMARKER_VERSION.jar`
@@ -75,17 +75,16 @@ Copy the following libraries from `$TOMCAT_DISTRIBUTION/lib` to the folder `$TOM
 
 Copy the following libraries from `$TOMCAT_DISTRIBUTION/lib` to the folder `$TOMCAT_HOME/lib/`, if present:
 
-* `graal-sdk-21.1.0.jar`
-* `icu4j-68.2.jar`
-* `js-21.1.0.jar`
-* `js-scriptengine-21.1.0.jar`
-* `regex-21.1.0.jar`
-* `truffle-api-21.1.0.jar`
+* `graal-sdk-$GRAAL_VERSION.jar`
+* `icu4j-$ICU4J_VERSION.jar`
+* `js-$GRAAL_VERSION.jar`
+* `js-scriptengine-$GRAAL_VERSION.jar`
+* `regex-$GRAAL_VERSION.jar`
+* `truffle-api-$GRAAL_VERSION.jar`
 
 ## Groovy
 
-The following libraries replace the single `groovy-all-$GROOVY_VERSION.jar` library. Copy these libraries from
-`$TOMCAT_DISTRIBUTION/lib` to the folder `$TOMCAT_HOME/lib/`, if present:
+Copy these libraries from `$TOMCAT_DISTRIBUTION/lib` to the folder `$TOMCAT_HOME/lib/`, if present:
 
 * `groovy-$GROOVY_VERSION.jar`
 * `groovy-jsr223-$GROOVY_VERSION.jar`
