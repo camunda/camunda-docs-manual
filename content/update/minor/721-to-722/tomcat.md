@@ -1,19 +1,19 @@
 ---
 
-title: "Update a Tomcat Installation from 7.20 to 7.21"
+title: "Update a Tomcat Installation from 7.21 to 7.22"
 
 menu:
   main:
     name: "Tomcat"
-    identifier: "migration-guide-721-tomcat"
-    parent: "migration-guide-721"
+    identifier: "migration-guide-722-tomcat"
+    parent: "migration-guide-722"
 
 ---
 
 The following steps describe how to update the Camunda artifacts on a Tomcat server in a shared process engine setting.
 
 Throughout the procedure, refer to the [update guide][update-guide]. If not already done, download the
-[Camunda 7.21 Tomcat distribution][tomcat-distribution].
+[Camunda 7.22 Tomcat distribution][tomcat-distribution].
 
 The update procedure takes the following steps:
 
@@ -37,12 +37,12 @@ Replace the following libraries in the folder `$TOMCAT_HOME/lib/` with the new v
 * `camunda-engine-feel-juel-$PLATFORM_VERSION.jar`
 * `camunda-engine-feel-scala-$PLATFORM_VERSION.jar`
 * `camunda-juel-$PLATFORM_VERSION.jar`
-* `camunda-commons-logging-$COMMONS_VERSION.jar`
+* `camunda-commons-logging-$PLATFORM_VERSION.jar`
 * `camunda-commons-typed-values-$PLATFORM_VERSION.jar`
-* `camunda-commons-utils-$COMMONS_VERSION.jar`
-* `camunda-connect-connectors-all-$CONNECT_VERSION.jar`
-* `camunda-connect-core-$CONNECT_VERSION.jar`
-* `camunda-template-engines-freemarker-$TEMPLATE_ENGINES_VERSION.jar`
+* `camunda-commons-utils-$PLATFORM_VERSION.jar`
+* `camunda-connect-connectors-all-$PLATFORM_VERSION.jar`
+* `camunda-connect-core-$PLATFORM_VERSION.jar`
+* `camunda-template-engines-freemarker-$PLATFORM_VERSION.jar`
 * `feel-engine-$FEEL_ENGINE_VERSION-scala-shaded.jar`
 * `freemarker-$FREEMARKER_VERSION.jar`
 * `mybatis-$MYBATIS_VERSION.jar`
@@ -67,8 +67,8 @@ Copy the following libraries from `$TOMCAT_DISTRIBUTION/lib` to the folder `$TOM
 
 Copy the following libraries from `$TOMCAT_DISTRIBUTION/lib` to the folder `$TOMCAT_HOME/lib/`, if present:
 
-* `camunda-spin-dataformat-all-$SPIN_VERSION.jar`
-* `camunda-spin-core-$SPIN_VERSION.jar`
+* `camunda-spin-dataformat-all-$PLATFORM_VERSION.jar`
+* `camunda-spin-core-$PLATFORM_VERSION.jar`
 * `camunda-engine-plugin-spin-$PLATFORM_VERSION.jar`
 
 ## GraalVM JavaScript
@@ -110,7 +110,7 @@ The following steps are required to update the Camunda web applications Cockpit,
 2. Download the Camunda web application archive from our [Artifact Repository][artifact-repository-webapp]. Alternatively, switch to the private repository for the enterprise version (credentials from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-tomcat-$PLATFORM_VERSION.war`.
 3. Deploy the web application archive to your Tomcat instance.
 
-[update-guide]: {{< ref "/update/minor/720-to-721/_index.md" >}}
-[artifact-repository-restapi]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/camunda-engine-rest/7.21.0/camunda-engine-rest-7.21.0-tomcat.war
-[artifact-repository-webapp]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-tomcat/7.21.0/camunda-webapp-tomcat-7.21.0.war
-[tomcat-distribution]: https://downloads.camunda.cloud/release/camunda-bpm/tomcat/7.21/
+[update-guide]: {{< ref "/update/minor/721-to-722/_index.md" >}}
+[artifact-repository-restapi]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/camunda-engine-rest/7.22.0/camunda-engine-rest-7.22.0-tomcat.war
+[artifact-repository-webapp]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-tomcat/7.22.0/camunda-webapp-tomcat-7.22.0.war
+[tomcat-distribution]: https://downloads.camunda.cloud/release/camunda-bpm/tomcat/7.22/
