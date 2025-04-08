@@ -1,7 +1,7 @@
 {{/* This template is overridden to emit permalinks that (1) are absolute, and (2) specify the most recent version. This allows us to submit the sitemap to crawlers with true canonical URLs. */}}
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  {{ range .Data.Pages }}
+  {{ range where .Data.Pages "Params.robotsdisallow" "!=" true }}
   <url>
     {{- $permalink := .Permalink }}
     {{- if ($.Site.Params.section.versions) }}
