@@ -1,7 +1,7 @@
 ---
 
 title: "Update from 7.14 to 7.15"
-weight: 9
+weight: 10
 layout: "single"
 
 menu:

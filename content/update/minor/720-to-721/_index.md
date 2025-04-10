@@ -1,7 +1,7 @@
 ---
 
 title: "Update from 7.20 to 7.21"
-weight: 3
+weight: 4
 layout: "single"
 
 menu:

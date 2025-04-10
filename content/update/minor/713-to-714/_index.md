@@ -1,7 +1,7 @@
 ---
 
 title: "Update from 7.13 to 7.14"
-weight: 10
+weight: 11
 layout: "single"
 
 menu:

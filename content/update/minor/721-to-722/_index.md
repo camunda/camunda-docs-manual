@@ -1,7 +1,7 @@
 ---
 
 title: "Update from 7.21 to 7.22"
-weight: 2
+weight: 3
 layout: "single"
 
 menu:
