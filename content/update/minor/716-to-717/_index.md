@@ -1,7 +1,7 @@
 ---
 
 title: "Update from 7.16 to 7.17"
-weight: 7
+weight: 8
 layout: "single"
 
 menu:
