@@ -15,7 +15,9 @@ menu:
 
 This document guides you through the update from Camunda `7.23.x` to `7.24.0` and covers the following use cases:
 
-1. For administrators and developers: [JMX Prometheus Javaagent Update](#jmx-prometheus-javaagent-upgrade)
+1. For administrators and developers: [Database updates](#database-updates)
+1. For administrators and developers: [Full distribution update](#full-distribution)
+2. For administrators and developers: [JMX Prometheus Javaagent Update](#jmx-prometheus-javaagent-upgrade)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda 7.24.
 
