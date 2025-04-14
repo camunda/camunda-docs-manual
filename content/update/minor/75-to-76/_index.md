@@ -1,7 +1,7 @@
 ---
 
 title: "Update from 7.5 to 7.6"
-weight: 70
+weight: 20
 layout: "single"
 
 menu:

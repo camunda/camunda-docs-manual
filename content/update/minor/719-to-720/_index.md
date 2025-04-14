@@ -1,7 +1,7 @@
 ---
 
 title: "Update from 7.19 to 7.20"
-weight: 4
+weight: 5
 layout: "single"
 
 menu:
