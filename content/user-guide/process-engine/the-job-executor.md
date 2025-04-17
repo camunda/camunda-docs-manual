@@ -659,6 +659,30 @@ A heterogeneous cluster setup as described above poses additional challenges to 
 
 To prevent the job acquisition on node 1 from picking jobs that *belong* to node 2, the process engine can be configured as *deployment aware*, by the setting following property in the process engine configuration:
 
+{{< note title="Important for Spring Boot users" class="warning" >}}
+If you are using Camunda with Spring Boot and plan to enable `jobExecutorDeploymentAware`, be aware that in blue-green or multi-environment deployments—where application names tend to be the same—you must differentiate the process application name based on the environment.
+
+You can achieve this by overriding the `getName()` method in your Spring Boot application class, as shown below:
+
+```java
+@SpringBootApplication
+public class WorkFlowApp extends ServletProcessApplication {
+
+    @Value("${camunda.process-application.name}")
+    private String processAppName;
+
+    @Override
+    public String getName() {
+        return processAppName;
+    }
+}
+
+```
+
+This ensures proper deployment registration and allows the job executor to correctly isolate job execution per deployment.
+Omitting this may result in jobs being executed on nodes that do not have access to the required classes, leading to errors like ClassNotFoundException. {{< /note >}}
+
+
 ```xml
 <process-engine name="default">
   ...
