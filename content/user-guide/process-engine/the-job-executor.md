@@ -669,6 +669,29 @@ To prevent the job acquisition on node 1 from picking jobs that *belong* to node
 </process-engine>
 ```
 
+{{< note title="Important for Spring Boot users" class="warning" >}}
+If you are using Camunda with Spring Boot and plan to enable `jobExecutorDeploymentAware`, be aware that in blue-green or multi-environment deployments—where application names tend to be the same—you must differentiate the process application name based on the environment.
+
+You can achieve this by overriding the `getName()` method in your Spring Boot application class, as shown below:
+
+```java
+@SpringBootApplication
+public class WorkFlowApp extends ServletProcessApplication {
+
+    @Value("${camunda.process-application.name}")
+    private String processAppName;
+
+    @Override
+    public String getName() {
+        return processAppName;
+    }
+}
+
+```
+
+This ensures proper deployment registration and allows the job executor to correctly isolate job execution per deployment.
+Omitting this may result in jobs being executed on nodes that do not have access to the required classes, leading to errors like ClassNotFoundException. {{< /note >}}
+
 Now, the job acquisition thread on node 1 will only pick up jobs that belong to deployments made on that node, which solves the problem. Digging a little deeper, the acquisition will only pick up those jobs that belong to deployments that were *registered* with the engines it serves. Every deployment gets automatically registered. Additionally, one can explicitly register and unregister single deployments with an engine by using the `ManagementService` methods `registerDeploymentForJobExecutor(deploymentId)` and `unregisterDeploymentForJobExecutor(deploymentId)`. It also offers a method `getRegisteredDeployments()` to inspect the currently registered deployments.
 
 As this is configurable on engine level, you can also work in a *mixed* setup, when some deployments are shared between all nodes and some are not. You can assign the globally shared process applications to an engine that is not deployment aware and the others to a deployment aware engine, probably both running against the same database. This way, jobs created in the context of the shared process applications will get executed on any cluster node, while the others only get executed on their respective nodes.
