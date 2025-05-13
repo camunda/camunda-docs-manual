@@ -769,6 +769,21 @@ When setting to <code>/</code>, the legacy behavior of Camunda Spring Boot Start
   <td><code>300,000</code></td>
 </tr>
 
+<tr><td colspan="4"><b>REST API</b></td></tr>
+<tr>
+<td><code>camunda.bpm.rest-api.fetch-and-lock</code></td>
+<td><code>.queue-capacity</code></td>
+<td>Configure the blocking queue limit of long-polling ‘Fetch and Lock’ requests.</td>
+<td><code>200</code></td>
+</tr>
+
+<tr>
+<td></td>
+<td><code>.unique-worker-request</code></td>
+<td>If the flag is activated, pending requests with the same workerId are cancelled when a new request is received.</td>
+<td><code>false</code></td>
+</tr>
+
 <tr><td colspan="4"><b>Authorization</b></td></tr>
 <tr>
 <td rowspan="4"><code>camunda.bpm.authorization</code></td>
