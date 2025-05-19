@@ -47,7 +47,7 @@ For a complete list of changes for this upgrade, please refer to the [JMX Promet
 
 # LegacyJobRetryBehaviorEnabled process engine flag
 
-Starting with versions 7.23.2 and 7.24.0, the process engine introduces a new configuration flag: `legacyJobRetryBehaviorEnabled`.
+Starting with versions 7.22.5, 7.23.2 and 7.24.0, the process engine introduces a new configuration flag: `legacyJobRetryBehaviorEnabled`.
 
 By default, when a job is created, its retry count is determined based on the camunda:failedJobRetryTimeCycle expression defined in the BPMN model.
 However, setting `legacyJobRetryBehaviorEnabled` to `true` enables the legacy behavior, where the job is initially assigned a fixed number of retries (typically 3), regardless of the retry configuration.
@@ -57,4 +57,4 @@ Why enable the legacy behavior?
 - Your process logic may depend on the legacy retry count behavior.
 - The legacy behavior avoids loading the full BPMN model and evaluating expressions during job creation, which can improve performance.
 
-In 7.23.2+ the default value is `true` for `legacyJobRetryBehaviorEnabled`. For 7.24.0+ the default value is `false` for `legacyJobRetryBehaviorEnabled` 
+In 7.22.5+ and in 7.23.2+ the default value is `true` for `legacyJobRetryBehaviorEnabled`. For 7.24.0+ the default value is `false` for `legacyJobRetryBehaviorEnabled` .
