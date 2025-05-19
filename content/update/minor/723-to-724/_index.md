@@ -17,7 +17,8 @@ This document guides you through the update from Camunda `7.23.x` to `7.24.0` an
 
 1. For administrators and developers: [Database updates](#database-updates)
 1. For administrators and developers: [Full distribution update](#full-distribution)
-2. For administrators and developers: [JMX Prometheus Javaagent Update](#jmx-prometheus-javaagent-upgrade)
+1. For administrators and developers: [JMX Prometheus Javaagent Update](#jmx-prometheus-javaagent-upgrade)
+1. For administrators and developers: [LegacyJobRetryBehaviorEnabled process engine flag](#legacyjobretrybehaviorenabled-process-engine-flag)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda 7.24.
 
@@ -43,3 +44,17 @@ Before starting, ensure you have downloaded the Camunda 7.24 distribution for th
 
 This minor upgrades the JMX Prometheus Javaagent used in the Camunda docker image to version 1.0.1.
 For a complete list of changes for this upgrade, please refer to the [JMX Prometheus release notes](https://github.com/prometheus/jmx_exporter/releases/tag/1.0.1).
+
+# LegacyJobRetryBehaviorEnabled process engine flag
+
+Starting with versions 7.22.5, 7.23.2 and 7.24.0, the process engine introduces a new configuration flag: `legacyJobRetryBehaviorEnabled`.
+
+By default, when a job is created, its retry count is determined based on the camunda:failedJobRetryTimeCycle expression defined in the BPMN model.
+However, setting `legacyJobRetryBehaviorEnabled` to `true` enables the legacy behavior, where the job is initially assigned a fixed number of retries (typically 3), regardless of the retry configuration.
+
+Why enable the legacy behavior?
+
+- Your process logic may depend on the legacy retry count behavior.
+- The legacy behavior avoids loading the full BPMN model and evaluating expressions during job creation, which can improve performance.
+
+In 7.22.5+ and in 7.23.2+ the default value is `true` for `legacyJobRetryBehaviorEnabled`. For 7.24.0+ the default value is `false` for `legacyJobRetryBehaviorEnabled` .
