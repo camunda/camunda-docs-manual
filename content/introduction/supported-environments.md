@@ -30,7 +30,7 @@ Run Camunda in every Java-runnable environment. Camunda is supported with our QA
   * [Supported versions]({{< ref "/user-guide/quarkus-integration/version-compatibility.md" >}})
   * [Deployment scenarios]({{< ref "/user-guide/quarkus-integration/_index.md#supported-deployment-scenarios" >}})
 
-## Container-Managed Process Engine and Camunda Cockpit, Tasklist, Admin
+## Container-Managed Process Engine and Camunda Webapps
 
 * Apache Tomcat 9.0 / 10.1
 * JBoss EAP 7.4 / 8.0
