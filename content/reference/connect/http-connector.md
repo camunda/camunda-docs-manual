@@ -25,7 +25,8 @@ Camunda Connect HTTP client uses the Apache HTTP client to make HTTP requests. A
 
 ## Default Configuration
 
-By default, the HTTP client uses Apache's default configuration and respects the [system properties that are supported by HTTP client](https://hc.apache.org/httpcomponents-client-4.5.x/current/httpclient/apidocs/org/apache/http/impl/client/HttpClientBuilder.html).
+By default, the HTTP client uses Apache's default configuration and respects the [system properties that are supported by HTTP client](https://hc.apache.org/httpcomponents-client-5.3.x/current/httpclient5/apidocs/org/apache/hc/client5/http/impl/classic/HttpClientBuilder.html).
+
 ## Custom Configuration
 
 If you want to reconfigure the client going beyond the default configuration options, e.g. you want to configure another connection manager, the easiest way is to register
@@ -34,8 +35,10 @@ a new connector configurator.
 ```java
 package org.camunda.connect.example;
 
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
+import org.apache.hc.client5.http.impl.classic.HttpClients;
+import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager;
+import org.camunda.connect.httpclient.HttpConnector;
 import org.camunda.connect.httpclient.impl.AbstractHttpConnector;
 import org.camunda.connect.spi.ConnectorConfigurator;
 
@@ -46,9 +49,12 @@ public class HttpConnectorConfigurator implements ConnectorConfigurator<HttpConn
   }
 
   public void configure(HttpConnector connector) {
+    PoolingHttpClientConnectionManager connectionManager = new PoolingHttpClientConnectionManager();
+    connectionManager.setDefaultMaxPerRoute(10);
+    connectionManager.setMaxTotal(200);
+    
     CloseableHttpClient client = HttpClients.custom()
-      .setMaxConnPerRoute(10)
-      .setMaxConnTotal(200)
+      .setConnectionManager(connectionManager)
       .build();
     ((AbstractHttpConnector) connector).setHttpClient(client);
   }
@@ -64,6 +70,10 @@ information see the [extending Connect]({{< ref "/reference/connect/extending-co
 ```
 org.camunda.connect.example.HttpConnectorConfigurator
 ```
+
+{{< note title="Apache HTTP Client 5.x Migration" class="info" >}}
+Starting from Camunda 7.24, the Connect HTTP connector uses Apache HTTP Client 5.x. While the high-level Connect API remains the same, custom configurations and extensions need to use the new HttpClient 5.x packages (`org.apache.hc.client5.*` and `org.apache.hc.core5.*`) instead of the previous 4.x packages (`org.apache.http.*`).
+{{< /note >}}
 
 # Requests
 
