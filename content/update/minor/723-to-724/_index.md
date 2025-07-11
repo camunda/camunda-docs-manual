@@ -148,7 +148,6 @@ request.configOption("response-timeout", Timeout.ofSeconds(30))
 ## Additional Notes
 
 - The migration maintains backward compatibility for all standard Connect connector usage
-- Performance and reliability improvements are included with HttpClient 5.x
 - The `commons-codec` dependency is no longer needed and has been removed
 
 For more details about HttpClient 5.x changes, refer to the [Apache HttpClient 5.x migration guide](https://hc.apache.org/httpcomponents-client-5.0.x/migration-guide/index.html).
