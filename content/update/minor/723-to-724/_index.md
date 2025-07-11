@@ -62,7 +62,7 @@ In 7.22.5+ and in 7.23.2+ the default value is `true` for `legacyJobRetryBehavio
 
 # Connect: Apache HTTP Client migration from 4 to 5
 
-Camunda 7.24 migrates the Connect HTTP and SOAP HTTP connectors from Apache HttpClient 4.x to 5.x. This migration brings performance improvements and security enhancements but introduces some breaking changes.
+Camunda 7.24 migrates the Connect HTTP and SOAP HTTP connectors from Apache HttpClient 4.x to 5.x. 
 
 ## Changes Overview
 
