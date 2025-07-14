@@ -71,7 +71,7 @@ Additionally, you can specify a time cycle using cron expressions, the example b
 0 0/5 * * * ?
 ```
 
-Please see the <a href="http://www.quartz-scheduler.org/documentation/quartz-2.1.7/tutorials/tutorial-lesson-06.html">CronTrigger Tutorial</a> for additional information about using cron expressions.
+Please see the <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/support/CronExpression.html#parse(java.lang.String)">Spring documentation</a> for additional information about using cron expressions.
 
 Note: The first symbol denotes seconds, not minutes as in normal Unix cron.
 

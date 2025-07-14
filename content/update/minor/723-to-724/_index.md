@@ -19,6 +19,7 @@ This document guides you through the update from Camunda `7.23.x` to `7.24.0` an
 1. For administrators and developers: [Full distribution update](#full-distribution)
 1. For administrators and developers: [JMX Prometheus Javaagent Update](#jmx-prometheus-javaagent-upgrade)
 1. For administrators and developers: [LegacyJobRetryBehaviorEnabled process engine flag](#legacyjobretrybehaviorenabled-process-engine-flag)
+1. For developers: [Cron expression](#cron-expression)
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda 7.24.
 
@@ -57,4 +58,14 @@ Why enable the legacy behavior?
 - Your process logic may depend on the legacy retry count behavior.
 - The legacy behavior avoids loading the full BPMN model and evaluating expressions during job creation, which can improve performance.
 
-In 7.22.5+ and in 7.23.2+ the default value is `true` for `legacyJobRetryBehaviorEnabled`. For 7.24.0+ the default value is `false` for `legacyJobRetryBehaviorEnabled` .
+In 7.22.5+ and in 7.23.2+ the default value is `true` for `legacyJobRetryBehaviorEnabled`. For 7.24.0+ the default value is `false` for `legacyJobRetryBehaviorEnabled`.
+
+# Cron expression
+
+With this minor, cron expression support in timer events is provided through Spring library.
+In the library the cron expression looks like: `0 0 * * * *`.
+In contrast with the previously used Quartz library (`0 0 * * * * *`), 7th optional field for year is not supported.
+Please check your models and adjust any cron expressions accordingly.
+The new format for expressions supports variaty of cron expressions like macros, weekday, and `n`-th day of week. 
+
+For reference, check Spring documentation <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/support/CronExpression.html#parse(java.lang.String)">here</a>.
