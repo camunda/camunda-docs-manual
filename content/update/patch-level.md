@@ -575,7 +575,7 @@ More information on how to do this can be found in the official [GraalVM documen
 
 ### Docker Base Image Update
 
-The Docker base image has been updated from Alpine Linux 3.18 to Alpine Linux 3.22 due to Alpine 3.18 reaching end of life. This security-focused update maintains compatibility while providing essential patches.
+The Docker base image has been updated from Alpine Linux 3.18 to Alpine Linux 3.22.
 
 #### Migration Steps
 
@@ -584,7 +584,7 @@ For standard Docker image usage, **no action is required** beyond pulling the 7.
 For custom Docker configurations:
 
 1. **Assess Custom Code**: Review any Alpine-specific customizations for version 3.22 compatibility
-2. **Update Dependencies**: Check that additional packages you install are available in Alpine 3.22
+2. **Update Dependencies**: Check that the additional packages you install are available in Alpine 3.22
 3. **Rebuild Custom Images**: Update Dockerfiles that extend the Camunda base image
 4. **Test Migration**: Verify functionality after updating to the new base image
 
