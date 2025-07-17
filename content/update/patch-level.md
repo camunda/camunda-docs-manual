@@ -571,6 +571,32 @@ If you want to ensure the best performance for JS execution, you can always conf
 More information on how to do this can be found in the official [GraalVM documentation](https://www.graalvm.org/jdk17/reference-manual/js/RunOnJDK/#graalvm-javascript-on-jdk-11).
 {{< /note >}}
 
+## 7.23.3 to 7.23.4 / 7.22.6 to 7.22.7 / 7.21.11 to 7.21.12
+
+### Docker Base Image Update
+
+The Docker base image has been updated from Alpine Linux 3.18 to Alpine Linux 3.22 due to Alpine 3.18 reaching end of life. This security-focused update maintains compatibility while providing essential patches.
+
+#### Migration Steps
+
+For standard Docker image usage, **no action is required** beyond pulling the 7.21.12 / 7.22.7 / 7.23.4 image.
+
+For custom Docker configurations:
+
+1. **Assess Custom Code**: Review any Alpine-specific customizations for version 3.22 compatibility
+2. **Update Dependencies**: Check that additional packages you install are available in Alpine 3.22
+3. **Rebuild Custom Images**: Update Dockerfiles that extend the Camunda base image
+4. **Test Migration**: Verify functionality after updating to the new base image
+
+For detailed information about changes across Alpine versions, refer to the following release notes:
+
+* [Alpine Linux 3.19 Release Notes](https://alpinelinux.org/posts/Alpine-3.19.0-released.html)
+* [Alpine Linux 3.20 Release Notes](https://alpinelinux.org/posts/Alpine-3.20.0-released.html)
+* [Alpine Linux 3.21 Release Notes](https://alpinelinux.org/posts/Alpine-3.21.0-released.html)
+* [Alpine Linux 3.22 Release Notes](https://alpinelinux.org/posts/Alpine-3.22.0-released.html)
+
+See the [Alpine Linux documentation](https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.22.0) for comprehensive change details.
+
 # Full Distribution
 
 This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.

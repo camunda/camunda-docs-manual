@@ -17,6 +17,7 @@ This document guides you through the update from Camunda `7.23.x` to `7.24.0` an
 
 1. For administrators and developers: [Database updates](#database-updates)
 1. For administrators and developers: [Full distribution update](#full-distribution)
+1. For administrators and developers: [Docker Base Image Update](#docker-base-image-update)
 1. For administrators and developers: [JMX Prometheus Javaagent Update](#jmx-prometheus-javaagent-upgrade)
 1. For administrators and developers: [LegacyJobRetryBehaviorEnabled process engine flag](#legacyjobretrybehaviorenabled-process-engine-flag)
 1. For administrators and developers: [Connect: Apache HTTP Client migration from 4 to 5](#connect-apache-http-client-migration-from-4-to-5)
@@ -40,6 +41,30 @@ The following steps are required:
 2. Migrate custom process applications.
 
 Before starting, ensure you have downloaded the Camunda 7.24 distribution for the application server you use. This contains the SQL scripts and libraries required for the update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
+
+# Docker Base Image Update
+
+The Docker base image has been updated from Alpine Linux 3.18 to Alpine Linux 3.22 due to Alpine 3.18 reaching end of life. This security-focused update maintains compatibility while providing essential patches.
+
+#### Migration Steps
+
+For standard Docker image usage, **no action is required** beyond pulling the 7.21.12 image.
+
+For custom Docker configurations:
+
+1. **Assess Custom Code**: Review any Alpine-specific customizations for version 3.22 compatibility
+2. **Update Dependencies**: Check that additional packages you install are available in Alpine 3.22
+3. **Rebuild Custom Images**: Update Dockerfiles that extend the Camunda base image
+4. **Test Migration**: Verify functionality after updating to the new base image
+
+For detailed information about changes across Alpine versions, refer to the following release notes:
+
+* [Alpine Linux 3.19 Release Notes](https://alpinelinux.org/posts/Alpine-3.19.0-released.html)
+* [Alpine Linux 3.20 Release Notes](https://alpinelinux.org/posts/Alpine-3.20.0-released.html)
+* [Alpine Linux 3.21 Release Notes](https://alpinelinux.org/posts/Alpine-3.21.0-released.html)
+* [Alpine Linux 3.22 Release Notes](https://alpinelinux.org/posts/Alpine-3.22.0-released.html)
+
+See the [Alpine Linux documentation](https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.22.0) for comprehensive change details.
 
 # JMX Prometheus Javaagent Upgrade
 
