@@ -579,7 +579,7 @@ The Docker base image has been updated from Alpine Linux 3.18 to Alpine Linux 3.
 
 #### Migration Steps
 
-For standard Docker image usage, **no action is required** beyond pulling the 7.21.12 / 7.22.7 / 7.23.4 image.
+For standard Docker image usage, **no action is required** beyond pulling the 7.21.12 / 7.22.7 image.
 
 For custom Docker configurations:
 
