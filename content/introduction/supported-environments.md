@@ -34,7 +34,7 @@ Run Camunda in every Java-runnable environment. Camunda is supported with our QA
 
 * Apache Tomcat 9.0 / 10.1
 * JBoss EAP 7.4 / 8.0
-* WildFly Application Server 33.0 / 35.0
+* WildFly Application Server 33.0 / 35.0 / 37.0
 
 # Databases
 
