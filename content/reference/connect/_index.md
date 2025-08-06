@@ -82,6 +82,4 @@ Camunda Connect uses [camunda-commons-logging](https://github.com/camunda/camund
 a logging backend. To enable logging a SLF4J implementation has to be part of
 your classpath. For example `slf4j-simple`, `log4j12` or `logback-classic`.
 
-To also enable logging for the Apache HTTP client you can use a [SLF4J
-bridge](http://www.slf4j.org/legacy.html) like `jcl-over-slf4j` as the Apache HTTP Client doesn't support
-SLF4J.
+Apache HTTP Client 5.x has built-in SLF4J support, so no additional bridges are required for HTTP client logging.
