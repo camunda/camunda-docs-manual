@@ -21,6 +21,8 @@ This document guides you through the update from Camunda `7.23.x` to `7.24.0` an
 1. For administrators and developers: [JMX Prometheus Javaagent Update](#jmx-prometheus-javaagent-upgrade)
 1. For administrators and developers: [LegacyJobRetryBehaviorEnabled process engine flag](#legacyjobretrybehaviorenabled-process-engine-flag)
 1. For administrators and developers: [Connect: Apache HTTP Client migration from 4 to 5](#connect-apache-http-client-migration-from-4-to-5)
+1. For developers: [Cron expression](#cron-expression)
+
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda 7.24.
 
@@ -176,3 +178,14 @@ request.configOption("response-timeout", Timeout.ofSeconds(30))
 - The `commons-codec` dependency is no longer needed and has been removed
 
 For more details about HttpClient 5.x changes, refer to the [Apache HttpClient 5.x migration guide](https://hc.apache.org/httpcomponents-client-5.0.x/migration-guide/index.html).
+
+# Cron expression
+
+With this minor, cron expression support in timer events is provided through Spring library.
+In the library the cron expression looks like: `0 0 * * * *`.
+In contrast with the previously used Quartz library (`0 0 * * * * *`), 7th optional field for year is not supported.
+Please check your models and adjust any cron expressions accordingly.
+The new format for expressions supports variaty of cron expressions like macros, weekday, and `n`-th day of week. 
+
+For reference, check Spring documentation <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/support/CronExpression.html#parse(java.lang.String)">here</a>.
+
