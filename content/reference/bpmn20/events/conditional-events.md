@@ -18,9 +18,9 @@ The start and boundary event can be interrupting and non interrupting.
 In Camunda, conditional events are triggered with the help of process variables.
 See the [Trigger Conditional Events]({{< relref "#trigger-conditional-events">}}) section for details. 
 
-Note: We recommend to avoid asynchronous continuations in combination with conditional events as the conditional event trigger may be lost.
-
+{{< note title="We recommend to avoid asynchronous continuations in combination with conditional events as the conditional event trigger may be lost." class="warning" >}}
 This is because when the conditional event is [triggered]({{< relref "#trigger-conditional-events">}}), it is placed into a queue of "deferred actions" to evaluate whether any other elements are catching the trigger. When the flow node that triggered the conditional event is executed async, a job is created and the process execution continued asynchronously. The deferred actions are not persisted, resulting in the loss of the conditional event trigger.
+{{< /note >}}
 
 In the following BPMN model, all supported conditional events are used.
 
