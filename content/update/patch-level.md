@@ -496,7 +496,7 @@ This version supports all the necessary building-block modules for our users to 
 
 **<h4>Jakarta Namespace</h4>**
 
-`Tomcat 10` is compatible with the `jakarta` namespace. 
+`Tomcat 10` is compatible with the `jakarta` namespace.
 If you wish to use it, the `jakarta` modules needs to be used (`camunda-webapp-tomcat-jakarta`, `camunda-engine-rest-jakarta`).
 
 The `javax` modules won't work with `Tomcat 10`.
@@ -507,7 +507,7 @@ For detailed steps of manual installation, follow the [Tomcat Manual Installatio
 In deployment scenarios involving one or more process applications with managed beans, classloading issues may occur if the WELD library is directly embedded in the WAR's `/WEB-INF/lib` folder.
 To resolve this, move the weld library away from the war and place it into the `$CATALINA_HOME/lib` folder.
 
-The above workaround is not guaranteed to work for cases with bean references between WAR deployments (WAR A referencing a bean from WAR B). 
+The above workaround is not guaranteed to work for cases with bean references between WAR deployments (WAR A referencing a bean from WAR B).
 
 The following test scenarios fail on Tomcat 10:
 
@@ -596,6 +596,31 @@ For detailed information about changes across Alpine versions, refer to the foll
 * [Alpine Linux 3.22 Release Notes](https://alpinelinux.org/posts/Alpine-3.22.0-released.html)
 
 See the [Alpine Linux documentation](https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.22.0) for comprehensive change details.
+
+## 7.21.12 to 7.21.13
+
+### Camunda Run: Spring Boot 3.5 Upgrade
+
+Camunda Run is now based on Spring Boot 3.5, upgrading from Spring Boot 3.3 which has reached end-of-life.
+
+#### Migration Steps
+
+For standard Camunda Run usage, **no action is required** beyond upgrading to version 7.21.13.
+
+For custom Spring Boot configurations:
+
+1. **Review Custom Configuration**: If you have applied custom Spring Boot-specific configuration to your `application.yml` or `application.properties`, ensure compatibility with Spring Boot 3.5
+2. **Update Dependencies**: If you have added custom Spring Boot dependencies, verify they are compatible with Spring Boot 3.5
+3. **Test Your Setup**: Verify that your Camunda Run instance starts and functions correctly after the upgrade
+
+#### Expected Impact
+
+We expect **no migration to be needed** for most users, as this upgrade primarily addresses security updates and dependency maintenance. The Spring Boot configuration interface remains largely compatible between versions 3.3 and 3.5.
+
+For detailed information about Spring Boot 3.5 changes, refer to the release notes:
+
+* [Spring Boot 3.4 Release Notes](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.4-Release-Notes).
+* [Spring Boot 3.5 Release Notes](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.5-Release-Notes).
 
 # Full Distribution
 
