@@ -181,11 +181,11 @@ For more details about HttpClient 5.x changes, refer to the [Apache HttpClient 5
 
 # Cron expression
 
-With this minor, cron expression support in timer events is provided through Spring library.
-In the library the cron expression looks like: `0 0 * * * *`.
-In contrast with the previously used Quartz library (`0 0 * * * * *`), 7th optional field for year is not supported.
+With this minor, the cron expression support in timer events is provided through `cron-utils` library.
+In the library, the cron expression looks like: `0 0 * * * *`.
+In contrast with the previously used Quartz library (`0 0 * * * * *`), the 7th optional field for year is not supported.
 Please check your models and adjust any cron expressions accordingly.
-The new format for expressions supports variaty of cron expressions like macros, weekday, and `n`-th day of week. 
+The library supports variaty of cron expressions like macros, weekday, and `n`-th day of week. 
 
-For reference, check Spring documentation <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/support/CronExpression.html#parse(java.lang.String)">here</a>.
+For reference, check `cron-util` documentation <a href="https://github.com/jmrozanec/cron-utils">here</a>.
 
