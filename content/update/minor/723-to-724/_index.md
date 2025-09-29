@@ -22,6 +22,8 @@ This document guides you through the update from Camunda `7.23.x` to `7.24.0` an
 1. For administrators and developers: [LegacyJobRetryBehaviorEnabled process engine flag](#legacyjobretrybehaviorenabled-process-engine-flag)
 1. For administrators and developers: [Connect: Apache HTTP Client migration from 4 to 5](#connect-apache-http-client-migration-from-4-to-5)
 1. For developers: [Cron expression](#cron-expression)
+1. For developers: [Quarkus 3.27 extension update](#quarkus-3-27-extension-update)
+1. For developers: [Spring Boot 3.5 update](#spring-boot-3-5-update)
 
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda 7.24.
@@ -189,3 +191,11 @@ The library supports variaty of cron expressions like macros, weekday, and `n`-t
 
 For reference, check `cron-util` documentation <a href="https://github.com/jmrozanec/cron-utils">here</a>.
 
+# Spring Boot 3.5 update
+
+Spring Boot Starter has been upgraded to use Spring Boot 3.5. Follow the Spring Boot guide to update accordingly, check the [Spring Boot release notes](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.5-Release-Notes).
+
+
+# Quarkus 3.27 extension update
+
+The Camunda Quarkus extension has been updated to use Quarkus 3.27. This version brings its own features and changes. For a complete list, check the [Quarkus 3.27 LTS release blog post](https://quarkus.io/blog/quarkus-3-27-released/).
