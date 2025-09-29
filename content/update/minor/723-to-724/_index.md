@@ -22,7 +22,7 @@ This document guides you through the update from Camunda `7.23.x` to `7.24.0` an
 1. For administrators and developers: [LegacyJobRetryBehaviorEnabled process engine flag](#legacyjobretrybehaviorenabled-process-engine-flag)
 1. For administrators and developers: [Connect: Apache HTTP Client migration from 4 to 5](#connect-apache-http-client-migration-from-4-to-5)
 1. For developers: [Cron expression](#cron-expression)
-2. 1. For developers: [Quarkus 3.27 Extension Update](#quarkus-3-27-extension-update)
+2. 1. For developers: [Quarkus 3.27 extension update](#quarkus-3-27-extension-update)
 
 
 This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda 7.24.
@@ -190,6 +190,6 @@ The library supports variaty of cron expressions like macros, weekday, and `n`-t
 
 For reference, check `cron-util` documentation <a href="https://github.com/jmrozanec/cron-utils">here</a>.
 
-# Quarkus 3.27 Extension Update
+# Quarkus 3.27 extension update
 
 The Camunda Quarkus extension has been updated to use Quarkus 3.27. This version brings its own features and changes. For a complete list, see the [Quarkus 3.27 LTS release blog post](https://quarkus.io/blog/quarkus-3-27-released/).
