@@ -55,6 +55,10 @@ Each version of Camunda 7 is bound to a specific version of the **External Task 
   <tr>
     <td>7.23.x</td>
     <td>3.1.x</td>
+  </tr>  
+  <tr>
+    <td>7.24.x</td>
+    <td>3.1.x</td>
   </tr>
 </table>
 

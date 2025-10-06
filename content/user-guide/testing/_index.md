@@ -422,6 +422,12 @@ With Camunda 7.17.0 the project was moved into the [Camunda 7 repository](https:
     <td>3.26.3</td>
     <td>7.23.0</td>
     <td>7.23.0</td>
+  </tr>  
+  <tr>
+    <td>camunda-bpm-assert</td>
+    <td>3.27.4</td>
+    <td>7.24.0</td>
+    <td>7.24.0</td>
   </tr>
 </table>
 

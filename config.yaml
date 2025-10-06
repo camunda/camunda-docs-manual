@@ -1,5 +1,5 @@
 ---
-baseURL: "/manual/develop/"
+baseURL: "/manual/7.24/"
 languageCode: "en-us"
 title: "Camunda 7 documentation"
 theme: "camunda"
@@ -30,10 +30,11 @@ params:
       url: "/security"
   section:
     id: "manual"
-    version: "develop"
+    version: "7.24"
     versionAlias: "7.24"
     versions:
       - "latest"
+      - "7.24"
       - "7.23"
       - "7.22"
       - "7.21"
@@ -61,7 +62,7 @@ params:
       - "develop"
   github:
     repositoryName: "camunda/camunda-docs-manual"
-    branch: "master"
+    branch: "7.24"
 
 outputs:
   home:
