@@ -33,7 +33,6 @@ params:
     version: "7.24"
     versionAlias: "7.24"
     versions:
-      - "latest"
       - "7.24"
       - "7.23"
       - "7.22"
@@ -59,7 +58,6 @@ params:
       - "7.2"
       - "7.1"
       - "7.0"
-      - "develop"
   github:
     repositoryName: "camunda/camunda-docs-manual"
     branch: "7.24"
