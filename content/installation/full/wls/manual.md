@@ -122,7 +122,7 @@ camunda-ee-oracle-wls-$PLATFORM_VERSION.zip
       |-- camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear
 ```
 
-The `camunda-oracle-weblogic-ear` is a Java EE application providing the Camunda services. It contains an embedded JCA Resource Adapter, the camunda-oracle-weblogic-rar, which provides the jobexecutor service to Camunda 7.
+The `camunda-oracle-weblogic-ear` is a Jakarta EE 8 application providing the Camunda services. It contains an embedded JCA Resource Adapter, the camunda-oracle-weblogic-rar, which provides the jobexecutor service to Camunda 7.
 It must be installed to your Oracle WebLogic Application Server.
 
 
@@ -189,6 +189,7 @@ In this section we explain how to install the WAR file using the WebLogic Remote
 
 After completing the wizard, the Cockpit and Tasklist should be accessible on the default context path **/camunda**.
 In some situations, you also have to start the web application manually:
+
 1. Open the WebLogic Remote Console.
 2. Switch to **"Monitoring Tree"**.
 3. Navigate to the **Deployments / Application Management** screen.
