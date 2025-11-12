@@ -1,0 +1,17 @@
+<style>
+  details>::marker {
+    color: white;
+  }
+</style>
+<script>
+  $("[href^='#']").on("click", function() {
+    const $target = $(this.getAttribute("href"));
+    if ($target.is(":hidden")) {
+      $target.parents("details").prop("open", true);
+    }
+  });
+</script>
+<details>
+  <summary><h2 style="border-bottom:2px solid #F18E00;padding-bottom:15px;margin-top:10px;display:inline-block;font-size: 20px;width: 100%;margin-left:-20px;font-weight: bold;cursor: pointer"><span style="float:left">{{ .Get "left" | default "Click to expand" | markdownify }}</span><span style="float:right">{{ .Get "right" | default "" | markdownify }}</span></h2></summary>
+  {{ .Inner | markdownify }}
+</details>

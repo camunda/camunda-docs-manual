@@ -12,33 +12,33 @@ menu:
 
 ---
 
-This guide explains how to perform a patch level update. The *patch level* is the version number "after the second dot". Example: update from `7.14.2` to `7.14.3`.
+This guide explains how to perform a patch level update. The *patch level* is the version number "after the second dot". Example: update from `{{< minor-version >}}.1` to `{{< minor-version >}}.2`.
 
 {{< enterprise >}}
 Please note that Patch Level Updates are only provided to enterprise customers, they are not available in the community edition.
 {{< /enterprise >}}
 
-# Database Patches
+## Database Patches
 
 Between patch levels, the structure of the database schema is not changed. The database structure of all patch releases is backward compatible with the corresponding minor version. Our [database schema update guide]({{< ref "/installation/database-schema.md#patch-level-update" >}}) provides details on the update procedure as well as available database patches.
 
-# Special Considerations
+## Special Considerations
 
 This section describes noteworthy potentially breaking changes when you update to the respective patch levels.
 
-{{< details title="Nov/2025 – 7.24.2 / 7.23.7 / 7.22.10">}}
-### Downsized WildFly distribution
+{{< details left="7.24.2 / 7.23.7 / 7.22.10" right="Nov/2025">}}
+#### Downsized WildFly distribution
 
 Starting with Camunda 7.24.2, 7.23.7, and 7.22.10 the WildFly distribution has been optimized to reduce its size by approximately **30%**. This is achieved by using Galleon provisioning with only the layers strictly required for Camunda 7 operation.
 
-#### Benefits of Optimized Distribution
+##### Benefits of Optimized Distribution
 
 * **Smaller footprint**: Reduced disk space and memory usage by ~30%
 * **Faster startup**: Fewer subsystems to initialize
 * **Improved security**: Reduced attack surface by removing unused components
 * **Better containerization**: Smaller Docker images
 
-#### Minimal Required Galleon Layers
+##### Minimal Required Galleon Layers
 
 The following Galleon layers are sufficient to run Camunda 7 on WildFly:
 
@@ -55,25 +55,25 @@ The following Galleon layers are sufficient to run Camunda 7 on WildFly:
 Depending on your deployment scenario, there might be even less needed Galleon layers.
 For example, if you don't use EJBs, you can omit the `ejb` layer. However, the above list covers the most common use cases.
 
-#### Distribution Changes
+##### Distribution Changes
 
 The optimized distribution uses Galleon provisioning instead of a full WildFly installation. This means:
 
 * Unnecessary WildFly components (appclient, domain mode scripts, web services tools, etc.) are removed
 * Only the essential modules required for Camunda 7 are included
 
-#### Module Descriptor Updates
+##### Module Descriptor Updates
 
 As part of the optimization, deprecated module dependencies have been removed from `module.xml` descriptors. These dependencies are no longer needed and were causing exceptions in recent WildFly versions.
 
-##### Removed Dependencies
+###### Removed Dependencies
 
 The following dependencies have been **removed** from Camunda module descriptors:
 
 * **`sun.jdk`** - This module is obsolete in modern JDK versions
 * **`javax.api`** - Replaced by Jakarta EE APIs
 
-##### Affected Modules
+###### Affected Modules
 
 The following module descriptors have been updated to remove deprecated dependencies:
 
@@ -90,7 +90,7 @@ The following module descriptors have been updated to remove deprecated dependen
 * `org/graalvm/sdk/graal-sdk/main/module.xml`
 * `org/graalvm/truffle/truffle-api/main/module.xml`
 
-##### Example Change
+###### Example Change
 
 **Before:**
 
@@ -120,11 +120,11 @@ The following module descriptors have been updated to remove deprecated dependen
 If you use the pre-packaged Camunda WildFly distribution, these changes are already applied. You only need to be aware of these changes if you maintain custom WildFly installations or have customized module descriptors.
 {{< /note >}}
 
-#### Migration from Full WildFly distribution
+##### Migration from Full WildFly distribution
 
 If you are updating from an earlier version that used a full WildFly installation, note the following differences.
 
-##### Removed Components
+###### Removed Components
 
 The following WildFly components are **no longer included** in the optimized distribution:
 
@@ -133,7 +133,7 @@ The following WildFly components are **no longer included** in the optimized dis
 * **Web Services Development Tools**: `wsconsume` and `wsprovide` utilities
 * **Additional Subsystems**: Various EE subsystems not required by Camunda 7 (see [Removed Modules](#removed-modules) below)
 
-##### Removed Modules
+###### Removed Modules
 
 The optimized distribution removes numerous WildFly system layer modules that are not required for Camunda 7, including:
 
@@ -146,7 +146,7 @@ The optimized distribution removes numerous WildFly system layer modules that ar
 
 For a complete list of removed modules, compare the `modules/system/layers/base/` directory between the old and new distributions.
 
-##### Configuration Files
+###### Configuration Files
 
 The following standalone configuration files are **no longer included**:
 
@@ -165,9 +165,9 @@ If you have customized any of the removed configuration files or rely on removed
 * Recreate your customizations in the minimal `standalone.xml`
 * Use the full WildFly distribution and [manually install]({{< ref "/installation/full/jboss/manual.md" >}}) Camunda 7 components
 * Create a custom Galleon provisioning configuration with additional layers
-  {{< /note >}}
+{{< /note >}}
 
-#### Creating Custom Galleon Provisioning
+##### Creating Custom Galleon Provisioning
 
 If you need additional WildFly features beyond the minimal set, you can create a custom Galleon provisioning configuration:
 
@@ -205,7 +205,7 @@ galleon.sh provision /path/to/provision.xml --dir=$WILDFLY_HOME
 ```
 4. Copy Camunda modules and configuration from the Camunda WildFly distribution
 
-#### Additional Resources
+##### Additional Resources
 
 * [WildFly Manual Installation Guide]({{< ref "/installation/full/jboss/manual.md" >}})
 * [WildFly Configuration Guide]({{< ref "/installation/full/jboss/configuration.md" >}})
@@ -213,12 +213,12 @@ galleon.sh provision /path/to/provision.xml --dir=$WILDFLY_HOME
 * [WildFly Galleon Layers](https://docs.wildfly.org/37/Galleon_Guide.html#wildfly_galleon_layers)
 {{< /details >}}
 
-{{< details title="7.21.13">}}
-### Camunda Run: Spring Boot 3.5 Upgrade
+{{< details left="7.21.13" right="Sep/2025">}}
+#### Camunda Run: Spring Boot 3.5 Upgrade
 
 Camunda Run is now based on Spring Boot 3.5, upgrading from Spring Boot 3.3 which has reached end-of-life.
 
-#### Migration Steps
+##### Migration Steps
 
 For standard Camunda Run usage, **no action is required** beyond upgrading to version 7.21.13.
 
@@ -228,7 +228,7 @@ For custom Spring Boot configurations:
 2. **Update Dependencies**: If you have added custom Spring Boot dependencies, verify they are compatible with Spring Boot 3.5
 3. **Test Your Setup**: Verify that your Camunda Run instance starts and functions correctly after the upgrade
 
-#### Expected Impact
+##### Expected Impact
 
 We expect **no migration to be needed** for most users, as this upgrade primarily addresses security updates and dependency maintenance. The Spring Boot configuration interface remains largely compatible between versions 3.3 and 3.5.
 
@@ -238,13 +238,13 @@ For detailed information about Spring Boot 3.5 changes, refer to the release not
 * [Spring Boot 3.5 Release Notes](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.5-Release-Notes).
 {{< /details >}}
 
-{{< details title="7.23.4 / 7.22.7 / 7.21.12">}}
+{{< details left="7.23.4 / 7.22.7 / 7.21.12" right="July/2025">}}
 
-### Docker Base Image Update
+#### Docker Base Image Update
 
 The Docker base image has been updated from Alpine Linux 3.18 to Alpine Linux 3.22.
 
-#### Migration Steps
+##### Migration Steps
 
 For standard Docker image usage, **no action is required** beyond pulling the 7.21.12 / 7.22.7 / 7.23.4 image.
 
@@ -265,9 +265,9 @@ For detailed information about changes across Alpine versions, refer to the foll
 See the [Alpine Linux documentation](https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.22.0) for comprehensive change details.
 {{< /details >}}
 
-{{< details title="7.22.2 / 7.21.7 / 7.20.10">}}
+{{< details left="7.22.2 / 7.21.7 / 7.20.10" right="Jan/2025">}}
 
-### GraalVM Upgrade
+#### GraalVM Upgrade
 
 We are pleased to announce that the above patch releases are compatible with `GraalVM 21.3.12`
 
@@ -285,7 +285,7 @@ More information on how to do this can be found in the official [GraalVM documen
 {{< /note >}}
 {{< /details >}}
 
-{{< details title="7.22.1 / 7.21.6 / 7.20.9">}}
+{{< details left="7.22.1 / 7.21.6 / 7.20.9" right="Nov/2024">}}
 
 The 7.22.0 release [replaced the runtime with the historic process instance query]({{< ref "/update/minor/721-to-722/_index.md#cockpit-process-instance-batch-modification" >}}) in Cockpit when performing a [Process Instance Batch Modification][process-instance-modification].
 
@@ -300,7 +300,7 @@ With this patch release, we lifted this limitation by opting for a different sol
 
 [process-instance-modification]: {{< ref "/webapps/cockpit/bpmn/process-instance-modification.md#perform-a-batch-modification" >}}
 
-### Set Variables Async API
+#### Set Variables Async API
 
 Before version 7.22.1, the Set Variables Async API failed whenever at least one of the process instances did not exist.
 
@@ -308,7 +308,7 @@ Starting with version 7.22.1, the behavior has changed: if any of the process in
 
 Please note that this does not apply to the Sync API, which keeps its behavior and fails if the process instance does not exist.
 
-### Bootstrap NES and AngularJS NES by HeroDevs, Inc.
+#### Bootstrap NES and AngularJS NES by HeroDevs, Inc.
 
 These patches replace the following libraries with versions of Bootstrap NES and AngularJS NES by HeroDevs, Inc.:
 
@@ -323,9 +323,9 @@ Where AngularJS, angular-ui-bootstrap, angular-translate, angular-moment, and Bo
 Please see our [third-party libraries documentation]({{< ref "/introduction/third-party-libraries/_index.md#web-applications-cockpit-tasklist-admin" >}}) for details.
 {{< /details >}}
 
-{{< details title="7.21.4">}}
+{{< details left="7.21.4" right="Aug/2024">}}
 
-### Added Support for Tomcat 10
+#### Added Support for Tomcat 10
 
 This version supports all the necessary building-block modules for our users to use `camunda-bpm-platform` community and enterprise editions in conjunction with `Tomcat 10.1`.
 
@@ -350,12 +350,12 @@ The following test scenarios fail on Tomcat 10:
 
 * [CallActivityContextSwitchTest](https://github.com/camunda/camunda-bpm-platform/blob/f37877b822dabcbf3cee5806bd5833d18cdcb543/qa/integration-tests-engine/src/test/java/org/camunda/bpm/integrationtest/functional/context/CallActivityContextSwitchTest.java)
 * [CdiBeanCallActivityResolutionTest](https://github.com/camunda/camunda-bpm-platform/blob/f37877b822dabcbf3cee5806bd5833d18cdcb543/qa/integration-tests-engine/src/test/java/org/camunda/bpm/integrationtest/functional/cdi/CdiBeanCallActivityResolutionTest.java)
-  {{< /note >}}
+{{< /note >}}
 {{< /details >}}
 
-{{< details title="7.20.3">}}
+{{< details left="7.20.3" right="Jan/2024">}}
 
-### Changed trigger order of built-in task listeners
+#### Changed trigger order of built-in task listeners
 
 Built-in task listeners are used internally by the engine and not intended to be used by the user. User-defined task listeners are handled separately. Before this release, the order in which builtin task listeners were executed could depend on how the task was executed. This [bug report](https://github.com/camunda/camunda-bpm-platform/issues/4042) describes a scenario where after a process instance modification, the order of the builtin task listeners was reversed.
 With this release for both, regular process execution and process instance modification, the engine ensures the following:
@@ -366,7 +366,7 @@ With this release for both, regular process execution and process instance modif
 
 Previously, only 1. and 3. were ensured.
 
-### Cockpit's process definition like search changed to case-insensitive
+#### Cockpit's process definition like search changed to case-insensitive
 
 The **Cockpit/Processes**'s page Process Definition search component allows for **name** and **key** search with **equals** and **like** operators.
 With this recent change, per customer feedback, we modified the like search to case-insensitive.
@@ -376,15 +376,15 @@ The change also affects the API that provides the data for the search component.
 This API is an internal API, which means it's **not** part of the public [REST API]({{< ref "/reference/rest" >}}), so the change should not affect any customers.
 {{< /details >}}
 
-{{< details title="7.20.2 / 7.19.9 / 7.18.13">}}
-### Spring Boot Starter and Run logs admin user information on `DEBUG` level
+{{< details left="7.20.2 / 7.19.9 / 7.18.13" right="Nov/2023">}}
+#### Spring Boot Starter and Run logs admin user information on `DEBUG` level
 
 In previous releases, when configuring Camunda's admin user in the Spring Boot Starter and Run via `camunda.bpm.admin-user`, information about the admin user appeared in the logs on log level `INFO` on startup.
 With this release, the log level for the logs `STARTER-SB010` and `STARTER-SB011` was changed to `DEBUG`.
 {{< /details >}}
 
-{{< details title="7.19.5 / 7.18.10">}}
-### Update Alpine Base of Camunda Docker images from Version 3.15 to 3.18
+{{< details left="7.19.5 / 7.18.10" right="Jul/2023">}}
+#### Update Alpine Base of Camunda Docker images from Version 3.15 to 3.18
 
 The Camunda Docker images are based on Alpine. This release updates the Alpine base docker image from version 3.15 to 3.18. Please find the changes in detail at the official sources below:
 
@@ -397,8 +397,8 @@ The Camunda Docker images are based on Alpine. This release updates the Alpine b
 [alpine318]: https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.18.0
 {{< /details >}}
 
-{{< details title="7.19.3 / 7.18.9">}}
-### Explicit asset declaration in Java web app plugins
+{{< details left="7.19.3 / 7.18.9" right="Jun/2023">}}
+#### Explicit asset declaration in Java web app plugins
 
 We introduced a change in the asset loading mechanism for Java web app plugins. Starting with this release,
 **plugin assets must be explicitly declared in the plugin root resource class**.
@@ -418,8 +418,8 @@ Requests for undeclared assets will be rejected, and it will likely render your 
 [frontend-modules]: {{< ref "/webapps/cockpit/extend/plugins#structure-of-a-frontend-module" >}}
 {{< /details >}}
 
-{{< details title="7.19.2 / 7.18.8">}}
-### Bean method resolution from JUEL expressions
+{{< details left="7.19.2 / 7.18.8" right="May/2023">}}
+#### Bean method resolution from JUEL expressions
 
 Calling bean methods from JUEL expressions now works more reliably and supports overloaded methods. As a result, the behavior of calling overloaded methods from such expressions changes.
 
@@ -430,16 +430,16 @@ Now, the most specific version according to the provided number and types of met
 Ideally, you shouldn't notice any difference in method invocation from JUEL expressions. However, we recommend testing your existing expressions thoroughly before using this patch version in production.
 {{< /details >}}
 
-{{< details title="7.19.1 / 7.18.7">}}
-### Optimistic Locking on PostgreSQL
+{{< details left="7.19.1 / 7.18.7" right="Apr/2023">}}
+#### Optimistic Locking on PostgreSQL
 
 With this release, we adjusted the [Optimistic Locking]({{< ref "/user-guide/process-engine/transactions-in-processes.md#the-optimisticlockingexception" >}}) behavior on PostgreSQL in case of [Foreign Key Constraint](https://www.postgresql.org/docs/current/ddl-constraints.html#DDL-CONSTRAINTS-FK) violations. Any violation of such a constraint in INSERT and UPDATE statements now leads to an [OptimisticLockingException]({{< ref "/user-guide/process-engine/transactions-in-processes.md#the-optimisticlockingexception" >}}). In effect, the engine's behavior on PostgreSQL in such scenarios is consistent with the other supported databases.
 
 If you rely on the previous behavior, receiving `ProcessEngineException`s with the related error code for foreign key constraint violations, you can restore it by disabling the engine configuration flag `enableOptimisticLockingOnForeignKeyViolation`. As a result, jobs can also start failing due to those exceptions although they could be safely retried automatically to resolve the situation.
 {{< /details >}}
 
-{{< details title="7.18.6">}}
-### Web apps revalidate authentications every five minutes
+{{< details left="7.18.6" right="Mar/2023">}}
+#### Web apps revalidate authentications every five minutes
 
 Previously, after a user logged into the web apps, the [authentication cache]({{< ref "/webapps/shared-options/authentication.md#cache" >}})
 was valid for the lifetime of the HTTP session, which has [security implications]({{< ref "/user-guide/security.md#authentication-cache" >}}).
@@ -449,15 +449,15 @@ This new default might lead to a higher load on your database.
 
 You can read how to configure the time to live to a smaller interval or restore the legacy behavior (disable the authentication cache time to live) in the documentation about [Web Applications]({{< ref "/webapps/shared-options/authentication.md#time-to-live" >}}).
 
-#### Container-based authentication requires implementing a `ReadOnlyIdentityProvider`
+##### Container-based authentication requires implementing a `ReadOnlyIdentityProvider`
 
 When using [Container-based Authentication]({{< ref "/webapps/shared-options/authentication.md#container-based-authentication" >}}), please provide an implementation for the `ReadOnlyIdentityProvider` interface so that queries return the results of your identity provider.
 
 This is necessary due to the aforementioned security improvement to revalidate users and groups.
 {{< /details >}}
 
-{{< details title="7.18.5">}}
-### Multi-Tenancy enabled for User operation logs
+{{< details left="7.18.5" right="Feb/2023">}}
+#### Multi-Tenancy enabled for User operation logs
 
 Tenant information is populated for User operation logs from 7.18.5 onwards, user operation logs created prior will stay as they are. If [tenant check]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#tenantCheckEnabled" >}}) is enabled in the process engine, a tenant membership check will be performed for the following operations:
 
@@ -468,20 +468,20 @@ Tenant information is populated for User operation logs from 7.18.5 onwards, use
 In case you want to avoid tenant checks, please refer to [Disable the transparent access restrictions]({{< ref "/user-guide/process-engine/multi-tenancy.md#disable-the-transparent-access-restrictions" >}}).
 {{< /details >}}
 
-{{< details title="7.18.3">}}
-### Job executor priority range properties default changed
+{{< details left="7.18.3" right="Jan/2023">}}
+#### Job executor priority range properties default changed
 
 The default value for the job executor priority range property [jobExecutorPriorityRangeMin]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#jobExecutorPriorityRangeMin" >}}) has changed from 0 to <code>-2<sup>63</sup></code> (`Long.MIN_VALUE`). This property and its counterpart ([jobExecutorPriorityRangeMax]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#jobExecutorPriorityRangeMax" >}})) only have an effect if [jobExecutorAcquireByPriority]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#jobExecutorAcquireByPriority" >}}) is set to true.
 {{< /details >}}
 
-{{< details title="7.18.2">}}
-### Job executor priority range properties type changed
+{{< details left="7.18.2" right="Dec/2022">}}
+#### Job executor priority range properties type changed
 
 The two dedicated job executor priority range properties [jobExecutorPriorityRangeMin]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#jobExecutorPriorityRangeMin" >}}) and [jobExecutorPriorityRangeMax]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#jobExecutorPriorityRangeMax" >}}) have been change to primitive type <code>long</code>. That allows for the properties to be configured for every process engine configuration. Respectively their default values changed to <code>0</code> and <code>2<sup>63</sup>-1</code> (`Long.MAX_VALUE`).
 Note: this behavior is slightly changed with the [next patch]({{< ref "#job-executor-priority-range-properties-default-changed" >}}).
 {{< /details >}}
 
-# Full Distribution
+## Full Distribution
 
 This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.
 
@@ -491,7 +491,7 @@ Please note that the following procedure may differ for cluster scenarios. Conta
 * Exchange Camunda 7 libraries, tools and webapps (EAR, RAR, Subsystem (Wildfly), Shared Libs) - essentially, follow the [installation guide]({{< ref "/installation/full/_index.md" >}}) for your server.
 * Restart the server
 
-# Application With Embedded Process Engine
+## Application With Embedded Process Engine
 
 In case you use an embedded process engine inside your Java Application, you need to
 
@@ -499,7 +499,7 @@ In case you use an embedded process engine inside your Java Application, you nee
 2. re-package the application,
 3. deploy the new version of the application.
 
-# Standalone Webapplication Distribution
+## Standalone Webapplication Distribution
 
 {{< note title="Camunda discontinues the support of the Standalone Web Application Distribution." class="warning" >}}
 Camunda Automation Platform 7.19 is the last release providing support for Standalone Web Application Distribution.
@@ -512,6 +512,6 @@ In case you installed the [Standalone Webapplication Distribution]({{< ref "/int
 1. undeploy the previous version of the webapplication,
 2. deploy the new version of the webapplication.
 
-# Applying Multiple Patches at Once
+## Applying Multiple Patches at Once
 
 It is possible to apply multiple patches in one go (e.g., updating from `7.1.0` to `7.1.4`).
