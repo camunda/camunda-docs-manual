@@ -1,0 +1,4 @@
+<details style="border-bottom:2px solid #F18E00">
+  <summary><h2 style="display:inline-block;font-size: 20px;width: 90%;margin-left:-20px;font-weight: bold;padding-left: 20px;cursor: pointer">{{ .Get "title" | default "Click to expand" | markdownify }}</h2></summary>
+  {{ .Inner | markdownify }}
+</details>
