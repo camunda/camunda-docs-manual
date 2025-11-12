@@ -13,7 +13,7 @@ menu:
 ---
 
 If you come from a Camunda 7 version <= 7.12.x and already use FEEL, it might be that you need to 
-migrate your DMN models. To do this, please check out the [Migration Guide], where we've documented 
+migrate your DMN models. To do this, please check out the Migration Guide, where we've documented 
 all breaking changes. 
 
 If you don't want to migrate your DMN models right now, you can also restore the legacy FEEL 
@@ -31,7 +31,6 @@ By using the legacy FEEL Engine, the Camunda DMN Engine **only** supports `FEEL`
 simple unary tests.
 {{< /note >}}
 
-[Migration Guide]: {{< ref "/update/minor/712-to-713/_index.md#entirely-replaced-feel-engine" >}}
 [legacy behavior flag]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#dmnFeelEnableLegacyBehavior" >}}
 [fluent feel flag setter]: {{< javadocref_url page="org/camunda/bpm/dmn/engine/impl/DefaultDmnEngineConfiguration.html#enableFeelLegacyBehavior" >}}
 [feel flag setter]: {{< javadocref_url page="org/camunda/bpm/dmn/engine/impl/DefaultDmnEngineConfiguration.html#setEnableFeelLegacyBehavior" >}}

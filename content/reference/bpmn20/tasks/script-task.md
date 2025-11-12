@@ -140,4 +140,3 @@ Note that when you use <code>camunda:resultVariable</code> in a multi-instance c
 
 [script-source]: {{< ref "/user-guide/process-engine/scripting.md#script-source" >}}
 [user-guide]: {{< ref "/user-guide/_index.md" >}}
-[autostore-variables]: {{< ref "/update/minor/71-to-72/_index.md#script-variable-storing" >}}
