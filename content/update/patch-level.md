@@ -120,7 +120,7 @@ The following module descriptors have been updated to remove deprecated dependen
 If you use the pre-packaged Camunda WildFly distribution, these changes are already applied. You only need to be aware of these changes if you maintain custom WildFly installations or have customized module descriptors.
 {{< /note >}}
 
-##### Migration from Full WildFly distribution
+##### Migration from Full WildFly Distribution
 
 If you are updating from an earlier version that used a full WildFly installation, note the following differences.
 
