@@ -52,7 +52,7 @@ The following Galleon layers are sufficient to run Camunda 7 on WildFly:
 * ejb
 * jpa
 
-Depending on your deployment scenario, there might be even less needed Galleon layers.
+Depending on your deployment scenario, there might be even fewer needed Galleon layers.
 For example, if you don't use EJBs, you can omit the `ejb` layer. However, the above list covers the most common use cases.
 
 ##### Distribution Changes
