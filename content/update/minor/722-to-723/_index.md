@@ -43,6 +43,11 @@ The following steps are required:
 
 Before starting, ensure you have downloaded the Camunda 7.23 distribution for the application server you use. This contains the SQL scripts and libraries required for the update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
 
+# Downsized WildFly distribution
+
+From 7.24.1 to 7.24.2, the WildFly distribution has been downsized by removing optional components that are not commonly used in typical Camunda installations.
+Read more details in the [Patch Level Update Guide]({{< ref "/update/patch-level.md#downsized-wildfly-distribution" >}}).
+
 # Bootstrap NES and AngularJS NES by HeroDevs, Inc.
 
 Camunda 7.23 replaces the following libraries with versions of Bootstrap NES and AngularJS NES by HeroDevs, Inc.:

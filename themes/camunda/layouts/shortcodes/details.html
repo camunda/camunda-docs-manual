@@ -1,0 +1,4 @@
+<details>
+  <summary><h2><span>{{ .Get "left" | default "Click to expand" | markdownify }}</span><span>{{ .Get "right" | default "" | markdownify }}</span></h2></summary>
+  {{ .Inner | markdownify }}
+</details>
